@@ -657,7 +657,6 @@
       }
 
       appendValueRow("取值", config.value());
-      appendValueRow("数据日期", config.date());
       appendChangeRow(config.changeLabel || "日涨跌", config.changeValue(), config.changePercent(), config.digits, config.unit, config.transition ? config.transition() : "");
       appendChangeRow("同比", config.yoyValue(), config.yoyPercent(), config.digits, config.unit, config.yoyTransition ? config.yoyTransition() : "", config.yoyInsufficientText || "");
 
