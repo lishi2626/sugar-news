@@ -563,6 +563,18 @@
       return metric && (metric.dataDate || metric.priceDate || metric.publishedDate) ? (metric.dataDate || metric.priceDate || metric.publishedDate) : "数据待更新";
     }
 
+    function brazilDisplayDate(value, style = "iso") {
+      if (!value) return "数据待更新";
+      const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (match && style === "pt") return `${match[3]}/${match[2]}/${match[1]}`;
+      return value;
+    }
+
+    function brazilMetricDataDate(metric, style = "iso") {
+      const value = metric && (metric.referenceDate || metric.dataDate || metric.priceDate || metric.publishedDate);
+      return brazilDisplayDate(value, style);
+    }
+
     function indiaMetricFoot(metric) {
       const fetched = metric && metric.fetchedAt ? cnTime(metric.fetchedAt) : "数据待更新";
       const parts = [
@@ -666,10 +678,8 @@
       } else {
         source.textContent = "来源：数据待更新";
       }
-      const published = metric.articlePublishedAt || metric.reportUpdatedAt || metric.publishedAt || metric.documentTitle || "";
-      const fetched = metric.fetchedAt ? cnTime(metric.fetchedAt) : "数据待更新";
       const meta = document.createElement("div");
-      meta.textContent = config.footerMeta ? config.footerMeta(metric) : `发布日期/报告：${published || "数据待更新"}；抓取：${fetched}`;
+      meta.textContent = config.footerMeta ? config.footerMeta(metric) : `数据日期：${brazilMetricDataDate(metric, config.dateStyle || "iso")}`;
       foot.append(source, meta);
       card.append(table, foot);
       return card;
@@ -716,11 +726,17 @@
           unit: sugarStock.stockUnit || "万吨",
           changeLabel: "半月变化",
           value: () => metricMainValue(sugarStock, 4, sugarStock.stockUnit || "万吨", "stockValue"),
-          date: () => sugarStock.referenceDate || sugarStock.dataDate || "数据待更新",
+          date: () => brazilMetricDataDate(sugarStock, "pt"),
           changeValue: () => sugarStock.halfMonthChange,
           changePercent: () => sugarStock.halfMonthChangePercent,
           yoyValue: () => sugarStock.yearOnYearChange,
           yoyPercent: () => sugarStock.yearOnYearChangePercent,
+          dateStyle: "pt",
+          footerMeta: metric => {
+            const parts = [`数据日期：${brazilMetricDataDate(metric, "pt")}`];
+            if (metric.documentTitle) parts.push(`报告：${metric.documentTitle}`);
+            return parts.join("；");
+          },
         }),
         buildBrazilMetricTable({
           title: "巴西含水乙醇库存",

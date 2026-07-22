@@ -561,14 +561,15 @@ def stock_rows_from_pdf(text: str, season: str, doc: dict, file_hash: str) -> li
     for match in pattern.finditer(text):
         chunk = re.sub(r"\s+", " ", match.group(0))
         tail = text[match.end():match.end() + 180]
-        date_match = re.search(r"Acumulado até:\s*(\d{2}/\d{2}/\d{4})", chunk + tail, re.I)
+        date_match = re.search(r"Acumulado\s+at(?:é|e):\s*(\d{2}/\d{2}/\d{4})", chunk + tail, re.I)
         if not date_match:
             continue
+        reference_date_raw = date_match.group(1)
         numbers = re.findall(r"\d{1,3}(?:\.\d{3})+", chunk)
         if not numbers:
             continue
         total_tonnes = parse_brazil_number(numbers[-1])
-        reference_date = parse_pt_date(date_match.group(1))
+        reference_date = parse_pt_date(reference_date_raw)
         type_values = {
             "raw_numeric_columns": [parse_brazil_number(item) for item in numbers],
             "note": "MAPA PDF text extraction preserves numeric columns; the final BRASIL numeric value is used as TOTAL stock.",
@@ -577,6 +578,8 @@ def stock_rows_from_pdf(text: str, season: str, doc: dict, file_hash: str) -> li
             "season": season,
             "reference_period": reference_date,
             "reference_date": reference_date,
+            "reference_date_raw": reference_date_raw,
+            "reference_date_source": "pdf_acumulado_ate",
             "stock_total_tonnes": total_tonnes,
             "stock_total_ten_thousand_tonnes": total_tonnes / 10000,
             "sugar_stock_value": total_tonnes / 10000,
@@ -645,6 +648,7 @@ def fetch_stock_doc_rows(doc: dict) -> tuple[list[dict], list[dict]]:
         log["fileHash"] = file_hash
         log["rowsParsed"] = len(rows)
         log["parsedDates"] = [row["reference_date"] for row in rows]
+        log["dateSource"] = "pdf_acumulado_ate"
         log["parsed"] = bool(rows)
     except Exception as exc:
         log["error"] = str(exc)

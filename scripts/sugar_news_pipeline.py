@@ -1510,6 +1510,8 @@ def normalize_brazil_metric(metric: dict | None, metric_type: str) -> dict:
             "datasetName": metric.get("dataset_name"),
             "season": metric.get("season"),
             "referenceDate": metric.get("reference_date") or metric.get("reference_period"),
+            "referenceDateRaw": metric.get("reference_date_raw"),
+            "referenceDateSource": metric.get("reference_date_source"),
             "stockTotalTonnes": metric.get("stock_total_tonnes"),
             "stockTotalTenThousandTonnes": metric.get("stock_total_ten_thousand_tonnes"),
             "previousPeriodDate": metric.get("previous_period_date"),

@@ -9,6 +9,7 @@ from zoneinfo import ZoneInfo
 
 from openpyxl import load_workbook
 
+from brazil_sugar_metrics import stock_rows_from_pdf
 from sugar_news_pipeline import COUNTRY_SEARCH_TEMPLATES, is_india_indirect_sugar_relevant
 
 
@@ -144,6 +145,35 @@ def test_india_metrics_price_changes_and_stock_source_rules() -> None:
         assert forecast.get("sourceTier") == "market_forecast_comparison_only"
 
 
+def test_brazil_sugar_stock_date_comes_from_acumulado_ate() -> None:
+    sample_text = "BRASIL 1.000 2.000 3.450.164 Acumulado ate: 30/06/2026"
+    rows = stock_rows_from_pdf(
+        sample_text,
+        "2026/2027",
+        {
+            "title": "ESTOQUES DE AÇÚCAR POR TIPO - SAFRA 2026-27",
+            "url": "https://example.test/009ESTOQUESDEACARPORTIPOSAFRA20262027_20072026.pdf",
+            "document_number": "009",
+            "published_at": "2026-07-20",
+        },
+        "test-hash",
+    )
+    assert len(rows) == 1
+    assert rows[0]["reference_date"] == "2026-06-30"
+    assert rows[0]["reference_date_raw"] == "30/06/2026"
+    assert rows[0]["reference_date_source"] == "pdf_acumulado_ate"
+    assert rows[0]["document_title"] == "ESTOQUES DE AÇÚCAR POR TIPO - SAFRA 2026-27"
+    assert rows[0]["stock_total_tonnes"] == 3450164
+
+
+def test_brazil_dashboard_does_not_show_fetch_time_or_report_as_date() -> None:
+    html = (PROJECT_ROOT / "public" / "sugar-news" / "index.html").read_text(encoding="utf-8")
+    assert "发布日期/报告" not in html
+    assert "last fetched" not in html.lower()
+    assert "fetched_at" not in html
+    assert "数据日期：" in html
+
+
 def main() -> None:
     tests = [
         test_india_relevance_helpers,
@@ -153,6 +183,8 @@ def main() -> None:
         test_verified_news_contains_required_india_items,
         test_excel_dashboard_consistency,
         test_india_metrics_price_changes_and_stock_source_rules,
+        test_brazil_sugar_stock_date_comes_from_acumulado_ate,
+        test_brazil_dashboard_does_not_show_fetch_time_or_report_as_date,
     ]
     for test in tests:
         test()
