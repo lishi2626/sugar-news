@@ -39,6 +39,8 @@ jobs:
       SUGAR_NEWS_LOG_DIR: ${{ github.workspace }}/logs/github-actions
       SUGAR_NEWS_METRIC_REFRESH_TIMEOUT: "90"
       SUGAR_NEWS_BASE_URL: ${{ vars.SUGAR_NEWS_BASE_URL }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.5' }}
       REQUESTED_DATE: ${{ github.event.inputs.date }}
     steps:
       - name: Checkout

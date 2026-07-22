@@ -81,8 +81,8 @@ The GitHub Actions workflow runs at:
 
 Repository configuration:
 
-- Variable: `SUGAR_NEWS_BASE_URL`
-- Secrets: `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`
+- Variables: `SUGAR_NEWS_BASE_URL`, `OPENAI_MODEL`
+- Secrets: `OPENAI_API_KEY`, `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`
 
 Do not commit secret values. Store them only in GitHub Actions secrets and Vercel environment variables.
 
@@ -96,6 +96,8 @@ Runtime and automation may use these names:
 - `SUGAR_NEWS_NOW`
 - `SUGAR_NEWS_METRIC_REFRESH_TIMEOUT`
 - `SUGAR_NEWS_BASE_URL`
+- `OPENAI_API_KEY`
+- `OPENAI_MODEL`
 - `VERCEL_TOKEN`
 - `VERCEL_ORG_ID`
 - `VERCEL_PROJECT_ID`
