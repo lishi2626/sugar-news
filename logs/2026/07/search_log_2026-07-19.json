@@ -1,0 +1,296 @@
+{
+  "target_date": "2026-07-19",
+  "run_date": "2026-07-20",
+  "search_tool": "Codex web.run search_query/open plus audited source URLs supplied during review",
+  "root_cause": "Earlier run used only one generic other-country/ICE search and the verified-news file kept only one other-country item. Excel and dashboard were dynamic, but the upstream discovery path did not perform global multi-topic search or country-level local-language follow-up for other countries.",
+  "other_country_rule": "Other-country news is unlimited. Each concrete country keeps an independent object/list and A-column country name; never collapse into a single 其他 key.",
+  "date_format_examples": [
+    "July 19, 2026",
+    "19 July 2026",
+    "19/07/2026",
+    "2026-07-19",
+    "19 de julho de 2026",
+    "19 जुलाई 2026",
+    "19 กรกฎาคม 2569",
+    "19 جولائی 2026",
+    "Hulyo 19 2026",
+    "ngày 19 tháng 7 năm 2026",
+    "19 июля 2026",
+    "19 Juli 2026"
+  ],
+  "searches": [
+    {
+      "stage": "global_initial",
+      "country": "全球",
+      "language": "en",
+      "keywords": [
+        "global sugar industry news July 19 2026",
+        "sugar production export policy July 19 2026",
+        "sugarcane ethanol mills July 19 2026",
+        "sugar import export tariff quota July 19 2026",
+        "sugar price government policy July 19 2026",
+        "sugar industry news 19 July 2026",
+        "sugarcane news 19 July 2026",
+        "ethanol sugar mills 19 July 2026"
+      ],
+      "candidate_count": 6,
+      "retained_count": 1,
+      "retained_urls": [
+        "https://www.brecorder.com/news/40430692"
+      ],
+      "filtered": [
+        {
+          "country": "越南",
+          "title": "Vietnam sugar anti-dumping result surfaced in search",
+          "news_date": "not target-date verified",
+          "source": "Vietnam trade/legal article",
+          "url": "search result only",
+          "stage": "date_verification",
+          "reason": "Original anti-dumping information was older; target-date page/current date could not be treated as publication date."
+        }
+      ]
+    },
+    {
+      "stage": "country_supplement",
+      "country": "巴西",
+      "language": "en/pt-BR",
+      "keywords": [
+        "Brazil sugar industry news July 19 2026",
+        "Brazil sugarcane ethanol export July 19 2026",
+        "Brasil açúcar etanol 19 julho 2026",
+        "Brasil setor sucroenergético 19 de julho de 2026",
+        "usinas cana açúcar etanol 19/07/2026"
+      ],
+      "candidate_count": 3,
+      "retained_count": 3,
+      "retained_urls": [
+        "https://noticias.uol.com.br/colunas/carlos-madeiro/2026/07/19/tarifaco-ameaca-cota-preferencial-de-150-mil-toneladas-de-acucar-de-n-e-ne.htm",
+        "https://www.brasil247.com/economia/lula-escala-tebet-para-apresentar-reacao-do-governo-ao-tarifaco-dos-eua-ao-setor-de-etanol/",
+        "https://www.canalrural.com.br/previsao-do-tempo/brasil-tera-semana-dividida-entre-frente-fria-e-calor-extremo-risco-de-incendios-cresce-em-diferentes-regioes/"
+      ],
+      "filtered": []
+    },
+    {
+      "stage": "country_supplement",
+      "country": "印度",
+      "language": "en/hi",
+      "keywords": [
+        "India sugar industry news July 19 2026",
+        "India sugarcane ethanol mills July 19 2026",
+        "India sugar news 19 July 2026",
+        "भारत चीनी उद्योग 19 जुलाई 2026",
+        "गन्ना चीनी मिल इथेनॉल 19 जुलाई 2026"
+      ],
+      "candidate_count": 2,
+      "retained_count": 2,
+      "retained_urls": [
+        "https://www.hindustantimes.com/cities/lucknow-news/previous-govts-would-have-shut-down-up-s-sugar-industry-by-now-yogi-adityanath-101784399223370.html",
+        "https://apnlive.com/india-news/imd-heavy-rainfall-uttar-pradesh-next-24-hours/"
+      ],
+      "filtered": []
+    },
+    {
+      "stage": "country_supplement",
+      "country": "泰国",
+      "language": "en/th",
+      "keywords": [
+        "Thailand sugar industry news July 19 2026",
+        "Thailand sugarcane mills ethanol July 19 2026",
+        "Thailand sugar news 19 July 2026",
+        "ประเทศไทย น้ำตาล อ้อย 19 กรกฎาคม 2569",
+        "ข่าวอ้อย น้ำตาล 19 กรกฎาคม 2569",
+        "อุตสาหกรรมอ้อยและน้ำตาล 19 กรกฎาคม 2569",
+        "โรงงานน้ำตาล เอทานอล 19 กรกฎาคม 2569"
+      ],
+      "candidate_count": 2,
+      "retained_count": 2,
+      "retained_urls": [
+        "https://www.tmd.go.th/forecast/daily/190720261800",
+        "https://www.thaipost.net/economy-news/1034553/"
+      ],
+      "filtered": []
+    },
+    {
+      "stage": "country_supplement",
+      "country": "中国",
+      "language": "zh-CN/en",
+      "keywords": [
+        "中国糖业新闻 2026年7月19日",
+        "中国食糖 2026年7月19日",
+        "中国白糖 2026年7月19日",
+        "中国甘蔗 2026年7月19日",
+        "中国甜菜糖 2026年7月19日",
+        "食糖产销数据 2026年7月19日",
+        "食糖进口 2026年7月19日",
+        "食糖进口配额 2026年7月19日",
+        "糖浆预混粉进口 2026年7月19日",
+        "广西糖业 2026年7月19日",
+        "云南糖业 2026年7月19日",
+        "郑州白糖期货 2026年7月19日",
+        "郑糖主力合约 2026年7月19日",
+        "白糖现货价格 2026年7月19日",
+        "制糖集团公告 2026年7月19日",
+        "China sugar industry July 19 2026",
+        "China sugar production July 19 2026",
+        "China sugar imports July 19 2026",
+        "China sugarcane beet sugar July 19 2026",
+        "China white sugar futures July 19 2026",
+        "China sugar syrup imports July 19 2026"
+      ],
+      "priority_sources_checked": [
+        "中国政府网",
+        "国家发展和改革委员会",
+        "农业农村部",
+        "商务部",
+        "海关总署",
+        "国家统计局",
+        "郑州商品交易所",
+        "中国糖业协会",
+        "广西糖业协会及广西相关政府部门",
+        "云南省糖业协会及云南相关政府部门",
+        "中国气象局和主要甘蔗产区气象部门",
+        "制糖企业公告"
+      ],
+      "candidate_count": 0,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "country": "中国",
+          "title": "郑州白糖期货及现货价格类结果",
+          "news_date": "2026-07-19 or page-current date not independently verified",
+          "source": "search result snippets",
+          "url": "search results only",
+          "stage": "relevance_filter",
+          "reason": "未核验到由明确糖业基本面事件推动的重要行情；普通盘面复述和价格转载不收录。"
+        }
+      ]
+    },
+    {
+      "stage": "country_supplement",
+      "country": "巴基斯坦",
+      "language": "en/ur",
+      "keywords": [
+        "Pakistan sugar industry July 19 2026",
+        "Pakistan sugarcane sugar mills July 19 2026",
+        "Pakistan sugar export import price July 19 2026",
+        "Pakistan sugar policy 19 July 2026",
+        "پاکستان چینی صنعت 19 جولائی 2026",
+        "گنا چینی ملز 19 جولائی 2026",
+        "چینی برآمد درآمد 19 جولائی 2026"
+      ],
+      "candidate_count": 1,
+      "retained_count": 1,
+      "retained_urls": [
+        "https://www.brecorder.com/news/40430457"
+      ],
+      "filtered": []
+    },
+    {
+      "stage": "country_supplement",
+      "country": "菲律宾",
+      "language": "en/fil",
+      "keywords": [
+        "Philippines sugar industry July 19 2026",
+        "Philippines sugar production import July 19 2026",
+        "Philippines Sugar Regulatory Administration July 19 2026",
+        "Philippines sugarcane mills 19 July 2026",
+        "industriya ng asukal Hulyo 19 2026",
+        "produksyon ng tubo at asukal Hulyo 19 2026",
+        "importasyon ng asukal Hulyo 19 2026"
+      ],
+      "candidate_count": 1,
+      "retained_count": 1,
+      "retained_urls": [
+        "https://www.philstar.com/business/2026/07/19/2543022/sugar-capital-sounds-alarm-worsening-pest-infestation"
+      ],
+      "filtered": []
+    },
+    {
+      "stage": "country_supplement",
+      "country": "越南",
+      "language": "en/vi",
+      "keywords": [
+        "Vietnam sugar industry July 19 2026",
+        "Vietnam sugar import tariff July 19 2026",
+        "Vietnam sugarcane production July 19 2026",
+        "Vietnam sugar anti-dumping 19 July 2026",
+        "ngành đường Việt Nam ngày 19 tháng 7 năm 2026",
+        "mía đường Việt Nam 19/7/2026",
+        "nhập khẩu đường 19/7/2026",
+        "thuế chống bán phá giá đường 19/7/2026"
+      ],
+      "candidate_count": 1,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "country": "越南",
+          "title": "Vietnam sugar anti-dumping item",
+          "news_date": "not target-date verified",
+          "source": "Vietnam source surfaced by search",
+          "url": "search result only",
+          "stage": "date_verification",
+          "reason": "Could not verify this as a July 19, 2026 publication or target-date event; not written to report."
+        }
+      ]
+    },
+    {
+      "stage": "country_supplement",
+      "country": "俄罗斯",
+      "language": "en/ru",
+      "keywords": [
+        "Russia sugar industry July 19 2026",
+        "Russia sugar beet production July 19 2026",
+        "Russia sugar export price July 19 2026",
+        "Russian sugar market 19 July 2026",
+        "сахарная промышленность России 19 июля 2026",
+        "сахарная свекла 19 июля 2026",
+        "производство сахара Россия 19 июля 2026",
+        "экспорт сахара Россия 19 июля 2026"
+      ],
+      "candidate_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "stage": "country_supplement",
+      "country": "印度尼西亚",
+      "language": "en/id",
+      "keywords": [
+        "Indonesia sugar industry July 19 2026",
+        "Indonesia sugar import production July 19 2026",
+        "Indonesia sugar self-sufficiency July 19 2026",
+        "Indonesia sugarcane mills 19 July 2026",
+        "industri gula Indonesia 19 Juli 2026",
+        "produksi gula dan tebu 19 Juli 2026",
+        "impor gula Indonesia 19 Juli 2026",
+        "swasembada gula 19 Juli 2026",
+        "pabrik gula 19 Juli 2026"
+      ],
+      "candidate_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    }
+  ],
+  "pipeline_counts": {
+    "global_initial_candidates": 6,
+    "country_supplement_candidates": 10,
+    "candidate_news_after_search": 16,
+    "date_verified_or_continuing_impact": 11,
+    "relevance_passed": 11,
+    "importance_passed": 10,
+    "deduped": 10,
+    "structured_data_count": 10,
+    "passed_to_excel": 10,
+    "excel_saved_count_after_rerun": 10,
+    "local_dashboard_count_after_rerun": 10
+  },
+  "retained_count_by_country": {
+    "巴西": 3,
+    "印度": 2,
+    "泰国": 2,
+    "中国": 0,
+    "菲律宾": 1,
+    "巴基斯坦": 1,
+    "英国": 1
+  }
+}

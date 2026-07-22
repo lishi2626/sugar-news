@@ -1,0 +1,39 @@
+{
+  "target_date": "2026-07-20",
+  "generated_at": "2026-07-22T14:31:28+08:00",
+  "status": "success",
+  "verified_news_file": "D:\\Desktop\\ai\\sugar-news\\data\\verified_news\\2026\\07\\sugar_news_2026-07-20.json",
+  "excel_file": "D:\\Desktop\\ai\\sugar-news\\reports\\2026\\07\\Sugar News 2026-07-20.xlsx",
+  "dashboard_report": "D:\\Desktop\\ai\\sugar-news\\public\\sugar-news\\data\\reports\\2026\\07\\2026-07-20.json",
+  "dashboard_index": "D:\\Desktop\\ai\\sugar-news\\public\\sugar-news\\data\\index.json",
+  "brazil_metrics_refresh": {
+    "status": "timeout",
+    "error": "brazil_sugar_metrics.py exceeded 1s",
+    "stdoutTail": "",
+    "stderrTail": ""
+  },
+  "india_metrics_refresh": {
+    "status": "timeout",
+    "error": "india_sugar_metrics.py exceeded 1s",
+    "stdoutTail": "",
+    "stderrTail": ""
+  },
+  "checks": {
+    "verified_count": 8,
+    "excel_count": 8,
+    "dashboard_count": 8,
+    "excel_matches_verified": true,
+    "dashboard_matches_verified": true,
+    "country_order_ok": true,
+    "no_empty_country_sections": true,
+    "counts_by_country": {
+      "巴西": 1,
+      "印度": 4,
+      "泰国": 1,
+      "中国": 1,
+      "印度尼西亚": 1
+    },
+    "china_count": 1,
+    "other_country_count": 1
+  }
+}

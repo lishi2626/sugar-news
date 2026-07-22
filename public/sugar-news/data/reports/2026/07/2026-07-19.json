@@ -1,0 +1,1249 @@
+{
+  "newsDate": "2026-07-19",
+  "updatedAt": "2026-07-22T14:31:26+08:00",
+  "timezone": "Asia/Shanghai",
+  "excelFile": "reports/2026/07/Sugar News 2026-07-19.xlsx",
+  "brazilMetrics": {
+    "title": "巴西糖价与库存",
+    "dataDate": "2026-07-21",
+    "updatedAt": "2026-07-22T09:58:36+08:00",
+    "sourceStatus": "dynamic_fetch",
+    "sugarPremium": {
+      "metricType": "sugarPremium",
+      "status": "ok",
+      "statusText": "",
+      "dataDate": "2026-07-21",
+      "fetchedAt": "2026-07-22T09:54:22+08:00",
+      "sourceName": "广西糖网食糖进口成本及利润估算表",
+      "sourceUrl": "https://www.hisugar.com/home/articleContent?id=2026072208443946236335",
+      "datasetName": "HiSugar 食糖进口成本及利润估算表",
+      "previousYearValue": 0.2,
+      "yearOnYearChange": -0.5,
+      "yearOnYearChangePercent": null,
+      "yoyStatus": "not_applicable",
+      "note": null,
+      "product": "巴西糖进口升贴水",
+      "port": "进口成本估算",
+      "pricingBasis": "HiSugar import cost estimate",
+      "futuresContract": null,
+      "importPremiumDiscountCentsPerLb": -0.3,
+      "premiumDiscountCentsPerLb": -0.3,
+      "premiumLabel": "贴水",
+      "unit": "美分/磅",
+      "previousDataDate": "2026-07-20",
+      "previousValue": -0.3,
+      "dailyChange": 0.0,
+      "dailyChangePercent": 0.0,
+      "previousYearDate": "2025-07-21",
+      "articleId": "2026072208443946236335",
+      "articleTitle": "20260721食糖进口成本及利润估算",
+      "articlePublishedAt": "2026-07-22 09:07:54",
+      "imageUrl": "https://www.hisugar.com/image/20260722/1784680592412005180.png",
+      "ocrBackend": "windows_ocr"
+    },
+    "sugarStock": {
+      "metricType": "sugarStock",
+      "status": "ok",
+      "statusText": "",
+      "dataDate": "2026-06-30",
+      "fetchedAt": "2026-07-22T09:56:34+08:00",
+      "sourceName": "巴西农业和畜牧业部（MAPA）",
+      "sourceUrl": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/arquivos-producao/009ESTOQUESDEACARPORTIPOSAFRA20262027_20072026.pdf",
+      "datasetName": "MAPA Agroenergia - Estoques de Açúcar por Tipo",
+      "previousYearValue": 401.6657,
+      "yearOnYearChange": -56.64930000000004,
+      "yearOnYearChangePercent": -14.103594108234793,
+      "yoyStatus": "ok",
+      "note": null,
+      "product": "食糖",
+      "stockValue": 345.0164,
+      "stockUnit": "万吨",
+      "season": "2026/2027",
+      "referenceDate": "2026-06-30",
+      "stockTotalTonnes": 3450164,
+      "stockTotalTenThousandTonnes": 345.0164,
+      "previousPeriodDate": "2026-06-15",
+      "previousPeriodStock": 364.5203,
+      "halfMonthChange": -19.503900000000044,
+      "halfMonthChangePercent": -5.3505662098928495,
+      "previousYearDate": "2025-06-30",
+      "previousYearStock": 401.6657,
+      "documentNumber": "009",
+      "documentTitle": "ESTOQUES DE AÇÚCAR POR TIPO - SAFRA 2026-27",
+      "fileHash": "e8b9ae2de1c6c7c9184ca5af968eceb331ce0104e9f14758d315a09a87e1379f"
+    },
+    "ethanolStock": {
+      "metricType": "ethanolStock",
+      "status": "ok",
+      "statusText": "",
+      "dataDate": "2026-07-01",
+      "fetchedAt": "2026-07-22T09:58:36+08:00",
+      "sourceName": "巴西农业和畜牧业部（MAPA）",
+      "sourceUrl": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_010726.pdf",
+      "datasetName": "MAPA Acompanhamento da Produção Sucroalcooleira",
+      "previousYearValue": 195.4278,
+      "yearOnYearChange": 95.9554,
+      "yearOnYearChangePercent": 49.100179196613794,
+      "yoyStatus": "ok",
+      "note": null,
+      "ethanolType": "hydrous",
+      "stockType": "physical",
+      "hydrousEthanolStock": 291.3832,
+      "anhydrousEthanolStock": null,
+      "totalEthanolStock": 291.3832,
+      "stockCubicMetres": 2913832,
+      "stockTenThousandCubicMetres": 291.3832,
+      "stockUnit": "万立方米",
+      "season": "2026/2027",
+      "referenceDate": "2026-07-01",
+      "reportUpdatedAt": "2026-07-20",
+      "previousPeriodDate": "2026-06-16",
+      "previousPeriodStock": 285.5513,
+      "halfMonthChange": 5.831899999999962,
+      "halfMonthChangePercent": 2.042330047175398,
+      "previousYearDate": "2025-07-01",
+      "previousYearStock": 195.4278,
+      "sourcePageUrl": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/2026-2027",
+      "reportUrl": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_010726.pdf",
+      "sourceFileName": "Acompanhamentodaproduo2627_010726.pdf",
+      "fileHash": "723dabcee137424025438911aab602de7709359ec41c211f4a9d1b7da3bae876"
+    },
+    "note": "巴西糖价与库存指标来自动态检索；未完成来源、口径和字段核验的数据不发布数值。",
+    "fetchLog": [
+      {
+        "source": "HiSugar import-cost list page",
+        "url": "https://www.hisugar.com/home/newListMore?parentId=39&level=3&childId=144&menuTap1",
+        "requestedAt": "2026-07-22T09:53:59+08:00",
+        "httpStatus": 200,
+        "containsColumnName": false,
+        "parsed": true
+      },
+      {
+        "source": "HiSugar import-cost search API",
+        "url": "https://www.hisugar.com/home/searchCatetoryAndArticle?keyWord=%E9%A3%9F%E7%B3%96%E8%BF%9B%E5%8F%A3%E6%88%90%E6%9C%AC%E5%8F%8A%E5%88%A9%E6%B6%A6%E4%BC%B0%E7%AE%97",
+        "requestedAt": "2026-07-22T09:54:04+08:00",
+        "httpStatus": 200,
+        "candidateCount": 388,
+        "parsed": true
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2026072208443946236335",
+        "url": "https://www.hisugar.com/home/articleContent?id=2026072208443946236335",
+        "requestedAt": "2026-07-22T09:54:11+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": true,
+        "parsedRows": 5
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026072208443946236335",
+        "imageUrl": "https://www.hisugar.com/image/20260722/1784680592412005180.png",
+        "httpStatus": 200,
+        "ocrBackend": "windows_ocr",
+        "parsedRows": 5,
+        "parsedDates": [
+          "2026-07-15",
+          "2026-07-16",
+          "2026-07-17",
+          "2026-07-20",
+          "2026-07-21"
+        ],
+        "parsed": true
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2025080108475111542998",
+        "url": "https://www.hisugar.com/home/articleContent?id=2025080108475111542998",
+        "requestedAt": "2026-07-22T09:54:22+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": true,
+        "parsedRows": 5
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2025080108475111542998",
+        "imageUrl": "https://www.hisugar.com/image/20250801/1754009149555039808.png",
+        "httpStatus": 200,
+        "ocrBackend": "windows_ocr",
+        "parsedRows": 5,
+        "parsedDates": [
+          "2025-07-25",
+          "2025-07-28",
+          "2025-07-29",
+          "2025-07-30",
+          "2025-07-31"
+        ],
+        "parsed": true
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2025073108530245334046",
+        "url": "https://www.hisugar.com/home/articleContent?id=2025073108530245334046",
+        "requestedAt": "2026-07-22T09:54:34+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": true,
+        "parsedRows": 5
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2025073108530245334046",
+        "imageUrl": "https://www.hisugar.com/image/20250731/1753922966646075303.png",
+        "httpStatus": 200,
+        "ocrBackend": "windows_ocr",
+        "parsedRows": 5,
+        "parsedDates": [
+          "2025-07-24",
+          "2025-07-25",
+          "2025-07-28",
+          "2025-07-29",
+          "2025-07-30"
+        ],
+        "parsed": true
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2025073008460053690630",
+        "url": "https://www.hisugar.com/home/articleContent?id=2025073008460053690630",
+        "requestedAt": "2026-07-22T09:54:45+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": true,
+        "parsedRows": 5
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2025073008460053690630",
+        "imageUrl": "https://www.hisugar.com/image/20250730/1753836230524047735.png",
+        "httpStatus": 200,
+        "ocrBackend": "windows_ocr",
+        "parsedRows": 5,
+        "parsedDates": [
+          "2025-07-23",
+          "2025-07-24",
+          "2025-07-25",
+          "2025-07-28",
+          "2025-07-29"
+        ],
+        "parsed": true
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2025072908581105031272",
+        "url": "https://www.hisugar.com/home/articleContent?id=2025072908581105031272",
+        "requestedAt": "2026-07-22T09:54:55+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": true,
+        "parsedRows": 5
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2025072908581105031272",
+        "imageUrl": "https://www.hisugar.com/image/20250729/1753749946315047120.png",
+        "httpStatus": 200,
+        "ocrBackend": "windows_ocr",
+        "parsedRows": 5,
+        "parsedDates": [
+          "2025-07-22",
+          "2025-07-23",
+          "2025-07-24",
+          "2025-07-25",
+          "2025-07-26"
+        ],
+        "parsed": true
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2025072808561463671302",
+        "url": "https://www.hisugar.com/home/articleContent?id=2025072808561463671302",
+        "requestedAt": "2026-07-22T09:55:05+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": true,
+        "parsedRows": 5
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2025072808561463671302",
+        "imageUrl": "https://www.hisugar.com/image/20250728/1753663965664064635.png",
+        "httpStatus": 200,
+        "ocrBackend": "windows_ocr",
+        "parsedRows": 5,
+        "parsedDates": [
+          "2025-07-21",
+          "2025-07-22",
+          "2025-07-23",
+          "2025-07-24",
+          "2025-07-25"
+        ],
+        "parsed": true
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2025072213462038984375",
+        "url": "https://www.hisugar.com/home/articleContent?id=2025072213462038984375",
+        "requestedAt": "2026-07-22T09:55:19+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": true,
+        "parsedRows": 5
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2025072213462038984375",
+        "imageUrl": "https://www.hisugar.com/image/20250722/1753162972932030576.png",
+        "httpStatus": 200,
+        "ocrBackend": "windows_ocr",
+        "parsedRows": 5,
+        "parsedDates": [
+          "2025-07-15",
+          "2025-07-16",
+          "2025-07-17",
+          "2025-07-18",
+          "2025-07-21"
+        ],
+        "parsed": true
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2025071708515533927166",
+        "url": "https://www.hisugar.com/home/articleContent?id=2025071708515533927166",
+        "requestedAt": "2026-07-22T09:55:30+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": true,
+        "parsedRows": 4
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2025071708515533927166",
+        "imageUrl": "https://www.hisugar.com/image/20250717/1752713401752004341.jpg",
+        "httpStatus": 200,
+        "ocrBackend": "windows_ocr",
+        "parsedRows": 4,
+        "parsedDates": [
+          "2025-07-10",
+          "2025-07-14",
+          "2025-07-15",
+          "2025-07-16"
+        ],
+        "parsed": true
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2025071508471881546246",
+        "url": "https://www.hisugar.com/home/articleContent?id=2025071508471881546246",
+        "requestedAt": "2026-07-22T09:55:42+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": false,
+        "parsedRows": 0
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2025071508471881546246",
+        "imageUrl": "https://www.hisugar.com/image/20250715/1752540199783054834.jpg",
+        "httpStatus": 200,
+        "ocrBackend": "windows_ocr",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2025071508471881546246",
+        "imageUrl": "https://www.hisugar.com/image/20250715/1752540295004083953.jpg",
+        "httpStatus": 200,
+        "ocrBackend": "windows_ocr",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "MAPA Agroenergia production page",
+        "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/producao",
+        "requestedAt": "2026-07-22T09:56:01+08:00",
+        "httpStatus": 200,
+        "candidateCount": 1,
+        "parsed": true
+      },
+      {
+        "source": "MAPA sugar-stock PDF",
+        "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/arquivos-producao/009ESTOQUESDEACARPORTIPOSAFRA20262027_20072026.pdf",
+        "season": "2026/2027",
+        "requestedAt": "2026-07-22T09:56:11+08:00",
+        "httpStatus": 200,
+        "fileHash": "e8b9ae2de1c6c7c9184ca5af968eceb331ce0104e9f14758d315a09a87e1379f",
+        "rowsParsed": 6,
+        "parsedDates": [
+          "2026-04-15",
+          "2026-04-30",
+          "2026-05-15",
+          "2026-05-31",
+          "2026-06-15",
+          "2026-06-30"
+        ],
+        "parsed": true
+      },
+      {
+        "source": "MAPA previous sugar-stock seasons page",
+        "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/producao-e-estoques-de-acucar-por-tipo-safras-anteriores",
+        "requestedAt": "2026-07-22T09:56:16+08:00",
+        "httpStatus": 200,
+        "candidateCount": 14,
+        "parsed": true
+      },
+      {
+        "source": "MAPA sugar-stock PDF",
+        "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/arquivos-producao/009ESTOQUESDEACARPORTIPOSAFRA20252026_13052026.pdf",
+        "season": "2025/2026",
+        "requestedAt": "2026-07-22T09:56:25+08:00",
+        "httpStatus": 200,
+        "fileHash": "57d04684e2c24b4a117b92faac739bee18578980634e020abe76fafe98bc7653",
+        "rowsParsed": 24,
+        "parsedDates": [
+          "2025-04-15",
+          "2025-04-30",
+          "2025-05-15",
+          "2025-05-31",
+          "2025-06-15",
+          "2025-06-30",
+          "2025-07-15",
+          "2025-07-31",
+          "2025-08-15",
+          "2025-08-31",
+          "2025-09-15",
+          "2025-09-30",
+          "2025-10-15",
+          "2025-10-31",
+          "2025-11-15",
+          "2025-11-30",
+          "2025-12-15",
+          "2025-12-31",
+          "2026-01-15",
+          "2026-01-31",
+          "2026-02-15",
+          "2026-02-28",
+          "2026-03-15",
+          "2026-03-31"
+        ],
+        "parsed": true
+      },
+      {
+        "source": "MAPA ethanol season directory",
+        "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira",
+        "requestedAt": "2026-07-22T09:56:34+08:00",
+        "httpStatus": 200,
+        "candidateCount": 20,
+        "parsed": true
+      },
+      {
+        "source": "MAPA ethanol season page",
+        "season": "2026/2027",
+        "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/2026-2027",
+        "requestedAt": "2026-07-22T09:56:43+08:00",
+        "httpStatus": 200,
+        "candidateCount": 6,
+        "parsedDates": [
+          "2026-04-16",
+          "2026-05-01",
+          "2026-05-16",
+          "2026-06-01",
+          "2026-06-16",
+          "2026-07-01"
+        ],
+        "parsed": true
+      },
+      {
+        "source": "MAPA hydrous ethanol stock PDF",
+        "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_150426.PDF",
+        "season": "2026/2027",
+        "referenceDate": "2026-04-16",
+        "requestedAt": "2026-07-22T09:56:52+08:00",
+        "httpStatus": 200,
+        "fileHash": "8bbf4d5dce1a7ef91bfea38705e489c316bd7da79691e446a3e5811ee6613757",
+        "numericColumnCount": 16,
+        "parsed": true,
+        "stockCubicMetres": 1118028,
+        "stockTenThousandCubicMetres": 111.8028
+      },
+      {
+        "source": "MAPA hydrous ethanol stock PDF",
+        "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_010526.pdf",
+        "season": "2026/2027",
+        "referenceDate": "2026-05-01",
+        "requestedAt": "2026-07-22T09:57:04+08:00",
+        "httpStatus": 200,
+        "fileHash": "d6be5d933d5f83370041a24f32ed97477f73e7a10ea3b30e2390e2a08d351f9f",
+        "numericColumnCount": 17,
+        "parsed": true,
+        "stockCubicMetres": 1632063,
+        "stockTenThousandCubicMetres": 163.2063
+      },
+      {
+        "source": "MAPA hydrous ethanol stock PDF",
+        "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_150526.PDF",
+        "season": "2026/2027",
+        "referenceDate": "2026-05-16",
+        "requestedAt": "2026-07-22T09:57:15+08:00",
+        "httpStatus": 200,
+        "fileHash": "88ff341d430263646af101968c50c1d4cce6bc626cccb6391df633126c8e5f41",
+        "numericColumnCount": 17,
+        "parsed": true,
+        "stockCubicMetres": 2099551,
+        "stockTenThousandCubicMetres": 209.9551
+      },
+      {
+        "source": "MAPA hydrous ethanol stock PDF",
+        "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_010626.pdf",
+        "season": "2026/2027",
+        "referenceDate": "2026-06-01",
+        "requestedAt": "2026-07-22T09:57:32+08:00",
+        "httpStatus": 200,
+        "fileHash": "6fbac57aafd7784fb6fbeaaf42fdbc55c98ee7b59bb060b4a42d7e62b9db56b3",
+        "numericColumnCount": 17,
+        "parsed": true,
+        "stockCubicMetres": 2481402,
+        "stockTenThousandCubicMetres": 248.1402
+      },
+      {
+        "source": "MAPA hydrous ethanol stock PDF",
+        "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_150626.PDF",
+        "season": "2026/2027",
+        "referenceDate": "2026-06-16",
+        "requestedAt": "2026-07-22T09:57:41+08:00",
+        "httpStatus": 200,
+        "fileHash": "129e475af4b85e4fc3cee5ee0c235b0e4a21bc0df720a9c4bb9ded468ca063e2",
+        "numericColumnCount": 17,
+        "parsed": true,
+        "stockCubicMetres": 2855513,
+        "stockTenThousandCubicMetres": 285.5513
+      },
+      {
+        "source": "MAPA hydrous ethanol stock PDF",
+        "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_010726.pdf",
+        "season": "2026/2027",
+        "referenceDate": "2026-07-01",
+        "requestedAt": "2026-07-22T09:57:53+08:00",
+        "httpStatus": 200,
+        "fileHash": "723dabcee137424025438911aab602de7709359ec41c211f4a9d1b7da3bae876",
+        "numericColumnCount": 17,
+        "parsed": true,
+        "stockCubicMetres": 2913832,
+        "stockTenThousandCubicMetres": 291.3832
+      },
+      {
+        "source": "MAPA ethanol season page",
+        "season": "2025/2026",
+        "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/2025-2026",
+        "requestedAt": "2026-07-22T09:58:03+08:00",
+        "httpStatus": 200,
+        "candidateCount": 31,
+        "parsedDates": [
+          "2025-04-16",
+          "2025-04-16",
+          "2025-05-01",
+          "2025-05-16",
+          "2025-06-01",
+          "2025-06-16",
+          "2025-07-01",
+          "2025-07-16",
+          "2025-08-01",
+          "2025-08-16",
+          "2025-09-01",
+          "2025-09-16",
+          "2025-10-01",
+          "2025-10-16",
+          "2025-11-01",
+          "2025-11-16",
+          "2025-12-01",
+          "2025-12-16",
+          "2026-01-01",
+          "2026-01-16",
+          "2026-02-01",
+          "2026-02-16",
+          "2026-03-01",
+          "2026-03-16",
+          "2026-04-01",
+          "2026-04-16",
+          "2026-05-01",
+          "2026-05-16",
+          "2026-06-01",
+          "2026-06-16",
+          "2026-07-01"
+        ],
+        "parsed": true
+      },
+      {
+        "source": "MAPA hydrous ethanol stock PDF",
+        "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/2025-2026-1/Acompanhamentodaproduo2526_010725.PDF",
+        "season": "2025/2026",
+        "referenceDate": "2025-07-01",
+        "requestedAt": "2026-07-22T09:58:27+08:00",
+        "httpStatus": 200,
+        "fileHash": "584e80705e83a6d4da1196d52207abf706847c7e71d2dcb9e779f041aaa1e92c",
+        "numericColumnCount": 17,
+        "parsed": true,
+        "stockCubicMetres": 1954278,
+        "stockTenThousandCubicMetres": 195.4278
+      }
+    ]
+  },
+  "indiaMetrics": {
+    "title": "印度糖价与库存",
+    "dataDate": "2026-07-21",
+    "updatedAt": "2026-07-22T14:31:26+08:00",
+    "sourceStatus": "dynamic_fetch",
+    "domesticWholesalePrice": {
+      "metricType": "domesticWholesalePrice",
+      "status": "ok",
+      "statusText": "",
+      "priceDate": "2026-07-21",
+      "grade": "Sugar",
+      "market": "All India Average",
+      "quoteType": "official wholesale",
+      "originalUnit": "₹/quintal and ₹/kg",
+      "sourceName": "Department of Consumer Affairs Price Monitoring",
+      "sourceUrl": "https://fcainfoweb.nic.in/",
+      "publishedDate": "2026-07-21",
+      "fetchedAt": "2026-07-22T09:49:45+08:00",
+      "note": null,
+      "priceInrPerQuintal": 4491.85,
+      "priceInrPerKg": 44.9185,
+      "retailPriceInrPerKg": null,
+      "previousInrPerQuintal": 4475.84,
+      "previousInrPerKg": 44.7584,
+      "changeInrPerQuintal": 16.01,
+      "changeInrPerKg": 0.1601,
+      "changePct": 0.36,
+      "direction": "up",
+      "previousDataDate": "2026-07-20",
+      "previousYearDate": null,
+      "previousYearInrPerQuintal": null,
+      "previousYearInrPerKg": null,
+      "yearOnYearChangeInrPerQuintal": null,
+      "yearOnYearChangeInrPerKg": null,
+      "yearOnYearChangePct": null
+    },
+    "domesticRetailPrice": {
+      "metricType": "domesticRetailPrice",
+      "status": "ok",
+      "statusText": "",
+      "priceDate": "2026-07-21",
+      "grade": "Sugar",
+      "market": "All India Average",
+      "quoteType": "official retail",
+      "originalUnit": "₹/kg",
+      "sourceName": "Department of Consumer Affairs Price Monitoring",
+      "sourceUrl": "https://fcainfoweb.nic.in/",
+      "publishedDate": "2026-07-21",
+      "fetchedAt": "2026-07-22T09:49:45+08:00",
+      "note": null,
+      "priceInrPerQuintal": 4843.0,
+      "priceInrPerKg": 48.43,
+      "retailPriceInrPerKg": null,
+      "previousInrPerQuintal": 4818.0,
+      "previousInrPerKg": 48.18,
+      "changeInrPerQuintal": 25.0,
+      "changeInrPerKg": 0.25,
+      "changePct": 0.52,
+      "direction": "up",
+      "previousDataDate": "2026-07-20",
+      "previousYearDate": null,
+      "previousYearInrPerQuintal": null,
+      "previousYearInrPerKg": null,
+      "yearOnYearChangeInrPerQuintal": null,
+      "yearOnYearChangeInrPerKg": null,
+      "yearOnYearChangePct": null
+    },
+    "domesticSugarPrice": {
+      "metricType": "domesticSugarPrice",
+      "status": "ok",
+      "statusText": "",
+      "priceDate": "2026-07-21",
+      "grade": "Sugar",
+      "market": "All India Average",
+      "quoteType": "official wholesale",
+      "originalUnit": "₹/quintal and ₹/kg",
+      "sourceName": "Department of Consumer Affairs Price Monitoring",
+      "sourceUrl": "https://fcainfoweb.nic.in/",
+      "publishedDate": "2026-07-21",
+      "fetchedAt": "2026-07-22T09:49:45+08:00",
+      "note": null,
+      "priceInrPerQuintal": 4491.85,
+      "priceInrPerKg": 44.9185,
+      "retailPriceInrPerKg": null,
+      "previousInrPerQuintal": 4475.84,
+      "previousInrPerKg": 44.7584,
+      "changeInrPerQuintal": 16.01,
+      "changeInrPerKg": 0.1601,
+      "changePct": 0.36,
+      "direction": "up",
+      "previousDataDate": "2026-07-20",
+      "previousYearDate": null,
+      "previousYearInrPerQuintal": null,
+      "previousYearInrPerKg": null,
+      "yearOnYearChangeInrPerQuintal": null,
+      "yearOnYearChangeInrPerKg": null,
+      "yearOnYearChangePct": null
+    },
+    "upExMillPrice": {
+      "metricType": "upExMillPrice",
+      "status": "ok",
+      "statusText": "",
+      "priceDate": "2026-07-21",
+      "grade": "M/30",
+      "market": "Uttar Pradesh / Muzaffarnagar",
+      "quoteType": "ex-mill",
+      "originalUnit": "₹/quintal",
+      "sourceName": "ChiniMandi",
+      "sourceUrl": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-21-07-2026/",
+      "publishedDate": "2026-07-21",
+      "fetchedAt": "2026-07-22T09:49:52+08:00",
+      "note": null,
+      "priceInrPerQuintal": null,
+      "priceInrPerKg": null,
+      "retailPriceInrPerKg": null,
+      "rangeInrPerQuintal": {
+        "low": 4500.0,
+        "high": 4580.0
+      },
+      "rangeInrPerKg": {
+        "low": 45.0,
+        "high": 45.8
+      },
+      "previousRangeInrPerQuintal": {
+        "low": 4520.0,
+        "high": 4600.0
+      },
+      "previousRangeInrPerKg": {
+        "low": 45.2,
+        "high": 46.0
+      },
+      "previousInrPerQuintal": 4560.0,
+      "previousInrPerKg": 45.6,
+      "changeInrPerQuintal": -20.0,
+      "changeInrPerKg": -0.2,
+      "changePct": -0.44,
+      "direction": "down",
+      "previousDataDate": "2026-07-20",
+      "previousYearDate": null,
+      "previousYearInrPerQuintal": null,
+      "previousYearInrPerKg": null,
+      "yearOnYearChangeInrPerQuintal": null,
+      "yearOnYearChangeInrPerKg": null,
+      "yearOnYearChangePct": null,
+      "midpointInrPerQuintal": 4540.0,
+      "midpointInrPerKg": 45.4,
+      "gstStatus": "excluding GST"
+    },
+    "carryoverStock": {
+      "metricType": "carryoverStock",
+      "status": "pending",
+      "statusText": "等待权威来源更新",
+      "fetchedAt": "2026-07-22T14:31:26+08:00",
+      "note": "未获取到已完成日期、口径和来源核验的可靠数据；不编造价格或库存。",
+      "dataDate": null,
+      "stockWanTonnes": null
+    },
+    "note": "印度糖价与库存指标来自本次动态抓取；未通过口径核验的库存候选不发布数值。",
+    "fetchLog": [
+      {
+        "source": "FCA price monitoring",
+        "url": "https://fcainfoweb.nic.in/",
+        "requestedAt": "2026-07-22T09:49:36+08:00",
+        "httpStatus": 200,
+        "parsed": true,
+        "dataDate": "2026-07-21",
+        "retailPrice": 48.43,
+        "wholesalePrice": 4491.85
+      },
+      {
+        "source": "ChiniMandi",
+        "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-21-07-2026/",
+        "requestedAt": "2026-07-22T09:49:45+08:00",
+        "httpStatus": 200,
+        "parsed": true,
+        "dataDate": "2026-07-21",
+        "min": 4500.0,
+        "max": 4580.0
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "Department of Food and Public Distribution sugar stock",
+        "url": "https://news.google.com/rss/search?q=Department+of+Food+and+Public+Distribution+sugar+stock+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:49:52+08:00",
+        "httpStatus": 200,
+        "candidateCount": 5,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "Department of Food & Public Distribution sugar stock",
+        "url": "https://news.google.com/rss/search?q=Department+of+Food+%26+Public+Distribution+sugar+stock+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:49:56+08:00",
+        "httpStatus": 200,
+        "candidateCount": 4,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "India sugar balance sheet",
+        "url": "https://news.google.com/rss/search?q=India+sugar+balance+sheet+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:49:59+08:00",
+        "httpStatus": 200,
+        "candidateCount": 13,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "India sugar closing stock",
+        "url": "https://news.google.com/rss/search?q=India+sugar+closing+stock+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:02+08:00",
+        "httpStatus": 200,
+        "candidateCount": 59,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "India sugar opening stock",
+        "url": "https://news.google.com/rss/search?q=India+sugar+opening+stock+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:06+08:00",
+        "httpStatus": 200,
+        "candidateCount": 62,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "sugar stock position India",
+        "url": "https://news.google.com/rss/search?q=sugar+stock+position+India+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:10+08:00",
+        "httpStatus": 200,
+        "candidateCount": 24,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "site:dfpd.gov.in sugar stock",
+        "url": "https://news.google.com/rss/search?q=site%3Adfpd.gov.in+sugar+stock+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:13+08:00",
+        "httpStatus": 200,
+        "candidateCount": 0,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "site:gov.in India sugar closing stock",
+        "url": "https://news.google.com/rss/search?q=site%3Agov.in+India+sugar+closing+stock+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:17+08:00",
+        "httpStatus": 200,
+        "candidateCount": 55,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "ISMA sugar closing stock",
+        "url": "https://news.google.com/rss/search?q=ISMA+sugar+closing+stock+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:21+08:00",
+        "httpStatus": 200,
+        "candidateCount": 2,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "ISMA sugar balance sheet",
+        "url": "https://news.google.com/rss/search?q=ISMA+sugar+balance+sheet+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:24+08:00",
+        "httpStatus": 200,
+        "candidateCount": 1,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "ISMA sugar production estimate",
+        "url": "https://news.google.com/rss/search?q=ISMA+sugar+production+estimate+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:27+08:00",
+        "httpStatus": 200,
+        "candidateCount": 9,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "ISMA opening stock and closing stock",
+        "url": "https://news.google.com/rss/search?q=ISMA+opening+stock+and+closing+stock+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:30+08:00",
+        "httpStatus": 200,
+        "candidateCount": 2,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "site:ismaindia.com closing stock sugar",
+        "url": "https://news.google.com/rss/search?q=site%3Aismaindia.com+closing+stock+sugar+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:34+08:00",
+        "httpStatus": 200,
+        "candidateCount": 0,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "NFCSF India sugar closing stock",
+        "url": "https://news.google.com/rss/search?q=NFCSF+India+sugar+closing+stock+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:37+08:00",
+        "httpStatus": 200,
+        "candidateCount": 3,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "NFCSF sugar balance sheet",
+        "url": "https://news.google.com/rss/search?q=NFCSF+sugar+balance+sheet+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:41+08:00",
+        "httpStatus": 200,
+        "candidateCount": 0,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "NFCSF sugar production estimate",
+        "url": "https://news.google.com/rss/search?q=NFCSF+sugar+production+estimate+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:44+08:00",
+        "httpStatus": 200,
+        "candidateCount": 2,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "National Federation Cooperative Sugar Factories closing stock",
+        "url": "https://news.google.com/rss/search?q=National+Federation+Cooperative+Sugar+Factories+closing+stock+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:47+08:00",
+        "httpStatus": 200,
+        "candidateCount": 6,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "site:coopsugar.org closing stock",
+        "url": "https://news.google.com/rss/search?q=site%3Acoopsugar.org+closing+stock+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:50+08:00",
+        "httpStatus": 200,
+        "candidateCount": 0,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS market forecast discovery",
+        "query": "ICRA India sugar closing inventory",
+        "url": "https://news.google.com/rss/search?q=ICRA+India+sugar+closing+inventory+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:53+08:00",
+        "httpStatus": 200,
+        "candidateCount": 1,
+        "parsed": false,
+        "sourceTier": "market_forecast_comparison_only",
+        "reason": "Market forecasts are comparison-only and require original report date, season and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS market forecast discovery",
+        "query": "India sugar carryover stock market forecast",
+        "url": "https://news.google.com/rss/search?q=India+sugar+carryover+stock+market+forecast+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:50:56+08:00",
+        "httpStatus": 200,
+        "candidateCount": 0,
+        "parsed": false,
+        "sourceTier": "market_forecast_comparison_only",
+        "reason": "Market forecasts are comparison-only and require original report date, season and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS market forecast discovery",
+        "query": "India sugar ending stocks agency forecast",
+        "url": "https://news.google.com/rss/search?q=India+sugar+ending+stocks+agency+forecast+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:51:00+08:00",
+        "httpStatus": 200,
+        "candidateCount": 0,
+        "parsed": false,
+        "sourceTier": "market_forecast_comparison_only",
+        "reason": "Market forecasts are comparison-only and require original report date, season and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS market forecast discovery",
+        "query": "India sugar balance sheet closing stocks rating agency",
+        "url": "https://news.google.com/rss/search?q=India+sugar+balance+sheet+closing+stocks+rating+agency+2026-07-21&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-07-22T09:51:03+08:00",
+        "httpStatus": 200,
+        "candidateCount": 0,
+        "parsed": false,
+        "sourceTier": "market_forecast_comparison_only",
+        "reason": "Market forecasts are comparison-only and require original report date, season and closing-stock verification before publication."
+      }
+    ]
+  },
+  "countries": [
+    {
+      "country": "巴西",
+      "items": [
+        {
+          "news": "巴西政府预计美国关税可能令巴西对美乙醇出口减少约2.5亿升/年；同时将汽油无水乙醇强制掺混比例由30%提高至32%，预计增加约10亿升/年的国内乙醇需求。",
+          "impactType": "偏多糖价",
+          "impact": "国内乙醇需求增加可能提高糖厂制醇积极性，减少部分甘蔗制糖供应。",
+          "sourceName": "Brasil 247",
+          "sourceUrl": "https://www.brasil247.com/economia/lula-escala-tebet-para-apresentar-reacao-do-governo-ao-tarifaco-dos-eua-ao-setor-de-etanol/",
+          "publishedDateLocal": "2026-07-19",
+          "eventDate": "2026-07-19"
+        },
+        {
+          "news": "美国新增关税可能影响巴西北部和东北部糖厂每年约15万吨的对美优惠糖出口配额，涉及约9500万美元出口收入。",
+          "impactType": "偏多糖价",
+          "impact": "若优惠配额出口受阻，巴西部分原糖对美贸易流向可能调整，短期扰动区域出口节奏。",
+          "sourceName": "UOL",
+          "sourceUrl": "https://noticias.uol.com.br/colunas/carlos-madeiro/2026/07/19/tarifaco-ameaca-cota-preferencial-de-150-mil-toneladas-de-acucar-de-n-e-ne.htm",
+          "publishedDateLocal": "2026-07-19",
+          "eventDate": "2026-07-19"
+        },
+        {
+          "news": "7月19日天气预报显示，圣保罗等中南部甘蔗产区短期天气偏干，随后可能出现较强降雨，干燥天气同时增加甘蔗田火灾风险。",
+          "impactType": "偏多糖价",
+          "impact": "短期偏干和火灾风险可能影响甘蔗收割与供应稳定性，但后续降雨会削弱持续影响。",
+          "sourceName": "Canal Rural",
+          "sourceUrl": "https://www.canalrural.com.br/previsao-do-tempo/brasil-tera-semana-dividida-entre-frente-fria-e-calor-extremo-risco-de-incendios-cresce-em-diferentes-regioes/",
+          "publishedDateLocal": "2026-07-19",
+          "eventDate": "2026-07-19"
+        }
+      ]
+    },
+    {
+      "country": "印度",
+      "items": [
+        {
+          "news": "北方邦首席部长表示当地运行122家糖厂，累计支付甘蔗款约3.23万亿卢比，甘蔗收购价格提高至400卢比/公担，北方邦居印度糖、甘蔗和乙醇生产首位。",
+          "impactType": "偏空糖价",
+          "impact": "甘蔗收购价格提高有利于增加农户种植收益，可能刺激甘蔗种植面积扩张并增加未来糖产量，从供应端对糖价形成压力。",
+          "sourceName": "Hindustan Times",
+          "sourceUrl": "https://www.hindustantimes.com/cities/lucknow-news/previous-govts-would-have-shut-down-up-s-sugar-industry-by-now-yogi-adityanath-101784399223370.html",
+          "publishedDateLocal": "2026-07-19",
+          "eventDate": "2026-07-18"
+        },
+        {
+          "news": "印度气象局7月19日预报北方邦大范围降雨和雷暴，西部北方邦局地可能出现强到很强降雨，东部北方邦部分地区也有强降雨风险。",
+          "impactType": "偏空糖价",
+          "impact": "降雨改善有利于甘蔗生长，但强降雨可能阶段性影响田间管理和运输。",
+          "sourceName": "APNLive",
+          "sourceUrl": "https://apnlive.com/india-news/imd-heavy-rainfall-uttar-pradesh-next-24-hours/",
+          "publishedDateLocal": "2026-07-19",
+          "eventDate": "2026-07-19"
+        }
+      ]
+    },
+    {
+      "country": "泰国",
+      "items": [
+        {
+          "news": "泰国气象局7月19日17:00预报，东北部和中部未来24小时均有约20%地区出现雷阵雨，涉及呵叻、乌汶、北碧、叻丕、佛统等甘蔗相关地区。",
+          "impactType": "影响有限",
+          "impact": "降雨覆盖率较低且较分散，对泰国甘蔗生长和压榨预期的直接影响有限。",
+          "sourceName": "泰国气象局",
+          "sourceUrl": "https://www.tmd.go.th/forecast/daily/190720261800",
+          "publishedDateLocal": "2026-07-19",
+          "eventDate": "2026-07-19"
+        },
+        {
+          "news": "延续性影响（7月18日发布）：泰国甘蔗与糖业委员会办公室与泰国工业标准协会试点AI平台，用于天气预测、种植规划、火点监测、生产流程分析和糖消费预测。",
+          "impactType": "中性",
+          "impact": "该平台属于产业效率提升工具，短期不直接改变当期糖产量或出口量。",
+          "sourceName": "Thai Post",
+          "sourceUrl": "https://www.thaipost.net/economy-news/1034553/",
+          "publishedDateLocal": "2026-07-18",
+          "eventDate": "2026-07-19"
+        }
+      ]
+    },
+    {
+      "country": "英国",
+      "items": [
+        {
+          "news": "ICE市场方面，7月19日报道显示原糖期货上涨1.5%至14.66美分/磅，白糖期货上涨1.5%至461.20美元/吨；ICE欧洲8月白糖到期交割量约29.305万吨，主要为泰国白糖。",
+          "impactType": "中性",
+          "impact": "价格反弹但原糖仍低于15美分/磅，暂不足以确认国际糖价进入偏强格局。",
+          "sourceName": "Business Recorder/Reuters",
+          "sourceUrl": "https://www.brecorder.com/news/40430692",
+          "publishedDateLocal": "2026-07-19",
+          "eventDate": "2026-07-19"
+        }
+      ]
+    },
+    {
+      "country": "菲律宾",
+      "items": [
+        {
+          "news": "菲律宾内格罗斯糖业区7月19日警告红条软介壳虫 infestation 加剧，糖业人士呼吁强化病虫害监测和田间防治，以避免甘蔗产量受损。",
+          "impactType": "偏多糖价",
+          "impact": "病虫害若扩散可能削弱菲律宾甘蔗单产和糖产量，对区域供应形成扰动。",
+          "sourceName": "The Philippine Star",
+          "sourceUrl": "https://www.philstar.com/business/2026/07/19/2543022/sugar-capital-sounds-alarm-worsening-pest-infestation",
+          "publishedDateLocal": "2026-07-19",
+          "eventDate": "2026-07-19"
+        }
+      ]
+    },
+    {
+      "country": "巴基斯坦",
+      "items": [
+        {
+          "news": "延续性影响（7月17日发布）：巴基斯坦政府拒绝糖厂协会提出的约60万吨剩余精制糖出口申请，并称将在新榨季开始后再作决定，以优先保障国内供应和价格稳定。",
+          "impactType": "偏空糖价",
+          "impact": "出口申请被拒意味着潜在国际供应释放减少，但主要影响巴基斯坦国内市场，全球影响有限。",
+          "sourceName": "Business Recorder",
+          "sourceUrl": "https://www.brecorder.com/news/40430457",
+          "publishedDateLocal": "2026-07-17",
+          "eventDate": "2026-07-19"
+        }
+      ]
+    }
+  ]
+}

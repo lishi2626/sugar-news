@@ -1,0 +1,127 @@
+name: Sugar News
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Target news date YYYY-MM-DD. Leave blank for Beijing yesterday."
+        required: false
+        type: string
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/sugar-news.yml"
+      - "requirements.txt"
+      - "vercel.json"
+      - "scripts/**"
+      - "public/sugar-news/index.html"
+  schedule:
+    # Beijing 06:00, 06:10 and 06:30. GitHub Actions cron uses UTC.
+    - cron: "0 22 * * *"
+    - cron: "10 22 * * *"
+    - cron: "30 22 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sugar-news-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-sugar-news:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      TZ: Asia/Shanghai
+      SUGAR_NEWS_ROOT: ${{ github.workspace }}
+      SUGAR_NEWS_LOG_DIR: ${{ github.workspace }}/logs/github-actions
+      SUGAR_NEWS_METRIC_REFRESH_TIMEOUT: "90"
+      SUGAR_NEWS_BASE_URL: ${{ vars.SUGAR_NEWS_BASE_URL }}
+      REQUESTED_DATE: ${{ github.event.inputs.date }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install OCR tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tesseract-ocr tesseract-ocr-chi-sim
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Build Sugar News Excel and dashboard data
+        id: build
+        run: |
+          mkdir -p "$SUGAR_NEWS_LOG_DIR"
+          if [ -n "$REQUESTED_DATE" ]; then
+            TARGET_DATE="$REQUESTED_DATE"
+          else
+            TARGET_DATE="$(python scripts/sugar_news_target_date.py)"
+          fi
+          echo "target_date=$TARGET_DATE" >> "$GITHUB_OUTPUT"
+          {
+            echo "run_started_at=$(date -Iseconds)"
+            echo "target_date=$TARGET_DATE"
+            echo "timezone=Asia/Shanghai"
+          } > "$SUGAR_NEWS_LOG_DIR/run.env"
+          python scripts/sugar_news_pipeline.py --date "$TARGET_DATE" --skip-if-success --allow-rss-autogen 2>&1 | tee "$SUGAR_NEWS_LOG_DIR/pipeline.log"
+
+      - name: Verify local dashboard data
+        run: python scripts/verify_sugar_news_dashboard.py --date "${{ steps.build.outputs.target_date }}" 2>&1 | tee "$SUGAR_NEWS_LOG_DIR/local-verify.log"
+
+      - name: Record successful local generation
+        env:
+          TARGET_DATE: ${{ steps.build.outputs.target_date }}
+        run: |
+          python -c "import json, os; from datetime import datetime, timedelta, timezone; data={'targetDate': os.environ['TARGET_DATE'], 'completedAt': datetime.now(timezone(timedelta(hours=8))).isoformat(), 'workflowRunId': os.environ['GITHUB_RUN_ID'], 'workflowRunAttempt': os.environ['GITHUB_RUN_ATTEMPT']}; open('public/sugar-news/data/last-success.json', 'w', encoding='utf-8').write(json.dumps(data, ensure_ascii=False, indent=2) + '\n')"
+
+      - name: Commit and push Sugar News update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/sugar-news data logs reports
+          if git diff --cached --quiet; then
+            echo "No Sugar News changes to commit." | tee "$SUGAR_NEWS_LOG_DIR/git.log"
+          else
+            git commit -m "Update Sugar News ${{ steps.build.outputs.target_date }}" 2>&1 | tee "$SUGAR_NEWS_LOG_DIR/git.log"
+            git push 2>&1 | tee -a "$SUGAR_NEWS_LOG_DIR/git.log"
+          fi
+
+      - name: Deploy to Vercel production
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
+            echo "Vercel secrets are not configured; relying on Git-linked Vercel deployment after git push." | tee "$SUGAR_NEWS_LOG_DIR/vercel-deploy.log"
+            exit 0
+          fi
+          npm --yes exec vercel@latest -- deploy --prod --yes --token "$VERCEL_TOKEN" 2>&1 | tee "$SUGAR_NEWS_LOG_DIR/vercel-deploy.log" || {
+            echo "First Vercel deploy failed; retrying once..." | tee -a "$SUGAR_NEWS_LOG_DIR/vercel-deploy.log"
+            sleep 20
+            npm --yes exec vercel@latest -- deploy --prod --yes --token "$VERCEL_TOKEN" 2>&1 | tee -a "$SUGAR_NEWS_LOG_DIR/vercel-deploy.log"
+          }
+
+      - name: Verify Vercel Sugar News page
+        run: |
+          if [ -z "$SUGAR_NEWS_BASE_URL" ]; then
+            echo "SUGAR_NEWS_BASE_URL repository variable is not configured; skipping production URL verification." | tee "$SUGAR_NEWS_LOG_DIR/online-verify.log"
+            exit 0
+          fi
+          python scripts/sugar_news_online_verify_retry.py --date "${{ steps.build.outputs.target_date }}" --base-url "$SUGAR_NEWS_BASE_URL" 2>&1 | tee "$SUGAR_NEWS_LOG_DIR/online-verify.log"
+
+      - name: Upload Sugar News run logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sugar-news-run-logs-${{ github.run_id }}-${{ github.run_attempt }}
+          path: logs/github-actions/

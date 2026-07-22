@@ -1,0 +1,16 @@
+.git
+.github
+.venv
+__pycache__
+*.pyc
+.env
+.env.local
+.env.*.local
+AGENTS.md
+README.md
+/prompts
+/scripts
+/data
+/logs
+/reports
+/templates

@@ -1,0 +1,155 @@
+{
+  "target_date": "2026-07-20",
+  "run_date": "2026-07-21",
+  "search_tool": "Codex web.run search_query/open",
+  "auto_update_diagnosis": {
+    "expected_run_time": "2026-07-21 06:00 Asia/Shanghai",
+    "expected_target_date": "2026-07-20",
+    "local_verified_json_before_manual_run": false,
+    "local_excel_before_manual_run": false,
+    "local_dashboard_json_before_manual_run": false,
+    "reason": "云端自动流程要求先存在经过发布日期、正文和来源核验的 data/verified_news 清单；2026-07-20 的核验清单未生成，因此流程未发布新一期，以避免用未核验 RSS 结果覆盖上一期正常页面。"
+  },
+  "searches": [
+    {
+      "country": "巴西",
+      "language": "en/pt-BR",
+      "keywords": [
+        "Brazil sugar industry news July 20 2026 sugarcane ethanol",
+        "Brasil açúcar etanol 20 julho 2026 setor sucroenergético",
+        "Adecoagro Caarapo mill acquisition July 20 2026 sugar ethanol Brazil official"
+      ],
+      "retained_count": 1,
+      "retained_links": [
+        "https://www.prnewswire.com/news-releases/adecoagro-to-expand-its-se-cluster-in-mato-grosso-do-sul-via-acquisition-of-caarapo-mill-302829547.html"
+      ]
+    },
+    {
+      "country": "印度",
+      "language": "en/hi",
+      "keywords": [
+        "India sugar industry news 20 July 2026 sugarcane ethanol mills",
+        "20 July 2026 sugar India ethanol",
+        "India sugarcane rainfall July 20 2026",
+        "India sugar belt rainfall forecast July 20 2026",
+        "Uttar Pradesh sugarcane rain forecast July 20 2026",
+        "Maharashtra sugarcane rainfall July 20 2026",
+        "Karnataka sugarcane rainfall July 20 2026",
+        "IMD rainfall forecast sugarcane states July 20 2026",
+        "उत्तर प्रदेश गन्ना बारिश 20 जुलाई 2026",
+        "महाराष्ट्र गन्ना बारिश 20 जुलाई 2026",
+        "कर्नाटक गन्ना बारिश 20 जुलाई 2026",
+        "India ethanol policy July 20 2026",
+        "India ethanol blending July 20 2026",
+        "India E20 petrol July 20 2026",
+        "India E20 ethanol target July 20 2026",
+        "India ethanol above 20 percent July 20 2026",
+        "India molasses ethanol July 20 2026",
+        "India sugar syrup ethanol July 20 2026",
+        "India grain ethanol July 20 2026",
+        "India maize ethanol July 20 2026",
+        "India oil ministry ethanol July 20 2026",
+        "India OMC ethanol tender July 20 2026",
+        "site:reuters.com India E20 July 20 2026",
+        "site:reuters.com India ethanol July 20 2026",
+        "site:reuters.com India molasses July 20 2026"
+      ],
+      "retained_count": 2,
+      "retained_links": [
+        "https://www.chinimandi.com/501-ethanol-suppliers-registered-with-omcs-over-rs-1-72-lakh-crore-spent-in-three-years-government-tells-in-rajya-sabha/",
+        "https://m.economictimes.com/news/new-updates/weather-today-july-20-heavy-rain-expected-for-assam-maharashtra-rajasthan-west-bengal-odisha-kerala-active-showers-likely-in-delhi-ncr/articleshow/132504714.cms"
+      ],
+      "retained_count_after_fix": 4,
+      "retained_links_after_fix": [
+        "https://www.reuters.com/markets/europe/india-says-no-plan-now-raise-ethanol-mix-gasoline-20-2026-07-20/",
+        "https://www.business-standard.com/amp/india-news/sugar-trade-body-calls-shortage-fears-unwarranted-urges-steady-supplies-126072001080_1.html",
+        "https://www.chinimandi.com/501-ethanol-suppliers-registered-with-omcs-over-rs-1-72-lakh-crore-spent-in-three-years-government-tells-in-rajya-sabha/",
+        "https://www.businesstoday.in/amp/india/story/monsoon-intensifies-after-weak-spell-imd-sounds-alert-of-heavy-rainfall-across-india-till-july-26-543979-2026-07-20"
+      ]
+    },
+    {
+      "country": "泰国",
+      "language": "en/th",
+      "keywords": [
+        "Thailand sugar industry news July 20 2026 sugarcane",
+        "ประเทศไทย น้ำตาล อ้อย 20 กรกฎาคม 2569",
+        "Thailand weather sugarcane July 20 2026 TMD northeast central"
+      ],
+      "retained_count": 1,
+      "retained_links": [
+        "https://www.tmd.go.th/en/weather/weatherthailand"
+      ]
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN/en",
+      "keywords": [
+        "中国 糖业 新闻 2026年7月20日 食糖",
+        "中国 白糖 2026年7月20日 郑糖 食糖进口",
+        "郑州 白糖期货 2026年7月20日 糖业 基本面"
+      ],
+      "retained_count": 1,
+      "retained_links": [
+        "https://finance.sina.com.cn/wm/2026-07-20/doc-iniimeaq8080705.shtml"
+      ]
+    },
+    {
+      "country": "其他国家",
+      "language": "en/id",
+      "keywords": [
+        "global sugar industry news July 20 2026",
+        "Indonesia ethanol E20 sugar July 20 2026"
+      ],
+      "retained_count": 1,
+      "retained_links": [
+        "https://en.antaranews.com/news/423297/indonesia-invites-private-firms-to-build-ethanol-plants-for-e20-push"
+      ]
+    }
+  ],
+  "pipeline_counts": {
+    "verified_count": 6,
+    "date_verified_or_continuing_impact": 6,
+    "passed_relevance_filter": 6,
+    "deduplicated_count": 6,
+    "sent_to_excel": 6,
+    "verified_count_after_fix": 8,
+    "india_verified_count_after_fix": 4,
+    "sent_to_excel_after_fix": 8,
+    "excel_actual_count_after_fix": 8,
+    "dashboard_actual_count_after_fix": 8
+  },
+  "india_omission_diagnosis": {
+    "missed_news": "Reuters India E20 above-20 ethanol blend policy, 2026-07-20",
+    "actual_missing_stage": "search_coverage_and_candidate_truncation",
+    "evidence": [
+      "Existing 2026-07-20 search keywords did not include India E20, ethanol above 20 percent, grain ethanol, maize ethanol, oil ministry ethanol, or Reuters site searches.",
+      "The RSS autogeneration path stopped after retained_for_country >= 2, so later high-relevance India themes could be truncated.",
+      "The Excel writer was not the root cause: after verified_news was expanded to 8 items, write_log confirms excel_count=8 and dashboard_count=8."
+    ],
+    "not_root_cause": [
+      "Reuters article date was 2026-07-20 and matched the target date.",
+      "The article is India sugar-relevant through ethanol blending/feedstock substitution even if the title is framed as energy policy.",
+      "No evidence found that Excel dynamic row writing deleted India items after they entered verified_news."
+    ]
+  },
+  "india_search_rules_after_fix": {
+    "required_topics": [
+      "sugar production/stocks/prices/ex-mill/sales quota/shortage",
+      "ethanol policy/blending/E20/above 20 percent",
+      "sugarcane ethanol/molasses ethanol/sugar syrup ethanol",
+      "grain ethanol/maize ethanol/feedstock substitution",
+      "oil ministry and OMC ethanol tender/procurement",
+      "main cane-state rainfall actuals and 7-15 day forecasts",
+      "AISTA/ISMA/NFCSF industry statements"
+    ],
+    "required_reuters_queries": [
+      "site:reuters.com India sugar",
+      "site:reuters.com India ethanol",
+      "site:reuters.com India E20",
+      "site:reuters.com India sugarcane",
+      "site:reuters.com India molasses"
+    ],
+    "indirect_relevance_rule": "India energy-policy stories are sugar candidates when E20/ethanol blending or OMC procurement is linked to sugarcane juice, sugar syrup, molasses, maize, grain, broken rice, or other feedstocks.",
+    "fixed_count_cap_removed": true
+  }
+}
