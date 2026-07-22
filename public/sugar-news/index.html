@@ -576,12 +576,8 @@
     }
 
     function indiaMetricFoot(metric) {
-      const fetched = metric && metric.fetchedAt ? cnTime(metric.fetchedAt) : "数据待更新";
       const parts = [
         `数据日期：${metricDataDate(metric)}`,
-        `上一有效数据日：${metric && metric.previousDataDate ? metric.previousDataDate : "数据不足"}`,
-        `同比基准日期：${metric && metric.previousYearDate ? metric.previousYearDate : "同比数据不足"}`,
-        `抓取：${fetched}`,
       ];
       if (metric && metric.grade) parts.push(`等级：${metric.grade}`);
       if (metric && metric.priceBasis) parts.push(`口径：${metric.priceBasis}`);
