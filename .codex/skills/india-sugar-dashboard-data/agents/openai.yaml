@@ -1,0 +1,7 @@
+interface:
+  display_name: "India Sugar Dashboard Data"
+  short_description: "印度糖价看板固定来源、字段定位与计算规则"
+  default_prompt: "Use $india-sugar-dashboard-data to update or validate the Sugar News 印度糖价 dashboard."
+
+policy:
+  allow_implicit_invocation: true

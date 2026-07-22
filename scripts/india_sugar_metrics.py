@@ -10,7 +10,7 @@ from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from tempfile import NamedTemporaryFile
-from urllib.parse import quote_plus
+from urllib.parse import quote_plus, urlencode
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
@@ -24,8 +24,12 @@ try:
 except Exception:
     SHANGHAI = timezone(timedelta(hours=8), name="Asia/Shanghai")
 
-FCA_URL = "https://fcainfoweb.nic.in/"
 CHINIMANDI_SEARCH = "https://www.chinimandi.com/?s="
+CHINIMANDI_DAILY_MARKET_UPDATE_URL = "https://www.chinimandi.com/english-news/daily-sugar-market-update/"
+CHINIMANDI_WHOLESALE_URL = "https://www.chinimandi.com/wholesale-sugar-prices/"
+CHINIMANDI_RETAIL_URL = "https://www.chinimandi.com/retail-prices/"
+CHINIMANDI_AJAX_URL = "https://www.chinimandi.com/wp-admin/admin-ajax.php"
+CHINIMANDI_CITIES = ("Delhi", "Kanpur", "Raipur", "Mumbai", "Ranchi", "Kolkata", "Guwahati", "Hyderabad", "Chennai")
 INVENTORY_SEARCH_QUERIES = (
     "Department of Food and Public Distribution sugar stock",
     "Department of Food & Public Distribution sugar stock",
@@ -70,6 +74,22 @@ def beijing_now() -> datetime:
 
 def fetch_url(url: str, timeout: int = 25) -> tuple[str, int]:
     req = Request(url, headers={"User-Agent": "Mozilla/5.0 SugarNewsBot/1.0"})
+    with urlopen(req, timeout=timeout) as resp:
+        body = resp.read().decode("utf-8", "ignore")
+        return body, resp.status
+
+
+def post_form(url: str, data: dict, timeout: int = 25) -> tuple[str, int]:
+    encoded = urlencode(data).encode("utf-8")
+    req = Request(
+        url,
+        data=encoded,
+        headers={
+            "User-Agent": "Mozilla/5.0 SugarNewsBot/1.0",
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        },
+        method="POST",
+    )
     with urlopen(req, timeout=timeout) as resp:
         body = resp.read().decode("utf-8", "ignore")
         return body, resp.status
@@ -142,8 +162,6 @@ def percent_change(current: float | None, previous: float | None) -> float | Non
 
 
 def history_indicators(indicator: str) -> set[str]:
-    if indicator in {"india_wholesale_price", "india_retail_price"}:
-        return {indicator, "india_domestic_price"}
     return {indicator}
 
 
@@ -197,89 +215,225 @@ def comparable_yoy_record(history: dict, indicator: str, data_date: str | None, 
     return best
 
 
-def parse_fca_prices(target_date: str, history: dict) -> tuple[list[dict], dict]:
-    log = {"source": "FCA price monitoring", "url": FCA_URL, "requestedAt": beijing_now().isoformat(timespec="seconds")}
+def parse_chinimandi_date(value: str | None) -> str | None:
+    if not value:
+        return None
+    match = re.search(r"(\d{1,2})/(\d{1,2})/(\d{4})", value)
+    if not match:
+        return None
+    day, month, year = map(int, match.groups())
     try:
-        body, status = fetch_url(FCA_URL)
-        log["httpStatus"] = status
-    except Exception as exc:
-        log["error"] = str(exc)
-        return [], log
-    parser = TableParser()
-    parser.feed(body)
-    retail_date = re.search(r"All India Average Retail Price.*?As on\s*<[^>]+>([^<]+)", body, re.I | re.S)
-    wholesale_date = re.search(r"All India Average Wholesale Price.*?As on\s*<[^>]+>([^<]+)", body, re.I | re.S)
-    data_date = None
-    if retail_date:
-        data_date = datetime.strptime(retail_date.group(1).strip(), "%d/%m/%Y").date().isoformat()
-    elif wholesale_date:
-        data_date = datetime.strptime(wholesale_date.group(1).strip(), "%d/%m/%Y").date().isoformat()
+        return datetime(year, month, day).date().isoformat()
+    except ValueError:
+        return None
 
-    retail_price = None
-    wholesale_price = None
-    for table in parser.tables:
-        caption = table.get("caption", "")
-        table_id = table.get("id", "")
-        for row in table.get("rows", []):
-            if len(row) >= 2 and row[0].strip().lower() == "sugar":
-                if "Retail" in caption or "Retail" in table_id:
-                    retail_price = number(row[1])
-                if "Wholesale" in caption or "Wholesale" in table_id:
-                    wholesale_price = number(row[1])
-    if retail_price is None and wholesale_price is None:
-        log["error"] = "Sugar row not found in FCA retail/wholesale tables"
-        return [], log
-    date_value = data_date or target_date
+
+def price_cell_value(value: str | None) -> tuple[float | None, str | None]:
+    if value is None:
+        return None, None
+    raw = re.sub(r"\s+", " ", html.unescape(str(value))).strip()
+    nums = [number(item) for item in re.findall(r"\d[\d,]*(?:\.\d+)?", raw)]
+    nums = [item for item in nums if item is not None]
+    if not nums:
+        return None, raw or None
+    if len(nums) >= 2 and re.search(r"[-–—]", raw):
+        return (nums[0] + nums[1]) / 2, raw
+    return nums[0], raw
+
+
+def parse_supsystic_rows(rows_html: str) -> list[dict]:
     records: list[dict] = []
+    for tr in re.findall(r"<tr\b[^>]*>(.*?)</tr>", rows_html, re.I | re.S):
+        cells = re.findall(r"<td\b[^>]*data-original-value=\"([^\"]*)\"[^>]*>(.*?)</td>", tr, re.I | re.S)
+        if len(cells) < 2:
+            continue
+        raw_values = [html.unescape(cell[0]).strip() for cell in cells]
+        data_date = parse_chinimandi_date(raw_values[0])
+        if not data_date:
+            continue
+        city_prices: dict[str, float] = {}
+        raw_city_prices: dict[str, str] = {}
+        for city, raw in zip(CHINIMANDI_CITIES, raw_values[1:]):
+            price, raw_text = price_cell_value(raw)
+            if price is not None:
+                city_prices[city] = price
+                raw_city_prices[city] = raw_text or str(price)
+        if city_prices:
+            records.append({"data_date": data_date, "city_prices": city_prices, "raw_city_prices": raw_city_prices})
+    return records
 
-    if wholesale_price is not None:
-        previous = latest_record_before(history, "india_wholesale_price", date_value)
-        previous_value = history_value(previous, "india_wholesale_price", "price")
-        yoy = comparable_yoy_record(history, "india_wholesale_price", date_value)
-        yoy_value = history_value(yoy, "india_wholesale_price", "price")
-        records.append({
-            "indicator": "india_wholesale_price",
-            "data_date": date_value,
-            "price_inr_per_quintal": round2(wholesale_price),
-            "price_inr_per_kg": inr_per_quintal_to_kg(wholesale_price),
-            "previous_data_date": previous.get("data_date") if previous else None,
-            "previous_value": round2(previous_value),
-            "change_value": round2(wholesale_price - float(previous_value)) if previous_value is not None else None,
-            "change_percent": round2(percent_change(wholesale_price, float(previous_value))) if previous_value is not None else None,
-            "previous_year_date": yoy.get("data_date") if yoy else None,
-            "previous_year_value": round2(yoy_value),
-            "year_on_year_change": round2(wholesale_price - float(yoy_value)) if yoy_value is not None else None,
-            "year_on_year_change_percent": round2(percent_change(wholesale_price, float(yoy_value))) if yoy_value is not None else None,
-            "source_name": "Department of Consumer Affairs Price Monitoring",
-            "source_url": FCA_URL,
-            "fetched_at": beijing_now().isoformat(timespec="seconds"),
-            "status": "ok",
-        })
 
-    if retail_price is not None:
-        previous = latest_record_before(history, "india_retail_price", date_value)
-        previous_value = history_value(previous, "india_retail_price", "price")
-        yoy = comparable_yoy_record(history, "india_retail_price", date_value)
-        yoy_value = history_value(yoy, "india_retail_price", "price")
-        records.append({
-            "indicator": "india_retail_price",
-            "data_date": date_value,
-            "price_inr_per_kg": round2(retail_price),
-            "previous_data_date": previous.get("data_date") if previous else None,
-            "previous_value": round2(previous_value),
-            "change_value": round2(retail_price - float(previous_value)) if previous_value is not None else None,
-            "change_percent": round2(percent_change(retail_price, float(previous_value))) if previous_value is not None else None,
-            "previous_year_date": yoy.get("data_date") if yoy else None,
-            "previous_year_value": round2(yoy_value),
-            "year_on_year_change": round2(retail_price - float(yoy_value)) if yoy_value is not None else None,
-            "year_on_year_change_percent": round2(percent_change(retail_price, float(yoy_value))) if yoy_value is not None else None,
-            "source_name": "Department of Consumer Affairs Price Monitoring",
-            "source_url": FCA_URL,
-            "fetched_at": beijing_now().isoformat(timespec="seconds"),
-            "status": "ok",
-        })
+def chinimandi_table_request(table_id: int, source_url: str, search: str, log: dict) -> list[dict]:
+    page_cache = log.setdefault("_pageCache", {})
+    if source_url in page_cache:
+        body, status = page_cache[source_url]
+    else:
+        body, status = fetch_url(source_url)
+        page_cache[source_url] = (body, status)
+        log.setdefault("sourcePages", []).append({"url": source_url, "httpStatus": status})
+    nonce_match = re.search(r'DTGS_NONCE_FRONTEND\s*=\s*"([^"]+)"', body)
+    if not nonce_match:
+        raise RuntimeError("ChiniMandi Supsystic nonce not found")
+    ajax_cache = log.setdefault("_ajaxCache", {})
+    cache_key = f"{table_id}:{search}"
+    if cache_key in ajax_cache:
+        return ajax_cache[cache_key]
+    request_body = {
+        "action": "supsystic-tables",
+        "route[action]": "getPageRows",
+        "route[module]": "tables",
+        "route[nonce]": nonce_match.group(1),
+        "id": str(table_id),
+        "searchParams[columnSearchPosition]": "bottom",
+        "searchParams[minChars]": "0",
+        "searchValue": search,
+        "header": "1",
+        "footer": "0",
+        "draw": "1",
+        "order[0][column]": "0",
+        "order[0][dir]": "desc",
+        "start": "0",
+        "length": "120",
+        "search[value]": search,
+        "search[regex]": "false",
+    }
+    for idx in range(10):
+        request_body[f"columns[{idx}][data]"] = str(idx)
+        request_body[f"columns[{idx}][name]"] = ""
+        request_body[f"columns[{idx}][searchable]"] = "true"
+        request_body[f"columns[{idx}][orderable]"] = "true"
+        request_body[f"columns[{idx}][search][value]"] = ""
+        request_body[f"columns[{idx}][search][regex]"] = "false"
+    response_body, ajax_status = post_form(CHINIMANDI_AJAX_URL, request_body)
+    payload = json.loads(response_body)
+    log.setdefault("ajaxRequests", []).append({
+        "url": CHINIMANDI_AJAX_URL,
+        "tableId": table_id,
+        "search": search,
+        "httpStatus": ajax_status,
+        "recordsFiltered": payload.get("recordsFiltered"),
+    })
+    rows = parse_supsystic_rows(payload.get("rows", ""))
+    ajax_cache[cache_key] = rows
+    return rows
 
-    log.update({"parsed": True, "dataDate": date_value, "retailPrice": retail_price, "wholesalePrice": wholesale_price})
+
+def month_searches(start_date: datetime.date, months_back: int) -> list[str]:
+    searches = []
+    year = start_date.year
+    month = start_date.month
+    for _ in range(months_back):
+        searches.append(f"{month:02d}/{year}")
+        month -= 1
+        if month == 0:
+            month = 12
+            year -= 1
+    return searches
+
+
+def collect_chinimandi_rows(table_id: int, source_url: str, anchor_date: str, months_back: int, log: dict) -> list[dict]:
+    anchor = datetime.fromisoformat(anchor_date).date()
+    rows_by_date: dict[str, dict] = {}
+    for search in month_searches(anchor, months_back):
+        for row in chinimandi_table_request(table_id, source_url, search, log):
+            rows_by_date[row["data_date"]] = row
+    return sorted(rows_by_date.values(), key=lambda row: row["data_date"], reverse=True)
+
+
+def row_on_or_before(rows: list[dict], date_text: str, strict: bool = False) -> dict | None:
+    candidates = [row for row in rows if row["data_date"] < date_text] if strict else [row for row in rows if row["data_date"] <= date_text]
+    candidates.sort(key=lambda row: row["data_date"], reverse=True)
+    return candidates[0] if candidates else None
+
+
+def average_for_common_cities(rows: list[dict]) -> tuple[float | None, list[str]]:
+    valid_rows = [row for row in rows if row]
+    if not valid_rows:
+        return None, []
+    common = set(valid_rows[0]["city_prices"])
+    for row in valid_rows[1:]:
+        common &= set(row["city_prices"])
+    cities = [city for city in CHINIMANDI_CITIES if city in common]
+    if not cities:
+        return None, []
+    value = sum(valid_rows[0]["city_prices"][city] for city in cities) / len(cities)
+    return value, cities
+
+
+def build_chinimandi_domestic_record(config: dict, target_date: str, log: dict) -> dict | None:
+    rows = collect_chinimandi_rows(config["table_id"], config["source_url"], target_date, 3, log)
+    current = row_on_or_before(rows, target_date)
+    if not current:
+        return None
+    if current["data_date"] == target_date:
+        previous_rows = rows
+    else:
+        previous_rows = collect_chinimandi_rows(config["table_id"], config["source_url"], current["data_date"], 3, log)
+    previous = row_on_or_before(previous_rows, current["data_date"], strict=True)
+    yoy_target = datetime.fromisoformat(current["data_date"]).date().replace(year=int(current["data_date"][:4]) - 1).isoformat()
+    yoy_rows = collect_chinimandi_rows(config["table_id"], config["source_url"], yoy_target, 2, log)
+    yoy = row_on_or_before(yoy_rows, yoy_target)
+    comparison_rows = [current]
+    if previous:
+        comparison_rows.append(previous)
+    if yoy:
+        comparison_rows.append(yoy)
+    current_value, cities = average_for_common_cities(comparison_rows)
+    if current_value is None:
+        return None
+    previous_value = sum(previous["city_prices"][city] for city in cities) / len(cities) if previous else None
+    yoy_value = sum(yoy["city_prices"][city] for city in cities) / len(cities) if yoy else None
+    record = {
+        "indicator": config["indicator"],
+        "data_date": current["data_date"],
+        "price_basis": "ChiniMandi城市样本均价，含GST",
+        "grade": "M-30；Hyderabad为S-30",
+        "includes_gst": True,
+        "cities_used": cities,
+        "city_count": len(cities),
+        "city_prices": {city: round2(current["city_prices"][city]) for city in cities},
+        "raw_city_prices": {city: current["raw_city_prices"].get(city) for city in cities},
+        "unit": config["unit"],
+        "previous_data_date": previous.get("data_date") if previous else None,
+        "previous_value": round2(previous_value),
+        "change_value": round2(current_value - previous_value) if previous_value is not None else None,
+        "change_percent": round2(percent_change(current_value, previous_value)),
+        "previous_year_date": yoy.get("data_date") if yoy else None,
+        "previous_year_value": round2(yoy_value),
+        "year_on_year_change": round2(current_value - yoy_value) if yoy_value is not None else None,
+        "year_on_year_change_percent": round2(percent_change(current_value, yoy_value)),
+        "source_name": "ChiniMandi",
+        "source_url": config["source_url"],
+        "daily_market_update_url": CHINIMANDI_DAILY_MARKET_UPDATE_URL,
+        "fetched_at": beijing_now().isoformat(timespec="seconds"),
+        "status": "ok",
+    }
+    if config["indicator"] == "india_wholesale_price":
+        record["price_inr_per_quintal"] = round2(current_value)
+        record["price_inr_per_kg"] = inr_per_quintal_to_kg(current_value)
+    else:
+        record["price_inr_per_kg"] = round2(current_value)
+    return record
+
+
+def parse_chinimandi_domestic_prices(target_date: str, history: dict) -> tuple[list[dict], dict]:
+    log = {"source": "ChiniMandi domestic price tables", "requestedAt": beijing_now().isoformat(timespec="seconds")}
+    records: list[dict] = []
+    configs = (
+        {"indicator": "india_wholesale_price", "table_id": 6, "source_url": CHINIMANDI_WHOLESALE_URL, "unit": "卢比/公担"},
+        {"indicator": "india_retail_price", "table_id": 7, "source_url": CHINIMANDI_RETAIL_URL, "unit": "卢比/公斤"},
+    )
+    for config in configs:
+        try:
+            record = build_chinimandi_domestic_record(config, target_date, log)
+            if record:
+                records.append(record)
+        except Exception as exc:
+            log.setdefault("errors", []).append({"indicator": config["indicator"], "error": str(exc), "sourceUrl": config["source_url"]})
+    log["parsed"] = bool(records)
+    log["recordCount"] = len(records)
+    log.pop("_pageCache", None)
+    log.pop("_ajaxCache", None)
     return records, log
 
 
@@ -300,6 +454,11 @@ def chinimandi_candidate_urls(target_date: str) -> list[str]:
     return urls
 
 
+def chinimandi_daily_update_url(date_text: str) -> str:
+    dt = datetime.strptime(date_text, "%Y-%m-%d")
+    return f"https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-{dt.strftime('%d-%m-%Y')}/"
+
+
 def parse_price_range(text: str) -> tuple[float | None, float | None]:
     cleaned = html.unescape(text).replace("₹", "").replace("Rs.", "").replace("Rs", "")
     nums = [number(x) for x in re.findall(r"\d[\d,]*(?:\.\d+)?", cleaned)]
@@ -311,84 +470,156 @@ def parse_price_range(text: str) -> tuple[float | None, float | None]:
     return nums[0], nums[1]
 
 
+def parse_chinimandi_exmill_date(body: str) -> str | None:
+    match = re.search(r"Ex-mill Sugar Prices as on\s*([A-Za-z]+),?\s*(\d{1,2})\s+(\d{4})", body, re.I)
+    if not match:
+        return None
+    month, day, year = match.groups()
+    try:
+        return datetime.strptime(f"{month} {day} {year}", "%B %d %Y").date().isoformat()
+    except ValueError:
+        return None
+
+
+def parse_up_exmill_article(date_text: str) -> tuple[dict | None, dict]:
+    url = chinimandi_daily_update_url(date_text)
+    log = {
+        "source": "ChiniMandi — Daily Sugar Market Update",
+        "url": url,
+        "requestedAt": beijing_now().isoformat(timespec="seconds"),
+    }
+    try:
+        body, status = fetch_url(url)
+        log["httpStatus"] = status
+    except Exception as exc:
+        log["error"] = str(exc)
+        return None, log
+    if "Daily Sugar Market Update By Vizzie" not in body:
+        log["parsed"] = False
+        log["reason"] = "not a Daily Sugar Market Update By Vizzie report"
+        return None, log
+    if "Morning Market Update" in re.sub(r"Daily Sugar Market Update By Vizzie", "", body, flags=re.I) and "Ex-mill Sugar Prices" not in body:
+        log["parsed"] = False
+        log["reason"] = "not a formal daily close ex-mill report"
+        return None, log
+    data_date = parse_chinimandi_exmill_date(body)
+    if not data_date:
+        log["parsed"] = False
+        log["reason"] = "Ex-mill Sugar Prices date not found"
+        return None, log
+    parser = TableParser()
+    parser.feed(body)
+    for table in parser.tables:
+        rows = table.get("rows", [])
+        if not rows or not any("Ex-mill Sugar Prices" in row_text for row in rows for row_text in row):
+            # The ChiniMandi HTML table has no caption; identify by the header.
+            header = rows[0] if rows else []
+            if not (len(header) >= 3 and "State" in header[0] and "S/30" in header[1] and "M/30" in header[2]):
+                continue
+        for row in rows:
+            if not row or row[0].strip().lower() != "uttar pradesh":
+                continue
+            m30_cell = row[2] if len(row) >= 3 else ""
+            low, high = parse_price_range(m30_cell)
+            if low is None or high is None:
+                log["parsed"] = False
+                log["reason"] = "Uttar Pradesh M/30 price missing"
+                return None, log
+            midpoint = (low + high) / 2
+            raw_range = html.unescape(m30_cell).strip()
+            record = {
+                "indicator": "up_ex_mill_price",
+                "display_range": f"₹{low:,.0f}—₹{high:,.0f}/公担",
+                "raw_range": raw_range,
+                "low": round2(low),
+                "high": round2(high),
+                "midpoint": round2(midpoint),
+                "currency": "INR",
+                "unit": "卢比/公担",
+                "raw_unit": "₹/quintal",
+                "data_date": data_date,
+                "grade": "M/30",
+                "region": "Uttar Pradesh",
+                "quote_type": "ex-mill",
+                "includes_gst": False,
+                "gst_status": "excluding GST",
+                "up_ex_mill_min_inr_per_quintal": round2(low),
+                "up_ex_mill_max_inr_per_quintal": round2(high),
+                "up_ex_mill_mid_inr_per_quintal": round2(midpoint),
+                "up_ex_mill_min_inr_per_kg": inr_per_quintal_to_kg(low),
+                "up_ex_mill_max_inr_per_kg": inr_per_quintal_to_kg(high),
+                "up_ex_mill_mid_inr_per_kg": inr_per_quintal_to_kg(midpoint),
+                "source_name": "ChiniMandi — Daily Sugar Market Update",
+                "source_url": url,
+                "fetched_at": beijing_now().isoformat(timespec="seconds"),
+                "status": "ok",
+            }
+            log.update({"parsed": True, "dataDate": data_date, "min": low, "max": high, "rawRange": raw_range})
+            return record, log
+    log["parsed"] = False
+    log["reason"] = "Ex-mill Sugar Prices Uttar Pradesh M/30 row not parsed"
+    return None, log
+
+
+def find_up_exmill_on_or_before(anchor_date: str, logs: list[dict], strict: bool = False, max_days: int = 21) -> dict | None:
+    dt = datetime.strptime(anchor_date, "%Y-%m-%d").date()
+    if strict:
+        dt -= timedelta(days=1)
+    for offset in range(max_days):
+        date_text = (dt - timedelta(days=offset)).isoformat()
+        record, log = parse_up_exmill_article(date_text)
+        logs.append(log)
+        if record:
+            return record
+    return None
+
+
 def parse_chinimandi_up_exmill(target_date: str, history: dict) -> tuple[dict | None, list[dict]]:
     logs = []
-    for url in chinimandi_candidate_urls(target_date):
-        log = {"source": "ChiniMandi", "url": url, "requestedAt": beijing_now().isoformat(timespec="seconds")}
-        try:
-            body, status = fetch_url(url)
-            log["httpStatus"] = status
-        except Exception as exc:
-            log["error"] = str(exc)
-            logs.append(log)
-            continue
-        if "Ex-mill Sugar Prices" not in body or "Uttar Pradesh" not in body:
-            log["parsed"] = False
-            log["reason"] = "ex-mill Uttar Pradesh table not found"
-            logs.append(log)
-            continue
-        date_match = re.search(r"Ex-mill Sugar Prices as on\s+([A-Za-z]+),?\s*(\d{1,2})\s+(\d{4})", body, re.I)
-        data_date = target_date
-        if date_match:
-            data_date = datetime.strptime(" ".join(date_match.groups()), "%B %d %Y").date().isoformat()
-        parser = TableParser()
-        parser.feed(body)
-        for table in parser.tables:
-            rows = table.get("rows", [])
-            for row in rows:
-                if row and row[0].strip().lower() == "uttar pradesh":
-                    m30_cell = row[2] if len(row) >= 3 else row[-1]
-                    low, high = parse_price_range(m30_cell)
-                    if low is None:
-                        continue
-                    previous = latest_record(history, "up_ex_mill_price", exclude_date=data_date)
-                    prev_min = previous.get("up_ex_mill_min_inr_per_quintal") if previous else None
-                    prev_max = previous.get("up_ex_mill_max_inr_per_quintal") if previous else None
-                    midpoint = (low + high) / 2
-                    prev_midpoint = (float(prev_min) + float(prev_max)) / 2 if prev_min is not None and prev_max is not None else None
-                    change_value = midpoint - prev_midpoint if prev_midpoint is not None else None
-                    yoy = comparable_yoy_record(history, "up_ex_mill_price", data_date)
-                    yoy_low = yoy.get("up_ex_mill_min_inr_per_quintal") if yoy else None
-                    yoy_high = yoy.get("up_ex_mill_max_inr_per_quintal") if yoy else None
-                    yoy_midpoint = (float(yoy_low) + float(yoy_high)) / 2 if yoy_low is not None and yoy_high is not None else None
-                    record = {
-                        "indicator": "up_ex_mill_price",
-                        "data_date": data_date,
-                        "grade": "M/30",
-                        "region": "Uttar Pradesh",
-                        "quote_type": "ex-mill",
-                        "up_ex_mill_min_inr_per_quintal": round2(low),
-                        "up_ex_mill_max_inr_per_quintal": round2(high),
-                        "up_ex_mill_mid_inr_per_quintal": round2(midpoint),
-                        "up_ex_mill_min_inr_per_kg": inr_per_quintal_to_kg(low),
-                        "up_ex_mill_max_inr_per_kg": inr_per_quintal_to_kg(high),
-                        "up_ex_mill_mid_inr_per_kg": inr_per_quintal_to_kg(midpoint),
-                        "previous_data_date": previous.get("data_date") if previous else None,
-                        "previous_min": round2(prev_min),
-                        "previous_max": round2(prev_max),
-                        "previous_mid": round2(prev_midpoint),
-                        "change_value": round2(change_value),
-                        "change_percent": round2(percent_change(midpoint, prev_midpoint)),
-                        "previous_year_date": yoy.get("data_date") if yoy else None,
-                        "previous_year_min": round2(yoy_low),
-                        "previous_year_max": round2(yoy_high),
-                        "previous_year_mid": round2(yoy_midpoint),
-                        "year_on_year_change": round2(midpoint - yoy_midpoint) if yoy_midpoint is not None else None,
-                        "year_on_year_change_percent": round2(percent_change(midpoint, yoy_midpoint)),
-                        "change_direction": "up" if change_value and change_value > 0 else "down" if change_value and change_value < 0 else "flat" if change_value == 0 else "unknown",
-                        "gst_status": "excluding GST" if re.search(r"excluding GST", body, re.I) else "unknown",
-                        "source_name": "ChiniMandi",
-                        "source_url": url,
-                        "fetched_at": beijing_now().isoformat(timespec="seconds"),
-                        "status": "ok",
-                    }
-                    log.update({"parsed": True, "dataDate": data_date, "min": low, "max": high})
-                    logs.append(log)
-                    return record, logs
-        log["parsed"] = False
-        log["reason"] = "Uttar Pradesh row not parsed"
-        logs.append(log)
-    return None, logs
+    current = find_up_exmill_on_or_before(target_date, logs)
+    if not current:
+        return None, logs
+    previous = find_up_exmill_on_or_before(current["data_date"], logs, strict=True)
+    current_mid = current.get("midpoint")
+    previous_mid = previous.get("midpoint") if previous else None
+    change_value = float(current_mid) - float(previous_mid) if current_mid is not None and previous_mid is not None else None
+    try:
+        yoy_target = datetime.fromisoformat(current["data_date"]).date().replace(year=int(current["data_date"][:4]) - 1).isoformat()
+    except ValueError:
+        yoy_target = (datetime.fromisoformat(current["data_date"]).date() - timedelta(days=365)).isoformat()
+    yoy = find_up_exmill_on_or_before(yoy_target, logs, max_days=31)
+    yoy_mid = yoy.get("midpoint") if yoy else None
+    current.update({
+        "daily_change_absolute": round2(change_value),
+        "daily_change_percent": round2(percent_change(current_mid, previous_mid)),
+        "previous_date": previous.get("data_date") if previous else None,
+        "previous_data_date": previous.get("data_date") if previous else None,
+        "previous_low": previous.get("low") if previous else None,
+        "previous_high": previous.get("high") if previous else None,
+        "previous_midpoint": previous_mid,
+        "previous_min": previous.get("low") if previous else None,
+        "previous_max": previous.get("high") if previous else None,
+        "previous_mid": previous_mid,
+        "previous_source_url": previous.get("source_url") if previous else None,
+        "yoy_change_absolute": round2(float(current_mid) - float(yoy_mid)) if current_mid is not None and yoy_mid is not None else None,
+        "yoy_change_percent": round2(percent_change(current_mid, yoy_mid)),
+        "yoy_comparison_date": yoy.get("data_date") if yoy else None,
+        "previous_year_date": yoy.get("data_date") if yoy else None,
+        "yoy_low": yoy.get("low") if yoy else None,
+        "yoy_high": yoy.get("high") if yoy else None,
+        "yoy_midpoint": yoy_mid,
+        "previous_year_min": yoy.get("low") if yoy else None,
+        "previous_year_max": yoy.get("high") if yoy else None,
+        "previous_year_mid": yoy_mid,
+        "yoy_source_url": yoy.get("source_url") if yoy else None,
+        "yoy_exact_date_match": bool(yoy and yoy.get("data_date") == yoy_target),
+        "year_on_year_change": round2(float(current_mid) - float(yoy_mid)) if current_mid is not None and yoy_mid is not None else None,
+        "year_on_year_change_percent": round2(percent_change(current_mid, yoy_mid)),
+        "change_value": round2(change_value),
+        "change_percent": round2(percent_change(current_mid, previous_mid)),
+        "change_direction": "up" if change_value and change_value > 0 else "down" if change_value and change_value < 0 else "flat" if change_value == 0 else "unknown",
+    })
+    return current, logs
 
 
 def google_news_rss(query: str) -> str:
@@ -503,9 +734,9 @@ def collect(target_date: str) -> dict:
     history = load_history()
     logs: list[dict] = []
     records: list[dict] = []
-    fca_records, log = parse_fca_prices(target_date, history)
+    domestic_records, log = parse_chinimandi_domestic_prices(target_date, history)
     logs.append(log)
-    records.extend(fca_records)
+    records.extend(domestic_records)
     up_ex, up_logs = parse_chinimandi_up_exmill(target_date, history)
     logs.extend(up_logs)
     if up_ex:

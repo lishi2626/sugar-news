@@ -90,17 +90,42 @@ def verify_payload(payload: dict, expected_date: str) -> dict:
     india_metrics = payload.get("indiaMetrics")
     if not isinstance(india_metrics, dict):
         raise AssertionError("Dashboard payload missing indiaMetrics")
-    for field in ("domesticSugarPrice", "upExMillPrice", "carryoverStock"):
+    for field in ("domesticWholesalePrice", "domesticRetailPrice", "upExMillPrice"):
         metric = india_metrics.get(field)
         if not isinstance(metric, dict):
             raise AssertionError(f"indiaMetrics missing {field}")
         if metric.get("status") not in {"ok", "pending", "stale"}:
             raise AssertionError(f"Invalid {field} status: {metric.get('status')}")
         if metric.get("status") == "ok":
-            if field == "carryoverStock" and metric.get("stockWanTonnes") is None:
-                raise AssertionError("carryoverStock requires stockWanTonnes")
-            if field != "carryoverStock" and metric.get("priceInrPerQuintal") is None and not metric.get("rangeInrPerQuintal"):
+            if metric.get("priceInrPerQuintal") is None and metric.get("priceInrPerKg") is None and not metric.get("rangeInrPerQuintal"):
                 raise AssertionError(f"{field} requires price or range")
+            if metric.get("previousDataDate") is None:
+                raise AssertionError(f"{field} requires previousDataDate")
+            if metric.get("changePct") is None:
+                raise AssertionError(f"{field} requires changePct")
+            if field in {"domesticWholesalePrice", "domesticRetailPrice"}:
+                expected_url = "https://www.chinimandi.com/wholesale-sugar-prices/" if field == "domesticWholesalePrice" else "https://www.chinimandi.com/retail-prices/"
+                if metric.get("sourceName") != "ChiniMandi":
+                    raise AssertionError(f"{field} must use ChiniMandi")
+                if metric.get("sourceUrl") != expected_url:
+                    raise AssertionError(f"{field} sourceUrl mismatch: {metric.get('sourceUrl')}")
+                if metric.get("includesGst") is not True:
+                    raise AssertionError(f"{field} must mark includesGst true")
+                if not metric.get("citiesUsed") or not metric.get("cityCount"):
+                    raise AssertionError(f"{field} requires citiesUsed and cityCount")
+            if field == "upExMillPrice":
+                if metric.get("sourceName") != "ChiniMandi — Daily Sugar Market Update":
+                    raise AssertionError("upExMillPrice must use ChiniMandi Daily Sugar Market Update")
+                if metric.get("market") != "Uttar Pradesh":
+                    raise AssertionError("upExMillPrice market must be Uttar Pradesh, not destination spot prices")
+                if metric.get("grade") != "M/30":
+                    raise AssertionError("upExMillPrice grade must be M/30")
+                if metric.get("includesGst") is not False:
+                    raise AssertionError("upExMillPrice must be excluding GST")
+                if not metric.get("sourceUrl") or "daily-sugar-market-update-by-vizzie" not in metric.get("sourceUrl"):
+                    raise AssertionError("upExMillPrice requires original Daily Sugar Market Update sourceUrl")
+                if not metric.get("previousSourceUrl") or not metric.get("yoySourceUrl"):
+                    raise AssertionError("upExMillPrice requires previous and yoy source links")
     return {"newsDate": expected_date, "countryCount": len(countries), "itemCount": count}
 
 

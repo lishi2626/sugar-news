@@ -105,11 +105,21 @@ def test_excel_dashboard_consistency() -> None:
 def test_india_metrics_price_changes_and_stock_source_rules() -> None:
     report = read_json(PROJECT_ROOT / "public" / "sugar-news" / "data" / "reports" / "2026" / "07" / f"{TARGET_DATE}.json")
     metrics = report["indiaMetrics"]
+    expected_chinimandi_urls = {
+        "domesticWholesalePrice": "https://www.chinimandi.com/wholesale-sugar-prices/",
+        "domesticRetailPrice": "https://www.chinimandi.com/retail-prices/",
+    }
     for field in ("domesticWholesalePrice", "domesticRetailPrice", "upExMillPrice"):
         metric = metrics[field]
         assert metric["status"] == "ok"
         assert metric["previousDataDate"]
         assert metric["changePct"] is not None
+        if field in expected_chinimandi_urls:
+            assert metric["sourceName"] == "ChiniMandi"
+            assert metric["sourceUrl"] == expected_chinimandi_urls[field]
+            assert metric["includesGst"] is True
+            assert metric["citiesUsed"]
+            assert metric["cityCount"] == len(metric["citiesUsed"])
         if field == "domesticRetailPrice":
             assert metric["changeInrPerKg"] is not None
         else:
@@ -118,6 +128,13 @@ def test_india_metrics_price_changes_and_stock_source_rules() -> None:
             low = metric["rangeInrPerQuintal"]["low"]
             high = metric["rangeInrPerQuintal"]["high"]
             assert metric["midpointInrPerQuintal"] == (low + high) / 2
+            assert metric["sourceName"] == "ChiniMandi — Daily Sugar Market Update"
+            assert metric["market"] == "Uttar Pradesh"
+            assert metric["grade"] == "M/30"
+            assert metric["includesGst"] is False
+            assert "daily-sugar-market-update-by-vizzie" in metric["sourceUrl"]
+            assert metric["previousSourceUrl"]
+            assert metric["yoySourceUrl"]
 
     stock = metrics["carryoverStock"]
     if stock["status"] == "ok":

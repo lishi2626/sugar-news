@@ -1,0 +1,7 @@
+interface:
+  display_name: "Brazil Sugar Dashboard Data"
+  short_description: "巴西糖价库存看板固定来源与计算规则"
+  default_prompt: "Use $brazil-sugar-dashboard-data to update or validate the Sugar News 巴西糖价与库存 dashboard."
+
+policy:
+  allow_implicit_invocation: true

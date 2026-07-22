@@ -460,99 +460,6 @@
       return `${number > 0 ? "+" : ""}${value}${suffix}`;
     }
 
-    function directionClass(metric) {
-      return metric && metric.direction ? metric.direction : "unknown";
-    }
-
-    function priceDisplay(metric) {
-      if (!metric || metric.status !== "ok") return "数据待更新";
-      if (metric.rangeInrPerQuintal) {
-        const low = metric.rangeInrPerQuintal.low;
-        const high = metric.rangeInrPerQuintal.high;
-        const mid = metric.midpointInrPerQuintal ? `；中值${valueText(metric.midpointInrPerQuintal)} ₹/公担` : "";
-        return `${valueText(low)}-${valueText(high)} ₹/公担${mid}`;
-      }
-      if (metric.priceInrPerQuintal !== null && metric.priceInrPerQuintal !== undefined) {
-        return `${valueText(metric.priceInrPerQuintal)} ₹/公担`;
-      }
-      return `${valueText(metric.priceInrPerKg)} ₹/kg`;
-    }
-
-    function retailDisplay(metric) {
-      if (!metric || metric.status !== "ok" || metric.priceInrPerKg === null || metric.priceInrPerKg === undefined) return "数据待更新";
-      return `${valueText(metric.priceInrPerKg)} ₹/kg`;
-    }
-
-    function priceSub(metric) {
-      if (!metric || metric.status !== "ok") return metric && metric.note ? metric.note : "等待完成日期、口径和来源核验。";
-      const kgText = metric.rangeInrPerKg
-        ? `${valueText(metric.rangeInrPerKg.low)}-${valueText(metric.rangeInrPerKg.high)} ₹/kg`
-        : `${valueText(metric.priceInrPerKg)} ₹/kg`;
-      const useKgChange = metric.metricType === "domesticRetailPrice";
-      const changeUnit = useKgChange ? " ₹/kg" : " ₹/公担";
-      const changeValue = useKgChange ? metric.changeInrPerKg : metric.changeInrPerQuintal;
-      const yoyValue = useKgChange ? metric.yearOnYearChangeInrPerKg : metric.yearOnYearChangeInrPerQuintal;
-      const change = changeValue === null || changeValue === undefined
-        ? "涨跌待更新"
-        : `${changeArrow(changeValue)}${signedText(changeValue, changeUnit)}（${pctText(metric.changePct)}），对比${metric.previousDataDate || "上一有效日待更新"}`;
-      const yoy = yoyValue === null || yoyValue === undefined
-        ? "同比数据不足"
-        : `${changeArrow(yoyValue)}${signedText(yoyValue, changeUnit)}（${pctText(metric.yearOnYearChangePct)}），对比${metric.previousYearDate || "同比基准待更新"}`;
-      const gst = metric.gstStatus ? `；GST：${metric.gstStatus}` : "";
-      return `${kgText}${gst}\n日涨跌：${change}\n同比：${yoy}`;
-    }
-
-    function stockDisplay(metric) {
-      if (!metric || metric.status !== "ok") return "数据待更新";
-      return `${valueText(metric.stockWanTonnes, "万吨")}`;
-    }
-
-    function stockSub(metric) {
-      if (!metric || metric.status !== "ok") return metric && metric.note ? metric.note : "等待新的官方、协会或可信机构库存数据。";
-      const revision = metric.revisionWanTonnes === null || metric.revisionWanTonnes === undefined
-        ? "预测调整待更新"
-        : `预测调整${changeArrow(metric.revisionWanTonnes)}${signedText(metric.revisionWanTonnes, "万吨")}（${pctText(metric.forecastRevisionPercent)}）`;
-      const yoy = metric.yoyChangeWanTonnes === null || metric.yoyChangeWanTonnes === undefined
-        ? "同比变化待更新"
-        : `同比${changeArrow(metric.yoyChangeWanTonnes)}${signedText(metric.yoyChangeWanTonnes, "万吨")}（${pctText(metric.yearOnYearChangePercent)}）`;
-      const months = metric.consumptionMonths ? `；约${metric.consumptionMonths}个月消费量` : "";
-      return `主值来源：${metric.organization || metric.sourceName || "权威来源待更新"}；榨季：${metric.season || "待更新"}\n${revision}\n${yoy}${months}`;
-    }
-
-    function forecastDisplay(metrics) {
-      const forecasts = metrics && metrics.carryoverStockForecasts ? metrics.carryoverStockForecasts : [];
-      if (!forecasts.length) return "数据待更新";
-      return `${forecasts.length}家机构`;
-    }
-
-    function forecastSub(metrics) {
-      const forecasts = metrics && metrics.carryoverStockForecasts ? metrics.carryoverStockForecasts : [];
-      if (!forecasts.length) return "等待明确榨季和结转库存口径的新预测。";
-      return forecasts.slice(0, 3).map(item => {
-        const diff = item.differenceToMainWanTonnes === null || item.differenceToMainWanTonnes === undefined
-          ? "差值待更新"
-          : `较主值${signedText(item.differenceToMainWanTonnes, "万吨")}`;
-        return `${item.organization || "市场机构"}：${item.stockWanTonnes || "待更新"}万吨，${diff}，${item.forecastDate || "发布日期待更新"}`;
-      }).join("；");
-    }
-
-    function appendMetricSource(container, label, metric) {
-      const item = document.createElement("span");
-      const date = metric && (metric.priceDate || metric.dataDate || metric.publishedDate);
-      if (metric && metric.sourceUrl && metric.sourceName) {
-        const link = document.createElement("a");
-        link.href = metric.sourceUrl;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.textContent = `${label}：${metric.sourceName}`;
-        item.appendChild(link);
-      } else {
-        item.textContent = `${label}：数据待更新`;
-      }
-      if (date) item.append(`（${date}）`);
-      container.appendChild(item);
-    }
-
     function isBrazilCountry(name) {
       return name === "巴西" || name === "\uFFFD\uFFFD\uFFFD\uFFFD";
     }
@@ -569,6 +476,7 @@
     }
 
     function changeClass(value) {
+      if (value === null || value === undefined || value === "") return "na";
       const number = Number(value);
       if (!Number.isFinite(number)) return "na";
       if (number > 0) return "up";
@@ -577,6 +485,7 @@
     }
 
     function changeArrow(value) {
+      if (value === null || value === undefined || value === "") return "";
       const number = Number(value);
       if (!Number.isFinite(number)) return "";
       if (number > 0) return "▲ ";
@@ -620,6 +529,64 @@
       return keepSign ? signedFixed(raw, digits, ` ${unit}`) : plainFixed(raw, digits, ` ${unit}`);
     }
 
+    function trimmedFixed(value, maxDigits = 2, unit = "") {
+      if (value === null || value === undefined || value === "") return "数据待更新";
+      const number = Number(value);
+      if (!Number.isFinite(number)) return String(value);
+      return `${number.toLocaleString("zh-CN", { minimumFractionDigits: 0, maximumFractionDigits: maxDigits })}${unit}`;
+    }
+
+    function indiaWholesaleValue(metric) {
+      if (!metric || metric.status !== "ok") return metric && metric.statusText ? metric.statusText : "数据待更新";
+      const unit = metric.unit || "卢比/公担";
+      const quintal = plainFixed(metric.priceInrPerQuintal, 2, ` ${unit}`);
+      const kg = metric.priceInrPerKg === null || metric.priceInrPerKg === undefined ? "" : `（${plainFixed(metric.priceInrPerKg, 2, " 卢比/公斤")}）`;
+      return `${quintal}${kg}`;
+    }
+
+    function indiaRetailValue(metric) {
+      if (!metric || metric.status !== "ok") return metric && metric.statusText ? metric.statusText : "数据待更新";
+      const unit = metric.unit || "卢比/公斤";
+      return plainFixed(metric.priceInrPerKg, 2, ` ${unit}`);
+    }
+
+    function indiaUpExMillValue(metric) {
+      if (!metric || metric.status !== "ok") return metric && metric.statusText ? metric.statusText : "数据待更新";
+      const range = metric.rangeInrPerQuintal || {};
+      const low = trimmedFixed(range.low, 2);
+      const high = trimmedFixed(range.high, 2);
+      const midpoint = trimmedFixed(metric.midpointInrPerQuintal, 2, " 卢比/公担");
+      return `₹${low}—${high}/公担；区间中值 ${midpoint}`;
+    }
+
+    function metricDataDate(metric) {
+      return metric && (metric.dataDate || metric.priceDate || metric.publishedDate) ? (metric.dataDate || metric.priceDate || metric.publishedDate) : "数据待更新";
+    }
+
+    function indiaMetricFoot(metric) {
+      const fetched = metric && metric.fetchedAt ? cnTime(metric.fetchedAt) : "数据待更新";
+      const parts = [
+        `数据日期：${metricDataDate(metric)}`,
+        `上一有效数据日：${metric && metric.previousDataDate ? metric.previousDataDate : "数据不足"}`,
+        `同比基准日期：${metric && metric.previousYearDate ? metric.previousYearDate : "同比数据不足"}`,
+        `抓取：${fetched}`,
+      ];
+      if (metric && metric.grade) parts.push(`等级：${metric.grade}`);
+      if (metric && metric.priceBasis) parts.push(`口径：${metric.priceBasis}`);
+      if (metric && Array.isArray(metric.citiesUsed) && metric.citiesUsed.length) {
+        const count = metric.cityCount || metric.citiesUsed.length;
+        parts.push(`城市样本：${metric.citiesUsed.join("、")}（${count}城）`);
+      }
+      if (metric && metric.includesGst === true) parts.push("GST口径：包含GST");
+      if (metric && metric.includesGst === false) parts.push("GST口径：不含GST");
+      if (metric && metric.rawUnit) parts.push(`原始单位：${metric.rawUnit}`);
+      if (metric && metric.metricType === "upExMillPrice") parts.push("口径：北方邦M/30糖厂出厂价，涨跌按报价区间中值计算");
+      if (metric && metric.yoyExactDateMatch === false) parts.push("同比：非完全同期");
+      if (metric && metric.gstStatus) parts.push(`GST口径：${metric.gstStatus}`);
+      if (metric && metric.note) parts.push(metric.note);
+      return parts.join("；");
+    }
+
     function buildBrazilMetricTable(config) {
       const metric = config.metric || {};
       const card = document.createElement("div");
@@ -632,7 +599,17 @@
 
       const table = document.createElement("table");
       table.className = "brazil-metric-table";
+      const thead = document.createElement("thead");
+      const header = document.createElement("tr");
+      ["字段", "绝对值", "（%）"].forEach(text => {
+        const th = document.createElement("th");
+        th.scope = "col";
+        th.textContent = text;
+        header.appendChild(th);
+      });
+      thead.appendChild(header);
       const tbody = document.createElement("tbody");
+      table.appendChild(thead);
       table.appendChild(tbody);
 
       function appendValueRow(label, value) {
@@ -648,7 +625,7 @@
         tbody.appendChild(tr);
       }
 
-      function appendChangeRow(label, changeValue, percentValue, digits, unit, transition = "") {
+      function appendChangeRow(label, changeValue, percentValue, digits, unit, transition = "", insufficientText = "") {
         const tr = document.createElement("tr");
         const th = document.createElement("th");
         th.scope = "row";
@@ -658,17 +635,23 @@
         const cls = changeClass(changeValue);
         absTd.className = `metric-change ${cls}`;
         pctTd.className = `metric-change ${percentValue === null || percentValue === undefined ? "na" : cls}`;
-        const mainText = `${changeArrow(changeValue)}${signedFixed(changeValue, digits, unit ? ` ${unit}` : "")}`;
-        absTd.textContent = transition ? `${mainText} ${transition}` : mainText;
-        pctTd.textContent = pctText(percentValue);
+        const hasChange = Number.isFinite(Number(changeValue));
+        const hasPercent = Number.isFinite(Number(percentValue));
+        if (hasChange) {
+          const mainText = `${changeArrow(changeValue)}${signedFixed(changeValue, digits, unit ? ` ${unit}` : "")}`;
+          absTd.textContent = transition ? `${mainText} ${transition}` : mainText;
+        } else {
+          absTd.textContent = insufficientText || "数据不足";
+        }
+        pctTd.textContent = hasPercent ? pctText(percentValue) : insufficientText || "不适用";
         tr.append(th, absTd, pctTd);
         tbody.appendChild(tr);
       }
 
       appendValueRow("取值", config.value());
       appendValueRow("数据日期", config.date());
-      appendChangeRow(config.changeLabel, config.changeValue(), config.changePercent(), config.digits, config.unit, config.transition ? config.transition() : "");
-      appendChangeRow("同比", config.yoyValue(), config.yoyPercent(), config.digits, config.unit, config.yoyTransition ? config.yoyTransition() : "");
+      appendChangeRow(config.changeLabel || "日涨跌", config.changeValue(), config.changePercent(), config.digits, config.unit, config.transition ? config.transition() : "");
+      appendChangeRow("同比", config.yoyValue(), config.yoyPercent(), config.digits, config.unit, config.yoyTransition ? config.yoyTransition() : "", config.yoyInsufficientText || "");
 
       const foot = document.createElement("div");
       foot.className = "brazil-metric-foot";
@@ -686,7 +669,7 @@
       const published = metric.articlePublishedAt || metric.reportUpdatedAt || metric.publishedAt || metric.documentTitle || "";
       const fetched = metric.fetchedAt ? cnTime(metric.fetchedAt) : "数据待更新";
       const meta = document.createElement("div");
-      meta.textContent = `发布日期/报告：${published || "数据待更新"}；抓取：${fetched}`;
+      meta.textContent = config.footerMeta ? config.footerMeta(metric) : `发布日期/报告：${published || "数据待更新"}；抓取：${fetched}`;
       foot.append(source, meta);
       card.append(table, foot);
       return card;
@@ -776,48 +759,66 @@
       const head = document.createElement("div");
       head.className = "metric-head";
       const title = document.createElement("h3");
-      title.textContent = "印度糖价与库存";
+      title.textContent = "印度糖价";
       const note = document.createElement("div");
       note.className = "metric-note";
       note.textContent = `数据日期：${metrics.dataDate || "数据待更新"}`;
       head.append(title, note);
 
       const grid = document.createElement("div");
-      grid.className = "metric-grid";
-      const entries = [
-        ["印度国内批发糖价", metrics.domesticWholesalePrice || metrics.domesticSugarPrice, priceDisplay, priceSub],
-        ["印度国内零售糖价", metrics.domesticRetailPrice, retailDisplay, priceSub],
-        ["北方邦糖厂出厂价", metrics.upExMillPrice, priceDisplay, priceSub],
-        ["印度食糖结转库存", metrics.carryoverStock, stockDisplay, metric => {
-          const main = stockSub(metric);
-          const forecast = forecastSub(metrics);
-          return `${main}\n市场机构预测对比：${forecast}`;
-        }],
-      ];
-      entries.forEach(([label, metric, display, sub]) => {
-        const box = document.createElement("div");
-        box.className = "metric-item";
-        const labelEl = document.createElement("div");
-        labelEl.className = "metric-label";
-        labelEl.textContent = label;
-        const value = document.createElement("div");
-        value.className = "metric-value";
-        value.textContent = display(metric);
-        const detail = document.createElement("div");
-        detail.className = `metric-sub metric-change ${directionClass(metric)}`;
-        detail.textContent = sub(metric);
-        detail.style.whiteSpace = "pre-line";
-        box.append(labelEl, value, detail);
-        grid.appendChild(box);
-      });
+      grid.className = "brazil-metric-grid";
+      const wholesale = metrics.domesticWholesalePrice || metrics.domesticSugarPrice || {};
+      const retail = metrics.domesticRetailPrice || {};
+      const upExMill = metrics.upExMillPrice || {};
+      grid.append(
+        buildBrazilMetricTable({
+          title: "印度国内批发价",
+          metric: wholesale,
+          digits: 2,
+          unit: "卢比/公担",
+          changeLabel: "日涨跌",
+          value: () => indiaWholesaleValue(wholesale),
+          date: () => metricDataDate(wholesale),
+          changeValue: () => wholesale.changeInrPerQuintal,
+          changePercent: () => wholesale.changePct,
+          yoyValue: () => wholesale.yearOnYearChangeInrPerQuintal,
+          yoyPercent: () => wholesale.yearOnYearChangePct,
+          yoyInsufficientText: "同比数据不足",
+          footerMeta: indiaMetricFoot,
+        }),
+        buildBrazilMetricTable({
+          title: "印度国内零售价",
+          metric: retail,
+          digits: 2,
+          unit: "卢比/公斤",
+          changeLabel: "日涨跌",
+          value: () => indiaRetailValue(retail),
+          date: () => metricDataDate(retail),
+          changeValue: () => retail.changeInrPerKg,
+          changePercent: () => retail.changePct,
+          yoyValue: () => retail.yearOnYearChangeInrPerKg,
+          yoyPercent: () => retail.yearOnYearChangePct,
+          yoyInsufficientText: "同比数据不足",
+          footerMeta: indiaMetricFoot,
+        }),
+        buildBrazilMetricTable({
+          title: "北方邦糖厂出厂价",
+          metric: upExMill,
+          digits: 2,
+          unit: "卢比/公担",
+          changeLabel: "日涨跌",
+          value: () => indiaUpExMillValue(upExMill),
+          date: () => metricDataDate(upExMill),
+          changeValue: () => upExMill.changeInrPerQuintal,
+          changePercent: () => upExMill.changePct,
+          yoyValue: () => upExMill.yearOnYearChangeInrPerQuintal,
+          yoyPercent: () => upExMill.yearOnYearChangePct,
+          yoyInsufficientText: "同比数据不足",
+          footerMeta: indiaMetricFoot,
+        })
+      );
 
-      const source = document.createElement("div");
-      source.className = "metric-source";
-      appendMetricSource(source, "国内批发价", metrics.domesticWholesalePrice || metrics.domesticSugarPrice);
-      appendMetricSource(source, "国内零售价", metrics.domesticRetailPrice);
-      appendMetricSource(source, "北方邦出厂价", metrics.upExMillPrice);
-      appendMetricSource(source, "结转库存", metrics.carryoverStock);
-      card.append(head, grid, source);
+      card.append(head, grid);
       if (metrics.note) {
         const memo = document.createElement("div");
         memo.className = "metric-note";
