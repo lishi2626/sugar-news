@@ -733,9 +733,7 @@
           yoyPercent: () => sugarStock.yearOnYearChangePercent,
           dateStyle: "pt",
           footerMeta: metric => {
-            const parts = [`数据日期：${brazilMetricDataDate(metric, "pt")}`];
-            if (metric.documentTitle) parts.push(`报告：${metric.documentTitle}`);
-            return parts.join("；");
+            return `数据日期：${brazilMetricDataDate(metric, "pt")}`;
           },
         }),
         buildBrazilMetricTable({
