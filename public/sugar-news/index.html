@@ -626,10 +626,12 @@
         th.scope = "row";
         th.textContent = label;
         const td = document.createElement("td");
-        td.colSpan = 2;
         td.className = "brazil-metric-main";
         td.textContent = value;
-        tr.append(th, td);
+        const pctTd = document.createElement("td");
+        pctTd.className = "metric-change na";
+        pctTd.textContent = "";
+        tr.append(th, td, pctTd);
         tbody.appendChild(tr);
       }
 
