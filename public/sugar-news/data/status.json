@@ -4,9 +4,9 @@
   "lastRunStatus": "success",
   "timezone": "Asia/Shanghai",
   "details": {
-    "verified_count": 21,
-    "excel_count": 21,
-    "dashboard_count": 21,
+    "verified_count": 22,
+    "excel_count": 22,
+    "dashboard_count": 22,
     "excel_matches_verified": true,
     "dashboard_matches_verified": true,
     "country_order_ok": true,
@@ -14,6 +14,7 @@
     "counts_by_country": {
       "巴西": 1,
       "印度": 7,
+      "泰国": 1,
       "英国": 4,
       "斐济": 2,
       "印度尼西亚": 1,

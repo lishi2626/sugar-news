@@ -10,7 +10,12 @@ from zoneinfo import ZoneInfo
 from openpyxl import load_workbook
 
 from brazil_sugar_metrics import stock_rows_from_pdf
-from sugar_news_pipeline import COUNTRY_SEARCH_TEMPLATES, is_india_indirect_sugar_relevant, rss_sugar_relevant
+from sugar_news_pipeline import (
+    COUNTRY_SEARCH_TEMPLATES,
+    is_india_indirect_sugar_relevant,
+    rss_sugar_relevant,
+    tmd_thai_weather_item_from_text,
+)
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -51,6 +56,31 @@ def test_india_search_templates_cover_e20_reuters() -> None:
         "site:reuters.com India molasses",
     ):
         assert expected in queries
+
+
+def test_thailand_weather_templates_and_tmd_item_generation() -> None:
+    queries = "\n".join(template for _language, template in COUNTRY_SEARCH_TEMPLATES["泰国"])
+    for expected in (
+        "Thailand sugarcane rainfall forecast",
+        "Udon Thani Khon Kaen Nakhon Ratchasima",
+        "Nakhon Sawan Kanchanaburi Lopburi Chai Nat",
+    ):
+        assert expected in queries
+
+    sample = (
+        "Forecast Date: July 23, 2026 Daily Weather Forecast Issued at 5.00 a.m. "
+        "During 23 - 24 Jul, the strong southwest monsoon prevails over Thailand. "
+        "Northeastern: Scattered thundershowers and isolated heavy rains mostly in "
+        "Loei, Udon Thani and Khon Kaen. Central: Fairly widespread thundershowers "
+        "and isolated heavy rains in Kanchanaburi. Eastern: thundershowers in Sa Kaeo and Chon Buri."
+    )
+    item = tmd_thai_weather_item_from_text(sample, "2026-07-23")
+    assert item is not None
+    assert item["country_group"] == "泰国"
+    assert item["impact"].startswith("利空，幅度有限：")
+    assert "乌隆他尼" in item["news"]
+    assert "孔敬" in item["news"]
+    assert "北碧" in item["news"]
 
 
 def test_no_fixed_country_cap_in_autogen() -> None:
@@ -183,6 +213,7 @@ def main() -> None:
     tests = [
         test_india_relevance_helpers,
         test_india_search_templates_cover_e20_reuters,
+        test_thailand_weather_templates_and_tmd_item_generation,
         test_no_fixed_country_cap_in_autogen,
         test_non_industry_sugar_titles_are_filtered,
         test_ist_utc_beijing_date_handling,

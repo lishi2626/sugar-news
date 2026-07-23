@@ -16,7 +16,7 @@ from openpyxl.styles import Alignment
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "templates" / "新闻格式.xlsx"
 GROUP_ORDER = {"巴西": 0, "印度": 1, "泰国": 2, "中国": 3, "其他国家": 4}
-IMPACT_PREFIXES = ("偏多糖价：", "偏空糖价：", "中性：", "影响有限：")
+IMPACT_PREFIXES = ("偏多糖价：", "偏空糖价：", "利多：", "利空：", "利空，幅度有限：", "中性：", "影响有限：")
 PLACEHOLDERS = (
     "暂无新闻",
     "暂无最新数据",
@@ -190,6 +190,7 @@ def validate_thai_weather_impact(item: dict, idx: int) -> None:
         return
 
     has_low_coverage = _contains_any(fact_text, THAI_LOW_COVERAGE_TERMS)
+    is_bearish = item["impact"].startswith(("偏空糖价：", "利空：", "利空，幅度有限："))
     if _contains_any(fact_text, THAI_HARVEST_TERMS):
         if not item["impact"].startswith("偏多糖价："):
             raise ValueError(f"Thai weather item {idx + 1} indicates harvest disruption and should be bullish")
@@ -204,7 +205,7 @@ def validate_thai_weather_impact(item: dict, idx: int) -> None:
         return
 
     if _contains_any(fact_text, THAI_RAIN_INCREASE_TERMS) and not has_low_coverage:
-        if not item["impact"].startswith("偏空糖价："):
+        if not is_bearish:
             raise ValueError(f"Thai weather item {idx + 1} indicates growing-season rainfall improvement and should be bearish")
 
 

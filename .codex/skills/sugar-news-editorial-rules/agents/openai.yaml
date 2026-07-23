@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sugar News Editorial Rules"
+  short_description: "Sugar News summaries and classification rules"
+  default_prompt: "Use $sugar-news-editorial-rules to revise or validate Sugar News article summaries and country classification."

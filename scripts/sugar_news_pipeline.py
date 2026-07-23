@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+from html import unescape
 import json
 import os
 import re
@@ -28,6 +29,7 @@ PUBLIC_DATA_ROOT = PUBLIC_ROOT / "data"
 RSS_AUTOGEN_TIMEOUT_SECONDS = 8
 RSS_AUTOGEN_MAX_QUERIES_PER_COUNTRY = 12
 RSS_AUTOGEN_MAX_TOTAL_QUERIES = 72
+TMD_DAILY_FORECAST_URL = "https://tmd.go.th/en/forecast/daily"
 METRIC_REFRESH_TIMEOUT_SECONDS = int(os.getenv("SUGAR_NEWS_METRIC_REFRESH_TIMEOUT", "240"))
 try:
     SHANGHAI = ZoneInfo("Asia/Shanghai")
@@ -63,7 +65,7 @@ NON_INDUSTRY_SUGAR_TERMS = (
     "author", "debut novel", "fiction", "film", "album", "song",
     "restaurant", "dessert recipe", "cake recipe",
 )
-IMPACT_PREFIXES = ("偏多糖价：", "偏空糖价：", "中性：", "影响有限：")
+IMPACT_PREFIXES = ("偏多糖价：", "偏空糖价：", "利多：", "利空：", "利空，幅度有限：", "中性：", "影响有限：")
 PLACEHOLDERS = (
     "暂无新闻",
     "暂无最新数据",
@@ -279,6 +281,10 @@ COUNTRY_SEARCH_TEMPLATES = {
         ("en", "Thailand sugar industry news {readable}"),
         ("en", "Thailand sugarcane mills ethanol {readable}"),
         ("en", "Thailand sugar news {day} {month_name} {year}"),
+        ("en", "Thailand sugarcane rainfall forecast {readable}"),
+        ("en", "Udon Thani Khon Kaen Nakhon Ratchasima sugarcane rain forecast {readable}"),
+        ("en", "Nakhon Sawan Kanchanaburi Lopburi Chai Nat rainfall forecast {readable}"),
+        ("en", "Thailand cane growing areas thunderstorm heavy rain drought {readable}"),
         ("th", "ประเทศไทย น้ำตาล อ้อย {day} กรกฎาคม {buddhist_year}"),
         ("th", "ข่าวอ้อย น้ำตาล {day} กรกฎาคม {buddhist_year}"),
         ("th", "อุตสาหกรรมอ้อยและน้ำตาล {day} กรกฎาคม {buddhist_year}"),
@@ -664,6 +670,137 @@ def impact_for_rss(country: str, title: str) -> str:
     return "中性：该信息需要继续跟踪，短期对当期糖产量和出口量的直接影响有限。"
 
 
+THAI_TMD_CANE_PROVINCES = (
+    "Udon Thani",
+    "Khon Kaen",
+    "Nakhon Ratchasima",
+    "Chaiyaphum",
+    "Kalasin",
+    "Loei",
+    "Nakhon Sawan",
+    "Kamphaeng Phet",
+    "Sukhothai",
+    "Phitsanulok",
+    "Kanchanaburi",
+    "Lopburi",
+    "Suphanburi",
+    "Chai Nat",
+    "Sa Kaeo",
+    "Chon Buri",
+    "Chonburi",
+)
+
+THAI_TMD_PROVINCE_CN = {
+    "Udon Thani": "乌隆他尼",
+    "Khon Kaen": "孔敬",
+    "Nakhon Ratchasima": "呵叻",
+    "Chaiyaphum": "猜也蓬",
+    "Kalasin": "加拉信",
+    "Loei": "黎府",
+    "Nakhon Sawan": "那空沙旺",
+    "Kamphaeng Phet": "甘烹碧",
+    "Sukhothai": "素可泰",
+    "Phitsanulok": "彭世洛",
+    "Kanchanaburi": "北碧",
+    "Lopburi": "华富里",
+    "Suphanburi": "素攀武里",
+    "Chai Nat": "猜纳",
+    "Sa Kaeo": "沙缴",
+    "Chon Buri": "春武里",
+    "Chonburi": "春武里",
+}
+
+
+def plain_text_from_html(html_text: str) -> str:
+    text = re.sub(r"(?is)<script.*?</script>|<style.*?</style>", " ", html_text)
+    text = re.sub(r"(?s)<[^>]+>", " ", text)
+    return re.sub(r"\s+", " ", unescape(text)).strip()
+
+
+def tmd_thai_weather_item_from_text(text: str, report_date: str, source_url: str = TMD_DAILY_FORECAST_URL) -> dict | None:
+    lower = text.lower()
+    if not any(term in lower for term in ("rain", "thundershower", "thunderstorm", "heavy rain", "drought")):
+        return None
+    matched = []
+    for province in THAI_TMD_CANE_PROVINCES:
+        if province.lower() in lower:
+            cn = THAI_TMD_PROVINCE_CN[province]
+            if cn not in matched:
+                matched.append(cn)
+    if not matched:
+        return None
+
+    date_match = re.search(r"Forecast Date:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})", text)
+    forecast_date = date_match.group(1) if date_match else report_date
+    issue_match = re.search(r"Issued at\s+([0-9.]+\s*[ap]\.m\.)", text, flags=re.IGNORECASE)
+    issue_text = f"{forecast_date} {issue_match.group(1)}" if issue_match else forecast_date
+    has_heavy = any(term in lower for term in ("isolated heavy rain", "heavy rains", "heavy rain"))
+    rain_desc = "雷阵雨并伴有局地大雨" if has_heavy else "雷阵雨或降雨"
+    province_text = "、".join(matched[:8])
+    if len(matched) > 8:
+        province_text += "等"
+    news = (
+        f"泰国气象局预报（{issue_text}），{province_text}等主要甘蔗产区预计出现{rain_desc}。"
+        "当前处于甘蔗生长阶段，产区降雨有利于补充土壤水分、促进甘蔗生长和单产形成，增加后期食糖供应预期；"
+        "但官方预报以区域性雷阵雨和局地大雨为主，暂未确认大范围农业损失。"
+    )
+    return {
+        "country_group": "泰国",
+        "country": "泰国",
+        "title": "泰国主要甘蔗产区预计出现降雨",
+        "news": news,
+        "impact": "利空，幅度有限：甘蔗生长阶段降雨改善土壤墒情并提高未来糖料供应预期，对糖价利空；但本次以局地雷阵雨为主，影响幅度有限。",
+        "source_name": "泰国气象局",
+        "source_url": source_url,
+        "published_date_local": report_date,
+        "event_date": report_date,
+        "date_status": "official_forecast",
+        "dedupe_key": f"thailand_cane_weather_tmd_{report_date.replace('-', '')}",
+        "importance": 78,
+    }
+
+
+def fetch_tmd_thai_weather_item(report_date: str) -> tuple[dict | None, dict]:
+    entry = {
+        "country": "泰国",
+        "language": "en",
+        "keywords": "TMD daily forecast Thailand main sugarcane provinces rainfall",
+        "source_url": TMD_DAILY_FORECAST_URL,
+        "request_status": "pending",
+        "returned_count": 0,
+        "retained_count": 0,
+        "filtered": [],
+        "fixed_step": "Thai main sugarcane area rainfall check",
+    }
+    try:
+        req = Request(TMD_DAILY_FORECAST_URL, headers={"User-Agent": "Mozilla/5.0"})
+        with urlopen(req, timeout=RSS_AUTOGEN_TIMEOUT_SECONDS) as resp:
+            body = resp.read().decode("utf-8", errors="replace")
+        text = plain_text_from_html(body)
+        entry["request_status"] = "executed"
+        entry["returned_count"] = 1
+        item = tmd_thai_weather_item_from_text(text, report_date)
+        if item:
+            entry["retained_count"] = 1
+        else:
+            entry["filtered"].append({"reason": "No valid rainfall forecast for main Thai sugarcane provinces found in TMD daily forecast."})
+        return item, entry
+    except Exception as exc:
+        entry["request_status"] = "failed"
+        entry["error"] = str(exc)[:500]
+        return None, entry
+
+
+def has_thai_weather_item(items: list[dict]) -> bool:
+    for item in items:
+        if item.get("country_group") != "泰国":
+            continue
+        text = " ".join(str(item.get(field, "")) for field in ("title", "news", "impact"))
+        if _contains_any(text, THAI_WEATHER_TERMS):
+            return True
+    return False
+
+
 def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
     dt = datetime.strptime(date_text, "%Y-%m-%d")
     readable = dt.strftime("%B %-d %Y") if os.name != "nt" else dt.strftime("%B %#d %Y")
@@ -698,6 +835,11 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
             "reuters_site_search": "site:reuters.com India sugar/ethanol/E20/sugarcane/molasses searched",
             "weather": "India sugarcane rainfall and core cane-state forecasts searched",
             "no_country_cap": "Autogeneration does not stop after a fixed number of items per country.",
+        },
+        "thai_weather_requirements": {
+            "fixed_step": "After Thailand sugar news discovery, check TMD daily forecast for main sugarcane provinces and add one weather item when a valid rainfall forecast exists.",
+            "source": TMD_DAILY_FORECAST_URL,
+            "provinces": [THAI_TMD_PROVINCE_CN[name] for name in THAI_TMD_CANE_PROVINCES if name in THAI_TMD_PROVINCE_CN],
         },
         "searches": [],
     }
@@ -795,6 +937,10 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
                 retained_for_country += 1
                 entry["retained_count"] += 1
             search_log["searches"].append(entry)
+    thai_weather_item, thai_weather_log = fetch_tmd_thai_weather_item(beijing_now().date().isoformat())
+    search_log["searches"].append(thai_weather_log)
+    if thai_weather_item and not has_thai_weather_item(items):
+        items.append(thai_weather_item)
     if not items:
         raise FileNotFoundError("RSS autogeneration found no publishable Sugar News items")
     path = verified_json_path(task_root, date_text)
@@ -895,6 +1041,7 @@ def validate_thai_weather_impact(item: dict, idx: int) -> None:
         return
 
     has_low_coverage = _contains_any(fact_text, THAI_LOW_COVERAGE_TERMS)
+    is_bearish = item["impact"].startswith(("偏空糖价：", "利空：", "利空，幅度有限："))
     if _contains_any(fact_text, THAI_HARVEST_TERMS):
         if not item["impact"].startswith("偏多糖价："):
             raise ValueError(f"Thai weather item {idx} indicates harvest disruption and should be bullish")
@@ -909,7 +1056,7 @@ def validate_thai_weather_impact(item: dict, idx: int) -> None:
         return
 
     if _contains_any(fact_text, THAI_RAIN_INCREASE_TERMS) and not has_low_coverage:
-        if not item["impact"].startswith("偏空糖价："):
+        if not is_bearish:
             raise ValueError(f"Thai weather item {idx} indicates growing-season rainfall improvement and should be bearish")
 
 
