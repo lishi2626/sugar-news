@@ -279,7 +279,7 @@ ethanol sugar mills 19 July 2026
 
 国家归属以核心事件发生地和主要影响对象为准，不按来源网站、转载媒体所在地、文章语言、企业总部所在地或标题中出现次数最多的国家分类。某国进口另一国食糖时，进口政策、采购量和国内供应归进口国；出口销售、出口配额和生产安排归出口国；多国事件无明确主体时归“其他国家”下的实际国家或“全球”，不得重复发布。
 
-必须排除人体血糖、糖尿病、医学健康、营养保健、胰岛素、降糖药、血糖仪、连续血糖监测、控糖饮食和代糖健康研究。英文检索和自动过滤必须排除 `blood sugar`、`glucose`、`diabetes`、`insulin`、`glycemic`、`hyperglycemia`、`hypoglycemia`、`glucose monitoring`、`diabetes treatment` 等语义。不得仅因标题包含 `sugar` 就判断为糖业新闻。
+必须排除人体血糖、糖尿病、医学健康、营养保健、胰岛素、降糖药、血糖仪、连续血糖监测、控糖饮食和代糖健康研究。英文检索和自动过滤必须排除 `blood sugar`、`glucose`、`diabetes`、`insulin`、`glycemic`、`hyperglycemia`、`hypoglycemia`、`glucose monitoring`、`diabetes treatment` 等语义。游戏、小说、影视、音乐、餐饮营销、菜谱甜点、文学作品或普通消费内容不得仅因标题包含 `sugar`、`palm sugar`、`burnt sugar` 等词进入报告。不得仅因标题包含 `sugar` 就判断为糖业新闻。
 
 乙醇新闻只有在与甘蔗、糖蜜、糖浆、糖醇比、糖业自给或食糖供应存在直接关系时才能收录。一般能源、汽油、玉米乙醇或汽车燃料新闻不得仅因出现“乙醇”“E10”“E20”自动收录；印度乙醇政策按印度糖业间接影响规则处理。
 

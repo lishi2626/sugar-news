@@ -10,7 +10,7 @@ from zoneinfo import ZoneInfo
 from openpyxl import load_workbook
 
 from brazil_sugar_metrics import stock_rows_from_pdf
-from sugar_news_pipeline import COUNTRY_SEARCH_TEMPLATES, is_india_indirect_sugar_relevant
+from sugar_news_pipeline import COUNTRY_SEARCH_TEMPLATES, is_india_indirect_sugar_relevant, rss_sugar_relevant
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -56,6 +56,11 @@ def test_india_search_templates_cover_e20_reuters() -> None:
 def test_no_fixed_country_cap_in_autogen() -> None:
     source = (PROJECT_ROOT / "scripts" / "sugar_news_pipeline.py").read_text(encoding="utf-8")
     assert "retained_for_country >= 2" not in source
+
+
+def test_non_industry_sugar_titles_are_filtered() -> None:
+    assert not rss_sugar_relevant("其他国家", "Palm Sugar: A Village Story launches on Windows PC")
+    assert not rss_sugar_relevant("印度", "Bengaluru author debuts novel The Burnt Sugar Club")
 
 
 def test_ist_utc_beijing_date_handling() -> None:
@@ -179,6 +184,7 @@ def main() -> None:
         test_india_relevance_helpers,
         test_india_search_templates_cover_e20_reuters,
         test_no_fixed_country_cap_in_autogen,
+        test_non_industry_sugar_titles_are_filtered,
         test_ist_utc_beijing_date_handling,
         test_verified_news_contains_required_india_items,
         test_excel_dashboard_consistency,

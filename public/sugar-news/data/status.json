@@ -4,22 +4,26 @@
   "lastRunStatus": "success",
   "timezone": "Asia/Shanghai",
   "details": {
-    "verified_count": 23,
-    "excel_count": 23,
-    "dashboard_count": 23,
+    "verified_count": 21,
+    "excel_count": 21,
+    "dashboard_count": 21,
     "excel_matches_verified": true,
     "dashboard_matches_verified": true,
     "country_order_ok": true,
     "no_empty_country_sections": true,
     "counts_by_country": {
-      "巴西": 2,
-      "印度": 12,
-      "泰国": 1,
-      "其他国家": 5,
-      "英国": 2,
-      "斐济": 1
+      "巴西": 1,
+      "印度": 7,
+      "英国": 4,
+      "斐济": 2,
+      "印度尼西亚": 1,
+      "肯尼亚": 1,
+      "全球": 1,
+      "波兰": 2,
+      "美国": 1,
+      "澳大利亚": 1
     },
     "china_count": 0,
-    "other_country_count": 8
+    "other_country_count": 13
   }
 }

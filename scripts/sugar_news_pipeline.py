@@ -57,6 +57,12 @@ MEDICAL_SUGAR_TERMS = (
     "blood glucose", "low blood sugar", "high blood sugar", "血糖", "糖尿病",
     "胰岛素", "降糖", "低血糖", "高血糖", "血糖监测",
 )
+NON_INDUSTRY_SUGAR_TERMS = (
+    "video game", "game launch", "launches on windows", "windows pc",
+    "steam", "nintendo", "playstation", "xbox", "novel", "book launch",
+    "author", "debut novel", "fiction", "film", "album", "song",
+    "restaurant", "dessert recipe", "cake recipe",
+)
 IMPACT_PREFIXES = ("偏多糖价：", "偏空糖价：", "中性：", "影响有限：")
 PLACEHOLDERS = (
     "暂无新闻",
@@ -592,6 +598,10 @@ def is_medical_sugar_context(text: str) -> bool:
     return any_phrase(text, MEDICAL_SUGAR_TERMS)
 
 
+def is_non_industry_sugar_context(text: str) -> bool:
+    return any_phrase(text, NON_INDUSTRY_SUGAR_TERMS)
+
+
 def infer_core_country(text: str, fallback_country: str) -> tuple[str, str]:
     padded = f" {text.lower()} "
     matches = []
@@ -610,6 +620,8 @@ def infer_core_country(text: str, fallback_country: str) -> tuple[str, str]:
 
 def rss_sugar_relevant(country: str, text: str) -> bool:
     if is_medical_sugar_context(text):
+        return False
+    if is_non_industry_sugar_context(text):
         return False
     domain_terms = (
         "sugar", "sugarcane", "cane", "molasses", "raw sugar", "white sugar",
@@ -743,6 +755,9 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
                 haystack = f"{title_clean} {rss.get('description', '')}".lower()
                 if is_medical_sugar_context(haystack):
                     entry["filtered"].append({"title": title_raw, "reason": "medical blood-sugar/glucose/diabetes context, not sugar industry"})
+                    continue
+                if is_non_industry_sugar_context(haystack):
+                    entry["filtered"].append({"title": title_raw, "reason": "game, fiction, entertainment, recipe, or consumer content; not sugar industry"})
                     continue
                 relevant = rss_sugar_relevant(country, haystack)
                 if country == "印度" and is_india_indirect_sugar_relevant(haystack):
