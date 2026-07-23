@@ -77,7 +77,8 @@ def test_thailand_weather_templates_and_tmd_item_generation() -> None:
     item = tmd_thai_weather_item_from_text(sample, "2026-07-23")
     assert item is not None
     assert item["country_group"] == "泰国"
-    assert item["impact"].startswith("利空，幅度有限：")
+    assert item["impact"].startswith("利空：")
+    assert "幅度有限" not in item["impact"]
     assert "乌隆他尼" in item["news"]
     assert "孔敬" in item["news"]
     assert "北碧" in item["news"]

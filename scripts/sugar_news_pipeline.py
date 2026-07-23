@@ -65,7 +65,7 @@ NON_INDUSTRY_SUGAR_TERMS = (
     "author", "debut novel", "fiction", "film", "album", "song",
     "restaurant", "dessert recipe", "cake recipe",
 )
-IMPACT_PREFIXES = ("偏多糖价：", "偏空糖价：", "利多：", "利空：", "利空，幅度有限：", "中性：", "影响有限：")
+IMPACT_PREFIXES = ("偏多糖价：", "偏空糖价：", "利多：", "利空：", "中性：", "影响有限：")
 PLACEHOLDERS = (
     "暂无新闻",
     "暂无最新数据",
@@ -741,15 +741,15 @@ def tmd_thai_weather_item_from_text(text: str, report_date: str, source_url: str
         province_text += "等"
     news = (
         f"泰国气象局预报（{issue_text}），{province_text}等主要甘蔗产区预计出现{rain_desc}。"
-        "当前处于甘蔗生长阶段，产区降雨有利于补充土壤水分、促进甘蔗生长和单产形成，增加后期食糖供应预期；"
-        "但官方预报以区域性雷阵雨和局地大雨为主，暂未确认大范围农业损失。"
+        "当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，"
+        "促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。"
     )
     return {
         "country_group": "泰国",
         "country": "泰国",
         "title": "泰国主要甘蔗产区预计出现降雨",
         "news": news,
-        "impact": "利空，幅度有限：甘蔗生长阶段降雨改善土壤墒情并提高未来糖料供应预期，对糖价利空；但本次以局地雷阵雨为主，影响幅度有限。",
+        "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
         "source_name": "泰国气象局",
         "source_url": source_url,
         "published_date_local": report_date,
@@ -1040,8 +1040,7 @@ def validate_thai_weather_impact(item: dict, idx: int) -> None:
             raise ValueError(f"Thai weather item {idx} is outside main cane areas and should be impact-limited")
         return
 
-    has_low_coverage = _contains_any(fact_text, THAI_LOW_COVERAGE_TERMS)
-    is_bearish = item["impact"].startswith(("偏空糖价：", "利空：", "利空，幅度有限："))
+    is_bearish = item["impact"].startswith(("偏空糖价：", "利空："))
     if _contains_any(fact_text, THAI_HARVEST_TERMS):
         if not item["impact"].startswith("偏多糖价："):
             raise ValueError(f"Thai weather item {idx} indicates harvest disruption and should be bullish")
@@ -1055,7 +1054,7 @@ def validate_thai_weather_impact(item: dict, idx: int) -> None:
             raise ValueError(f"Thai weather item {idx} indicates drought/rain shortage and should be bullish")
         return
 
-    if _contains_any(fact_text, THAI_RAIN_INCREASE_TERMS) and not has_low_coverage:
+    if _contains_any(fact_text, THAI_RAIN_INCREASE_TERMS) or _contains_any(fact_text, ("雷阵雨", "阵雨", "大雨", "强降雨")):
         if not is_bearish:
             raise ValueError(f"Thai weather item {idx} indicates growing-season rainfall improvement and should be bearish")
 

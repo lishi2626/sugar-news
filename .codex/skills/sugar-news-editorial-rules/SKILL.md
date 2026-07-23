@@ -45,7 +45,7 @@ Do not mechanically translate English titles. Do not add facts or numbers not pr
 
 Avoid repeated lead-ins such as `今日发布`, `今天消息`, `X月X日报道`, `截至今天`, or ordinary publication dates. Keep dates only when they are market-relevant: policy windows, quota months, crushing periods, statistical cutoff dates, factory opening/closure timing, export-ban periods, or forecast coverage.
 
-Dashboard impact labels should normally be `利多`, `利空`, or `中性`. For localized growing-season Thailand rainfall with limited coverage, `利空，幅度有限` is allowed when supported by the source and user requirements.
+Dashboard impact labels should normally be `利多`, `利空`, or `中性`. For Thailand main cane-area rainfall during the growing stage, use `利空`; do not weaken the judgment because rainfall is local, short-lived, forecast-only, or covers only part of the cane belt.
 
 ## Country Assignment
 
@@ -112,11 +112,14 @@ When valid rainfall exists in major cane provinces, add one concise Thailand wea
 
 Impact rules during the cane growing stage:
 
-- normal rain, increasing rain, or heavy-rain forecast without confirmed crop damage -> `利空` or `偏空糖价`;
-- localized showers or thunderstorms with limited coverage -> `利空，幅度有限`;
+- strong rain, heavy rain, thunderstorms, showers, forecast heavy rain, forecast strong rain, forecast thunderstorms, wider rainfall coverage, higher rainfall probability, future rainfall increase, continuous rain, drought relief, or soil-moisture improvement in any major cane province -> `利空`;
 - drought, continued low rainfall, or worsening heat stress -> `利多` or `偏多糖价`;
 - confirmed flood, lodging, waterlogging, crop damage, or expected cane loss -> judge from actual damage, often `利多`;
 - rain outside major cane provinces -> `影响有限` or omit.
+
+Do not add weakening language for Thailand main cane-area rain during the growing stage.
+
+Standard logic: 甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。
 
 ## Validation
 
