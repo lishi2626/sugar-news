@@ -63,6 +63,47 @@ def test_india_search_templates_cover_e20_reuters() -> None:
         assert expected in queries
 
 
+def test_china_daily_monitoring_skill_and_templates() -> None:
+    skill = (PROJECT_ROOT / ".codex" / "skills" / "sugar-news-editorial-rules" / "SKILL.md").read_text(encoding="utf-8")
+    assert "中国糖业新闻每日重点监测" in skill
+    assert "食糖进口" in skill
+    assert "郑糖" in skill
+    assert "糖料产区" in skill
+
+    queries = "\n".join(template for _language, template in COUNTRY_SEARCH_TEMPLATES["中国"])
+    for expected in (
+        "中国白糖",
+        "中国食糖",
+        "中国甘蔗",
+        "中国甜菜糖",
+        "广西糖业 甘蔗",
+        "云南糖业 甘蔗",
+        "食糖库存 产销率",
+        "原糖进口 到港量 进口成本",
+        "糖浆预混粉进口",
+        "甘蔗收购价 种植补贴",
+        "郑糖主力合约",
+        "糖料产区 降雨 暴雨 干旱 台风",
+    ):
+        assert expected in queries
+
+
+def test_brazil_metrics_daily_refresh_skill_and_workflow() -> None:
+    skill = (PROJECT_ROOT / ".codex" / "skills" / "sugar-news-editorial-rules" / "SKILL.md").read_text(encoding="utf-8")
+    assert "巴西糖价与库存每日刷新" in skill
+    assert "refresh_brazil_metrics" in skill
+    assert "Vercel" in skill
+
+    workflow = (PROJECT_ROOT / ".github" / "workflows" / "sugar-news.yml").read_text(encoding="utf-8")
+    pipeline_lines = [line for line in workflow.splitlines() if "scripts/sugar_news_pipeline.py" in line]
+    assert pipeline_lines
+    assert all("--skip-metric-refresh" not in line for line in pipeline_lines)
+
+    source = (PROJECT_ROOT / "scripts" / "sugar_news_pipeline.py").read_text(encoding="utf-8")
+    assert "def refresh_brazil_metrics" in source
+    assert "brazil_metrics_refresh = refresh_brazil_metrics(date_text)" in source
+
+
 def test_thailand_weather_templates_and_tmd_item_generation() -> None:
     queries = "\n".join(template for _language, template in COUNTRY_SEARCH_TEMPLATES["泰国"])
     for expected in (
@@ -155,7 +196,8 @@ def test_thailand_weather_fallback_recovers_existing_dated_item() -> None:
     item = updated["items"][0]
     assert item["country_group"] == "泰国"
     assert item["published_date_local"] == "2026-07-23"
-    assert "泰国气象局" in item["news"]
+    assert item["source_url"] in item["news"]
+    assert "降雨" in item["news"]
 
 
 def test_no_fixed_country_cap_in_autogen() -> None:
@@ -276,6 +318,17 @@ def test_summary_must_be_two_or_three_chinese_sentences() -> None:
         assert "2-3" in str(exc)
     else:
         raise AssertionError("one-sentence summary should be rejected")
+
+
+def test_current_report_contains_china_section_after_thailand() -> None:
+    report = read_json(PROJECT_ROOT / "public" / "sugar-news" / "data" / "reports" / "2026" / "07" / "2026-07-23.json")
+    countries = [country["country"] for country in report["countries"]]
+    assert countries[:4] == ["巴西", "印度", "泰国", "中国"]
+    china = next(country for country in report["countries"] if country["country"] == "中国")
+    assert len(china["items"]) == 4
+    text = "\n".join(item["news"] for item in china["items"])
+    for phrase in ("进口甘蔗", "工业库存约449万吨", "云南制糖集团报价", "文山、红河、玉溪、普洱"):
+        assert phrase in text
 
 
 def test_brazil_india_metric_value_is_under_absolute_column() -> None:
@@ -407,6 +460,8 @@ def main() -> None:
     tests = [
         test_india_relevance_helpers,
         test_india_search_templates_cover_e20_reuters,
+        test_china_daily_monitoring_skill_and_templates,
+        test_brazil_metrics_daily_refresh_skill_and_workflow,
         test_thailand_weather_templates_and_tmd_item_generation,
         test_thailand_weather_is_added_to_existing_verified_news,
         test_thailand_weather_fallback_recovers_existing_dated_item,
@@ -418,6 +473,7 @@ def main() -> None:
         test_india_water_resource_pressure_is_bullish,
         test_editorial_quality_rejects_publication_date_formula_and_accepts_key_dates,
         test_summary_must_be_two_or_three_chinese_sentences,
+        test_current_report_contains_china_section_after_thailand,
         test_brazil_india_metric_value_is_under_absolute_column,
         test_ist_utc_beijing_date_handling,
         test_verified_news_contains_required_india_items,

@@ -1,6 +1,6 @@
 {
   "newsDate": "2026-07-23",
-  "updatedAt": "2026-07-24T11:24:06+08:00",
+  "updatedAt": "2026-07-24T14:51:22+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/07/Sugar News 2026-07-23.xlsx",
   "brazilMetrics": {
@@ -1478,6 +1478,47 @@
           "sourceUrl": "https://api.open-meteo.com/v1/forecast",
           "publishedDateLocal": "2026-07-23",
           "eventDate": "2026-07-24"
+        }
+      ]
+    },
+    {
+      "country": "中国",
+      "items": [
+        {
+          "news": "2015—2025年中国进口甘蔗由105.41万吨增至359.07万吨，十年增长约240.6%；2026年1—6月累计进口326.12万吨，已相当于2025年全年的90.8%。进口甘蔗持续补充国内糖料供应，有利于提高边境糖厂原料保障，对国内糖价形成偏空影响。",
+          "impactType": "利空",
+          "impact": "进口甘蔗快速增长增加国内糖料补充，改善边境糖厂原料保障并提高后续供给预期。",
+          "sourceName": "云糖网",
+          "sourceUrl": "https://www.yntw.com/date/2026/07",
+          "publishedDateLocal": "2026-07-23",
+          "eventDate": "2026-07-23"
+        },
+        {
+          "news": "国内食糖工业库存约449万吨，仍处于历史同期偏高水平；6月进口食糖28万吨，市场预计7月以后进口量继续增加。高库存叠加进口到港增长，将继续压制国内现货及郑糖价格的反弹空间。",
+          "impactType": "利空",
+          "impact": "库存高位和进口增加共同抬升国内可用供应，限制现货及郑糖价格上行空间。",
+          "sourceName": "紫金天风期货",
+          "sourceUrl": "https://finance.sina.com.cn/money/future/fmnews/2026-07-23/doc-iniiusky8326649.shtml",
+          "publishedDateLocal": "2026-07-23",
+          "eventDate": "2026-07-23"
+        },
+        {
+          "news": "广西制糖集团报价维持5170—5270元/吨，云南制糖集团报价4980—5030元/吨、部分下调10元/吨，加工糖报价总体稳定。现货需求没有明显改善，国内市场缺少新的上涨驱动，短期糖价预计维持低位震荡。",
+          "impactType": "中性",
+          "impact": "现货购销平稳但需求改善不足，云南小幅下调报价显示价格上行动能偏弱。",
+          "sourceName": "光大期货市场观点",
+          "sourceUrl": "https://goodsfu.10jqka.com.cn/20260723/c678373891.shtml",
+          "publishedDateLocal": "2026-07-23",
+          "eventDate": "2026-07-23"
+        },
+        {
+          "news": "7月23日夜间起，云南文山、红河、玉溪、普洱等甘蔗产区有中到大雨、局部暴雨至大暴雨预报，部分地区伴有短时强降水、大风和冰雹。强降雨可能造成局部农田积水、甘蔗倒伏及田间管理困难，短期对甘蔗生长和后续供应存在不利影响。",
+          "impactType": "利多",
+          "impact": "云南甘蔗产区强降雨可能引发积水、倒伏和田间管理困难，短期削弱糖料供应稳定性。",
+          "sourceName": "云南网",
+          "sourceUrl": "https://yn.yunnan.cn/system/2026/07/24/034094070.shtml",
+          "publishedDateLocal": "2026-07-23",
+          "eventDate": "2026-07-23"
         }
       ]
     },

@@ -114,6 +114,73 @@ Use this standard logic: 甘蔗生长阶段的降雨有利于补充土壤水分�
 
 Only confirmed flood, lodging, waterlogging, crop damage, or expected cane loss may change the judgment to bullish.
 
+## 中国糖业新闻每日重点监测
+
+The daily task must actively search China sugar-industry news as its own priority country. Do not rely on other-country searches to passively discover China items.
+
+Daily China monitoring must cover:
+
+- domestic sugar production, sales, sales ratio, and industrial inventory;
+- cane and beet planted area, crop condition, yield, sugar content, and planting intention;
+- Guangxi, Yunnan, Guangdong, and Hainan cane regions;
+- Inner Mongolia, Xinjiang, Heilongjiang, and other beet regions;
+- sugar, raw sugar, syrup, and white-sugar premix imports;
+- import origin, arrival volume, import cost, and refinery operating rates;
+- domestic white-sugar spot prices, Zhengzhou sugar futures, basis, and regional quotations;
+- state reserve sugar, import quotas, tariffs, regulation, supervision, and industry policy;
+- mill opening, closing, maintenance, capacity, and operating changes;
+- cane purchase prices, planting subsidies, and farmer planting willingness;
+- main sugar-crop region rainfall, heavy rain, drought, flooding, typhoon, heat, and frost;
+- international events that directly affect China sugar supply, imports, inventories, or prices.
+
+Daily China search keywords must combine at least these themes, not just one generic `中国糖业新闻` query:
+
+- 中国 + 白糖;
+- 中国 + 食糖;
+- 中国 + 甘蔗;
+- 中国 + 甜菜糖;
+- 广西 + 糖业 / 甘蔗;
+- 云南 + 糖业 / 甘蔗;
+- 食糖进口 / 原糖进口;
+- 糖浆进口 / 预混粉进口;
+- 食糖库存 / 产销率;
+- 糖厂开榨 / 收榨;
+- 甘蔗收购价;
+- 郑糖 / 白糖现货;
+- 糖料产区 + 降雨 / 暴雨 / 干旱 / 台风.
+
+Priority China sources:
+
+1. China Sugar Association;
+2. Ministry of Agriculture and Rural Affairs and CASDE China sugar supply-demand reports;
+3. General Administration of Customs;
+4. National Bureau of Statistics;
+5. NDRC, Ministry of Commerce, and relevant government departments;
+6. Guangxi, Yunnan, and other producing-region agriculture, weather, and sugar-industry authorities;
+7. YNTW, msweet, and other professional sugar-industry media;
+8. Zhengzhou Commodity Exchange;
+9. reputable futures companies, research institutions, and sugar-mill announcements.
+
+Deduplicate professional-media reposts of the same China story. Prefer the original authority or the source closest to the original data.
+
+For China weather news, do not apply the Thailand growing-stage rainfall rule mechanically. If heavy rain, flooding, hail, strong wind, waterlogging, lodging, or field-management disruption is forecast or confirmed in a China cane region, judge by the damage path; when future cane availability may decline or become less stable, the impact should be bullish.
+
+Pre-publication logs must show that China search was completed, including query terms, sources, and candidate counts. If no important China item is found, record `China sugar monitoring completed; no publishable item found` in the backend log instead of silently omitting China. Before publishing, verify that any retained China item exists in verified JSON, Excel/dashboard output, and production artifacts.
+
+## 巴西糖价与库存每日刷新
+
+The daily Sugar News task must refresh the `巴西糖价与库存` dashboard before writing the dashboard JSON and before Vercel production deployment. The normal 06:00 Beijing-time GitHub Actions run must call `scripts/sugar_news_pipeline.py` without `--skip-metric-refresh`, so `refresh_brazil_metrics(date_text)` executes every day.
+
+The Brazil dashboard refresh covers the existing dynamic modules only:
+
+- Brazil sugar import premium/discount;
+- Brazil sugar stock;
+- Brazil hydrous ethanol stock.
+
+The refresh must keep using the existing fixed sources, parsing rules, data-date rules, and calculation logic. Do not use deployment time, crawl time, or Vercel build time as the data date. If a source has not published a newer report, keep the latest successful data and preserve its true data date.
+
+After Brazil metrics refresh, the generated dashboard JSON, Excel/report artifacts, Git commit, GitHub push, and Vercel production deployment must all use the same refreshed Brazil metric snapshot. The task log must record `brazil_metrics_refresh` status. If the normal daily run skips Brazil metrics, treat it as a pipeline error; `--skip-metric-refresh` is allowed only for explicit news-only repairs requested by the user.
+
 ## Pre-Publish Quality Checks
 
 Before writing Excel or dashboard JSON, the pipeline must:

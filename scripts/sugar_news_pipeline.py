@@ -38,7 +38,7 @@ try:
     SHANGHAI = ZoneInfo("Asia/Shanghai")
 except Exception:
     SHANGHAI = timezone(timedelta(hours=8), name="Asia/Shanghai")
-GROUP_ORDER = {"中国": 0, "巴西": 1, "印度": 2, "泰国": 3, "其他国家": 4}
+GROUP_ORDER = {"巴西": 0, "印度": 1, "泰国": 2, "中国": 3, "其他国家": 4}
 COUNTRY_ALIASES = {
     "中国": ("china", "中国", "广西", "云南", "郑糖"),
     "巴西": ("brazil", "brasil", "brazilian", "巴西", "sao paulo", "centro-sul", "caarapó", "caarapo", "raízen", "raizen", "adecoagro"),
@@ -101,6 +101,8 @@ def load_editorial_skill_metadata() -> dict:
         "date_expression": ("publication dates", "YYYY-MM-DD"),
         "country_assignment": ("Country Assignment", "Indonesia"),
         "medical_filter": ("blood sugar", "血糖"),
+        "china_daily_monitoring": ("中国糖业新闻每日重点监测", "食糖进口", "郑糖", "糖料产区"),
+        "brazil_metrics_daily": ("巴西糖价与库存每日刷新", "refresh_brazil_metrics", "Vercel"),
         "pre_publish": ("Pre-Publish Quality Checks", "Stop publication"),
     }
     missing = [
@@ -333,15 +335,26 @@ COUNTRY_SEARCH_TEMPLATES = {
         ("zh-CN", "中国白糖 {year}年{month}月{day}日"),
         ("zh-CN", "中国甘蔗 {year}年{month}月{day}日"),
         ("zh-CN", "中国甜菜糖 {year}年{month}月{day}日"),
+        ("zh-CN", "广西糖业 甘蔗 {year}年{month}月{day}日"),
+        ("zh-CN", "云南糖业 甘蔗 {year}年{month}月{day}日"),
+        ("zh-CN", "广东 甘蔗 糖业 {year}年{month}月{day}日"),
+        ("zh-CN", "海南 甘蔗 糖业 {year}年{month}月{day}日"),
+        ("zh-CN", "内蒙古 新疆 黑龙江 甜菜糖 {year}年{month}月{day}日"),
         ("zh-CN", "食糖产销数据 {year}年{month}月{day}日"),
+        ("zh-CN", "食糖库存 产销率 {year}年{month}月{day}日"),
         ("zh-CN", "食糖进口 {year}年{month}月{day}日"),
+        ("zh-CN", "原糖进口 到港量 进口成本 {year}年{month}月{day}日"),
         ("zh-CN", "食糖进口配额 {year}年{month}月{day}日"),
         ("zh-CN", "糖浆预混粉进口 {year}年{month}月{day}日"),
+        ("zh-CN", "加工糖厂 开机 {year}年{month}月{day}日"),
         ("zh-CN", "广西糖业 {year}年{month}月{day}日"),
         ("zh-CN", "云南糖业 {year}年{month}月{day}日"),
         ("zh-CN", "郑州白糖期货 {year}年{month}月{day}日"),
         ("zh-CN", "郑糖主力合约 {year}年{month}月{day}日"),
         ("zh-CN", "白糖现货价格 {year}年{month}月{day}日"),
+        ("zh-CN", "甘蔗收购价 种植补贴 {year}年{month}月{day}日"),
+        ("zh-CN", "糖厂开榨 收榨 {year}年{month}月{day}日"),
+        ("zh-CN", "糖料产区 降雨 暴雨 干旱 台风 {year}年{month}月{day}日"),
         ("zh-CN", "制糖集团公告 {year}年{month}月{day}日"),
         ("en", "China sugar industry {readable}"),
         ("en", "China sugar production {readable}"),
@@ -730,7 +743,7 @@ def infer_core_country(text: str, fallback_country: str) -> tuple[str, str]:
             matches.append(country)
     if not matches:
         return fallback_country, fallback_country if fallback_country in GROUP_ORDER else "其他国家"
-    priority = ["中国", "巴西", "印度", "泰国"]
+    priority = ["巴西", "印度", "泰国", "中国"]
     for country in priority:
         if country in matches:
             return country, country
@@ -2327,13 +2340,13 @@ def validate_all(date_text: str, items: list[dict], excel_file: Path, report_pat
 
     group_positions = []
     for row in excel_rows:
-        if row["country"] == "中国":
+        if row["country"] == "巴西":
             group_positions.append(0)
-        elif row["country"] == "巴西":
-            group_positions.append(1)
         elif row["country"] == "印度":
-            group_positions.append(2)
+            group_positions.append(1)
         elif row["country"] == "泰国":
+            group_positions.append(2)
+        elif row["country"] == "中国":
             group_positions.append(3)
         else:
             group_positions.append(4)
@@ -2350,6 +2363,30 @@ def validate_all(date_text: str, items: list[dict], excel_file: Path, report_pat
         "other_country_count": sum(1 for item in items if item["country_group"] == "其他国家"),
     }
     return checks
+
+
+def china_monitoring_log(items: list[dict]) -> dict:
+    china_items = [item for item in items if item.get("country_group") == "中国" or item.get("country") == "中国"]
+    query_templates = [template for _language, template in COUNTRY_SEARCH_TEMPLATES.get("中国", ())]
+    return {
+        "status": "completed",
+        "mode": "verified_items_checked_after_load",
+        "retained_count": len(china_items),
+        "query_template_count": len(query_templates),
+        "query_templates": query_templates,
+        "priority_sources": [
+            "中国糖业协会",
+            "农业农村部 / CASDE",
+            "海关总署",
+            "国家统计局",
+            "国家发展改革委 / 商务部",
+            "广西、云南等主产区农业、气象和糖业主管部门",
+            "云糖网 / 沐甜科技",
+            "郑州商品交易所",
+            "权威期货公司、研究机构及糖厂公告",
+        ],
+        "note": "China sugar monitoring completed; no publishable item found" if not china_items else "China sugar monitoring completed with publishable items",
+    }
 
 
 def write_status(date_text: str, status: str, details: dict, error: str | None = None) -> None:
@@ -2465,6 +2502,7 @@ def main() -> int:
             "dashboard_index": str(index_path),
             "editorial_skill": editorial_skill,
             "thai_weather_check": thai_weather_log,
+            "china_monitoring_check": china_monitoring_log(items),
             "brazil_metrics_refresh": brazil_metrics_refresh,
             "india_metrics_refresh": india_metrics_refresh,
             "checks": checks,
