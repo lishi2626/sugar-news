@@ -1,36 +1,41 @@
 {
   "target_date": "2026-07-23",
-  "generated_at": "2026-07-24T06:54:05+08:00",
+  "generated_at": "2026-07-24T09:19:11+08:00",
   "status": "success",
-  "verified_news_file": "/home/runner/work/sugar-news/sugar-news/data/verified_news/2026/07/sugar_news_2026-07-23.json",
-  "excel_file": "/home/runner/work/sugar-news/sugar-news/reports/2026/07/Sugar News 2026-07-23.xlsx",
-  "dashboard_report": "/home/runner/work/sugar-news/sugar-news/public/sugar-news/data/reports/2026/07/2026-07-23.json",
-  "dashboard_index": "/home/runner/work/sugar-news/sugar-news/public/sugar-news/data/index.json",
+  "verified_news_file": "D:\\Desktop\\ai\\sugar-news\\data\\verified_news\\2026\\07\\sugar_news_2026-07-23.json",
+  "excel_file": "D:\\Desktop\\ai\\sugar-news\\reports\\2026\\07\\Sugar News 2026-07-23.xlsx",
+  "dashboard_report": "D:\\Desktop\\ai\\sugar-news\\public\\sugar-news\\data\\reports\\2026\\07\\2026-07-23.json",
+  "dashboard_index": "D:\\Desktop\\ai\\sugar-news\\public\\sugar-news\\data\\index.json",
+  "editorial_skill": {
+    "path": ".codex/skills/sugar-news-editorial-rules/SKILL.md",
+    "sha256": "245233e4fd6f9fc394c79d14b0892d29fe4d87d838a1c7a22783badbea2d4680"
+  },
   "brazil_metrics_refresh": {
-    "status": "timeout",
-    "error": "brazil_sugar_metrics.py exceeded 90s",
-    "stdoutTail": "",
-    "stderrTail": ""
+    "status": "skipped",
+    "reason": "news-only repair"
   },
   "india_metrics_refresh": {
-    "status": "success",
-    "snapshotUpdatedAt": "2026-07-24T06:53:44+08:00"
+    "status": "skipped",
+    "reason": "news-only repair"
   },
   "checks": {
-    "verified_count": 16,
-    "excel_count": 16,
-    "dashboard_count": 16,
+    "verified_count": 14,
+    "excel_count": 14,
+    "dashboard_count": 14,
     "excel_matches_verified": true,
     "dashboard_matches_verified": true,
     "country_order_ok": true,
     "no_empty_country_sections": true,
     "counts_by_country": {
-      "巴西": 1,
+      "巴西": 2,
       "印度": 5,
-      "泰国": 2,
-      "其他国家": 8
+      "斐济": 2,
+      "肯尼亚": 1,
+      "南非": 1,
+      "菲律宾": 2,
+      "孟加拉国": 1
     },
     "china_count": 0,
-    "other_country_count": 8
+    "other_country_count": 7
   }
 }

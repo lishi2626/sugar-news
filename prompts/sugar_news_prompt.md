@@ -1,5 +1,17 @@
 # Sugar News Excel Prompt
 
+## 实际生效规则源
+
+每日自动任务由 `.github/workflows/sugar-news.yml` 调用 `scripts/sugar_news_pipeline.py`。
+
+新闻摘要、日期表达、国家归属、糖业相关性过滤和发布前质量检查的权威规则源为：
+
+```text
+.codex/skills/sugar-news-editorial-rules/SKILL.md
+```
+
+生成或修正 Sugar News 时必须先遵守该 Skill。不得使用与该 Skill 冲突的旧规则；如果本 Prompt 与 Skill 不一致，以 Skill 为准。pipeline 会在每次运行时读取该 Skill 并记录 SHA-256 哈希，未读取或校验失败不得发布。
+
 你正在执行 `Sugar News` 独立任务。请严格遵守 `AGENTS.md` 的长期规则，最终生成 Excel 文件，而不是 Markdown 日报。
 
 ## 目标日期

@@ -12,9 +12,13 @@ from openpyxl import load_workbook
 from brazil_sugar_metrics import stock_rows_from_pdf
 from sugar_news_pipeline import (
     COUNTRY_SEARCH_TEMPLATES,
+    infer_core_country,
     is_india_indirect_sugar_relevant,
+    is_medical_sugar_context,
+    normalize_items,
     rss_sugar_relevant,
     tmd_thai_weather_item_from_text,
+    validate_editorial_quality,
 )
 
 
@@ -92,6 +96,98 @@ def test_no_fixed_country_cap_in_autogen() -> None:
 def test_non_industry_sugar_titles_are_filtered() -> None:
     assert not rss_sugar_relevant("其他国家", "Palm Sugar: A Village Story launches on Windows PC")
     assert not rss_sugar_relevant("印度", "Bengaluru author debuts novel The Burnt Sugar Club")
+
+
+def test_editorial_country_reclassification_rules() -> None:
+    indonesia_country, indonesia_group = infer_core_country(
+        "ChiniMandi reports Indonesia sugar import policy and domestic sugar supply",
+        "巴西",
+    )
+    assert indonesia_country == "印度尼西亚"
+    assert indonesia_group == "其他国家"
+
+    cameroon_country, cameroon_group = infer_core_country(
+        "ChiniMandi reports Cameroon sugar production and import policy",
+        "印度",
+    )
+    assert cameroon_country == "喀麦隆"
+    assert cameroon_group == "其他国家"
+
+
+def test_medical_sugar_news_is_excluded() -> None:
+    sample = "Blood sugar monitoring improves diabetes treatment with insulin guidance"
+    assert is_medical_sugar_context(sample)
+    assert not rss_sugar_relevant("其他国家", sample)
+
+
+def test_valid_brazil_cane_sugar_ethanol_news_is_allowed() -> None:
+    sample = "Brazil sugarcane crushing and sugar production rise while mills adjust ethanol output"
+    assert rss_sugar_relevant("巴西", sample)
+    country, group = infer_core_country(sample, "巴西")
+    assert country == "巴西"
+    assert group == "巴西"
+
+
+def test_editorial_quality_rejects_publication_date_formula_and_accepts_key_dates() -> None:
+    bad = {
+        "country_group": "印度",
+        "country": "印度",
+        "title": "India sugar policy",
+        "news": "2026-07-23 ChiniMandi报道：印度糖厂甘蔗款支付改善。甘蔗款支付改善有助于稳定未来糖料供应。来源：ChiniMandi（https://example.test/a）",
+        "impact": "利空：甘蔗款支付改善有助于稳定未来糖料供应。",
+    }
+    try:
+        validate_editorial_quality(bad, 1)
+    except ValueError as exc:
+        assert "publication-date" in str(exc) or "reporting formula" in str(exc)
+    else:
+        raise AssertionError("publication date formula should be rejected")
+
+    good = {
+        "country_group": "印度",
+        "country": "印度",
+        "title": "India sugar policy",
+        "news": "印度政府公布2026/27榨季甘蔗款支付安排，政策执行期关系到糖厂现金流和蔗农交售节奏。若付款秩序改善，蔗农种植积极性和后续糖料供应预期将得到支撑。来源：ChiniMandi（https://example.test/a）",
+        "impact": "利空：甘蔗款支付改善有助于稳定未来糖料供应。",
+    }
+    validate_editorial_quality(good, 2)
+
+
+def test_summary_must_be_two_or_three_chinese_sentences() -> None:
+    data = {
+        "target_date": "2026-07-23",
+        "items": [
+            {
+                "country_group": "巴西",
+                "country": "巴西",
+                "title": "Brazil sugarcane",
+                "news": "巴西中南部甘蔗压榨进度改善，糖产量释放速度加快。供应增加可能提高国际市场可用糖源，对原糖价格形成压力。来源：Test（https://example.test/b）",
+                "impact": "利空：糖产量释放增加可能压制国际糖价。",
+                "source_name": "Test",
+                "source_url": "https://example.test/b",
+                "published_date_local": "2026-07-23",
+                "dedupe_key": "test_brazil_cane",
+            }
+        ],
+    }
+    assert len(normalize_items(data)) == 1
+
+    data["items"][0]["news"] = "巴西中南部甘蔗压榨进度改善。来源：Test（https://example.test/b）"
+    try:
+        normalize_items(data)
+    except ValueError as exc:
+        assert "2-3" in str(exc)
+    else:
+        raise AssertionError("one-sentence summary should be rejected")
+
+
+def test_brazil_india_metric_value_is_under_absolute_column() -> None:
+    html = (PROJECT_ROOT / "public" / "sugar-news" / "index.html").read_text(encoding="utf-8")
+    assert '["字段", "绝对值", "（%）"]' in html
+    assert 'appendValueRow("取值", config.value());' in html
+    assert 'const td = document.createElement("td");' in html
+    assert 'const pctTd = document.createElement("td");' in html
+    assert html.index('td.className = "brazil-metric-main";') < html.index('pctTd.className = "metric-change na";')
 
 
 def test_ist_utc_beijing_date_handling() -> None:
@@ -217,6 +313,12 @@ def main() -> None:
         test_thailand_weather_templates_and_tmd_item_generation,
         test_no_fixed_country_cap_in_autogen,
         test_non_industry_sugar_titles_are_filtered,
+        test_editorial_country_reclassification_rules,
+        test_medical_sugar_news_is_excluded,
+        test_valid_brazil_cane_sugar_ethanol_news_is_allowed,
+        test_editorial_quality_rejects_publication_date_formula_and_accepts_key_dates,
+        test_summary_must_be_two_or_three_chinese_sentences,
+        test_brazil_india_metric_value_is_under_absolute_column,
         test_ist_utc_beijing_date_handling,
         test_verified_news_contains_required_india_items,
         test_excel_dashboard_consistency,

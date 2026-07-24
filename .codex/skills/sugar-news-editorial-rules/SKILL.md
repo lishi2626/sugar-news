@@ -1,126 +1,136 @@
 ---
 name: sugar-news-editorial-rules
-description: Maintain and validate Sugar News article editing rules. Use when revising, generating, validating, or debugging Sugar News news summaries, country classification, other-country labeling, source preservation, medical/non-industry sugar filtering, Thai cane-area rainfall checks, daily report JSON/Excel consistency, or newsroom-style Chinese sugar industry summaries.
+description: Maintain and validate Sugar News article summaries, country classification, sugar-industry relevance filtering, pre-publish quality checks, daily report JSON/Excel consistency, and Chinese sugar research writing style.
 ---
 
 # Sugar News Editorial Rules
 
 ## Scope
 
-Use this skill only for the Sugar News news section. Do not modify price, stock, metric history, deployment configuration, dashboard layout, or Sugar Daily unless the user explicitly asks.
+Use this skill only inside the independent `sugar-news` project. Do not modify Sugar Daily.
 
-Primary files usually involved:
+This skill governs the news section only. Price, stock, weather dashboard data, deployment configuration, and page layout may be changed only when the user explicitly asks.
 
-- `data/verified_news/YYYY/MM/sugar_news_YYYY-MM-DD.json`
-- `public/sugar-news/data/reports/YYYY/MM/YYYY-MM-DD.json`
-- `reports/YYYY/MM/Sugar News YYYY-MM-DD.xlsx`
-- `public/sugar-news/data/index.json`
-- `public/sugar-news/data/status.json`
-- `scripts/sugar_news_pipeline.py`
-- `prompts/sugar_news_prompt.md`
-- `AGENTS.md`
+The daily GitHub Actions workflow runs `scripts/sugar_news_pipeline.py`. That pipeline must load this `SKILL.md`, validate its required rules, and record the skill path and SHA-256 hash in the run log before publishing.
 
-## Workflow
+## Mandatory News Summary Rules
 
-1. Identify the target report date from `public/sugar-news/data/index.json` or the user request.
-2. Read the target report JSON and the previous day's report for style reference.
-3. Work from already generated items and existing source links unless the user asks for new retrieval. If country, relevance, or weather validity is uncertain, open only the existing source link or the explicitly requested official weather source.
-4. For each item, determine whether it is direct sugar-industry news, assign the core country, rewrite the summary, and preserve source metadata.
-5. For Thailand, after ordinary sugar-news review, separately check the Thai main cane-area weather rule. If valid rainfall exists in major cane provinces, keep one Thailand weather item.
-6. Update dashboard JSON, verified news JSON, Excel output, `index.json`, and `status.json` counts together.
-7. Validate with `scripts/verify_sugar_news_dashboard.py --date YYYY-MM-DD`; run `scripts/test_sugar_news_regressions.py` when rules or code changed.
-8. Compare metric blocks before/after when editing an existing report: `brazilMetrics`, `indiaMetrics`, weather, and other dashboard data blocks must remain unchanged unless explicitly requested.
+Each news item must be rewritten into 2-3 concise Chinese sentences.
 
-## Summary Style
+The first sentence states the core event, policy, data, weather change, production change, trade change, or company action.
 
-Write each news summary in 2-3 concise Chinese sentences using sugar-industry research language.
+The following sentence or sentences state the impact path on sugar supply, demand, inventories, cane or beet production, ethanol diversion, imports or exports, production cost, or sugar prices.
 
-Each item must cover:
+Do not merely copy the title. Do not produce a long article-style rewrite. Do not add facts, figures, dates, or judgments that are absent from the source.
 
-- what happened;
-- key policy, data, capacity, production, trade, weather, or cost information;
-- the impact path on cane/beet, sugar production, inventories, imports/exports, ethanol diversion, costs, or sugar prices.
+Use natural Chinese sugar-industry research language. Remove promotional wording, background padding, repeated boilerplate, and low-value commentary.
 
-Do not mechanically translate English titles. Do not add facts or numbers not present in the source. Remove promotional phrasing, generic background, repeated publication dates, and filler.
+## Date Expression Rules
 
-Avoid repeated lead-ins such as `今日发布`, `今天消息`, `X月X日报道`, `截至今天`, or ordinary publication dates. Keep dates only when they are market-relevant: policy windows, quota months, crushing periods, statistical cutoff dates, factory opening/closure timing, export-ban periods, or forecast coverage.
+Do not mechanically repeat ordinary publication dates in every item, including wording such as `今日发布`, `今天发布`, `本日发布`, `X月X日消息`, `X月X日报道`, or a leading `YYYY-MM-DD 来源报道：`.
 
-Dashboard impact labels should normally be `利多`, `利空`, or `中性`. For Thailand main cane-area rainfall during the growing stage, use `利空`; do not weaken the judgment because rainfall is local, short-lived, forecast-only, or covers only part of the cane belt.
+If a date is only the article publication time, remove it from the summary body.
 
-## Country Assignment
+Keep dates only when the date itself changes the market judgment, such as policy effective dates, quota execution months, export ban windows, crushing periods, statistical cutoff dates, factory opening or closure dates, weather forecast coverage periods, or inventory report periods.
 
-Assign by the core event location and main affected sugar market, not by media source, language, article host, title keyword frequency, or company headquarters alone.
+Distinguish article publication date, event date, and data reference date.
 
-Rules:
+## Country Assignment Rules
 
-- India government, parliament, sugar mills, cane dues, cane disease, stock policy, hoarding control, and domestic sugar price policy belong to `印度`.
-- Brazil government, mills, cane, ethanol, sugar output, or Brazil sugar/ethanol market data belong to `巴西`.
-- Thailand policy, cane production, cane-area weather, and mill news belong to `泰国`.
-- China policy, production, imports, and price news belong to `中国`.
-- Indonesia, Pakistan, Philippines, Vietnam, Russia, Cameroon, Fiji, UK, US, Australia, Poland, Kenya, and similar items belong under their actual country name, not a generic `其他国家`.
-- Global sugar-price, crude-oil, futures, or multi-country supply-demand items without one clear national subject belong to `全球`.
+Classify news by the core event subject, event location, policy implementation country, production area, and main affected sugar market. Never classify only by media source, website country, article language, reposting platform, company headquarters, or the country mentioned most often.
+
+Priority-country rules:
+
+- Brazil: Brazil government, mills, cane, ethanol, sugar output, sugar exports, or Brazil sugar/ethanol market data.
+- India: India government, parliament, courts, sugar mills, cane dues, cane disease, stock policy, hoarding control, ethanol policy tied to cane/molasses/sugar syrup, and domestic sugar price policy.
+- Thailand: Thailand policy, cane production, cane-area weather, and sugar mill news.
+- China: China policy, production, imports, sugar syrup, futures, and price news.
+
+Other-country rules:
+
+- Indonesia news must be `其他国家` with country `印度尼西亚`.
+- Cameroon, Philippines, Vietnam, Russia, Pakistan, Fiji, Kenya, Bangladesh, South Africa, UK, US, Australia, Poland, Mexico, and similar items must use the actual country name, not a generic `其他国家`.
+- ChiniMandi or another India-based source reporting a non-India event must be classified by the event country, not India.
+- Global sugar-price, crude-oil, futures, or multi-country supply-demand items without one clear national subject should use country `全球`.
 
 For two-country trade stories, use one main country:
 
-- import policy, import volume, and domestic supply impact -> importing country;
-- export quota, export sale, or production allocation -> exporting country;
-- if no single country is primary -> `全球`.
+- Import policy, import volume, or domestic supply impact -> importing country.
+- Export quota, export sale, or production allocation -> exporting country.
+- If neither country is clearly primary -> `全球`.
 
-Never duplicate the same story in two country sections.
+Never publish the same story in multiple country sections.
 
-## Relevance Filtering
+Before publication, compare title entities, summary entities, and the chosen country column. If they conflict, reclassify automatically when the country is clear; otherwise put the item into a hold/review list and stop publication.
 
-Keep only direct sugar-industry items:
+## Sugar-Industry Relevance Rules
 
-- cane or beet planting, yields, disease, harvest, weather, or disasters;
-- sugar production, crushing, factory opening/closure, processing capacity, or labor disruptions;
-- cane dues, cane prices, sugar policy, quotas, stock limits, hoarding controls, subsidies, taxes, or regulation;
-- sugar inventories, wholesale/retail/ex-mill prices, futures, imports, exports, tariffs, or trade flows;
-- cane/molasses/sugar-syrup ethanol and sugar-ethanol allocation.
+Sugar News only keeps direct sugar-industry content:
 
-Always exclude medical/health content:
+- sugar, raw sugar, white sugar, beet sugar;
+- cane or beet planting, yield, disease, harvest, weather, or disasters;
+- mills, crushing, production, factory opening or closure, processing capacity, labor disruption;
+- cane dues, cane price, sugar price, subsidies, quotas, stock limits, hoarding control, taxes, tariffs, regulation;
+- inventories, wholesale/retail/ex-mill prices, futures, imports, exports, and trade flows;
+- cane ethanol, molasses ethanol, sugar-syrup ethanol, sugar-to-ethanol allocation, and sugar-industry feedstock diversion;
+- major cane-area weather that directly affects cane growth, harvest, transport, crushing, or sugar output.
+
+Always exclude medical, nutrition, and health content:
 
 - blood sugar, blood glucose, glucose, diabetes, diabetic, insulin, glycemic, hyperglycemia, hypoglycemia, glucose monitoring, diabetes treatment;
-- Chinese equivalents such as `血糖`, `糖尿病`, `胰岛素`, `降糖`, `低血糖`, `高血糖`, `血糖监测`.
+- 血糖、血糖控制、糖尿病、胰岛素、降糖药、高血糖、低血糖、血糖仪、连续血糖监测、升糖指数、控糖饮食、医疗健康、营养保健、减肥和疾病风险.
 
-Also exclude non-industry uses of `sugar`: games, novels, books, films, music, recipes, desserts, restaurant/consumer marketing, lifestyle, nutrition, weight loss, and ordinary food-health content.
+Also exclude non-industry uses of `sugar`: games, novels, books, films, music, recipes, desserts, restaurant marketing, lifestyle, nutrition, weight loss, or ordinary consumer health stories.
 
-Ethanol news is allowed only when tied to cane, molasses, sugar syrup, sugar self-sufficiency, distilleries using sugar feedstock, or sugar-ethanol allocation. General fuel, corn ethanol, automobile, or energy-only stories are not enough.
+Do not accept an item only because the title contains `sugar`. Judge from context whether the story is about the sugar industry or human blood sugar/consumer sugar.
 
-## Thailand Weather
+## Thailand Weather Rule
 
-Thailand news must include a fixed main cane-area rainfall check after ordinary Thailand sugar-news discovery. This check is part of daily Thailand news processing and must not depend on whether a media outlet published a sugar/weather article.
+After ordinary Thailand sugar-news discovery, run a separate Thailand main cane-area rainfall check. This check is required even when no media outlet publishes a sugar-weather story.
 
-Major cane areas:
+Major Thai cane areas include Udon Thani, Khon Kaen, Nakhon Ratchasima, Chaiyaphum, Kalasin, Loei, Nakhon Sawan, Kamphaeng Phet, Sukhothai, Phitsanulok, Kanchanaburi, Lopburi, Suphanburi, Chai Nat, Sa Kaeo, and Chonburi.
 
-- Northeast: Udon Thani, Khon Kaen, Nakhon Ratchasima, Chaiyaphum, Kalasin, Loei.
-- North: Nakhon Sawan, Kamphaeng Phet, Sukhothai, Phitsanulok.
-- Central/West: Kanchanaburi, Lopburi, Suphanburi, Chai Nat.
-- East: Sa Kaeo, Chonburi.
+Use the Thai Meteorological Department daily forecast first: https://tmd.go.th/en/forecast/daily. If it only gives regional information, public weather forecasts may supplement specific cane provinces, but source links must be kept and rainfall probability or volume must not be invented.
 
-Daily checks must cover:
+During the cane growing stage, strong rain, heavy rain, thunderstorms, showers, forecast heavy rain, forecast strong rain, forecast thunderstorms, wider rainfall coverage, higher rainfall probability, future rainfall increase, continuous rain, drought relief, or soil-moisture improvement in any major cane province must be judged as `利空`.
 
-- the most recent complete natural-day rainfall where available;
-- current-day weather;
-- the next 7 days of rainfall forecasts;
-- rain increase, heavy rain or storm warnings;
-- continued low rainfall, high temperature, or drought risk.
+Do not weaken this judgment with wording such as `幅度有限`, `影响有限`, `小幅利空`, or `中性` merely because rain is local, short-lived, forecast-only, or covers only part of the cane belt.
 
-Use the Thai Meteorological Department daily forecast first: https://tmd.go.th/en/forecast/daily. If it only gives regional conditions, use public weather forecasts to supplement specific cane provinces, but keep source links and never invent rainfall probability or rainfall volume.
+Use this standard logic: 甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。
 
-When valid rainfall exists in major cane provinces, add one concise Thailand weather item. Summarize affected provinces, forecast coverage time, rainfall type, probability or rainfall amount only if the source provides it, and the impact on cane growth and sugar prices. Merge the same weather process into one item.
+Only confirmed flood, lodging, waterlogging, crop damage, or expected cane loss may change the judgment to bullish.
 
-Impact rules during the cane growing stage:
+## Pre-Publish Quality Checks
 
-- strong rain, heavy rain, thunderstorms, showers, forecast heavy rain, forecast strong rain, forecast thunderstorms, wider rainfall coverage, higher rainfall probability, future rainfall increase, continuous rain, drought relief, or soil-moisture improvement in any major cane province -> `利空`;
-- drought, continued low rainfall, or worsening heat stress -> `利多` or `偏多糖价`;
-- confirmed flood, lodging, waterlogging, crop damage, or expected cane loss -> judge from actual damage, often `利多`;
-- rain outside major cane provinces -> `影响有限` or omit.
+Before writing Excel or dashboard JSON, the pipeline must:
 
-Do not add weakening language for Thailand main cane-area rain during the growing stage.
+1. Check that each summary has 2-3 Chinese sentences.
+2. Reject summaries beginning with ordinary publication-date/source formulas.
+3. Remove meaningless repeated publication-date wording.
+4. Detect medical/health sugar terms and exclude those items.
+5. Detect non-industry uses of `sugar` and exclude those items.
+6. Infer title and body country entities and compare them with `country_group` and `country`.
+7. Automatically reclassify clear country mismatches.
+8. Require concrete country labels for `其他国家` items.
+9. Detect duplicate URLs, titles, or dedupe keys.
+10. Stop publication when a violation cannot be automatically fixed, preserving the previous correct production page.
 
-Standard logic: 甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。
+Regression tests must cover Indonesia not going to Brazil, India media reporting Cameroon going to Cameroon, medical blood-sugar exclusion, valid Brazil cane/sugar/ethanol acceptance, publication-date removal with key date retention, 2-3 sentence summaries, and Brazil/India metric value placement under the `绝对值` column.
 
-## Validation
+## Output Consistency
 
-Read [references/validation-checklist.md](references/validation-checklist.md) before final reporting or deployment.
+Excel, structured verified JSON, dashboard report JSON, local preview, and Vercel production must be generated from the same validated item list.
+
+Use:
+
+```powershell
+python scripts\sugar_news_pipeline.py --date YYYY-MM-DD --offline-only
+```
+
+For news-only repair without refreshing price and stock metrics:
+
+```powershell
+python scripts\sugar_news_pipeline.py --date YYYY-MM-DD --offline-only --skip-metric-refresh
+```
+
+Do not publish when validation fails.

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 from html import unescape
 import json
 import os
@@ -26,6 +27,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_TASK_ROOT = PROJECT_ROOT
 PUBLIC_ROOT = PROJECT_ROOT / "public" / "sugar-news"
 PUBLIC_DATA_ROOT = PUBLIC_ROOT / "data"
+EDITORIAL_SKILL_PATH = PROJECT_ROOT / ".codex" / "skills" / "sugar-news-editorial-rules" / "SKILL.md"
 RSS_AUTOGEN_TIMEOUT_SECONDS = 8
 RSS_AUTOGEN_MAX_QUERIES_PER_COUNTRY = 12
 RSS_AUTOGEN_MAX_TOTAL_QUERIES = 72
@@ -38,12 +40,16 @@ except Exception:
 GROUP_ORDER = {"中国": 0, "巴西": 1, "印度": 2, "泰国": 3, "其他国家": 4}
 COUNTRY_ALIASES = {
     "中国": ("china", "中国", "广西", "云南", "郑糖"),
-    "巴西": ("brazil", "brasil", "brazilian", "巴西", "sao paulo", "centro-sul", "caarapó", "caarapo"),
+    "巴西": ("brazil", "brasil", "brazilian", "巴西", "sao paulo", "centro-sul", "caarapó", "caarapo", "raízen", "raizen", "adecoagro"),
     "印度": ("india", "indian", "uttar pradesh", "maharashtra", "karnataka", "bihar", "shamli", "belagavi", "amaravathi", "印度", "北方邦", "卡纳塔克", "比哈尔"),
     "泰国": ("thailand", "thai", "ประเทศไทย", "泰国"),
     "印度尼西亚": ("indonesia", "indonesian", "印尼", "印度尼西亚"),
     "巴基斯坦": ("pakistan", "pakistani", "巴基斯坦"),
     "菲律宾": ("philippines", "philippine", "菲律宾"),
+    "孟加拉国": ("bangladesh", "bangladeshi", "tangail", "孟加拉", "唐盖尔"),
+    "肯尼亚": ("kenya", "kenyan", "naivas", "cleanshelf", "quickmart", "carrefour", "soko directory", "肯尼亚"),
+    "斐济": ("fiji", "fijian", "fbc news", "斐济"),
+    "南非": ("south africa", "south african", "kwazulu", "african farming", "南非"),
     "越南": ("vietnam", "vietnamese", "越南"),
     "俄罗斯": ("russia", "russian", "俄罗斯"),
     "英国": ("british sugar", "united kingdom", "uk sugar", "cantley", "英国"),
@@ -83,6 +89,32 @@ def project_display_path(path: Path) -> str:
         return str(resolved.relative_to(PROJECT_ROOT.resolve())).replace("\\", "/")
     except ValueError:
         return str(resolved).replace("\\", "/")
+
+
+def load_editorial_skill_metadata() -> dict:
+    if not EDITORIAL_SKILL_PATH.exists():
+        raise FileNotFoundError(f"Missing Sugar News editorial skill: {EDITORIAL_SKILL_PATH}")
+    content = EDITORIAL_SKILL_PATH.read_text(encoding="utf-8")
+    required_groups = {
+        "summary_2_3": ("2-3", "sentences"),
+        "date_expression": ("publication dates", "YYYY-MM-DD"),
+        "country_assignment": ("Country Assignment", "Indonesia"),
+        "medical_filter": ("blood sugar", "血糖"),
+        "pre_publish": ("Pre-Publish Quality Checks", "Stop publication"),
+    }
+    missing = [
+        name
+        for name, phrases in required_groups.items()
+        if not all(phrase in content for phrase in phrases)
+    ]
+    if missing:
+        raise ValueError(f"Sugar News editorial skill missing required rules: {missing}")
+    return {
+        "path": project_display_path(EDITORIAL_SKILL_PATH),
+        "sha256": hashlib.sha256(content.encode("utf-8")).hexdigest(),
+    }
+
+
 INDIA_MAIN_CANE_REGIONS = (
     "北方邦", "Uttar Pradesh", "UP",
     "马哈拉施特拉邦", "Maharashtra",
@@ -372,6 +404,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--skip-if-success", action="store_true", help="Skip if public status already marks target date successful.")
     parser.add_argument("--offline-only", action="store_true", help="Do not attempt fallback online discovery; require verified JSON.")
     parser.add_argument("--allow-rss-autogen", action="store_true", help="Generate a conservative verified JSON from RSS if no curated verified JSON exists.")
+    parser.add_argument("--skip-metric-refresh", action="store_true", help="Repair news outputs without refreshing price or stock metric data.")
     return parser.parse_args()
 
 
@@ -608,6 +641,82 @@ def is_non_industry_sugar_context(text: str) -> bool:
     return any_phrase(text, NON_INDUSTRY_SUGAR_TERMS)
 
 
+SOURCE_SUFFIX_RE = re.compile(r"\s*来源：[^（]+（https?://[^）]+）\s*$")
+PUBLICATION_LEAD_RE = re.compile(
+    r"^\s*(?:\d{4}-\d{2}-\d{2}\s+)?[^。！？]{0,40}(?:报道|消息|发布|称)[:：]"
+)
+ORDINARY_PUBLICATION_RE = re.compile(
+    r"(?:今日|今天|本日)(?:发布|消息|报道)|\d{1,2}月\d{1,2}日(?:消息|报道)"
+)
+
+
+def news_body_without_source(news: str) -> str:
+    return SOURCE_SUFFIX_RE.sub("", news or "").strip()
+
+
+def split_cn_sentences(text: str) -> list[str]:
+    pieces = re.split(r"[。！？]+", text)
+    return [piece.strip() for piece in pieces if piece.strip()]
+
+
+def has_chinese_text(text: str) -> bool:
+    return re.search(r"[\u4e00-\u9fff]", text or "") is not None
+
+
+def core_item_text(item: dict) -> str:
+    return " ".join(
+        str(value)
+        for value in (
+            item.get("title", ""),
+            news_body_without_source(str(item.get("news", ""))),
+            item.get("impact", ""),
+        )
+    )
+
+
+def normalize_country_fields(item: dict) -> dict:
+    row = dict(item)
+    concrete_country, country_group = infer_core_country(core_item_text(row), row.get("country") or "")
+    if concrete_country and concrete_country != row.get("country"):
+        row["country"] = concrete_country
+        row["country_group"] = country_group
+    if row.get("country_group") not in GROUP_ORDER:
+        row["country_group"] = "其他国家"
+    if row.get("country_group") == "其他国家" and row.get("country") in {"其他", "其他国家"}:
+        concrete_country, country_group = infer_core_country(core_item_text(row), "其他国家")
+        if country_group == "其他国家" and concrete_country not in {"其他", "其他国家"}:
+            row["country"] = concrete_country
+        else:
+            raise ValueError("Other-country rows must use a concrete country/region name")
+    if row.get("country") in GROUP_ORDER and row.get("country") != "其他国家":
+        row["country_group"] = row["country"]
+    return row
+
+
+def validate_editorial_quality(item: dict, idx: int) -> None:
+    body = news_body_without_source(str(item.get("news", "")))
+    impact = str(item.get("impact", ""))
+    quality_text = f"{body} {impact}"
+    if is_medical_sugar_context(quality_text):
+        raise ValueError(f"Verified item {idx} is medical/health sugar content")
+    if is_non_industry_sugar_context(quality_text):
+        raise ValueError(f"Verified item {idx} is non-industry sugar content")
+    if not has_chinese_text(body):
+        raise ValueError(f"Verified item {idx} summary must be written in Chinese")
+    sentences = split_cn_sentences(body)
+    if not 2 <= len(sentences) <= 3:
+        raise ValueError(f"Verified item {idx} summary must be 2-3 Chinese sentences, got {len(sentences)}")
+    if PUBLICATION_LEAD_RE.search(body):
+        raise ValueError(f"Verified item {idx} starts with source/publication-date reporting formula")
+    if ORDINARY_PUBLICATION_RE.search(body):
+        raise ValueError(f"Verified item {idx} repeats ordinary publication date wording")
+    inferred_country, inferred_group = infer_core_country(core_item_text(item), item.get("country") or "")
+    if inferred_country in GROUP_ORDER and inferred_country != "其他国家" and item.get("country_group") != inferred_group:
+        raise ValueError(f"Verified item {idx} country_group={item.get('country_group')} conflicts with core country {inferred_country}")
+    if inferred_group == "其他国家" and inferred_country not in {"其他", "其他国家"} and item.get("country") in {"其他", "其他国家"}:
+        raise ValueError(f"Verified item {idx} must label other-country item as {inferred_country}")
+
+
 def infer_core_country(text: str, fallback_country: str) -> tuple[str, str]:
     padded = f" {text.lower()} "
     matches = []
@@ -668,6 +777,52 @@ def impact_for_rss(country: str, title: str) -> str:
     if any_phrase(text, ("export ban", "quota", "tariff", "shortage")):
         return "偏多糖价：贸易限制或供应扰动可能减少国际市场可用糖源。"
     return "中性：该信息需要继续跟踪，短期对当期糖产量和出口量的直接影响有限。"
+
+
+def rss_summary_for_publication(country_group: str, country: str, title: str, source: str, link: str) -> str:
+    text = title.lower()
+    subject = country if country and country not in {"其他", "其他国家"} else "相关地区"
+    if any_phrase(text, ("rain", "rainfall", "monsoon", "weather", "drought", "flood")):
+        body = (
+            f"{source}消息涉及{subject}甘蔗产区天气变化，相关信息需要结合产区位置、降雨强度和作物阶段判断。"
+            "若降雨改善生长期土壤墒情，可能支撑后续甘蔗单产；若出现干旱、洪涝或收割受阻，则可能扰动糖料供应。"
+        )
+    elif any_phrase(text, ("mill", "mills", "factory", "crushing", "crop", "sugarcane", "cane", "beet")):
+        body = (
+            f"{source}消息涉及{subject}糖厂、甘蔗或甜菜生产环节变化。"
+            "相关变化可能影响糖料供应、压榨节奏或加工能力，后续需跟踪对食糖产量和现货供应的实际影响。"
+        )
+    elif any_phrase(text, ("price", "prices", "retail", "wholesale", "market")):
+        body = (
+            f"{source}消息涉及{subject}食糖价格或市场流通变化。"
+            "价格变化会影响贸易商采购、终端补库和政策调控预期，对短期糖价走势具有参考意义。"
+        )
+    elif any_phrase(text, ("import", "export", "tariff", "quota", "trade")):
+        body = (
+            f"{source}消息涉及{subject}食糖贸易、关税或配额安排。"
+            "进出口政策和贸易流向变化会改变国内外可用糖源，对区域供应和国际糖价形成影响。"
+        )
+    elif any_phrase(text, ("ethanol", "blend", "biofuel", "molasses", "syrup")):
+        body = (
+            f"{source}消息涉及{subject}乙醇、糖蜜或糖料分流安排。"
+            "若甘蔗、糖蜜或糖浆更多流向制醇，可能减少制糖供应；反之则可能增加食糖产出。"
+        )
+    elif any_phrase(text, ("pest", "disease", "virus")):
+        body = (
+            f"{source}消息涉及{subject}甘蔗病虫害或作物防控。"
+            "病虫害扩散可能压低甘蔗单产并削弱后续糖料供应，防控推进则有助于稳定产量预期。"
+        )
+    elif any_phrase(text, ("dues", "farmer", "farmers", "aid", "support", "relief")):
+        body = (
+            f"{source}消息涉及{subject}蔗农补贴、甘蔗款或生产支持安排。"
+            "现金流和政策支持改善有助于稳定种植积极性，并可能影响后续甘蔗面积和糖料供应。"
+        )
+    else:
+        body = (
+            f"{source}消息涉及{subject}糖业运行变化。"
+            "该事项对食糖供应、需求或价格的影响仍需结合后续政策、产量和贸易数据继续跟踪。"
+        )
+    return f"{body}来源：{source}（{link}）"
 
 
 THAI_TMD_CANE_PROVINCES = (
@@ -919,8 +1074,8 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
                 seen.add(key)
                 link = rss.get("link", "").strip()
                 impact = impact_for_rss(country_group, title_clean)
-                news = f"{item_date} {source}报道：{title_clean}。来源：{source}（{link}）"
-                items.append({
+                news = rss_summary_for_publication(country_group, concrete_country, title_clean, source, link)
+                candidate = normalize_country_fields({
                     "country_group": country_group,
                     "country": concrete_country,
                     "title": title_clean[:80],
@@ -934,6 +1089,8 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
                     "dedupe_key": f"rss_{key}",
                     "importance": max(50, 90 - retained_for_country * 5),
                 })
+                validate_editorial_quality(candidate, len(items) + 1)
+                items.append(candidate)
                 retained_for_country += 1
                 entry["retained_count"] += 1
             search_log["searches"].append(entry)
@@ -1064,6 +1221,7 @@ def normalize_items(data: dict) -> list[dict]:
     seen = set()
     normalized = []
     for idx, item in enumerate(items, start=1):
+        item = normalize_country_fields(item)
         for field in ("country_group", "country", "news", "impact", "source_name", "source_url", "published_date_local"):
             if not item.get(field):
                 raise ValueError(f"Verified item {idx} missing {field}")
@@ -1083,6 +1241,7 @@ def normalize_items(data: dict) -> list[dict]:
             raise ValueError("country_group=中国 rows must use country=中国")
         if item["published_date_local"] != data["target_date"] and item.get("date_status") != "continuing_impact":
             raise ValueError(f"Verified item {idx} date is not target date or continuing impact")
+        validate_editorial_quality(item, idx)
         validate_india_weather_impact(item, idx)
         validate_thai_weather_impact(item, idx)
         dedupe_key = item.get("dedupe_key") or re.sub(r"\s+", "", item["news"][:100])
@@ -2001,12 +2160,19 @@ def main() -> int:
         return 0
 
     try:
-        print(f"[sugar-news] refresh Brazil metrics for {date_text}", flush=True)
-        brazil_metrics_refresh = refresh_brazil_metrics(date_text)
-        print(f"[sugar-news] Brazil metrics: {brazil_metrics_refresh.get('status')}", flush=True)
-        print(f"[sugar-news] refresh India metrics for {date_text}", flush=True)
-        india_metrics_refresh = refresh_india_metrics(date_text)
-        print(f"[sugar-news] India metrics: {india_metrics_refresh.get('status')}", flush=True)
+        editorial_skill = load_editorial_skill_metadata()
+        print(f"[sugar-news] editorial skill loaded: {editorial_skill['path']} {editorial_skill['sha256'][:12]}", flush=True)
+        if args.skip_metric_refresh:
+            brazil_metrics_refresh = {"status": "skipped", "reason": "news-only repair"}
+            india_metrics_refresh = {"status": "skipped", "reason": "news-only repair"}
+            print(f"[sugar-news] skip metric refresh for {date_text}", flush=True)
+        else:
+            print(f"[sugar-news] refresh Brazil metrics for {date_text}", flush=True)
+            brazil_metrics_refresh = refresh_brazil_metrics(date_text)
+            print(f"[sugar-news] Brazil metrics: {brazil_metrics_refresh.get('status')}", flush=True)
+            print(f"[sugar-news] refresh India metrics for {date_text}", flush=True)
+            india_metrics_refresh = refresh_india_metrics(date_text)
+            print(f"[sugar-news] India metrics: {india_metrics_refresh.get('status')}", flush=True)
         print(f"[sugar-news] load verified/autogenerate news for {date_text}", flush=True)
         data = load_verified_or_fail(task_root, date_text, offline_only=args.offline_only, allow_rss_autogen=args.allow_rss_autogen)
         print(f"[sugar-news] normalize/write outputs for {date_text}", flush=True)
@@ -2023,6 +2189,7 @@ def main() -> int:
             "excel_file": str(excel_file),
             "dashboard_report": str(report_path),
             "dashboard_index": str(index_path),
+            "editorial_skill": editorial_skill,
             "brazil_metrics_refresh": brazil_metrics_refresh,
             "india_metrics_refresh": india_metrics_refresh,
             "checks": checks,
