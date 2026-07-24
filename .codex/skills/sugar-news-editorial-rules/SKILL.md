@@ -75,6 +75,12 @@ Sugar News only keeps direct sugar-industry content:
 - cane ethanol, molasses ethanol, sugar-syrup ethanol, sugar-to-ethanol allocation, and sugar-industry feedstock diversion;
 - major cane-area weather that directly affects cane growth, harvest, transport, crushing, or sugar output.
 
+Water-resource pressure rule:
+
+- When a sugarcane story states that cane production faces water-resource pressure, water constraints, water scarcity, irrigation shortage, semi-arid climate pressure, or similar wording, interpret the supply path as lower yield potential, constrained cane expansion, or weaker future cane availability.
+- The impact judgment should be `利多` because future sugar-material supply may decline or become less stable.
+- Do not weaken this to `影响有限` merely because the article is framed as climate/water risk or does not name one of the usual core cane provinces, as long as the story is about sugarcane production.
+
 Always exclude medical, nutrition, and health content:
 
 - blood sugar, blood glucose, glucose, diabetes, diabetic, insulin, glycemic, hyperglycemia, hypoglycemia, glucose monitoring, diabetes treatment;

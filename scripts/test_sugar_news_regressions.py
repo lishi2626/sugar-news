@@ -128,6 +128,33 @@ def test_valid_brazil_cane_sugar_ethanol_news_is_allowed() -> None:
     assert group == "巴西"
 
 
+def test_india_water_resource_pressure_is_bullish() -> None:
+    data = {
+        "target_date": "2026-07-23",
+        "items": [
+            {
+                "country_group": "印度",
+                "country": "印度",
+                "title": "印度半干旱地区甘蔗单产提升伴随水资源风险",
+                "news": "Mongabay India称，印度半干旱地区甘蔗单产提升的同时，仍面临气候和水资源压力。水分约束可能限制甘蔗可持续扩产，并增加未来糖料供应波动风险。来源：Mongabay India（https://example.test/water）",
+                "impact": "利多：水资源压力和水分约束可能限制甘蔗扩产和单产稳定性，未来糖料供应存在下降风险。",
+                "source_name": "Mongabay India",
+                "source_url": "https://example.test/water",
+                "published_date_local": "2026-07-23",
+                "dedupe_key": "india_water_resource_pressure",
+            }
+        ],
+    }
+    assert len(normalize_items(data)) == 1
+    data["items"][0]["impact"] = "影响有限：报道未明确对应印度核心甘蔗主产区。"
+    try:
+        normalize_items(data)
+    except ValueError as exc:
+        assert "water-resource pressure" in str(exc)
+    else:
+        raise AssertionError("water-resource pressure should require bullish impact")
+
+
 def test_editorial_quality_rejects_publication_date_formula_and_accepts_key_dates() -> None:
     bad = {
         "country_group": "印度",
@@ -316,6 +343,7 @@ def main() -> None:
         test_editorial_country_reclassification_rules,
         test_medical_sugar_news_is_excluded,
         test_valid_brazil_cane_sugar_ethanol_news_is_allowed,
+        test_india_water_resource_pressure_is_bullish,
         test_editorial_quality_rejects_publication_date_formula_and_accepts_key_dates,
         test_summary_must_be_two_or_three_chinese_sentences,
         test_brazil_india_metric_value_is_under_absolute_column,

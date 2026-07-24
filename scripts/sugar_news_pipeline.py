@@ -139,6 +139,10 @@ INDIA_DROUGHT_TERMS = (
     "干旱", "降雨不足", "季风偏弱", "降雨减少", "雨量不足", "deficient rainfall",
     "weak monsoon", "dry spell", "rainfall deficit",
 )
+INDIA_WATER_STRESS_TERMS = (
+    "水资源压力", "水分约束", "缺水", "水资源约束", "灌溉不足", "半干旱",
+    "water stress", "water risks", "water constraint", "water scarcity", "semi-arid",
+)
 INDIA_DAMAGE_TERMS = (
     "已造成", "洪涝", "农田被淹", "甘蔗倒伏", "道路中断", "作物受损", "预计减产",
     "受灾", "损失", "flood damage", "crop damage", "waterlogging", "lodging", "road disruption",
@@ -1148,6 +1152,11 @@ def validate_india_weather_impact(item: dict, idx: int) -> None:
     fact_text = " ".join(str(item.get(field, "")) for field in ("title", "news"))
     text = f"{fact_text} {item.get('impact', '')}"
     if not _contains_any(text, INDIA_WEATHER_TERMS):
+        return
+
+    if _contains_any(fact_text, INDIA_WATER_STRESS_TERMS):
+        if not item["impact"].startswith(("偏多糖价：", "利多：")):
+            raise ValueError(f"India weather item {idx} indicates water-resource pressure and should be bullish")
         return
 
     in_main_area = _contains_any(fact_text, INDIA_MAIN_CANE_REGIONS)
