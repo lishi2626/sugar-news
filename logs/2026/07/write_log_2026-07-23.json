@@ -1,6 +1,6 @@
 {
   "target_date": "2026-07-23",
-  "generated_at": "2026-07-24T09:46:40+08:00",
+  "generated_at": "2026-07-24T11:24:06+08:00",
   "status": "success",
   "verified_news_file": "D:\\Desktop\\ai\\sugar-news\\data\\verified_news\\2026\\07\\sugar_news_2026-07-23.json",
   "excel_file": "D:\\Desktop\\ai\\sugar-news\\reports\\2026\\07\\Sugar News 2026-07-23.xlsx",
@@ -8,7 +8,133 @@
   "dashboard_index": "D:\\Desktop\\ai\\sugar-news\\public\\sugar-news\\data\\index.json",
   "editorial_skill": {
     "path": ".codex/skills/sugar-news-editorial-rules/SKILL.md",
-    "sha256": "20699188b20a787d0b70cb3a855eeec86eb313bccab03fd6a845be00a908381a"
+    "sha256": "111fde3929699026d1de43078c6735dfdb0845a284c4774480fad49344249985"
+  },
+  "thai_weather_check": {
+    "fixed_step": "Thai main sugarcane area rainfall check",
+    "target_date": "2026-07-23",
+    "source_url": "https://tmd.go.th/en/forecast/daily",
+    "status": "added",
+    "country": "泰国",
+    "language": "en",
+    "keywords": "TMD daily forecast Thailand main sugarcane provinces rainfall",
+    "request_status": "failed",
+    "returned_count": 0,
+    "retained_count": 0,
+    "filtered": [],
+    "error": "HTTP Error 403: Forbidden",
+    "open_meteo_fallback": {
+      "country": "泰国",
+      "language": "api",
+      "keywords": "Open-Meteo Thailand main sugarcane provinces precipitation forecast",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "request_status": "executed",
+      "returned_count": 16,
+      "retained_count": 1,
+      "filtered": [],
+      "fixed_step": "Thai main sugarcane area rainfall check fallback",
+      "forecast_start": "2026-07-24",
+      "forecast_end": "2026-07-30",
+      "available_days": 7,
+      "rainy_points": [
+        {
+          "region": "东北部",
+          "province": "呵叻",
+          "total_rain": 83.1,
+          "max_prob": 97.0
+        },
+        {
+          "region": "东北部",
+          "province": "孔敬",
+          "total_rain": 83.2,
+          "max_prob": 100.0
+        },
+        {
+          "region": "东北部",
+          "province": "乌隆他尼",
+          "total_rain": 118.7,
+          "max_prob": 100.0
+        },
+        {
+          "region": "东北部",
+          "province": "猜也蓬",
+          "total_rain": 68.2,
+          "max_prob": 98.0
+        },
+        {
+          "region": "东北部",
+          "province": "加拉信",
+          "total_rain": 131.2,
+          "max_prob": 98.0
+        },
+        {
+          "region": "东北部",
+          "province": "黎府",
+          "total_rain": 126.2,
+          "max_prob": 98.0
+        },
+        {
+          "region": "北部",
+          "province": "那空沙旺",
+          "total_rain": 66.2,
+          "max_prob": 98.0
+        },
+        {
+          "region": "北部",
+          "province": "甘烹碧",
+          "total_rain": 169.0,
+          "max_prob": 98.0
+        },
+        {
+          "region": "北部",
+          "province": "素可泰",
+          "total_rain": 60.7,
+          "max_prob": 98.0
+        },
+        {
+          "region": "北部",
+          "province": "彭世洛",
+          "total_rain": 79.8,
+          "max_prob": 97.0
+        },
+        {
+          "region": "中部及西部",
+          "province": "北碧",
+          "total_rain": 46.4,
+          "max_prob": 99.0
+        },
+        {
+          "region": "中部及西部",
+          "province": "华富里",
+          "total_rain": 110.6,
+          "max_prob": 100.0
+        },
+        {
+          "region": "中部及西部",
+          "province": "素攀武里",
+          "total_rain": 70.1,
+          "max_prob": 98.0
+        },
+        {
+          "region": "中部及西部",
+          "province": "猜纳",
+          "total_rain": 65.1,
+          "max_prob": 99.0
+        },
+        {
+          "region": "东部",
+          "province": "沙缴",
+          "total_rain": 163.6,
+          "max_prob": 99.0
+        },
+        {
+          "region": "东部",
+          "province": "春武里",
+          "total_rain": 99.7,
+          "max_prob": 98.0
+        }
+      ]
+    }
   },
   "brazil_metrics_refresh": {
     "status": "skipped",
@@ -19,9 +145,9 @@
     "reason": "news-only repair"
   },
   "checks": {
-    "verified_count": 14,
-    "excel_count": 14,
-    "dashboard_count": 14,
+    "verified_count": 15,
+    "excel_count": 15,
+    "dashboard_count": 15,
     "excel_matches_verified": true,
     "dashboard_matches_verified": true,
     "country_order_ok": true,
@@ -29,6 +155,7 @@
     "counts_by_country": {
       "巴西": 2,
       "印度": 5,
+      "泰国": 1,
       "斐济": 2,
       "肯尼亚": 1,
       "南非": 1,

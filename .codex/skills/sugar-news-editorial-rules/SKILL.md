@@ -94,9 +94,17 @@ Do not accept an item only because the title contains `sugar`. Judge from contex
 
 After ordinary Thailand sugar-news discovery, run a separate Thailand main cane-area rainfall check. This check is required even when no media outlet publishes a sugar-weather story.
 
+The daily pipeline must execute the Thailand rainfall check after verified news is loaded or RSS autogeneration is complete, and before normalization, Excel writing, dashboard JSON writing, and deployment. This is mandatory even when a curated `data/verified_news/.../sugar_news_YYYY-MM-DD.json` file already exists. Do not limit the check to the missing-verified-news autogeneration branch.
+
+If the target report has no Thailand ordinary news item, a valid Thailand cane-area rainfall forecast must still create one Thailand weather item. If a Thailand weather item already exists, keep it and do not duplicate it.
+
 Major Thai cane areas include Udon Thani, Khon Kaen, Nakhon Ratchasima, Chaiyaphum, Kalasin, Loei, Nakhon Sawan, Kamphaeng Phet, Sukhothai, Phitsanulok, Kanchanaburi, Lopburi, Suphanburi, Chai Nat, Sa Kaeo, and Chonburi.
 
-Use the Thai Meteorological Department daily forecast first: https://tmd.go.th/en/forecast/daily. If it only gives regional information, public weather forecasts may supplement specific cane provinces, but source links must be kept and rainfall probability or volume must not be invented.
+Use the Thai Meteorological Department daily forecast first: https://tmd.go.th/en/forecast/daily. If the official forecast only gives regional information, map it to the Thailand cane belt instead of dropping the item: Northeastern maps to Udon Thani, Khon Kaen, Nakhon Ratchasima, Chaiyaphum, Kalasin, and Loei; Northern maps to Nakhon Sawan, Kamphaeng Phet, Sukhothai, and Phitsanulok; Central maps to Kanchanaburi, Lopburi, Suphanburi, and Chai Nat; Eastern maps to Sa Kaeo and Chonburi. Public weather forecasts may supplement specific cane provinces, but source links must be kept and rainfall probability or volume must not be invented.
+
+If TMD access fails during the daily run, use the public Open-Meteo forecast API as a no-key fallback for the configured Thai cane-area monitoring points. The Open-Meteo fallback may state forecast period, available forecast days, rainy cane regions, and forecast precipitation totals from the API response; it must not invent rainfall probability or rainfall volume.
+
+If both TMD and Open-Meteo access fail, the pipeline may recover a previously verified Thailand weather item from recent Sugar News verified files only when that item's `published_date_local` exactly equals the target report date and the item is still a Thailand cane-area rainfall forecast. Never reuse stale Thailand weather from a different report date.
 
 During the cane growing stage, strong rain, heavy rain, thunderstorms, showers, forecast heavy rain, forecast strong rain, forecast thunderstorms, wider rainfall coverage, higher rainfall probability, future rainfall increase, continuous rain, drought relief, or soil-moisture improvement in any major cane province must be judged as `利空`.
 

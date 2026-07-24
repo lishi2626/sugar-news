@@ -1,6 +1,6 @@
 {
   "newsDate": "2026-07-23",
-  "updatedAt": "2026-07-24T09:46:40+08:00",
+  "updatedAt": "2026-07-24T11:24:06+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/07/Sugar News 2026-07-23.xlsx",
   "brazilMetrics": {
@@ -1464,6 +1464,20 @@
           "sourceUrl": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPcWRaX2lqME5GZ042V092SzAyZXByMjI2N2F2R3o1bmUzUkRXSU5VOC1YYkh2MmFmQUJVTDRnN2c3WWlra21xdTlMT2M1WDJqZElKWmFHY1JkNGFMcDQteXNZOWotSjY1MThJMnVLNFE1SG0zQ1p2WktoRjVubXVsVlBCSXprLUFmYzRNbHJJOGRfd2pvaE5GTGgzNA?oc=5",
           "publishedDateLocal": "2026-07-23",
           "eventDate": "2026-07-23"
+        }
+      ]
+    },
+    {
+      "country": "泰国",
+      "items": [
+        {
+          "news": "Open-Meteo预报显示（2026-07-24至2026-07-30），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括甘烹碧约169.0mm、沙缴约163.6mm、加拉信约131.2mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。",
+          "impactType": "利空",
+          "impact": "甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+          "sourceName": "Open-Meteo",
+          "sourceUrl": "https://api.open-meteo.com/v1/forecast",
+          "publishedDateLocal": "2026-07-23",
+          "eventDate": "2026-07-24"
         }
       ]
     },

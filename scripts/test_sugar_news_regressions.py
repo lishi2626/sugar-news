@@ -15,6 +15,7 @@ from sugar_news_pipeline import (
     infer_core_country,
     is_india_indirect_sugar_relevant,
     is_medical_sugar_context,
+    ensure_thai_weather_item,
     normalize_items,
     rss_sugar_relevant,
     tmd_thai_weather_item_from_text,
@@ -86,6 +87,75 @@ def test_thailand_weather_templates_and_tmd_item_generation() -> None:
     assert "乌隆他尼" in item["news"]
     assert "孔敬" in item["news"]
     assert "北碧" in item["news"]
+    assert "来源：泰国气象局" in item["news"]
+
+    regional_sample = (
+        "Forecast Date: July 23, 2026 Daily Weather Forecast Issued at 5.00 a.m. "
+        "Northeastern: Scattered thundershowers and isolated heavy rains. "
+        "Northern: Isolated thundershowers. Central: Fairly widespread thundershowers. "
+        "Eastern: Isolated thundershowers."
+    )
+    regional_item = tmd_thai_weather_item_from_text(regional_sample, "2026-07-23")
+    assert regional_item is not None
+    assert "东北部核心甘蔗产区" in regional_item["news"]
+    assert "北部甘蔗产区" in regional_item["news"]
+    assert "中部及西部甘蔗产区" in regional_item["news"]
+    assert regional_item["published_date_local"] == "2026-07-23"
+
+
+def test_thailand_weather_is_added_to_existing_verified_news() -> None:
+    data = {
+        "target_date": "2026-07-23",
+        "items": [
+            {
+                "country_group": "巴西",
+                "country": "巴西",
+                "title": "巴西糖厂运营调整",
+                "news": "巴西糖厂运营调整影响短期压榨节奏。糖厂运行变化可能影响食糖生产释放，但仍需观察后续产量数据。来源：Test（https://example.test/brazil）",
+                "impact": "中性：运营调整对供需方向影响暂不明确。",
+                "source_name": "Test",
+                "source_url": "https://example.test/brazil",
+                "published_date_local": "2026-07-23",
+                "dedupe_key": "test_brazil",
+            }
+        ],
+    }
+
+    def fake_fetch(report_date: str) -> tuple[dict | None, dict]:
+        sample = (
+            "Forecast Date: July 23, 2026 Daily Weather Forecast Issued at 5.00 a.m. "
+            "Northeastern: Scattered thundershowers and isolated heavy rains."
+        )
+        return tmd_thai_weather_item_from_text(sample, report_date), {"request_status": "executed"}
+
+    updated, log = ensure_thai_weather_item(data, "2026-07-23", fetcher=fake_fetch)
+    assert log["status"] == "added"
+    assert len(updated["items"]) == 2
+    assert any(item["country_group"] == "泰国" for item in updated["items"])
+    assert len(normalize_items(updated)) == 2
+
+
+def test_thailand_weather_fallback_recovers_existing_dated_item() -> None:
+    data = {
+        "target_date": "2026-07-23",
+        "items": [],
+    }
+
+    def failed_fetch(report_date: str) -> tuple[dict | None, dict]:
+        return None, {"request_status": "failed", "error": "403"}
+
+    updated, log = ensure_thai_weather_item(
+        data,
+        "2026-07-23",
+        fetcher=failed_fetch,
+        open_meteo_fetcher=failed_fetch,
+    )
+    assert log["status"] == "added"
+    assert log["fallback"]["retained_count"] == 1
+    item = updated["items"][0]
+    assert item["country_group"] == "泰国"
+    assert item["published_date_local"] == "2026-07-23"
+    assert "泰国气象局" in item["news"]
 
 
 def test_no_fixed_country_cap_in_autogen() -> None:
@@ -338,6 +408,8 @@ def main() -> None:
         test_india_relevance_helpers,
         test_india_search_templates_cover_e20_reuters,
         test_thailand_weather_templates_and_tmd_item_generation,
+        test_thailand_weather_is_added_to_existing_verified_news,
+        test_thailand_weather_fallback_recovers_existing_dated_item,
         test_no_fixed_country_cap_in_autogen,
         test_non_industry_sugar_titles_are_filtered,
         test_editorial_country_reclassification_rules,

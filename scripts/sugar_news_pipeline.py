@@ -32,6 +32,7 @@ RSS_AUTOGEN_TIMEOUT_SECONDS = 8
 RSS_AUTOGEN_MAX_QUERIES_PER_COUNTRY = 12
 RSS_AUTOGEN_MAX_TOTAL_QUERIES = 72
 TMD_DAILY_FORECAST_URL = "https://tmd.go.th/en/forecast/daily"
+OPEN_METEO_FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
 METRIC_REFRESH_TIMEOUT_SECONDS = int(os.getenv("SUGAR_NEWS_METRIC_REFRESH_TIMEOUT", "240"))
 try:
     SHANGHAI = ZoneInfo("Asia/Shanghai")
@@ -869,11 +870,75 @@ THAI_TMD_PROVINCE_CN = {
     "Chonburi": "春武里",
 }
 
+THAI_TMD_REGION_CANE_AREAS = {
+    "northeastern": {
+        "label": "东北部核心甘蔗产区",
+        "areas": ("呵叻", "孔敬", "乌隆他尼", "猜也蓬", "加拉信", "黎府"),
+    },
+    "northern": {
+        "label": "北部甘蔗产区",
+        "areas": ("那空沙旺", "甘烹碧", "素可泰", "彭世洛"),
+    },
+    "central": {
+        "label": "中部及西部甘蔗产区",
+        "areas": ("北碧", "华富里", "素攀武里", "猜纳"),
+    },
+    "eastern": {
+        "label": "东部补充产区",
+        "areas": ("沙缴", "春武里"),
+    },
+}
+
+THAI_TMD_RAIN_PHRASES = (
+    "rain",
+    "rains",
+    "showers",
+    "shower",
+    "thundershower",
+    "thundershowers",
+    "thunderstorm",
+    "thunderstorms",
+    "heavy rain",
+    "heavy rains",
+)
+
+THAI_OPEN_METEO_POINTS = (
+    {"region": "东北部", "province": "呵叻", "lat": 14.9799, "lon": 102.0977},
+    {"region": "东北部", "province": "孔敬", "lat": 16.4419, "lon": 102.8350},
+    {"region": "东北部", "province": "乌隆他尼", "lat": 17.4138, "lon": 102.7872},
+    {"region": "东北部", "province": "猜也蓬", "lat": 15.8068, "lon": 102.0315},
+    {"region": "东北部", "province": "加拉信", "lat": 16.4322, "lon": 103.5066},
+    {"region": "东北部", "province": "黎府", "lat": 17.4860, "lon": 101.7223},
+    {"region": "北部", "province": "那空沙旺", "lat": 15.7047, "lon": 100.1372},
+    {"region": "北部", "province": "甘烹碧", "lat": 16.4828, "lon": 99.5227},
+    {"region": "北部", "province": "素可泰", "lat": 17.0078, "lon": 99.8230},
+    {"region": "北部", "province": "彭世洛", "lat": 16.8211, "lon": 100.2659},
+    {"region": "中部及西部", "province": "北碧", "lat": 14.0228, "lon": 99.5328},
+    {"region": "中部及西部", "province": "华富里", "lat": 14.7995, "lon": 100.6534},
+    {"region": "中部及西部", "province": "素攀武里", "lat": 14.4745, "lon": 100.1177},
+    {"region": "中部及西部", "province": "猜纳", "lat": 15.1852, "lon": 100.1251},
+    {"region": "东部", "province": "沙缴", "lat": 13.8240, "lon": 102.0646},
+    {"region": "东部", "province": "春武里", "lat": 13.3611, "lon": 100.9847},
+)
+
 
 def plain_text_from_html(html_text: str) -> str:
     text = re.sub(r"(?is)<script.*?</script>|<style.*?</style>", " ", html_text)
     text = re.sub(r"(?s)<[^>]+>", " ", text)
     return re.sub(r"\s+", " ", unescape(text)).strip()
+
+
+def tmd_region_rainfall_matches(text: str) -> list[dict]:
+    lower = text.lower()
+    matches = []
+    for region_key, config in THAI_TMD_REGION_CANE_AREAS.items():
+        idx = lower.find(region_key)
+        if idx < 0:
+            continue
+        window = lower[idx:idx + 900]
+        if any(phrase in window for phrase in THAI_TMD_RAIN_PHRASES):
+            matches.append(config)
+    return matches
 
 
 def tmd_thai_weather_item_from_text(text: str, report_date: str, source_url: str = TMD_DAILY_FORECAST_URL) -> dict | None:
@@ -886,7 +951,8 @@ def tmd_thai_weather_item_from_text(text: str, report_date: str, source_url: str
             cn = THAI_TMD_PROVINCE_CN[province]
             if cn not in matched:
                 matched.append(cn)
-    if not matched:
+    region_matches = [] if matched else tmd_region_rainfall_matches(text)
+    if not matched and not region_matches:
         return None
 
     date_match = re.search(r"Forecast Date:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})", text)
@@ -895,13 +961,20 @@ def tmd_thai_weather_item_from_text(text: str, report_date: str, source_url: str
     issue_text = f"{forecast_date} {issue_match.group(1)}" if issue_match else forecast_date
     has_heavy = any(term in lower for term in ("isolated heavy rain", "heavy rains", "heavy rain"))
     rain_desc = "雷阵雨并伴有局地大雨" if has_heavy else "雷阵雨或降雨"
-    province_text = "、".join(matched[:8])
-    if len(matched) > 8:
-        province_text += "等"
+    if matched:
+        province_text = "、".join(matched[:8])
+        if len(matched) > 8:
+            province_text += "等"
+    else:
+        province_text = "；".join(
+            f"{match['label']}（{'、'.join(match['areas'])}）"
+            for match in region_matches
+        )
     news = (
         f"泰国气象局预报（{issue_text}），{province_text}等主要甘蔗产区预计出现{rain_desc}。"
         "当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，"
         "促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。"
+        f"来源：泰国气象局（{source_url}）"
     )
     return {
         "country_group": "泰国",
@@ -950,6 +1023,116 @@ def fetch_tmd_thai_weather_item(report_date: str) -> tuple[dict | None, dict]:
         return None, entry
 
 
+def fetch_open_meteo_thai_weather_item(report_date: str) -> tuple[dict | None, dict]:
+    entry = {
+        "country": "泰国",
+        "language": "api",
+        "keywords": "Open-Meteo Thailand main sugarcane provinces precipitation forecast",
+        "source_url": OPEN_METEO_FORECAST_URL,
+        "request_status": "pending",
+        "returned_count": 0,
+        "retained_count": 0,
+        "filtered": [],
+        "fixed_step": "Thai main sugarcane area rainfall check fallback",
+    }
+    lats = ",".join(f"{point['lat']:.4f}" for point in THAI_OPEN_METEO_POINTS)
+    lons = ",".join(f"{point['lon']:.4f}" for point in THAI_OPEN_METEO_POINTS)
+    url = (
+        f"{OPEN_METEO_FORECAST_URL}?latitude={lats}&longitude={lons}"
+        "&daily=precipitation_sum,precipitation_probability_max"
+        "&timezone=Asia%2FBangkok&forecast_days=7"
+    )
+    try:
+        req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urlopen(req, timeout=RSS_AUTOGEN_TIMEOUT_SECONDS) as resp:
+            payload = json.loads(resp.read().decode("utf-8", errors="replace"))
+        entries = payload if isinstance(payload, list) else [payload]
+        entry["request_status"] = "executed"
+        entry["returned_count"] = len(entries)
+    except Exception as exc:
+        entry["request_status"] = "failed"
+        entry["error"] = str(exc)[:500]
+        return None, entry
+
+    rainy_points = []
+    forecast_start = None
+    forecast_end = None
+    available_days = 0
+    for idx, point_payload in enumerate(entries[:len(THAI_OPEN_METEO_POINTS)]):
+        daily = point_payload.get("daily") if isinstance(point_payload, dict) else None
+        if not isinstance(daily, dict):
+            continue
+        dates = daily.get("time") or []
+        precip = daily.get("precipitation_sum") or []
+        probs = daily.get("precipitation_probability_max") or []
+        usable = [
+            (date, _number(value), _number(probs[i]) if i < len(probs) else None)
+            for i, (date, value) in enumerate(zip(dates, precip))
+        ]
+        usable = [(date, value, prob) for date, value, prob in usable if value is not None]
+        if not usable:
+            continue
+        forecast_start = forecast_start or usable[0][0]
+        forecast_end = usable[-1][0]
+        available_days = max(available_days, len(usable))
+        total_rain = sum(value for _date, value, _prob in usable if value is not None)
+        max_prob = max((prob for _date, _value, prob in usable if prob is not None), default=None)
+        has_rain = total_rain > 0 or (max_prob is not None and max_prob >= 30)
+        if not has_rain:
+            continue
+        point = THAI_OPEN_METEO_POINTS[idx]
+        rainy_points.append({
+            "region": point["region"],
+            "province": point["province"],
+            "total_rain": total_rain,
+            "max_prob": max_prob,
+        })
+
+    if not rainy_points:
+        entry["filtered"].append({"reason": "Open-Meteo returned no rainfall forecast for configured Thai cane points."})
+        return None, entry
+
+    by_region: dict[str, list[dict]] = {}
+    for point in rainy_points:
+        by_region.setdefault(point["region"], []).append(point)
+    region_text = "；".join(
+        f"{region}（{'、'.join(point['province'] for point in points[:4])}）"
+        for region, points in by_region.items()
+    )
+    top_points = sorted(rainy_points, key=lambda point: point["total_rain"], reverse=True)[:3]
+    top_text = "、".join(
+        f"{point['province']}约{point['total_rain']:.1f}mm"
+        for point in top_points
+    )
+    period = f"{forecast_start}至{forecast_end}" if forecast_start and forecast_end else f"未来{available_days}日"
+    news = (
+        f"Open-Meteo预报显示（{period}），泰国{region_text}等主要甘蔗产区存在降雨预报，"
+        f"实际可用预报期为{available_days}日，累计预测降雨较高的监测点包括{top_text}。"
+        "当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，"
+        f"提高后期甘蔗及食糖产量预期。来源：Open-Meteo（{OPEN_METEO_FORECAST_URL}）"
+    )
+    item = {
+        "country_group": "泰国",
+        "country": "泰国",
+        "title": "泰国主要甘蔗产区预计出现降雨",
+        "news": news,
+        "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+        "source_name": "Open-Meteo",
+        "source_url": OPEN_METEO_FORECAST_URL,
+        "published_date_local": report_date,
+        "event_date": forecast_start or report_date,
+        "date_status": "official_forecast",
+        "dedupe_key": f"thailand_cane_weather_open_meteo_{report_date.replace('-', '')}",
+        "importance": 78,
+    }
+    entry["retained_count"] = 1
+    entry["forecast_start"] = forecast_start
+    entry["forecast_end"] = forecast_end
+    entry["available_days"] = available_days
+    entry["rainy_points"] = rainy_points
+    return item, entry
+
+
 def has_thai_weather_item(items: list[dict]) -> bool:
     for item in items:
         if item.get("country_group") != "泰国":
@@ -958,6 +1141,82 @@ def has_thai_weather_item(items: list[dict]) -> bool:
         if _contains_any(text, THAI_WEATHER_TERMS):
             return True
     return False
+
+
+def fallback_thai_weather_item_from_verified(report_date: str) -> tuple[dict | None, dict]:
+    entry = {
+        "request_status": "fallback_checked",
+        "source": "recent verified Sugar News files",
+        "retained_count": 0,
+        "filtered": [],
+    }
+    root = PROJECT_ROOT / "data" / "verified_news"
+    if not root.exists():
+        entry["filtered"].append({"reason": "verified news root missing"})
+        return None, entry
+    candidates = sorted(root.rglob("sugar_news_*.json"), reverse=True)
+    for path in candidates[:20]:
+        try:
+            with path.open("r", encoding="utf-8") as f:
+                payload = json.load(f)
+        except Exception as exc:
+            entry["filtered"].append({"file": project_display_path(path), "reason": str(exc)[:200]})
+            continue
+        for item in payload.get("items") or []:
+            item = normalize_country_fields(dict(item))
+            if item.get("published_date_local") != report_date:
+                continue
+            if item.get("country_group") != "泰国":
+                continue
+            text = " ".join(str(item.get(field, "")) for field in ("title", "news", "impact"))
+            if not _contains_any(text, THAI_WEATHER_TERMS):
+                continue
+            item["event_date"] = item.get("event_date") or report_date
+            item["date_status"] = item.get("date_status") or "official_forecast"
+            item["dedupe_key"] = item.get("dedupe_key") or f"thailand_cane_weather_verified_{report_date.replace('-', '')}"
+            entry["retained_count"] = 1
+            entry["source_file"] = project_display_path(path)
+            return item, entry
+    entry["filtered"].append({"reason": "no dated Thailand cane-area weather item found in recent verified files"})
+    return None, entry
+
+
+def ensure_thai_weather_item(
+    data: dict,
+    report_date: str,
+    fetcher=fetch_tmd_thai_weather_item,
+    open_meteo_fetcher=fetch_open_meteo_thai_weather_item,
+) -> tuple[dict, dict]:
+    items = data.get("items") or []
+    log = {
+        "fixed_step": "Thai main sugarcane area rainfall check",
+        "target_date": report_date,
+        "source_url": TMD_DAILY_FORECAST_URL,
+        "status": "pending",
+    }
+    if has_thai_weather_item(items):
+        log["status"] = "skipped"
+        log["reason"] = "Thailand cane-area weather item already present in verified news."
+        return data, log
+
+    item, fetch_log = fetcher(report_date)
+    log.update(fetch_log)
+    if not item:
+        open_meteo_item, open_meteo_log = open_meteo_fetcher(report_date)
+        log["open_meteo_fallback"] = open_meteo_log
+        item = open_meteo_item
+    if not item:
+        fallback_item, fallback_log = fallback_thai_weather_item_from_verified(report_date)
+        log["fallback"] = fallback_log
+        item = fallback_item
+    if item:
+        data = dict(data)
+        data["items"] = [*items, item]
+        log["status"] = "added"
+    else:
+        log["status"] = "not_added"
+        log.setdefault("reason", "No valid Thailand cane-area rainfall forecast item was generated.")
+    return data, log
 
 
 def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
@@ -1098,10 +1357,14 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
                 retained_for_country += 1
                 entry["retained_count"] += 1
             search_log["searches"].append(entry)
-    thai_weather_item, thai_weather_log = fetch_tmd_thai_weather_item(beijing_now().date().isoformat())
+    data_for_thai_weather = {
+        "target_date": date_text,
+        "run_date": beijing_now().date().isoformat(),
+        "items": items,
+    }
+    data_for_thai_weather, thai_weather_log = ensure_thai_weather_item(data_for_thai_weather, date_text)
     search_log["searches"].append(thai_weather_log)
-    if thai_weather_item and not has_thai_weather_item(items):
-        items.append(thai_weather_item)
+    items = data_for_thai_weather["items"]
     if not items:
         raise FileNotFoundError("RSS autogeneration found no publishable Sugar News items")
     path = verified_json_path(task_root, date_text)
@@ -2184,6 +2447,8 @@ def main() -> int:
             print(f"[sugar-news] India metrics: {india_metrics_refresh.get('status')}", flush=True)
         print(f"[sugar-news] load verified/autogenerate news for {date_text}", flush=True)
         data = load_verified_or_fail(task_root, date_text, offline_only=args.offline_only, allow_rss_autogen=args.allow_rss_autogen)
+        print(f"[sugar-news] ensure Thailand cane-area weather item for {date_text}", flush=True)
+        data, thai_weather_log = ensure_thai_weather_item(data, date_text)
         print(f"[sugar-news] normalize/write outputs for {date_text}", flush=True)
         items = normalize_items(data)
         excel_file = write_excel(task_root, date_text, items)
@@ -2199,6 +2464,7 @@ def main() -> int:
             "dashboard_report": str(report_path),
             "dashboard_index": str(index_path),
             "editorial_skill": editorial_skill,
+            "thai_weather_check": thai_weather_log,
             "brazil_metrics_refresh": brazil_metrics_refresh,
             "india_metrics_refresh": india_metrics_refresh,
             "checks": checks,
