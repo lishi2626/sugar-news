@@ -1,26 +1,11 @@
 {
   "latestNewsDate": "2026-07-23",
-  "lastRunAt": "2026-07-24T09:46:40+08:00",
-  "lastRunStatus": "success",
+  "lastRunAt": "2026-07-25T06:59:33+08:00",
+  "lastRunStatus": "failed",
   "timezone": "Asia/Shanghai",
   "details": {
-    "verified_count": 14,
-    "excel_count": 14,
-    "dashboard_count": 14,
-    "excel_matches_verified": true,
-    "dashboard_matches_verified": true,
-    "country_order_ok": true,
-    "no_empty_country_sections": true,
-    "counts_by_country": {
-      "巴西": 2,
-      "印度": 5,
-      "斐济": 2,
-      "肯尼亚": 1,
-      "南非": 1,
-      "菲律宾": 2,
-      "孟加拉国": 1
-    },
-    "china_count": 0,
-    "other_country_count": 7
-  }
+    "target_date": "2026-07-24",
+    "task_root": "/home/runner/work/sugar-news/sugar-news"
+  },
+  "error": "Other-country rows must use a concrete country/region name"
 }

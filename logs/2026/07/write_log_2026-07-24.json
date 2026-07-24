@@ -1,0 +1,6 @@
+{
+  "target_date": "2026-07-24",
+  "generated_at": "2026-07-25T06:59:33+08:00",
+  "status": "failed",
+  "error": "Other-country rows must use a concrete country/region name"
+}
