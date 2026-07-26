@@ -1,6 +1,6 @@
 {
   "targetDate": "2026-07-25",
-  "updatedAt": "2026-07-26T19:33:31+08:00",
+  "updatedAt": "2026-07-26T19:44:15+08:00",
   "sugarPremium": {
     "indicator": "brazil_sugar_premium",
     "status": "ok",
@@ -64,7 +64,7 @@
     "status": "ok",
     "source_name": "巴西农业和畜牧业部（MAPA）",
     "dataset_name": "MAPA Agroenergia - Estoques de Açúcar por Tipo",
-    "fetched_at": "2026-07-26T19:29:00+08:00",
+    "fetched_at": "2026-07-26T19:43:41+08:00",
     "original_unit": "tonnes",
     "previous_period_date": "2026-06-15",
     "previous_period_stock": 364.5203,
@@ -121,7 +121,7 @@
     "status": "ok",
     "source_name": "巴西农业和畜牧业部（MAPA）",
     "dataset_name": "MAPA Acompanhamento da Produção Sucroalcooleira",
-    "fetched_at": "2026-07-26T19:33:31+08:00",
+    "fetched_at": "2026-07-26T19:44:15+08:00",
     "original_unit": "m³",
     "previous_period_date": "2026-06-16",
     "previous_period_stock": 285.5513,
@@ -138,7 +138,7 @@
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap0",
-      "requestedAt": "2026-07-26T19:27:47+08:00",
+      "requestedAt": "2026-07-26T19:41:51+08:00",
       "httpStatus": 200,
       "containsColumnName": false,
       "candidateCount": 0,
@@ -148,7 +148,7 @@
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/getQureyArticleList?parentId=49&categoryId=143&name=&pageCurInfo=sub_143&pageNo=1&pageSize=20",
-      "requestedAt": "2026-07-26T19:27:47+08:00",
+      "requestedAt": "2026-07-26T19:41:54+08:00",
       "httpStatus": 200,
       "containsColumnName": true,
       "candidateCount": 3,
@@ -162,7 +162,7 @@
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/getQureyArticleList?parentId=49&categoryId=143&name=&pageCurInfo=sub_143&pageNo=2&pageSize=20",
-      "requestedAt": "2026-07-26T19:27:47+08:00",
+      "requestedAt": "2026-07-26T19:41:55+08:00",
       "httpStatus": 200,
       "containsColumnName": true,
       "candidateCount": 4,
@@ -177,7 +177,7 @@
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/getQureyArticleList?parentId=49&categoryId=143&name=&pageCurInfo=sub_143&pageNo=3&pageSize=20",
-      "requestedAt": "2026-07-26T19:27:48+08:00",
+      "requestedAt": "2026-07-26T19:41:58+08:00",
       "httpStatus": 200,
       "containsColumnName": true,
       "candidateCount": 3,
@@ -191,7 +191,7 @@
     {
       "source": "HiSugar import-cost search API",
       "url": "https://www.hisugar.com/home/searchCatetoryAndArticle?keyWord=%E9%A3%9F%E7%B3%96%E8%BF%9B%E5%8F%A3%E6%88%90%E6%9C%AC%E5%8F%8A%E5%88%A9%E6%B6%A6%E4%BC%B0%E7%AE%97",
-      "requestedAt": "2026-07-26T19:27:48+08:00",
+      "requestedAt": "2026-07-26T19:41:59+08:00",
       "httpStatus": 200,
       "candidateCount": 390,
       "parsed": true
@@ -220,239 +220,366 @@
       "source": "HiSugar import premium article",
       "articleId": "2026072415105108451386",
       "url": "https://www.hisugar.com/home/articleContent?id=2026072415105108451386",
-      "requestedAt": "2026-07-26T19:27:48+08:00",
+      "requestedAt": "2026-07-26T19:42:02+08:00",
       "httpStatus": 200,
       "imageCount": 2,
-      "parsed": true,
-      "parsedRows": 5
+      "parsed": false,
+      "parsedRows": 0
     },
     {
       "source": "HiSugar import premium image OCR",
       "articleId": "2026072415105108451386",
       "imageUrl": "https://www.hisugar.com/image/20260724/1784876918055053628.png",
       "httpStatus": 200,
-      "ocrBackend": "windows_ocr",
-      "parsedRows": 5,
-      "parsedDates": [
-        "2026-07-17",
-        "2026-07-20",
-        "2026-07-21",
-        "2026-07-22",
-        "2026-07-23"
-      ],
-      "parsed": true
-    },
-    {
-      "source": "HiSugar import premium article",
-      "articleId": "2025080408492546331655",
-      "url": "https://www.hisugar.com/home/articleContent?id=2025080408492546331655",
-      "requestedAt": "2026-07-26T19:27:49+08:00",
-      "httpStatus": 200,
-      "imageCount": 2,
-      "parsed": true,
-      "parsedRows": 5
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
     },
     {
       "source": "HiSugar import premium image OCR",
-      "articleId": "2025080408492546331655",
-      "imageUrl": "https://www.hisugar.com/image/20250804/1754268449318048187.png",
+      "articleId": "2026072415105108451386",
+      "imageUrl": "https://www.hisugar.com/image/20260724/1784884208349008441.png",
       "httpStatus": 200,
-      "ocrBackend": "windows_ocr",
-      "parsedRows": 5,
-      "parsedDates": [
-        "2025-07-28",
-        "2025-07-29",
-        "2025-07-30",
-        "2025-07-31",
-        "2025-08-01"
-      ],
-      "parsed": true
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
     },
     {
       "source": "HiSugar import premium article",
-      "articleId": "2025080108475111542998",
-      "url": "https://www.hisugar.com/home/articleContent?id=2025080108475111542998",
-      "requestedAt": "2026-07-26T19:27:50+08:00",
+      "articleId": "2026072308523084118748",
+      "url": "https://www.hisugar.com/home/articleContent?id=2026072308523084118748",
+      "requestedAt": "2026-07-26T19:42:08+08:00",
       "httpStatus": 200,
       "imageCount": 2,
-      "parsed": true,
-      "parsedRows": 5
+      "parsed": false,
+      "parsedRows": 0
     },
     {
       "source": "HiSugar import premium image OCR",
-      "articleId": "2025080108475111542998",
-      "imageUrl": "https://www.hisugar.com/image/20250801/1754009149555039808.png",
+      "articleId": "2026072308523084118748",
+      "imageUrl": "https://www.hisugar.com/image/20260723/1784767923094053310.png",
       "httpStatus": 200,
-      "ocrBackend": "windows_ocr",
-      "parsedRows": 5,
-      "parsedDates": [
-        "2025-07-25",
-        "2025-07-28",
-        "2025-07-29",
-        "2025-07-30",
-        "2025-07-31"
-      ],
-      "parsed": true
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026072308523084118748",
+      "imageUrl": "https://www.hisugar.com/image/20260624/1782261847941004285.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
     },
     {
       "source": "HiSugar import premium article",
-      "articleId": "2025073108530245334046",
-      "url": "https://www.hisugar.com/home/articleContent?id=2025073108530245334046",
-      "requestedAt": "2026-07-26T19:27:51+08:00",
+      "articleId": "2026072208443946236335",
+      "url": "https://www.hisugar.com/home/articleContent?id=2026072208443946236335",
+      "requestedAt": "2026-07-26T19:42:16+08:00",
       "httpStatus": 200,
       "imageCount": 2,
-      "parsed": true,
-      "parsedRows": 5
+      "parsed": false,
+      "parsedRows": 0
     },
     {
       "source": "HiSugar import premium image OCR",
-      "articleId": "2025073108530245334046",
-      "imageUrl": "https://www.hisugar.com/image/20250731/1753922966646075303.png",
+      "articleId": "2026072208443946236335",
+      "imageUrl": "https://www.hisugar.com/image/20260722/1784680592412005180.png",
       "httpStatus": 200,
-      "ocrBackend": "windows_ocr",
-      "parsedRows": 5,
-      "parsedDates": [
-        "2025-07-24",
-        "2025-07-25",
-        "2025-07-28",
-        "2025-07-29",
-        "2025-07-30"
-      ],
-      "parsed": true
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026072208443946236335",
+      "imageUrl": "https://www.hisugar.com/image/20260624/1782261847941004285.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
     },
     {
       "source": "HiSugar import premium article",
-      "articleId": "2025073008460053690630",
-      "url": "https://www.hisugar.com/home/articleContent?id=2025073008460053690630",
-      "requestedAt": "2026-07-26T19:27:53+08:00",
+      "articleId": "2026072108403722853250",
+      "url": "https://www.hisugar.com/home/articleContent?id=2026072108403722853250",
+      "requestedAt": "2026-07-26T19:42:23+08:00",
       "httpStatus": 200,
       "imageCount": 2,
-      "parsed": true,
-      "parsedRows": 5
+      "parsed": false,
+      "parsedRows": 0
     },
     {
       "source": "HiSugar import premium image OCR",
-      "articleId": "2025073008460053690630",
-      "imageUrl": "https://www.hisugar.com/image/20250730/1753836230524047735.png",
+      "articleId": "2026072108403722853250",
+      "imageUrl": "https://www.hisugar.com/image/20260721/1784594293317037615.png",
       "httpStatus": 200,
-      "ocrBackend": "windows_ocr",
-      "parsedRows": 5,
-      "parsedDates": [
-        "2025-07-23",
-        "2025-07-24",
-        "2025-07-25",
-        "2025-07-28",
-        "2025-07-29"
-      ],
-      "parsed": true
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026072108403722853250",
+      "imageUrl": "https://www.hisugar.com/image/20260624/1782261847941004285.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
     },
     {
       "source": "HiSugar import premium article",
-      "articleId": "2025072908581105031272",
-      "url": "https://www.hisugar.com/home/articleContent?id=2025072908581105031272",
-      "requestedAt": "2026-07-26T19:27:54+08:00",
+      "articleId": "2026072008582797661388",
+      "url": "https://www.hisugar.com/home/articleContent?id=2026072008582797661388",
+      "requestedAt": "2026-07-26T19:42:30+08:00",
       "httpStatus": 200,
       "imageCount": 2,
-      "parsed": true,
-      "parsedRows": 5
+      "parsed": false,
+      "parsedRows": 0
     },
     {
       "source": "HiSugar import premium image OCR",
-      "articleId": "2025072908581105031272",
-      "imageUrl": "https://www.hisugar.com/image/20250729/1753749946315047120.png",
+      "articleId": "2026072008582797661388",
+      "imageUrl": "https://www.hisugar.com/image/20260720/1784508991755022120.png",
       "httpStatus": 200,
-      "ocrBackend": "windows_ocr",
-      "parsedRows": 5,
-      "parsedDates": [
-        "2025-07-22",
-        "2025-07-23",
-        "2025-07-24",
-        "2025-07-25",
-        "2025-07-26"
-      ],
-      "parsed": true
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026072008582797661388",
+      "imageUrl": "https://www.hisugar.com/image/20260624/1782261847941004285.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
     },
     {
       "source": "HiSugar import premium article",
-      "articleId": "2025072808561463671302",
-      "url": "https://www.hisugar.com/home/articleContent?id=2025072808561463671302",
-      "requestedAt": "2026-07-26T19:27:56+08:00",
+      "articleId": "2026071708580579087611",
+      "url": "https://www.hisugar.com/home/articleContent?id=2026071708580579087611",
+      "requestedAt": "2026-07-26T19:42:37+08:00",
       "httpStatus": 200,
       "imageCount": 2,
-      "parsed": true,
-      "parsedRows": 5
+      "parsed": false,
+      "parsedRows": 0
     },
     {
       "source": "HiSugar import premium image OCR",
-      "articleId": "2025072808561463671302",
-      "imageUrl": "https://www.hisugar.com/image/20250728/1753663965664064635.png",
+      "articleId": "2026071708580579087611",
+      "imageUrl": "https://www.hisugar.com/image/20260717/1784249718632001544.png",
       "httpStatus": 200,
-      "ocrBackend": "windows_ocr",
-      "parsedRows": 5,
-      "parsedDates": [
-        "2025-07-21",
-        "2025-07-22",
-        "2025-07-23",
-        "2025-07-24",
-        "2025-07-25"
-      ],
-      "parsed": true
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026071708580579087611",
+      "imageUrl": "https://www.hisugar.com/image/20260624/1782261847941004285.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
     },
     {
       "source": "HiSugar import premium article",
-      "articleId": "2025072213462038984375",
-      "url": "https://www.hisugar.com/home/articleContent?id=2025072213462038984375",
-      "requestedAt": "2026-07-26T19:27:57+08:00",
+      "articleId": "2026071615345832036655",
+      "url": "https://www.hisugar.com/home/articleContent?id=2026071615345832036655",
+      "requestedAt": "2026-07-26T19:42:45+08:00",
       "httpStatus": 200,
       "imageCount": 2,
-      "parsed": true,
-      "parsedRows": 5
+      "parsed": false,
+      "parsedRows": 0
     },
     {
       "source": "HiSugar import premium image OCR",
-      "articleId": "2025072213462038984375",
-      "imageUrl": "https://www.hisugar.com/image/20250722/1753162972932030576.png",
+      "articleId": "2026071615345832036655",
+      "imageUrl": "https://www.hisugar.com/image/20260716/1784187203512038793.png",
       "httpStatus": 200,
-      "ocrBackend": "windows_ocr",
-      "parsedRows": 5,
-      "parsedDates": [
-        "2025-07-15",
-        "2025-07-16",
-        "2025-07-17",
-        "2025-07-18",
-        "2025-07-21"
-      ],
-      "parsed": true
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026071615345832036655",
+      "imageUrl": "https://www.hisugar.com/image/20260624/1782261847941004285.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
     },
     {
       "source": "HiSugar import premium article",
-      "articleId": "2025071708515533927166",
-      "url": "https://www.hisugar.com/home/articleContent?id=2025071708515533927166",
-      "requestedAt": "2026-07-26T19:27:58+08:00",
+      "articleId": "2026071508464064823716",
+      "url": "https://www.hisugar.com/home/articleContent?id=2026071508464064823716",
+      "requestedAt": "2026-07-26T19:42:52+08:00",
       "httpStatus": 200,
       "imageCount": 2,
-      "parsed": true,
-      "parsedRows": 4
+      "parsed": false,
+      "parsedRows": 0
     },
     {
       "source": "HiSugar import premium image OCR",
-      "articleId": "2025071708515533927166",
-      "imageUrl": "https://www.hisugar.com/image/20250717/1752713401752004341.jpg",
+      "articleId": "2026071508464064823716",
+      "imageUrl": "https://www.hisugar.com/image/20260715/1784076262870039013.png",
       "httpStatus": 200,
-      "ocrBackend": "windows_ocr",
-      "parsedRows": 4,
-      "parsedDates": [
-        "2025-07-10",
-        "2025-07-14",
-        "2025-07-15",
-        "2025-07-16"
-      ],
-      "parsed": true
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026071508464064823716",
+      "imageUrl": "https://www.hisugar.com/image/20260624/1782261847941004285.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium article",
+      "articleId": "2026071408432471379932",
+      "url": "https://www.hisugar.com/home/articleContent?id=2026071408432471379932",
+      "requestedAt": "2026-07-26T19:43:00+08:00",
+      "httpStatus": 200,
+      "imageCount": 2,
+      "parsed": false,
+      "parsedRows": 0
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026071408432471379932",
+      "imageUrl": "https://www.hisugar.com/image/20260714/1783989700886060610.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026071408432471379932",
+      "imageUrl": "https://www.hisugar.com/image/20260624/1782261847941004285.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium article",
+      "articleId": "2026071315255835340546",
+      "url": "https://www.hisugar.com/home/articleContent?id=2026071315255835340546",
+      "requestedAt": "2026-07-26T19:43:07+08:00",
+      "httpStatus": 200,
+      "imageCount": 2,
+      "parsed": false,
+      "parsedRows": 0
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026071315255835340546",
+      "imageUrl": "https://www.hisugar.com/image/20260713/1783904406787079197.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026071315255835340546",
+      "imageUrl": "https://www.hisugar.com/image/20260624/1782261847941004285.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium article",
+      "articleId": "2026071008463250033185",
+      "url": "https://www.hisugar.com/home/articleContent?id=2026071008463250033185",
+      "requestedAt": "2026-07-26T19:43:17+08:00",
+      "httpStatus": 200,
+      "imageCount": 2,
+      "parsed": false,
+      "parsedRows": 0
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026071008463250033185",
+      "imageUrl": "https://www.hisugar.com/image/20260710/1783644383626031148.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026071008463250033185",
+      "imageUrl": "https://www.hisugar.com/image/20260624/1782261847941004285.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium article",
+      "articleId": "2026070909092171345186",
+      "url": "https://www.hisugar.com/home/articleContent?id=2026070909092171345186",
+      "requestedAt": "2026-07-26T19:43:28+08:00",
+      "httpStatus": 200,
+      "imageCount": 2,
+      "parsed": false,
+      "parsedRows": 0
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026070909092171345186",
+      "imageUrl": "https://www.hisugar.com/image/20260709/1783558742992051343.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026070909092171345186",
+      "imageUrl": "https://www.hisugar.com/image/20260624/1782261847941004285.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
     },
     {
       "source": "MAPA Agroenergia production page",
       "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/producao",
-      "requestedAt": "2026-07-26T19:27:59+08:00",
+      "requestedAt": "2026-07-26T19:43:34+08:00",
       "httpStatus": 200,
       "candidateCount": 1,
       "parsed": true
@@ -461,7 +588,7 @@
       "source": "MAPA sugar-stock PDF",
       "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/arquivos-producao/009ESTOQUESDEACARPORTIPOSAFRA20262027_20072026.pdf",
       "season": "2026/2027",
-      "requestedAt": "2026-07-26T19:28:17+08:00",
+      "requestedAt": "2026-07-26T19:43:35+08:00",
       "httpStatus": 200,
       "fileHash": "e8b9ae2de1c6c7c9184ca5af968eceb331ce0104e9f14758d315a09a87e1379f",
       "rowsParsed": 6,
@@ -479,7 +606,7 @@
     {
       "source": "MAPA previous sugar-stock seasons page",
       "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/producao-e-estoques-de-acucar-por-tipo-safras-anteriores",
-      "requestedAt": "2026-07-26T19:28:25+08:00",
+      "requestedAt": "2026-07-26T19:43:36+08:00",
       "httpStatus": 200,
       "candidateCount": 14,
       "parsed": true
@@ -488,7 +615,7 @@
       "source": "MAPA sugar-stock PDF",
       "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/arquivos-producao/009ESTOQUESDEACARPORTIPOSAFRA20252026_13052026.pdf",
       "season": "2025/2026",
-      "requestedAt": "2026-07-26T19:28:43+08:00",
+      "requestedAt": "2026-07-26T19:43:37+08:00",
       "httpStatus": 200,
       "fileHash": "57d04684e2c24b4a117b92faac739bee18578980634e020abe76fafe98bc7653",
       "rowsParsed": 24,
@@ -524,7 +651,7 @@
     {
       "source": "MAPA ethanol season directory",
       "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira",
-      "requestedAt": "2026-07-26T19:29:00+08:00",
+      "requestedAt": "2026-07-26T19:43:41+08:00",
       "httpStatus": 200,
       "candidateCount": 20,
       "parsed": true
@@ -533,7 +660,7 @@
       "source": "MAPA ethanol season page",
       "season": "2026/2027",
       "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/2026-2027",
-      "requestedAt": "2026-07-26T19:29:30+08:00",
+      "requestedAt": "2026-07-26T19:43:42+08:00",
       "httpStatus": 200,
       "candidateCount": 6,
       "parsedDates": [
@@ -551,7 +678,7 @@
       "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_150426.PDF",
       "season": "2026/2027",
       "referenceDate": "2026-04-16",
-      "requestedAt": "2026-07-26T19:29:52+08:00",
+      "requestedAt": "2026-07-26T19:43:44+08:00",
       "httpStatus": 200,
       "fileHash": "8bbf4d5dce1a7ef91bfea38705e489c316bd7da79691e446a3e5811ee6613757",
       "numericColumnCount": 16,
@@ -564,7 +691,7 @@
       "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_010526.pdf",
       "season": "2026/2027",
       "referenceDate": "2026-05-01",
-      "requestedAt": "2026-07-26T19:30:22+08:00",
+      "requestedAt": "2026-07-26T19:43:46+08:00",
       "httpStatus": 200,
       "fileHash": "d6be5d933d5f83370041a24f32ed97477f73e7a10ea3b30e2390e2a08d351f9f",
       "numericColumnCount": 17,
@@ -577,7 +704,7 @@
       "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_150526.PDF",
       "season": "2026/2027",
       "referenceDate": "2026-05-16",
-      "requestedAt": "2026-07-26T19:30:58+08:00",
+      "requestedAt": "2026-07-26T19:43:48+08:00",
       "httpStatus": 200,
       "fileHash": "88ff341d430263646af101968c50c1d4cce6bc626cccb6391df633126c8e5f41",
       "numericColumnCount": 17,
@@ -590,7 +717,7 @@
       "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_010626.pdf",
       "season": "2026/2027",
       "referenceDate": "2026-06-01",
-      "requestedAt": "2026-07-26T19:31:37+08:00",
+      "requestedAt": "2026-07-26T19:43:49+08:00",
       "httpStatus": 200,
       "fileHash": "6fbac57aafd7784fb6fbeaaf42fdbc55c98ee7b59bb060b4a42d7e62b9db56b3",
       "numericColumnCount": 17,
@@ -603,7 +730,7 @@
       "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_150626.PDF",
       "season": "2026/2027",
       "referenceDate": "2026-06-16",
-      "requestedAt": "2026-07-26T19:31:44+08:00",
+      "requestedAt": "2026-07-26T19:43:50+08:00",
       "httpStatus": 200,
       "fileHash": "129e475af4b85e4fc3cee5ee0c235b0e4a21bc0df720a9c4bb9ded468ca063e2",
       "numericColumnCount": 17,
@@ -616,7 +743,7 @@
       "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_010726.pdf",
       "season": "2026/2027",
       "referenceDate": "2026-07-01",
-      "requestedAt": "2026-07-26T19:31:51+08:00",
+      "requestedAt": "2026-07-26T19:43:52+08:00",
       "httpStatus": 200,
       "fileHash": "723dabcee137424025438911aab602de7709359ec41c211f4a9d1b7da3bae876",
       "numericColumnCount": 17,
@@ -628,7 +755,7 @@
       "source": "MAPA ethanol season page",
       "season": "2025/2026",
       "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/2025-2026",
-      "requestedAt": "2026-07-26T19:32:18+08:00",
+      "requestedAt": "2026-07-26T19:43:53+08:00",
       "httpStatus": 200,
       "candidateCount": 31,
       "parsedDates": [
@@ -671,7 +798,7 @@
       "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/2025-2026-1/Acompanhamentodaproduo2526_010725.PDF",
       "season": "2025/2026",
       "referenceDate": "2025-07-01",
-      "requestedAt": "2026-07-26T19:32:55+08:00",
+      "requestedAt": "2026-07-26T19:44:14+08:00",
       "httpStatus": 200,
       "fileHash": "584e80705e83a6d4da1196d52207abf706847c7e71d2dcb9e779f041aaa1e92c",
       "numericColumnCount": 17,
