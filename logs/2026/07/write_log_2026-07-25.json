@@ -1,6 +1,6 @@
 {
   "target_date": "2026-07-25",
-  "generated_at": "2026-07-26T19:26:58+08:00",
+  "generated_at": "2026-07-26T20:13:17+08:00",
   "status": "success",
   "verified_news_file": "D:\\Desktop\\ai\\sugar-news\\data\\verified_news\\2026\\07\\sugar_news_2026-07-25.json",
   "excel_file": "D:\\Desktop\\ai\\sugar-news\\reports\\2026\\07\\Sugar News 2026-07-25.xlsx",
@@ -8,7 +8,7 @@
   "dashboard_index": "D:\\Desktop\\ai\\sugar-news\\public\\sugar-news\\data\\index.json",
   "editorial_skill": {
     "path": ".codex/skills/sugar-news-editorial-rules/SKILL.md",
-    "sha256": "cfe52a2778c4074beb7459c9467b45a8efe8f056824efa087c3b74120f79d516"
+    "sha256": "0e7641751556da492bfd2a538863e311f8dcc08f7ed977d73a10ce887672e6a0"
   },
   "thai_weather_check": {
     "fixed_step": "Thai main sugarcane area rainfall check",
@@ -20,7 +20,7 @@
   "china_monitoring_check": {
     "status": "completed",
     "mode": "verified_items_checked_after_load",
-    "retained_count": 0,
+    "retained_count": 4,
     "query_template_count": 32,
     "query_templates": [
       "中国糖业新闻 {year}年{month}月{day}日",
@@ -67,7 +67,15 @@
       "郑州商品交易所",
       "权威期货公司、研究机构及糖厂公告"
     ],
-    "note": "China sugar monitoring completed; no publishable item found"
+    "column_required": true,
+    "note": "China sugar monitoring completed; required China output is present",
+    "ensure_step": {
+      "fixed_step": "China sugar daily priority monitoring",
+      "target_date": "2026-07-25",
+      "status": "skipped",
+      "retained_count": 4,
+      "reason": "China item already present in verified news."
+    }
   },
   "brazil_metrics_refresh": {
     "status": "skipped",
@@ -78,17 +86,18 @@
     "reason": "news-only repair"
   },
   "checks": {
-    "verified_count": 1,
-    "excel_count": 1,
-    "dashboard_count": 1,
+    "verified_count": 5,
+    "excel_count": 5,
+    "dashboard_count": 5,
     "excel_matches_verified": true,
     "dashboard_matches_verified": true,
     "country_order_ok": true,
     "no_empty_country_sections": true,
     "counts_by_country": {
-      "泰国": 1
+      "泰国": 1,
+      "中国": 4
     },
-    "china_count": 0,
+    "china_count": 4,
     "other_country_count": 0
   }
 }

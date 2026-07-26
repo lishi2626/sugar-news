@@ -167,6 +167,15 @@ For China weather news, do not apply the Thailand growing-stage rainfall rule me
 
 Pre-publication logs must show that China search was completed, including query terms, sources, and candidate counts. If no important China item is found, record `China sugar monitoring completed; no publishable item found` in the backend log instead of silently omitting China. Before publishing, verify that any retained China item exists in verified JSON, Excel/dashboard output, and production artifacts.
 
+The China column is mandatory in every daily Sugar News report. After all configured China searches and source fallbacks have completed:
+
+- publish every qualified China sugar-industry item found;
+- if no qualified event is found, publish one clearly labeled `中国糖业每日监测` item stating that the search completed without a publishable new event;
+- use `中性` for that monitoring result and do not invent facts, figures, market moves, or source events;
+- never omit the China column silently, and never fill it with foreign-country, medical, nutrition, or low-quality duplicate content;
+- persist the final China output in the verified JSON before Excel, dashboard JSON, Git push, and Vercel deployment;
+- fail pre-publication validation if the final verified item list contains no `country_group=中国` row.
+
 ## 巴西糖价与库存每日刷新
 
 The daily Sugar News task must refresh the `巴西糖价与库存` dashboard before writing the dashboard JSON and before Vercel production deployment. The normal 06:00 Beijing-time GitHub Actions run must execute `scripts/brazil_sugar_metrics.py --date "$TARGET_DATE"` as its own metrics step before calling `scripts/sugar_news_pipeline.py`. The pipeline may then use `--skip-metric-refresh` only to avoid duplicate in-process refresh, because the Brazil refresh has already been attempted and its latest successful snapshot is available to the dashboard builder.

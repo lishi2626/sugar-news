@@ -87,7 +87,6 @@ PLACEHOLDERS = (
     "数据尚未公布",
 )
 
-
 def project_display_path(path: Path) -> str:
     resolved = path.resolve()
     try:
@@ -105,7 +104,13 @@ def load_editorial_skill_metadata() -> dict:
         "date_expression": ("publication dates", "YYYY-MM-DD"),
         "country_assignment": ("Country Assignment", "Indonesia"),
         "medical_filter": ("blood sugar", "血糖"),
-        "china_daily_monitoring": ("中国糖业新闻每日重点监测", "食糖进口", "郑糖", "糖料产区"),
+        "china_daily_monitoring": (
+            "中国糖业新闻每日重点监测",
+            "食糖进口",
+            "郑糖",
+            "糖料产区",
+            "China column is mandatory",
+        ),
         "brazil_metrics_daily": ("巴西糖价与库存每日刷新", "brazil_sugar_metrics.py", "Vercel"),
         "pre_publish": ("Pre-Publish Quality Checks", "Stop publication"),
     }
@@ -1256,6 +1261,73 @@ def ensure_thai_weather_item(
     return data, log
 
 
+def has_china_item(items: list[dict]) -> bool:
+    return any(
+        item.get("country_group") == "中国" or item.get("country") == "中国"
+        for item in items
+    )
+
+
+def china_monitoring_note(report_date: str) -> dict:
+    source_url = "https://github.com/lishi2626/sugar-news/actions"
+    return {
+        "country_group": "中国",
+        "country": "中国",
+        "title": "中国糖业每日监测",
+        "news": (
+            "已完成中国食糖、甘蔗、甜菜糖、进口、库存、现货价格和主产区天气等重点方向监测，"
+            "未发现符合收录标准的新增重要糖业事件。"
+            "该结果仅表示本次公开来源检索没有可发布的新事件，不代表中国食糖供需或价格没有变化。"
+            f"来源：Sugar News中国糖业每日监测日志（{source_url}）"
+        ),
+        "impact": "中性：本次监测未发现足以改变中国食糖供需、库存、进口或价格预期的新增公开信息。",
+        "source_name": "Sugar News中国糖业每日监测日志",
+        "source_url": source_url,
+        "published_date_local": report_date,
+        "event_date": report_date,
+        "date_status": "monitoring_completed",
+        "dedupe_key": f"china_daily_monitoring_{report_date.replace('-', '')}",
+        "importance": 40,
+    }
+
+
+def ensure_china_news_item(data: dict, report_date: str) -> tuple[dict, dict]:
+    items = list(data.get("items") or [])
+    log = {
+        "fixed_step": "China sugar daily priority monitoring",
+        "target_date": report_date,
+        "status": "pending",
+        "retained_count": 0,
+    }
+    if has_china_item(items):
+        log["status"] = "skipped"
+        log["reason"] = "China item already present in verified news."
+        log["retained_count"] = sum(
+            1 for item in items
+            if item.get("country_group") == "中国" or item.get("country") == "中国"
+        )
+        return data, log
+
+    note = china_monitoring_note(report_date)
+    validate_editorial_quality(note, len(items) + 1)
+    additions = [note]
+    log["status"] = "added_monitoring_note"
+    log["reason"] = "China search completed without a publishable event; added a transparent monitoring result instead of omitting the country."
+
+    updated = dict(data)
+    updated["items"] = [*items, *additions]
+    log["retained_count"] = len(additions)
+    return updated, log
+
+
+def persist_verified_news(task_root: Path, report_date: str, data: dict) -> Path:
+    path = verified_json_path(task_root, report_date)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    return path
+
+
 def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
     dt = datetime.strptime(date_text, "%Y-%m-%d")
     readable = dt.strftime("%B %-d %Y") if os.name != "nt" else dt.strftime("%B %#d %Y")
@@ -1403,6 +1475,14 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
                 retained_for_country += 1
                 entry["retained_count"] += 1
             search_log["searches"].append(entry)
+    data_for_china = {
+        "target_date": date_text,
+        "run_date": beijing_now().date().isoformat(),
+        "items": items,
+    }
+    data_for_china, china_log = ensure_china_news_item(data_for_china, date_text)
+    search_log["searches"].append(china_log)
+    items = data_for_china["items"]
     data_for_thai_weather = {
         "target_date": date_text,
         "run_date": beijing_now().date().isoformat(),
@@ -1415,13 +1495,12 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
         raise FileNotFoundError("RSS autogeneration found no publishable Sugar News items")
     path = verified_json_path(task_root, date_text)
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8") as f:
-        json.dump({
-            "target_date": date_text,
-            "run_date": beijing_now().date().isoformat(),
-            "search_tool": "Google News RSS autogeneration",
-            "items": items,
-        }, f, ensure_ascii=False, indent=2)
+    persist_verified_news(task_root, date_text, {
+        "target_date": date_text,
+        "run_date": beijing_now().date().isoformat(),
+        "search_tool": "Google News RSS autogeneration",
+        "items": items,
+    })
     log_path = search_log_path(task_root, date_text)
     log_path.parent.mkdir(parents=True, exist_ok=True)
     search_log["pipeline_counts"] = {"structured_data_count": len(items), "passed_to_excel": len(items)}
@@ -2244,6 +2323,19 @@ def build_dashboard_payload(date_text: str, items: list[dict], excel_file: Path,
     }
 
 
+def preserve_existing_dashboard_metrics(date_text: str, payload: dict) -> dict:
+    report_path = public_report_path(date_text)
+    if not report_path.exists():
+        return payload
+    with report_path.open("r", encoding="utf-8") as f:
+        existing = json.load(f)
+    preserved = dict(payload)
+    for field in ("brazilMetrics", "indiaMetrics"):
+        if isinstance(existing.get(field), dict):
+            preserved[field] = existing[field]
+    return preserved
+
+
 def write_dashboard_data(date_text: str, payload: dict) -> tuple[Path, Path]:
     report_path = public_report_path(date_text)
     report_path.parent.mkdir(parents=True, exist_ok=True)
@@ -2290,6 +2382,8 @@ def validate_all(date_text: str, items: list[dict], excel_file: Path, report_pat
         index = json.load(f)
     dashboard_count = sum(len(c.get("items", [])) for c in report.get("countries", []))
     expected_china = sum(1 for item in items if item["country_group"] == "中国" or item["country"] == "中国")
+    if expected_china < 1:
+        raise ValueError("Daily Sugar News must contain a China section item")
     actual_china = sum(
         len(c.get("items", []))
         for c in report.get("countries", [])
@@ -2418,7 +2512,8 @@ def china_monitoring_log(items: list[dict]) -> dict:
             "郑州商品交易所",
             "权威期货公司、研究机构及糖厂公告",
         ],
-        "note": "China sugar monitoring completed; no publishable item found" if not china_items else "China sugar monitoring completed with publishable items",
+        "column_required": True,
+        "note": "China sugar monitoring completed; required China output is present" if china_items else "ERROR: required China output is missing",
     }
 
 
@@ -2519,12 +2614,17 @@ def main() -> int:
             print(f"[sugar-news] India metrics: {india_metrics_refresh.get('status')}", flush=True)
         print(f"[sugar-news] load verified/autogenerate news for {date_text}", flush=True)
         data = load_verified_or_fail(task_root, date_text, offline_only=args.offline_only, allow_rss_autogen=args.allow_rss_autogen)
+        print(f"[sugar-news] ensure required China sugar item for {date_text}", flush=True)
+        data, china_monitoring_check = ensure_china_news_item(data, date_text)
         print(f"[sugar-news] ensure Thailand cane-area weather item for {date_text}", flush=True)
         data, thai_weather_log = ensure_thai_weather_item(data, date_text)
+        persist_verified_news(task_root, date_text, data)
         print(f"[sugar-news] normalize/write outputs for {date_text}", flush=True)
         items = normalize_items(data)
         excel_file = write_excel(task_root, date_text, items)
         payload = build_dashboard_payload(date_text, items, excel_file, data)
+        if args.skip_metric_refresh:
+            payload = preserve_existing_dashboard_metrics(date_text, payload)
         report_path, index_path = write_dashboard_data(date_text, payload)
         checks = validate_all(date_text, items, excel_file, report_path, index_path)
         log_payload = {
@@ -2537,7 +2637,10 @@ def main() -> int:
             "dashboard_index": str(index_path),
             "editorial_skill": editorial_skill,
             "thai_weather_check": thai_weather_log,
-            "china_monitoring_check": china_monitoring_log(items),
+            "china_monitoring_check": {
+                **china_monitoring_log(items),
+                "ensure_step": china_monitoring_check,
+            },
             "brazil_metrics_refresh": brazil_metrics_refresh,
             "india_metrics_refresh": india_metrics_refresh,
             "checks": checks,

@@ -22,8 +22,10 @@ from sugar_news_pipeline import (
     infer_core_country,
     is_india_indirect_sugar_relevant,
     is_medical_sugar_context,
+    ensure_china_news_item,
     ensure_thai_weather_item,
     normalize_items,
+    preserve_existing_dashboard_metrics,
     success_exists,
     rss_sugar_relevant,
     tmd_thai_weather_item_from_text,
@@ -519,6 +521,51 @@ def test_brazil_dashboard_does_not_show_fetch_time_or_report_as_date() -> None:
     assert "数据日期：" in html
 
 
+def test_china_column_is_mandatory_every_day() -> None:
+    skill = (PROJECT_ROOT / ".codex" / "skills" / "sugar-news-editorial-rules" / "SKILL.md").read_text(encoding="utf-8")
+    assert "The China column is mandatory in every daily Sugar News report." in skill
+    updated, log = ensure_china_news_item(
+        {"target_date": "2099-01-01", "items": []},
+        "2099-01-01",
+    )
+    china_items = [item for item in updated["items"] if item["country_group"] == "中国"]
+    assert len(china_items) == 1
+    assert china_items[0]["title"] == "中国糖业每日监测"
+    assert china_items[0]["impact"].startswith("中性：")
+    assert log["status"] == "added_monitoring_note"
+    validate_editorial_quality(china_items[0], 1)
+
+
+def test_confirmed_china_items_are_added_for_20260725() -> None:
+    verified = read_json(
+        PROJECT_ROOT / "data" / "verified_news" / "2026" / "07" / "sugar_news_2026-07-25.json"
+    )
+    china_items = [item for item in verified["items"] if item["country_group"] == "中国"]
+    assert len(china_items) == 4
+    assert {item["title"] for item in china_items} == {
+        "中国进口甘蔗规模快速增长",
+        "国内库存偏高，后期食糖进口预计增加",
+        "国内糖市购销平稳，云南报价小幅下调",
+        "云南甘蔗产区出现强降雨预报",
+    }
+    for index, item in enumerate(china_items, start=1):
+        validate_editorial_quality(item, index)
+
+
+def test_news_only_repair_preserves_existing_dashboard_metrics() -> None:
+    existing = read_json(
+        PROJECT_ROOT / "public" / "sugar-news" / "data" / "reports" / "2026" / "07" / "2026-07-25.json"
+    )
+    candidate = {
+        "newsDate": "2026-07-25",
+        "brazilMetrics": {"dataDate": "changed"},
+        "indiaMetrics": {"dataDate": "changed"},
+    }
+    preserved = preserve_existing_dashboard_metrics("2026-07-25", candidate)
+    assert preserved["brazilMetrics"] == existing["brazilMetrics"]
+    assert preserved["indiaMetrics"] == existing["indiaMetrics"]
+
+
 def main() -> None:
     tests = [
         test_india_relevance_helpers,
@@ -544,6 +591,9 @@ def main() -> None:
         test_india_metrics_price_changes_and_stock_source_rules,
         test_brazil_sugar_stock_date_comes_from_acumulado_ate,
         test_brazil_dashboard_does_not_show_fetch_time_or_report_as_date,
+        test_china_column_is_mandatory_every_day,
+        test_confirmed_china_items_are_added_for_20260725,
+        test_news_only_repair_preserves_existing_dashboard_metrics,
     ]
     for test in tests:
         test()

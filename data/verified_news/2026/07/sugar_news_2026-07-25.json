@@ -16,6 +16,62 @@
       "date_status": "official_forecast",
       "dedupe_key": "thailand_cane_weather_open_meteo_20260725",
       "importance": 78
+    },
+    {
+      "country_group": "中国",
+      "country": "中国",
+      "published_date_local": "2026-07-25",
+      "title": "中国进口甘蔗规模快速增长",
+      "news": "2015—2025年，中国进口甘蔗由105.41万吨增加至359.07万吨，十年增长约240.6%；2026年1—6月累计进口326.12万吨，已相当于2025年全年的90.8%。进口甘蔗持续补充国内糖料供应并提高边境糖厂原料保障，对国内糖价形成利空影响。来源：云糖网（https://www.yntw.com/date/2026/07）",
+      "impact": "利空：进口甘蔗增长补充国内糖料供应并增强边境糖厂原料保障，增加食糖供应预期。",
+      "source_name": "云糖网",
+      "source_url": "https://www.yntw.com/date/2026/07",
+      "event_date": "2026-06-30",
+      "date_status": "statistics_period",
+      "dedupe_key": "china_imported_cane_growth_20260725",
+      "importance": 92
+    },
+    {
+      "country_group": "中国",
+      "country": "中国",
+      "published_date_local": "2026-07-25",
+      "title": "国内库存偏高，后期食糖进口预计增加",
+      "news": "国内食糖工业库存约449万吨，仍处于历史同期偏高水平；6月进口食糖28万吨，市场预计7月以后进口量继续增加。高库存叠加进口到港增长，将继续压制国内现货及郑糖价格的反弹空间。来源：紫金天风期货（https://finance.sina.com.cn/money/future/fmnews/2026-07-23/doc-iniiusky8326649.shtml）",
+      "impact": "利空：高库存与进口到港增加共同扩大可供应量，压制国内现货及郑糖价格。",
+      "source_name": "紫金天风期货",
+      "source_url": "https://finance.sina.com.cn/money/future/fmnews/2026-07-23/doc-iniiusky8326649.shtml",
+      "event_date": "2026-06-30",
+      "date_status": "statistics_period",
+      "dedupe_key": "china_high_inventory_import_outlook_20260725",
+      "importance": 90
+    },
+    {
+      "country_group": "中国",
+      "country": "中国",
+      "published_date_local": "2026-07-25",
+      "title": "国内糖市购销平稳，云南报价小幅下调",
+      "news": "广西制糖集团报价维持5170—5270元/吨，云南制糖集团报价4980—5030元/吨、部分下调10元/吨，加工糖报价总体稳定。现货需求没有明显改善，国内市场缺少新的上涨驱动，短期糖价预计维持低位震荡。来源：光大期货市场观点（https://goodsfu.10jqka.com.cn/20260723/c678373891.shtml）",
+      "impact": "利空：现货需求偏弱且云南报价下调，国内糖价短期缺少上行动力。",
+      "source_name": "光大期货市场观点",
+      "source_url": "https://goodsfu.10jqka.com.cn/20260723/c678373891.shtml",
+      "event_date": "2026-07-23",
+      "date_status": "continuing_impact",
+      "dedupe_key": "china_spot_market_yunnan_quote_20260725",
+      "importance": 84
+    },
+    {
+      "country_group": "中国",
+      "country": "中国",
+      "published_date_local": "2026-07-25",
+      "title": "云南甘蔗产区出现强降雨预报",
+      "news": "7月23日夜间起，云南文山、红河、玉溪、普洱等甘蔗产区预报中到大雨、局部暴雨至大暴雨，部分地区伴有短时强降水、大风和冰雹。强降雨可能造成局部农田积水、甘蔗倒伏及田间管理困难，短期不利于甘蔗生长和后续供应。来源：云南网（https://yn.yunnan.cn/system/2026/07/24/034094070.shtml）",
+      "impact": "利多：暴雨、大风和冰雹可能导致积水、倒伏及田间管理困难，使未来糖料供应下降或稳定性减弱。",
+      "source_name": "云南网",
+      "source_url": "https://yn.yunnan.cn/system/2026/07/24/034094070.shtml",
+      "event_date": "2026-07-23",
+      "date_status": "continuing_impact",
+      "dedupe_key": "china_yunnan_cane_heavy_rain_20260725",
+      "importance": 88
     }
   ]
 }
