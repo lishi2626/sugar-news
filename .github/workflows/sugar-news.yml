@@ -98,7 +98,19 @@ jobs:
           set -euo pipefail
           TARGET_DATE="${{ steps.target.outputs.target_date }}"
           echo "target_date=$TARGET_DATE" >> "$GITHUB_OUTPUT"
+          set +e
           python scripts/sugar_news_pipeline.py --date "$TARGET_DATE" --skip-if-success --allow-rss-autogen --skip-metric-refresh 2>&1 | tee "$SUGAR_NEWS_LOG_DIR/pipeline.log"
+          exit_code=${PIPESTATUS[0]}
+          set -e
+          if [ "$exit_code" -ne 0 ]; then
+            echo "Sugar News pipeline failed for $TARGET_DATE" >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+            tail -n 80 "$SUGAR_NEWS_LOG_DIR/pipeline.log" >> "$GITHUB_STEP_SUMMARY" || true
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+            summary="$(tail -n 20 "$SUGAR_NEWS_LOG_DIR/pipeline.log" | tr '\n' ' ' | sed 's/%/%25/g; s/\r/%0D/g; s/\n/%0A/g' | cut -c1-900)"
+            echo "::error file=scripts/sugar_news_pipeline.py,line=1::${summary}"
+            exit "$exit_code"
+          fi
 
       - name: Verify local dashboard data
         shell: bash
