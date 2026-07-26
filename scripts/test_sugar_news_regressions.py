@@ -18,6 +18,7 @@ from brazil_sugar_metrics import (
 )
 from sugar_news_pipeline import (
     COUNTRY_SEARCH_TEMPLATES,
+    OTHER_COUNTRY_SEARCH_TEMPLATES,
     infer_core_country,
     is_india_indirect_sugar_relevant,
     is_medical_sugar_context,
@@ -111,6 +112,13 @@ def test_brazil_metrics_daily_refresh_skill_and_workflow() -> None:
     assert "def refresh_brazil_metrics" in source
     assert "brazil_metrics_refresh = refresh_brazil_metrics(date_text)" in source
     assert "other-country item lacks concrete country/region; skipped before publication" in source
+
+
+def test_other_country_rss_queries_are_concrete() -> None:
+    queries = "\n".join(template for _language, template in OTHER_COUNTRY_SEARCH_TEMPLATES)
+    for expected in ("Indonesia", "Pakistan", "Philippines", "Vietnam", "Russia", "Cameroon"):
+        assert expected in queries
+    assert "global sugar industry news" not in queries
 
 
 def test_brazil_import_premium_hisugar_source_and_date_rule() -> None:

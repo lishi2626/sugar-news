@@ -255,6 +255,17 @@ GLOBAL_SEARCH_TEMPLATES = (
     "sugarcane news {day} {month_name} {year}",
     "ethanol sugar mills {day} {month_name} {year}",
 )
+OTHER_COUNTRY_SEARCH_TEMPLATES = (
+    ("en", "Indonesia sugar industry {readable}"),
+    ("en", "Pakistan sugar industry {readable}"),
+    ("en", "Philippines sugar industry {readable}"),
+    ("en", "Vietnam sugar industry {readable}"),
+    ("en", "Russia sugar beet sugar {readable}"),
+    ("en", "Cameroon sugar industry {readable}"),
+    ("en", "EU sugar beet production {readable}"),
+    ("en", "United States sugar beet cane {readable}"),
+    ("en", "Mexico sugar production export {readable}"),
+)
 COUNTRY_SEARCH_TEMPLATES = {
     "巴西": (
         ("en", "Brazil sugar industry news {readable}"),
@@ -1254,8 +1265,7 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
         if country in {"巴西", "印度", "泰国", "中国"}
     }
     country_templates["印度指标"] = INDIA_PRICE_INVENTORY_SEARCH_TEMPLATES
-    country_templates["其他国家"] = tuple(("en", template) for template in GLOBAL_SEARCH_TEMPLATES)
-    concrete_other = ("Indonesia", "Pakistan", "Philippines", "Vietnam", "Russia", "EU", "United States", "Mexico")
+    country_templates["其他国家"] = OTHER_COUNTRY_SEARCH_TEMPLATES
     items = []
     seen = set()
     search_log = {
