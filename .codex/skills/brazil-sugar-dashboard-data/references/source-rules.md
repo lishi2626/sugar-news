@@ -7,13 +7,13 @@ Fixed source: 泛糖科技 "食糖进口成本及利润估算表" list.
 List URL:
 
 ```text
-https://www.hisugar.com/home/newListMore?parentId=39&level=3&childId=144&menuTap1
+https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap0
 ```
 
 Required process:
 
-1. Open the list and discover candidate articles titled like "食糖进口成本及利润估算表".
-2. Open candidate articles and parse the report's internal data date. Select the latest by data date, not by page order alone and not by crawl time.
+1. Open the list and its public article-list interface, then discover candidate articles titled like `YYYYMMDD食糖进口成本及利润估算`.
+2. Open candidate articles and parse the report's internal data date. Select the newest valid row available by the normal next-day 06:00 Beijing-time Sugar News generation window, not by page order alone and not by crawl time.
 3. Extract the `进口升贴水` value and unit from the selected report.
 4. Normalize the displayed unit to `美分/磅`.
 5. Find the previous valid data day from the same Hisugar source for daily change.
@@ -24,12 +24,15 @@ Forbidden substitutes:
 - Platts non-public quotes.
 - News inference, third-party reposts, search snippets, or model-estimated values.
 - Fixed article IDs or fixed example values.
+- Article publish date, web page current date, crawler time, or Vercel deployment time as data date.
+- Same-day HiSugar article published after the normal 06:00 generation cutoff for that Sugar News report.
 
 Validation-only example, never a fallback:
 
 - `https://www.hisugar.com/home/articleContent?id=2026072108403722853250`
 - Contains 2026-07-20 data.
 - Example import premium: `-0.3 美分/磅`.
+- For a `20260722食糖进口成本及利润估算` article, the value displayed for a `20260722` row must use `2026-07-22` as `data_date`.
 
 ## 2. 巴西食糖库存
 

@@ -32,7 +32,7 @@ except Exception:
 MAPA_PRODUCTION_URL = "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/producao"
 MAPA_PREVIOUS_SEASONS_URL = "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/producao-e-estoques-de-acucar-por-tipo-safras-anteriores"
 MAPA_ETHANOL_URL = "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira"
-HISUGAR_IMPORT_COST_LIST_URL = "https://www.hisugar.com/home/newListMore?parentId=39&level=3&childId=144&menuTap1"
+HISUGAR_IMPORT_COST_LIST_URL = "https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap0"
 HISUGAR_SEARCH_URL = "https://www.hisugar.com/home/searchCatetoryAndArticle?keyWord=" + quote_plus("食糖进口成本及利润估算")
 HISUGAR_BASE_URL = "https://www.hisugar.com"
 
@@ -171,11 +171,82 @@ def article_date_from_title(title: str) -> str | None:
     return f"{raw[:4]}-{raw[4:6]}-{raw[6:8]}"
 
 
+def parse_local_datetime(value: str | None) -> datetime | None:
+    if not value:
+        return None
+    value = value.strip()
+    for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d"):
+        try:
+            parsed = datetime.strptime(value, fmt)
+            return parsed.replace(tzinfo=SHANGHAI)
+        except ValueError:
+            continue
+    try:
+        parsed = datetime.fromisoformat(value)
+        return parsed if parsed.tzinfo else parsed.replace(tzinfo=SHANGHAI)
+    except ValueError:
+        return None
+
+
+def premium_publication_cutoff(target_date: str) -> datetime:
+    target = datetime.fromisoformat(target_date).date()
+    return datetime(target.year, target.month, target.day, 6, 0, tzinfo=SHANGHAI) + timedelta(days=1)
+
+
+def article_available_for_target(article: dict, target_date: str) -> bool:
+    title_date = article.get("title_date")
+    if not title_date or title_date > target_date:
+        return False
+    published_at = parse_local_datetime(article.get("article_published_at"))
+    if published_at:
+        return published_at <= premium_publication_cutoff(target_date)
+    return title_date < target_date
+
+
+def parse_hisugar_list_articles(body: str, base_url: str) -> list[dict]:
+    articles: list[dict] = []
+    for title_match in re.finditer(r"<h3>(.*?)</h3>", body, re.I | re.S):
+        title = html.unescape(re.sub(r"\s+", " ", re.sub("<.*?>", " ", title_match.group(1)))).strip()
+        if "食糖进口成本及利润估算" not in title:
+            continue
+        fragment = body[max(0, title_match.start() - 700): min(len(body), title_match.end() + 200)]
+        hrefs = re.findall(r"href=[\"']([^\"']*articleContent\?id=[^\"']+)[\"']", fragment, re.I)
+        article_id_match = re.search(r"articleContent\?id=([^&\"'<>]+)", hrefs[-1] if hrefs else fragment, re.I)
+        if not article_id_match:
+            continue
+        published_dates = re.findall(r"<dd>(\d{4}-\d{2}-\d{2})</dd>", fragment)
+        article_id = article_id_match.group(1)
+        articles.append({
+            "article_id": article_id,
+            "article_title": title,
+            "article_published_at": published_dates[-1] if published_dates else None,
+            "title_date": article_date_from_title(title),
+            "source_url": urljoin(base_url, f"/home/articleContent?id={article_id}"),
+            "discovery_source": "list_page",
+        })
+    return articles
+
+
+def hisugar_query_list_page(page_no: int = 1, page_size: int = 20) -> str:
+    from urllib.parse import urlencode
+
+    query = urlencode({
+        "parentId": "49",
+        "categoryId": "143",
+        "name": "",
+        "pageCurInfo": "sub_143",
+        "pageNo": str(page_no),
+        "pageSize": str(page_size),
+    })
+    return f"{HISUGAR_BASE_URL}/home/getQureyArticleList?{query}"
+
+
 def hisugar_articles() -> tuple[list[dict], list[dict]]:
     logs = []
     articles = []
+    list_urls = [HISUGAR_IMPORT_COST_LIST_URL] + [hisugar_query_list_page(page_no) for page_no in range(1, 4)]
     for url, source in (
-        (HISUGAR_IMPORT_COST_LIST_URL, "HiSugar import-cost list page"),
+        *[(list_url, "HiSugar import-cost list page") for list_url in list_urls],
         (HISUGAR_SEARCH_URL, "HiSugar import-cost search API"),
     ):
         log = {"source": source, "url": url, "requestedAt": beijing_now().isoformat(timespec="seconds")}
@@ -183,6 +254,7 @@ def hisugar_articles() -> tuple[list[dict], list[dict]]:
             if url == HISUGAR_SEARCH_URL:
                 payload, status = fetch_json(url, timeout=20)
                 log["httpStatus"] = status
+                before = len(articles)
                 for group in payload.get("data") or []:
                     for item in group.get("list") or []:
                         title = item.get("title") or ""
@@ -196,14 +268,19 @@ def hisugar_articles() -> tuple[list[dict], list[dict]]:
                             "article_published_at": item.get("publishTime") or item.get("createTime"),
                             "title_date": article_date_from_title(title),
                             "source_url": urljoin(HISUGAR_BASE_URL, link),
+                            "discovery_source": "search_api",
                         })
-                log["candidateCount"] = len(articles)
-                log["parsed"] = bool(articles)
+                log["candidateCount"] = len(articles) - before
+                log["parsed"] = len(articles) > before
             else:
                 body, status = fetch_url(url, timeout=20)
                 log["httpStatus"] = status
                 log["containsColumnName"] = "食糖进口成本" in body
-                log["parsed"] = True
+                parsed = parse_hisugar_list_articles(body, url)
+                articles.extend(parsed)
+                log["candidateCount"] = len(parsed)
+                log["candidateTitleDates"] = [row.get("title_date") for row in parsed[:10]]
+                log["parsed"] = bool(parsed)
         except Exception as exc:
             log["error"] = str(exc)
         logs.append(log)
@@ -327,6 +404,73 @@ def premium_value_from_token(token: str) -> float | None:
     return -value if negative else value
 
 
+def make_hisugar_premium_row(article: dict, image_url: str, backend: str, data_date: str, value: float) -> dict:
+    return {
+        "indicator": "brazil_sugar_premium",
+        "status": "ok",
+        "source_name": "广西糖网食糖进口成本及利润估算表",
+        "dataset_name": "HiSugar 食糖进口成本及利润估算表",
+        "product": "巴西糖进口升贴水",
+        "port": "进口成本估算",
+        "pricing_basis": "HiSugar import cost estimate",
+        "futures_contract": None,
+        "data_date": data_date,
+        "import_premium_discount_cents_per_lb": value,
+        "premium_discount_cents_per_lb": value,
+        "unit": "美分/磅",
+        "article_id": article.get("article_id"),
+        "article_title": article.get("article_title"),
+        "article_published_at": article.get("article_published_at"),
+        "source_url": article.get("source_url"),
+        "image_url": image_url,
+        "fetched_at": beijing_now().isoformat(timespec="seconds"),
+        "ocr_backend": backend,
+    }
+
+
+def premium_values_from_noisy_ocr(text: str) -> list[float]:
+    normalized = normalize_ocr_text(text)
+    normalized = normalized.replace("ЃЎ", "-").replace("Ў", "-")
+    matches = []
+    for pattern in (r"[-.]\s*0\s*[-.]\s*(\d{1,3})", r"[-.]\s*0\s*[.]\s*(\d{1,3})"):
+        for match in re.finditer(pattern, normalized):
+            matches.append((match.start(), match.end(), match.group(1)))
+    unique: dict[tuple[int, int], str] = {}
+    for start, end, digits in matches:
+        unique.setdefault((start, end), digits)
+    values: list[float] = []
+    for _span, digits in sorted(unique.items()):
+        values.append(-int(digits) / (10 ** len(digits)))
+    return [value for value in values if abs(value) < 20]
+
+
+def parse_hisugar_noisy_ocr_rows(text: str, article: dict, image_url: str, backend: str) -> list[dict]:
+    dates = re.findall(r"20\d{6}", text)
+    values = premium_values_from_noisy_ocr(text)
+    if not dates or not values:
+        return []
+    # Windows OCR often reads the first date column after the remaining columns in this wide table.
+    if len(values) == len(dates) and article.get("title_date") == f"{dates[-1][:4]}-{dates[-1][4:6]}-{dates[-1][6:8]}":
+        if len(values) > 1 and values[-1] != values[-2]:
+            values = [values[-1], *values[:-1]]
+    rows = []
+    if len(values) >= len(dates):
+        for raw_date, value in zip(dates[-len(values):], values[-len(dates):]):
+            data_date = f"{raw_date[:4]}-{raw_date[4:6]}-{raw_date[6:8]}"
+            rows.append(make_hisugar_premium_row(article, image_url, f"{backend}_noisy", data_date, value))
+        return rows
+    title_date = article.get("title_date")
+    raw_title_date = title_date.replace("-", "") if title_date else None
+    if raw_title_date and raw_title_date in dates:
+        counts: dict[float, int] = {}
+        for value in values:
+            rounded = round(value, 3)
+            counts[rounded] = counts.get(rounded, 0) + 1
+        value = sorted(counts.items(), key=lambda item: (item[1], item[0]), reverse=True)[0][0]
+        rows.append(make_hisugar_premium_row(article, image_url, f"{backend}_noisy", title_date, value))
+    return rows
+
+
 def parse_hisugar_ocr_rows(text: str, article: dict, image_url: str, backend: str) -> list[dict]:
     normalized = normalize_ocr_text(text)
     dates = re.findall(r"20\d{6}", normalized)
@@ -348,27 +492,7 @@ def parse_hisugar_ocr_rows(text: str, article: dict, image_url: str, backend: st
     rows = []
     for raw_date, value in zip(dates[-len(values):], values[-len(dates):]):
         data_date = f"{raw_date[:4]}-{raw_date[4:6]}-{raw_date[6:8]}"
-        rows.append({
-            "indicator": "brazil_sugar_premium",
-            "status": "ok",
-            "source_name": "广西糖网食糖进口成本及利润估算表",
-            "dataset_name": "HiSugar 食糖进口成本及利润估算表",
-            "product": "巴西糖进口升贴水",
-            "port": "进口成本估算",
-            "pricing_basis": "HiSugar import cost estimate",
-            "futures_contract": None,
-            "data_date": data_date,
-            "import_premium_discount_cents_per_lb": value,
-            "premium_discount_cents_per_lb": value,
-            "unit": "美分/磅",
-            "article_id": article.get("article_id"),
-            "article_title": article.get("article_title"),
-            "article_published_at": article.get("article_published_at"),
-            "source_url": article.get("source_url"),
-            "image_url": image_url,
-            "fetched_at": beijing_now().isoformat(timespec="seconds"),
-            "ocr_backend": backend,
-        })
+        rows.append(make_hisugar_premium_row(article, image_url, backend, data_date, value))
     return rows
 
 
@@ -394,6 +518,8 @@ def rows_from_hisugar_article(article: dict) -> tuple[list[dict], list[dict]]:
             image_bytes, image_status = fetch_bytes(image_url, timeout=20)
             text, backend = ocr_image(image_bytes, ".png")
             parsed = parse_hisugar_ocr_rows(text or "", article, image_url, backend) if text else []
+            if text and not parsed:
+                parsed = parse_hisugar_noisy_ocr_rows(text, article, image_url, backend)
             logs.append({
                 "source": "HiSugar import premium image OCR",
                 "articleId": article.get("article_id"),
@@ -436,17 +562,39 @@ def discover_premium(target_date: str) -> tuple[dict | None, list[dict]]:
         return None, logs
 
     parsed_rows: list[dict] = []
-    recent_articles = articles[:12]
+    eligible_articles = [article for article in articles if article_available_for_target(article, target_date)]
+    if not eligible_articles:
+        eligible_articles = articles
+    recent_articles = eligible_articles[:12]
+    logs.append({
+        "source": "HiSugar import premium target-date selector",
+        "targetDate": target_date,
+        "publicationCutoff": premium_publication_cutoff(target_date).isoformat(timespec="seconds"),
+        "selectedTitleDates": [article.get("title_date") for article in recent_articles],
+        "reason": "Use newest report row available by the normal 06:00 Beijing-time Sugar News generation window.",
+    })
     for article in recent_articles:
         rows, row_logs = rows_from_hisugar_article(article)
         logs.extend(row_logs)
         parsed_rows.extend(rows)
-        if parsed_rows and max(row["data_date"] for row in parsed_rows) >= (article.get("title_date") or ""):
+        target_rows = [row for row in parsed_rows if row["data_date"] <= target_date]
+        if target_rows and max(row["data_date"] for row in target_rows) >= (article.get("title_date") or ""):
             break
     if not parsed_rows:
         return None, logs
 
-    latest = sorted(parsed_rows, key=lambda row: (row["data_date"], row.get("article_published_at") or ""))[-1]
+    target_rows = [row for row in parsed_rows if row["data_date"] <= target_date]
+    if not target_rows:
+        logs.append({
+            "source": "HiSugar import premium target-date selector",
+            "targetDate": target_date,
+            "parsedDates": sorted({row["data_date"] for row in parsed_rows}),
+            "parsed": False,
+            "reason": "No parsed import-premium row is on or before the Sugar News report date.",
+        })
+        return None, logs
+
+    latest = sorted(target_rows, key=lambda row: (row["data_date"], row.get("article_published_at") or ""))[-1]
     latest_date = latest["data_date"]
     title_dates = [article.get("title_date") for article in articles if article.get("title_date")]
     target_yoy = f"{int(latest_date[:4]) - 1}{latest_date[4:]}"
@@ -466,7 +614,9 @@ def discover_premium(target_date: str) -> tuple[dict | None, list[dict]]:
         old = by_date.get(row["data_date"])
         if not old or (row.get("article_published_at") or "") > (old.get("article_published_at") or ""):
             by_date[row["data_date"]] = row
-    rows = sorted(by_date.values(), key=lambda row: row["data_date"])
+    rows = sorted((row for row in by_date.values() if row["data_date"] <= target_date), key=lambda row: row["data_date"])
+    if not rows:
+        return None, logs
     latest = rows[-1]
     previous = next((row for row in reversed(rows[:-1]) if row["data_date"] < latest["data_date"]), None)
     previous_year = comparable_yoy(rows, latest["data_date"])

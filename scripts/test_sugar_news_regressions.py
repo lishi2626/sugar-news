@@ -9,7 +9,13 @@ from zoneinfo import ZoneInfo
 
 from openpyxl import load_workbook
 
-from brazil_sugar_metrics import stock_rows_from_pdf
+from brazil_sugar_metrics import (
+    HISUGAR_IMPORT_COST_LIST_URL,
+    article_available_for_target,
+    hisugar_query_list_page,
+    parse_hisugar_list_articles,
+    stock_rows_from_pdf,
+)
 from sugar_news_pipeline import (
     COUNTRY_SEARCH_TEMPLATES,
     infer_core_country,
@@ -102,6 +108,43 @@ def test_brazil_metrics_daily_refresh_skill_and_workflow() -> None:
     source = (PROJECT_ROOT / "scripts" / "sugar_news_pipeline.py").read_text(encoding="utf-8")
     assert "def refresh_brazil_metrics" in source
     assert "brazil_metrics_refresh = refresh_brazil_metrics(date_text)" in source
+
+
+def test_brazil_import_premium_hisugar_source_and_date_rule() -> None:
+    assert HISUGAR_IMPORT_COST_LIST_URL == "https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap0"
+    query_url = hisugar_query_list_page(2)
+    assert "parentId=49" in query_url
+    assert "categoryId=143" in query_url
+    assert "pageNo=2" in query_url
+
+    sample_html = """
+    <li>
+      <p class="more"><a href="/home/articleContent?id=2026072308523084118748">查看文章</a></p>
+      <dd>2026-07-23</dd>
+      <h3>20260722食糖进口成本及利润估算</h3>
+    </li>
+    <li>
+      <p class="more"><a href="/home/articleContent?id=2026072415105108451386">查看文章</a></p>
+      <dd>2026-07-24</dd>
+      <h3>20260723食糖进口成本及利润估算</h3>
+    </li>
+    """
+    articles = parse_hisugar_list_articles(sample_html, "https://www.hisugar.com/home/newListMore")
+    assert [article["title_date"] for article in articles] == ["2026-07-22", "2026-07-23"]
+    eligible = [article for article in articles if article["title_date"] <= "2026-07-22"]
+    assert len(eligible) == 1
+    assert eligible[0]["article_title"] == "20260722食糖进口成本及利润估算"
+
+    same_day_late = {
+        "title_date": "2026-07-23",
+        "article_published_at": "2026-07-24 17:34:43",
+    }
+    previous_day_available = {
+        "title_date": "2026-07-22",
+        "article_published_at": "2026-07-23 10:44:45",
+    }
+    assert not article_available_for_target(same_day_late, "2026-07-23")
+    assert article_available_for_target(previous_day_available, "2026-07-23")
 
 
 def test_thailand_weather_templates_and_tmd_item_generation() -> None:

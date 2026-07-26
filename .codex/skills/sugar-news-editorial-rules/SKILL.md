@@ -177,6 +177,8 @@ The Brazil dashboard refresh covers the existing dynamic modules only:
 - Brazil sugar stock;
 - Brazil hydrous ethanol stock.
 
+For Brazil sugar import premium/discount, the fixed HiSugar entry is `https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap0`. The refresh must discover the article titled like `YYYYMMDD食糖进口成本及利润估算`, open the article, and extract the `进口升贴水` value from the report image/table. Select the newest valid internal row/report date available by the normal next-day 06:00 Beijing-time generation window; for example, if a `20260723` article is published after that cutoff, the `2026-07-23` Sugar News report must use the latest already available row such as `20260722`, where `进口升贴水 -0.30 美分/磅` displays `2026-07-22` as the data date. Do not use crawler time, web page current date, or Vercel deployment time as the import-premium data date.
+
 The refresh must keep using the existing fixed sources, parsing rules, data-date rules, and calculation logic. Do not use deployment time, crawl time, or Vercel build time as the data date. If a source has not published a newer report, keep the latest successful data and preserve its true data date.
 
 After Brazil metrics refresh, the generated dashboard JSON, Excel/report artifacts, Git commit, GitHub push, and Vercel production deployment must all use the same refreshed Brazil metric snapshot. The task log must record `brazil_metrics_refresh` status. If the normal daily run skips Brazil metrics, treat it as a pipeline error; `--skip-metric-refresh` is allowed only for explicit news-only repairs requested by the user.

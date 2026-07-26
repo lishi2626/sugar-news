@@ -19,11 +19,13 @@ Each card must expose current value, data date, absolute change, percent change,
 
 ## Required Sources
 
-- 巴西进口升贴水: 泛糖科技 "食糖进口成本及利润估算表" list at `https://www.hisugar.com/home/newListMore?parentId=39&level=3&childId=144&menuTap1`.
+- 巴西进口升贴水: 泛糖科技 "食糖进口成本及利润估算表" list at `https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap0`.
 - 巴西食糖库存: MAPA production page at `https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/producao`, report family 009 / sugar production and stocks.
 - 巴西含水乙醇库存: MAPA ethanol tracking page at `https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira`, hydrous ethanol `ESTOQUE (m3)` / `E.Fisico` national total.
 
 Do not substitute Platts, search snippets, reposted values, model estimates, ANP-only labels without report evidence, production, sales, export, regional subtotal, or page last-modified dates.
+
+For import premium, discover articles from the HiSugar list/interface, open the matching article titled like `YYYYMMDD食糖进口成本及利润估算`, and extract the `进口升贴水` row from the report image/table. The dashboard data date must be the internal row/report date such as `20260722`, selected as the newest valid data available by the normal next-day 06:00 Beijing-time Sugar News generation window. For example, if a `20260723` article is published after the 06:00 generation cutoff, the `2026-07-23` Sugar News report must use the latest already available row, such as `20260722`. Article publish time is used only to enforce this availability cutoff; crawl time, page order, Vercel deployment time, and example dates must never replace the import-premium data date.
 
 ## Workflow
 
