@@ -38,6 +38,10 @@ try:
     SHANGHAI = ZoneInfo("Asia/Shanghai")
 except Exception:
     SHANGHAI = timezone(timedelta(hours=8), name="Asia/Shanghai")
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 GROUP_ORDER = {"巴西": 0, "印度": 1, "泰国": 2, "中国": 3, "其他国家": 4}
 COUNTRY_ALIASES = {
     "中国": ("china", "中国", "广西", "云南", "郑糖"),
@@ -1342,6 +1346,9 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
                 if country == "其他国家" and country_group != "其他国家":
                     entry["filtered"].append({"title": title_raw, "reason": "other-country query found a priority-country item; keep only under the core country"})
                     continue
+                if country == "其他国家" and country_group == "其他国家" and concrete_country in {"其他", "其他国家"}:
+                    entry["filtered"].append({"title": title_raw, "reason": "other-country item lacks concrete country/region; skipped before publication"})
+                    continue
                 if country != "其他国家" and country_group != country:
                     entry.setdefault("reclassified", []).append({"title": title_raw, "from": country, "to": concrete_country, "reason": "core event country differs from search bucket"})
                 key = re.sub(r"\W+", "", title_clean.lower())[:120]
@@ -2425,6 +2432,8 @@ def run_metric_refresh(script_name: str, date_text: str, latest_path: Path) -> d
             cwd=str(PROJECT_ROOT),
             env=env,
             text=True,
+            encoding="utf-8",
+            errors="replace",
             capture_output=True,
             timeout=METRIC_REFRESH_TIMEOUT_SECONDS,
         )

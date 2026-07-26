@@ -104,10 +104,13 @@ def test_brazil_metrics_daily_refresh_skill_and_workflow() -> None:
     pipeline_lines = [line for line in workflow.splitlines() if "scripts/sugar_news_pipeline.py" in line]
     assert pipeline_lines
     assert all("--skip-metric-refresh" not in line for line in pipeline_lines)
+    assert "set -euo pipefail" in workflow
+    assert 'SUGAR_NEWS_METRIC_REFRESH_TIMEOUT: "300"' in workflow
 
     source = (PROJECT_ROOT / "scripts" / "sugar_news_pipeline.py").read_text(encoding="utf-8")
     assert "def refresh_brazil_metrics" in source
     assert "brazil_metrics_refresh = refresh_brazil_metrics(date_text)" in source
+    assert "other-country item lacks concrete country/region; skipped before publication" in source
 
 
 def test_brazil_import_premium_hisugar_source_and_date_rule() -> None:

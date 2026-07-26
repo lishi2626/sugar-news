@@ -37,7 +37,7 @@ jobs:
       TZ: Asia/Shanghai
       SUGAR_NEWS_ROOT: ${{ github.workspace }}
       SUGAR_NEWS_LOG_DIR: ${{ github.workspace }}/logs/github-actions
-      SUGAR_NEWS_METRIC_REFRESH_TIMEOUT: "90"
+      SUGAR_NEWS_METRIC_REFRESH_TIMEOUT: "300"
       SUGAR_NEWS_BASE_URL: ${{ vars.SUGAR_NEWS_BASE_URL }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.5' }}
@@ -61,7 +61,9 @@ jobs:
 
       - name: Build Sugar News Excel and dashboard data
         id: build
+        shell: bash
         run: |
+          set -euo pipefail
           mkdir -p "$SUGAR_NEWS_LOG_DIR"
           if [ -n "$REQUESTED_DATE" ]; then
             TARGET_DATE="$REQUESTED_DATE"
@@ -77,7 +79,10 @@ jobs:
           python scripts/sugar_news_pipeline.py --date "$TARGET_DATE" --skip-if-success --allow-rss-autogen 2>&1 | tee "$SUGAR_NEWS_LOG_DIR/pipeline.log"
 
       - name: Verify local dashboard data
-        run: python scripts/verify_sugar_news_dashboard.py --date "${{ steps.build.outputs.target_date }}" 2>&1 | tee "$SUGAR_NEWS_LOG_DIR/local-verify.log"
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/verify_sugar_news_dashboard.py --date "${{ steps.build.outputs.target_date }}" 2>&1 | tee "$SUGAR_NEWS_LOG_DIR/local-verify.log"
 
       - name: Record successful local generation
         env:
@@ -86,7 +91,9 @@ jobs:
           python -c "import json, os; from datetime import datetime, timedelta, timezone; data={'targetDate': os.environ['TARGET_DATE'], 'completedAt': datetime.now(timezone(timedelta(hours=8))).isoformat(), 'workflowRunId': os.environ['GITHUB_RUN_ID'], 'workflowRunAttempt': os.environ['GITHUB_RUN_ATTEMPT']}; open('public/sugar-news/data/last-success.json', 'w', encoding='utf-8').write(json.dumps(data, ensure_ascii=False, indent=2) + '\n')"
 
       - name: Commit and push Sugar News update
+        shell: bash
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/sugar-news data logs reports
@@ -98,11 +105,13 @@ jobs:
           fi
 
       - name: Deploy to Vercel production
+        shell: bash
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
+          set -euo pipefail
           if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
             echo "Vercel secrets are not configured; relying on Git-linked Vercel deployment after git push." | tee "$SUGAR_NEWS_LOG_DIR/vercel-deploy.log"
             exit 0
@@ -114,7 +123,9 @@ jobs:
           }
 
       - name: Verify Vercel Sugar News page
+        shell: bash
         run: |
+          set -euo pipefail
           if [ -z "$SUGAR_NEWS_BASE_URL" ]; then
             echo "SUGAR_NEWS_BASE_URL repository variable is not configured; skipping production URL verification." | tee "$SUGAR_NEWS_LOG_DIR/online-verify.log"
             exit 0
