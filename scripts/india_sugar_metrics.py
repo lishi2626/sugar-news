@@ -14,6 +14,11 @@ from urllib.parse import quote_plus, urlencode
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_ROOT = PROJECT_ROOT / "public" / "sugar-news"

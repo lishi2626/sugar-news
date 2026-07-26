@@ -1,6 +1,94 @@
 {
   "target_date": "2026-07-25",
-  "generated_at": "2026-07-26T16:27:17+08:00",
-  "status": "failed",
-  "error": "Other-country rows must use a concrete country/region name"
+  "generated_at": "2026-07-26T19:26:58+08:00",
+  "status": "success",
+  "verified_news_file": "D:\\Desktop\\ai\\sugar-news\\data\\verified_news\\2026\\07\\sugar_news_2026-07-25.json",
+  "excel_file": "D:\\Desktop\\ai\\sugar-news\\reports\\2026\\07\\Sugar News 2026-07-25.xlsx",
+  "dashboard_report": "D:\\Desktop\\ai\\sugar-news\\public\\sugar-news\\data\\reports\\2026\\07\\2026-07-25.json",
+  "dashboard_index": "D:\\Desktop\\ai\\sugar-news\\public\\sugar-news\\data\\index.json",
+  "editorial_skill": {
+    "path": ".codex/skills/sugar-news-editorial-rules/SKILL.md",
+    "sha256": "cfe52a2778c4074beb7459c9467b45a8efe8f056824efa087c3b74120f79d516"
+  },
+  "thai_weather_check": {
+    "fixed_step": "Thai main sugarcane area rainfall check",
+    "target_date": "2026-07-25",
+    "source_url": "https://tmd.go.th/en/forecast/daily",
+    "status": "skipped",
+    "reason": "Thailand cane-area weather item already present in verified news."
+  },
+  "china_monitoring_check": {
+    "status": "completed",
+    "mode": "verified_items_checked_after_load",
+    "retained_count": 0,
+    "query_template_count": 32,
+    "query_templates": [
+      "中国糖业新闻 {year}年{month}月{day}日",
+      "中国食糖 {year}年{month}月{day}日",
+      "中国白糖 {year}年{month}月{day}日",
+      "中国甘蔗 {year}年{month}月{day}日",
+      "中国甜菜糖 {year}年{month}月{day}日",
+      "广西糖业 甘蔗 {year}年{month}月{day}日",
+      "云南糖业 甘蔗 {year}年{month}月{day}日",
+      "广东 甘蔗 糖业 {year}年{month}月{day}日",
+      "海南 甘蔗 糖业 {year}年{month}月{day}日",
+      "内蒙古 新疆 黑龙江 甜菜糖 {year}年{month}月{day}日",
+      "食糖产销数据 {year}年{month}月{day}日",
+      "食糖库存 产销率 {year}年{month}月{day}日",
+      "食糖进口 {year}年{month}月{day}日",
+      "原糖进口 到港量 进口成本 {year}年{month}月{day}日",
+      "食糖进口配额 {year}年{month}月{day}日",
+      "糖浆预混粉进口 {year}年{month}月{day}日",
+      "加工糖厂 开机 {year}年{month}月{day}日",
+      "广西糖业 {year}年{month}月{day}日",
+      "云南糖业 {year}年{month}月{day}日",
+      "郑州白糖期货 {year}年{month}月{day}日",
+      "郑糖主力合约 {year}年{month}月{day}日",
+      "白糖现货价格 {year}年{month}月{day}日",
+      "甘蔗收购价 种植补贴 {year}年{month}月{day}日",
+      "糖厂开榨 收榨 {year}年{month}月{day}日",
+      "糖料产区 降雨 暴雨 干旱 台风 {year}年{month}月{day}日",
+      "制糖集团公告 {year}年{month}月{day}日",
+      "China sugar industry {readable}",
+      "China sugar production {readable}",
+      "China sugar imports {readable}",
+      "China sugarcane beet sugar {readable}",
+      "China white sugar futures {readable}",
+      "China sugar syrup imports {readable}"
+    ],
+    "priority_sources": [
+      "中国糖业协会",
+      "农业农村部 / CASDE",
+      "海关总署",
+      "国家统计局",
+      "国家发展改革委 / 商务部",
+      "广西、云南等主产区农业、气象和糖业主管部门",
+      "云糖网 / 沐甜科技",
+      "郑州商品交易所",
+      "权威期货公司、研究机构及糖厂公告"
+    ],
+    "note": "China sugar monitoring completed; no publishable item found"
+  },
+  "brazil_metrics_refresh": {
+    "status": "skipped",
+    "reason": "news-only repair"
+  },
+  "india_metrics_refresh": {
+    "status": "skipped",
+    "reason": "news-only repair"
+  },
+  "checks": {
+    "verified_count": 1,
+    "excel_count": 1,
+    "dashboard_count": 1,
+    "excel_matches_verified": true,
+    "dashboard_matches_verified": true,
+    "country_order_ok": true,
+    "no_empty_country_sections": true,
+    "counts_by_country": {
+      "泰国": 1
+    },
+    "china_count": 0,
+    "other_country_count": 0
+  }
 }

@@ -1,0 +1,815 @@
+{
+  "target_date": "2026-07-25",
+  "run_date": "2026-07-26",
+  "search_tool": "Google News RSS autogeneration",
+  "note": "Generated automatically because curated verified JSON was missing. Each item keeps RSS source, publication date, and source link.",
+  "india_price_inventory_sources": [
+    "ChiniMandi domestic sugar prices",
+    "ISMA / Indian Sugar & Bio-energy Manufacturers Association",
+    "NFCSF / National Federation of Cooperative Sugar Factories",
+    "Department of Food and Public Distribution, Government of India",
+    "reliable commodity and agriculture media with dated market quotes"
+  ],
+  "india_completeness_requirements": {
+    "sugar_core": "India sugar production/stocks/prices/mills/sales quota/shortage searched",
+    "ethanol_e20": "India ethanol policy/blending/E20/above 20 percent/OMC/feedstock searched",
+    "reuters_site_search": "site:reuters.com India sugar/ethanol/E20/sugarcane/molasses searched",
+    "weather": "India sugarcane rainfall and core cane-state forecasts searched",
+    "no_country_cap": "Autogeneration does not stop after a fixed number of items per country."
+  },
+  "thai_weather_requirements": {
+    "fixed_step": "After Thailand sugar news discovery, check TMD daily forecast for main sugarcane provinces and add one weather item when a valid rainfall forecast exists.",
+    "source": "https://tmd.go.th/en/forecast/daily",
+    "provinces": [
+      "乌隆他尼",
+      "孔敬",
+      "呵叻",
+      "猜也蓬",
+      "加拉信",
+      "黎府",
+      "那空沙旺",
+      "甘烹碧",
+      "素可泰",
+      "彭世洛",
+      "北碧",
+      "华富里",
+      "素攀武里",
+      "猜纳",
+      "沙缴",
+      "春武里",
+      "春武里"
+    ]
+  },
+  "searches": [
+    {
+      "country": "巴西",
+      "language": "en",
+      "keywords": "Brazil sugar industry news July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "巴西",
+      "language": "en",
+      "keywords": "Brazil sugarcane ethanol export July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "Brasil açúcar etanol 25 julho 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "Brasil setor sucroenergético 25 de julho de 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "usinas cana açúcar etanol 25/07/2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar industry news July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugarcane ethanol mills July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar news 25 July 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar production July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar stocks July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar prices July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar ex-mill price July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar export policy July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar import July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar sales quota July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar shortage July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar mills July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugarcane production July 25 2026",
+      "request_status": "skipped",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "reason": "RSS autogeneration query budget reached; daily job will continue with retained verified candidates."
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand sugar industry news July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand sugarcane mills ethanol July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand sugar news 25 July 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand sugarcane rainfall forecast July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Udon Thani Khon Kaen Nakhon Ratchasima sugarcane rain forecast July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Nakhon Sawan Kanchanaburi Lopburi Chai Nat rainfall forecast July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand cane growing areas thunderstorm heavy rain drought July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "泰国",
+      "language": "th",
+      "keywords": "ประเทศไทย น้ำตาล อ้อย 25 กรกฎาคม 2569",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "泰国",
+      "language": "th",
+      "keywords": "ข่าวอ้อย น้ำตาล 25 กรกฎาคม 2569",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "泰国",
+      "language": "th",
+      "keywords": "อุตสาหกรรมอ้อยและน้ำตาล 25 กรกฎาคม 2569",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "泰国",
+      "language": "th",
+      "keywords": "โรงงานน้ำตาล เอทานอล 25 กรกฎาคม 2569",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "中国糖业新闻 2026年7月25日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "中国食糖 2026年7月25日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "中国白糖 2026年7月25日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "中国甘蔗 2026年7月25日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "中国甜菜糖 2026年7月25日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "广西糖业 甘蔗 2026年7月25日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "云南糖业 甘蔗 2026年7月25日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "广东 甘蔗 糖业 2026年7月25日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "海南 甘蔗 糖业 2026年7月25日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "内蒙古 新疆 黑龙江 甜菜糖 2026年7月25日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "食糖产销数据 2026年7月25日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "食糖库存 产销率 2026年7月25日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "食糖进口 2026年7月25日",
+      "request_status": "skipped",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "reason": "RSS autogeneration query budget reached; daily job will continue with retained verified candidates."
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "India sugar S-grade M-grade domestic price July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "India sugar prices today S grade M grade July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "Maharashtra Uttar Pradesh Karnataka sugar price July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "Uttar Pradesh sugar ex-mill price July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "UP sugar ex-mill rate July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "Uttar Pradesh mill sugar price July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "M-grade sugar ex-mill Uttar Pradesh July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "North India sugar ex-mill price July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度指标",
+      "language": "hi",
+      "keywords": "मुजफ्फरनगर चीनी मिल भाव 25 जुलाई 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度指标",
+      "language": "hi",
+      "keywords": "उत्तर प्रदेश चीनी एक्स मिल कीमत 25 जुलाई 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "India sugar carryover stock ending stock July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "India sugar closing stock ISMA NFCSF July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "India sugar ending stocks consumption ratio July 25 2026",
+      "request_status": "skipped",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "reason": "RSS autogeneration query budget reached; daily job will continue with retained verified candidates."
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "Indonesia sugar industry July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "Pakistan sugar industry July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "Philippines sugar industry July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "Vietnam sugar industry July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "Russia sugar beet sugar July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "Cameroon sugar industry July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "EU sugar beet production July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "United States sugar beet cane July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "Mexico sugar production export July 25 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "fixed_step": "Thai main sugarcane area rainfall check",
+      "target_date": "2026-07-25",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "status": "added",
+      "country": "泰国",
+      "language": "en",
+      "keywords": "TMD daily forecast Thailand main sugarcane provinces rainfall",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "HTTP Error 403: Forbidden",
+      "open_meteo_fallback": {
+        "country": "泰国",
+        "language": "api",
+        "keywords": "Open-Meteo Thailand main sugarcane provinces precipitation forecast",
+        "source_url": "https://api.open-meteo.com/v1/forecast",
+        "request_status": "executed",
+        "returned_count": 16,
+        "retained_count": 1,
+        "filtered": [],
+        "fixed_step": "Thai main sugarcane area rainfall check fallback",
+        "forecast_start": "2026-07-26",
+        "forecast_end": "2026-08-01",
+        "available_days": 7,
+        "rainy_points": [
+          {
+            "region": "东北部",
+            "province": "呵叻",
+            "total_rain": 63.5,
+            "max_prob": 90.0
+          },
+          {
+            "region": "东北部",
+            "province": "孔敬",
+            "total_rain": 86.5,
+            "max_prob": 93.0
+          },
+          {
+            "region": "东北部",
+            "province": "乌隆他尼",
+            "total_rain": 169.5,
+            "max_prob": 100.0
+          },
+          {
+            "region": "东北部",
+            "province": "猜也蓬",
+            "total_rain": 73.10000000000001,
+            "max_prob": 93.0
+          },
+          {
+            "region": "东北部",
+            "province": "加拉信",
+            "total_rain": 122.6,
+            "max_prob": 100.0
+          },
+          {
+            "region": "东北部",
+            "province": "黎府",
+            "total_rain": 93.4,
+            "max_prob": 98.0
+          },
+          {
+            "region": "北部",
+            "province": "那空沙旺",
+            "total_rain": 73.6,
+            "max_prob": 94.0
+          },
+          {
+            "region": "北部",
+            "province": "甘烹碧",
+            "total_rain": 175.3,
+            "max_prob": 99.0
+          },
+          {
+            "region": "北部",
+            "province": "素可泰",
+            "total_rain": 144.3,
+            "max_prob": 97.0
+          },
+          {
+            "region": "北部",
+            "province": "彭世洛",
+            "total_rain": 114.7,
+            "max_prob": 96.0
+          },
+          {
+            "region": "中部及西部",
+            "province": "北碧",
+            "total_rain": 52.0,
+            "max_prob": 87.0
+          },
+          {
+            "region": "中部及西部",
+            "province": "华富里",
+            "total_rain": 87.0,
+            "max_prob": 96.0
+          },
+          {
+            "region": "中部及西部",
+            "province": "素攀武里",
+            "total_rain": 82.3,
+            "max_prob": 95.0
+          },
+          {
+            "region": "中部及西部",
+            "province": "猜纳",
+            "total_rain": 79.0,
+            "max_prob": 96.0
+          },
+          {
+            "region": "东部",
+            "province": "沙缴",
+            "total_rain": 149.2,
+            "max_prob": 100.0
+          },
+          {
+            "region": "东部",
+            "province": "春武里",
+            "total_rain": 94.5,
+            "max_prob": 91.0
+          }
+        ]
+      }
+    }
+  ],
+  "pipeline_counts": {
+    "structured_data_count": 1,
+    "passed_to_excel": 1
+  }
+}
