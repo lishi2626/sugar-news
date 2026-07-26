@@ -122,6 +122,8 @@ def test_other_country_rss_queries_are_concrete() -> None:
     for expected in ("Indonesia", "Pakistan", "Philippines", "Vietnam", "Russia", "Cameroon"):
         assert expected in queries
     assert "global sugar industry news" not in queries
+    source = (PROJECT_ROOT / "scripts" / "sugar_news_pipeline.py").read_text(encoding="utf-8")
+    assert "candidate failed pre-publication quality check" in source
 
 
 def test_skip_if_success_requires_report_and_index() -> None:

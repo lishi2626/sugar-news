@@ -1377,21 +1377,28 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
                 link = rss.get("link", "").strip()
                 impact = impact_for_rss(country_group, title_clean)
                 news = rss_summary_for_publication(country_group, concrete_country, title_clean, source, link)
-                candidate = normalize_country_fields({
-                    "country_group": country_group,
-                    "country": concrete_country,
-                    "title": title_clean[:80],
-                    "news": news,
-                    "impact": impact,
-                    "source_name": source,
-                    "source_url": link,
-                    "published_date_local": date_text,
-                    "event_date": date_text,
-                    "date_status": "verified",
-                    "dedupe_key": f"rss_{key}",
-                    "importance": max(50, 90 - retained_for_country * 5),
-                })
-                validate_editorial_quality(candidate, len(items) + 1)
+                try:
+                    candidate = normalize_country_fields({
+                        "country_group": country_group,
+                        "country": concrete_country,
+                        "title": title_clean[:80],
+                        "news": news,
+                        "impact": impact,
+                        "source_name": source,
+                        "source_url": link,
+                        "published_date_local": date_text,
+                        "event_date": date_text,
+                        "date_status": "verified",
+                        "dedupe_key": f"rss_{key}",
+                        "importance": max(50, 90 - retained_for_country * 5),
+                    })
+                    validate_editorial_quality(candidate, len(items) + 1)
+                except Exception as exc:
+                    entry["filtered"].append({
+                        "title": title_raw,
+                        "reason": f"candidate failed pre-publication quality check: {str(exc)[:300]}",
+                    })
+                    continue
                 items.append(candidate)
                 retained_for_country += 1
                 entry["retained_count"] += 1
