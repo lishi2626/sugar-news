@@ -71,6 +71,10 @@ def verify_payload(payload: dict, expected_date: str) -> dict:
     brazil_metrics = payload.get("brazilMetrics")
     if not isinstance(brazil_metrics, dict):
         raise AssertionError("Dashboard payload missing brazilMetrics")
+    if brazil_metrics.get("dataDate") != expected_date:
+        raise AssertionError(
+            f"Brazil dashboard refresh date mismatch: {brazil_metrics.get('dataDate')} != {expected_date}"
+        )
     for field in ("sugarPremium", "sugarStock", "ethanolStock"):
         metric = brazil_metrics.get(field)
         if not isinstance(metric, dict):

@@ -24,6 +24,7 @@ from sugar_news_pipeline import (
     is_medical_sugar_context,
     ensure_china_news_item,
     ensure_thai_weather_item,
+    normalize_brazil_metrics,
     normalize_items,
     preserve_existing_dashboard_metrics,
     success_exists,
@@ -111,13 +112,19 @@ def test_brazil_metrics_daily_refresh_skill_and_workflow() -> None:
     assert "scripts/brazil_sugar_metrics.py --date" in workflow
     assert "scripts/india_sugar_metrics.py --date" in workflow
     assert "--skip-metric-refresh" in "\n".join(pipeline_lines)
+    assert "--skip-if-success" not in "\n".join(pipeline_lines)
+    assert '".codex/skills/**"' in workflow
     assert "set -euo pipefail" in workflow
     assert 'SUGAR_NEWS_METRIC_REFRESH_TIMEOUT: "300"' in workflow
 
     source = (PROJECT_ROOT / "scripts" / "sugar_news_pipeline.py").read_text(encoding="utf-8")
     assert "def refresh_brazil_metrics" in source
     assert "brazil_metrics_refresh = refresh_brazil_metrics(date_text)" in source
+    assert "if args.preserve_existing_metrics:" in source
     assert "other-country item lacks concrete country/region; skipped before publication" in source
+
+    assert "抓取日期" in skill
+    assert "--preserve-existing-metrics" in skill
 
 
 def test_other_country_rss_queries_are_concrete() -> None:
@@ -520,6 +527,14 @@ def test_brazil_dashboard_does_not_show_fetch_time_or_report_as_date() -> None:
     assert "last fetched" not in html.lower()
     assert "fetched_at" not in html
     assert "数据日期：" in html
+    assert "抓取日期：" in html
+
+
+def test_brazil_dashboard_refresh_date_is_separate_from_source_date() -> None:
+    metrics = normalize_brazil_metrics("2026-07-25")
+    assert metrics["dataDate"] == "2026-07-25"
+    assert metrics["snapshotTargetDate"] == "2026-07-25"
+    assert metrics["sugarPremium"]["dataDate"] == "2026-07-23"
 
 
 def test_china_column_is_mandatory_every_day() -> None:
@@ -610,6 +625,7 @@ def main() -> None:
         test_india_metrics_price_changes_and_stock_source_rules,
         test_brazil_sugar_stock_date_comes_from_acumulado_ate,
         test_brazil_dashboard_does_not_show_fetch_time_or_report_as_date,
+        test_brazil_dashboard_refresh_date_is_separate_from_source_date,
         test_china_column_is_mandatory_every_day,
         test_confirmed_china_items_are_added_for_20260725,
         test_news_only_repair_preserves_existing_dashboard_metrics,

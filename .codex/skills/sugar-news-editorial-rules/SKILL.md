@@ -178,7 +178,11 @@ The China column is mandatory in every daily Sugar News report. After all config
 
 ## 巴西糖价与库存每日刷新
 
-The daily Sugar News task must refresh the `巴西糖价与库存` dashboard before writing the dashboard JSON and before Vercel production deployment. The normal 06:00 Beijing-time GitHub Actions run must execute `scripts/brazil_sugar_metrics.py --date "$TARGET_DATE"` as its own metrics step before calling `scripts/sugar_news_pipeline.py`. The pipeline may then use `--skip-metric-refresh` only to avoid duplicate in-process refresh, because the Brazil refresh has already been attempted and its latest successful snapshot is available to the dashboard builder.
+The daily Sugar News task must refresh the `巴西糖价与库存` dashboard before writing the dashboard JSON and before Vercel production deployment. The normal 06:00 Beijing-time GitHub Actions run must execute `scripts/brazil_sugar_metrics.py --date "$TARGET_DATE"` as its own metrics step before calling `scripts/sugar_news_pipeline.py`. The pipeline may then use `--skip-metric-refresh` only to avoid a duplicate in-process fetch; it must still consume the workflow-refreshed Brazil and India snapshots and write them into the same target-date report as the refreshed news.
+
+The dashboard-level `抓取日期` is the Sugar News target date passed to the complete refresh run. For example, the `2026-07-25` run displays `抓取日期：2026-07-25` even when a source has not published a newer price row since `2026-07-23`. Each metric card must separately retain and display its true source data/report date. Never replace a source data date with the target date, crawler time, build time, or Vercel deployment time.
+
+The scheduled run must not exit early merely because a successful report already exists for the target date. Every normal 06:00 Beijing-time run and retry must rebuild the report from the latest validated news plus the latest metric snapshots, then write, commit, push, and deploy that single synchronized state. `--skip-metric-refresh` must never preserve older dashboard blocks. Use `--preserve-existing-metrics` only for an explicitly requested news-only repair.
 
 The Brazil dashboard refresh covers the existing dynamic modules only:
 
@@ -219,10 +223,10 @@ Use:
 python scripts\sugar_news_pipeline.py --date YYYY-MM-DD --offline-only
 ```
 
-For news-only repair without refreshing price and stock metrics:
+For an explicitly requested news-only repair that must retain the existing price and stock blocks:
 
 ```powershell
-python scripts\sugar_news_pipeline.py --date YYYY-MM-DD --offline-only --skip-metric-refresh
+python scripts\sugar_news_pipeline.py --date YYYY-MM-DD --offline-only --skip-metric-refresh --preserve-existing-metrics
 ```
 
 Do not publish when validation fails.

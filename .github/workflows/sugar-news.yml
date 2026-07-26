@@ -15,6 +15,7 @@ on:
       - "requirements.txt"
       - "vercel.json"
       - "scripts/**"
+      - ".codex/skills/**"
       - "public/sugar-news/index.html"
   schedule:
     # Beijing 06:00, 06:10 and 06:30. GitHub Actions cron uses UTC.
@@ -99,7 +100,7 @@ jobs:
           TARGET_DATE="${{ steps.target.outputs.target_date }}"
           echo "target_date=$TARGET_DATE" >> "$GITHUB_OUTPUT"
           set +e
-          python scripts/sugar_news_pipeline.py --date "$TARGET_DATE" --skip-if-success --allow-rss-autogen --skip-metric-refresh 2>&1 | tee "$SUGAR_NEWS_LOG_DIR/pipeline.log"
+          python scripts/sugar_news_pipeline.py --date "$TARGET_DATE" --allow-rss-autogen --skip-metric-refresh 2>&1 | tee "$SUGAR_NEWS_LOG_DIR/pipeline.log"
           exit_code=${PIPESTATUS[0]}
           set -e
           if [ "$exit_code" -ne 0 ]; then

@@ -442,7 +442,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--skip-if-success", action="store_true", help="Skip if public status already marks target date successful.")
     parser.add_argument("--offline-only", action="store_true", help="Do not attempt fallback online discovery; require verified JSON.")
     parser.add_argument("--allow-rss-autogen", action="store_true", help="Generate a conservative verified JSON from RSS if no curated verified JSON exists.")
-    parser.add_argument("--skip-metric-refresh", action="store_true", help="Repair news outputs without refreshing price or stock metric data.")
+    parser.add_argument(
+        "--skip-metric-refresh",
+        action="store_true",
+        help="Do not run metric scrapers in-process; consume the latest metric snapshots already refreshed by the workflow.",
+    )
+    parser.add_argument(
+        "--preserve-existing-metrics",
+        action="store_true",
+        help="Explicit news-only repair: retain the target report's existing Brazil and India dashboard blocks.",
+    )
     return parser.parse_args()
 
 
@@ -2276,7 +2285,8 @@ def normalize_brazil_metrics(date_text: str) -> dict:
     snapshot = latest_brazil_metrics_snapshot() or {}
     return {
         "title": "巴西糖价与库存",
-        "dataDate": snapshot.get("targetDate") or date_text,
+        "dataDate": date_text,
+        "snapshotTargetDate": snapshot.get("targetDate"),
         "updatedAt": snapshot.get("updatedAt") or beijing_now().isoformat(timespec="seconds"),
         "sourceStatus": "dynamic_fetch" if snapshot else "pending",
         "sugarPremium": normalize_brazil_metric(snapshot.get("sugarPremium"), "sugarPremium"),
@@ -2602,9 +2612,9 @@ def main() -> int:
         editorial_skill = load_editorial_skill_metadata()
         print(f"[sugar-news] editorial skill loaded: {editorial_skill['path']} {editorial_skill['sha256'][:12]}", flush=True)
         if args.skip_metric_refresh:
-            brazil_metrics_refresh = {"status": "skipped", "reason": "news-only repair"}
-            india_metrics_refresh = {"status": "skipped", "reason": "news-only repair"}
-            print(f"[sugar-news] skip metric refresh for {date_text}", flush=True)
+            brazil_metrics_refresh = {"status": "skipped", "reason": "standalone workflow refresh; consuming latest snapshot"}
+            india_metrics_refresh = {"status": "skipped", "reason": "standalone workflow refresh; consuming latest snapshot"}
+            print(f"[sugar-news] consume workflow-refreshed metric snapshots for {date_text}", flush=True)
         else:
             print(f"[sugar-news] refresh Brazil metrics for {date_text}", flush=True)
             brazil_metrics_refresh = refresh_brazil_metrics(date_text)
@@ -2623,7 +2633,7 @@ def main() -> int:
         items = normalize_items(data)
         excel_file = write_excel(task_root, date_text, items)
         payload = build_dashboard_payload(date_text, items, excel_file, data)
-        if args.skip_metric_refresh:
+        if args.preserve_existing_metrics:
             payload = preserve_existing_dashboard_metrics(date_text, payload)
         report_path, index_path = write_dashboard_data(date_text, payload)
         checks = validate_all(date_text, items, excel_file, report_path, index_path)
