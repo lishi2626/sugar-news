@@ -39,6 +39,7 @@ def verify_payload(payload: dict, expected_date: str) -> dict:
     if any(not c.get("items") for c in countries):
         raise AssertionError("Dashboard payload contains empty country section")
     count = 0
+    china_count = 0
     positions = []
     for country in countries:
         name = country["country"]
@@ -54,6 +55,8 @@ def verify_payload(payload: dict, expected_date: str) -> dict:
             positions.append(4)
         for item in country.get("items", []):
             count += 1
+            if name == "中国":
+                china_count += 1
             for field in ("news", "impactType", "impact", "sourceName", "sourceUrl"):
                 if not item.get(field):
                     raise AssertionError(f"Item missing {field}")
@@ -63,6 +66,8 @@ def verify_payload(payload: dict, expected_date: str) -> dict:
                 raise AssertionError("Placeholder wording found")
     if positions != sorted(positions):
         raise AssertionError("Country order mismatch")
+    if china_count < 1:
+        raise AssertionError("Dashboard payload must contain a China section item")
     brazil_metrics = payload.get("brazilMetrics")
     if not isinstance(brazil_metrics, dict):
         raise AssertionError("Dashboard payload missing brazilMetrics")
@@ -126,7 +131,12 @@ def verify_payload(payload: dict, expected_date: str) -> dict:
                     raise AssertionError("upExMillPrice requires original Daily Sugar Market Update sourceUrl")
                 if not metric.get("previousSourceUrl") or not metric.get("yoySourceUrl"):
                     raise AssertionError("upExMillPrice requires previous and yoy source links")
-    return {"newsDate": expected_date, "countryCount": len(countries), "itemCount": count}
+    return {
+        "newsDate": expected_date,
+        "countryCount": len(countries),
+        "itemCount": count,
+        "chinaItemCount": china_count,
+    }
 
 
 def main() -> int:

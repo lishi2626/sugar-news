@@ -31,6 +31,7 @@ from sugar_news_pipeline import (
     tmd_thai_weather_item_from_text,
     validate_editorial_quality,
 )
+from verify_sugar_news_dashboard import verify_payload
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -566,6 +567,24 @@ def test_news_only_repair_preserves_existing_dashboard_metrics() -> None:
     assert preserved["indiaMetrics"] == existing["indiaMetrics"]
 
 
+def test_dashboard_verifier_requires_china_output() -> None:
+    report = read_json(
+        PROJECT_ROOT / "public" / "sugar-news" / "data" / "reports" / "2026" / "07" / "2026-07-25.json"
+    )
+    result = verify_payload(report, "2026-07-25")
+    assert result["chinaItemCount"] == 4
+    missing_china = dict(report)
+    missing_china["countries"] = [
+        country for country in report["countries"] if country["country"] != "中国"
+    ]
+    try:
+        verify_payload(missing_china, "2026-07-25")
+    except AssertionError as exc:
+        assert "China section" in str(exc)
+    else:
+        raise AssertionError("Production verifier accepted a report without China output")
+
+
 def main() -> None:
     tests = [
         test_india_relevance_helpers,
@@ -594,6 +613,7 @@ def main() -> None:
         test_china_column_is_mandatory_every_day,
         test_confirmed_china_items_are_added_for_20260725,
         test_news_only_repair_preserves_existing_dashboard_metrics,
+        test_dashboard_verifier_requires_china_output,
     ]
     for test in tests:
         test()
