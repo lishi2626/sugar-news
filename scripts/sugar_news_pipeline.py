@@ -508,12 +508,21 @@ def public_status_path() -> Path:
 
 
 def success_exists(date_text: str) -> bool:
-    path = public_status_path()
-    if not path.exists():
+    status_path = public_status_path()
+    index_path = public_index_path()
+    report_path = public_report_path(date_text)
+    if not status_path.exists() or not index_path.exists() or not report_path.exists():
         return False
-    with path.open("r", encoding="utf-8") as f:
+    with status_path.open("r", encoding="utf-8") as f:
         status = json.load(f)
-    return status.get("latestNewsDate") == date_text and status.get("lastRunStatus") == "success"
+    if status.get("latestNewsDate") != date_text or status.get("lastRunStatus") != "success":
+        return False
+    with index_path.open("r", encoding="utf-8") as f:
+        index = json.load(f)
+    if index.get("latestNewsDate") != date_text:
+        return False
+    expected_report = "/" + str(report_path.relative_to(PROJECT_ROOT)).replace("\\", "/")
+    return any(report.get("newsDate") == date_text and report.get("path") == expected_report for report in index.get("reports", []))
 
 
 def google_news_rss_url(query: str) -> str:

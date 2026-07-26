@@ -24,6 +24,7 @@ from sugar_news_pipeline import (
     is_medical_sugar_context,
     ensure_thai_weather_item,
     normalize_items,
+    success_exists,
     rss_sugar_relevant,
     tmd_thai_weather_item_from_text,
     validate_editorial_quality,
@@ -121,6 +122,10 @@ def test_other_country_rss_queries_are_concrete() -> None:
     for expected in ("Indonesia", "Pakistan", "Philippines", "Vietnam", "Russia", "Cameroon"):
         assert expected in queries
     assert "global sugar industry news" not in queries
+
+
+def test_skip_if_success_requires_report_and_index() -> None:
+    assert not success_exists("2099-01-01")
 
 
 def test_brazil_import_premium_hisugar_source_and_date_rule() -> None:
