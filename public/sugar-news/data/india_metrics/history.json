@@ -308,7 +308,7 @@
       "source_name": "ChiniMandi",
       "source_url": "https://www.chinimandi.com/retail-prices/",
       "daily_market_update_url": "https://www.chinimandi.com/english-news/daily-sugar-market-update/",
-      "fetched_at": "2026-07-26T07:35:29+08:00",
+      "fetched_at": "2026-07-26T16:26:44+08:00",
       "status": "ok",
       "price_inr_per_kg": 50.78
     },
@@ -667,7 +667,7 @@
       "source_name": "ChiniMandi",
       "source_url": "https://www.chinimandi.com/wholesale-sugar-prices/",
       "daily_market_update_url": "https://www.chinimandi.com/english-news/daily-sugar-market-update/",
-      "fetched_at": "2026-07-26T07:35:19+08:00",
+      "fetched_at": "2026-07-26T16:26:34+08:00",
       "status": "ok",
       "price_inr_per_quintal": 4852.22,
       "price_inr_per_kg": 48.5222
@@ -1050,7 +1050,7 @@
       "up_ex_mill_mid_inr_per_kg": 44.95,
       "source_name": "ChiniMandi — Daily Sugar Market Update",
       "source_url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-25-07-2026/",
-      "fetched_at": "2026-07-26T07:35:31+08:00",
+      "fetched_at": "2026-07-26T16:26:45+08:00",
       "status": "ok",
       "daily_change_absolute": -10.0,
       "daily_change_percent": -0.22,
@@ -1082,5 +1082,5 @@
       "change_direction": "down"
     }
   ],
-  "lastUpdatedAt": "2026-07-26T07:35:52+08:00"
+  "lastUpdatedAt": "2026-07-26T16:26:57+08:00"
 }
