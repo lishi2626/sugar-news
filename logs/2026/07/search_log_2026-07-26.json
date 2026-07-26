@@ -1,0 +1,2747 @@
+{
+  "target_date": "2026-07-26",
+  "run_date": "2026-07-27",
+  "search_tool": "Google News RSS autogeneration",
+  "note": "Generated automatically because curated verified JSON was missing. Each item keeps RSS source, publication date, and source link.",
+  "india_price_inventory_sources": [
+    "ChiniMandi domestic sugar prices",
+    "ISMA / Indian Sugar & Bio-energy Manufacturers Association",
+    "NFCSF / National Federation of Cooperative Sugar Factories",
+    "Department of Food and Public Distribution, Government of India",
+    "reliable commodity and agriculture media with dated market quotes"
+  ],
+  "india_completeness_requirements": {
+    "sugar_core": "India sugar production/stocks/prices/mills/sales quota/shortage searched",
+    "ethanol_e20": "India ethanol policy/blending/E20/above 20 percent/OMC/feedstock searched",
+    "reuters_site_search": "site:reuters.com India sugar/ethanol/E20/sugarcane/molasses searched",
+    "weather": "India sugarcane rainfall and core cane-state forecasts searched",
+    "no_country_cap": "Autogeneration does not stop after a fixed number of items per country."
+  },
+  "thai_weather_requirements": {
+    "fixed_step": "After Thailand sugar news discovery, check TMD daily forecast for main sugarcane provinces and add one weather item when a valid rainfall forecast exists.",
+    "source": "https://tmd.go.th/en/forecast/daily",
+    "provinces": [
+      "乌隆他尼",
+      "孔敬",
+      "呵叻",
+      "猜也蓬",
+      "加拉信",
+      "黎府",
+      "那空沙旺",
+      "甘烹碧",
+      "素可泰",
+      "彭世洛",
+      "北碧",
+      "华富里",
+      "素攀武里",
+      "猜纳",
+      "沙缴",
+      "春武里",
+      "春武里"
+    ]
+  },
+  "searches": [
+    {
+      "country": "巴西",
+      "language": "en",
+      "keywords": "Brazil sugar industry news July 26 2026",
+      "request_status": "executed",
+      "returned_count": 72,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Stock Market Today: Live Updates 25.07.2026 - TechStock²",
+          "reason": "publication date is not target date",
+          "published": "Sat, 25 Jul 2026 08:00:02 GMT"
+        },
+        {
+          "title": "Sugar Prices Trade on a Weak Note as Oil Prices Fall - inkl",
+          "reason": "publication date is not target date",
+          "published": "Fri, 24 Jul 2026 16:53:59 GMT"
+        },
+        {
+          "title": "US tariffs on Brazil are a bitter pill for sugar and ethanol makers - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Fri, 17 Jul 2026 01:36:21 GMT"
+        },
+        {
+          "title": "Weak India Monsoon Rains Pushes Sugar Prices Sharply Higher - Barchart.com",
+          "reason": "publication date is not target date",
+          "published": "Fri, 26 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "UNICA: Corn accounts for 27% of Brazilian ethanol production during 2025-’26 harvest season - Ethanol Producer Magazine",
+          "reason": "publication date is not target date",
+          "published": "Thu, 07 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Sharply Higher on the Outlook for Global Deficits - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Wed, 13 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Brazil’s ethanol output rises in late May as corn-based production continues to expand: UNICA - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Fri, 26 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "The Outlook for a Global Sugar Surplus Weighs on Prices - Yahoo Finance",
+          "reason": "publication date is not target date",
+          "published": "Thu, 05 Mar 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Daily Market Price Updates and Commentary 20th March 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Fri, 20 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "China Yunnan Sees Significant Year-on-Year Rise in Sugar Production During First Five Months of 2025/26 - Sunsirs",
+          "reason": "publication date is not target date",
+          "published": "Tue, 09 Jun 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "巴西",
+      "language": "en",
+      "keywords": "Brazil sugarcane ethanol export July 26 2026",
+      "request_status": "executed",
+      "returned_count": 37,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "UNICA: Corn accounts for 27% of Brazilian ethanol production during 2025-’26 harvest season - Ethanol Producer Magazine",
+          "reason": "publication date is not target date",
+          "published": "Thu, 07 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "US tariffs on Brazil are a bitter pill for sugar and ethanol makers - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Fri, 17 Jul 2026 01:36:21 GMT"
+        },
+        {
+          "title": "Decades-old Ethanol Program Shields Brazil From Rising Oil Prices - Food Manufacturing",
+          "reason": "publication date is not target date",
+          "published": "Wed, 01 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Sharply Higher on the Outlook for Global Deficits - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Wed, 13 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 20th May 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 20 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Ethanol and sugar drive Brazilian agribusiness - DatamarNews",
+          "reason": "publication date is not target date",
+          "published": "Mon, 02 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Brazil’s sugar exports to fall by 14% - UkrAgroConsult",
+          "reason": "publication date is not target date",
+          "published": "Mon, 30 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Expansion in corn ethanol supply could affect global sugar market - Valor International",
+          "reason": "publication date is not target date",
+          "published": "Fri, 23 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "FAO Food Price Index rises in March as Near East conflict raises energy costs - Food and Agriculture Organization",
+          "reason": "publication date is not target date",
+          "published": "Fri, 03 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Report: Distillers grains production expands in Brazil - Ethanol Producer Magazine",
+          "reason": "publication date is not target date",
+          "published": "Wed, 18 Mar 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "Brasil açúcar etanol 26 julho 2026",
+      "request_status": "executed",
+      "returned_count": 1,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Excedente em Redução 2026/27 Encontra Crescimento El Niño Risk - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Mon, 20 Apr 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "Brasil setor sucroenergético 26 de julho de 2026",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "usinas cana açúcar etanol 26/07/2026",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar industry news July 26 2026",
+      "request_status": "executed",
+      "returned_count": 70,
+      "retained_count": 2,
+      "filtered": [
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 09:18:11 GMT"
+        },
+        {
+          "title": "Sugar Sharply Higher on the Outlook for Global Deficits - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Wed, 13 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Top 15 Low-Price Stocks In India To Buy In July 2026 - Samco",
+          "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"
+        },
+        {
+          "title": "Ethanol boosts Maharashtra’s sugar industry amid renewed E20 debate - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Mon, 20 Jul 2026 05:31:13 GMT"
+        },
+        {
+          "title": "Sugar Prices Slide as India Ramps Up Sugar Output - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Thu, 02 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/05/2026 - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Tue, 26 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India's sugar season ends strong, but monsoon delay casts shadow over next year's crop: ISMA DG - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Mon, 22 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Maharashtra seeks higher sugar MSP, ethanol support as export ban hurts sugar industry - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Thu, 02 Jul 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugarcane ethanol mills July 26 2026",
+      "request_status": "executed",
+      "returned_count": 57,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Ethanol boosts Maharashtra’s sugar industry amid renewed E20 debate - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Mon, 20 Jul 2026 05:31:13 GMT"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 20th May 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 20 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Sharply Higher on the Outlook for Global Deficits - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Wed, 13 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 18th June 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Thu, 18 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Rice, maize, or sugarcane? India’s ethanol push triggers debate over agricultural concerns, subsidies - ThePrint",
+          "reason": "publication date is not target date",
+          "published": "Tue, 23 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India craves a sweet fix for crude addiction. Can it work? - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Thu, 23 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Maharashtra seeks higher sugar MSP, ethanol support as export ban hurts sugar industry - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Thu, 02 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar mills to report 5-8% revenue growth in FY26 on better cane supply: ICRA Report - The Hindu",
+          "reason": "publication date is not target date",
+          "published": "Sat, 14 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 15th April 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 15 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "When the sky signals trouble, the sugar mills need policy support - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Sun, 24 May 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar news 26 July 2026",
+      "request_status": "executed",
+      "returned_count": 77,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Stress hormones can raise your blood sugar: Here's how your mind and body are more connected than you thi - The Times of India",
+          "reason": "medical blood-sugar/glucose/diabetes context, not sugar industry"
+        },
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 09:18:11 GMT"
+        },
+        {
+          "title": "Sugar Sharply Higher on the Outlook for Global Deficits - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Wed, 13 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "‘Don’t know what Lloyd Austin did for 4 yrs?’: Hegseth erupts as Durbin grills over Iran war budget - The Economic Times",
+          "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"
+        },
+        {
+          "title": "Rising sugar prices signal market caution, allay fear of any supply shortage - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Sun, 05 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/06/2026 - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Fri, 26 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India's sugar season ends strong, but monsoon delay casts shadow over next year's crop: ISMA DG - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Mon, 22 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Amit Shah says this Indian brand's sugar-free chocolate is bestseller in India: 5 benefits of consuming chocolates - The Times of India",
+          "reason": "publication date is not target date",
+          "published": "Thu, 21 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "When the sky signals trouble, the sugar mills need policy support - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Sun, 24 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Government allocates 8,606 tonnes of raw sugar exports to the US - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Sun, 24 May 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar production July 26 2026",
+      "request_status": "executed",
+      "returned_count": 73,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 09:18:11 GMT"
+        },
+        {
+          "title": "Sugar Sharply Higher on the Outlook for Global Deficits - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Wed, 13 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Production Peaks in 2025/26, but Set to Ease in 2026/27 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 04 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Maharashtra seeks higher sugar MSP, ethanol support as export ban hurts sugar industry - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Thu, 02 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Prices Slide as India Ramps Up Sugar Output - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Thu, 02 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India’s sugar output forecast to rise 12% to 33.6 million tonnes in 2026-27: USDA - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Sat, 02 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India Sugar Output Up 10% in 2025-26: ISMA - Rediff MoneyWiz",
+          "reason": "publication date is not target date",
+          "published": "Tue, 17 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "With Maharashtra-Karnataka ramp up, sugar production in India registers 9.45 pc growth in FY26: ISMA - SME Futures",
+          "reason": "publication date is not target date",
+          "published": "Mon, 06 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar crushing season hits final phase, production reaches 274.8 lakh tons - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Thu, 16 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/06/2026 - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Fri, 26 Jun 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar stocks July 26 2026",
+      "request_status": "executed",
+      "returned_count": 72,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Stock Market Today: Live Updates 25.07.2026 - TechStock²",
+          "reason": "publication date is not target date",
+          "published": "Sat, 25 Jul 2026 08:00:02 GMT"
+        },
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 09:18:11 GMT"
+        },
+        {
+          "title": "Top 15 Low-Price Stocks In India To Buy In July 2026 - Samco",
+          "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"
+        },
+        {
+          "title": "List of Oil & Gas Stocks in India (2026) - INDmoney",
+          "reason": "publication date is not target date",
+          "published": "Fri, 24 Jul 2026 10:31:09 GMT"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 20th May 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 20 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar surplus to keep prices under pressure - ING THINK economic and financial analysis | ING THINK",
+          "reason": "publication date is not target date",
+          "published": "Mon, 08 Dec 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Robust Sugar Production in India Knocks Prices Lower - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Tue, 20 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Sugar Production Peaks in 2025/26, but Set to Ease in 2026/27 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 04 Feb 2026 08:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar prices July 26 2026",
+      "request_status": "executed",
+      "returned_count": 75,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 09:18:11 GMT"
+        },
+        {
+          "title": "Shrinking 2026/27 Surplus Meets Rising El Niño Risk - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Mon, 20 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Improved Monsoon Rains in India Undercut Sugar Prices - inkl",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 18:26:24 GMT"
+        },
+        {
+          "title": "Sugar Sharply Higher on the Outlook for Global Deficits - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Wed, 13 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Top 15 Low-Price Stocks In India To Buy In July 2026 - Samco",
+          "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"
+        },
+        {
+          "title": "Sugar Prices Jump as Crude Oil Surges - Barchart.com",
+          "reason": "publication date is not target date",
+          "published": "Mon, 09 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 15th April 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 15 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/06/2026 - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Fri, 26 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "LPG crisis may cut sugar demand by 400,000 tonnes: Isma chief - Rediff",
+          "reason": "publication date is not target date",
+          "published": "Wed, 08 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Prices Slide as India Ramps Up Sugar Output - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Thu, 02 Apr 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar ex-mill price July 26 2026",
+      "request_status": "executed",
+      "returned_count": 70,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 09:18:11 GMT"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 20th May 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 20 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Rising sugar prices signal market caution, allay fear of any supply shortage - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Sun, 05 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 15th April 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 15 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/06/2026 - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Fri, 26 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar output rises 7% so far in 2025-26; ISMA presses for policy relief - PSU Watch",
+          "reason": "publication date is not target date",
+          "published": "Thu, 30 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/05/2026 - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Tue, 26 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Cost of Production Across the World - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Mon, 08 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Centre likely to impose weekly sugar quota and dispatch mechanism to control sugar prices: Sources - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Fri, 17 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 18th June 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Thu, 18 Jun 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar export policy July 26 2026",
+      "request_status": "executed",
+      "returned_count": 74,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 09:18:11 GMT"
+        },
+        {
+          "title": "Indian sugar trade houses seek policy overhaul after export ban, propose EU-style auction system - S&P Global",
+          "reason": "publication date is not target date",
+          "published": "Tue, 16 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India likely won't export sugar for years as El Nino, ethanol squeeze supply - Reuters",
+          "reason": "publication date is not target date",
+          "published": "Sun, 21 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 20th May 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 20 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Sharply Higher on the Outlook for Global Deficits - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Wed, 13 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Government Prohibits Sugar Exports Till September 30, 2026; DGFT Revises Export Policy from “Restricted” to “Prohibited” to Safeguard Domestic Availability and Food Security, While Allowing Exemptions for EU-USA Quotas, Advance Authorization Scheme - A2Z Taxcorp LLP",
+          "reason": "publication date is not target date",
+          "published": "Thu, 14 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Maharashtra seeks higher sugar MSP, ethanol support as export ban hurts sugar industry - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Thu, 02 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "AISTA Denies Sugar Shortage Despite 15% Ex-Factory Price Hike - Whalesbook",
+          "reason": "publication date is not target date",
+          "published": "Mon, 20 Jul 2026 15:32:56 GMT"
+        },
+        {
+          "title": "India bans sugar exports till September 30 to boost domestic supply, curb prices - The New Indian Express",
+          "reason": "publication date is not target date",
+          "published": "Thu, 14 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 15th April 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 15 Apr 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar import July 26 2026",
+      "request_status": "executed",
+      "returned_count": 78,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "45% of US exports out of Section 301 duty; textile mechanism still pending, says govt - The Economic Times",
+          "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"
+        },
+        {
+          "title": "India likely won't export sugar for years as El Nino, ethanol squeeze supply - Reuters",
+          "reason": "publication date is not target date",
+          "published": "Sun, 21 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Trump Tariff Tracker – June 12, 2026 (via Passle) - Baker Botts",
+          "reason": "publication date is not target date",
+          "published": "Fri, 12 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 20th May 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 20 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 09:18:11 GMT"
+        },
+        {
+          "title": "India, UK trade pact to come into force from July 15: An Explainer - The New Indian Express",
+          "reason": "publication date is not target date",
+          "published": "Tue, 14 Jul 2026 08:02:30 GMT"
+        },
+        {
+          "title": "Centre likely to impose weekly sugar quota and dispatch mechanism to control sugar prices: Sources - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Fri, 17 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 18th June 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Thu, 18 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "LPG crisis may cut sugar demand by 400,000 tonnes: Isma chief - Rediff",
+          "reason": "publication date is not target date",
+          "published": "Wed, 08 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Gumede saved Tongaat but cheap sugar imports threaten rescue - Billionaires.Africa",
+          "reason": "publication date is not target date",
+          "published": "Fri, 26 Jun 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar sales quota July 26 2026",
+      "request_status": "executed",
+      "returned_count": 44,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Libra Horoscope Today, July 26, 2026: Spend on needs, not excitement - The Times of India",
+          "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"
+        },
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 09:18:11 GMT"
+        },
+        {
+          "title": "Centre orders physical verification of sugar stocks at mills from August 1-14 - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Fri, 24 Jul 2026 12:33:33 GMT"
+        },
+        {
+          "title": "Assam Cabinet Overhauls Medical Admissions and Waives SHG Loan Fees - newire.in",
+          "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"
+        },
+        {
+          "title": "Sugar Prices Climb on Concerns Over India’s Sugar Crop - Barchart.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 17 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Govt maintains sugar allocation for July at year-ago level as prices rise - BusinessLine",
+          "reason": "publication date is not target date",
+          "published": "Wed, 01 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Lok Sabha Monsoon Session: Government likely to push five new bills, prioritises pending FCRA bill - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Fri, 17 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Prices Rebound on Strength in the Brazilian Real and Crude Oil - Barchart.com",
+          "reason": "publication date is not target date",
+          "published": "Tue, 31 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "State-wise monthly sugar quota for sale in June 2026 - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Fri, 29 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India Approves 25 LMT Wheat, 5 LMT Sugar Export Quota - Equitypandit",
+          "reason": "publication date is not target date",
+          "published": "Fri, 13 Feb 2026 08:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar shortage July 26 2026",
+      "request_status": "executed",
+      "returned_count": 74,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 09:18:11 GMT"
+        },
+        {
+          "title": "Sugar trade body calls shortage fears 'unwarranted', urges steady supplies - Business Standard",
+          "reason": "publication date is not target date",
+          "published": "Mon, 20 Jul 2026 13:30:00 GMT"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 20th May 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 20 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Rising sugar prices signal market caution, allay fear of any supply shortage - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Sun, 05 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India warns of weakest monsoon in 11 years, inflation risks rise - Reuters",
+          "reason": "publication date is not target date",
+          "published": "Fri, 29 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "From war to weather: A ‘super El Niño’ event poses fresh risks to global food costs - CNBC Africa",
+          "reason": "publication date is not target date",
+          "published": "Thu, 09 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 18th June 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Thu, 18 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "LPG crisis may cut sugar demand by 400,000 tonnes: Isma chief - Rediff",
+          "reason": "publication date is not target date",
+          "published": "Wed, 08 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Easy access, rising addiction: The new face of Northeast’s drug problem - The Economic Times",
+          "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"
+        }
+      ]
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar mills July 26 2026",
+      "request_status": "executed",
+      "returned_count": 73,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 09:18:11 GMT"
+        },
+        {
+          "title": "Sugar Sharply Higher on the Outlook for Global Deficits - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Wed, 13 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/06/2026 - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Fri, 26 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/05/2026 - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Tue, 26 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Export Quota Increased for 2025-26 - Rediff MoneyWiz",
+          "reason": "publication date is not target date",
+          "published": "Mon, 16 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India's sugar output rises 10.5% to 26.21 MT in 2025-26 season: ISMA - Business Standard",
+          "reason": "publication date is not target date",
+          "published": "Tue, 17 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Indian Sugar Production Jumps 28%, but Falling Prices Raise Alarm for Mills and Farmers - Global Agriculture",
+          "reason": "publication date is not target date",
+          "published": "Tue, 16 Dec 2025 08:00:00 GMT"
+        },
+        {
+          "title": "India faces second year of sugar deficit as mills close early - Reuters",
+          "reason": "publication date is not target date",
+          "published": "Thu, 02 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Robust Sugar Production in India Knocks Prices Lower - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Tue, 20 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/03/2026 - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Thu, 26 Mar 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugarcane production July 26 2026",
+      "request_status": "skipped",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "reason": "RSS autogeneration query budget reached; daily job will continue with retained verified candidates."
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand sugar industry news July 26 2026",
+      "request_status": "executed",
+      "returned_count": 65,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Sugar No. 11 Futures (May 2027) Trade Ideas — ICEUS:SBK2027 - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Mon, 20 Jul 2026 22:32:05 GMT"
+        },
+        {
+          "title": "Expectations for Global Sugar Deficits Push Prices Sharply Higher - Barchart.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 13 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Production Peaks in 2025/26, but Set to Ease in 2026/27 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 04 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Thai Enquirer News Summary – June 29, 2026 - Thai Enquirer",
+          "reason": "publication date is not target date",
+          "published": "Mon, 29 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Surging Crude Oil Lifts Sugar Prices - inkl",
+          "reason": "publication date is not target date",
+          "published": "Fri, 17 Jul 2026 16:26:52 GMT"
+        },
+        {
+          "title": "Rising sugar prices signal market caution, allay fear of any supply shortage - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Sun, 05 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Sharply Higher on the Outlook for Global Deficits - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Wed, 13 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Stronger Thailand Sugar Exports Pressure Prices - Barchart.com",
+          "reason": "publication date is not target date",
+          "published": "Fri, 22 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Thai Enquirer News Summary – March 27, 2026 - Thai Enquirer",
+          "reason": "publication date is not target date",
+          "published": "Fri, 27 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Prices Slide as India Ramps Up Sugar Output - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Thu, 02 Apr 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand sugarcane mills ethanol July 26 2026",
+      "request_status": "executed",
+      "returned_count": 10,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Sugar and Ethanol Daily Report - StoneX",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "El Niño Risk Still Threatens 2026/27 Sugar Surplus - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Tue, 19 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Sharply Higher on the Outlook for Global Deficits - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Wed, 13 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Improved Monsoon Rains in India Undercut Sugar Prices - inkl",
+          "reason": "publication date is not target date",
+          "published": "Mon, 13 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India may need to limit sugar exports to expand ethanol blending - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Mon, 06 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Rice, maize, or sugarcane? India’s ethanol push triggers debate over agricultural concerns, subsidies - ThePrint",
+          "reason": "publication date is not target date",
+          "published": "Tue, 23 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Production Peaks in 2025/26, but Set to Ease in 2026/27 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 04 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Sugar surplus to keep prices under pressure: ING Report - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Thu, 18 Dec 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Sugar: Hedgepoint analyzes supply, demand and global trade flow trends - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Wed, 20 Aug 2025 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Price Hike Triggers Government Call to Curb Hoarding - Whalesbook",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 07:01:54 GMT"
+        }
+      ]
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand sugar news 26 July 2026",
+      "request_status": "executed",
+      "returned_count": 65,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Thailand-based sushi chain opens in Missouri City - Community Impact",
+          "reason": "publication date is not target date",
+          "published": "Fri, 24 Jul 2026 21:07:00 GMT"
+        },
+        {
+          "title": "US sets 12.5% tariff on Thai goods over forced labour - Nation Thailand",
+          "reason": "publication date is not target date",
+          "published": "Fri, 24 Jul 2026 00:32:00 GMT"
+        },
+        {
+          "title": "Fist of Fury 12: Bacaro, Injampa make weight for WBF title duel - Cebu Daily News",
+          "reason": "publication date is not target date",
+          "published": "Sat, 25 Jul 2026 06:00:00 GMT"
+        },
+        {
+          "title": "Thai Enquirer News Summary – June 29, 2026 - Thai Enquirer",
+          "reason": "publication date is not target date",
+          "published": "Mon, 29 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Prices Slip on Stronger Sugar Exports from Thailand - Barchart.com",
+          "reason": "publication date is not target date",
+          "published": "Fri, 22 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Sharply Higher on the Outlook for Global Deficits - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Wed, 13 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "The ultimate guide to the 2026 FIFA World Cup in Houston - Houston Public Media",
+          "reason": "publication date is not target date",
+          "published": "Thu, 11 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Rising sugar prices signal market caution, allay fear of any supply shortage - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Sun, 05 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Improved Monsoon Rains in India Undercut Sugar Prices - inkl",
+          "reason": "publication date is not target date",
+          "published": "Mon, 13 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Review: Maikham Thai & Lao - Cascadia Daily News",
+          "reason": "publication date is not target date",
+          "published": "Fri, 03 Apr 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand sugarcane rainfall forecast July 26 2026",
+      "request_status": "executed",
+      "returned_count": 8,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "El Niño Risk Still Threatens 2026/27 Sugar Surplus - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Tue, 19 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Rising sugar prices signal market caution, allay fear of any supply shortage - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Sun, 05 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Super El Niño could hit regions differently, study warns - Inquirer.net",
+          "reason": "publication date is not target date",
+          "published": "Tue, 26 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar prices extend four-day rally as weak India monsoon fuels supply concerns - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Thu, 02 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar surplus to keep prices under pressure - ING THINK economic and financial analysis | ING THINK",
+          "reason": "publication date is not target date",
+          "published": "Mon, 08 Dec 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Modest Thai Sugarcane Recovery Expected in 2025/26 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Thu, 22 May 2025 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar: Hedgepoint analyzes supply, demand and global trade flow trends - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Wed, 20 Aug 2025 07:00:00 GMT"
+        },
+        {
+          "title": "2025-26 sugar season: Thailand’s production forecast likely to be reviewed in September - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Sat, 14 Jun 2025 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Udon Thani Khon Kaen Nakhon Ratchasima sugarcane rain forecast July 26 2026",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Nakhon Sawan Kanchanaburi Lopburi Chai Nat rainfall forecast July 26 2026",
+      "request_status": "executed",
+      "returned_count": 9,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Heavy rain forecast in North and upper Northeast Thailand as monsoon strengthens - Asia News Network",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 02:01:32 GMT"
+        },
+        {
+          "title": "Rain alert: thunderstorms in 60% of areas, heavy falls and gusty winds expected - Nation Thailand",
+          "reason": "publication date is not target date",
+          "published": "Thu, 07 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Monsoon brings heavier rain across Thailand, North wettest - Nation Thailand",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 01:09:00 GMT"
+        },
+        {
+          "title": "TMD warns of more rain and flash floods across upper Thailand - Nation Thailand",
+          "reason": "publication date is not target date",
+          "published": "Wed, 10 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Which provinces face heavy rain from strong tropical storm Wipha? - Nation Thailand",
+          "reason": "publication date is not target date",
+          "published": "Sun, 20 Jul 2025 07:00:00 GMT"
+        },
+        {
+          "title": "Meteorological Department updates latest satellite images and Typhoon Kalmaegi path on Nov 6 - Nation Thailand",
+          "reason": "publication date is not target date",
+          "published": "Wed, 05 Nov 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Unstable Weather Forecast for Thailand (October 30 – November 2, 2025) - Nation Thailand",
+          "reason": "publication date is not target date",
+          "published": "Thu, 30 Oct 2025 07:00:00 GMT"
+        },
+        {
+          "title": "Heavy rainfall and flash flood risk as monsoon prevails across Thailand - Nation Thailand",
+          "reason": "publication date is not target date",
+          "published": "Thu, 15 May 2025 07:00:00 GMT"
+        },
+        {
+          "title": "First day of Thailand’s rainy season: heavy rain warning for 36 provinces - Thaiger",
+          "reason": "publication date is not target date",
+          "published": "Fri, 13 May 2022 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand cane growing areas thunderstorm heavy rain drought July 26 2026",
+      "request_status": "executed",
+      "returned_count": 2,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Super El Niño could hit regions differently, study warns - Inquirer.net",
+          "reason": "publication date is not target date",
+          "published": "Tue, 26 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "How El Nino could impact the world's weather in 2026/27 - Bangkok Post",
+          "reason": "publication date is not target date",
+          "published": "Fri, 24 Apr 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "泰国",
+      "language": "th",
+      "keywords": "ประเทศไทย น้ำตาล อ้อย 26 กรกฎาคม 2569",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "泰国",
+      "language": "th",
+      "keywords": "ข่าวอ้อย น้ำตาล 26 กรกฎาคม 2569",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "泰国",
+      "language": "th",
+      "keywords": "อุตสาหกรรมอ้อยและน้ำตาล 26 กรกฎาคม 2569",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "泰国",
+      "language": "th",
+      "keywords": "โรงงานน้ำตาล เอทานอล 26 กรกฎาคม 2569",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "中国糖业新闻 2026年7月26日",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "中国食糖 2026年7月26日",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "中国白糖 2026年7月26日",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "中国甘蔗 2026年7月26日",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "中国甜菜糖 2026年7月26日",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "广西糖业 甘蔗 2026年7月26日",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "云南糖业 甘蔗 2026年7月26日",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "广东 甘蔗 糖业 2026年7月26日",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "海南 甘蔗 糖业 2026年7月26日",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "内蒙古 新疆 黑龙江 甜菜糖 2026年7月26日",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "食糖产销数据 2026年7月26日",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "食糖库存 产销率 2026年7月26日",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": []
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "食糖进口 2026年7月26日",
+      "request_status": "skipped",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "reason": "RSS autogeneration query budget reached; daily job will continue with retained verified candidates."
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "India sugar S-grade M-grade domestic price July 26 2026",
+      "request_status": "executed",
+      "returned_count": 33,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 22/07/2026 - ChiniMandi",
+          "news_date": "Wed, 22 Jul 2026 13:12:16 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1QU1QyU3ZLSlpMWlU2SWx4ekp6YkU4bzgyeklrcG96RkZLOWJrOXJ6amZMLTlySzhDeDl0NVJCSGplcjJJcXpLU2lVVTVCWTEyT0k2V1VHY0tfOXE0UlpTTjQ2VXE1empZdm1Xd3VLeDlmaVdYS004YUIwblRRYnc?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July - RuralVoice",
+          "news_date": "Sat, 18 Jul 2026 13:45:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 13/07/2026 - ChiniMandi",
+          "news_date": "Mon, 13 Jul 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1aTFJBWHNyMmJ3RXVlNjR5dDZJdlJVMWZ2eUd1XzBXTldLVDZnWmNIMGVFVnQyNGt4b2xySW5maWVReTg0cUhkOEY1LVhxLVZDYVRTdFZHRkNkZ3BuSEYxTDhYNmVDMkZrMXEyU0tqNHpMRkt2M25YSTJSc1pOS1k?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 11/07/2026 - ChiniMandi",
+          "news_date": "Sat, 11 Jul 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE00SHJsNW9WcXlnaV9tT093ZEl1OGduUzVDQ0UtUENIQ2czVXRablExXzJBSmlZOVFMZ1REM0tlTGNVaU80NEN6d05iaU1uVTBwUkx6Xzd4UjdFZEFNbmV6U3hFczVQOXB4eS1GT3Nobk5FT3lmYjNtWjFJTEhzZXM?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 06/07/2026 - ChiniMandi",
+          "news_date": "Mon, 06 Jul 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5GZVRVUGQ3eENXMi1IWDhNMUc4bGtIZVJUVWhmMDI2Ti1aXzJFOHRhTFdNTWV1Vk5YQW1zYTFmb1hvc2phWEJlWW9UcVJQak1WbnladDV0Zmd6ZU5GelJWTWNHcGk1aWhWS2VfNDNtbFJOZFdPMW1qa0FLbmJVRXc?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        }
+      ],
+      "sample_results": [
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 22/07/2026 - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1QU1QyU3ZLSlpMWlU2SWx4ekp6YkU4bzgyeklrcG96RkZLOWJrOXJ6amZMLTlySzhDeDl0NVJCSGplcjJJcXpLU2lVVTVCWTEyT0k2V1VHY0tfOXE0UlpTTjQ2VXE1empZdm1Xd3VLeDlmaVdYS004YUIwblRRYnc?oc=5",
+          "published": "Wed, 22 Jul 2026 13:12:16 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE1QU1QyU3ZLSlpMWlU2SWx4ekp6YkU4bzgyeklrcG96RkZLOWJrOXJ6amZMLTlySzhDeDl0NVJCSGplcjJJcXpLU2lVVTVCWTEyT0k2V1VHY0tfOXE0UlpTTjQ2VXE1empZdm1Xd3VLeDlmaVdYS004YUIwblRRYnc?oc=5\" target=\"_blank\">Daily Sugar Market Update By Vizzie – 22/07/2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        },
+        {
+          "title": "Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July - RuralVoice",
+          "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5",
+          "published": "Sat, 18 Jul 2026 13:45:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5\" target=\"_blank\">Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">RuralVoice</font>"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 13/07/2026 - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1aTFJBWHNyMmJ3RXVlNjR5dDZJdlJVMWZ2eUd1XzBXTldLVDZnWmNIMGVFVnQyNGt4b2xySW5maWVReTg0cUhkOEY1LVhxLVZDYVRTdFZHRkNkZ3BuSEYxTDhYNmVDMkZrMXEyU0tqNHpMRkt2M25YSTJSc1pOS1k?oc=5",
+          "published": "Mon, 13 Jul 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE1aTFJBWHNyMmJ3RXVlNjR5dDZJdlJVMWZ2eUd1XzBXTldLVDZnWmNIMGVFVnQyNGt4b2xySW5maWVReTg0cUhkOEY1LVhxLVZDYVRTdFZHRkNkZ3BuSEYxTDhYNmVDMkZrMXEyU0tqNHpMRkt2M25YSTJSc1pOS1k?oc=5\" target=\"_blank\">Daily Sugar Market Update By Vizzie – 13/07/2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 11/07/2026 - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE00SHJsNW9WcXlnaV9tT093ZEl1OGduUzVDQ0UtUENIQ2czVXRablExXzJBSmlZOVFMZ1REM0tlTGNVaU80NEN6d05iaU1uVTBwUkx6Xzd4UjdFZEFNbmV6U3hFczVQOXB4eS1GT3Nobk5FT3lmYjNtWjFJTEhzZXM?oc=5",
+          "published": "Sat, 11 Jul 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE00SHJsNW9WcXlnaV9tT093ZEl1OGduUzVDQ0UtUENIQ2czVXRablExXzJBSmlZOVFMZ1REM0tlTGNVaU80NEN6d05iaU1uVTBwUkx6Xzd4UjdFZEFNbmV6U3hFczVQOXB4eS1GT3Nobk5FT3lmYjNtWjFJTEhzZXM?oc=5\" target=\"_blank\">Daily Sugar Market Update By Vizzie – 11/07/2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 06/07/2026 - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5GZVRVUGQ3eENXMi1IWDhNMUc4bGtIZVJUVWhmMDI2Ti1aXzJFOHRhTFdNTWV1Vk5YQW1zYTFmb1hvc2phWEJlWW9UcVJQak1WbnladDV0Zmd6ZU5GelJWTWNHcGk1aWhWS2VfNDNtbFJOZFdPMW1qa0FLbmJVRXc?oc=5",
+          "published": "Mon, 06 Jul 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE5GZVRVUGQ3eENXMi1IWDhNMUc4bGtIZVJUVWhmMDI2Ti1aXzJFOHRhTFdNTWV1Vk5YQW1zYTFmb1hvc2phWEJlWW9UcVJQak1WbnladDV0Zmd6ZU5GelJWTWNHcGk1aWhWS2VfNDNtbFJOZFdPMW1qa0FLbmJVRXc?oc=5\" target=\"_blank\">Daily Sugar Market Update By Vizzie – 06/07/2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        }
+      ]
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "India sugar prices today S grade M grade July 26 2026",
+      "request_status": "executed",
+      "returned_count": 50,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 22/07/2026 - ChiniMandi",
+          "news_date": "Wed, 22 Jul 2026 13:12:16 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1QU1QyU3ZLSlpMWlU2SWx4ekp6YkU4bzgyeklrcG96RkZLOWJrOXJ6amZMLTlySzhDeDl0NVJCSGplcjJJcXpLU2lVVTVCWTEyT0k2V1VHY0tfOXE0UlpTTjQ2VXE1empZdm1Xd3VLeDlmaVdYS004YUIwblRRYnc?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July - RuralVoice",
+          "news_date": "Sat, 18 Jul 2026 13:45:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/05/2026 - ChiniMandi",
+          "news_date": "Tue, 26 May 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4yNUxwRHlQbF9XUjBXLUQ2SUdWWEp1R3lUMkUyQnRTNmFndzMwbm1vbXQ4TGZhVm5zRnh2RlZGUjA5bzhJUmdONnE4Y0c5ZUI5VzNCM3VCR1hTYnJJWTFkcjZhbldoOUZsbWVoOExwcW5jRjFOaUNaclpJY3lhaHc?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Rising sugar prices signal market caution, allay fear of any supply shortage - ChiniMandi",
+          "news_date": "Sun, 05 Jul 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTWJHRTZWYjRra19saXJ5d2xGVlM0dmloNWNpRWtyMTNOeUEtWS1tZUhKUm1Pb2g3UUp4akJnWWFZNUVmclBVUk1FWHlJS0xCVFJTNU9FdTVWMDJ6U0dQLXZXRU9KMlU2eVpUc252QjJYMUJtMmpGRV9yMW5nWU5xRk9wV2tNcklwVFFabzQ0T21jRkIxdTJiT3phd1F2dWQtSGs3Q3NR?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 11/07/2026 - ChiniMandi",
+          "news_date": "Sat, 11 Jul 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE00SHJsNW9WcXlnaV9tT093ZEl1OGduUzVDQ0UtUENIQ2czVXRablExXzJBSmlZOVFMZ1REM0tlTGNVaU80NEN6d05iaU1uVTBwUkx6Xzd4UjdFZEFNbmV6U3hFczVQOXB4eS1GT3Nobk5FT3lmYjNtWjFJTEhzZXM?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        }
+      ],
+      "sample_results": [
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 22/07/2026 - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1QU1QyU3ZLSlpMWlU2SWx4ekp6YkU4bzgyeklrcG96RkZLOWJrOXJ6amZMLTlySzhDeDl0NVJCSGplcjJJcXpLU2lVVTVCWTEyT0k2V1VHY0tfOXE0UlpTTjQ2VXE1empZdm1Xd3VLeDlmaVdYS004YUIwblRRYnc?oc=5",
+          "published": "Wed, 22 Jul 2026 13:12:16 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE1QU1QyU3ZLSlpMWlU2SWx4ekp6YkU4bzgyeklrcG96RkZLOWJrOXJ6amZMLTlySzhDeDl0NVJCSGplcjJJcXpLU2lVVTVCWTEyT0k2V1VHY0tfOXE0UlpTTjQ2VXE1empZdm1Xd3VLeDlmaVdYS004YUIwblRRYnc?oc=5\" target=\"_blank\">Daily Sugar Market Update By Vizzie – 22/07/2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        },
+        {
+          "title": "Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July - RuralVoice",
+          "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5",
+          "published": "Sat, 18 Jul 2026 13:45:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5\" target=\"_blank\">Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">RuralVoice</font>"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/05/2026 - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4yNUxwRHlQbF9XUjBXLUQ2SUdWWEp1R3lUMkUyQnRTNmFndzMwbm1vbXQ4TGZhVm5zRnh2RlZGUjA5bzhJUmdONnE4Y0c5ZUI5VzNCM3VCR1hTYnJJWTFkcjZhbldoOUZsbWVoOExwcW5jRjFOaUNaclpJY3lhaHc?oc=5",
+          "published": "Tue, 26 May 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE4yNUxwRHlQbF9XUjBXLUQ2SUdWWEp1R3lUMkUyQnRTNmFndzMwbm1vbXQ4TGZhVm5zRnh2RlZGUjA5bzhJUmdONnE4Y0c5ZUI5VzNCM3VCR1hTYnJJWTFkcjZhbldoOUZsbWVoOExwcW5jRjFOaUNaclpJY3lhaHc?oc=5\" target=\"_blank\">Daily Sugar Market Update By Vizzie – 26/05/2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        },
+        {
+          "title": "Rising sugar prices signal market caution, allay fear of any supply shortage - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTWJHRTZWYjRra19saXJ5d2xGVlM0dmloNWNpRWtyMTNOeUEtWS1tZUhKUm1Pb2g3UUp4akJnWWFZNUVmclBVUk1FWHlJS0xCVFJTNU9FdTVWMDJ6U0dQLXZXRU9KMlU2eVpUc252QjJYMUJtMmpGRV9yMW5nWU5xRk9wV2tNcklwVFFabzQ0T21jRkIxdTJiT3phd1F2dWQtSGs3Q3NR?oc=5",
+          "published": "Sun, 05 Jul 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMipgFBVV95cUxQTWJHRTZWYjRra19saXJ5d2xGVlM0dmloNWNpRWtyMTNOeUEtWS1tZUhKUm1Pb2g3UUp4akJnWWFZNUVmclBVUk1FWHlJS0xCVFJTNU9FdTVWMDJ6U0dQLXZXRU9KMlU2eVpUc252QjJYMUJtMmpGRV9yMW5nWU5xRk9wV2tNcklwVFFabzQ0T21jRkIxdTJiT3phd1F2dWQtSGs3Q3NR?oc=5\" target=\"_blank\">Rising sugar prices signal market caution, allay fear of any supply shortage</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 11/07/2026 - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE00SHJsNW9WcXlnaV9tT093ZEl1OGduUzVDQ0UtUENIQ2czVXRablExXzJBSmlZOVFMZ1REM0tlTGNVaU80NEN6d05iaU1uVTBwUkx6Xzd4UjdFZEFNbmV6U3hFczVQOXB4eS1GT3Nobk5FT3lmYjNtWjFJTEhzZXM?oc=5",
+          "published": "Sat, 11 Jul 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE00SHJsNW9WcXlnaV9tT093ZEl1OGduUzVDQ0UtUENIQ2czVXRablExXzJBSmlZOVFMZ1REM0tlTGNVaU80NEN6d05iaU1uVTBwUkx6Xzd4UjdFZEFNbmV6U3hFczVQOXB4eS1GT3Nobk5FT3lmYjNtWjFJTEhzZXM?oc=5\" target=\"_blank\">Daily Sugar Market Update By Vizzie – 11/07/2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        }
+      ]
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "Maharashtra Uttar Pradesh Karnataka sugar price July 26 2026",
+      "request_status": "executed",
+      "returned_count": 49,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July - RuralVoice",
+          "news_date": "Sat, 18 Jul 2026 13:45:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Sugar output rises 7% so far in 2025-26; ISMA presses for policy relief - PSU Watch",
+          "news_date": "Thu, 30 Apr 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQYy1RMl81RU80dzVjN1V4THk4Unh4Q3RRcGpHQXVtSWhPbzJuQTBqaDNGdGlNWlpfVUxfWFlpNWd3blFzOFdYWUlUMTF3TkhKUlhFV19UYWg5WTNMM1pFTG16TVFqTGRva1BaY0dVTWtnN2FiNzZmdDM5SmVFNTVHOU16VHhSd1kyRkVVblNubXZrXzlOMG9RUkJZbUpta1BBVS1YY9IBsgFBVV95cUxNTWRadWx4Rko4QXF5ZnNpNEhjNHU1dmZkSndqcGJFZkdDR09rdjNPTC1DcjE2MEp1czFnQkJXSE1YS0RDaGcwYktsTzJ4RjF1ZTNZTFF6RGJUbVhaVkVoT0x1a3ZHM1RoOHFsTEVURHdDcnEyMFlnQi0xVjE1M3poWDFicGJkQkhxU3ZocmRTYXl3RlQwcW5iNGNGWTUyaTc1TXR2R0VYbElSZGNDMGNJS2R3?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "When the sky signals trouble, the sugar mills need policy support - ChiniMandi",
+          "news_date": "Sun, 24 May 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxONmRkMTVYa29aUzJra1pZcUhQRUhLRjZDNkhTdG1ueTNER0d1Y29DMFFOZTFjaEV2LXBVRzVKZmZpWXZGQVpPQUNCSFZiRHhvUjBJaU5qNU9GOVpESmJLM1pRdVBpS3JiOTZzOTdfX2hyNmtwcEtvcm56RVR2M0NiRU01b3pHeE9RRmlDUjNVT3dYRE93WkxV?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "India cuts sugar production estimate for 2025-26 on weak yields in top states - The Economic Times",
+          "news_date": "Wed, 25 Feb 2026 08:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNZ2pwRVZha2g0MTdhMTA0aEVROWhtYi0wc3RUb0JrWU9tV0RLSUIwRnVrQkMyS3FvX3E0cVpPZGdxajJCQ2hBUnJKX08taEd2S0RPN21pZHl1VXkyRHJyUUNCai16Y0FEQUFlTjdCMTBMQ2o3VmplTlhHSDQ4MXZMbnB2aWhvRUJWR3YySmd1OTVONzBRMlJKVTFweGUyWXp4bGlLM1EzRW5OczlXVGtJcmt3Q3d0RHc2Ml9FVGxLdVZvd1drTGxWY0NNLXdqOUxUTF93RTlrVXJZcGg5LUYtQ2hVZVREQTNxRnluNdIB8gFBVV95cUxPdm03S3Y5REtWSmZnVnBSWUxEQmt4X3RCRndoVUYxWWZhNWF4cjNfUDZpS2JhNC1wQjlrZWk2OHFvQ1NjQ0hEd2NqZFBVUGhKRy01cWFxZFBPNFR6a3AwS2QxTC1Zb3hKV3d3SFYtRmk2ck5rZ3lVdFY3cTJuMFFid1lOVGc0LXBwM0JwTWNWQ19xTXk0akktY1U2eEtESWtiRW81TXA1Qkk0Y2pXMTQ2ZWhWdmM4azlWWlFrbVR1dUVDazdqM3J5YUZhZ3hwRzhOeFFmQi1DcUp1TFVjTFplaWZyY1hlTVREd2N2ZEJLQkJaZw?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Sugar production rises nationwide in 2025 as mills boost crushing - The Times of India",
+          "news_date": "Thu, 01 Jan 2026 08:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNM05MemtCdE50WFd3QlRwSDY3TTdfVGtFZ2VENTk1d0RROUJIMl8yY3ZQSUhoVUF0UDBTdk1oWE01VXhyaW9kVTJaMDVDdzRrY2dOS3NLU2czNWJ6bTZhSkJHdGpYSHVvbkFHaFdTSWdSNWxvcEZZVng4MTNlM3hJWmFSZ2M1UEhVMVRmTUF3NmNDbnRMcExTazd2YjNFN0ZROFZrcVpCdmdqcVFZaUtSUXhBWml4WjFGYnNNWUZ3dWVxMnZRcmRINjZyYTUzWWVjUzlDYnRnSDPSAd4BQVVfeXFMTk1Rdnd5d09uZGk4anBOU2NMVU0zMXlvUU9WLWZUOU1fZEk4UGtxUnZQOTEtMzhLRmJyMXZfenpBcVl0al9PcXA3U2I1N19rWXRlampWR2xzUlI2Z01ZOW5uTnhSTTluTVI2MEpHR1dpMjVaT3lQRlFHdXRpUV9nb0xpNHBMUTVXc05saXVvR1RCR2VJdm9KSG5XRE5WTTgtVWZwS01Pb3BydnhLZW1wb0ViTzVKNnZtbTdwME9GUE5xSGpPVUpjYnZ6V3d0ZHNjdHg5cUhNUndIYkpMbFNn?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        }
+      ],
+      "sample_results": [
+        {
+          "title": "Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July - RuralVoice",
+          "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5",
+          "published": "Sat, 18 Jul 2026 13:45:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5\" target=\"_blank\">Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">RuralVoice</font>"
+        },
+        {
+          "title": "Sugar output rises 7% so far in 2025-26; ISMA presses for policy relief - PSU Watch",
+          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQYy1RMl81RU80dzVjN1V4THk4Unh4Q3RRcGpHQXVtSWhPbzJuQTBqaDNGdGlNWlpfVUxfWFlpNWd3blFzOFdYWUlUMTF3TkhKUlhFV19UYWg5WTNMM1pFTG16TVFqTGRva1BaY0dVTWtnN2FiNzZmdDM5SmVFNTVHOU16VHhSd1kyRkVVblNubXZrXzlOMG9RUkJZbUpta1BBVS1YY9IBsgFBVV95cUxNTWRadWx4Rko4QXF5ZnNpNEhjNHU1dmZkSndqcGJFZkdDR09rdjNPTC1DcjE2MEp1czFnQkJXSE1YS0RDaGcwYktsTzJ4RjF1ZTNZTFF6RGJUbVhaVkVoT0x1a3ZHM1RoOHFsTEVURHdDcnEyMFlnQi0xVjE1M3poWDFicGJkQkhxU3ZocmRTYXl3RlQwcW5iNGNGWTUyaTc1TXR2R0VYbElSZGNDMGNJS2R3?oc=5",
+          "published": "Thu, 30 Apr 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxQYy1RMl81RU80dzVjN1V4THk4Unh4Q3RRcGpHQXVtSWhPbzJuQTBqaDNGdGlNWlpfVUxfWFlpNWd3blFzOFdYWUlUMTF3TkhKUlhFV19UYWg5WTNMM1pFTG16TVFqTGRva1BaY0dVTWtnN2FiNzZmdDM5SmVFNTVHOU16VHhSd1kyRkVVblNubXZrXzlOMG9RUkJZbUpta1BBVS1YY9IBsgFBVV95cUxNTWRadWx4Rko4QXF5ZnNpNEhjNHU1dmZkSndqcGJFZkdDR09rdjNPTC1DcjE2MEp1czFnQkJXSE1YS0RDaGcwYktsTzJ4RjF1ZTNZTFF6RGJUbVhaVkVoT0x1a3ZHM1RoOHFsTEVURHdDcnEyMFlnQi0xVjE1M3poWDFicGJkQkhxU3ZocmRTYXl3RlQwcW5iNGNGWTUyaTc1TXR2R0VYbElSZGNDMGNJS2R3?oc=5\" target=\"_blank\">Sugar output rises 7% so far in 2025-26; ISMA presses for policy relief</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">PSU Watch</font>"
+        },
+        {
+          "title": "When the sky signals trouble, the sugar mills need policy support - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxONmRkMTVYa29aUzJra1pZcUhQRUhLRjZDNkhTdG1ueTNER0d1Y29DMFFOZTFjaEV2LXBVRzVKZmZpWXZGQVpPQUNCSFZiRHhvUjBJaU5qNU9GOVpESmJLM1pRdVBpS3JiOTZzOTdfX2hyNmtwcEtvcm56RVR2M0NiRU01b3pHeE9RRmlDUjNVT3dYRE93WkxV?oc=5",
+          "published": "Sun, 24 May 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxONmRkMTVYa29aUzJra1pZcUhQRUhLRjZDNkhTdG1ueTNER0d1Y29DMFFOZTFjaEV2LXBVRzVKZmZpWXZGQVpPQUNCSFZiRHhvUjBJaU5qNU9GOVpESmJLM1pRdVBpS3JiOTZzOTdfX2hyNmtwcEtvcm56RVR2M0NiRU01b3pHeE9RRmlDUjNVT3dYRE93WkxV?oc=5\" target=\"_blank\">When the sky signals trouble, the sugar mills need policy support</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        },
+        {
+          "title": "India cuts sugar production estimate for 2025-26 on weak yields in top states - The Economic Times",
+          "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNZ2pwRVZha2g0MTdhMTA0aEVROWhtYi0wc3RUb0JrWU9tV0RLSUIwRnVrQkMyS3FvX3E0cVpPZGdxajJCQ2hBUnJKX08taEd2S0RPN21pZHl1VXkyRHJyUUNCai16Y0FEQUFlTjdCMTBMQ2o3VmplTlhHSDQ4MXZMbnB2aWhvRUJWR3YySmd1OTVONzBRMlJKVTFweGUyWXp4bGlLM1EzRW5OczlXVGtJcmt3Q3d0RHc2Ml9FVGxLdVZvd1drTGxWY0NNLXdqOUxUTF93RTlrVXJZcGg5LUYtQ2hVZVREQTNxRnluNdIB8gFBVV95cUxPdm03S3Y5REtWSmZnVnBSWUxEQmt4X3RCRndoVUYxWWZhNWF4cjNfUDZpS2JhNC1wQjlrZWk2OHFvQ1NjQ0hEd2NqZFBVUGhKRy01cWFxZFBPNFR6a3AwS2QxTC1Zb3hKV3d3SFYtRmk2ck5rZ3lVdFY3cTJuMFFid1lOVGc0LXBwM0JwTWNWQ19xTXk0akktY1U2eEtESWtiRW81TXA1Qkk0Y2pXMTQ2ZWhWdmM4azlWWlFrbVR1dUVDazdqM3J5YUZhZ3hwRzhOeFFmQi1DcUp1TFVjTFplaWZyY1hlTVREd2N2ZEJLQkJaZw?oc=5",
+          "published": "Wed, 25 Feb 2026 08:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMi7AFBVV95cUxNZ2pwRVZha2g0MTdhMTA0aEVROWhtYi0wc3RUb0JrWU9tV0RLSUIwRnVrQkMyS3FvX3E0cVpPZGdxajJCQ2hBUnJKX08taEd2S0RPN21pZHl1VXkyRHJyUUNCai16Y0FEQUFlTjdCMTBMQ2o3VmplTlhHSDQ4MXZMbnB2aWhvRUJWR3YySmd1OTVONzBRMlJKVTFweGUyWXp4bGlLM1EzRW5OczlXVGtJcmt3Q3d0RHc2Ml9FVGxLdVZvd1drTGxWY0NNLXdqOUxUTF93RTlrVXJZcGg5LUYtQ2hVZVREQTNxRnluNdIB8gFBVV95cUxPdm03S3Y5REtWSmZnVnBSWUxEQmt4X3RCRndoVUYxWWZhNWF4cjNfUDZpS2JhNC1wQjlrZWk2OHFvQ1NjQ0hEd2NqZFBVUGhKRy01cWFxZFBPNFR6a3AwS2QxTC1Zb3hKV3d3SFYtRmk2ck5rZ3lVdFY3cTJuMFFid1lOVGc0LXBwM0JwTWNWQ19xTXk0akktY1U2eEtESWtiRW81TXA1Qkk0Y2pXMTQ2ZWhWdmM4azlWWlFrbVR1dUVDazdqM3J5YUZhZ3hwRzhOeFFmQi1DcUp1TFVjTFplaWZyY1hlTVREd2N2ZEJLQkJaZw?oc=5\" target=\"_blank\">India cuts sugar production estimate for 2025-26 on weak yields in top states</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Economic Times</font>"
+        },
+        {
+          "title": "Sugar production rises nationwide in 2025 as mills boost crushing - The Times of India",
+          "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNM05MemtCdE50WFd3QlRwSDY3TTdfVGtFZ2VENTk1d0RROUJIMl8yY3ZQSUhoVUF0UDBTdk1oWE01VXhyaW9kVTJaMDVDdzRrY2dOS3NLU2czNWJ6bTZhSkJHdGpYSHVvbkFHaFdTSWdSNWxvcEZZVng4MTNlM3hJWmFSZ2M1UEhVMVRmTUF3NmNDbnRMcExTazd2YjNFN0ZROFZrcVpCdmdqcVFZaUtSUXhBWml4WjFGYnNNWUZ3dWVxMnZRcmRINjZyYTUzWWVjUzlDYnRnSDPSAd4BQVVfeXFMTk1Rdnd5d09uZGk4anBOU2NMVU0zMXlvUU9WLWZUOU1fZEk4UGtxUnZQOTEtMzhLRmJyMXZfenpBcVl0al9PcXA3U2I1N19rWXRlampWR2xzUlI2Z01ZOW5uTnhSTTluTVI2MEpHR1dpMjVaT3lQRlFHdXRpUV9nb0xpNHBMUTVXc05saXVvR1RCR2VJdm9KSG5XRE5WTTgtVWZwS01Pb3BydnhLZW1wb0ViTzVKNnZtbTdwME9GUE5xSGpPVUpjYnZ6V3d0ZHNjdHg5cUhNUndIYkpMbFNn?oc=5",
+          "published": "Thu, 01 Jan 2026 08:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMi2AFBVV95cUxNM05MemtCdE50WFd3QlRwSDY3TTdfVGtFZ2VENTk1d0RROUJIMl8yY3ZQSUhoVUF0UDBTdk1oWE01VXhyaW9kVTJaMDVDdzRrY2dOS3NLU2czNWJ6bTZhSkJHdGpYSHVvbkFHaFdTSWdSNWxvcEZZVng4MTNlM3hJWmFSZ2M1UEhVMVRmTUF3NmNDbnRMcExTazd2YjNFN0ZROFZrcVpCdmdqcVFZaUtSUXhBWml4WjFGYnNNWUZ3dWVxMnZRcmRINjZyYTUzWWVjUzlDYnRnSDPSAd4BQVVfeXFMTk1Rdnd5d09uZGk4anBOU2NMVU0zMXlvUU9WLWZUOU1fZEk4UGtxUnZQOTEtMzhLRmJyMXZfenpBcVl0al9PcXA3U2I1N19rWXRlampWR2xzUlI2Z01ZOW5uTnhSTTluTVI2MEpHR1dpMjVaT3lQRlFHdXRpUV9nb0xpNHBMUTVXc05saXVvR1RCR2VJdm9KSG5XRE5WTTgtVWZwS01Pb3BydnhLZW1wb0ViTzVKNnZtbTdwME9GUE5xSGpPVUpjYnZ6V3d0ZHNjdHg5cUhNUndIYkpMbFNn?oc=5\" target=\"_blank\">Sugar production rises nationwide in 2025 as mills boost crushing</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Times of India</font>"
+        }
+      ]
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "Uttar Pradesh sugar ex-mill price July 26 2026",
+      "request_status": "executed",
+      "returned_count": 49,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "news_date": "Wed, 22 Jul 2026 09:18:11 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQVndQVzMzTFYxRS1wT1FFM2VsRi15NFhOWm9XcVFXNHBaUmxuNk9wYU5XMDgyaThNLUNULVVPVk43Z0ZFS040ZnVhS3ZfT2o5NVlScWl4bm95c0x4WExzZ2huQVR3cUdmU3NHTzM5UnU5REswaEJDaXpDSVhtcDNkakRYYjBEZkhrSU02eE1FaUZfZlhnZ2RHalM1cFE4NWpmSzFBOVE3RFBiRUtSZVpBdXlZaTVjTnVCQU1TaEhQTlZzdmk4ZnhlUjJBVGdJNjhhdm9zQmZEeVIxTW5ZZGhWUjEwbzZ4VTNEdGM5TlFDazlXeWNmZG5td0M3OUFieFXSAYQCQVVfeXFMTzdzYkNYNTl1MnNCcU9IRmdhUEdkbWhHN3hnSU8xZGhiZkV6WENzaHZnZWJKXzFwZjdnRjV4bW9PenFQVWtvbzU1OVdEeWNZU3hXTEJ1dWI0ZU5NR3ZwQmthOXZ6NUl3a2xZVkktNGY3X2s5VnZ6Z1VQRUpKMTNZMW9LYzgtMldUMUV1ZzhmWTNBaVdHUUc1OGF1WWFRVGlqS0hYWTc5czNLM2RySzU0ak5KR0hlTG9hd0ctUmNTQS1lemVqQkp4UjNvYlVVTHBNWVdfNS1nYWtFMzQ2OHVrZGZpLXB6S1BXMDJkZmVXdHcwR3ZObGtwbTRxR3RtWDlHNlJIWm4?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/05/2026 - ChiniMandi",
+          "news_date": "Tue, 26 May 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4yNUxwRHlQbF9XUjBXLUQ2SUdWWEp1R3lUMkUyQnRTNmFndzMwbm1vbXQ4TGZhVm5zRnh2RlZGUjA5bzhJUmdONnE4Y0c5ZUI5VzNCM3VCR1hTYnJJWTFkcjZhbldoOUZsbWVoOExwcW5jRjFOaUNaclpJY3lhaHc?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July - RuralVoice",
+          "news_date": "Sat, 18 Jul 2026 13:45:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 06/07/2026 - ChiniMandi",
+          "news_date": "Mon, 06 Jul 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5GZVRVUGQ3eENXMi1IWDhNMUc4bGtIZVJUVWhmMDI2Ti1aXzJFOHRhTFdNTWV1Vk5YQW1zYTFmb1hvc2phWEJlWW9UcVJQak1WbnladDV0Zmd6ZU5GelJWTWNHcGk1aWhWS2VfNDNtbFJOZFdPMW1qa0FLbmJVRXc?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Sugar output rises 7% so far in 2025-26; ISMA presses for policy relief - PSU Watch",
+          "news_date": "Thu, 30 Apr 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQYy1RMl81RU80dzVjN1V4THk4Unh4Q3RRcGpHQXVtSWhPbzJuQTBqaDNGdGlNWlpfVUxfWFlpNWd3blFzOFdYWUlUMTF3TkhKUlhFV19UYWg5WTNMM1pFTG16TVFqTGRva1BaY0dVTWtnN2FiNzZmdDM5SmVFNTVHOU16VHhSd1kyRkVVblNubXZrXzlOMG9RUkJZbUpta1BBVS1YY9IBsgFBVV95cUxNTWRadWx4Rko4QXF5ZnNpNEhjNHU1dmZkSndqcGJFZkdDR09rdjNPTC1DcjE2MEp1czFnQkJXSE1YS0RDaGcwYktsTzJ4RjF1ZTNZTFF6RGJUbVhaVkVoT0x1a3ZHM1RoOHFsTEVURHdDcnEyMFlnQi0xVjE1M3poWDFicGJkQkhxU3ZocmRTYXl3RlQwcW5iNGNGWTUyaTc1TXR2R0VYbElSZGNDMGNJS2R3?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        }
+      ],
+      "sample_results": [
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQVndQVzMzTFYxRS1wT1FFM2VsRi15NFhOWm9XcVFXNHBaUmxuNk9wYU5XMDgyaThNLUNULVVPVk43Z0ZFS040ZnVhS3ZfT2o5NVlScWl4bm95c0x4WExzZ2huQVR3cUdmU3NHTzM5UnU5REswaEJDaXpDSVhtcDNkakRYYjBEZkhrSU02eE1FaUZfZlhnZ2RHalM1cFE4NWpmSzFBOVE3RFBiRUtSZVpBdXlZaTVjTnVCQU1TaEhQTlZzdmk4ZnhlUjJBVGdJNjhhdm9zQmZEeVIxTW5ZZGhWUjEwbzZ4VTNEdGM5TlFDazlXeWNmZG5td0M3OUFieFXSAYQCQVVfeXFMTzdzYkNYNTl1MnNCcU9IRmdhUEdkbWhHN3hnSU8xZGhiZkV6WENzaHZnZWJKXzFwZjdnRjV4bW9PenFQVWtvbzU1OVdEeWNZU3hXTEJ1dWI0ZU5NR3ZwQmthOXZ6NUl3a2xZVkktNGY3X2s5VnZ6Z1VQRUpKMTNZMW9LYzgtMldUMUV1ZzhmWTNBaVdHUUc1OGF1WWFRVGlqS0hYWTc5czNLM2RySzU0ak5KR0hlTG9hd0ctUmNTQS1lemVqQkp4UjNvYlVVTHBNWVdfNS1nYWtFMzQ2OHVrZGZpLXB6S1BXMDJkZmVXdHcwR3ZObGtwbTRxR3RtWDlHNlJIWm4?oc=5",
+          "published": "Wed, 22 Jul 2026 09:18:11 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMi_wFBVV95cUxQVndQVzMzTFYxRS1wT1FFM2VsRi15NFhOWm9XcVFXNHBaUmxuNk9wYU5XMDgyaThNLUNULVVPVk43Z0ZFS040ZnVhS3ZfT2o5NVlScWl4bm95c0x4WExzZ2huQVR3cUdmU3NHTzM5UnU5REswaEJDaXpDSVhtcDNkakRYYjBEZkhrSU02eE1FaUZfZlhnZ2RHalM1cFE4NWpmSzFBOVE3RFBiRUtSZVpBdXlZaTVjTnVCQU1TaEhQTlZzdmk4ZnhlUjJBVGdJNjhhdm9zQmZEeVIxTW5ZZGhWUjEwbzZ4VTNEdGM5TlFDazlXeWNmZG5td0M3OUFieFXSAYQCQVVfeXFMTzdzYkNYNTl1MnNCcU9IRmdhUEdkbWhHN3hnSU8xZGhiZkV6WENzaHZnZWJKXzFwZjdnRjV4bW9PenFQVWtvbzU1OVdEeWNZU3hXTEJ1dWI0ZU5NR3ZwQmthOXZ6NUl3a2xZVkktNGY3X2s5VnZ6Z1VQRUpKMTNZMW9LYzgtMldUMUV1ZzhmWTNBaVdHUUc1OGF1WWFRVGlqS0hYWTc5czNLM2RySzU0ak5KR0hlTG9hd0ctUmNTQS1lemVqQkp4UjNvYlVVTHBNWVdfNS1nYWtFMzQ2OHVrZGZpLXB6S1BXMDJkZmVXdHcwR3ZObGtwbTRxR3RtWDlHNlJIWm4?oc=5\" target=\"_blank\">Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Economic Times</font>"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/05/2026 - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4yNUxwRHlQbF9XUjBXLUQ2SUdWWEp1R3lUMkUyQnRTNmFndzMwbm1vbXQ4TGZhVm5zRnh2RlZGUjA5bzhJUmdONnE4Y0c5ZUI5VzNCM3VCR1hTYnJJWTFkcjZhbldoOUZsbWVoOExwcW5jRjFOaUNaclpJY3lhaHc?oc=5",
+          "published": "Tue, 26 May 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE4yNUxwRHlQbF9XUjBXLUQ2SUdWWEp1R3lUMkUyQnRTNmFndzMwbm1vbXQ4TGZhVm5zRnh2RlZGUjA5bzhJUmdONnE4Y0c5ZUI5VzNCM3VCR1hTYnJJWTFkcjZhbldoOUZsbWVoOExwcW5jRjFOaUNaclpJY3lhaHc?oc=5\" target=\"_blank\">Daily Sugar Market Update By Vizzie – 26/05/2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        },
+        {
+          "title": "Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July - RuralVoice",
+          "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5",
+          "published": "Sat, 18 Jul 2026 13:45:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5\" target=\"_blank\">Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">RuralVoice</font>"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 06/07/2026 - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5GZVRVUGQ3eENXMi1IWDhNMUc4bGtIZVJUVWhmMDI2Ti1aXzJFOHRhTFdNTWV1Vk5YQW1zYTFmb1hvc2phWEJlWW9UcVJQak1WbnladDV0Zmd6ZU5GelJWTWNHcGk1aWhWS2VfNDNtbFJOZFdPMW1qa0FLbmJVRXc?oc=5",
+          "published": "Mon, 06 Jul 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE5GZVRVUGQ3eENXMi1IWDhNMUc4bGtIZVJUVWhmMDI2Ti1aXzJFOHRhTFdNTWV1Vk5YQW1zYTFmb1hvc2phWEJlWW9UcVJQak1WbnladDV0Zmd6ZU5GelJWTWNHcGk1aWhWS2VfNDNtbFJOZFdPMW1qa0FLbmJVRXc?oc=5\" target=\"_blank\">Daily Sugar Market Update By Vizzie – 06/07/2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        },
+        {
+          "title": "Sugar output rises 7% so far in 2025-26; ISMA presses for policy relief - PSU Watch",
+          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQYy1RMl81RU80dzVjN1V4THk4Unh4Q3RRcGpHQXVtSWhPbzJuQTBqaDNGdGlNWlpfVUxfWFlpNWd3blFzOFdYWUlUMTF3TkhKUlhFV19UYWg5WTNMM1pFTG16TVFqTGRva1BaY0dVTWtnN2FiNzZmdDM5SmVFNTVHOU16VHhSd1kyRkVVblNubXZrXzlOMG9RUkJZbUpta1BBVS1YY9IBsgFBVV95cUxNTWRadWx4Rko4QXF5ZnNpNEhjNHU1dmZkSndqcGJFZkdDR09rdjNPTC1DcjE2MEp1czFnQkJXSE1YS0RDaGcwYktsTzJ4RjF1ZTNZTFF6RGJUbVhaVkVoT0x1a3ZHM1RoOHFsTEVURHdDcnEyMFlnQi0xVjE1M3poWDFicGJkQkhxU3ZocmRTYXl3RlQwcW5iNGNGWTUyaTc1TXR2R0VYbElSZGNDMGNJS2R3?oc=5",
+          "published": "Thu, 30 Apr 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxQYy1RMl81RU80dzVjN1V4THk4Unh4Q3RRcGpHQXVtSWhPbzJuQTBqaDNGdGlNWlpfVUxfWFlpNWd3blFzOFdYWUlUMTF3TkhKUlhFV19UYWg5WTNMM1pFTG16TVFqTGRva1BaY0dVTWtnN2FiNzZmdDM5SmVFNTVHOU16VHhSd1kyRkVVblNubXZrXzlOMG9RUkJZbUpta1BBVS1YY9IBsgFBVV95cUxNTWRadWx4Rko4QXF5ZnNpNEhjNHU1dmZkSndqcGJFZkdDR09rdjNPTC1DcjE2MEp1czFnQkJXSE1YS0RDaGcwYktsTzJ4RjF1ZTNZTFF6RGJUbVhaVkVoT0x1a3ZHM1RoOHFsTEVURHdDcnEyMFlnQi0xVjE1M3poWDFicGJkQkhxU3ZocmRTYXl3RlQwcW5iNGNGWTUyaTc1TXR2R0VYbElSZGNDMGNJS2R3?oc=5\" target=\"_blank\">Sugar output rises 7% so far in 2025-26; ISMA presses for policy relief</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">PSU Watch</font>"
+        }
+      ]
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "UP sugar ex-mill rate July 26 2026",
+      "request_status": "executed",
+      "returned_count": 52,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Is It Worth Considering Dwarikesh Sugar Industries Limited (NSE:DWARKESH) For Its Upcoming Dividend? - simplywall.st",
+          "news_date": "Sun, 26 Jul 2026 03:34:37 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxPNjhaWldCbjFQNVV3cTRublJKVEUxSlRMNllDX0JJdkNaUGxTcngycEtUX1BJSHNWZXo5NkhqNkpjdUpVcGRsT05UeXU4SEh6b0MyclFNb1pzaVctTmVvdUFqaHc2cmVOU1Z1SEJXWXZLTlNlVVFUUmxCYmZ6d1NFdTZ5V2l2MHFSckc1YnA3YXNITUF1a0syWElibXMtOWxXU2Rka2xHam9aT2dPNmt2R1ZGRzhpRHRvVG1VT1o1bzJXb25rRkRqTWIzNWo3TWM4X0RVWHBwZ0tvNHMzQ0ttQ0RLWHFZcGJLVnIycGFEVndEUTUzSmQyNzhR0gH_AUFVX3lxTFB0WmZVZlFzNEwxYXpGamx2WjJFZkVCSXRmOEVBNkRXWkVUWG5XcUphbi12UldnRWNSR2VTVFAwb2dRb25iUy05RkZyd2pLN1lNNzhsMTFnQnNpSlpobFoyYVJyMVB3Y1hWSUx2bVYzRTJiMDNXUlZfSk5fWDNBSFNoV2hjdG9neHpValBVU3FLeWF2RG1CSTU2cDFLcndYdmJXU3Z6d1A1dWZaVjB2RGFzMFJSNnhvaFpiZ3JMMFdnWDg4XzRPa05lYjZmZVd2M0JRbFRTTnJNWHR5UFNiSEVNRnFNclVjSHBOVzRJTG1BaWR3eVpMclMzOWRuZFlvTQ?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "news_date": "Wed, 22 Jul 2026 09:18:11 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQVndQVzMzTFYxRS1wT1FFM2VsRi15NFhOWm9XcVFXNHBaUmxuNk9wYU5XMDgyaThNLUNULVVPVk43Z0ZFS040ZnVhS3ZfT2o5NVlScWl4bm95c0x4WExzZ2huQVR3cUdmU3NHTzM5UnU5REswaEJDaXpDSVhtcDNkakRYYjBEZkhrSU02eE1FaUZfZlhnZ2RHalM1cFE4NWpmSzFBOVE3RFBiRUtSZVpBdXlZaTVjTnVCQU1TaEhQTlZzdmk4ZnhlUjJBVGdJNjhhdm9zQmZEeVIxTW5ZZGhWUjEwbzZ4VTNEdGM5TlFDazlXeWNmZG5td0M3OUFieFXSAYQCQVVfeXFMTzdzYkNYNTl1MnNCcU9IRmdhUEdkbWhHN3hnSU8xZGhiZkV6WENzaHZnZWJKXzFwZjdnRjV4bW9PenFQVWtvbzU1OVdEeWNZU3hXTEJ1dWI0ZU5NR3ZwQmthOXZ6NUl3a2xZVkktNGY3X2s5VnZ6Z1VQRUpKMTNZMW9LYzgtMldUMUV1ZzhmWTNBaVdHUUc1OGF1WWFRVGlqS0hYWTc5czNLM2RySzU0ak5KR0hlTG9hd0ctUmNTQS1lemVqQkp4UjNvYlVVTHBNWVdfNS1nYWtFMzQ2OHVrZGZpLXB6S1BXMDJkZmVXdHcwR3ZObGtwbTRxR3RtWDlHNlJIWm4?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Stock Market Today: Live Updates 24.07.2026 - TechStock²",
+          "news_date": "Fri, 24 Jul 2026 08:00:02 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE92TlBmRlA4bjFKNlhtUEU5bFJqQ1ZhMDlnM2xsUk96WTI0Z3lGNkpuR01FZmZpN0xnVlI1U1BOYzhOdXBGZG5xWENDV2lRWWljTHYyM1VLemZhM1NDX3o0?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Sugar Cost of Production Across the World - czapp.com",
+          "news_date": "Mon, 08 Jun 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPakNkVk1qWnk2ZTdwUFJrUTR0N3JnclpxLU1CMjRkeEJiak44UnViOVhDVXBFaWMzYXppQUgyVWVQSzBTRzFWTUVHd3lNRFNvSGt2NmJ4UDU4Mzk1amhkX3VyZkpCMTdIeXB5T0dFX0pnQWp1TlZYTW1teElHdzJaX09ieUNITGxB?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Rising sugar prices signal market caution, allay fear of any supply shortage - ChiniMandi",
+          "news_date": "Sun, 05 Jul 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTWJHRTZWYjRra19saXJ5d2xGVlM0dmloNWNpRWtyMTNOeUEtWS1tZUhKUm1Pb2g3UUp4akJnWWFZNUVmclBVUk1FWHlJS0xCVFJTNU9FdTVWMDJ6U0dQLXZXRU9KMlU2eVpUc252QjJYMUJtMmpGRV9yMW5nWU5xRk9wV2tNcklwVFFabzQ0T21jRkIxdTJiT3phd1F2dWQtSGs3Q3NR?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        }
+      ],
+      "sample_results": [
+        {
+          "title": "Is It Worth Considering Dwarikesh Sugar Industries Limited (NSE:DWARKESH) For Its Upcoming Dividend? - simplywall.st",
+          "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxPNjhaWldCbjFQNVV3cTRublJKVEUxSlRMNllDX0JJdkNaUGxTcngycEtUX1BJSHNWZXo5NkhqNkpjdUpVcGRsT05UeXU4SEh6b0MyclFNb1pzaVctTmVvdUFqaHc2cmVOU1Z1SEJXWXZLTlNlVVFUUmxCYmZ6d1NFdTZ5V2l2MHFSckc1YnA3YXNITUF1a0syWElibXMtOWxXU2Rka2xHam9aT2dPNmt2R1ZGRzhpRHRvVG1VT1o1bzJXb25rRkRqTWIzNWo3TWM4X0RVWHBwZ0tvNHMzQ0ttQ0RLWHFZcGJLVnIycGFEVndEUTUzSmQyNzhR0gH_AUFVX3lxTFB0WmZVZlFzNEwxYXpGamx2WjJFZkVCSXRmOEVBNkRXWkVUWG5XcUphbi12UldnRWNSR2VTVFAwb2dRb25iUy05RkZyd2pLN1lNNzhsMTFnQnNpSlpobFoyYVJyMVB3Y1hWSUx2bVYzRTJiMDNXUlZfSk5fWDNBSFNoV2hjdG9neHpValBVU3FLeWF2RG1CSTU2cDFLcndYdmJXU3Z6d1A1dWZaVjB2RGFzMFJSNnhvaFpiZ3JMMFdnWDg4XzRPa05lYjZmZVd2M0JRbFRTTnJNWHR5UFNiSEVNRnFNclVjSHBOVzRJTG1BaWR3eVpMclMzOWRuZFlvTQ?oc=5",
+          "published": "Sun, 26 Jul 2026 03:34:37 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMi-gFBVV95cUxPNjhaWldCbjFQNVV3cTRublJKVEUxSlRMNllDX0JJdkNaUGxTcngycEtUX1BJSHNWZXo5NkhqNkpjdUpVcGRsT05UeXU4SEh6b0MyclFNb1pzaVctTmVvdUFqaHc2cmVOU1Z1SEJXWXZLTlNlVVFUUmxCYmZ6d1NFdTZ5V2l2MHFSckc1YnA3YXNITUF1a0syWElibXMtOWxXU2Rka2xHam9aT2dPNmt2R1ZGRzhpRHRvVG1VT1o1bzJXb25rRkRqTWIzNWo3TWM4X0RVWHBwZ0tvNHMzQ0ttQ0RLWHFZcGJLVnIycGFEVndEUTUzSmQyNzhR0gH_AUFVX3lxTFB0WmZVZlFzNEwxYXpGamx2WjJFZkVCSXRmOEVBNkRXWkVUWG5XcUphbi12UldnRWNSR2VTVFAwb2dRb25iUy05RkZyd2pLN1lNNzhsMTFnQnNpSlpobFoyYVJyMVB3Y1hWSUx2bVYzRTJiMDNXUlZfSk5fWDNBSFNoV2hjdG9neHpValBVU3FLeWF2RG1CSTU2cDFLcndYdmJXU3Z6d1A1dWZaVjB2RGFzMFJSNnhvaFpiZ3JMMFdnWDg4XzRPa05lYjZmZVd2M0JRbFRTTnJNWHR5UFNiSEVNRnFNclVjSHBOVzRJTG1BaWR3eVpMclMzOWRuZFlvTQ?oc=5\" target=\"_blank\">Is It Worth Considering Dwarikesh Sugar Industries Limited (NSE:DWARKESH) For Its Upcoming Dividend?</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">simplywall.st</font>"
+        },
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQVndQVzMzTFYxRS1wT1FFM2VsRi15NFhOWm9XcVFXNHBaUmxuNk9wYU5XMDgyaThNLUNULVVPVk43Z0ZFS040ZnVhS3ZfT2o5NVlScWl4bm95c0x4WExzZ2huQVR3cUdmU3NHTzM5UnU5REswaEJDaXpDSVhtcDNkakRYYjBEZkhrSU02eE1FaUZfZlhnZ2RHalM1cFE4NWpmSzFBOVE3RFBiRUtSZVpBdXlZaTVjTnVCQU1TaEhQTlZzdmk4ZnhlUjJBVGdJNjhhdm9zQmZEeVIxTW5ZZGhWUjEwbzZ4VTNEdGM5TlFDazlXeWNmZG5td0M3OUFieFXSAYQCQVVfeXFMTzdzYkNYNTl1MnNCcU9IRmdhUEdkbWhHN3hnSU8xZGhiZkV6WENzaHZnZWJKXzFwZjdnRjV4bW9PenFQVWtvbzU1OVdEeWNZU3hXTEJ1dWI0ZU5NR3ZwQmthOXZ6NUl3a2xZVkktNGY3X2s5VnZ6Z1VQRUpKMTNZMW9LYzgtMldUMUV1ZzhmWTNBaVdHUUc1OGF1WWFRVGlqS0hYWTc5czNLM2RySzU0ak5KR0hlTG9hd0ctUmNTQS1lemVqQkp4UjNvYlVVTHBNWVdfNS1nYWtFMzQ2OHVrZGZpLXB6S1BXMDJkZmVXdHcwR3ZObGtwbTRxR3RtWDlHNlJIWm4?oc=5",
+          "published": "Wed, 22 Jul 2026 09:18:11 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMi_wFBVV95cUxQVndQVzMzTFYxRS1wT1FFM2VsRi15NFhOWm9XcVFXNHBaUmxuNk9wYU5XMDgyaThNLUNULVVPVk43Z0ZFS040ZnVhS3ZfT2o5NVlScWl4bm95c0x4WExzZ2huQVR3cUdmU3NHTzM5UnU5REswaEJDaXpDSVhtcDNkakRYYjBEZkhrSU02eE1FaUZfZlhnZ2RHalM1cFE4NWpmSzFBOVE3RFBiRUtSZVpBdXlZaTVjTnVCQU1TaEhQTlZzdmk4ZnhlUjJBVGdJNjhhdm9zQmZEeVIxTW5ZZGhWUjEwbzZ4VTNEdGM5TlFDazlXeWNmZG5td0M3OUFieFXSAYQCQVVfeXFMTzdzYkNYNTl1MnNCcU9IRmdhUEdkbWhHN3hnSU8xZGhiZkV6WENzaHZnZWJKXzFwZjdnRjV4bW9PenFQVWtvbzU1OVdEeWNZU3hXTEJ1dWI0ZU5NR3ZwQmthOXZ6NUl3a2xZVkktNGY3X2s5VnZ6Z1VQRUpKMTNZMW9LYzgtMldUMUV1ZzhmWTNBaVdHUUc1OGF1WWFRVGlqS0hYWTc5czNLM2RySzU0ak5KR0hlTG9hd0ctUmNTQS1lemVqQkp4UjNvYlVVTHBNWVdfNS1nYWtFMzQ2OHVrZGZpLXB6S1BXMDJkZmVXdHcwR3ZObGtwbTRxR3RtWDlHNlJIWm4?oc=5\" target=\"_blank\">Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Economic Times</font>"
+        },
+        {
+          "title": "Stock Market Today: Live Updates 24.07.2026 - TechStock²",
+          "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE92TlBmRlA4bjFKNlhtUEU5bFJqQ1ZhMDlnM2xsUk96WTI0Z3lGNkpuR01FZmZpN0xnVlI1U1BOYzhOdXBGZG5xWENDV2lRWWljTHYyM1VLemZhM1NDX3o0?oc=5",
+          "published": "Fri, 24 Jul 2026 08:00:02 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMiX0FVX3lxTE92TlBmRlA4bjFKNlhtUEU5bFJqQ1ZhMDlnM2xsUk96WTI0Z3lGNkpuR01FZmZpN0xnVlI1U1BOYzhOdXBGZG5xWENDV2lRWWljTHYyM1VLemZhM1NDX3o0?oc=5\" target=\"_blank\">Stock Market Today: Live Updates 24.07.2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">TechStock²</font>"
+        },
+        {
+          "title": "Sugar Cost of Production Across the World - czapp.com",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPakNkVk1qWnk2ZTdwUFJrUTR0N3JnclpxLU1CMjRkeEJiak44UnViOVhDVXBFaWMzYXppQUgyVWVQSzBTRzFWTUVHd3lNRFNvSGt2NmJ4UDU4Mzk1amhkX3VyZkpCMTdIeXB5T0dFX0pnQWp1TlZYTW1teElHdzJaX09ieUNITGxB?oc=5",
+          "published": "Mon, 08 Jun 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMiiAFBVV95cUxPakNkVk1qWnk2ZTdwUFJrUTR0N3JnclpxLU1CMjRkeEJiak44UnViOVhDVXBFaWMzYXppQUgyVWVQSzBTRzFWTUVHd3lNRFNvSGt2NmJ4UDU4Mzk1amhkX3VyZkpCMTdIeXB5T0dFX0pnQWp1TlZYTW1teElHdzJaX09ieUNITGxB?oc=5\" target=\"_blank\">Sugar Cost of Production Across the World</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">czapp.com</font>"
+        },
+        {
+          "title": "Rising sugar prices signal market caution, allay fear of any supply shortage - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTWJHRTZWYjRra19saXJ5d2xGVlM0dmloNWNpRWtyMTNOeUEtWS1tZUhKUm1Pb2g3UUp4akJnWWFZNUVmclBVUk1FWHlJS0xCVFJTNU9FdTVWMDJ6U0dQLXZXRU9KMlU2eVpUc252QjJYMUJtMmpGRV9yMW5nWU5xRk9wV2tNcklwVFFabzQ0T21jRkIxdTJiT3phd1F2dWQtSGs3Q3NR?oc=5",
+          "published": "Sun, 05 Jul 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMipgFBVV95cUxQTWJHRTZWYjRra19saXJ5d2xGVlM0dmloNWNpRWtyMTNOeUEtWS1tZUhKUm1Pb2g3UUp4akJnWWFZNUVmclBVUk1FWHlJS0xCVFJTNU9FdTVWMDJ6U0dQLXZXRU9KMlU2eVpUc252QjJYMUJtMmpGRV9yMW5nWU5xRk9wV2tNcklwVFFabzQ0T21jRkIxdTJiT3phd1F2dWQtSGs3Q3NR?oc=5\" target=\"_blank\">Rising sugar prices signal market caution, allay fear of any supply shortage</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        }
+      ]
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "Uttar Pradesh mill sugar price July 26 2026",
+      "request_status": "executed",
+      "returned_count": 52,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "news_date": "Wed, 22 Jul 2026 09:18:11 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQVndQVzMzTFYxRS1wT1FFM2VsRi15NFhOWm9XcVFXNHBaUmxuNk9wYU5XMDgyaThNLUNULVVPVk43Z0ZFS040ZnVhS3ZfT2o5NVlScWl4bm95c0x4WExzZ2huQVR3cUdmU3NHTzM5UnU5REswaEJDaXpDSVhtcDNkakRYYjBEZkhrSU02eE1FaUZfZlhnZ2RHalM1cFE4NWpmSzFBOVE3RFBiRUtSZVpBdXlZaTVjTnVCQU1TaEhQTlZzdmk4ZnhlUjJBVGdJNjhhdm9zQmZEeVIxTW5ZZGhWUjEwbzZ4VTNEdGM5TlFDazlXeWNmZG5td0M3OUFieFXSAYQCQVVfeXFMTzdzYkNYNTl1MnNCcU9IRmdhUEdkbWhHN3hnSU8xZGhiZkV6WENzaHZnZWJKXzFwZjdnRjV4bW9PenFQVWtvbzU1OVdEeWNZU3hXTEJ1dWI0ZU5NR3ZwQmthOXZ6NUl3a2xZVkktNGY3X2s5VnZ6Z1VQRUpKMTNZMW9LYzgtMldUMUV1ZzhmWTNBaVdHUUc1OGF1WWFRVGlqS0hYWTc5czNLM2RySzU0ak5KR0hlTG9hd0ctUmNTQS1lemVqQkp4UjNvYlVVTHBNWVdfNS1nYWtFMzQ2OHVrZGZpLXB6S1BXMDJkZmVXdHcwR3ZObGtwbTRxR3RtWDlHNlJIWm4?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/05/2026 - ChiniMandi",
+          "news_date": "Tue, 26 May 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4yNUxwRHlQbF9XUjBXLUQ2SUdWWEp1R3lUMkUyQnRTNmFndzMwbm1vbXQ4TGZhVm5zRnh2RlZGUjA5bzhJUmdONnE4Y0c5ZUI5VzNCM3VCR1hTYnJJWTFkcjZhbldoOUZsbWVoOExwcW5jRjFOaUNaclpJY3lhaHc?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/06/2026 - ChiniMandi",
+          "news_date": "Fri, 26 Jun 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5SekZKVUItSElqV1g1Zk9oTkZPTjNMaUZvYWdJdTRNUFpxcUtrTDA3bzU0NUppXzc1NTZJY3lpR210X2hMTVpDLVdzYWdBX1BzSzVXNXVLM1gyUlBKclJHSVpVMS1ia2UtZExJNFEyUFdOZEJ5U3pHN0JzQmFvNVE?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "India Sugar Output Up 10% in 2025-26: ISMA - Rediff MoneyWiz",
+          "news_date": "Tue, 17 Mar 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNYlhWOFZpRC1Yc280VXVYSm8wTzNQSDBTU2NtNjhJXzJRcWVCa1h1NzRMaGlMZmlEY2NpR212ZDFKQjI2Y05xcjlwTnNqYlVabGZkaGZOdmtkeVNsVlpEdTcwQjJFT3h2c1hwVjlqdm9xc0MzWHkwbU9WbmtEdWxwSmxtRVE2WTNzcHFkd1RSUVQ2d1Z3UVNn0gGcAUFVX3lxTE9zUGROWU01UHpuR2VIQ0RNZmJydTJJLTdXdm9naTNtdUhhVi05T1dvb0l6Ymw1UGVuVGNCZzFnSVFzdE0tY3pKWXAzU19WSkRqS2lVS0NvaF9qRDkxekN4WGpGelR2X1N2bDRTbGVmTFZ4dmRrR1RPUHowOUE2NnN0MzM3YW1lM0hkME5pc1RCaWxnRlNLemlOMW1ZVw?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Domestic sugar supply secure, prices reasonable; 2026-27 sugar export call depends on realistic crop estimate: Top Government official - ChiniMandi",
+          "news_date": "Sat, 27 Jun 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNUlhsbFZoOHJJalFvRWFndEM3d1JESEtQUVZIWUd3eHdMSVJDSnlSZkhfYzFUelREOXlNRENlbEV3dkVGOG80VFdvS3JiU3d4cGNoZlZVUXo3aS1CN2hwbXBaS041aXZvS2NFaS1jWkFxMU5vbE1NaHM2V1F3Y3NZODBuRGYyUl9KNVdIQ29SQ0h2cmVvTzZkbDRwaVFEX29QY3hibEdVMk90WVpicjJ0eVlmdzZrWUZVeGkwdU9VNjJLZGxvUlZLRUhGSkhIT2txV1V1XzVOdWdYbXdWNzZSbXRPaFpsWVZLQjIzanBIVFI?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        }
+      ],
+      "sample_results": [
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQVndQVzMzTFYxRS1wT1FFM2VsRi15NFhOWm9XcVFXNHBaUmxuNk9wYU5XMDgyaThNLUNULVVPVk43Z0ZFS040ZnVhS3ZfT2o5NVlScWl4bm95c0x4WExzZ2huQVR3cUdmU3NHTzM5UnU5REswaEJDaXpDSVhtcDNkakRYYjBEZkhrSU02eE1FaUZfZlhnZ2RHalM1cFE4NWpmSzFBOVE3RFBiRUtSZVpBdXlZaTVjTnVCQU1TaEhQTlZzdmk4ZnhlUjJBVGdJNjhhdm9zQmZEeVIxTW5ZZGhWUjEwbzZ4VTNEdGM5TlFDazlXeWNmZG5td0M3OUFieFXSAYQCQVVfeXFMTzdzYkNYNTl1MnNCcU9IRmdhUEdkbWhHN3hnSU8xZGhiZkV6WENzaHZnZWJKXzFwZjdnRjV4bW9PenFQVWtvbzU1OVdEeWNZU3hXTEJ1dWI0ZU5NR3ZwQmthOXZ6NUl3a2xZVkktNGY3X2s5VnZ6Z1VQRUpKMTNZMW9LYzgtMldUMUV1ZzhmWTNBaVdHUUc1OGF1WWFRVGlqS0hYWTc5czNLM2RySzU0ak5KR0hlTG9hd0ctUmNTQS1lemVqQkp4UjNvYlVVTHBNWVdfNS1nYWtFMzQ2OHVrZGZpLXB6S1BXMDJkZmVXdHcwR3ZObGtwbTRxR3RtWDlHNlJIWm4?oc=5",
+          "published": "Wed, 22 Jul 2026 09:18:11 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMi_wFBVV95cUxQVndQVzMzTFYxRS1wT1FFM2VsRi15NFhOWm9XcVFXNHBaUmxuNk9wYU5XMDgyaThNLUNULVVPVk43Z0ZFS040ZnVhS3ZfT2o5NVlScWl4bm95c0x4WExzZ2huQVR3cUdmU3NHTzM5UnU5REswaEJDaXpDSVhtcDNkakRYYjBEZkhrSU02eE1FaUZfZlhnZ2RHalM1cFE4NWpmSzFBOVE3RFBiRUtSZVpBdXlZaTVjTnVCQU1TaEhQTlZzdmk4ZnhlUjJBVGdJNjhhdm9zQmZEeVIxTW5ZZGhWUjEwbzZ4VTNEdGM5TlFDazlXeWNmZG5td0M3OUFieFXSAYQCQVVfeXFMTzdzYkNYNTl1MnNCcU9IRmdhUEdkbWhHN3hnSU8xZGhiZkV6WENzaHZnZWJKXzFwZjdnRjV4bW9PenFQVWtvbzU1OVdEeWNZU3hXTEJ1dWI0ZU5NR3ZwQmthOXZ6NUl3a2xZVkktNGY3X2s5VnZ6Z1VQRUpKMTNZMW9LYzgtMldUMUV1ZzhmWTNBaVdHUUc1OGF1WWFRVGlqS0hYWTc5czNLM2RySzU0ak5KR0hlTG9hd0ctUmNTQS1lemVqQkp4UjNvYlVVTHBNWVdfNS1nYWtFMzQ2OHVrZGZpLXB6S1BXMDJkZmVXdHcwR3ZObGtwbTRxR3RtWDlHNlJIWm4?oc=5\" target=\"_blank\">Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Economic Times</font>"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/05/2026 - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4yNUxwRHlQbF9XUjBXLUQ2SUdWWEp1R3lUMkUyQnRTNmFndzMwbm1vbXQ4TGZhVm5zRnh2RlZGUjA5bzhJUmdONnE4Y0c5ZUI5VzNCM3VCR1hTYnJJWTFkcjZhbldoOUZsbWVoOExwcW5jRjFOaUNaclpJY3lhaHc?oc=5",
+          "published": "Tue, 26 May 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE4yNUxwRHlQbF9XUjBXLUQ2SUdWWEp1R3lUMkUyQnRTNmFndzMwbm1vbXQ4TGZhVm5zRnh2RlZGUjA5bzhJUmdONnE4Y0c5ZUI5VzNCM3VCR1hTYnJJWTFkcjZhbldoOUZsbWVoOExwcW5jRjFOaUNaclpJY3lhaHc?oc=5\" target=\"_blank\">Daily Sugar Market Update By Vizzie – 26/05/2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 26/06/2026 - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5SekZKVUItSElqV1g1Zk9oTkZPTjNMaUZvYWdJdTRNUFpxcUtrTDA3bzU0NUppXzc1NTZJY3lpR210X2hMTVpDLVdzYWdBX1BzSzVXNXVLM1gyUlBKclJHSVpVMS1ia2UtZExJNFEyUFdOZEJ5U3pHN0JzQmFvNVE?oc=5",
+          "published": "Fri, 26 Jun 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE5SekZKVUItSElqV1g1Zk9oTkZPTjNMaUZvYWdJdTRNUFpxcUtrTDA3bzU0NUppXzc1NTZJY3lpR210X2hMTVpDLVdzYWdBX1BzSzVXNXVLM1gyUlBKclJHSVpVMS1ia2UtZExJNFEyUFdOZEJ5U3pHN0JzQmFvNVE?oc=5\" target=\"_blank\">Daily Sugar Market Update By Vizzie – 26/06/2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        },
+        {
+          "title": "India Sugar Output Up 10% in 2025-26: ISMA - Rediff MoneyWiz",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNYlhWOFZpRC1Yc280VXVYSm8wTzNQSDBTU2NtNjhJXzJRcWVCa1h1NzRMaGlMZmlEY2NpR212ZDFKQjI2Y05xcjlwTnNqYlVabGZkaGZOdmtkeVNsVlpEdTcwQjJFT3h2c1hwVjlqdm9xc0MzWHkwbU9WbmtEdWxwSmxtRVE2WTNzcHFkd1RSUVQ2d1Z3UVNn0gGcAUFVX3lxTE9zUGROWU01UHpuR2VIQ0RNZmJydTJJLTdXdm9naTNtdUhhVi05T1dvb0l6Ymw1UGVuVGNCZzFnSVFzdE0tY3pKWXAzU19WSkRqS2lVS0NvaF9qRDkxekN4WGpGelR2X1N2bDRTbGVmTFZ4dmRrR1RPUHowOUE2NnN0MzM3YW1lM0hkME5pc1RCaWxnRlNLemlOMW1ZVw?oc=5",
+          "published": "Tue, 17 Mar 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxNYlhWOFZpRC1Yc280VXVYSm8wTzNQSDBTU2NtNjhJXzJRcWVCa1h1NzRMaGlMZmlEY2NpR212ZDFKQjI2Y05xcjlwTnNqYlVabGZkaGZOdmtkeVNsVlpEdTcwQjJFT3h2c1hwVjlqdm9xc0MzWHkwbU9WbmtEdWxwSmxtRVE2WTNzcHFkd1RSUVQ2d1Z3UVNn0gGcAUFVX3lxTE9zUGROWU01UHpuR2VIQ0RNZmJydTJJLTdXdm9naTNtdUhhVi05T1dvb0l6Ymw1UGVuVGNCZzFnSVFzdE0tY3pKWXAzU19WSkRqS2lVS0NvaF9qRDkxekN4WGpGelR2X1N2bDRTbGVmTFZ4dmRrR1RPUHowOUE2NnN0MzM3YW1lM0hkME5pc1RCaWxnRlNLemlOMW1ZVw?oc=5\" target=\"_blank\">India Sugar Output Up 10% in 2025-26: ISMA</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Rediff MoneyWiz</font>"
+        },
+        {
+          "title": "Domestic sugar supply secure, prices reasonable; 2026-27 sugar export call depends on realistic crop estimate: Top Government official - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNUlhsbFZoOHJJalFvRWFndEM3d1JESEtQUVZIWUd3eHdMSVJDSnlSZkhfYzFUelREOXlNRENlbEV3dkVGOG80VFdvS3JiU3d4cGNoZlZVUXo3aS1CN2hwbXBaS041aXZvS2NFaS1jWkFxMU5vbE1NaHM2V1F3Y3NZODBuRGYyUl9KNVdIQ29SQ0h2cmVvTzZkbDRwaVFEX29QY3hibEdVMk90WVpicjJ0eVlmdzZrWUZVeGkwdU9VNjJLZGxvUlZLRUhGSkhIT2txV1V1XzVOdWdYbXdWNzZSbXRPaFpsWVZLQjIzanBIVFI?oc=5",
+          "published": "Sat, 27 Jun 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMi8AFBVV95cUxNUlhsbFZoOHJJalFvRWFndEM3d1JESEtQUVZIWUd3eHdMSVJDSnlSZkhfYzFUelREOXlNRENlbEV3dkVGOG80VFdvS3JiU3d4cGNoZlZVUXo3aS1CN2hwbXBaS041aXZvS2NFaS1jWkFxMU5vbE1NaHM2V1F3Y3NZODBuRGYyUl9KNVdIQ29SQ0h2cmVvTzZkbDRwaVFEX29QY3hibEdVMk90WVpicjJ0eVlmdzZrWUZVeGkwdU9VNjJLZGxvUlZLRUhGSkhIT2txV1V1XzVOdWdYbXdWNzZSbXRPaFpsWVZLQjIzanBIVFI?oc=5\" target=\"_blank\">Domestic sugar supply secure, prices reasonable; 2026-27 sugar export call depends on realistic crop estimate: Top Government official</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        }
+      ]
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "M-grade sugar ex-mill Uttar Pradesh July 26 2026",
+      "request_status": "executed",
+      "returned_count": 41,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "news_date": "Wed, 22 Jul 2026 09:18:11 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQVndQVzMzTFYxRS1wT1FFM2VsRi15NFhOWm9XcVFXNHBaUmxuNk9wYU5XMDgyaThNLUNULVVPVk43Z0ZFS040ZnVhS3ZfT2o5NVlScWl4bm95c0x4WExzZ2huQVR3cUdmU3NHTzM5UnU5REswaEJDaXpDSVhtcDNkakRYYjBEZkhrSU02eE1FaUZfZlhnZ2RHalM1cFE4NWpmSzFBOVE3RFBiRUtSZVpBdXlZaTVjTnVCQU1TaEhQTlZzdmk4ZnhlUjJBVGdJNjhhdm9zQmZEeVIxTW5ZZGhWUjEwbzZ4VTNEdGM5TlFDazlXeWNmZG5td0M3OUFieFXSAYQCQVVfeXFMTzdzYkNYNTl1MnNCcU9IRmdhUEdkbWhHN3hnSU8xZGhiZkV6WENzaHZnZWJKXzFwZjdnRjV4bW9PenFQVWtvbzU1OVdEeWNZU3hXTEJ1dWI0ZU5NR3ZwQmthOXZ6NUl3a2xZVkktNGY3X2s5VnZ6Z1VQRUpKMTNZMW9LYzgtMldUMUV1ZzhmWTNBaVdHUUc1OGF1WWFRVGlqS0hYWTc5czNLM2RySzU0ak5KR0hlTG9hd0ctUmNTQS1lemVqQkp4UjNvYlVVTHBNWVdfNS1nYWtFMzQ2OHVrZGZpLXB6S1BXMDJkZmVXdHcwR3ZObGtwbTRxR3RtWDlHNlJIWm4?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 22/07/2026 - ChiniMandi",
+          "news_date": "Wed, 22 Jul 2026 13:12:16 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1QU1QyU3ZLSlpMWlU2SWx4ekp6YkU4bzgyeklrcG96RkZLOWJrOXJ6amZMLTlySzhDeDl0NVJCSGplcjJJcXpLU2lVVTVCWTEyT0k2V1VHY0tfOXE0UlpTTjQ2VXE1empZdm1Xd3VLeDlmaVdYS004YUIwblRRYnc?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Government Orders Physical Verification of Sugar Stocks as Prices Surge; Stock Limits Under Consideration - RuralVoice",
+          "news_date": "Fri, 24 Jul 2026 15:07:58 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPTC03SlJuQU5hYXRWcHdVWUQ3Mm8xX1dxakhHYkQ1ZUtMU3JxVjZhMzdmVko0TzBRWXhSVWVReFpfbk8tUUxPclhtZVI5Nmd1VFpRLXJ1aGRzblZZd1lxNkZGa1U5dHFBcFR0QmFvSGtWcElvN0x2czc5YVRyVXl3LW0xTHFmZy13bEM1TnNZMHpOeEJwUFZkem8wTkhfNGhTRGdjX0IxYzMwVktZRmRvTnNYN2IxOW1wNWtCV0hXZU40bTA4anVXbWw1dU1PbGhJX1VzQ3RfMW96Xy1qNC04eEtB0gHiAUFVX3lxTE9MLTdKUm5BTmFhdFZwd1VZRDcybzFfV3FqSEdiRDVlS0xTcnFWNmEzN2ZWSjRPMFFZeFJVZVF4Wl9uTy1RTE9yWG1lUjk2Z3VUWlEtcnVoZHNuVll3WXE2RkZrVTl0cUFwVHRCYW9Ia1ZwSW83THZzNzlhVHJVeXctbTFMcWZnLXdsQzVOc1kwek54QnBQVmR6bzBOSF80aFNEZ2NfQjFjMzBWS1lGZG9Oc1g3YjE5bXA1a0JXSFdlTjRtMDhqdVdtbDV1TU9saElfVXNDdF8xb3pfLWo0LTh4S0E?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Rising sugar prices signal market caution, allay fear of any supply shortage - ChiniMandi",
+          "news_date": "Sun, 05 Jul 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTWJHRTZWYjRra19saXJ5d2xGVlM0dmloNWNpRWtyMTNOeUEtWS1tZUhKUm1Pb2g3UUp4akJnWWFZNUVmclBVUk1FWHlJS0xCVFJTNU9FdTVWMDJ6U0dQLXZXRU9KMlU2eVpUc252QjJYMUJtMmpGRV9yMW5nWU5xRk9wV2tNcklwVFFabzQ0T21jRkIxdTJiT3phd1F2dWQtSGs3Q3NR?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July - RuralVoice",
+          "news_date": "Sat, 18 Jul 2026 13:45:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        }
+      ],
+      "sample_results": [
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQVndQVzMzTFYxRS1wT1FFM2VsRi15NFhOWm9XcVFXNHBaUmxuNk9wYU5XMDgyaThNLUNULVVPVk43Z0ZFS040ZnVhS3ZfT2o5NVlScWl4bm95c0x4WExzZ2huQVR3cUdmU3NHTzM5UnU5REswaEJDaXpDSVhtcDNkakRYYjBEZkhrSU02eE1FaUZfZlhnZ2RHalM1cFE4NWpmSzFBOVE3RFBiRUtSZVpBdXlZaTVjTnVCQU1TaEhQTlZzdmk4ZnhlUjJBVGdJNjhhdm9zQmZEeVIxTW5ZZGhWUjEwbzZ4VTNEdGM5TlFDazlXeWNmZG5td0M3OUFieFXSAYQCQVVfeXFMTzdzYkNYNTl1MnNCcU9IRmdhUEdkbWhHN3hnSU8xZGhiZkV6WENzaHZnZWJKXzFwZjdnRjV4bW9PenFQVWtvbzU1OVdEeWNZU3hXTEJ1dWI0ZU5NR3ZwQmthOXZ6NUl3a2xZVkktNGY3X2s5VnZ6Z1VQRUpKMTNZMW9LYzgtMldUMUV1ZzhmWTNBaVdHUUc1OGF1WWFRVGlqS0hYWTc5czNLM2RySzU0ak5KR0hlTG9hd0ctUmNTQS1lemVqQkp4UjNvYlVVTHBNWVdfNS1nYWtFMzQ2OHVrZGZpLXB6S1BXMDJkZmVXdHcwR3ZObGtwbTRxR3RtWDlHNlJIWm4?oc=5",
+          "published": "Wed, 22 Jul 2026 09:18:11 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMi_wFBVV95cUxQVndQVzMzTFYxRS1wT1FFM2VsRi15NFhOWm9XcVFXNHBaUmxuNk9wYU5XMDgyaThNLUNULVVPVk43Z0ZFS040ZnVhS3ZfT2o5NVlScWl4bm95c0x4WExzZ2huQVR3cUdmU3NHTzM5UnU5REswaEJDaXpDSVhtcDNkakRYYjBEZkhrSU02eE1FaUZfZlhnZ2RHalM1cFE4NWpmSzFBOVE3RFBiRUtSZVpBdXlZaTVjTnVCQU1TaEhQTlZzdmk4ZnhlUjJBVGdJNjhhdm9zQmZEeVIxTW5ZZGhWUjEwbzZ4VTNEdGM5TlFDazlXeWNmZG5td0M3OUFieFXSAYQCQVVfeXFMTzdzYkNYNTl1MnNCcU9IRmdhUEdkbWhHN3hnSU8xZGhiZkV6WENzaHZnZWJKXzFwZjdnRjV4bW9PenFQVWtvbzU1OVdEeWNZU3hXTEJ1dWI0ZU5NR3ZwQmthOXZ6NUl3a2xZVkktNGY3X2s5VnZ6Z1VQRUpKMTNZMW9LYzgtMldUMUV1ZzhmWTNBaVdHUUc1OGF1WWFRVGlqS0hYWTc5czNLM2RySzU0ak5KR0hlTG9hd0ctUmNTQS1lemVqQkp4UjNvYlVVTHBNWVdfNS1nYWtFMzQ2OHVrZGZpLXB6S1BXMDJkZmVXdHcwR3ZObGtwbTRxR3RtWDlHNlJIWm4?oc=5\" target=\"_blank\">Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Economic Times</font>"
+        },
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 22/07/2026 - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1QU1QyU3ZLSlpMWlU2SWx4ekp6YkU4bzgyeklrcG96RkZLOWJrOXJ6amZMLTlySzhDeDl0NVJCSGplcjJJcXpLU2lVVTVCWTEyT0k2V1VHY0tfOXE0UlpTTjQ2VXE1empZdm1Xd3VLeDlmaVdYS004YUIwblRRYnc?oc=5",
+          "published": "Wed, 22 Jul 2026 13:12:16 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE1QU1QyU3ZLSlpMWlU2SWx4ekp6YkU4bzgyeklrcG96RkZLOWJrOXJ6amZMLTlySzhDeDl0NVJCSGplcjJJcXpLU2lVVTVCWTEyT0k2V1VHY0tfOXE0UlpTTjQ2VXE1empZdm1Xd3VLeDlmaVdYS004YUIwblRRYnc?oc=5\" target=\"_blank\">Daily Sugar Market Update By Vizzie – 22/07/2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        },
+        {
+          "title": "Government Orders Physical Verification of Sugar Stocks as Prices Surge; Stock Limits Under Consideration - RuralVoice",
+          "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPTC03SlJuQU5hYXRWcHdVWUQ3Mm8xX1dxakhHYkQ1ZUtMU3JxVjZhMzdmVko0TzBRWXhSVWVReFpfbk8tUUxPclhtZVI5Nmd1VFpRLXJ1aGRzblZZd1lxNkZGa1U5dHFBcFR0QmFvSGtWcElvN0x2czc5YVRyVXl3LW0xTHFmZy13bEM1TnNZMHpOeEJwUFZkem8wTkhfNGhTRGdjX0IxYzMwVktZRmRvTnNYN2IxOW1wNWtCV0hXZU40bTA4anVXbWw1dU1PbGhJX1VzQ3RfMW96Xy1qNC04eEtB0gHiAUFVX3lxTE9MLTdKUm5BTmFhdFZwd1VZRDcybzFfV3FqSEdiRDVlS0xTcnFWNmEzN2ZWSjRPMFFZeFJVZVF4Wl9uTy1RTE9yWG1lUjk2Z3VUWlEtcnVoZHNuVll3WXE2RkZrVTl0cUFwVHRCYW9Ia1ZwSW83THZzNzlhVHJVeXctbTFMcWZnLXdsQzVOc1kwek54QnBQVmR6bzBOSF80aFNEZ2NfQjFjMzBWS1lGZG9Oc1g3YjE5bXA1a0JXSFdlTjRtMDhqdVdtbDV1TU9saElfVXNDdF8xb3pfLWo0LTh4S0E?oc=5",
+          "published": "Fri, 24 Jul 2026 15:07:58 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMi4gFBVV95cUxPTC03SlJuQU5hYXRWcHdVWUQ3Mm8xX1dxakhHYkQ1ZUtMU3JxVjZhMzdmVko0TzBRWXhSVWVReFpfbk8tUUxPclhtZVI5Nmd1VFpRLXJ1aGRzblZZd1lxNkZGa1U5dHFBcFR0QmFvSGtWcElvN0x2czc5YVRyVXl3LW0xTHFmZy13bEM1TnNZMHpOeEJwUFZkem8wTkhfNGhTRGdjX0IxYzMwVktZRmRvTnNYN2IxOW1wNWtCV0hXZU40bTA4anVXbWw1dU1PbGhJX1VzQ3RfMW96Xy1qNC04eEtB0gHiAUFVX3lxTE9MLTdKUm5BTmFhdFZwd1VZRDcybzFfV3FqSEdiRDVlS0xTcnFWNmEzN2ZWSjRPMFFZeFJVZVF4Wl9uTy1RTE9yWG1lUjk2Z3VUWlEtcnVoZHNuVll3WXE2RkZrVTl0cUFwVHRCYW9Ia1ZwSW83THZzNzlhVHJVeXctbTFMcWZnLXdsQzVOc1kwek54QnBQVmR6bzBOSF80aFNEZ2NfQjFjMzBWS1lGZG9Oc1g3YjE5bXA1a0JXSFdlTjRtMDhqdVdtbDV1TU9saElfVXNDdF8xb3pfLWo0LTh4S0E?oc=5\" target=\"_blank\">Government Orders Physical Verification of Sugar Stocks as Prices Surge; Stock Limits Under Consideration</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">RuralVoice</font>"
+        },
+        {
+          "title": "Rising sugar prices signal market caution, allay fear of any supply shortage - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTWJHRTZWYjRra19saXJ5d2xGVlM0dmloNWNpRWtyMTNOeUEtWS1tZUhKUm1Pb2g3UUp4akJnWWFZNUVmclBVUk1FWHlJS0xCVFJTNU9FdTVWMDJ6U0dQLXZXRU9KMlU2eVpUc252QjJYMUJtMmpGRV9yMW5nWU5xRk9wV2tNcklwVFFabzQ0T21jRkIxdTJiT3phd1F2dWQtSGs3Q3NR?oc=5",
+          "published": "Sun, 05 Jul 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMipgFBVV95cUxQTWJHRTZWYjRra19saXJ5d2xGVlM0dmloNWNpRWtyMTNOeUEtWS1tZUhKUm1Pb2g3UUp4akJnWWFZNUVmclBVUk1FWHlJS0xCVFJTNU9FdTVWMDJ6U0dQLXZXRU9KMlU2eVpUc252QjJYMUJtMmpGRV9yMW5nWU5xRk9wV2tNcklwVFFabzQ0T21jRkIxdTJiT3phd1F2dWQtSGs3Q3NR?oc=5\" target=\"_blank\">Rising sugar prices signal market caution, allay fear of any supply shortage</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        },
+        {
+          "title": "Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July - RuralVoice",
+          "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5",
+          "published": "Sat, 18 Jul 2026 13:45:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5\" target=\"_blank\">Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">RuralVoice</font>"
+        }
+      ]
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "North India sugar ex-mill price July 26 2026",
+      "request_status": "executed",
+      "returned_count": 30,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 22/07/2026 - ChiniMandi",
+          "news_date": "Wed, 22 Jul 2026 13:12:16 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1QU1QyU3ZLSlpMWlU2SWx4ekp6YkU4bzgyeklrcG96RkZLOWJrOXJ6amZMLTlySzhDeDl0NVJCSGplcjJJcXpLU2lVVTVCWTEyT0k2V1VHY0tfOXE0UlpTTjQ2VXE1empZdm1Xd3VLeDlmaVdYS004YUIwblRRYnc?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 20th May 2026 - czapp.com",
+          "news_date": "Wed, 20 May 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNRGFXY0JPUGNIM2pIaTZhN3VjSmd6N3ZVUE1iY2lfcXUyRHE5MC1FUktxMkVDSlhVUi1XcHZiWTl5alNnajhXTDlQc1NGaGxpZHRGcXVyZXJXYVFqY3JuOWwwN011RnVxeFhWNEwzS0FrVWRjLXd3dWxNeWxEZ1ZRQU53?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July - RuralVoice",
+          "news_date": "Sat, 18 Jul 2026 13:45:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Rising sugar prices signal market caution, allay fear of any supply shortage - ChiniMandi",
+          "news_date": "Sun, 05 Jul 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTWJHRTZWYjRra19saXJ5d2xGVlM0dmloNWNpRWtyMTNOeUEtWS1tZUhKUm1Pb2g3UUp4akJnWWFZNUVmclBVUk1FWHlJS0xCVFJTNU9FdTVWMDJ6U0dQLXZXRU9KMlU2eVpUc252QjJYMUJtMmpGRV9yMW5nWU5xRk9wV2tNcklwVFFabzQ0T21jRkIxdTJiT3phd1F2dWQtSGs3Q3NR?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 15th April 2026 - czapp.com",
+          "news_date": "Wed, 15 Apr 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOdGZkNi1mTDhrVU5LVS1wTXE0LXRBdkpwRXdVMFE3aXhnZHpvQnNnSUJXNmJ2TUJVMXZzYjBsTjdpR19lbzFPVmpoLTQ2alkyTTRzTW9mbW8wcWpkazl1ZTF2dVA2RUdsazlmNWxoN3FXU1l3dVNsWnlSVTVHdEpFOUU2NHA?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        }
+      ],
+      "sample_results": [
+        {
+          "title": "Daily Sugar Market Update By Vizzie – 22/07/2026 - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1QU1QyU3ZLSlpMWlU2SWx4ekp6YkU4bzgyeklrcG96RkZLOWJrOXJ6amZMLTlySzhDeDl0NVJCSGplcjJJcXpLU2lVVTVCWTEyT0k2V1VHY0tfOXE0UlpTTjQ2VXE1empZdm1Xd3VLeDlmaVdYS004YUIwblRRYnc?oc=5",
+          "published": "Wed, 22 Jul 2026 13:12:16 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE1QU1QyU3ZLSlpMWlU2SWx4ekp6YkU4bzgyeklrcG96RkZLOWJrOXJ6amZMLTlySzhDeDl0NVJCSGplcjJJcXpLU2lVVTVCWTEyT0k2V1VHY0tfOXE0UlpTTjQ2VXE1empZdm1Xd3VLeDlmaVdYS004YUIwblRRYnc?oc=5\" target=\"_blank\">Daily Sugar Market Update By Vizzie – 22/07/2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 20th May 2026 - czapp.com",
+          "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNRGFXY0JPUGNIM2pIaTZhN3VjSmd6N3ZVUE1iY2lfcXUyRHE5MC1FUktxMkVDSlhVUi1XcHZiWTl5alNnajhXTDlQc1NGaGxpZHRGcXVyZXJXYVFqY3JuOWwwN011RnVxeFhWNEwzS0FrVWRjLXd3dWxNeWxEZ1ZRQU53?oc=5",
+          "published": "Wed, 20 May 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMiggFBVV95cUxNRGFXY0JPUGNIM2pIaTZhN3VjSmd6N3ZVUE1iY2lfcXUyRHE5MC1FUktxMkVDSlhVUi1XcHZiWTl5alNnajhXTDlQc1NGaGxpZHRGcXVyZXJXYVFqY3JuOWwwN011RnVxeFhWNEwzS0FrVWRjLXd3dWxNeWxEZ1ZRQU53?oc=5\" target=\"_blank\">India: Sugar vs Ethanol? 20th May 2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">czapp.com</font>"
+        },
+        {
+          "title": "Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July - RuralVoice",
+          "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5",
+          "published": "Sat, 18 Jul 2026 13:45:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSDNpWUtjR3F5eGFXLXpucGlxeE9kZlpNX2ZFczJfNEJ4YTRiRmszR2NIa1pGajI3Rkd2TGNfOGpOUmhqenhZZFNSZDlnQ2R3bkZIcnF2Mk9PTDcxMm1xT1pfUk54WDlPOHVsMkhSb0ZaMW9oMXpLNkN4YTQwSE9sU3VUNXRFVEx5bFR6MjlqRkFQUGFXeTJOSWxhQzhTNDVEalBsT2lFbVdtc1JGVlZqTWhRQ0NOMnRXTnI3bzZXZHEtaWZlaUQ4R2tocHNralpBNkZRZ1h6T28xUdIB3wFBVV95cUxPSEw3bVYxdTdtRHFYU1BwX0tDZnM4MlloN2xaVUtPNnBCcld2QWhvOFFSZTBzZ0F1Skk2aXprekxlSG9RSXByRlJCdDRzcVBGMHNyZHUyMk41emVyeGktRFRDOU9FOGZfa3pDRVZKcl8zNWJQaFMwSFBMTVFvTlc5UFVzYTQ4QlFvYi1LWWVOcW12Z2FwZEdYc1NsTHl6Zy1ZVkxPYk5qZW13a0wwN2FOcTE2b2xCdWlyTFRCWnlnMTRBWjhYc0ZfRkMwTTZUQzZMUnptN1NHMUdCS2ExWTQ4?oc=5\" target=\"_blank\">Sugar Prices Surge as Production Falls Short; Ex-Factory Rates Jump by Up to Rs. 600 per Quintal in July</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">RuralVoice</font>"
+        },
+        {
+          "title": "Rising sugar prices signal market caution, allay fear of any supply shortage - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTWJHRTZWYjRra19saXJ5d2xGVlM0dmloNWNpRWtyMTNOeUEtWS1tZUhKUm1Pb2g3UUp4akJnWWFZNUVmclBVUk1FWHlJS0xCVFJTNU9FdTVWMDJ6U0dQLXZXRU9KMlU2eVpUc252QjJYMUJtMmpGRV9yMW5nWU5xRk9wV2tNcklwVFFabzQ0T21jRkIxdTJiT3phd1F2dWQtSGs3Q3NR?oc=5",
+          "published": "Sun, 05 Jul 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMipgFBVV95cUxQTWJHRTZWYjRra19saXJ5d2xGVlM0dmloNWNpRWtyMTNOeUEtWS1tZUhKUm1Pb2g3UUp4akJnWWFZNUVmclBVUk1FWHlJS0xCVFJTNU9FdTVWMDJ6U0dQLXZXRU9KMlU2eVpUc252QjJYMUJtMmpGRV9yMW5nWU5xRk9wV2tNcklwVFFabzQ0T21jRkIxdTJiT3phd1F2dWQtSGs3Q3NR?oc=5\" target=\"_blank\">Rising sugar prices signal market caution, allay fear of any supply shortage</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 15th April 2026 - czapp.com",
+          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOdGZkNi1mTDhrVU5LVS1wTXE0LXRBdkpwRXdVMFE3aXhnZHpvQnNnSUJXNmJ2TUJVMXZzYjBsTjdpR19lbzFPVmpoLTQ2alkyTTRzTW9mbW8wcWpkazl1ZTF2dVA2RUdsazlmNWxoN3FXU1l3dVNsWnlSVTVHdEpFOUU2NHA?oc=5",
+          "published": "Wed, 15 Apr 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMihAFBVV95cUxOdGZkNi1mTDhrVU5LVS1wTXE0LXRBdkpwRXdVMFE3aXhnZHpvQnNnSUJXNmJ2TUJVMXZzYjBsTjdpR19lbzFPVmpoLTQ2alkyTTRzTW9mbW8wcWpkazl1ZTF2dVA2RUdsazlmNWxoN3FXU1l3dVNsWnlSVTVHdEpFOUU2NHA?oc=5\" target=\"_blank\">India: Sugar vs Ethanol? 15th April 2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">czapp.com</font>"
+        }
+      ]
+    },
+    {
+      "country": "印度指标",
+      "language": "hi",
+      "keywords": "मुजफ्फरनगर चीनी मिल भाव 26 जुलाई 2026",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "sample_results": []
+    },
+    {
+      "country": "印度指标",
+      "language": "hi",
+      "keywords": "उत्तर प्रदेश चीनी एक्स मिल कीमत 26 जुलाई 2026",
+      "request_status": "executed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "sample_results": []
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "India sugar carryover stock ending stock July 26 2026",
+      "request_status": "executed",
+      "returned_count": 11,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "India sees no need to curb sugar exports for now as demand weakens, sources say - Reuters",
+          "news_date": "Wed, 06 May 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNdUtGMVVLRW5CR0dkWHQ1OUJnM1BwX2FHWGRVVF9FU0gtbmRlRmhJRUJrLTQ3SmtDaVVhMnBBNWpIRHROMEJZeDdnSWdNTXowZS1ZeTNjYlBmcXd0bE1BcW5HemlMazhkaE5SZzA1S3FHUGtCbXI5aDU2ZVNHaUNkczdOYXJYWVNuUmtHcndfT0M1QkxlbkN1YzlEZDZ2eF9NUmc5bjVHZGF5d2pWcFJTa2hDWXU3M2M?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "India: Sugar vs Ethanol 11th March 2026 - czapp.com",
+          "news_date": "Wed, 11 Mar 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPeW1DYmtTYU1LcEVpekd2LUFiSXRfV2xWTDdGUTA3Mlg0dkxyUlczY19kNTV5OE5zdWNwVFN0T3Z5WF9KU3R4NktiQWlMMUJxTHJ6YTJxSDBrR3Z2THFXR1JDVmlIYW9MZjAyN0MtdERvdjRDbTNDYnNnNkpESkkwNzREX2g?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Weak monsoon, low stocks may push India’s sugar prices to record highs - ChiniMandi",
+          "news_date": "Sat, 18 Jul 2026 11:38:25 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNaFlwZTJyeUJCOWI0TGVvblFTT0RKX2NxNzNUYVhaMGdDN1BXQmV0WXJTcGJ1VV9OOWtWcHFDN2Jyb3hIT1hBUUxzUXhmcGF3M1lwdnNfZUxqbFNyc0pEYzBEYnVnTzg3a3RndlRrY0o4ajFLa09KQ2pJUWhUV0Z6N3VVYVhuT283MnY3YUNiSmVZcUVPdkdESnhnZXo?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 10th February 2026 - czapp.com",
+          "news_date": "Tue, 10 Feb 2026 08:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPUm5PdkRqdTI4QnE4eUtWNGtIWi1yS0duZnVxV25oSU1LUF9GbHhfeTk1bHF4OWx5WklPQXNjM0tTUFZ0dmJyeFkxZVRheXF0NzFWajNUOU5Zb2MxVGlzMktjblV1bllmS090LVlyRXhRZlNFSklPQWcxVDAweWY5LWlFd1RKUVRk?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Why energy shock from Iran war has not spread to food - The Indian Express",
+          "news_date": "Mon, 13 Apr 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOcWhhSUZLWWxVdHU1V1djdlNkR1hmeC1lVmxMVGJHV3RFRXhVUnJIdWpIN2o3Rzg3WUVrYmw4d1lySUtxZHVXM09TUmZnNUpYWk5kOEVJdVl3dmI2bGVybThLTVNsaE45MDRPWE1iRFVFTzVGMW14VDEtajdRY3RuVTB3emxQQWVXd01kZU9IS0o2MUR3MTJobmJ5SmZrMEQtS0I2V0oyS1diUi1ya2hpcWJoamxURmZTOE1NbTJPa0RVTmdUa1HSAcwBQVVfeXFMUDFIc3pHTE4zWWRJRWRmQkM2Qjdua3hhX0xzTHBDc1gyaVFNdDRBMGluZ0piekVYZUhvUEhDUVBVTkt3UjVENFNpWnVpNHJLbDk1Y1UyY2Rzem9Qc3pHSG8xd3hzQ0ZXNFA3aTFwRy1xcWRIdTVLR2J3WVU1WUNGSGtFcmNLZzIxX283djNLQ3k0dlM4RW5aMmd1RXVleWVJUUdkSjNsOGVxRGdUX2tJZ1FjMnBDWHJnU1hMLUhpaDA0cEVuQUVCQWhpS0lP?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        }
+      ],
+      "sample_results": [
+        {
+          "title": "India sees no need to curb sugar exports for now as demand weakens, sources say - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNdUtGMVVLRW5CR0dkWHQ1OUJnM1BwX2FHWGRVVF9FU0gtbmRlRmhJRUJrLTQ3SmtDaVVhMnBBNWpIRHROMEJZeDdnSWdNTXowZS1ZeTNjYlBmcXd0bE1BcW5HemlMazhkaE5SZzA1S3FHUGtCbXI5aDU2ZVNHaUNkczdOYXJYWVNuUmtHcndfT0M1QkxlbkN1YzlEZDZ2eF9NUmc5bjVHZGF5d2pWcFJTa2hDWXU3M2M?oc=5",
+          "published": "Wed, 06 May 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxNdUtGMVVLRW5CR0dkWHQ1OUJnM1BwX2FHWGRVVF9FU0gtbmRlRmhJRUJrLTQ3SmtDaVVhMnBBNWpIRHROMEJZeDdnSWdNTXowZS1ZeTNjYlBmcXd0bE1BcW5HemlMazhkaE5SZzA1S3FHUGtCbXI5aDU2ZVNHaUNkczdOYXJYWVNuUmtHcndfT0M1QkxlbkN1YzlEZDZ2eF9NUmc5bjVHZGF5d2pWcFJTa2hDWXU3M2M?oc=5\" target=\"_blank\">India sees no need to curb sugar exports for now as demand weakens, sources say</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Reuters</font>"
+        },
+        {
+          "title": "India: Sugar vs Ethanol 11th March 2026 - czapp.com",
+          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPeW1DYmtTYU1LcEVpekd2LUFiSXRfV2xWTDdGUTA3Mlg0dkxyUlczY19kNTV5OE5zdWNwVFN0T3Z5WF9KU3R4NktiQWlMMUJxTHJ6YTJxSDBrR3Z2THFXR1JDVmlIYW9MZjAyN0MtdERvdjRDbTNDYnNnNkpESkkwNzREX2g?oc=5",
+          "published": "Wed, 11 Mar 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMihAFBVV95cUxPeW1DYmtTYU1LcEVpekd2LUFiSXRfV2xWTDdGUTA3Mlg0dkxyUlczY19kNTV5OE5zdWNwVFN0T3Z5WF9KU3R4NktiQWlMMUJxTHJ6YTJxSDBrR3Z2THFXR1JDVmlIYW9MZjAyN0MtdERvdjRDbTNDYnNnNkpESkkwNzREX2g?oc=5\" target=\"_blank\">India: Sugar vs Ethanol 11th March 2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">czapp.com</font>"
+        },
+        {
+          "title": "Weak monsoon, low stocks may push India’s sugar prices to record highs - ChiniMandi",
+          "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNaFlwZTJyeUJCOWI0TGVvblFTT0RKX2NxNzNUYVhaMGdDN1BXQmV0WXJTcGJ1VV9OOWtWcHFDN2Jyb3hIT1hBUUxzUXhmcGF3M1lwdnNfZUxqbFNyc0pEYzBEYnVnTzg3a3RndlRrY0o4ajFLa09KQ2pJUWhUV0Z6N3VVYVhuT283MnY3YUNiSmVZcUVPdkdESnhnZXo?oc=5",
+          "published": "Sat, 18 Jul 2026 11:38:25 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxNaFlwZTJyeUJCOWI0TGVvblFTT0RKX2NxNzNUYVhaMGdDN1BXQmV0WXJTcGJ1VV9OOWtWcHFDN2Jyb3hIT1hBUUxzUXhmcGF3M1lwdnNfZUxqbFNyc0pEYzBEYnVnTzg3a3RndlRrY0o4ajFLa09KQ2pJUWhUV0Z6N3VVYVhuT283MnY3YUNiSmVZcUVPdkdESnhnZXo?oc=5\" target=\"_blank\">Weak monsoon, low stocks may push India’s sugar prices to record highs</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ChiniMandi</font>"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 10th February 2026 - czapp.com",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPUm5PdkRqdTI4QnE4eUtWNGtIWi1yS0duZnVxV25oSU1LUF9GbHhfeTk1bHF4OWx5WklPQXNjM0tTUFZ0dmJyeFkxZVRheXF0NzFWajNUOU5Zb2MxVGlzMktjblV1bllmS090LVlyRXhRZlNFSklPQWcxVDAweWY5LWlFd1RKUVRk?oc=5",
+          "published": "Tue, 10 Feb 2026 08:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMiiAFBVV95cUxPUm5PdkRqdTI4QnE4eUtWNGtIWi1yS0duZnVxV25oSU1LUF9GbHhfeTk1bHF4OWx5WklPQXNjM0tTUFZ0dmJyeFkxZVRheXF0NzFWajNUOU5Zb2MxVGlzMktjblV1bllmS090LVlyRXhRZlNFSklPQWcxVDAweWY5LWlFd1RKUVRk?oc=5\" target=\"_blank\">India: Sugar vs Ethanol? 10th February 2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">czapp.com</font>"
+        },
+        {
+          "title": "Why energy shock from Iran war has not spread to food - The Indian Express",
+          "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOcWhhSUZLWWxVdHU1V1djdlNkR1hmeC1lVmxMVGJHV3RFRXhVUnJIdWpIN2o3Rzg3WUVrYmw4d1lySUtxZHVXM09TUmZnNUpYWk5kOEVJdVl3dmI2bGVybThLTVNsaE45MDRPWE1iRFVFTzVGMW14VDEtajdRY3RuVTB3emxQQWVXd01kZU9IS0o2MUR3MTJobmJ5SmZrMEQtS0I2V0oyS1diUi1ya2hpcWJoamxURmZTOE1NbTJPa0RVTmdUa1HSAcwBQVVfeXFMUDFIc3pHTE4zWWRJRWRmQkM2Qjdua3hhX0xzTHBDc1gyaVFNdDRBMGluZ0piekVYZUhvUEhDUVBVTkt3UjVENFNpWnVpNHJLbDk1Y1UyY2Rzem9Qc3pHSG8xd3hzQ0ZXNFA3aTFwRy1xcWRIdTVLR2J3WVU1WUNGSGtFcmNLZzIxX283djNLQ3k0dlM4RW5aMmd1RXVleWVJUUdkSjNsOGVxRGdUX2tJZ1FjMnBDWHJnU1hMLUhpaDA0cEVuQUVCQWhpS0lP?oc=5",
+          "published": "Mon, 13 Apr 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMixgFBVV95cUxOcWhhSUZLWWxVdHU1V1djdlNkR1hmeC1lVmxMVGJHV3RFRXhVUnJIdWpIN2o3Rzg3WUVrYmw4d1lySUtxZHVXM09TUmZnNUpYWk5kOEVJdVl3dmI2bGVybThLTVNsaE45MDRPWE1iRFVFTzVGMW14VDEtajdRY3RuVTB3emxQQWVXd01kZU9IS0o2MUR3MTJobmJ5SmZrMEQtS0I2V0oyS1diUi1ya2hpcWJoamxURmZTOE1NbTJPa0RVTmdUa1HSAcwBQVVfeXFMUDFIc3pHTE4zWWRJRWRmQkM2Qjdua3hhX0xzTHBDc1gyaVFNdDRBMGluZ0piekVYZUhvUEhDUVBVTkt3UjVENFNpWnVpNHJLbDk1Y1UyY2Rzem9Qc3pHSG8xd3hzQ0ZXNFA3aTFwRy1xcWRIdTVLR2J3WVU1WUNGSGtFcmNLZzIxX283djNLQ3k0dlM4RW5aMmd1RXVleWVJUUdkSjNsOGVxRGdUX2tJZ1FjMnBDWHJnU1hMLUhpaDA0cEVuQUVCQWhpS0lP?oc=5\" target=\"_blank\">Why energy shock from Iran war has not spread to food</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Indian Express</font>"
+        }
+      ]
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "India sugar closing stock ISMA NFCSF July 26 2026",
+      "request_status": "executed",
+      "returned_count": 29,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "news_date": "Wed, 22 Jul 2026 09:18:11 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQVndQVzMzTFYxRS1wT1FFM2VsRi15NFhOWm9XcVFXNHBaUmxuNk9wYU5XMDgyaThNLUNULVVPVk43Z0ZFS040ZnVhS3ZfT2o5NVlScWl4bm95c0x4WExzZ2huQVR3cUdmU3NHTzM5UnU5REswaEJDaXpDSVhtcDNkakRYYjBEZkhrSU02eE1FaUZfZlhnZ2RHalM1cFE4NWpmSzFBOVE3RFBiRUtSZVpBdXlZaTVjTnVCQU1TaEhQTlZzdmk4ZnhlUjJBVGdJNjhhdm9zQmZEeVIxTW5ZZGhWUjEwbzZ4VTNEdGM5TlFDazlXeWNmZG5td0M3OUFieFXSAYQCQVVfeXFMTzdzYkNYNTl1MnNCcU9IRmdhUEdkbWhHN3hnSU8xZGhiZkV6WENzaHZnZWJKXzFwZjdnRjV4bW9PenFQVWtvbzU1OVdEeWNZU3hXTEJ1dWI0ZU5NR3ZwQmthOXZ6NUl3a2xZVkktNGY3X2s5VnZ6Z1VQRUpKMTNZMW9LYzgtMldUMUV1ZzhmWTNBaVdHUUc1OGF1WWFRVGlqS0hYWTc5czNLM2RySzU0ak5KR0hlTG9hd0ctUmNTQS1lemVqQkp4UjNvYlVVTHBNWVdfNS1nYWtFMzQ2OHVrZGZpLXB6S1BXMDJkZmVXdHcwR3ZObGtwbTRxR3RtWDlHNlJIWm4?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "India faces second year of sugar deficit as mills close early - Reuters",
+          "news_date": "Thu, 02 Apr 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQWldFVTFQdEtCZ2xxcS1LeXBzNTRjNDMtNGZENm9Talcyd1pmcWVmWHpiR04yeVdsRjlVOXVJWEltQXZmZ29SNmRHMTlDQ1F6V1RVVVpfd1hkbjZLdFJfNS1nMUNjbFBsVG50R1VvV3pIb3FpMk81R1c4am9PNTJoRzYzRHUtcHdrTERfcThqWDdxZE9yRGxFNzZEa0hxY3RxaVdyc01CSU1rMTh1R0VpR2M1czBCUTZKRzA5anpn?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Sugar Export Ban: ISMA Seeks Contract Execution - Rediff MoneyWiz",
+          "news_date": "Thu, 14 May 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQNzBqQkFScDZDWTY3b1RFQXB5Vk05TjF1Z3NZSWRYeXA5cEd2elJsNW1wbmZaaFBnbERNLVFGQk5aTnFsSDhZQWxYVXZ1LWtrYWs3RGExampHWkNEd3FRMnVUeWlLbGVGUDdfZHZNa2dZWW1yRlRtbzJPY3dTWWNnMUlpQmVIVTZHZDAwSkczZ1UtRy1qRlIzT2M3dzhKZHPSAaQBQVVfeXFMTTRZYk9LRlA2Wk1CSWlMX0lmQWRtNEtmRThMVS11YWxkSnc1UVNNQ2pzSE5CX1BFLVkwMUJrMEx2bHhSXzg0Sm5zYWdqWkxRbzh2OGxmb2RXZU9EZk5xQjYxbHJ2VmhVTHNPRzBNZ0NpVEVtUTNEaFl3S3ROTF95UUstTkp2S2RLVFVNS2lVWnljRklRR1NSckFIRlZWcWVMeF9fUzA?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "Sugar Output Up; ISMA Seeks Policy Relief - Rediff MoneyWiz",
+          "news_date": "Thu, 30 Apr 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQdDlBdk9LdGdJcDFnMEFKRDUtUy1yUDNCWVB3dkJDZ2t6aDZqcDhDc1ptSXZpLU9PQTZBQUlJSDQ0X29INHRZY1VfSFR1QWZEbmwwS2FGMkx6YmZnSDBEdDVGdDlnZkJFZjdYdnA5WU9MakhQV085RGJZUEVqUURmMHpRdVpWbkRhRkxOTlgyYzRmcm4zaVdj0gGcAUFVX3lxTFA0QnliMnJqNzc2YUg3d29jNm9iWjhQTjlhR0xHMHk0eng5ajNDc2tlNHoxWGhVRWlaOEpGeHU5Y2JjMFdMME1MMjd1MXc4YjBocHdKZVlOLV9SazAzYUxNVmp4VEd2Njh4RWg2UGRoOXU2bDE0ZVQyNWVnajV2d0tPekxPRUt2Tm5jNXRkTHZLRXN1OTlLM3RTVEgxUw?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        },
+        {
+          "title": "India's prized Alphonso mango crop ruined by weather - The Economic Times",
+          "news_date": "Tue, 26 May 2026 07:00:00 GMT",
+          "source": "Google News RSS",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQVy04V01UaDRJei1ZTXJQUDRSOW5jYXA4ZXlpNllnNjNGcjdZTWpib1lNT0xzOVk2UG9RdFhpdnRVVzNjRUI4a2ZPX3BxV1N2ZlI1TFhRQ0gwLWI2S1k0Q2dxT0UzcjRJQmZwU2pDYlY1WWgwVzltRkVRVHhpTFY3bm1VQ3B3M2NkSTZlaWlRbWhrRHh3V0JjUzFTMG5wVHdsa2VKdHVfZkZqVHN6djVTaHFfN1cwRV95NWdlTW1rU2IweERMQW5qRV930gHPAUFVX3lxTE1LeDJwUnVLRTgwQ3Q2M0FNN1I0blluUnJ6LXdoUXVVZ3BmSGZQODFJRVJyYzFZbUw0N1ZqZ0Q1RFVrYjkwR0N2Tmd1ckdTdUdMTHV3SkNwVC12eGlJTHdUYWtUUHBIeVJ3c0xNMnk4ek9UTmpNYlFPRkVrZWdOcHYtTEp5Sy1oLVdLamZ1emF1ckJmaUF0djdpR0hMbGxoNHRHVnd6TTdtalVUM1k0Z3ZfZHIyZjNYM3R4NW9lOHZ5cU5lY3JHbVBSLUI5N0hKVQ?oc=5",
+          "stage": "price_inventory_verification",
+          "reason": "Price and stock indicators require source-page date, quote type, unit, and comparable-date verification before dashboard publication."
+        }
+      ],
+      "sample_results": [
+        {
+          "title": "Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry - The Economic Times",
+          "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQVndQVzMzTFYxRS1wT1FFM2VsRi15NFhOWm9XcVFXNHBaUmxuNk9wYU5XMDgyaThNLUNULVVPVk43Z0ZFS040ZnVhS3ZfT2o5NVlScWl4bm95c0x4WExzZ2huQVR3cUdmU3NHTzM5UnU5REswaEJDaXpDSVhtcDNkakRYYjBEZkhrSU02eE1FaUZfZlhnZ2RHalM1cFE4NWpmSzFBOVE3RFBiRUtSZVpBdXlZaTVjTnVCQU1TaEhQTlZzdmk4ZnhlUjJBVGdJNjhhdm9zQmZEeVIxTW5ZZGhWUjEwbzZ4VTNEdGM5TlFDazlXeWNmZG5td0M3OUFieFXSAYQCQVVfeXFMTzdzYkNYNTl1MnNCcU9IRmdhUEdkbWhHN3hnSU8xZGhiZkV6WENzaHZnZWJKXzFwZjdnRjV4bW9PenFQVWtvbzU1OVdEeWNZU3hXTEJ1dWI0ZU5NR3ZwQmthOXZ6NUl3a2xZVkktNGY3X2s5VnZ6Z1VQRUpKMTNZMW9LYzgtMldUMUV1ZzhmWTNBaVdHUUc1OGF1WWFRVGlqS0hYWTc5czNLM2RySzU0ak5KR0hlTG9hd0ctUmNTQS1lemVqQkp4UjNvYlVVTHBNWVdfNS1nYWtFMzQ2OHVrZGZpLXB6S1BXMDJkZmVXdHcwR3ZObGtwbTRxR3RtWDlHNlJIWm4?oc=5",
+          "published": "Wed, 22 Jul 2026 09:18:11 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMi_wFBVV95cUxQVndQVzMzTFYxRS1wT1FFM2VsRi15NFhOWm9XcVFXNHBaUmxuNk9wYU5XMDgyaThNLUNULVVPVk43Z0ZFS040ZnVhS3ZfT2o5NVlScWl4bm95c0x4WExzZ2huQVR3cUdmU3NHTzM5UnU5REswaEJDaXpDSVhtcDNkakRYYjBEZkhrSU02eE1FaUZfZlhnZ2RHalM1cFE4NWpmSzFBOVE3RFBiRUtSZVpBdXlZaTVjTnVCQU1TaEhQTlZzdmk4ZnhlUjJBVGdJNjhhdm9zQmZEeVIxTW5ZZGhWUjEwbzZ4VTNEdGM5TlFDazlXeWNmZG5td0M3OUFieFXSAYQCQVVfeXFMTzdzYkNYNTl1MnNCcU9IRmdhUEdkbWhHN3hnSU8xZGhiZkV6WENzaHZnZWJKXzFwZjdnRjV4bW9PenFQVWtvbzU1OVdEeWNZU3hXTEJ1dWI0ZU5NR3ZwQmthOXZ6NUl3a2xZVkktNGY3X2s5VnZ6Z1VQRUpKMTNZMW9LYzgtMldUMUV1ZzhmWTNBaVdHUUc1OGF1WWFRVGlqS0hYWTc5czNLM2RySzU0ak5KR0hlTG9hd0ctUmNTQS1lemVqQkp4UjNvYlVVTHBNWVdfNS1nYWtFMzQ2OHVrZGZpLXB6S1BXMDJkZmVXdHcwR3ZObGtwbTRxR3RtWDlHNlJIWm4?oc=5\" target=\"_blank\">Sugar stock limits may offer temporary relief but risk disrupting the supply chain: Industry</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Economic Times</font>"
+        },
+        {
+          "title": "India faces second year of sugar deficit as mills close early - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQWldFVTFQdEtCZ2xxcS1LeXBzNTRjNDMtNGZENm9Talcyd1pmcWVmWHpiR04yeVdsRjlVOXVJWEltQXZmZ29SNmRHMTlDQ1F6V1RVVVpfd1hkbjZLdFJfNS1nMUNjbFBsVG50R1VvV3pIb3FpMk81R1c4am9PNTJoRzYzRHUtcHdrTERfcThqWDdxZE9yRGxFNzZEa0hxY3RxaVdyc01CSU1rMTh1R0VpR2M1czBCUTZKRzA5anpn?oc=5",
+          "published": "Thu, 02 Apr 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMivgFBVV95cUxQWldFVTFQdEtCZ2xxcS1LeXBzNTRjNDMtNGZENm9Talcyd1pmcWVmWHpiR04yeVdsRjlVOXVJWEltQXZmZ29SNmRHMTlDQ1F6V1RVVVpfd1hkbjZLdFJfNS1nMUNjbFBsVG50R1VvV3pIb3FpMk81R1c4am9PNTJoRzYzRHUtcHdrTERfcThqWDdxZE9yRGxFNzZEa0hxY3RxaVdyc01CSU1rMTh1R0VpR2M1czBCUTZKRzA5anpn?oc=5\" target=\"_blank\">India faces second year of sugar deficit as mills close early</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Reuters</font>"
+        },
+        {
+          "title": "Sugar Export Ban: ISMA Seeks Contract Execution - Rediff MoneyWiz",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQNzBqQkFScDZDWTY3b1RFQXB5Vk05TjF1Z3NZSWRYeXA5cEd2elJsNW1wbmZaaFBnbERNLVFGQk5aTnFsSDhZQWxYVXZ1LWtrYWs3RGExampHWkNEd3FRMnVUeWlLbGVGUDdfZHZNa2dZWW1yRlRtbzJPY3dTWWNnMUlpQmVIVTZHZDAwSkczZ1UtRy1qRlIzT2M3dzhKZHPSAaQBQVVfeXFMTTRZYk9LRlA2Wk1CSWlMX0lmQWRtNEtmRThMVS11YWxkSnc1UVNNQ2pzSE5CX1BFLVkwMUJrMEx2bHhSXzg0Sm5zYWdqWkxRbzh2OGxmb2RXZU9EZk5xQjYxbHJ2VmhVTHNPRzBNZ0NpVEVtUTNEaFl3S3ROTF95UUstTkp2S2RLVFVNS2lVWnljRklRR1NSckFIRlZWcWVMeF9fUzA?oc=5",
+          "published": "Thu, 14 May 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMinwFBVV95cUxQNzBqQkFScDZDWTY3b1RFQXB5Vk05TjF1Z3NZSWRYeXA5cEd2elJsNW1wbmZaaFBnbERNLVFGQk5aTnFsSDhZQWxYVXZ1LWtrYWs3RGExampHWkNEd3FRMnVUeWlLbGVGUDdfZHZNa2dZWW1yRlRtbzJPY3dTWWNnMUlpQmVIVTZHZDAwSkczZ1UtRy1qRlIzT2M3dzhKZHPSAaQBQVVfeXFMTTRZYk9LRlA2Wk1CSWlMX0lmQWRtNEtmRThMVS11YWxkSnc1UVNNQ2pzSE5CX1BFLVkwMUJrMEx2bHhSXzg0Sm5zYWdqWkxRbzh2OGxmb2RXZU9EZk5xQjYxbHJ2VmhVTHNPRzBNZ0NpVEVtUTNEaFl3S3ROTF95UUstTkp2S2RLVFVNS2lVWnljRklRR1NSckFIRlZWcWVMeF9fUzA?oc=5\" target=\"_blank\">Sugar Export Ban: ISMA Seeks Contract Execution</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Rediff MoneyWiz</font>"
+        },
+        {
+          "title": "Sugar Output Up; ISMA Seeks Policy Relief - Rediff MoneyWiz",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQdDlBdk9LdGdJcDFnMEFKRDUtUy1yUDNCWVB3dkJDZ2t6aDZqcDhDc1ptSXZpLU9PQTZBQUlJSDQ0X29INHRZY1VfSFR1QWZEbmwwS2FGMkx6YmZnSDBEdDVGdDlnZkJFZjdYdnA5WU9MakhQV085RGJZUEVqUURmMHpRdVpWbkRhRkxOTlgyYzRmcm4zaVdj0gGcAUFVX3lxTFA0QnliMnJqNzc2YUg3d29jNm9iWjhQTjlhR0xHMHk0eng5ajNDc2tlNHoxWGhVRWlaOEpGeHU5Y2JjMFdMME1MMjd1MXc4YjBocHdKZVlOLV9SazAzYUxNVmp4VEd2Njh4RWg2UGRoOXU2bDE0ZVQyNWVnajV2d0tPekxPRUt2Tm5jNXRkTHZLRXN1OTlLM3RTVEgxUw?oc=5",
+          "published": "Thu, 30 Apr 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxQdDlBdk9LdGdJcDFnMEFKRDUtUy1yUDNCWVB3dkJDZ2t6aDZqcDhDc1ptSXZpLU9PQTZBQUlJSDQ0X29INHRZY1VfSFR1QWZEbmwwS2FGMkx6YmZnSDBEdDVGdDlnZkJFZjdYdnA5WU9MakhQV085RGJZUEVqUURmMHpRdVpWbkRhRkxOTlgyYzRmcm4zaVdj0gGcAUFVX3lxTFA0QnliMnJqNzc2YUg3d29jNm9iWjhQTjlhR0xHMHk0eng5ajNDc2tlNHoxWGhVRWlaOEpGeHU5Y2JjMFdMME1MMjd1MXc4YjBocHdKZVlOLV9SazAzYUxNVmp4VEd2Njh4RWg2UGRoOXU2bDE0ZVQyNWVnajV2d0tPekxPRUt2Tm5jNXRkTHZLRXN1OTlLM3RTVEgxUw?oc=5\" target=\"_blank\">Sugar Output Up; ISMA Seeks Policy Relief</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Rediff MoneyWiz</font>"
+        },
+        {
+          "title": "India's prized Alphonso mango crop ruined by weather - The Economic Times",
+          "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQVy04V01UaDRJei1ZTXJQUDRSOW5jYXA4ZXlpNllnNjNGcjdZTWpib1lNT0xzOVk2UG9RdFhpdnRVVzNjRUI4a2ZPX3BxV1N2ZlI1TFhRQ0gwLWI2S1k0Q2dxT0UzcjRJQmZwU2pDYlY1WWgwVzltRkVRVHhpTFY3bm1VQ3B3M2NkSTZlaWlRbWhrRHh3V0JjUzFTMG5wVHdsa2VKdHVfZkZqVHN6djVTaHFfN1cwRV95NWdlTW1rU2IweERMQW5qRV930gHPAUFVX3lxTE1LeDJwUnVLRTgwQ3Q2M0FNN1I0blluUnJ6LXdoUXVVZ3BmSGZQODFJRVJyYzFZbUw0N1ZqZ0Q1RFVrYjkwR0N2Tmd1ckdTdUdMTHV3SkNwVC12eGlJTHdUYWtUUHBIeVJ3c0xNMnk4ek9UTmpNYlFPRkVrZWdOcHYtTEp5Sy1oLVdLamZ1emF1ckJmaUF0djdpR0hMbGxoNHRHVnd6TTdtalVUM1k0Z3ZfZHIyZjNYM3R4NW9lOHZ5cU5lY3JHbVBSLUI5N0hKVQ?oc=5",
+          "published": "Tue, 26 May 2026 07:00:00 GMT",
+          "description": "<a href=\"https://news.google.com/rss/articles/CBMiygFBVV95cUxQVy04V01UaDRJei1ZTXJQUDRSOW5jYXA4ZXlpNllnNjNGcjdZTWpib1lNT0xzOVk2UG9RdFhpdnRVVzNjRUI4a2ZPX3BxV1N2ZlI1TFhRQ0gwLWI2S1k0Q2dxT0UzcjRJQmZwU2pDYlY1WWgwVzltRkVRVHhpTFY3bm1VQ3B3M2NkSTZlaWlRbWhrRHh3V0JjUzFTMG5wVHdsa2VKdHVfZkZqVHN6djVTaHFfN1cwRV95NWdlTW1rU2IweERMQW5qRV930gHPAUFVX3lxTE1LeDJwUnVLRTgwQ3Q2M0FNN1I0blluUnJ6LXdoUXVVZ3BmSGZQODFJRVJyYzFZbUw0N1ZqZ0Q1RFVrYjkwR0N2Tmd1ckdTdUdMTHV3SkNwVC12eGlJTHdUYWtUUHBIeVJ3c0xNMnk4ek9UTmpNYlFPRkVrZWdOcHYtTEp5Sy1oLVdLamZ1emF1ckJmaUF0djdpR0hMbGxoNHRHVnd6TTdtalVUM1k0Z3ZfZHIyZjNYM3R4NW9lOHZ5cU5lY3JHbVBSLUI5N0hKVQ?oc=5\" target=\"_blank\">India's prized Alphonso mango crop ruined by weather</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Economic Times</font>"
+        }
+      ]
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "India sugar ending stocks consumption ratio July 26 2026",
+      "request_status": "skipped",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "reason": "RSS autogeneration query budget reached; daily job will continue with retained verified candidates."
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "Indonesia sugar industry July 26 2026",
+      "request_status": "executed",
+      "returned_count": 21,
+      "retained_count": 1,
+      "filtered": [
+        {
+          "title": "Indonesia’s tobacco industry protests plan to toughen rules - whbl.com",
+          "reason": "publication date is not target date",
+          "published": "Thu, 23 Jul 2026 08:15:24 GMT"
+        },
+        {
+          "title": "Top Events & Festivals in Philadelphia: A Season-by-Season Guide for Summer 2026 & Beyond - Visit Philadelphia",
+          "reason": "publication date is not target date",
+          "published": "Fri, 03 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Hunting for Berries in the Ural Mountain Forests - Kompas.id",
+          "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"
+        },
+        {
+          "title": "Shrinking 2026/27 Surplus Meets Rising El Niño Risk - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Mon, 20 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Human Rights Council side event will highlight Indonesia - World Council of Churches",
+          "reason": "publication date is not target date",
+          "published": "Thu, 26 Feb 2026 15:21:47 GMT"
+        },
+        {
+          "title": "FAO Food Price Index rises in March as Near East conflict raises energy costs - Food and Agriculture Organization",
+          "reason": "publication date is not target date",
+          "published": "Fri, 03 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "South Africa urged to fast-track sugar import protection after Tongaat Hulett rescue - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Fri, 26 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "How Indonesia plans to prevent blackouts through energy security - ANTARA News",
+          "reason": "publication date is not target date",
+          "published": "Fri, 17 Jul 2026 11:39:41 GMT"
+        },
+        {
+          "title": "Washington Apples Marks 35 Years in Indonesia, Targeting Continued Growth Amid Healthy Living Trends - The Manila Times",
+          "reason": "publication date is not target date",
+          "published": "Fri, 26 Jun 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "Pakistan sugar industry July 26 2026",
+      "request_status": "executed",
+      "returned_count": 72,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Moving beyond cane prices - Dawn",
+          "reason": "publication date is not target date",
+          "published": "Mon, 20 Jul 2026 05:37:19 GMT"
+        },
+        {
+          "title": "Work underway rapidly on FBR reforms, cashless economy: Finance minister - The Nation (Pakistan )",
+          "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"
+        },
+        {
+          "title": "Sugar Sharply Higher on the Outlook for Global Deficits - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Wed, 13 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Mixed Progress Across Northern Hemisphere Cane Crops - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Fri, 27 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Govt keeps petrol, diesel prices unchanged for July 26-27 - Business Recorder",
+          "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"
+        },
+        {
+          "title": "Mills demand sugar export - The Express Tribune",
+          "reason": "publication date is not target date",
+          "published": "Thu, 09 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Pakistan eyes major sugar export gains as global prices rise - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Thu, 26 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "ISO reduced the forecast for the world sugar balance surplus in MY 2025/26 - UkrAgroConsult",
+          "reason": "publication date is not target date",
+          "published": "Mon, 09 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Prices Slide as India Ramps Up Sugar Output - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Thu, 02 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Big industry output grows 11.09% YoY in March 2026 - Mettis Global",
+          "reason": "publication date is not target date",
+          "published": "Tue, 05 May 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "Philippines sugar industry July 26 2026",
+      "request_status": "executed",
+      "returned_count": 56,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Nobody can live on P179 a day - The Manila Times",
+          "reason": "publication date is not target date",
+          "published": "Sun, 26 Jul 2026 16:15:09 GMT"
+        },
+        {
+          "title": "Top Events & Festivals in Philadelphia: A Season-by-Season Guide for Summer 2026 & Beyond - Visit Philadelphia",
+          "reason": "publication date is not target date",
+          "published": "Fri, 03 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Bianca de Vera, Dustin Yu promise surprises at 'DustBia Love, Actually' concert - ABS-CBN",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 11:50:33 GMT"
+        },
+        {
+          "title": "DTI National Exporters’ Fair runs until July 26 - BusinessMirror",
+          "reason": "publication date is not target date",
+          "published": "Fri, 24 Jul 2026 07:53:37 GMT"
+        },
+        {
+          "title": "NACUSIP demands audit of SRA’s ₱206.4-M RSSI fund, seeks congressional probe, Malacañang intervention on sugar industry crisis - Digicast Negros",
+          "reason": "publication date is not target date",
+          "published": "Fri, 26 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Strengthened RSSI task force pushed to combat sugarcane pest in Negros - pna.gov.ph",
+          "reason": "publication date is not target date",
+          "published": "Mon, 29 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugarcane pest attacks other crops in Negros - Inquirer.net",
+          "reason": "publication date is not target date",
+          "published": "Fri, 26 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "KARAPATAN: Stop torture, free all political prisoners! - Karapatan",
+          "reason": "publication date is not target date",
+          "published": "Fri, 26 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "South Africa urged to fast-track sugar import protection after Tongaat Hulett rescue - ChiniMandi",
+          "reason": "publication date is not target date",
+          "published": "Fri, 26 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Dwarikesh Sugar Industries reports FY26 revenue of ₹1,402 crore - scanx.trade",
+          "reason": "publication date is not target date",
+          "published": "Sat, 11 Jul 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "Vietnam sugar industry July 26 2026",
+      "request_status": "executed",
+      "returned_count": 29,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "High production costs make Nigerian factories uncompetitive — NSDC boss - Punch Newspapers",
+          "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"
+        },
+        {
+          "title": "Stress hormones can raise your blood sugar: Here's how your mind and body are more connected than you thi - The Times of India",
+          "reason": "medical blood-sugar/glucose/diabetes context, not sugar industry"
+        },
+        {
+          "title": "Nigeria Must Compete For African Market Or Lose It, Says NSDC - MarketForces Africa",
+          "reason": "publication date is not target date",
+          "published": "Sun, 26 Jul 2026 16:05:35 GMT"
+        },
+        {
+          "title": "Vietnam property market splits as high mortgage rates squeeze homebuyers - Theinvestor",
+          "reason": "publication date is not target date",
+          "published": "Thu, 23 Jul 2026 02:26:50 GMT"
+        },
+        {
+          "title": "Top Events & Festivals in Philadelphia: A Season-by-Season Guide for Summer 2026 & Beyond - Visit Philadelphia",
+          "reason": "publication date is not target date",
+          "published": "Fri, 03 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Rescuers scour South China Sea for 23 missing after Vietnamese vessel sinks - Business Recorder",
+          "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"
+        },
+        {
+          "title": "23 missing after Vietnamese cargo ship sinks in South China Sea - Times Kuwait",
+          "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"
+        },
+        {
+          "title": "Leftovers: Dolly Parton pours into coffee | Eggo launches first zero-sugar waffle - Food Dive",
+          "reason": "publication date is not target date",
+          "published": "Fri, 26 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Vietnam’s Special Consumption Tax Regime in 2026: Key Compliance Highlights - Vietnam Briefing",
+          "reason": "publication date is not target date",
+          "published": "Mon, 11 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Top 11 Things to Do with Kids in Houston This Week: May 18 to 24, 2026 - 365 Things to Do in Houston",
+          "reason": "publication date is not target date",
+          "published": "Mon, 18 May 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "Russia sugar beet sugar July 26 2026",
+      "request_status": "executed",
+      "returned_count": 19,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Full transcript of \"Face the Nation with Margaret Brennan,\" July 26, 2026 - CBS News",
+          "reason": "publication date is not target date",
+          "published": "Sun, 26 Jul 2026 17:51:00 GMT"
+        },
+        {
+          "title": "2 dead in Ukraine from Russian attacks, 4 more in Russian-held area hit by Ukrainian drones - Ottumwa Courier",
+          "reason": "publication date is not target date",
+          "published": "Sun, 26 Jul 2026 18:09:28 GMT"
+        },
+        {
+          "title": "Why are World Sugar Futures Stuck in Neutral? - Barchart.com",
+          "reason": "publication date is not target date",
+          "published": "Thu, 16 Jul 2026 19:00:02 GMT"
+        },
+        {
+          "title": "22/07/26 Sugar beet factory closing, new Defra secretaryfarm fires, , oil seed rape harvest, hill farming in Wales - BBC",
+          "reason": "publication date is not target date",
+          "published": "Wed, 22 Jul 2026 13:47:19 GMT"
+        },
+        {
+          "title": "Ukraine’s Sugar Production Drops 26% Amid EU Trade Restrictions - Kyiv Post",
+          "reason": "publication date is not target date",
+          "published": "Mon, 06 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "El Niño Risk Still Threatens 2026/27 Sugar Surplus - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Tue, 19 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Russia wants to bring in 30,000 North Korean troops - FBC News",
+          "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"
+        },
+        {
+          "title": "Sugar Beet Acreage Declines Due to Low Sugar Prices, Weather Challenges, and Lack of Processing Plants - AgroPortal.ua",
+          "reason": "publication date is not target date",
+          "published": "Sun, 14 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Cost of Production Across the World - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Mon, 08 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Grain production in Ukraie increased by 8.2% in 2025 – Statistics Service - Interfax-Ukraine",
+          "reason": "publication date is not target date",
+          "published": "Fri, 24 Apr 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "Cameroon sugar industry July 26 2026",
+      "request_status": "executed",
+      "returned_count": 7,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Cameroon's sugar imports have almost tripled in five years despite import‑substitution strategy - Capmad",
+          "reason": "publication date is not target date",
+          "published": "Tue, 21 Jul 2026 02:00:00 GMT"
+        },
+        {
+          "title": "Cameroon • State throws Castel's Sosucam sale into doubt - 30/06/2026 - Africa Intelligence",
+          "reason": "publication date is not target date",
+          "published": "Tue, 30 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "World Trade Organization 14th Ministerial Conference (MC14), 26–29 March 2026: FAO Trade Policy Briefs - Food and Agriculture Organization",
+          "reason": "publication date is not target date",
+          "published": "Sun, 29 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sosucam’s Protection Push Faces Structural Weaknesses in Cameroon’s Sugar Sector - Business in Cameroon",
+          "reason": "publication date is not target date",
+          "published": "Sun, 16 Nov 2025 08:00:00 GMT"
+        },
+        {
+          "title": "India to pitch for strengthening WTO at upcoming ministerial: Officials - The Economic Times",
+          "reason": "publication date is not target date",
+          "published": "Thu, 19 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Cameroon: the State withdraws from the Justin Sugar Mills project in Batouri - Business in Cameroon",
+          "reason": "publication date is not target date",
+          "published": "Thu, 07 Jan 2016 08:00:00 GMT"
+        },
+        {
+          "title": "Cameroon cocoa farmgate prices hit 2025/26 season high - Food Business Middle East & Africa",
+          "reason": "publication date is not target date",
+          "published": "Wed, 01 Jul 2026 12:45:37 GMT"
+        }
+      ]
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "EU sugar beet production July 26 2026",
+      "request_status": "executed",
+      "returned_count": 28,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Sugar No. 11 Futures (May 2027) Trade Ideas — ICEUS:SBK2027 - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Mon, 20 Jul 2026 22:32:05 GMT"
+        },
+        {
+          "title": "How are heatwaves impacting veg growers across Europe? - Agriland UK",
+          "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"
+        },
+        {
+          "title": "EU agricultural markets remain robust despite uncertainties and rising input costs - PubAffairs Bruxelles",
+          "reason": "publication date is not target date",
+          "published": "Mon, 06 Jul 2026 13:17:24 GMT"
+        },
+        {
+          "title": "El Niño Risk Still Threatens 2026/27 Sugar Surplus - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Tue, 19 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "US Sugar Trade Stalls as Crop Risks Mount for 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 13 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Blood, Sweat, and Sugar - DW.com",
+          "reason": "publication date is not target date",
+          "published": "Thu, 26 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "The Beet Brief: EU processors to cut area to tackle over-supply - NFUonline",
+          "reason": "publication date is not target date",
+          "published": "Fri, 21 Nov 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Sugar Beet Acreage Declines Due to Low Sugar Prices, Weather Challenges, and Lack of Processing Plants - AgroPortal.ua",
+          "reason": "publication date is not target date",
+          "published": "Sun, 14 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Total sugar consumption worldwide from 2000/01 to 2025/26 - Statista",
+          "reason": "publication date is not target date",
+          "published": "Tue, 19 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Emergency farming law: reintroduction of two banned pesticides splits political parties - AOL.co.uk",
+          "reason": "publication date is not target date",
+          "published": "Mon, 20 Jul 2026 16:47:37 GMT"
+        }
+      ]
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "United States sugar beet cane July 26 2026",
+      "request_status": "executed",
+      "returned_count": 47,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "Sugar No. 11 Futures (May 2027) Trade Ideas — ICEUS:SBK2027 - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Mon, 20 Jul 2026 22:32:05 GMT"
+        },
+        {
+          "title": "US Cash Sugar Market Steady as USDA Revises 2025–26 Outlook - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Tue, 14 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar Producers Sound Alarm Over Unfair Trade Losses - Western Ag Network",
+          "reason": "publication date is not target date",
+          "published": "Tue, 26 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Trump Administration Announces $12 Billion Farmer Bridge Payments for American Farmers Impacted by Unfair Market Disruptions - USDA (.gov)",
+          "reason": "publication date is not target date",
+          "published": "Mon, 08 Dec 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Sugar imports to the U.S. 2000/01-2025/26 - Statista",
+          "reason": "publication date is not target date",
+          "published": "Mon, 23 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Weather Cuts US Sugar Production Outlook, Market Remains Quiet - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Tue, 17 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "The Beet Brief: Sugar prices stuck in a rut - NFUonline",
+          "reason": "publication date is not target date",
+          "published": "Fri, 19 Dec 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Momentum Slowly Returns to US Sugar Market - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Thu, 28 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Total sugar consumption worldwide from 2000/01 to 2025/26 - Statista",
+          "reason": "publication date is not target date",
+          "published": "Tue, 19 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "US Sugar Market Quiet Despite Storm Fern Hitting Key Regions - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Tue, 03 Feb 2026 08:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "Mexico sugar production export July 26 2026",
+      "request_status": "executed",
+      "returned_count": 22,
+      "retained_count": 0,
+      "filtered": [
+        {
+          "title": "USDA Exports: Unknown buys soybeans, July 24, 2026 - Farm Progress",
+          "reason": "publication date is not target date",
+          "published": "Fri, 24 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sugar No. 11 Futures (May 2027) Trade Ideas — ICEUS:SBK2027 - TradingView",
+          "reason": "publication date is not target date",
+          "published": "Mon, 20 Jul 2026 22:32:05 GMT"
+        },
+        {
+          "title": "Farm Futures morning grain market analysis - Farm Progress",
+          "reason": "publication date is not target date",
+          "published": "Fri, 24 Jul 2026 07:00:00 GMT"
+        },
+        {
+          "title": "USDA raises 2026-27 sugar production - Baking Business",
+          "reason": "publication date is not target date",
+          "published": "Wed, 17 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "US Cash Sugar Market Steady as USDA Revises 2025–26 Outlook - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Tue, 14 Apr 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Stronger Thailand Sugar Exports Pressure Prices - Barchart.com",
+          "reason": "publication date is not target date",
+          "published": "Fri, 22 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Global Economics Intelligence executive summary (May 2026) - McKinsey & Company",
+          "reason": "publication date is not target date",
+          "published": "Mon, 29 Jun 2026 07:00:00 GMT"
+        },
+        {
+          "title": "India: Sugar vs Ethanol? 20th May 2026 - czapp.com",
+          "reason": "publication date is not target date",
+          "published": "Wed, 20 May 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Jamieson Greer Urges Efforts to Boost North America’s Productive Competitiveness - Opportimes",
+          "reason": "publication date is not target date",
+          "published": "Thu, 23 Apr 2026 20:01:02 GMT"
+        },
+        {
+          "title": "Sugar Prices Fall on Today's Plunge in Crude Oil Prices - Barchart.com",
+          "reason": "publication date is not target date",
+          "published": "Tue, 10 Mar 2026 07:00:00 GMT"
+        }
+      ]
+    },
+    {
+      "fixed_step": "China sugar daily priority monitoring",
+      "target_date": "2026-07-26",
+      "status": "added_monitoring_note",
+      "retained_count": 1,
+      "reason": "China search completed without a publishable event; added a transparent monitoring result instead of omitting the country."
+    },
+    {
+      "fixed_step": "Thai main sugarcane area rainfall check",
+      "target_date": "2026-07-26",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "status": "added",
+      "country": "泰国",
+      "language": "en",
+      "keywords": "TMD daily forecast Thailand main sugarcane provinces rainfall",
+      "request_status": "executed",
+      "returned_count": 1,
+      "retained_count": 1,
+      "filtered": []
+    }
+  ],
+  "pipeline_counts": {
+    "structured_data_count": 5,
+    "passed_to_excel": 5
+  }
+}
