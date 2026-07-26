@@ -98,13 +98,15 @@ def test_china_daily_monitoring_skill_and_templates() -> None:
 def test_brazil_metrics_daily_refresh_skill_and_workflow() -> None:
     skill = (PROJECT_ROOT / ".codex" / "skills" / "sugar-news-editorial-rules" / "SKILL.md").read_text(encoding="utf-8")
     assert "巴西糖价与库存每日刷新" in skill
-    assert "refresh_brazil_metrics" in skill
+    assert "brazil_sugar_metrics.py" in skill
     assert "Vercel" in skill
 
     workflow = (PROJECT_ROOT / ".github" / "workflows" / "sugar-news.yml").read_text(encoding="utf-8")
     pipeline_lines = [line for line in workflow.splitlines() if "scripts/sugar_news_pipeline.py" in line]
     assert pipeline_lines
-    assert all("--skip-metric-refresh" not in line for line in pipeline_lines)
+    assert "scripts/brazil_sugar_metrics.py --date" in workflow
+    assert "scripts/india_sugar_metrics.py --date" in workflow
+    assert "--skip-metric-refresh" in "\n".join(pipeline_lines)
     assert "set -euo pipefail" in workflow
     assert 'SUGAR_NEWS_METRIC_REFRESH_TIMEOUT: "300"' in workflow
 

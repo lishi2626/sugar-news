@@ -59,8 +59,8 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
 
-      - name: Build Sugar News Excel and dashboard data
-        id: build
+      - name: Determine target date
+        id: target
         shell: bash
         run: |
           set -euo pipefail
@@ -76,7 +76,29 @@ jobs:
             echo "target_date=$TARGET_DATE"
             echo "timezone=Asia/Shanghai"
           } > "$SUGAR_NEWS_LOG_DIR/run.env"
-          python scripts/sugar_news_pipeline.py --date "$TARGET_DATE" --skip-if-success --allow-rss-autogen 2>&1 | tee "$SUGAR_NEWS_LOG_DIR/pipeline.log"
+
+      - name: Refresh Brazil dashboard metrics
+        shell: bash
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          timeout "${SUGAR_NEWS_METRIC_REFRESH_TIMEOUT}s" python scripts/brazil_sugar_metrics.py --date "${{ steps.target.outputs.target_date }}" 2>&1 | tee "$SUGAR_NEWS_LOG_DIR/brazil-metrics.log"
+
+      - name: Refresh India dashboard metrics
+        shell: bash
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          timeout "${SUGAR_NEWS_METRIC_REFRESH_TIMEOUT}s" python scripts/india_sugar_metrics.py --date "${{ steps.target.outputs.target_date }}" 2>&1 | tee "$SUGAR_NEWS_LOG_DIR/india-metrics.log"
+
+      - name: Build Sugar News Excel and dashboard data
+        id: build
+        shell: bash
+        run: |
+          set -euo pipefail
+          TARGET_DATE="${{ steps.target.outputs.target_date }}"
+          echo "target_date=$TARGET_DATE" >> "$GITHUB_OUTPUT"
+          python scripts/sugar_news_pipeline.py --date "$TARGET_DATE" --skip-if-success --allow-rss-autogen --skip-metric-refresh 2>&1 | tee "$SUGAR_NEWS_LOG_DIR/pipeline.log"
 
       - name: Verify local dashboard data
         shell: bash

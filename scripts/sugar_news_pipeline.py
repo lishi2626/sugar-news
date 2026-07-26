@@ -106,7 +106,7 @@ def load_editorial_skill_metadata() -> dict:
         "country_assignment": ("Country Assignment", "Indonesia"),
         "medical_filter": ("blood sugar", "血糖"),
         "china_daily_monitoring": ("中国糖业新闻每日重点监测", "食糖进口", "郑糖", "糖料产区"),
-        "brazil_metrics_daily": ("巴西糖价与库存每日刷新", "refresh_brazil_metrics", "Vercel"),
+        "brazil_metrics_daily": ("巴西糖价与库存每日刷新", "brazil_sugar_metrics.py", "Vercel"),
         "pre_publish": ("Pre-Publish Quality Checks", "Stop publication"),
     }
     missing = [

@@ -169,7 +169,7 @@ Pre-publication logs must show that China search was completed, including query 
 
 ## 巴西糖价与库存每日刷新
 
-The daily Sugar News task must refresh the `巴西糖价与库存` dashboard before writing the dashboard JSON and before Vercel production deployment. The normal 06:00 Beijing-time GitHub Actions run must call `scripts/sugar_news_pipeline.py` without `--skip-metric-refresh`, so `refresh_brazil_metrics(date_text)` executes every day.
+The daily Sugar News task must refresh the `巴西糖价与库存` dashboard before writing the dashboard JSON and before Vercel production deployment. The normal 06:00 Beijing-time GitHub Actions run must execute `scripts/brazil_sugar_metrics.py --date "$TARGET_DATE"` as its own metrics step before calling `scripts/sugar_news_pipeline.py`. The pipeline may then use `--skip-metric-refresh` only to avoid duplicate in-process refresh, because the Brazil refresh has already been attempted and its latest successful snapshot is available to the dashboard builder.
 
 The Brazil dashboard refresh covers the existing dynamic modules only:
 
@@ -181,7 +181,7 @@ For Brazil sugar import premium/discount, the fixed HiSugar entry is `https://ww
 
 The refresh must keep using the existing fixed sources, parsing rules, data-date rules, and calculation logic. Do not use deployment time, crawl time, or Vercel build time as the data date. If a source has not published a newer report, keep the latest successful data and preserve its true data date.
 
-After Brazil metrics refresh, the generated dashboard JSON, Excel/report artifacts, Git commit, GitHub push, and Vercel production deployment must all use the same refreshed Brazil metric snapshot. The task log must record `brazil_metrics_refresh` status. If the normal daily run skips Brazil metrics, treat it as a pipeline error; `--skip-metric-refresh` is allowed only for explicit news-only repairs requested by the user.
+After Brazil metrics refresh, the generated dashboard JSON, Excel/report artifacts, Git commit, GitHub push, and Vercel production deployment must all use the same refreshed Brazil metric snapshot or, when a source fails, the last successful snapshot with a clear failure log. If the normal daily run does not execute the standalone Brazil metrics step before page generation, treat it as a workflow error.
 
 ## Pre-Publish Quality Checks
 
