@@ -1,6 +1,6 @@
 {
   "newsDate": "2026-07-26",
-  "updatedAt": "2026-07-27T10:28:03+08:00",
+  "updatedAt": "2026-07-27T10:40:59+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/07/Sugar News 2026-07-26.xlsx",
   "brazilMetrics": {
@@ -425,7 +425,7 @@
   "indiaMetrics": {
     "title": "印度糖价",
     "dataDate": "2026-07-26",
-    "updatedAt": "2026-07-27T10:17:00+08:00",
+    "updatedAt": "2026-07-27T10:40:59+08:00",
     "sourceStatus": "dynamic_fetch",
     "domesticWholesalePrice": {
       "metricType": "domesticWholesalePrice",
@@ -740,7 +740,7 @@
       "metricType": "carryoverStock",
       "status": "pending",
       "statusText": "等待权威来源更新",
-      "fetchedAt": "2026-07-27T10:17:00+08:00",
+      "fetchedAt": "2026-07-27T10:40:59+08:00",
       "note": "未获取到已完成日期、口径和来源核验的可靠数据；不编造价格或库存。",
       "dataDate": null,
       "stockWanTonnes": null
@@ -1234,8 +1234,8 @@
           "news": "Banco do Nordeste旗下ETENE预计，巴西东北部2026/27榨季甘蔗产量将增长3.7%，其中种植面积增加1.3%、单产提高2.3%；区域糖产量预计达到363万吨，同比增加10.3%。甘蔗供应和制糖产出同步增长将增加巴西可用糖源，对糖价形成利空影响。",
           "impactType": "利空",
           "impact": "巴西东北部甘蔗和食糖产量预期增加，将扩大区域糖源供应并对糖价形成压力。",
-          "sourceName": "Banco do Nordeste",
-          "sourceUrl": "https://www.bnb.gov.br/web/guest/imprensa/noticias/-/asset_publisher/QGdgGhxvRtMv/content/produ%C3%A7%C3%A3o-de-a%C3%A7%C3%BAcar-no-nordeste-deve-se-recuperar-com-mais-oferta-de-cana-e-avan%C3%A7o-tecnol%C3%B3gico-no-campo/44540",
+          "sourceName": "Jornal Grande Bahia",
+          "sourceUrl": "https://jornalgrandebahia.com.br/2026/07/producao-de-acucar-no-nordeste-deve-crescer-103-na-safra-2026-2027-com-mais-oferta-de-cana-e-avanco-tecnologico-aponta-estudo-do-banco-do-nordeste/",
           "publishedDateLocal": "2026-07-26",
           "eventDate": "2026-07-26"
         }
