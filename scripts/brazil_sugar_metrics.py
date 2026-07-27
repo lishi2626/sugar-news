@@ -205,18 +205,22 @@ def parse_local_datetime(value: str | None) -> datetime | None:
         return None
 
 
-def premium_publication_cutoff(target_date: str) -> datetime:
+def premium_publication_cutoff(target_date: str, as_of: datetime | None = None) -> datetime:
     target = datetime.fromisoformat(target_date).date()
-    return datetime(target.year, target.month, target.day, 6, 0, tzinfo=SHANGHAI) + timedelta(days=1)
+    scheduled_cutoff = datetime(target.year, target.month, target.day, 6, 0, tzinfo=SHANGHAI) + timedelta(days=1)
+    current_cutoff = as_of or beijing_now()
+    if current_cutoff.tzinfo is None:
+        current_cutoff = current_cutoff.replace(tzinfo=SHANGHAI)
+    return max(scheduled_cutoff, current_cutoff.astimezone(SHANGHAI))
 
 
-def article_available_for_target(article: dict, target_date: str) -> bool:
+def article_available_for_target(article: dict, target_date: str, as_of: datetime | None = None) -> bool:
     title_date = article.get("title_date")
     if not title_date or title_date > target_date:
         return False
     published_at = parse_local_datetime(article.get("article_published_at"))
     if published_at:
-        return published_at <= premium_publication_cutoff(target_date)
+        return published_at <= premium_publication_cutoff(target_date, as_of)
     return title_date < target_date
 
 
@@ -327,18 +331,59 @@ def run_tesseract_ocr(image_path: Path) -> str | None:
     exe = shutil.which("tesseract")
     if not exe:
         return None
-    for lang in ("chi_sim+eng", "eng"):
-        result = subprocess.run(
-            [exe, str(image_path), "stdout", "-l", lang, "--psm", "6"],
-            text=True,
-            capture_output=True,
-            timeout=45,
-            encoding="utf-8",
-            errors="ignore",
-        )
-        if result.returncode == 0 and result.stdout.strip():
-            return result.stdout
-    return None
+    variants = [image_path]
+    processed_path: Path | None = None
+    try:
+        try:
+            from PIL import Image, ImageOps
+
+            with Image.open(image_path) as image:
+                grayscale = ImageOps.grayscale(image)
+                enlarged = grayscale.resize((grayscale.width * 3, grayscale.height * 3))
+                thresholded = enlarged.point(lambda value: 255 if value > 180 else 0)
+                with NamedTemporaryFile("wb", delete=False, suffix=".png") as tmp:
+                    processed_path = Path(tmp.name)
+                thresholded.save(processed_path)
+                variants.insert(0, processed_path)
+        except (ImportError, OSError):
+            pass
+
+        candidates = []
+        for variant in variants:
+            for lang in ("chi_sim+eng", "eng"):
+                for psm in ("6", "11", "12"):
+                    result = subprocess.run(
+                        [
+                            exe,
+                            str(variant),
+                            "stdout",
+                            "-l",
+                            lang,
+                            "--psm",
+                            psm,
+                            "-c",
+                            "user_defined_dpi=300",
+                        ],
+                        text=True,
+                        capture_output=True,
+                        timeout=45,
+                        encoding="utf-8",
+                        errors="ignore",
+                    )
+                    text = result.stdout.strip()
+                    if result.returncode == 0 and text:
+                        compact = re.sub(r"\s+", "", normalize_ocr_text(text))
+                        score = len(re.findall(r"20\d{6}", compact)) * 20
+                        score += 100 if "进口升贴水" in compact else 0
+                        score += len(re.findall(r"[-.]\s*0\s*[-.]\s*\d{1,3}", compact)) * 10
+                        candidates.append((score, len(text), text))
+        return max(candidates, default=(0, 0, None))[2]
+    finally:
+        if processed_path:
+            try:
+                processed_path.unlink()
+            except OSError:
+                pass
 
 
 def run_windows_ocr(image_path: Path) -> str | None:
@@ -466,10 +511,6 @@ def parse_hisugar_noisy_ocr_rows(text: str, article: dict, image_url: str, backe
     values = premium_values_from_noisy_ocr(text)
     if not dates or not values:
         return []
-    # Windows OCR often reads the first date column after the remaining columns in this wide table.
-    if len(values) == len(dates) and article.get("title_date") == f"{dates[-1][:4]}-{dates[-1][4:6]}-{dates[-1][6:8]}":
-        if len(values) > 1 and values[-1] != values[-2]:
-            values = [values[-1], *values[:-1]]
     rows = []
     if len(values) >= len(dates):
         for raw_date, value in zip(dates[-len(values):], values[-len(dates):]):
@@ -588,7 +629,7 @@ def discover_premium(target_date: str) -> tuple[dict | None, list[dict]]:
         "targetDate": target_date,
         "publicationCutoff": premium_publication_cutoff(target_date).isoformat(timespec="seconds"),
         "selectedTitleDates": [article.get("title_date") for article in recent_articles],
-        "reason": "Use newest report row available by the normal 06:00 Beijing-time Sugar News generation window.",
+        "reason": "Use the newest report row on or before the Sugar News date that is available by this refresh run, including validated late-published reports.",
     })
     for article in recent_articles:
         rows, row_logs = rows_from_hisugar_article(article)
@@ -1245,7 +1286,7 @@ def build_snapshot(
     }
 
 
-def collect(target_date: str) -> dict:
+def collect(target_date: str, premium_only: bool = False) -> dict:
     history = load_history()
     previous_snapshot = load_latest_snapshot()
     logs: list[dict] = []
@@ -1256,15 +1297,16 @@ def collect(target_date: str) -> dict:
     if premium:
         records.append(premium)
 
-    sugar_stock, sugar_logs = find_mapa_sugar_stock()
-    logs.extend(sugar_logs)
-    if sugar_stock:
-        records.append(sugar_stock)
+    if not premium_only:
+        sugar_stock, sugar_logs = find_mapa_sugar_stock()
+        logs.extend(sugar_logs)
+        if sugar_stock:
+            records.append(sugar_stock)
 
-    ethanol_stock, ethanol_logs = find_mapa_hydrous_ethanol_stock()
-    logs.extend(ethanol_logs)
-    if ethanol_stock:
-        records.append(ethanol_stock)
+        ethanol_stock, ethanol_logs = find_mapa_hydrous_ethanol_stock()
+        logs.extend(ethanol_logs)
+        if ethanol_stock:
+            records.append(ethanol_stock)
 
     if records:
         history = upsert_records(history, records)
@@ -1278,8 +1320,13 @@ def collect(target_date: str) -> dict:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Fetch Brazil sugar premium and stock metrics.")
     parser.add_argument("--date", required=True)
+    parser.add_argument(
+        "--premium-only",
+        action="store_true",
+        help="Refresh only the HiSugar import premium and retain the existing stock metrics.",
+    )
     args = parser.parse_args()
-    print(json.dumps(collect(args.date), ensure_ascii=False, indent=2))
+    print(json.dumps(collect(args.date, premium_only=args.premium_only), ensure_ascii=False, indent=2))
     return 0
 
 

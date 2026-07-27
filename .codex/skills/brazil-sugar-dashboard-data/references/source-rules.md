@@ -13,7 +13,7 @@ https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap
 Required process:
 
 1. Open the list and its public article-list interface, then discover candidate articles titled like `YYYYMMDD食糖进口成本及利润估算`.
-2. Open candidate articles and parse the report's internal data date. Select the newest valid row available by the normal next-day 06:00 Beijing-time Sugar News generation window, not by page order alone and not by crawl time.
+2. Open candidate articles and parse the report's internal data date. At 06:00 Beijing time, select the newest valid row then available. Run a Brazil-only late refresh at 10:00 Beijing time to capture reports published after 06:00; a late report is eligible when its internal row date is on or before the Sugar News report date.
 3. Extract the `进口升贴水` value and unit from the selected report.
 4. Normalize the displayed unit to `美分/磅`.
 5. Find the previous valid data day from the same Hisugar source for daily change.
@@ -25,7 +25,7 @@ Forbidden substitutes:
 - News inference, third-party reposts, search snippets, or model-estimated values.
 - Fixed article IDs or fixed example values.
 - Article publish date, web page current date, crawler time, or Vercel deployment time as data date.
-- Same-day HiSugar article published after the normal 06:00 generation cutoff for that Sugar News report.
+- A report row dated after the Sugar News report date, even if its article is already public.
 
 Validation-only example, never a fallback:
 

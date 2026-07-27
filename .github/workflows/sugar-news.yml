@@ -32,6 +32,7 @@ concurrency:
 
 jobs:
   build-sugar-news:
+    if: github.event_name != 'push' || !contains(github.event.head_commit.message, '[brazil-only]')
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:

@@ -1,0 +1,98 @@
+name: Brazil Dashboard Late Refresh
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Existing Sugar News date YYYY-MM-DD. Leave blank for Beijing yesterday."
+        required: false
+        type: string
+  schedule:
+    # Beijing 10:00. This catches HiSugar reports published after the normal 06:00 run.
+    - cron: "0 2 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sugar-news-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh-brazil-dashboard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      TZ: Asia/Shanghai
+      SUGAR_NEWS_BASE_URL: ${{ vars.SUGAR_NEWS_BASE_URL }}
+      REQUESTED_DATE: ${{ github.event.inputs.date }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install OCR tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tesseract-ocr tesseract-ocr-chi-sim
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Determine target date
+        id: target
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "$REQUESTED_DATE" ]; then
+            TARGET_DATE="$REQUESTED_DATE"
+          else
+            TARGET_DATE="$(python scripts/sugar_news_target_date.py)"
+          fi
+          echo "target_date=$TARGET_DATE" >> "$GITHUB_OUTPUT"
+
+      - name: Refresh Brazil metrics only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/brazil_sugar_metrics.py --date "${{ steps.target.outputs.target_date }}" --premium-only
+          python scripts/refresh_brazil_dashboard_report.py --date "${{ steps.target.outputs.target_date }}"
+
+      - name: Verify dashboard
+        shell: bash
+        run: python scripts/verify_sugar_news_dashboard.py --date "${{ steps.target.outputs.target_date }}"
+
+      - name: Commit and push Brazil dashboard update
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/sugar-news/data/brazil_metrics public/sugar-news/data/reports public/sugar-news/data/index.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh Brazil dashboard ${{ steps.target.outputs.target_date }}"
+            git push
+          fi
+
+      - name: Deploy to Vercel production
+        shell: bash
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          set -euo pipefail
+          if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
+            echo "Vercel secrets are not configured; relying on Git-linked deployment."
+            exit 0
+          fi
+          npm --yes exec vercel@latest -- deploy --prod --yes --token "$VERCEL_TOKEN"
+
+      - name: Verify Vercel Sugar News page
+        if: ${{ env.SUGAR_NEWS_BASE_URL != '' }}
+        shell: bash
+        run: python scripts/sugar_news_online_verify_retry.py --date "${{ steps.target.outputs.target_date }}" --base-url "$SUGAR_NEWS_BASE_URL"

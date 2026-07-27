@@ -4,6 +4,20 @@
   "search_tool": "Google News RSS autogeneration",
   "items": [
     {
+      "country_group": "巴西",
+      "country": "巴西",
+      "title": "巴西东北部2026/27榨季糖产量预计增长10.3%",
+      "news": "Banco do Nordeste旗下ETENE预计，巴西东北部2026/27榨季甘蔗产量将增长3.7%，其中种植面积增加1.3%、单产提高2.3%；区域糖产量预计达到363万吨，同比增加10.3%。甘蔗供应和制糖产出同步增长将增加巴西可用糖源，对糖价形成利空影响。来源：Banco do Nordeste（https://www.bnb.gov.br/web/guest/imprensa/noticias/-/asset_publisher/QGdgGhxvRtMv/content/produ%C3%A7%C3%A3o-de-a%C3%A7%C3%BAcar-no-nordeste-deve-se-recuperar-com-mais-oferta-de-cana-e-avan%C3%A7o-tecnol%C3%B3gico-no-campo/44540）",
+      "impact": "利空：巴西东北部甘蔗和食糖产量预期增加，将扩大区域糖源供应并对糖价形成压力。",
+      "source_name": "Banco do Nordeste",
+      "source_url": "https://www.bnb.gov.br/web/guest/imprensa/noticias/-/asset_publisher/QGdgGhxvRtMv/content/produ%C3%A7%C3%A3o-de-a%C3%A7%C3%BAcar-no-nordeste-deve-se-recuperar-com-mais-oferta-de-cana-e-avan%C3%A7o-tecnol%C3%B3gico-no-campo/44540",
+      "published_date_local": "2026-07-26",
+      "event_date": "2026-07-26",
+      "date_status": "verified",
+      "dedupe_key": "manual_20260726_brazil_northeast_sugar_output_bnb",
+      "importance": 95
+    },
+    {
       "country_group": "印度",
       "country": "印度",
       "title": "Is It Worth Considering Dwarikesh Sugar Industries Limited (NSE:DWARKESH) For It",

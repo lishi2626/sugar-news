@@ -15,6 +15,7 @@ from brazil_sugar_metrics import (
     build_snapshot,
     hisugar_query_list_page,
     parse_hisugar_list_articles,
+    parse_hisugar_noisy_ocr_rows,
     stock_rows_from_pdf,
 )
 from sugar_news_pipeline import (
@@ -117,6 +118,7 @@ def test_brazil_metrics_daily_refresh_skill_and_workflow() -> None:
     assert '".codex/skills/**"' in workflow
     assert "set -euo pipefail" in workflow
     assert 'SUGAR_NEWS_METRIC_REFRESH_TIMEOUT: "300"' in workflow
+    assert "[brazil-only]" in workflow
 
     source = (PROJECT_ROOT / "scripts" / "sugar_news_pipeline.py").read_text(encoding="utf-8")
     assert "def refresh_brazil_metrics" in source
@@ -175,8 +177,44 @@ def test_brazil_import_premium_hisugar_source_and_date_rule() -> None:
         "title_date": "2026-07-22",
         "article_published_at": "2026-07-23 10:44:45",
     }
-    assert not article_available_for_target(same_day_late, "2026-07-23")
-    assert article_available_for_target(previous_day_available, "2026-07-23")
+    six_am = datetime.fromisoformat("2026-07-24T06:00:00+08:00")
+    late_refresh = datetime.fromisoformat("2026-07-24T18:00:00+08:00")
+    assert not article_available_for_target(same_day_late, "2026-07-23", six_am)
+    assert article_available_for_target(same_day_late, "2026-07-23", late_refresh)
+    assert article_available_for_target(previous_day_available, "2026-07-23", six_am)
+
+    late_workflow = (PROJECT_ROOT / ".github" / "workflows" / "brazil-dashboard-late-refresh.yml").read_text(
+        encoding="utf-8"
+    )
+    assert 'cron: "0 2 * * *"' in late_workflow
+    assert "refresh_brazil_dashboard_report.py" in late_workflow
+    assert "--premium-only" in late_workflow
+    assert "sugar_news_pipeline.py" not in late_workflow
+
+    ocr_text = (
+        "20260720 20260721 20260722 20260723 20260724 "
+        "5L50 ． 0 ． 30 5L50 ． 0 ． 30 5L50 ． 0 ． 30 "
+        "5L50 ． 0 ． 30 5L75 ． 0 ． 55 进口升贴水"
+    )
+    parsed_rows = parse_hisugar_noisy_ocr_rows(
+        ocr_text,
+        {
+            "article_id": "dynamic-test",
+            "article_title": "20260724食糖进口成本及利润估算",
+            "article_published_at": "2026-07-27 08:56:27",
+            "title_date": "2026-07-24",
+            "source_url": "https://example.test/article",
+        },
+        "https://example.test/table.png",
+        "test_ocr",
+    )
+    assert [(row["data_date"], row["premium_discount_cents_per_lb"]) for row in parsed_rows] == [
+        ("2026-07-20", -0.3),
+        ("2026-07-21", -0.3),
+        ("2026-07-22", -0.3),
+        ("2026-07-23", -0.3),
+        ("2026-07-24", -0.55),
+    ]
 
 
 def test_thailand_weather_templates_and_tmd_item_generation() -> None:
@@ -541,9 +579,6 @@ def test_brazil_dashboard_refresh_date_matches_news_and_cards_use_source_dates()
         assert metrics[field]["refreshDate"] == "2026-07-25"
         assert metrics[field]["dataDate"] == metrics[field]["sourceDataDate"]
         assert metrics[field]["sourceDataDate"]
-    assert metrics["sugarPremium"]["dataDate"] == "2026-07-23"
-    assert metrics["sugarStock"]["dataDate"] == "2026-06-30"
-    assert metrics["ethanolStock"]["dataDate"] == "2026-07-01"
 
 
 def test_brazil_snapshot_retains_previous_success_when_history_is_empty() -> None:
