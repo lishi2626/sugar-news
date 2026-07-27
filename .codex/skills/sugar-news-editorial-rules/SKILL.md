@@ -180,7 +180,9 @@ The China column is mandatory in every daily Sugar News report. After all config
 
 The daily Sugar News task must refresh the `巴西糖价与库存` dashboard before writing the dashboard JSON and before Vercel production deployment. The normal 06:00 Beijing-time GitHub Actions run must execute `scripts/brazil_sugar_metrics.py --date "$TARGET_DATE"` as its own metrics step before calling `scripts/sugar_news_pipeline.py`. The pipeline may then use `--skip-metric-refresh` only to avoid a duplicate in-process fetch; it must still consume the workflow-refreshed Brazil and India snapshots and write them into the same target-date report as the refreshed news.
 
-The dashboard-level `抓取日期` is the Sugar News target date passed to the complete refresh run. For example, the `2026-07-25` run displays `抓取日期：2026-07-25` even when a source has not published a newer price row since `2026-07-23`. Each metric card must separately retain and display its true source data/report date. Never replace a source data date with the target date, crawler time, build time, or Vercel deployment time.
+The Brazil dashboard's upper-right `数据日期` represents the daily Sugar News refresh date and must equal the Sugar News publication date. If the Sugar News report date is `2026-07-26`, the upper-right dashboard date must display `2026-07-26`. Do not use crawler timestamp, database update timestamp, or Vercel deployment time there.
+
+Each of the three small Brazil metric cards must separately display its true source/report date. Preserve that date in `sourceDataDate`, set the card's `dataDate` to the same true source date, and store the daily refresh date separately as `refreshDate`. Pre-publication validation must reject a dashboard whose upper-right date differs from `newsDate`, or a metric card whose `dataDate` differs from `sourceDataDate`.
 
 The scheduled run must not exit early merely because a successful report already exists for the target date. Every normal 06:00 Beijing-time run and retry must rebuild the report from the latest validated news plus the latest metric snapshots, then write, commit, push, and deploy that single synchronized state. `--skip-metric-refresh` must never preserve older dashboard blocks. Use `--preserve-existing-metrics` only for an explicitly requested news-only repair.
 
@@ -192,7 +194,19 @@ The Brazil dashboard refresh covers the existing dynamic modules only:
 
 For Brazil sugar import premium/discount, the fixed HiSugar entry is `https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap0`. The refresh must discover the article titled like `YYYYMMDD食糖进口成本及利润估算`, open the article, and extract the `进口升贴水` value from the report image/table. Select the newest valid internal row/report date available by the normal next-day 06:00 Beijing-time generation window; for example, if a `20260723` article is published after that cutoff, the `2026-07-23` Sugar News report must use the latest already available row such as `20260722`, where `进口升贴水 -0.30 美分/磅` displays `2026-07-22` as the data date. Do not use crawler time, web page current date, or Vercel deployment time as the import-premium data date.
 
-The refresh must keep using the existing fixed sources, parsing rules, data-date rules, and calculation logic. Do not use deployment time, crawl time, or Vercel build time as the data date. If a source has not published a newer report, keep the latest successful data and preserve its true data date.
+The refresh must keep using the existing fixed sources, parsing rules, source-date rules, and calculation logic. Every daily run must actively check HiSugar for the newest valid import premium/discount trading row and check the MAPA official sources for a newer sugar-stock or hydrous-ethanol-stock report.
+
+Use `automatic monitoring + latest valid value retention`:
+
+- when a newer valid source row/report exists, validate it, upsert it into history, and use it in the dashboard snapshot;
+- when no newer source row/report exists, retain the latest successful value and calculations from history;
+- if history is temporarily unavailable, fall back to the previous successful `latest.json` metric rather than replacing it with an empty or pending card;
+- never clear a successful value because a source has not published a new low-frequency report;
+- never overwrite history with zero, blank, an unverified value, or an invented date;
+- update `sourceDataDate` and the small-card `dataDate` only when the underlying valid source row/report changes;
+- update the dashboard-level date and each metric's backend `refreshDate` to the Sugar News publication date on every run.
+
+The reader-facing Brazil dashboard must not expose processing language such as `沿用上一期数据`, `暂无最新数据`, `等待更新`, `未抓取到数据`, `数据未同步`, `数据待更新`, or equivalent crawler/database status wording. Show the latest valid value directly. Keep fetch failures and retention decisions in backend logs only.
 
 After Brazil metrics refresh, the generated dashboard JSON, Excel/report artifacts, Git commit, GitHub push, and Vercel production deployment must all use the same refreshed Brazil metric snapshot or, when a source fails, the last successful snapshot with a clear failure log. If the normal daily run does not execute the standalone Brazil metrics step before page generation, treat it as a workflow error.
 

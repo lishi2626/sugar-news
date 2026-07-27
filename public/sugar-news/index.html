@@ -449,12 +449,12 @@
     }
 
     function valueText(value, suffix = "") {
-      if (value === null || value === undefined || value === "") return "数据待更新";
+      if (value === null || value === undefined || value === "") return "—";
       return `${value}${suffix}`;
     }
 
     function signedText(value, suffix = "") {
-      if (value === null || value === undefined || value === "") return "数据待更新";
+      if (value === null || value === undefined || value === "") return "—";
       const number = Number(value);
       if (Number.isNaN(number)) return `${value}${suffix}`;
       return `${number > 0 ? "+" : ""}${value}${suffix}`;
@@ -469,7 +469,7 @@
     }
 
     function formatNumber(value, digits = 2) {
-      if (value === null || value === undefined || value === "") return "数据待更新";
+      if (value === null || value === undefined || value === "") return "—";
       const number = Number(value);
       if (!Number.isFinite(number)) return String(value);
       return number.toFixed(digits);
@@ -516,28 +516,28 @@
     }
 
     function plainFixed(value, digits, unit = "") {
-      if (value === null || value === undefined || value === "") return "数据待更新";
+      if (value === null || value === undefined || value === "") return "—";
       const number = Number(value);
       if (!Number.isFinite(number)) return String(value);
       return `${number.toFixed(digits)}${unit}`;
     }
 
     function metricMainValue(metric, digits, unit, valueKey, keepSign = false) {
-      if (!metric || metric.status !== "ok") return metric && metric.statusText ? metric.statusText : "数据待更新";
+      if (!metric || metric.status !== "ok") return "—";
       const raw = metric[valueKey];
-      if (raw === null || raw === undefined || raw === "") return "数据待更新";
+      if (raw === null || raw === undefined || raw === "") return "—";
       return keepSign ? signedFixed(raw, digits, ` ${unit}`) : plainFixed(raw, digits, ` ${unit}`);
     }
 
     function trimmedFixed(value, maxDigits = 2, unit = "") {
-      if (value === null || value === undefined || value === "") return "数据待更新";
+      if (value === null || value === undefined || value === "") return "—";
       const number = Number(value);
       if (!Number.isFinite(number)) return String(value);
       return `${number.toLocaleString("zh-CN", { minimumFractionDigits: 0, maximumFractionDigits: maxDigits })}${unit}`;
     }
 
     function indiaWholesaleValue(metric) {
-      if (!metric || metric.status !== "ok") return metric && metric.statusText ? metric.statusText : "数据待更新";
+      if (!metric || metric.status !== "ok") return "—";
       const unit = metric.unit || "卢比/公担";
       const quintal = plainFixed(metric.priceInrPerQuintal, 2, ` ${unit}`);
       const kg = metric.priceInrPerKg === null || metric.priceInrPerKg === undefined ? "" : `（${plainFixed(metric.priceInrPerKg, 2, " 卢比/公斤")}）`;
@@ -545,13 +545,13 @@
     }
 
     function indiaRetailValue(metric) {
-      if (!metric || metric.status !== "ok") return metric && metric.statusText ? metric.statusText : "数据待更新";
+      if (!metric || metric.status !== "ok") return "—";
       const unit = metric.unit || "卢比/公斤";
       return plainFixed(metric.priceInrPerKg, 2, ` ${unit}`);
     }
 
     function indiaUpExMillValue(metric) {
-      if (!metric || metric.status !== "ok") return metric && metric.statusText ? metric.statusText : "数据待更新";
+      if (!metric || metric.status !== "ok") return "—";
       const range = metric.rangeInrPerQuintal || {};
       const low = trimmedFixed(range.low, 2);
       const high = trimmedFixed(range.high, 2);
@@ -560,11 +560,11 @@
     }
 
     function metricDataDate(metric) {
-      return metric && (metric.dataDate || metric.priceDate || metric.publishedDate) ? (metric.dataDate || metric.priceDate || metric.publishedDate) : "数据待更新";
+      return metric && (metric.dataDate || metric.priceDate || metric.publishedDate) ? (metric.dataDate || metric.priceDate || metric.publishedDate) : "—";
     }
 
     function brazilDisplayDate(value, style = "iso") {
-      if (!value) return "数据待更新";
+      if (!value) return "—";
       const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
       if (match && style === "pt") return `${match[3]}/${match[2]}/${match[1]}`;
       return value;
@@ -673,7 +673,7 @@
         link.textContent = metric.sourceName;
         source.append("来源：", link);
       } else {
-        source.textContent = "来源：数据待更新";
+        source.textContent = "来源：—";
       }
       const meta = document.createElement("div");
       meta.textContent = config.footerMeta ? config.footerMeta(metric) : `数据日期：${brazilMetricDataDate(metric, config.dateStyle || "iso")}`;
@@ -692,7 +692,7 @@
       title.textContent = "巴西糖价与库存";
       const note = document.createElement("div");
       note.className = "metric-note";
-      note.textContent = `抓取日期：${metrics.dataDate || "数据待更新"}`;
+      note.textContent = `数据日期：${metrics.dataDate || "—"}`;
       head.append(title, note);
 
       const grid = document.createElement("div");
@@ -708,7 +708,7 @@
           unit: premium.unit || "美分/磅",
           changeLabel: "日涨跌",
           value: () => metricMainValue(premium, 2, premium.unit || "美分/磅", "premiumDiscountCentsPerLb", true),
-          date: () => premium.dataDate || "数据待更新",
+          date: () => premium.dataDate || "—",
           changeValue: () => premium.dailyChange,
           changePercent: () => premium.dailyChangePercent,
           transition: () => signTransition(premium.previousValue, premium.premiumDiscountCentsPerLb),
@@ -741,10 +741,10 @@
           changeLabel: "半月变化",
           value: () => {
             const value = ethanolStock.stockTenThousandCubicMetres ?? ethanolStock.hydrousEthanolStock ?? ethanolStock.totalEthanolStock;
-            if (value === null || value === undefined || value === "") return "数据待更新";
+            if (value === null || value === undefined || value === "") return "—";
             return plainFixed(value, 4, ` ${ethanolStock.stockUnit || "万立方米"}`);
           },
-          date: () => ethanolStock.referenceDate || ethanolStock.dataDate || "数据待更新",
+          date: () => ethanolStock.dataDate || "—",
           changeValue: () => ethanolStock.halfMonthChange,
           changePercent: () => ethanolStock.halfMonthChangePercent,
           yoyValue: () => ethanolStock.yearOnYearChange,
@@ -773,7 +773,7 @@
       title.textContent = "印度糖价";
       const note = document.createElement("div");
       note.className = "metric-note";
-      note.textContent = `数据日期：${metrics.dataDate || "数据待更新"}`;
+      note.textContent = `数据日期：${metrics.dataDate || "—"}`;
       head.append(title, note);
 
       const grid = document.createElement("div");

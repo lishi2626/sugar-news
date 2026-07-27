@@ -2187,15 +2187,24 @@ def first_log_url(metric: dict | None) -> tuple[str | None, str | None]:
     return metric.get("source_name") or metric.get("dataset_name"), metric.get("source_url")
 
 
-def normalize_brazil_metric(metric: dict | None, metric_type: str) -> dict:
+def normalize_brazil_metric(metric: dict | None, metric_type: str, display_date: str) -> dict:
     metric = metric if isinstance(metric, dict) else {}
     status = metric.get("status") or "pending"
     source_name, source_url = first_log_url(metric)
+    source_data_date = (
+        metric.get("source_data_date")
+        or metric.get("data_date")
+        or metric.get("reference_date")
+        or metric.get("reference_period")
+        or metric.get("published_at")
+    )
     base = {
         "metricType": metric_type,
         "status": status if status in {"ok", "pending", "stale"} else "pending",
-        "statusText": metric.get("statusText") or ("数据待更新" if status != "ok" else ""),
-        "dataDate": metric.get("data_date") or metric.get("reference_period") or metric.get("published_at"),
+        "statusText": "",
+        "dataDate": source_data_date,
+        "sourceDataDate": source_data_date,
+        "refreshDate": display_date,
         "fetchedAt": metric.get("fetched_at") or beijing_now().isoformat(timespec="seconds"),
         "sourceName": metric.get("source_name") or metric.get("dataset_name") or source_name,
         "sourceUrl": metric.get("source_url") or source_url,
@@ -2289,10 +2298,10 @@ def normalize_brazil_metrics(date_text: str) -> dict:
         "snapshotTargetDate": snapshot.get("targetDate"),
         "updatedAt": snapshot.get("updatedAt") or beijing_now().isoformat(timespec="seconds"),
         "sourceStatus": "dynamic_fetch" if snapshot else "pending",
-        "sugarPremium": normalize_brazil_metric(snapshot.get("sugarPremium"), "sugarPremium"),
-        "sugarStock": normalize_brazil_metric(snapshot.get("sugarStock"), "sugarStock"),
-        "ethanolStock": normalize_brazil_metric(snapshot.get("ethanolStock"), "ethanolStock"),
-        "note": "巴西糖价与库存指标来自动态检索；未完成来源、口径和字段核验的数据不发布数值。",
+        "sugarPremium": normalize_brazil_metric(snapshot.get("sugarPremium"), "sugarPremium", date_text),
+        "sugarStock": normalize_brazil_metric(snapshot.get("sugarStock"), "sugarStock", date_text),
+        "ethanolStock": normalize_brazil_metric(snapshot.get("ethanolStock"), "ethanolStock", date_text),
+        "note": None,
         "fetchLog": snapshot.get("fetchLog", []),
     }
 
@@ -2414,13 +2423,21 @@ def validate_all(date_text: str, items: list[dict], excel_file: Path, report_pat
     brazil_metrics = report.get("brazilMetrics")
     if not isinstance(brazil_metrics, dict):
         raise ValueError("Dashboard missing brazilMetrics")
+    if brazil_metrics.get("dataDate") != date_text:
+        raise ValueError("Brazil dashboard date must match Sugar News date")
     for field in ("sugarPremium", "sugarStock", "ethanolStock"):
         metric = brazil_metrics.get(field)
         if not isinstance(metric, dict):
             raise ValueError(f"brazilMetrics missing {field}")
         if metric.get("status") not in {"ok", "pending", "stale"}:
             raise ValueError(f"brazilMetrics {field} has invalid status")
+        if metric.get("refreshDate") != date_text:
+            raise ValueError(f"brazilMetrics {field} refresh date must match Sugar News date")
         if metric.get("status") == "ok":
+            if not metric.get("sourceDataDate"):
+                raise ValueError(f"brazilMetrics {field} must preserve sourceDataDate")
+            if metric.get("dataDate") != metric.get("sourceDataDate"):
+                raise ValueError(f"brazilMetrics {field} card date must use sourceDataDate")
             if field == "sugarPremium" and metric.get("premiumDiscountCentsPerLb") is None:
                 raise ValueError("sugarPremium ok status requires premiumDiscountCentsPerLb")
             if field == "sugarPremium" and "HiSugar" not in str(metric.get("datasetName")):

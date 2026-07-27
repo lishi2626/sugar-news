@@ -77,6 +77,18 @@ def load_history() -> dict:
     return {"version": 1, "records": [], "lastUpdatedAt": None}
 
 
+def load_latest_snapshot() -> dict:
+    path = METRICS_ROOT / "latest.json"
+    if not path.exists():
+        return {}
+    try:
+        with path.open("r", encoding="utf-8") as f:
+            payload = json.load(f)
+        return payload if isinstance(payload, dict) else {}
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
 def atomic_write_json(path: Path, data: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with NamedTemporaryFile("w", encoding="utf-8", delete=False, dir=str(path.parent), suffix=".tmp") as tmp:
@@ -1166,26 +1178,64 @@ def pending(indicator: str, message: str, logs: list[dict]) -> dict:
     }
 
 
-def build_snapshot(history: dict, target_date: str, logs: list[dict]) -> dict:
-    premium = latest_record(history, "brazil_sugar_premium")
-    sugar_stock = latest_record(history, "brazil_sugar_stock")
-    ethanol_stock = latest_record(history, "brazil_ethanol_stock")
+def snapshot_metric(record: dict | None, target_date: str) -> dict | None:
+    if not isinstance(record, dict):
+        return None
+    result = dict(record)
+    source_date = (
+        result.get("source_data_date")
+        or result.get("data_date")
+        or result.get("reference_date")
+        or result.get("reference_period")
+        or result.get("published_at")
+    )
+    result["refresh_date"] = target_date
+    result["source_data_date"] = source_date
+    return result
+
+
+def previous_valid_metric(previous_snapshot: dict, field: str, indicator: str) -> dict | None:
+    metric = previous_snapshot.get(field)
+    if not isinstance(metric, dict) or metric.get("status") != "ok":
+        return None
+    if metric.get("indicator") not in {None, indicator}:
+        return None
+    return metric
+
+
+def build_snapshot(
+    history: dict,
+    target_date: str,
+    logs: list[dict],
+    previous_snapshot: dict | None = None,
+) -> dict:
+    previous_snapshot = previous_snapshot if isinstance(previous_snapshot, dict) else {}
+    premium = latest_record(history, "brazil_sugar_premium") or previous_valid_metric(
+        previous_snapshot, "sugarPremium", "brazil_sugar_premium"
+    )
+    sugar_stock = latest_record(history, "brazil_sugar_stock") or previous_valid_metric(
+        previous_snapshot, "sugarStock", "brazil_sugar_stock"
+    )
+    ethanol_stock = latest_record(history, "brazil_ethanol_stock") or previous_valid_metric(
+        previous_snapshot, "ethanolStock", "brazil_ethanol_stock"
+    )
     return {
         "targetDate": target_date,
+        "displayDate": target_date,
         "updatedAt": beijing_now().isoformat(timespec="seconds"),
-        "sugarPremium": premium
+        "sugarPremium": snapshot_metric(premium, target_date)
         or pending(
             "brazil_sugar_premium",
             "未检索到公开可核验的巴西VHP原糖FOB升贴水数据。",
             [l for l in logs if "premium" in l.get("source", "").lower()],
         ),
-        "sugarStock": sugar_stock
+        "sugarStock": snapshot_metric(sugar_stock, target_date)
         or pending(
             "brazil_sugar_stock",
             "MAPA暂未解析到可核实的巴西食糖库存数据。",
             [l for l in logs if "MAPA" in l.get("source", "")],
         ),
-        "ethanolStock": ethanol_stock
+        "ethanolStock": snapshot_metric(ethanol_stock, target_date)
         or pending(
             "brazil_ethanol_stock",
             "MAPA暂未解析到字段确认的巴西含水乙醇物理库存数值。",
@@ -1197,6 +1247,7 @@ def build_snapshot(history: dict, target_date: str, logs: list[dict]) -> dict:
 
 def collect(target_date: str) -> dict:
     history = load_history()
+    previous_snapshot = load_latest_snapshot()
     logs: list[dict] = []
     records: list[dict] = []
 
@@ -1219,7 +1270,7 @@ def collect(target_date: str) -> dict:
         history = upsert_records(history, records)
     HISTORY_PATH.parent.mkdir(parents=True, exist_ok=True)
     atomic_write_json(HISTORY_PATH, history)
-    snapshot = build_snapshot(history, target_date, logs)
+    snapshot = build_snapshot(history, target_date, logs, previous_snapshot)
     atomic_write_json(METRICS_ROOT / "latest.json", snapshot)
     return snapshot
 

@@ -12,6 +12,7 @@ from openpyxl import load_workbook
 from brazil_sugar_metrics import (
     HISUGAR_IMPORT_COST_LIST_URL,
     article_available_for_target,
+    build_snapshot,
     hisugar_query_list_page,
     parse_hisugar_list_articles,
     stock_rows_from_pdf,
@@ -123,7 +124,8 @@ def test_brazil_metrics_daily_refresh_skill_and_workflow() -> None:
     assert "if args.preserve_existing_metrics:" in source
     assert "other-country item lacks concrete country/region; skipped before publication" in source
 
-    assert "抓取日期" in skill
+    assert "sourceDataDate" in skill
+    assert "automatic monitoring + latest valid value retention" in skill
     assert "--preserve-existing-metrics" in skill
 
 
@@ -527,14 +529,58 @@ def test_brazil_dashboard_does_not_show_fetch_time_or_report_as_date() -> None:
     assert "last fetched" not in html.lower()
     assert "fetched_at" not in html
     assert "数据日期：" in html
-    assert "抓取日期：" in html
+    assert "抓取日期：" not in html
+    for forbidden in ("沿用上一期数据", "暂无最新数据", "等待更新", "未抓取到数据", "数据未同步", "数据待更新"):
+        assert forbidden not in html
 
 
-def test_brazil_dashboard_refresh_date_is_separate_from_source_date() -> None:
+def test_brazil_dashboard_refresh_date_matches_news_and_cards_use_source_dates() -> None:
     metrics = normalize_brazil_metrics("2026-07-25")
     assert metrics["dataDate"] == "2026-07-25"
-    assert metrics["snapshotTargetDate"] == "2026-07-25"
+    for field in ("sugarPremium", "sugarStock", "ethanolStock"):
+        assert metrics[field]["refreshDate"] == "2026-07-25"
+        assert metrics[field]["dataDate"] == metrics[field]["sourceDataDate"]
+        assert metrics[field]["sourceDataDate"]
     assert metrics["sugarPremium"]["dataDate"] == "2026-07-23"
+    assert metrics["sugarStock"]["dataDate"] == "2026-06-30"
+    assert metrics["ethanolStock"]["dataDate"] == "2026-07-01"
+
+
+def test_brazil_snapshot_retains_previous_success_when_history_is_empty() -> None:
+    previous = {
+        "sugarPremium": {
+            "indicator": "brazil_sugar_premium",
+            "status": "ok",
+            "data_date": "2026-07-23",
+            "premium_discount_cents_per_lb": -0.3,
+        },
+        "sugarStock": {
+            "indicator": "brazil_sugar_stock",
+            "status": "ok",
+            "reference_date": "2026-06-30",
+            "sugar_stock_value": 345.0164,
+        },
+        "ethanolStock": {
+            "indicator": "brazil_ethanol_stock",
+            "status": "ok",
+            "reference_date": "2026-07-01",
+            "total_ethanol_stock": 291.3832,
+        },
+    }
+    snapshot = build_snapshot(
+        {"version": 1, "records": [], "lastUpdatedAt": None},
+        "2026-07-26",
+        [],
+        previous,
+    )
+    assert snapshot["displayDate"] == "2026-07-26"
+    assert snapshot["sugarPremium"]["premium_discount_cents_per_lb"] == -0.3
+    assert snapshot["sugarStock"]["sugar_stock_value"] == 345.0164
+    assert snapshot["ethanolStock"]["total_ethanol_stock"] == 291.3832
+    for field in ("sugarPremium", "sugarStock", "ethanolStock"):
+        assert snapshot[field]["status"] == "ok"
+        assert snapshot[field]["refresh_date"] == "2026-07-26"
+        assert snapshot[field]["source_data_date"]
 
 
 def test_china_column_is_mandatory_every_day() -> None:
@@ -625,7 +671,8 @@ def main() -> None:
         test_india_metrics_price_changes_and_stock_source_rules,
         test_brazil_sugar_stock_date_comes_from_acumulado_ate,
         test_brazil_dashboard_does_not_show_fetch_time_or_report_as_date,
-        test_brazil_dashboard_refresh_date_is_separate_from_source_date,
+        test_brazil_dashboard_refresh_date_matches_news_and_cards_use_source_dates,
+        test_brazil_snapshot_retains_previous_success_when_history_is_empty,
         test_china_column_is_mandatory_every_day,
         test_confirmed_china_items_are_added_for_20260725,
         test_news_only_repair_preserves_existing_dashboard_metrics,

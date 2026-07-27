@@ -1,6 +1,6 @@
 {
   "newsDate": "2026-07-26",
-  "updatedAt": "2026-07-27T07:34:47+08:00",
+  "updatedAt": "2026-07-27T09:50:21+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/07/Sugar News 2026-07-26.xlsx",
   "brazilMetrics": {
@@ -14,6 +14,8 @@
       "status": "ok",
       "statusText": "",
       "dataDate": "2026-07-23",
+      "sourceDataDate": "2026-07-23",
+      "refreshDate": "2026-07-26",
       "fetchedAt": "2026-07-26T19:27:49+08:00",
       "sourceName": "广西糖网食糖进口成本及利润估算表",
       "sourceUrl": "https://www.hisugar.com/home/articleContent?id=2026072415105108451386",
@@ -47,6 +49,8 @@
       "status": "ok",
       "statusText": "",
       "dataDate": "2026-06-30",
+      "sourceDataDate": "2026-06-30",
+      "refreshDate": "2026-07-26",
       "fetchedAt": "2026-07-27T07:12:25+08:00",
       "sourceName": "巴西农业和畜牧业部（MAPA）",
       "sourceUrl": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/arquivos-producao/009ESTOQUESDEACARPORTIPOSAFRA20262027_20072026.pdf",
@@ -80,6 +84,8 @@
       "status": "ok",
       "statusText": "",
       "dataDate": "2026-07-01",
+      "sourceDataDate": "2026-07-01",
+      "refreshDate": "2026-07-26",
       "fetchedAt": "2026-07-27T07:13:02+08:00",
       "sourceName": "巴西农业和畜牧业部（MAPA）",
       "sourceUrl": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_010726.pdf",
@@ -111,7 +117,7 @@
       "sourceFileName": "Acompanhamentodaproduo2627_010726.pdf",
       "fileHash": "723dabcee137424025438911aab602de7709359ec41c211f4a9d1b7da3bae876"
     },
-    "note": "巴西糖价与库存指标来自动态检索；未完成来源、口径和字段核验的数据不发布数值。",
+    "note": null,
     "fetchLog": [
       {
         "source": "HiSugar import-cost list page",
@@ -571,7 +577,7 @@
   "indiaMetrics": {
     "title": "印度糖价",
     "dataDate": "2026-07-26",
-    "updatedAt": "2026-07-27T07:34:47+08:00",
+    "updatedAt": "2026-07-27T09:50:21+08:00",
     "sourceStatus": "dynamic_fetch",
     "domesticWholesalePrice": {
       "metricType": "domesticWholesalePrice",
@@ -886,7 +892,7 @@
       "metricType": "carryoverStock",
       "status": "pending",
       "statusText": "等待权威来源更新",
-      "fetchedAt": "2026-07-27T07:34:47+08:00",
+      "fetchedAt": "2026-07-27T09:50:21+08:00",
       "note": "未获取到已完成日期、口径和来源核验的可靠数据；不编造价格或库存。",
       "dataDate": null,
       "stockWanTonnes": null

@@ -81,7 +81,13 @@ def verify_payload(payload: dict, expected_date: str) -> dict:
             raise AssertionError(f"brazilMetrics missing {field}")
         if metric.get("status") not in {"ok", "pending", "stale"}:
             raise AssertionError(f"Invalid {field} status: {metric.get('status')}")
+        if metric.get("refreshDate") != expected_date:
+            raise AssertionError(f"{field} refresh date must match Sugar News date")
         if metric.get("status") == "ok":
+            if not metric.get("sourceDataDate"):
+                raise AssertionError(f"{field} must preserve sourceDataDate")
+            if metric.get("dataDate") != metric.get("sourceDataDate"):
+                raise AssertionError(f"{field} card date must use sourceDataDate")
             if field == "sugarPremium" and metric.get("premiumDiscountCentsPerLb") is None:
                 raise AssertionError("sugarPremium requires premiumDiscountCentsPerLb")
             if field == "sugarPremium" and "HiSugar" not in str(metric.get("datasetName")):
