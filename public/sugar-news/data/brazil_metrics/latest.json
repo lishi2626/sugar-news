@@ -1,7 +1,7 @@
 {
   "targetDate": "2026-07-27",
   "displayDate": "2026-07-27",
-  "updatedAt": "2026-07-28T07:40:03+08:00",
+  "updatedAt": "2026-07-28T12:52:58+08:00",
   "sugarPremium": {
     "indicator": "brazil_sugar_premium",
     "status": "ok",
@@ -11,28 +11,28 @@
     "port": "进口成本估算",
     "pricing_basis": "HiSugar import cost estimate",
     "futures_contract": null,
-    "data_date": "2026-07-24",
+    "data_date": "2026-07-27",
     "import_premium_discount_cents_per_lb": -0.55,
     "premium_discount_cents_per_lb": -0.55,
     "unit": "美分/磅",
-    "article_id": "2026072708480739582505",
-    "article_title": "20260724食糖进口成本及利润估算",
-    "article_published_at": "2026-07-27 08:56:27",
-    "source_url": "https://www.hisugar.com/home/articleContent?id=2026072708480739582505",
-    "image_url": "https://www.hisugar.com/image/20260727/1785112979889056224.png",
-    "fetched_at": "2026-07-28T07:37:51+08:00",
+    "article_id": "2026072808515581832446",
+    "article_title": "20260727食糖进口成本及利润估算",
+    "article_published_at": "2026-07-28 09:32:58",
+    "source_url": "https://www.hisugar.com/home/articleContent?id=2026072808515581832446",
+    "image_url": "https://www.hisugar.com/image/20260728/1785199807045049405.png",
+    "fetched_at": "2026-07-28T12:51:46+08:00",
     "ocr_backend": "tesseract",
-    "previous_data_date": "2026-07-23",
+    "previous_data_date": "2026-07-24",
     "previous_value": 1.75,
     "daily_change": -2.3,
     "daily_change_percent": -131.42857142857142,
-    "previous_year_date": "2025-07-24",
+    "previous_year_date": "2025-07-26",
     "previous_year_value": -0.2,
     "year_on_year_change": -0.35000000000000003,
     "year_on_year_change_percent": -175.0,
     "yoy_status": "ok",
     "refresh_date": "2026-07-27",
-    "source_data_date": "2026-07-24"
+    "source_data_date": "2026-07-27"
   },
   "sugarStock": {
     "season": "2026/2027",
@@ -145,7 +145,7 @@
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap0",
-      "requestedAt": "2026-07-28T07:37:28+08:00",
+      "requestedAt": "2026-07-28T12:51:27+08:00",
       "httpStatus": 200,
       "containsColumnName": false,
       "candidateCount": 0,
@@ -155,60 +155,61 @@
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/getQureyArticleList?parentId=49&categoryId=143&name=&pageCurInfo=sub_143&pageNo=1&pageSize=20",
-      "requestedAt": "2026-07-28T07:37:32+08:00",
+      "requestedAt": "2026-07-28T12:51:31+08:00",
       "httpStatus": 200,
       "containsColumnName": true,
       "candidateCount": 4,
       "candidateTitleDates": [
+        "2026-07-27",
         "2026-07-24",
         "2026-07-23",
-        "2026-07-22",
-        "2026-07-21"
+        "2026-07-22"
       ],
       "parsed": true
     },
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/getQureyArticleList?parentId=49&categoryId=143&name=&pageCurInfo=sub_143&pageNo=2&pageSize=20",
-      "requestedAt": "2026-07-28T07:37:34+08:00",
+      "requestedAt": "2026-07-28T12:51:32+08:00",
       "httpStatus": 200,
       "containsColumnName": true,
       "candidateCount": 3,
       "candidateTitleDates": [
+        "2026-07-21",
         "2026-07-20",
-        "2026-07-17",
-        "2026-07-16"
+        "2026-07-17"
       ],
       "parsed": true
     },
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/getQureyArticleList?parentId=49&categoryId=143&name=&pageCurInfo=sub_143&pageNo=3&pageSize=20",
-      "requestedAt": "2026-07-28T07:37:35+08:00",
+      "requestedAt": "2026-07-28T12:51:34+08:00",
       "httpStatus": 200,
       "containsColumnName": true,
       "candidateCount": 4,
       "candidateTitleDates": [
+        "2026-07-16",
         "2026-07-15",
         "2026-07-14",
-        "2026-07-13",
-        "2026-07-10"
+        "2026-07-13"
       ],
       "parsed": true
     },
     {
       "source": "HiSugar import-cost search API",
       "url": "https://www.hisugar.com/home/searchCatetoryAndArticle?keyWord=%E9%A3%9F%E7%B3%96%E8%BF%9B%E5%8F%A3%E6%88%90%E6%9C%AC%E5%8F%8A%E5%88%A9%E6%B6%A6%E4%BC%B0%E7%AE%97",
-      "requestedAt": "2026-07-28T07:37:37+08:00",
+      "requestedAt": "2026-07-28T12:51:35+08:00",
       "httpStatus": 200,
-      "candidateCount": 391,
+      "candidateCount": 392,
       "parsed": true
     },
     {
       "source": "HiSugar import premium target-date selector",
       "targetDate": "2026-07-27",
-      "publicationCutoff": "2026-07-28T07:37:39+08:00",
+      "publicationCutoff": "2026-07-28T12:51:38+08:00",
       "selectedTitleDates": [
+        "2026-07-27",
         "2026-07-24",
         "2026-07-23",
         "2026-07-22",
@@ -219,16 +220,15 @@
         "2026-07-15",
         "2026-07-14",
         "2026-07-13",
-        "2026-07-10",
-        "2026-07-09"
+        "2026-07-10"
       ],
       "reason": "Use the newest report row on or before the Sugar News date that is available by this refresh run, including validated late-published reports."
     },
     {
       "source": "HiSugar import premium article",
-      "articleId": "2026072708480739582505",
-      "url": "https://www.hisugar.com/home/articleContent?id=2026072708480739582505",
-      "requestedAt": "2026-07-28T07:37:39+08:00",
+      "articleId": "2026072808515581832446",
+      "url": "https://www.hisugar.com/home/articleContent?id=2026072808515581832446",
+      "requestedAt": "2026-07-28T12:51:38+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": true,
@@ -236,17 +236,95 @@
     },
     {
       "source": "HiSugar import premium image OCR",
-      "articleId": "2026072708480739582505",
-      "imageUrl": "https://www.hisugar.com/image/20260727/1785112979889056224.png",
+      "articleId": "2026072808515581832446",
+      "imageUrl": "https://www.hisugar.com/image/20260728/1785199807045049405.png",
       "httpStatus": 200,
       "ocrBackend": "tesseract",
       "parsedRows": 5,
       "parsedDates": [
-        "2026-07-20",
         "2026-07-21",
         "2026-07-22",
         "2026-07-23",
-        "2026-07-24"
+        "2026-07-24",
+        "2026-07-27"
+      ],
+      "parsed": true
+    },
+    {
+      "source": "HiSugar import premium article",
+      "articleId": "2025080708494501319345",
+      "url": "https://www.hisugar.com/home/articleContent?id=2025080708494501319345",
+      "requestedAt": "2026-07-28T12:51:46+08:00",
+      "httpStatus": 200,
+      "imageCount": 2,
+      "parsed": true,
+      "parsedRows": 5
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2025080708494501319345",
+      "imageUrl": "https://www.hisugar.com/image/20250807/1754527668246036581.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 5,
+      "parsedDates": [
+        "2025-07-31",
+        "2025-08-01",
+        "2025-08-04",
+        "2025-08-05",
+        "2025-08-06"
+      ],
+      "parsed": true
+    },
+    {
+      "source": "HiSugar import premium article",
+      "articleId": "2025080608563542667063",
+      "url": "https://www.hisugar.com/home/articleContent?id=2025080608563542667063",
+      "requestedAt": "2026-07-28T12:51:55+08:00",
+      "httpStatus": 200,
+      "imageCount": 2,
+      "parsed": true,
+      "parsedRows": 5
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2025080608563542667063",
+      "imageUrl": "https://www.hisugar.com/image/20250806/1754441608095069527.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 5,
+      "parsedDates": [
+        "2025-07-30",
+        "2025-07-31",
+        "2025-08-01",
+        "2025-08-04",
+        "2025-08-05"
+      ],
+      "parsed": true
+    },
+    {
+      "source": "HiSugar import premium article",
+      "articleId": "2025080508505160581524",
+      "url": "https://www.hisugar.com/home/articleContent?id=2025080508505160581524",
+      "requestedAt": "2026-07-28T12:52:03+08:00",
+      "httpStatus": 200,
+      "imageCount": 2,
+      "parsed": true,
+      "parsedRows": 5
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2025080508505160581524",
+      "imageUrl": "https://www.hisugar.com/image/20250805/1754354930049008639.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 5,
+      "parsedDates": [
+        "2025-07-29",
+        "2025-07-30",
+        "2025-07-31",
+        "2025-08-01",
+        "2025-08-04"
       ],
       "parsed": true
     },
@@ -254,7 +332,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2025080408492546331655",
       "url": "https://www.hisugar.com/home/articleContent?id=2025080408492546331655",
-      "requestedAt": "2026-07-28T07:37:51+08:00",
+      "requestedAt": "2026-07-28T12:52:12+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": true,
@@ -280,7 +358,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2025080108475111542998",
       "url": "https://www.hisugar.com/home/articleContent?id=2025080108475111542998",
-      "requestedAt": "2026-07-28T07:38:02+08:00",
+      "requestedAt": "2026-07-28T12:52:21+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": true,
@@ -306,7 +384,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2025073108530245334046",
       "url": "https://www.hisugar.com/home/articleContent?id=2025073108530245334046",
-      "requestedAt": "2026-07-28T07:38:14+08:00",
+      "requestedAt": "2026-07-28T12:52:30+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": true,
@@ -332,7 +410,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2025073008460053690630",
       "url": "https://www.hisugar.com/home/articleContent?id=2025073008460053690630",
-      "requestedAt": "2026-07-28T07:38:25+08:00",
+      "requestedAt": "2026-07-28T12:52:41+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": true,
@@ -358,7 +436,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2025072908581105031272",
       "url": "https://www.hisugar.com/home/articleContent?id=2025072908581105031272",
-      "requestedAt": "2026-07-28T07:38:37+08:00",
+      "requestedAt": "2026-07-28T12:52:50+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": true,
@@ -379,314 +457,6 @@
         "2025-07-26"
       ],
       "parsed": true
-    },
-    {
-      "source": "HiSugar import premium article",
-      "articleId": "2025072808561463671302",
-      "url": "https://www.hisugar.com/home/articleContent?id=2025072808561463671302",
-      "requestedAt": "2026-07-28T07:38:50+08:00",
-      "httpStatus": 200,
-      "imageCount": 2,
-      "parsed": true,
-      "parsedRows": 5
-    },
-    {
-      "source": "HiSugar import premium image OCR",
-      "articleId": "2025072808561463671302",
-      "imageUrl": "https://www.hisugar.com/image/20250728/1753663965664064635.png",
-      "httpStatus": 200,
-      "ocrBackend": "tesseract",
-      "parsedRows": 5,
-      "parsedDates": [
-        "2025-07-21",
-        "2025-07-22",
-        "2025-07-23",
-        "2025-07-24",
-        "2025-07-25"
-      ],
-      "parsed": true
-    },
-    {
-      "source": "HiSugar import premium article",
-      "articleId": "2025072213462038984375",
-      "url": "https://www.hisugar.com/home/articleContent?id=2025072213462038984375",
-      "requestedAt": "2026-07-28T07:39:01+08:00",
-      "httpStatus": 200,
-      "imageCount": 2,
-      "parsed": true,
-      "parsedRows": 5
-    },
-    {
-      "source": "HiSugar import premium image OCR",
-      "articleId": "2025072213462038984375",
-      "imageUrl": "https://www.hisugar.com/image/20250722/1753162972932030576.png",
-      "httpStatus": 200,
-      "ocrBackend": "tesseract",
-      "parsedRows": 5,
-      "parsedDates": [
-        "2025-07-15",
-        "2025-07-16",
-        "2025-07-17",
-        "2025-07-18",
-        "2025-07-21"
-      ],
-      "parsed": true
-    },
-    {
-      "source": "HiSugar import premium article",
-      "articleId": "2025071708515533927166",
-      "url": "https://www.hisugar.com/home/articleContent?id=2025071708515533927166",
-      "requestedAt": "2026-07-28T07:39:12+08:00",
-      "httpStatus": 200,
-      "imageCount": 2,
-      "parsed": true,
-      "parsedRows": 5
-    },
-    {
-      "source": "HiSugar import premium image OCR",
-      "articleId": "2025071708515533927166",
-      "imageUrl": "https://www.hisugar.com/image/20250717/1752713401752004341.jpg",
-      "httpStatus": 200,
-      "ocrBackend": "tesseract",
-      "parsedRows": 5,
-      "parsedDates": [
-        "2025-07-10",
-        "2025-07-11",
-        "2025-07-14",
-        "2025-07-15",
-        "2025-07-16"
-      ],
-      "parsed": true
-    },
-    {
-      "source": "MAPA Agroenergia production page",
-      "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/producao",
-      "requestedAt": "2026-07-28T07:39:23+08:00",
-      "httpStatus": 200,
-      "candidateCount": 1,
-      "parsed": true
-    },
-    {
-      "source": "MAPA sugar-stock PDF",
-      "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/arquivos-producao/009ESTOQUESDEACARPORTIPOSAFRA20262027_20072026.pdf",
-      "season": "2026/2027",
-      "requestedAt": "2026-07-28T07:39:24+08:00",
-      "httpStatus": 200,
-      "fileHash": "e8b9ae2de1c6c7c9184ca5af968eceb331ce0104e9f14758d315a09a87e1379f",
-      "rowsParsed": 6,
-      "parsedDates": [
-        "2026-04-15",
-        "2026-04-30",
-        "2026-05-15",
-        "2026-05-31",
-        "2026-06-15",
-        "2026-06-30"
-      ],
-      "dateSource": "pdf_acumulado_ate",
-      "parsed": true
-    },
-    {
-      "source": "MAPA previous sugar-stock seasons page",
-      "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/producao-e-estoques-de-acucar-por-tipo-safras-anteriores",
-      "requestedAt": "2026-07-28T07:39:25+08:00",
-      "httpStatus": 200,
-      "candidateCount": 14,
-      "parsed": true
-    },
-    {
-      "source": "MAPA sugar-stock PDF",
-      "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/arquivos-producao/009ESTOQUESDEACARPORTIPOSAFRA20252026_13052026.pdf",
-      "season": "2025/2026",
-      "requestedAt": "2026-07-28T07:39:27+08:00",
-      "httpStatus": 200,
-      "fileHash": "57d04684e2c24b4a117b92faac739bee18578980634e020abe76fafe98bc7653",
-      "rowsParsed": 24,
-      "parsedDates": [
-        "2025-04-15",
-        "2025-04-30",
-        "2025-05-15",
-        "2025-05-31",
-        "2025-06-15",
-        "2025-06-30",
-        "2025-07-15",
-        "2025-07-31",
-        "2025-08-15",
-        "2025-08-31",
-        "2025-09-15",
-        "2025-09-30",
-        "2025-10-15",
-        "2025-10-31",
-        "2025-11-15",
-        "2025-11-30",
-        "2025-12-15",
-        "2025-12-31",
-        "2026-01-15",
-        "2026-01-31",
-        "2026-02-15",
-        "2026-02-28",
-        "2026-03-15",
-        "2026-03-31"
-      ],
-      "dateSource": "pdf_acumulado_ate",
-      "parsed": true
-    },
-    {
-      "source": "MAPA ethanol season directory",
-      "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira",
-      "requestedAt": "2026-07-28T07:39:30+08:00",
-      "httpStatus": 200,
-      "candidateCount": 20,
-      "parsed": true
-    },
-    {
-      "source": "MAPA ethanol season page",
-      "season": "2026/2027",
-      "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/2026-2027",
-      "requestedAt": "2026-07-28T07:39:31+08:00",
-      "httpStatus": 200,
-      "candidateCount": 6,
-      "parsedDates": [
-        "2026-04-16",
-        "2026-05-01",
-        "2026-05-16",
-        "2026-06-01",
-        "2026-06-16",
-        "2026-07-01"
-      ],
-      "parsed": true
-    },
-    {
-      "source": "MAPA hydrous ethanol stock PDF",
-      "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_150426.PDF",
-      "season": "2026/2027",
-      "referenceDate": "2026-04-16",
-      "requestedAt": "2026-07-28T07:39:33+08:00",
-      "httpStatus": 200,
-      "fileHash": "8bbf4d5dce1a7ef91bfea38705e489c316bd7da79691e446a3e5811ee6613757",
-      "numericColumnCount": 16,
-      "parsed": true,
-      "stockCubicMetres": 1118028,
-      "stockTenThousandCubicMetres": 111.8028
-    },
-    {
-      "source": "MAPA hydrous ethanol stock PDF",
-      "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_010526.pdf",
-      "season": "2026/2027",
-      "referenceDate": "2026-05-01",
-      "requestedAt": "2026-07-28T07:39:35+08:00",
-      "httpStatus": 200,
-      "fileHash": "d6be5d933d5f83370041a24f32ed97477f73e7a10ea3b30e2390e2a08d351f9f",
-      "numericColumnCount": 17,
-      "parsed": true,
-      "stockCubicMetres": 1632063,
-      "stockTenThousandCubicMetres": 163.2063
-    },
-    {
-      "source": "MAPA hydrous ethanol stock PDF",
-      "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_150526.PDF",
-      "season": "2026/2027",
-      "referenceDate": "2026-05-16",
-      "requestedAt": "2026-07-28T07:39:37+08:00",
-      "httpStatus": 200,
-      "fileHash": "88ff341d430263646af101968c50c1d4cce6bc626cccb6391df633126c8e5f41",
-      "numericColumnCount": 17,
-      "parsed": true,
-      "stockCubicMetres": 2099551,
-      "stockTenThousandCubicMetres": 209.9551
-    },
-    {
-      "source": "MAPA hydrous ethanol stock PDF",
-      "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_010626.pdf",
-      "season": "2026/2027",
-      "referenceDate": "2026-06-01",
-      "requestedAt": "2026-07-28T07:39:38+08:00",
-      "httpStatus": 200,
-      "fileHash": "6fbac57aafd7784fb6fbeaaf42fdbc55c98ee7b59bb060b4a42d7e62b9db56b3",
-      "numericColumnCount": 17,
-      "parsed": true,
-      "stockCubicMetres": 2481402,
-      "stockTenThousandCubicMetres": 248.1402
-    },
-    {
-      "source": "MAPA hydrous ethanol stock PDF",
-      "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_150626.PDF",
-      "season": "2026/2027",
-      "referenceDate": "2026-06-16",
-      "requestedAt": "2026-07-28T07:39:40+08:00",
-      "httpStatus": 200,
-      "fileHash": "129e475af4b85e4fc3cee5ee0c235b0e4a21bc0df720a9c4bb9ded468ca063e2",
-      "numericColumnCount": 17,
-      "parsed": true,
-      "stockCubicMetres": 2855513,
-      "stockTenThousandCubicMetres": 285.5513
-    },
-    {
-      "source": "MAPA hydrous ethanol stock PDF",
-      "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_010726.pdf",
-      "season": "2026/2027",
-      "referenceDate": "2026-07-01",
-      "requestedAt": "2026-07-28T07:39:41+08:00",
-      "httpStatus": 200,
-      "fileHash": "723dabcee137424025438911aab602de7709359ec41c211f4a9d1b7da3bae876",
-      "numericColumnCount": 17,
-      "parsed": true,
-      "stockCubicMetres": 2913832,
-      "stockTenThousandCubicMetres": 291.3832
-    },
-    {
-      "source": "MAPA ethanol season page",
-      "season": "2025/2026",
-      "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/2025-2026",
-      "requestedAt": "2026-07-28T07:39:42+08:00",
-      "httpStatus": 200,
-      "candidateCount": 31,
-      "parsedDates": [
-        "2025-04-16",
-        "2025-04-16",
-        "2025-05-01",
-        "2025-05-16",
-        "2025-06-01",
-        "2025-06-16",
-        "2025-07-01",
-        "2025-07-16",
-        "2025-08-01",
-        "2025-08-16",
-        "2025-09-01",
-        "2025-09-16",
-        "2025-10-01",
-        "2025-10-16",
-        "2025-11-01",
-        "2025-11-16",
-        "2025-12-01",
-        "2025-12-16",
-        "2026-01-01",
-        "2026-01-16",
-        "2026-02-01",
-        "2026-02-16",
-        "2026-03-01",
-        "2026-03-16",
-        "2026-04-01",
-        "2026-04-16",
-        "2026-05-01",
-        "2026-05-16",
-        "2026-06-01",
-        "2026-06-16",
-        "2026-07-01"
-      ],
-      "parsed": true
-    },
-    {
-      "source": "MAPA hydrous ethanol stock PDF",
-      "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/2025-2026-1/Acompanhamentodaproduo2526_010725.PDF",
-      "season": "2025/2026",
-      "referenceDate": "2025-07-01",
-      "requestedAt": "2026-07-28T07:40:01+08:00",
-      "httpStatus": 200,
-      "fileHash": "584e80705e83a6d4da1196d52207abf706847c7e71d2dcb9e779f041aaa1e92c",
-      "numericColumnCount": 17,
-      "parsed": true,
-      "stockCubicMetres": 1954278,
-      "stockTenThousandCubicMetres": 195.4278
     }
   ]
 }
