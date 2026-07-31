@@ -102,7 +102,7 @@
       "status": "ok",
       "source_name": "巴西农业和畜牧业部（MAPA）",
       "dataset_name": "MAPA Acompanhamento da Produção Sucroalcooleira",
-      "fetched_at": "2026-07-29T07:35:03+08:00",
+      "fetched_at": "2026-08-01T06:57:05+08:00",
       "original_unit": "m³",
       "previous_period_date": "2026-06-16",
       "previous_period_stock": 285.5513,
@@ -326,6 +326,36 @@
       "yoy_status": "ok"
     },
     {
+      "indicator": "brazil_sugar_premium",
+      "status": "ok",
+      "source_name": "广西糖网食糖进口成本及利润估算表",
+      "dataset_name": "HiSugar 食糖进口成本及利润估算表",
+      "product": "巴西糖进口升贴水",
+      "port": "进口成本估算",
+      "pricing_basis": "HiSugar import cost estimate",
+      "futures_contract": null,
+      "data_date": "2026-07-30",
+      "import_premium_discount_cents_per_lb": -0.55,
+      "premium_discount_cents_per_lb": -0.55,
+      "unit": "美分/磅",
+      "article_id": "2026073108384834182355",
+      "article_title": "20260730食糖进口成本及利润估算",
+      "article_published_at": "2026-07-31 10:05:35",
+      "source_url": "https://www.hisugar.com/home/articleContent?id=2026073108384834182355",
+      "image_url": "https://www.hisugar.com/image/20260731/1785458220775051820.png",
+      "fetched_at": "2026-08-01T06:55:00+08:00",
+      "ocr_backend": "tesseract",
+      "previous_data_date": "2026-07-29",
+      "previous_value": 1.75,
+      "daily_change": -2.3,
+      "daily_change_percent": -131.42857142857142,
+      "previous_year_date": "2025-07-30",
+      "previous_year_value": -0.2,
+      "year_on_year_change": -0.35000000000000003,
+      "year_on_year_change_percent": -175.0,
+      "yoy_status": "ok"
+    },
+    {
       "season": "2026/2027",
       "reference_period": "2026-06-30",
       "reference_date": "2026-06-30",
@@ -358,7 +388,7 @@
       "status": "ok",
       "source_name": "巴西农业和畜牧业部（MAPA）",
       "dataset_name": "MAPA Agroenergia - Estoques de Açúcar por Tipo",
-      "fetched_at": "2026-07-29T07:34:26+08:00",
+      "fetched_at": "2026-08-01T06:56:30+08:00",
       "original_unit": "tonnes",
       "previous_period_date": "2026-06-15",
       "previous_period_stock": 364.5203,
@@ -372,5 +402,5 @@
       "yoy_status": "ok"
     }
   ],
-  "lastUpdatedAt": "2026-07-29T12:58:14+08:00"
+  "lastUpdatedAt": "2026-08-01T06:57:05+08:00"
 }
