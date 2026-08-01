@@ -12,6 +12,8 @@ from pathlib import Path
 from openpyxl import load_workbook
 from openpyxl.styles import Alignment
 
+from sugar_news_pipeline import validate_editorial_quality as validate_concrete_editorial_quality
+
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "templates" / "新闻格式.xlsx"
@@ -232,6 +234,7 @@ def normalized_items(data: dict) -> list[dict]:
             raise ValueError("China news must use country_group=中国 and must not be stored as other-country news")
         if item["country_group"] == "中国" and item["country"] != "中国":
             raise ValueError("country_group=中国 rows must use country=中国")
+        validate_concrete_editorial_quality(item, idx + 1)
         validate_india_weather_impact(item, idx)
         validate_thai_weather_impact(item, idx)
         key = item.get("dedupe_key") or re.sub(r"\s+", "", item["news"][:80])

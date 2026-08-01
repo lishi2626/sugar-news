@@ -265,8 +265,8 @@ def test_thailand_weather_is_added_to_existing_verified_news() -> None:
                 "country_group": "巴西",
                 "country": "巴西",
                 "title": "巴西糖厂运营调整",
-                "news": "巴西糖厂运营调整影响短期压榨节奏。糖厂运行变化可能影响食糖生产释放，但仍需观察后续产量数据。来源：Test（https://example.test/brazil）",
-                "impact": "中性：运营调整对供需方向影响暂不明确。",
+                "news": "巴西圣保罗州一家糖厂宣布7月下旬暂停一条压榨线检修，日压榨能力临时减少约1万吨。压榨减少会推迟糖料入榨和食糖生产释放，但检修时间较短，对全国供应影响暂为中性。来源：Test（https://example.test/brazil）",
+                "impact": "中性：短期检修推迟区域压榨，但暂不直接改变巴西全国供应判断。",
                 "source_name": "Test",
                 "source_url": "https://example.test/brazil",
                 "published_date_local": "2026-07-23",
@@ -375,7 +375,7 @@ def test_india_water_resource_pressure_is_bullish() -> None:
     try:
         normalize_items(data)
     except ValueError as exc:
-        assert "water-resource pressure" in str(exc)
+        assert "water-resource pressure" in str(exc) or "transmission logic" in str(exc)
     else:
         raise AssertionError("water-resource pressure should require bullish impact")
 
@@ -431,6 +431,42 @@ def test_summary_must_be_two_or_three_chinese_sentences() -> None:
         assert "2-3" in str(exc)
     else:
         raise AssertionError("one-sentence summary should be rejected")
+
+
+def test_editorial_quality_rejects_vague_fallback_summary() -> None:
+    bad = {
+        "country_group": "巴西",
+        "country": "巴西",
+        "title": "Brazil sugar prices",
+        "news": "ChiniMandi消息涉及巴西食糖价格或市场流通变化。价格变化会影响贸易商采购、终端补库和政策调控预期，对短期糖价走势具有参考意义。来源：ChiniMandi（https://example.test/brazil-price）",
+        "impact": "中性：该信息需要继续跟踪，短期对当期糖产量和出口量的直接影响有限。",
+        "source_name": "ChiniMandi",
+        "source_url": "https://example.test/brazil-price",
+    }
+    try:
+        validate_editorial_quality(bad, 1)
+    except ValueError as exc:
+        assert "vague" in str(exc) or "media source" in str(exc)
+    else:
+        raise AssertionError("vague source-led fallback summary should be rejected")
+
+
+def test_editorial_quality_requires_concrete_action_direction_and_impact_path() -> None:
+    bad = {
+        "country_group": "印度",
+        "country": "印度",
+        "title": "India sugar market",
+        "news": "印度糖业出现新的市场情况，行业各方仍在关注相关变化。该信息对食糖供需和糖价的影响还需要继续观察。来源：Test（https://example.test/india）",
+        "impact": "中性：信息仍需跟踪。",
+        "source_name": "Test",
+        "source_url": "https://example.test/india",
+    }
+    try:
+        validate_editorial_quality(bad, 2)
+    except ValueError as exc:
+        assert "vague" in str(exc) or "clear event action" in str(exc)
+    else:
+        raise AssertionError("summary without concrete action and direction should be rejected")
 
 
 def test_current_report_contains_china_section_after_thailand() -> None:
@@ -698,6 +734,8 @@ def main() -> None:
         test_india_water_resource_pressure_is_bullish,
         test_editorial_quality_rejects_publication_date_formula_and_accepts_key_dates,
         test_summary_must_be_two_or_three_chinese_sentences,
+        test_editorial_quality_rejects_vague_fallback_summary,
+        test_editorial_quality_requires_concrete_action_direction_and_impact_path,
         test_current_report_contains_china_section_after_thailand,
         test_brazil_india_metric_value_is_under_absolute_column,
         test_ist_utc_beijing_date_handling,

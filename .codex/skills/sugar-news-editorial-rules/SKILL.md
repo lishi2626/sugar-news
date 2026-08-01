@@ -15,15 +15,44 @@ The daily GitHub Actions workflow runs `scripts/sugar_news_pipeline.py`. That pi
 
 ## Mandatory News Summary Rules
 
-Each news item must be rewritten into 2-3 concise Chinese sentences.
+Each news item must be rewritten into 2-3 concise Chinese sentences that clearly answer: who did what, the concrete change or direction, where it happened, and what part of sugar supply, demand, inventory, trade, cane/beet production, ethanol diversion, or sugar price is affected.
 
-The first sentence states the core event, policy, data, weather change, production change, trade change, or company action.
+The first sentence must use this structure: clear event subject + clear action + concrete data, policy change, price move, production/inventory/trade change, weather intensity, or direction + necessary location or execution/statistical period.
 
-The following sentence or sentences state the impact path on sugar supply, demand, inventories, cane or beet production, ethanol diversion, imports or exports, production cost, or sugar prices.
+The second sentence must state the supply-demand transmission path and the sugar-price judgment. It must explain how the event affects sugar supply, demand, inventory, imports, exports, cane/beet production, ethanol diversion, production cost, or sugar prices, and it must end in a clear `利多`, `利空`, or `中性` logic.
 
-Do not merely copy the title. Do not produce a long article-style rewrite. Do not add facts, figures, dates, or judgments that are absent from the source.
+A third sentence is optional and should be used only for a real limitation, such as pending implementation, forecast uncertainty, approval risk, or a cost offset. Do not add an empty closing sentence just to make three sentences.
+
+Do not merely copy the title. Do not produce a long article-style rewrite. Do not add facts, figures, dates, or judgments that are absent from the source. If the source gives only direction and no exact value, state the direction without inventing a number. If the original source cannot confirm the subject, action, direction, or concrete market fact, remove the item instead of rewriting it into generic commentary.
+
+Media names such as ChiniMandi, Reuters, 路透社, 云糖网, 泛糖科技, The Economic Times, ANTARA, or similar outlets are sources, not event subjects. They may appear in the source field or link text, but the summary body must name the government, association, company, mill, farmer group, meteorological agency, market, producing region, or research institution that actually performed the action. A source name may lead the sentence only when the source itself is publishing its own forecast, estimate, index, or research conclusion.
 
 Use natural Chinese sugar-industry research language. Remove promotional wording, background padding, repeated boilerplate, and low-value commentary.
+
+Never publish vague fallback summaries such as:
+
+- `涉及食糖价格或市场流通变化`
+- `对市场具有参考意义`
+- `可能影响市场情绪`
+- `将影响贸易商采购和终端补库`
+- `市场关注相关变化`
+- `对糖价走势产生一定影响`
+- `相关消息值得关注`
+- `行业发展迎来新变化`
+- `供需格局可能发生变化`
+- `后续影响仍需观察`
+- `该事项对食糖供应、需求或价格的影响仍需结合后续政策、产量和贸易数据继续跟踪`
+- `该信息需要继续跟踪，短期对当期糖产量和出口量的直接影响有限`
+- `某媒体消息涉及某国糖业运行变化`
+
+Type-specific requirements:
+
+- Policy news must name the government or department, policy, before/after value when available, effective period, and direct supply-demand effect.
+- Price news must name the region/market, sugar or cane type, current price, change direction and amount when available, comparison base, and price-change reason.
+- Production, inventory, or crushing news must name the publishing body, season or cutoff date, current value,同比/环比 change when available, and supply effect.
+- Trade news must name the import/export country, product, volume,同比/环比 change when available, policy or cost driver, and trade-flow effect.
+- Weather news must name the meteorological agency, affected cane/beet producing regions, rainfall/drought/typhoon/heat intensity and duration, crop stage when known, and direct crop or output effect.
+- Company or mill news must name the company/mill, expansion, shutdown, restart, closure, accident, acquisition, or financing action, capacity/output/asset scale when available, and regional supply effect.
 
 ## Date Expression Rules
 
@@ -215,17 +244,22 @@ After Brazil metrics refresh, the generated dashboard JSON, Excel/report artifac
 Before writing Excel or dashboard JSON, the pipeline must:
 
 1. Check that each summary has 2-3 Chinese sentences.
-2. Reject summaries beginning with ordinary publication-date/source formulas.
-3. Remove meaningless repeated publication-date wording.
-4. Detect medical/health sugar terms and exclude those items.
-5. Detect non-industry uses of `sugar` and exclude those items.
-6. Infer title and body country entities and compare them with `country_group` and `country`.
-7. Automatically reclassify clear country mismatches.
-8. Require concrete country labels for `其他国家` items.
-9. Detect duplicate URLs, titles, or dedupe keys.
-10. Stop publication when a violation cannot be automatically fixed, preserving the previous correct production page.
+2. Require a clear event subject, clear action, and clear direction such as 上涨、下跌、增加、减少、暂停、恢复、禁止、批准、提高、下调、预报、预计、公布, or equivalent factual movement.
+3. Require concrete data, policy terms, production/inventory/trade/weather facts, or an explicit source-backed direction; when the source lacks numbers, do not invent values.
+4. Require a clear `利多`, `利空`, or `中性` impact path that explains the movement from event -> supply/demand/inventory/trade/cane production/cost -> sugar price.
+5. Reject summaries beginning with ordinary publication-date/source formulas.
+6. Remove meaningless repeated publication-date wording.
+7. Detect medical/health sugar terms and exclude those items.
+8. Detect non-industry uses of `sugar` and exclude those items.
+9. Reject banned vague phrases such as `具有参考意义`, `可能影响市场情绪`, `消息涉及`, `相关消息值得关注`, `后续影响仍需观察`, and similar filler.
+10. Reject items that use a media outlet as the event subject unless the outlet/research body is publishing its own forecast, estimate, index, or study.
+11. Infer title and body country entities and compare them with `country_group` and `country`.
+12. Automatically reclassify clear country mismatches.
+13. Require concrete country labels for `其他国家` items.
+14. Detect duplicate URLs, titles, or dedupe keys.
+15. Stop publication when a violation cannot be automatically fixed, preserving the previous correct production page.
 
-Regression tests must cover Indonesia not going to Brazil, India media reporting Cameroon going to Cameroon, medical blood-sugar exclusion, valid Brazil cane/sugar/ethanol acceptance, publication-date removal with key date retention, 2-3 sentence summaries, and Brazil/India metric value placement under the `绝对值` column.
+Regression tests must cover Indonesia not going to Brazil, India media reporting Cameroon going to Cameroon, medical blood-sugar exclusion, valid Brazil cane/sugar/ethanol acceptance, publication-date removal with key date retention, 2-3 sentence summaries, rejection of vague fallback summaries, rejection of media names used as event subjects, required concrete action/impact logic, and Brazil/India metric value placement under the `绝对值` column.
 
 ## Output Consistency
 

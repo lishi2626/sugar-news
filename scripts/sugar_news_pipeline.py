@@ -86,6 +86,63 @@ PLACEHOLDERS = (
     "暂未更新",
     "数据尚未公布",
 )
+VAGUE_SUMMARY_PHRASES = (
+    "涉及食糖价格或市场流通变化",
+    "对市场具有参考意义",
+    "可能影响市场情绪",
+    "将影响贸易商采购和终端补库",
+    "市场关注相关变化",
+    "对糖价走势产生一定影响",
+    "相关消息值得关注",
+    "行业发展迎来新变化",
+    "供需格局可能发生变化",
+    "后续影响仍需观察",
+    "该事项对食糖供应、需求或价格的影响仍需结合后续政策、产量和贸易数据继续跟踪",
+    "该信息需要继续跟踪，短期对当期糖产量和出口量的直接影响有限",
+    "相关变化可能影响糖料供应、压榨节奏或加工能力",
+    "后续需跟踪对食糖产量和现货供应的实际影响",
+)
+VAGUE_SUMMARY_PATTERNS = (
+    re.compile(r"[^。！？]{0,50}消息涉及[^。！？]{0,80}(?:变化|安排|运行|市场|糖业)"),
+    re.compile(r"(?:该事项|该信息|相关变化)[^。！？]{0,80}(?:继续跟踪|参考意义|影响有限)"),
+)
+NEWS_ACTION_TERMS = (
+    "宣布", "公布", "发布", "批准", "要求", "计划", "拟", "预计", "预报", "预测",
+    "提高", "上调", "下调", "降低", "上涨", "下跌", "增加", "减少", "增长", "下降",
+    "扩大", "收紧", "放宽", "限制", "禁止", "取消", "暂停", "恢复", "关闭", "启动",
+    "开榨", "收榨", "压榨", "生产", "产糖", "进口", "出口", "销售", "采购", "库存",
+    "报价", "收购价", "配额", "关税", "补贴", "融资", "收购", "出售", "扩建", "停产",
+    "复产", "受损", "预警", "降雨", "暴雨", "干旱", "洪涝", "雷阵雨", "大雨",
+    "said", "announced", "reported", "forecast", "estimated", "raised", "cut", "increased",
+    "decreased", "fell", "rose", "approved", "restricted", "resumed", "halted",
+)
+NEWS_DIRECTION_TERMS = (
+    "上调", "下调", "提高", "降低", "上涨", "下跌", "增加", "减少", "增长", "下降",
+    "同比", "环比", "由", "至", "达到", "为", "超过", "不足", "偏高", "偏低",
+    "暂停", "恢复", "禁止", "批准", "限制", "启动", "关闭", "开榨", "收榨",
+    "预计", "预报", "预测", "大雨", "暴雨", "干旱", "洪涝", "短缺", "过剩",
+    "扩张", "收缩", "改善", "恶化", "受损", "支撑", "压制",
+    "increase", "decrease", "rise", "fall", "raise", "cut", "lower", "higher", "lower",
+)
+NEWS_DETAIL_TERMS = (
+    "万吨", "吨", "千吨", "公担", "卢比", "雷亚尔", "美元", "美分", "元/吨", "mm",
+    "榨季", "配额", "关税", "政策", "禁令", "预警", "大雨", "暴雨", "干旱", "洪涝",
+    "甘蔗", "甜菜", "糖厂", "产糖", "压榨", "库存", "报价", "进口", "出口", "乙醇",
+    "糖蜜", "糖浆", "燃料级乙醇", "E5", "E10", "E20",
+)
+IMPACT_TARGET_TERMS = (
+    "供应", "需求", "库存", "进口", "出口", "贸易", "糖料", "甘蔗", "甜菜", "糖厂",
+    "压榨", "产量", "产糖", "制糖", "乙醇", "糖蜜", "糖浆", "成本", "现货", "糖价",
+    "原糖", "白糖", "郑糖", "供需",
+)
+IMPACT_CAUSAL_TERMS = (
+    "因此", "从而", "将", "会", "有助于", "可能", "导致", "使", "压制", "支撑",
+    "削弱", "提高", "降低", "增加", "减少", "稳定", "扩大", "缓解", "扰动",
+    "形成压力", "限制", "补充", "改变", "反映", "利多", "利空", "中性",
+)
+CONCRETE_DETAIL_RE = re.compile(
+    r"\d+(?:[.,]\d+)?\s*(?:%|万吨|吨|千吨|公担|卢比|雷亚尔|美元|美分|元/吨|mm|KL|kl|升|家|座|万亿|亿|万)?"
+)
 
 def project_display_path(path: Path) -> str:
     resolved = path.resolve()
@@ -113,6 +170,7 @@ def load_editorial_skill_metadata() -> dict:
         ),
         "brazil_metrics_daily": ("巴西糖价与库存每日刷新", "brazil_sugar_metrics.py", "Vercel"),
         "pre_publish": ("Pre-Publish Quality Checks", "Stop publication"),
+        "concrete_news_summary": ("who did what", "concrete change", "消息涉及", "media outlet as the event subject"),
     }
     missing = [
         name
@@ -730,6 +788,52 @@ def core_item_text(item: dict) -> str:
     )
 
 
+def is_china_monitoring_note(item: dict) -> bool:
+    return (
+        item.get("date_status") == "monitoring_completed"
+        or item.get("title") == "中国糖业每日监测"
+        or str(item.get("dedupe_key", "")).startswith("china_daily_monitoring_")
+    )
+
+
+def validate_no_vague_summary(item: dict, idx: int, body: str, impact: str) -> None:
+    quality_text = f"{body} {impact}"
+    for phrase in VAGUE_SUMMARY_PHRASES:
+        if phrase in quality_text:
+            raise ValueError(f"Verified item {idx} contains vague summary phrase: {phrase}")
+    for pattern in VAGUE_SUMMARY_PATTERNS:
+        if pattern.search(quality_text):
+            raise ValueError(f"Verified item {idx} contains source-led vague fallback wording")
+
+
+def validate_media_is_not_event_subject(item: dict, idx: int, body: str) -> None:
+    first_sentence = split_cn_sentences(body)[0] if split_cn_sentences(body) else body
+    source_name = str(item.get("source_name", "")).strip()
+    if not source_name:
+        return
+    lead = first_sentence.strip()
+    source_lead_markers = ("消息涉及", "消息称", "报道称", "报道，", "报道指出", "发布消息")
+    if lead.lower().startswith(source_name.lower()):
+        suffix = lead[len(source_name):].lstrip()
+        if suffix.startswith(source_lead_markers):
+            raise ValueError(f"Verified item {idx} uses media source as the event subject")
+
+
+def validate_concrete_event_and_impact(item: dict, idx: int, body: str, impact: str) -> None:
+    if is_china_monitoring_note(item):
+        return
+    if not any_phrase(body, NEWS_ACTION_TERMS):
+        raise ValueError(f"Verified item {idx} lacks a clear event action")
+    if not any_phrase(body, NEWS_DIRECTION_TERMS):
+        raise ValueError(f"Verified item {idx} lacks a clear change direction")
+    if not (CONCRETE_DETAIL_RE.search(body) or any_phrase(body, NEWS_DETAIL_TERMS)):
+        raise ValueError(f"Verified item {idx} lacks concrete data, policy, market, production, trade, or weather detail")
+    if not any_phrase(f"{body} {impact}", IMPACT_TARGET_TERMS):
+        raise ValueError(f"Verified item {idx} lacks a sugar supply-demand impact target")
+    if not any_phrase(impact, IMPACT_CAUSAL_TERMS):
+        raise ValueError(f"Verified item {idx} lacks supply-demand-to-price transmission logic")
+
+
 def normalize_country_fields(item: dict) -> dict:
     row = dict(item)
     concrete_country, country_group = infer_core_country(core_item_text(row), row.get("country") or "")
@@ -766,6 +870,9 @@ def validate_editorial_quality(item: dict, idx: int) -> None:
         raise ValueError(f"Verified item {idx} starts with source/publication-date reporting formula")
     if ORDINARY_PUBLICATION_RE.search(body):
         raise ValueError(f"Verified item {idx} repeats ordinary publication date wording")
+    validate_no_vague_summary(item, idx, body, impact)
+    validate_media_is_not_event_subject(item, idx, body)
+    validate_concrete_event_and_impact(item, idx, body, impact)
     inferred_country, inferred_group = infer_core_country(core_item_text(item), item.get("country") or "")
     if inferred_country in GROUP_ORDER and inferred_country != "其他国家" and item.get("country_group") != inferred_group:
         raise ValueError(f"Verified item {idx} country_group={item.get('country_group')} conflicts with core country {inferred_country}")

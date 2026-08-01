@@ -1,6 +1,6 @@
 {
   "target_date": "2026-07-26",
-  "generated_at": "2026-07-27T10:40:59+08:00",
+  "generated_at": "2026-08-02T00:47:53+08:00",
   "status": "success",
   "verified_news_file": "D:\\Desktop\\ai\\sugar-news\\data\\verified_news\\2026\\07\\sugar_news_2026-07-26.json",
   "excel_file": "D:\\Desktop\\ai\\sugar-news\\reports\\2026\\07\\Sugar News 2026-07-26.xlsx",
@@ -8,7 +8,7 @@
   "dashboard_index": "D:\\Desktop\\ai\\sugar-news\\public\\sugar-news\\data\\index.json",
   "editorial_skill": {
     "path": ".codex/skills/sugar-news-editorial-rules/SKILL.md",
-    "sha256": "e68a5f24ab64c13e1ed7ddf8d5a35c5e0dba6f7742f8b59bd48ab727f9e7f907"
+    "sha256": "012982a2f77a84313884ba4de165f4b32c930f0436c2c2d25d597af11dea291f"
   },
   "thai_weather_check": {
     "fixed_step": "Thai main sugarcane area rainfall check",
@@ -86,20 +86,20 @@
     "reason": "standalone workflow refresh; consuming latest snapshot"
   },
   "checks": {
-    "verified_count": 6,
-    "excel_count": 6,
-    "dashboard_count": 6,
+    "verified_count": 4,
+    "excel_count": 4,
+    "dashboard_count": 4,
     "excel_matches_verified": true,
     "dashboard_matches_verified": true,
     "country_order_ok": true,
     "no_empty_country_sections": true,
     "counts_by_country": {
       "巴西": 1,
-      "印度": 3,
       "泰国": 1,
-      "中国": 1
+      "中国": 1,
+      "印度尼西亚": 1
     },
     "china_count": 1,
-    "other_country_count": 0
+    "other_country_count": 1
   }
 }
