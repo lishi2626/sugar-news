@@ -7,7 +7,8 @@ param(
     [string]$Date,
     [string]$TaskRoot,
     [string]$VercelBaseUrl = $env:SUGAR_NEWS_BASE_URL,
-    [switch]$SkipIfSuccess
+    [switch]$SkipIfSuccess,
+    [switch]$SkipGitSync
 )
 
 $ErrorActionPreference = "Stop"
@@ -16,6 +17,14 @@ $ProjectRoot = Split-Path -Parent $PSScriptRoot
 Set-Location $ProjectRoot
 $env:PYTHONIOENCODING = "utf-8"
 $env:TZ = "Asia/Shanghai"
+$pathCandidates = @(
+    "C:\Program Files\Git\cmd",
+    "C:\Program Files\nodejs",
+    (Join-Path $env:APPDATA "npm")
+) | Where-Object { $_ -and (Test-Path -LiteralPath $_) }
+if ($pathCandidates) {
+    $env:Path = (($pathCandidates + @($env:Path)) -join ";")
+}
 
 if (-not $TaskRoot) {
     $TaskRoot = $ProjectRoot
@@ -40,17 +49,43 @@ function Get-PythonExe {
 }
 
 function Get-BeijingYesterday {
-    $script = @"
-from datetime import datetime, timedelta
-try:
-    from zoneinfo import ZoneInfo
-    tz = ZoneInfo("Asia/Shanghai")
-except Exception:
-    from datetime import timezone
-    tz = timezone(timedelta(hours=8), name="Asia/Shanghai")
-print((datetime.now(tz).date() - timedelta(days=1)).isoformat())
-"@
-    & (Get-PythonExe) -c $script
+    return ([DateTimeOffset]::UtcNow.ToOffset([TimeSpan]::FromHours(8)).Date.AddDays(-1).ToString("yyyy-MM-dd"))
+}
+
+function Invoke-External {
+    param(
+        [string]$Label,
+        [scriptblock]$Command,
+        [int]$Attempts = 1
+    )
+    for ($i = 1; $i -le $Attempts; $i++) {
+        & $Command
+        if ($LASTEXITCODE -eq 0) { return }
+        if ($i -eq $Attempts) {
+            throw "$Label failed with exit code $LASTEXITCODE"
+        }
+        Write-Step "$Label failed with exit code $LASTEXITCODE; retrying ($i/$Attempts)"
+        Start-Sleep -Seconds ([Math]::Min(120, 20 * $i))
+    }
+}
+
+function Sync-GitRemote {
+    if ($SkipGitSync) {
+        Write-Step "Git sync skipped by parameter."
+        return
+    }
+    if (-not (Test-Path -LiteralPath (Join-Path $ProjectRoot ".git"))) {
+        Write-Step "No git repository found; skipping git sync."
+        return
+    }
+
+    Write-Step "Sync local repository with origin/main"
+    Invoke-External -Label "git fetch origin/main" -Attempts 3 -Command {
+        git -c credential.interactive=false fetch --no-tags origin main
+    }
+    Invoke-External -Label "git fast-forward origin/main" -Attempts 1 -Command {
+        git merge --ff-only origin/main
+    }
 }
 
 function Invoke-RemoteVerify {
@@ -77,6 +112,8 @@ try {
         $Date = Get-BeijingYesterday
     }
 
+    Sync-GitRemote
+
     Write-Step "Build Sugar News for $Date using task root: $TaskRoot"
     $args = @("scripts/sugar_news_pipeline.py", "--date", $Date, "--task-root", $TaskRoot)
     if ($SkipIfSuccess) { $args += "--skip-if-success" }
@@ -92,10 +129,15 @@ try {
     }
 
     Write-Step "Commit and push Sugar News changes"
-    $status = git status --porcelain public/sugar-news data logs reports
+    $datedLogRoot = Join-Path "logs" ($Date.Substring(0, 4))
+    $commitPaths = @("public/sugar-news", "data", "reports")
+    if (Test-Path -LiteralPath (Join-Path $ProjectRoot $datedLogRoot)) {
+        $commitPaths += $datedLogRoot
+    }
+    $status = git status --porcelain -- @commitPaths
     $ahead = git status -sb | Select-String -Pattern "\[ahead [0-9]+\]"
     if ($status) {
-        git add public/sugar-news data logs reports
+        git add -- @commitPaths
         git commit -m "Update Sugar News $Date"
         if ($LASTEXITCODE -ne 0) { throw "git commit failed" }
     }

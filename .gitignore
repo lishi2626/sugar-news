@@ -8,6 +8,7 @@ __pycache__/
 .vercel/
 node_modules/
 logs/github-actions/
+logs/sugar_news_*.log
 
 .vercel
 .env*
