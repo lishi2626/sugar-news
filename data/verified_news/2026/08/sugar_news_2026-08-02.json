@@ -116,10 +116,38 @@
       "importance": 80
     },
     {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-08-02），乌隆他尼、黎府、那空沙旺、北碧等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-08-02",
+      "event_date": "2026-08-02",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20260802",
+      "importance": 78
+    },
+    {
+      "country_group": "中国",
+      "country": "中国",
+      "title": "中国糖业每日监测",
+      "news": "已完成中国食糖、甘蔗、甜菜糖、进口、库存、现货价格和主产区天气等重点方向监测，未发现符合收录标准的新增重要糖业事件。该结果仅表示本次公开来源检索没有可发布的新事件，不代表中国食糖供需或价格没有变化。来源：Sugar News中国糖业每日监测日志（https://github.com/lishi2626/sugar-news/actions）",
+      "impact": "中性：本次监测未发现足以改变中国食糖供需、库存、进口或价格预期的新增公开信息。",
+      "source_name": "Sugar News中国糖业每日监测日志",
+      "source_url": "https://github.com/lishi2626/sugar-news/actions",
+      "published_date_local": "2026-08-02",
+      "event_date": "2026-08-02",
+      "date_status": "monitoring_completed",
+      "dedupe_key": "china_daily_monitoring_20260802",
+      "importance": 40
+    },
+    {
       "country_group": "其他国家",
       "country": "菲律宾",
       "title": "Mindanao planters sound alarm as sugarcane pest spreads to 4 provinces",
-      "news": "菲律宾棉兰老岛蔗农组织预警，甘蔗病虫害已扩散至4 provinces。病虫害扩大将影响甘蔗生长和可收获糖料，若防控不及时，后续食糖产量预期会下调。来源：Inquirer.net（https://news.google.com/rss/articles/CBMirAFBVV95cUxQeWN2OWhuejVsRDFEZDVsUHc3Z0YwZHlNWmVpY1JaWV9LczFtb0tvUDFMVzJLVVJZa3M0Ml8zSWMxRUFYMkxSUV94SjRFa1lCQjZqYlF2dnA4ZF9mS2dRVV9kbXNHXzhKRnBqMkEtR1FadWlZVzhvZFRyODBhRXdxdFpYVlhmSElVYkJadm5PeHhZQjFiMVRBXzBKTTBWVl9CSnhISTFhX1dGNGcy0gGyAUFVX3lxTE9XdVdFQ3JWWEFicjRCYWlBSHRGTnVmUk4zS0xIWlJHdE9RaHdBbENqcnVxZGs5aGpjekV1RC1DYkJxVXprUVphd1dqR2t0ckVqdHh1NFZVV3lfZFAzc3BUa3ptcmdsMDJ3WHhRWVQ4ZUVuVkdXc0V1TkhneEpZUFN4U1NGOFVyR040dTZsTGQyejRVbXpYS0FXUHNWY3FzN0M4c1dpYXRNLUtMU1pQbWVFdkE?oc=5）",
+      "news": "菲律宾棉兰老岛蔗农组织预警，甘蔗病虫害已扩散至4个省。病虫害扩大将影响甘蔗生长和可收获糖料，若防控不及时，后续食糖产量预期会下调。来源：Inquirer.net（https://news.google.com/rss/articles/CBMirAFBVV95cUxQeWN2OWhuejVsRDFEZDVsUHc3Z0YwZHlNWmVpY1JaWV9LczFtb0tvUDFMVzJLVVJZa3M0Ml8zSWMxRUFYMkxSUV94SjRFa1lCQjZqYlF2dnA4ZF9mS2dRVV9kbXNHXzhKRnBqMkEtR1FadWlZVzhvZFRyODBhRXdxdFpYVlhmSElVYkJadm5PeHhZQjFiMVRBXzBKTTBWVl9CSnhISTFhX1dGNGcy0gGyAUFVX3lxTE9XdVdFQ3JWWEFicjRCYWlBSHRGTnVmUk4zS0xIWlJHdE9RaHdBbENqcnVxZGs5aGpjekV1RC1DYkJxVXprUVphd1dqR2t0ckVqdHh1NFZVV3lfZFAzc3BUa3ptcmdsMDJ3WHhRWVQ4ZUVuVkdXc0V1TkhneEpZUFN4U1NGOFVyR040dTZsTGQyejRVbXpYS0FXUHNWY3FzN0M4c1dpYXRNLUtMU1pQbWVFdkE?oc=5）",
       "impact": "利多：病虫害扩散会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
       "source_name": "Inquirer.net",
       "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQeWN2OWhuejVsRDFEZDVsUHc3Z0YwZHlNWmVpY1JaWV9LczFtb0tvUDFMVzJLVVJZa3M0Ml8zSWMxRUFYMkxSUV94SjRFa1lCQjZqYlF2dnA4ZF9mS2dRVV9kbXNHXzhKRnBqMkEtR1FadWlZVzhvZFRyODBhRXdxdFpYVlhmSElVYkJadm5PeHhZQjFiMVRBXzBKTTBWVl9CSnhISTFhX1dGNGcy0gGyAUFVX3lxTE9XdVdFQ3JWWEFicjRCYWlBSHRGTnVmUk4zS0xIWlJHdE9RaHdBbENqcnVxZGs5aGpjekV1RC1DYkJxVXprUVphd1dqR2t0ckVqdHh1NFZVV3lfZFAzc3BUa3ptcmdsMDJ3WHhRWVQ4ZUVuVkdXc0V1TkhneEpZUFN4U1NGOFVyR040dTZsTGQyejRVbXpYS0FXUHNWY3FzN0M4c1dpYXRNLUtMU1pQbWVFdkE?oc=5",
@@ -152,34 +180,6 @@
       },
       "dedupe_key": "rss_菲律宾菲律宾蔗农组织预警4provinces20260802weather_pest",
       "importance": 90
-    },
-    {
-      "country_group": "中国",
-      "country": "中国",
-      "title": "中国糖业每日监测",
-      "news": "已完成中国食糖、甘蔗、甜菜糖、进口、库存、现货价格和主产区天气等重点方向监测，未发现符合收录标准的新增重要糖业事件。该结果仅表示本次公开来源检索没有可发布的新事件，不代表中国食糖供需或价格没有变化。来源：Sugar News中国糖业每日监测日志（https://github.com/lishi2626/sugar-news/actions）",
-      "impact": "中性：本次监测未发现足以改变中国食糖供需、库存、进口或价格预期的新增公开信息。",
-      "source_name": "Sugar News中国糖业每日监测日志",
-      "source_url": "https://github.com/lishi2626/sugar-news/actions",
-      "published_date_local": "2026-08-02",
-      "event_date": "2026-08-02",
-      "date_status": "monitoring_completed",
-      "dedupe_key": "china_daily_monitoring_20260802",
-      "importance": 40
-    },
-    {
-      "country_group": "泰国",
-      "country": "泰国",
-      "title": "泰国主要甘蔗产区预计出现降雨",
-      "news": "泰国气象局预报（2026-08-02），乌隆他尼、黎府、那空沙旺、北碧等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）",
-      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
-      "source_name": "泰国气象局",
-      "source_url": "https://tmd.go.th/en/forecast/daily",
-      "published_date_local": "2026-08-02",
-      "event_date": "2026-08-02",
-      "date_status": "official_forecast",
-      "dedupe_key": "thailand_cane_weather_tmd_20260802",
-      "importance": 78
     }
   ]
 }

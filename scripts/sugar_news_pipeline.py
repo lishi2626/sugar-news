@@ -1062,6 +1062,20 @@ def extract_metrics(text: str) -> list[str]:
     return found[:8]
 
 
+def localize_metric_for_summary(value: str) -> str:
+    replacements = (
+        (r"(?i)(?<![\d.])(\d+(?:[.,]\d+)?)\s*provinces?\b", r"\1个省"),
+        (r"(?i)(?<![\d.])(\d+(?:[.,]\d+)?)\s*states?\b", r"\1个州"),
+        (r"(?i)(?<![\d.])(\d+(?:[.,]\d+)?)\s*mills?\b", r"\1家糖厂"),
+        (r"(?i)(?<![\d.])(\d+(?:[.,]\d+)?)\s*factories?\b", r"\1家糖厂"),
+        (r"(?i)(?<![\d.])(\d+(?:[.,]\d+)?)\s*days?\b", r"\1天"),
+    )
+    localized = value
+    for pattern, replacement in replacements:
+        localized = re.sub(pattern, replacement, localized)
+    return localized
+
+
 def infer_event_actor(country: str, topic: str, title: str, source: str) -> str:
     lowered = title.lower()
     if "pib" in source.lower() or "ministry" in lowered or "government" in lowered or "govt" in lowered or "centre" in lowered:
@@ -1492,7 +1506,7 @@ def rss_summary_for_publication(candidate: dict) -> tuple[str, str]:
     label = TOPIC_LABELS.get(topic, TOPIC_LABELS["general_industry"])
     title = str(candidate.get("source_title", "")).strip()
     lowered_title = title.lower()
-    metrics = candidate.get("metrics") or []
+    metrics = [localize_metric_for_summary(str(metric)) for metric in (candidate.get("metrics") or [])]
     source_suffix = f"来源：{candidate.get('publisher') or '原始来源'}（{candidate.get('source_url') or ''}）"
     if country == "印度" and "sugar export ban" in lowered_title and "smuggling" in lowered_title:
         impact = "利多：出口禁令限制印度正规糖源外流，节前需求转向非正规贸易会加剧周边市场供应紧张。"
@@ -2424,6 +2438,9 @@ def normalize_items(data: dict) -> list[dict]:
     normalized = []
     for idx, item in enumerate(items, start=1):
         item = normalize_country_fields(item)
+        for text_field in ("news", "impact"):
+            if item.get(text_field):
+                item[text_field] = localize_metric_for_summary(str(item[text_field]))
         for field in ("country_group", "country", "news", "impact", "source_name", "source_url", "published_date_local"):
             if not item.get(field):
                 raise ValueError(f"Verified item {idx} missing {field}")
@@ -3447,9 +3464,10 @@ def main() -> int:
         data, china_monitoring_check = ensure_china_news_item(data, date_text)
         print(f"[sugar-news] ensure Thailand cane-area weather item for {date_text}", flush=True)
         data, thai_weather_log = ensure_thai_weather_item(data, date_text)
-        persist_verified_news(task_root, date_text, data)
         print(f"[sugar-news] normalize/write outputs for {date_text}", flush=True)
         items = normalize_items(data)
+        data["items"] = [{key: value for key, value in item.items() if key != "_order"} for item in items]
+        persist_verified_news(task_root, date_text, data)
         excel_file = write_excel(task_root, date_text, items)
         payload = build_dashboard_payload(date_text, items, excel_file, data)
         if args.preserve_existing_metrics:

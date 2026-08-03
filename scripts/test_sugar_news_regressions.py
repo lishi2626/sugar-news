@@ -33,6 +33,7 @@ from sugar_news_pipeline import (
     is_medical_sugar_context,
     ensure_china_news_item,
     ensure_thai_weather_item,
+    localize_metric_for_summary,
     normalize_brazil_metrics,
     normalize_items,
     preserve_existing_dashboard_metrics,
@@ -202,6 +203,7 @@ def test_monday_publication_window_keeps_weekend_items() -> None:
 
 
 def test_structured_rss_candidate_summary_is_specific() -> None:
+    assert localize_metric_for_summary("4 provinces") == "4个省"
     rss = {
         "title": "Mindanao planters sound alarm as sugarcane pest spreads to 4 provinces - Inquirer",
         "link": "https://example.test/philippines-pest",
@@ -230,7 +232,8 @@ def test_structured_rss_candidate_summary_is_specific() -> None:
     }
     validate_editorial_quality(item, 1)
     assert "消息涉及" not in news
-    assert "4 provinces" in news
+    assert "4个省" in news
+    assert "4 provinces" not in news
 
 
 def test_rss_publication_filters_reject_health_plugin_and_wrong_country_fallback() -> None:
