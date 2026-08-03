@@ -36,6 +36,7 @@ from sugar_news_pipeline import (
     localize_metric_for_summary,
     normalize_brazil_metrics,
     normalize_items,
+    polish_verified_summary_text,
     preserve_existing_dashboard_metrics,
     publication_window_for_target,
     rss_source_from_title,
@@ -234,6 +235,22 @@ def test_structured_rss_candidate_summary_is_specific() -> None:
     assert "消息涉及" not in news
     assert "4个省" in news
     assert "4 provinces" not in news
+
+    pdm_rss = {
+        "title": "Centre facilitates mutually agreed price of Rs 4263/MT for sale of PDM by sugar mills - AgroSpectrum India",
+        "link": "https://example.test/pdm",
+        "published": "Sun, 02 Aug 2026 10:00:00 GMT",
+        "description": "",
+    }
+    pdm_title, pdm_source = rss_source_from_title(pdm_rss["title"])
+    pdm_candidate = structured_candidate_from_rss("印度", pdm_rss, "2026-08-02", pdm_title, pdm_source)
+    pdm_news, _pdm_impact = rss_summary_for_publication(pdm_candidate)
+    assert "Rs 4263/MT" in pdm_news
+    repaired = polish_verified_summary_text({
+        "title": pdm_title,
+        "news": "印度中央政府促成糖厂以Rs 4263销售PDM，交易主体为印度糖厂。",
+    })
+    assert "Rs 4263/MT" in repaired["news"]
 
 
 def test_rss_publication_filters_reject_health_plugin_and_wrong_country_fallback() -> None:

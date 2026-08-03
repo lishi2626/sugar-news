@@ -1076,6 +1076,21 @@ def localize_metric_for_summary(value: str) -> str:
     return localized
 
 
+def polish_verified_summary_text(item: dict) -> dict:
+    row = dict(item)
+    for text_field in ("news", "impact"):
+        if row.get(text_field):
+            row[text_field] = localize_metric_for_summary(str(row[text_field]))
+
+    title_text = str(row.get("title") or row.get("source_title") or "")
+    metadata = row.get("metadata")
+    if isinstance(metadata, dict):
+        title_text = f"{title_text} {metadata.get('source_title') or ''}"
+    if re.search(r"(?i)rs\.?\s*4263\s*/\s*mt", title_text):
+        row["news"] = re.sub(r"以(Rs\s*4263)(?!/MT)销售PDM", r"以\1/MT销售PDM", row.get("news", ""))
+    return row
+
+
 def infer_event_actor(country: str, topic: str, title: str, source: str) -> str:
     lowered = title.lower()
     if "pib" in source.lower() or "ministry" in lowered or "government" in lowered or "govt" in lowered or "centre" in lowered:
@@ -1520,6 +1535,8 @@ def rss_summary_for_publication(candidate: dict) -> tuple[str, str]:
         return news, impact
     if country == "印度" and "pdm" in lowered_title and "rs" in lowered_title and "sugar mills" in lowered_title:
         metric = "、".join(metrics[:2]) if metrics else "公开价格"
+        if re.search(r"(?i)rs\.?\s*4263\s*/\s*mt", title):
+            metric = "Rs 4263/MT"
         impact = "利空：糖厂副产品销售价格明确有助于改善现金流，间接支持压榨和制糖经营稳定。"
         candidate["impact_direction"] = "利空"
         candidate["impact_logic"] = impact.split("：", 1)[1]
@@ -2438,9 +2455,7 @@ def normalize_items(data: dict) -> list[dict]:
     normalized = []
     for idx, item in enumerate(items, start=1):
         item = normalize_country_fields(item)
-        for text_field in ("news", "impact"):
-            if item.get(text_field):
-                item[text_field] = localize_metric_for_summary(str(item[text_field]))
+        item = polish_verified_summary_text(item)
         for field in ("country_group", "country", "news", "impact", "source_name", "source_url", "published_date_local"):
             if not item.get(field):
                 raise ValueError(f"Verified item {idx} missing {field}")
