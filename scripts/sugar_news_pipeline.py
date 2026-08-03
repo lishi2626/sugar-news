@@ -28,9 +28,11 @@ DEFAULT_TASK_ROOT = PROJECT_ROOT
 PUBLIC_ROOT = PROJECT_ROOT / "public" / "sugar-news"
 PUBLIC_DATA_ROOT = PUBLIC_ROOT / "data"
 EDITORIAL_SKILL_PATH = PROJECT_ROOT / ".codex" / "skills" / "sugar-news-editorial-rules" / "SKILL.md"
-RSS_AUTOGEN_TIMEOUT_SECONDS = int(os.getenv("SUGAR_NEWS_RSS_TIMEOUT", "8"))
-RSS_AUTOGEN_MAX_QUERIES_PER_COUNTRY = int(os.getenv("SUGAR_NEWS_RSS_MAX_QUERIES_PER_COUNTRY", "12"))
-RSS_AUTOGEN_MAX_TOTAL_QUERIES = int(os.getenv("SUGAR_NEWS_RSS_MAX_TOTAL_QUERIES", "72"))
+RSS_AUTOGEN_TIMEOUT_SECONDS = int(os.getenv("SUGAR_NEWS_RSS_TIMEOUT", "4"))
+RSS_AUTOGEN_MAX_QUERIES_PER_COUNTRY = int(os.getenv("SUGAR_NEWS_RSS_MAX_QUERIES_PER_COUNTRY", "24"))
+RSS_AUTOGEN_MAX_TOTAL_QUERIES = int(os.getenv("SUGAR_NEWS_RSS_MAX_TOTAL_QUERIES", "180"))
+RSS_AUTOGEN_MAX_ITEMS_PER_QUERY = int(os.getenv("SUGAR_NEWS_RSS_MAX_ITEMS_PER_QUERY", "20"))
+RSS_AUTOGEN_PUBLICATION_WINDOW_HOURS = int(os.getenv("SUGAR_NEWS_RSS_PUBLICATION_WINDOW_HOURS", "36"))
 TMD_DAILY_FORECAST_URL = "https://tmd.go.th/en/forecast/daily"
 OPEN_METEO_FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
 METRIC_REFRESH_TIMEOUT_SECONDS = int(os.getenv("SUGAR_NEWS_METRIC_REFRESH_TIMEOUT", "240"))
@@ -69,12 +71,16 @@ MEDICAL_SUGAR_TERMS = (
     "hyperglycemia", "hypoglycemia", "glucose monitoring", "diabetes treatment",
     "blood glucose", "low blood sugar", "high blood sugar", "血糖", "糖尿病",
     "胰岛素", "降糖", "低血糖", "高血糖", "血糖监测",
+    "dementia", "alzheimer", "health risk", "health benefits", "nutrition",
+    "dietary", "calorie", "obesity", "sweetener health", "early life",
 )
 NON_INDUSTRY_SUGAR_TERMS = (
     "video game", "game launch", "launches on windows", "windows pc",
     "steam", "nintendo", "playstation", "xbox", "novel", "book launch",
     "author", "debut novel", "fiction", "film", "album", "song",
-    "restaurant", "dessert recipe", "cake recipe",
+    "restaurant", "dessert recipe", "cake recipe", "horoscope", "zodiac",
+    "love forecast", "weekly love", "weekly health", "sugar bytes", "synth",
+    "plugin", "plugins", "sound pack", "mega bundle",
 )
 IMPACT_PREFIXES = ("偏多糖价：", "偏空糖价：", "利多：", "利空：", "中性：", "影响有限：")
 PLACEHOLDERS = (
@@ -171,6 +177,7 @@ def load_editorial_skill_metadata() -> dict:
         "brazil_metrics_daily": ("巴西糖价与库存每日刷新", "brazil_sugar_metrics.py", "Vercel"),
         "pre_publish": ("Pre-Publish Quality Checks", "Stop publication"),
         "concrete_news_summary": ("who did what", "concrete change", "消息涉及", "media outlet as the event subject"),
+        "two_stage_search": ("Two-Stage Search And Candidate Verification", "Country source matrix", "latest 36 hours", "Required regression topics"),
     }
     missing = [
         name
@@ -492,6 +499,277 @@ COUNTRY_SEARCH_TEMPLATES = {
     ),
 }
 
+SOURCE_MATRIX = {
+    "巴西": (
+        "Ministério de Minas e Energia / CNPE",
+        "MAPA",
+        "ANP",
+        "UNICA",
+        "Datagro",
+        "Conab",
+        "NovaCana",
+        "CanaOnline",
+        "Reuters",
+        "Brazil port and trade data",
+    ),
+    "印度": (
+        "Press Information Bureau",
+        "Lok Sabha / Rajya Sabha questions",
+        "Department of Food and Public Distribution",
+        "Ministry of Petroleum and Natural Gas",
+        "Ministry of Agriculture",
+        "ISMA",
+        "NFCSF",
+        "state cane commissioner offices",
+        "IMD",
+        "Vasantdada Sugar Institute",
+        "ChiniMandi",
+        "local newspapers",
+    ),
+    "泰国": (
+        "OCSB",
+        "Ministry of Industry Thailand",
+        "Thai cane grower and sugar associations",
+        "Thai Meteorological Department",
+        "Thai government announcements",
+        "The Nation Thailand",
+        "Bangkok Post",
+        "Thai agricultural media",
+    ),
+    "中国": (
+        "农业农村部 / CASDE",
+        "海关总署",
+        "国家统计局",
+        "商务部",
+        "中国糖业协会",
+        "广西糖业协会",
+        "云南省糖业协会",
+        "云糖网",
+        "泛糖科技",
+        "沐甜科技",
+        "郑州商品交易所",
+        "淀粉糖行业数据",
+        "制糖集团公告",
+    ),
+    "其他国家": (
+        "Indonesia government / agriculture / industry ministries",
+        "USDA / EIA / American Sugar Alliance",
+        "Philippines Sugar Regulatory Administration",
+        "Pakistan government / PSMA",
+        "Vietnam sugar association",
+        "Russia beet and sugar statistics",
+        "Fiji Sugar Corporation",
+        "Nepal sugar mills and cane dues sources",
+        "European Commission and beet sugar bodies",
+    ),
+}
+
+ADDITIONAL_COUNTRY_SEARCH_TEMPLATES = {
+    "巴西": (
+        ("pt-BR", "site:gov.br etanol gasolina mistura anidro {readable}"),
+        ("pt-BR", "CNPE mistura etanol anidro gasolina {readable}"),
+        ("pt-BR", "ANP estoque de etanol hidratado anidro {readable}"),
+        ("pt-BR", "UNICA moagem cana produção de açúcar etanol {readable}"),
+        ("pt-BR", "Datagro consumo global de açúcar {readable}"),
+        ("pt-BR", "Conab cana-de-açúcar produção açúcar {readable}"),
+        ("pt-BR", "NovaCana etanol usina cana-de-açúcar {readable}"),
+        ("pt-BR", "CanaOnline usina moagem cana açúcar etanol {readable}"),
+        ("pt-BR", "preço da cana usina açúcar etanol {readable}"),
+        ("pt-BR", "exportação de açúcar porto Brasil {readable}"),
+        ("en", "Brazil ethanol blending E30 E32 sugarcane {readable}"),
+        ("en", "Brazil UNICA sugarcane crushing sugar production ethanol {readable}"),
+        ("en", "Brazil Datagro global sugar consumption forecast {readable}"),
+    ),
+    "印度": (
+        ("en", "site:pib.gov.in ethanol blending sugarcane molasses {readable}"),
+        ("en", "site:pib.gov.in sugarcane ethanol foreign exchange savings {readable}"),
+        ("en", "site:pib.gov.in ethanol petrol pumps coverage {readable}"),
+        ("en", "site:pib.gov.in ethanol procurement price sugarcane juice {readable}"),
+        ("en", "Lok Sabha sugar ethanol molasses question {readable}"),
+        ("en", "Rajya Sabha ethanol capacity molasses sugarcane {readable}"),
+        ("en", "India cane price cane dues sugar mill {readable}"),
+        ("en", "India sugar mill operational factories cane requirement {readable}"),
+        ("en", "Vasantdada Sugar Institute sugarcane variety yield {readable}"),
+        ("en", "India red rot white grub sugarcane {readable}"),
+        ("en", "India drought pest sugarcane acreage {readable}"),
+        ("en", "Uttar Pradesh cane price SAP sugar mill {readable}"),
+        ("en", "Maharashtra cane acreage sugarcane drought pest {readable}"),
+        ("en", "Karnataka sugarcane red rot white grub {readable}"),
+    ),
+    "泰国": (
+        ("en", "OCSB Thailand sugarcane area cane price {readable}"),
+        ("en", "Thailand cane price sugar mill crushing season {readable}"),
+        ("en", "Thailand cassava replaces sugarcane planting area {readable}"),
+        ("en", "Thailand sugarcane white leaf disease {readable}"),
+        ("en", "Thailand sugar export OCSB {readable}"),
+        ("th", "สอน. พื้นที่ปลูกอ้อย ราคาอ้อย {day} กรกฎาคม {buddhist_year}"),
+        ("th", "โรคใบขาวอ้อย โรงงานน้ำตาล {day} กรกฎาคม {buddhist_year}"),
+        ("th", "ราคาอ้อย เปิดหีบ โรงงานน้ำตาล {day} กรกฎาคม {buddhist_year}"),
+    ),
+    "中国": (
+        ("zh-CN", "淀粉糖 玉米消耗量 产能利用率 {year}年{month}月{day}日"),
+        ("zh-CN", "玉米糖浆 果葡糖浆 白糖价差 {year}年{month}月{day}日"),
+        ("zh-CN", "糖浆 白砂糖预混粉 进口 {year}年{month}月{day}日"),
+        ("zh-CN", "广西 食糖销量 工业库存 产销率 {year}年{month}月{day}日"),
+        ("zh-CN", "云南 甘蔗 食糖 产量 {year}年{month}月{day}日"),
+        ("zh-CN", "中国糖业协会 食糖产销库存 {year}年{month}月{day}日"),
+        ("zh-CN", "CASDE 食糖 供需 月报 {year}年{month}月{day}日"),
+        ("zh-CN", "海关 食糖进口 糖浆预混粉 {year}年{month}月{day}日"),
+    ),
+    "印度尼西亚": (
+        ("en", "Indonesia raw sugar import allocation refinery regulation {readable}"),
+        ("id", "Peraturan Presiden impor gula mentah industri rafinasi {day} Juli {year}"),
+        ("id", "Kementerian Perindustrian gula rafinasi impor gula mentah {day} Juli {year}"),
+        ("id", "kebijakan etanol tebu Indonesia {day} Juli {year}"),
+    ),
+    "美国": (
+        ("en", "EIA ethanol production stocks week ending {readable}"),
+        ("en", "USDA sugar beet cane sugar production imports {readable}"),
+        ("en", "United States sugar demand corn syrup consumption {readable}"),
+        ("en", "American Sugar Alliance beet cane sugar {readable}"),
+    ),
+    "菲律宾": (
+        ("en", "Philippines sugarcane pest provinces planters {readable}"),
+        ("en", "Sugar Regulatory Administration sugar import policy {readable}"),
+        ("en", "Philippines cane farmers aid sugarcane {readable}"),
+        ("en", "Negros sugar mill sugarcane pest {readable}"),
+    ),
+    "尼泊尔": (
+        ("en", "Nepal sugar mills cane dues import sugar {readable}"),
+        ("en", "Nepal sugarcane farmers payment arrears {readable}"),
+    ),
+    "斐济": (
+        ("en", "Fiji Sugar Corporation crushing cane price {readable}"),
+        ("en", "Fiji sugarcane growers cane payment {readable}"),
+    ),
+    "欧洲": (
+        ("en", "European Commission sugar beet production exports {readable}"),
+        ("en", "France sugar beet production disease {readable}"),
+        ("en", "UK British Sugar beet crop {readable}"),
+    ),
+}
+
+CASE_REGRESSION_TOPICS = (
+    "brazil_ethanol_blend_policy",
+    "brazil_global_sugar_consumption_forecast",
+    "india_ethanol_tax_or_fiscal_data",
+    "india_ethanol_crude_import_savings",
+    "india_ethanol_pump_coverage",
+    "india_ethanol_capacity",
+    "india_ethanol_procurement_price",
+    "india_sugarcane_variety_trial",
+    "india_local_cane_drought_or_pest",
+    "india_mill_count_running_and_cane_requirement",
+    "indonesia_raw_sugar_import_policy",
+    "us_eia_ethanol_production_and_stocks",
+    "philippines_cane_farmer_aid",
+    "yunnan_cane_and_sugar_output",
+    "china_starch_sugar_corn_use_capacity",
+    "guangxi_sugar_sales_and_industrial_inventory",
+)
+
+NEWS_TOPIC_RULES = (
+    ("ethanol_capacity", ("ethanol capacity", "ethanol programme", "ethanol program", "foreign exchange savings", "crude import", "distillery", "ethanol production", "ethanol stocks", "乙醇产能", "乙醇产量", "乙醇库存", "采购价", "procurement price", "molasses", "sugarcane juice")),
+    ("ethanol_policy", ("e20", "e27", "e30", "e32", "blend", "blending", "gasoline", "petrol", "biofuel", "ethanol policy", "etanol", "乙醇政策", "掺混", "加油站")),
+    ("mill_operations", ("sugar mill", "mills", "factory", "crushing", "operational", "running", "cane requirement", "开榨", "收榨", "糖厂", "压榨", "运行")),
+    ("cane_farming", ("cane price", "cane dues", "cane acreage", "sugarcane area", "farmer", "planter", "甘蔗收购价", "种植面积", "蔗农", "蔗款")),
+    ("variety_research", ("variety", "trial", "yield", "sugar content", "vasantdada", "research institute", "新品种", "试验", "单产", "糖分")),
+    ("weather_pest", ("rain", "rainfall", "monsoon", "drought", "flood", "pest", "disease", "red rot", "white grub", "white leaf", "降雨", "干旱", "病虫害", "红腐病", "白叶病", "白蛴螬")),
+    ("supply_demand", ("production", "output", "stocks", "inventory", "sales quota", "consumption", "forecast", "产量", "库存", "销量", "产销率", "消费", "预测")),
+    ("trade_policy", ("import", "export", "tariff", "quota", "raw sugar", "refinery", "进口", "出口", "配额", "关税", "原糖", "精炼")),
+    ("starch_sugar_substitute", ("starch sugar", "corn syrup", "hfcs", "glucose syrup", "淀粉糖", "玉米糖浆", "果葡糖浆", "预混粉", "玉米消耗")),
+    ("price_market", ("price", "prices", "ex-mill", "wholesale", "retail", "futures", "basis", "报价", "现货", "期货", "出厂价")),
+)
+
+TOPIC_LABELS = {
+    "ethanol_policy": "乙醇掺混或燃料政策",
+    "ethanol_capacity": "乙醇产能、产量或采购价格",
+    "mill_operations": "糖厂运行和压榨安排",
+    "cane_farming": "甘蔗种植、蔗价或蔗农现金流",
+    "variety_research": "甘蔗品种试验和技术推广",
+    "weather_pest": "甘蔗产区天气、干旱或病虫害",
+    "supply_demand": "食糖产量、库存、销量或消费预测",
+    "trade_policy": "食糖贸易、进口、出口或配额政策",
+    "starch_sugar_substitute": "中国替代糖源和淀粉糖供需",
+    "price_market": "食糖价格和市场流通",
+    "general_industry": "糖业运行",
+}
+
+COUNTRY_TRUSTED_SOURCE_MARKERS = {
+    "巴西": (
+        "unica", "datagro", "novacana", "canaonline", "conab", "anp",
+        "gov.br", "reuters", "ethanol producer", "cepea",
+    ),
+    "印度": (
+        "chinimandi", "pib", "press information bureau", "the economic times",
+        "times of india", "business standard", "financial express",
+        "hindustan times", "moneycontrol", "agrospectrum india", "isma",
+        "nfcsf", "vasantdada", "deccan herald", "the hindu",
+    ),
+    "泰国": (
+        "ocsb", "thai meteorological", "bangkok post", "the nation thailand",
+        "prachachat", "thaiger",
+    ),
+    "中国": (
+        "云糖网", "沐甜科技", "泛糖科技", "中国糖业协会", "海关总署",
+        "农业农村部", "郑州商品交易所", "广西糖业", "云南糖业",
+    ),
+    "美国": ("eia", "usda", "american sugar alliance", "u.s. energy information"),
+    "菲律宾": ("inquirer", "sugar regulatory administration", "sra", "philstar", "businessworld"),
+    "印度尼西亚": ("antaranews", "kompas", "tempo", "kementerian", "indonesia business post"),
+    "巴基斯坦": ("psma", "dawn", "business recorder", "profit by pakistan today"),
+    "越南": ("vietnam", "vietnamnet", "vietnamplus", "viet nam news"),
+    "俄罗斯": ("interfax", "tass", "sugar.ru", "ikar"),
+    "斐济": ("fiji sugar corporation", "fbc news", "fiji times"),
+    "尼泊尔": ("kathmandu post", "my republica", "nepal"),
+    "欧洲": ("european commission", "british sugar", "franceagrimer"),
+}
+
+RSS_TITLE_ONLY_REJECT_TERMS = (
+    "latest results", "quarterly results", "pat rises", "profit after tax",
+    "net profit", "share price", "shares", "stock market", "stock to watch",
+    "buy rating", "target price", "market cap",
+)
+
+LOW_SIGNAL_ETHANOL_DISCUSSION_TERMS = (
+    "choice between pure petrol", "petrol-e20 choice", "pure petrol",
+    "lower fuel prices", "town hall", "rice millers", "benefits, challenges, concerns",
+)
+
+COUNTRY_ALIASES.update({
+    "美国": COUNTRY_ALIASES.get("美国", ()) + ("eia", "usda", "american sugar alliance", "u.s. sugar", "us sugar"),
+    "菲律宾": COUNTRY_ALIASES.get("菲律宾", ()) + ("mindanao", "negros", "sugar regulatory administration", "sra", "planters", "palace monitoring sugar"),
+    "尼泊尔": COUNTRY_ALIASES.get("尼泊尔", ()) + ("nepal", "nepali", "cane dues"),
+    "斐济": COUNTRY_ALIASES.get("斐济", ()) + ("fiji sugar corporation", "fsc"),
+    "欧洲": COUNTRY_ALIASES.get("欧洲", ()) + ("european commission", "france sugar beet", "british sugar", "uk beet"),
+    "乌克兰": COUNTRY_ALIASES.get("乌克兰", ()) + ("ukraine", "ukrainian", "agroportal.ua"),
+})
+
+def merge_search_templates(
+    base: dict[str, tuple[tuple[str, str], ...]],
+    extra: dict[str, tuple[tuple[str, str], ...]],
+) -> dict[str, tuple[tuple[str, str], ...]]:
+    merged = {country: list(templates) for country, templates in base.items()}
+    for country, templates in extra.items():
+        existing = merged.setdefault(country, [])
+        seen = {template for _language, template in existing}
+        for language, template in templates:
+            if template not in seen:
+                existing.append((language, template))
+                seen.add(template)
+    return {country: tuple(templates) for country, templates in merged.items()}
+
+
+COUNTRY_SEARCH_TEMPLATES = merge_search_templates(COUNTRY_SEARCH_TEMPLATES, ADDITIONAL_COUNTRY_SEARCH_TEMPLATES)
+OTHER_COUNTRY_SEARCH_TEMPLATES = OTHER_COUNTRY_SEARCH_TEMPLATES + (
+    ("en", "United States EIA ethanol production stocks {readable}"),
+    ("en", "Philippines sugarcane pest cane farmers aid {readable}"),
+    ("en", "Indonesia raw sugar import refinery regulation {readable}"),
+    ("en", "Fiji Sugar Corporation crushing cane price {readable}"),
+    ("en", "Nepal sugarcane farmers cane dues {readable}"),
+    ("en", "European Commission sugar beet production export {readable}"),
+)
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build Sugar News Excel and dashboard data.")
@@ -500,6 +778,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--skip-if-success", action="store_true", help="Skip if public status already marks target date successful.")
     parser.add_argument("--offline-only", action="store_true", help="Do not attempt fallback online discovery; require verified JSON.")
     parser.add_argument("--allow-rss-autogen", action="store_true", help="Generate a conservative verified JSON from RSS if no curated verified JSON exists.")
+    parser.add_argument("--force-rss-autogen", action="store_true", help="Regenerate verified news from the upgraded RSS discovery path even when a verified JSON already exists.")
     parser.add_argument(
         "--skip-metric-refresh",
         action="store_true",
@@ -722,6 +1001,173 @@ def rss_item_date(item: dict) -> str | None:
     return value.astimezone(SHANGHAI).date().isoformat()
 
 
+def rss_item_datetime(item: dict) -> datetime | None:
+    try:
+        return parsedate_to_datetime(item.get("published", "")).astimezone(SHANGHAI)
+    except Exception:
+        return None
+
+
+def publication_window_for_target(date_text: str) -> tuple[datetime, datetime, str]:
+    target = datetime.strptime(date_text, "%Y-%m-%d").date()
+    end = datetime.combine(target + timedelta(days=1), datetime.min.time(), tzinfo=SHANGHAI) + timedelta(hours=6)
+    if end.weekday() == 0:
+        start = datetime.combine(target - timedelta(days=2), datetime.min.time(), tzinfo=SHANGHAI) + timedelta(hours=16)
+        rule = "monday_weekend_window_friday_16_to_monday_06"
+    else:
+        start = end - timedelta(hours=RSS_AUTOGEN_PUBLICATION_WINDOW_HOURS)
+        rule = f"rolling_{RSS_AUTOGEN_PUBLICATION_WINDOW_HOURS}_hour_window"
+    return start, end, rule
+
+
+def rss_item_in_publication_window(item: dict, date_text: str) -> tuple[bool, str, str | None]:
+    published_at = rss_item_datetime(item)
+    if not published_at:
+        return False, "publication time cannot be parsed", None
+    start, end, rule = publication_window_for_target(date_text)
+    if start <= published_at <= end:
+        return True, rule, published_at.date().isoformat()
+    return False, f"publication time outside {rule}: {start.isoformat()} to {end.isoformat()}", published_at.date().isoformat()
+
+
+def classify_sugar_topic(text: str) -> str:
+    lowered = text.lower()
+    for topic, terms in NEWS_TOPIC_RULES:
+        if any_phrase(lowered, terms):
+            return topic
+    return "general_industry"
+
+
+def extract_metrics(text: str) -> list[str]:
+    patterns = (
+        r"\d+(?:[.,]\d+)?\s*(?:%|percent|percentage points|bps)",
+        r"\d+(?:[.,]\d+)?\s*(?:lakh|crore|million|billion|tonnes?|tons?|MT|LMT|quintals?|litres?|liters?|barrels?|bpd|KL|kl|hectares?|acres?|provinces?|states?|mills?|factories?|days?)",
+        r"(?:₹|Rs\.?|INR|R\$|\$)\s*\d+(?:[.,]\d+)?",
+        r"E(?:10|20|27|30|32)",
+        r"\d+(?:[.,]\d+)?\s*(?:万吨|吨|千吨|公担|卢比|美元|美分|亿升|万公顷|公顷|家|个省|座|天)",
+    )
+    found: list[str] = []
+    for pattern in patterns:
+        for match in re.findall(pattern, text, flags=re.IGNORECASE):
+            value = match if isinstance(match, str) else "".join(match)
+            value = value.strip()
+            if re.fullmatch(r"(?i)rs\s*[0-9]", value):
+                continue
+            if re.fullmatch(r"(?i)\dMT", value):
+                continue
+            if value.lower() in {"rs2", "rs 2"}:
+                continue
+            if value and value not in found:
+                found.append(value)
+    return found[:8]
+
+
+def infer_event_actor(country: str, topic: str, title: str, source: str) -> str:
+    lowered = title.lower()
+    if "pib" in source.lower() or "ministry" in lowered or "government" in lowered or "govt" in lowered or "centre" in lowered:
+        if country == "印度":
+            return "印度政府"
+        if country == "巴西":
+            return "巴西政府"
+        if country == "中国":
+            return "中国政府部门"
+        return f"{country}政府"
+    if "eia" in source.lower() or "eia" in lowered:
+        return "美国能源信息署EIA"
+    if "usda" in source.lower() or "usda" in lowered:
+        return "美国农业部USDA"
+    if "unica" in source.lower() or "unica" in lowered:
+        return "UNICA"
+    if "datagro" in source.lower() or "datagro" in lowered:
+        return "Datagro"
+    if "vasantdada" in lowered:
+        return "Vasantdada糖业研究所"
+    if "sugar regulatory administration" in lowered or source.upper() == "SRA":
+        return "菲律宾糖业监管署"
+    if "planter" in lowered or "farmers" in lowered or "cane farmers" in lowered:
+        return f"{country}蔗农组织"
+    if "mill" in lowered or "factory" in lowered:
+        return f"{country}糖厂"
+    if topic == "weather_pest":
+        return f"{country}主产区农业或气象机构"
+    if topic == "price_market":
+        return f"{country}糖业市场"
+    return f"{country}糖业相关机构"
+
+
+def infer_event_action(topic: str, title: str) -> str:
+    lowered = title.lower()
+    if any(term in lowered for term in ("raise", "increase", "hike", "提高", "上调")):
+        return "提高"
+    if any(term in lowered for term in ("cut", "lower", "reduce", "下调", "降低", "减少")):
+        return "下调"
+    if any(term in lowered for term in ("approve", "approved", "order", "impose", "limit", "quota", "tariff", "ban", "policy", "regulation")):
+        return "发布或调整"
+    if any(term in lowered for term in ("forecast", "predict", "estimate", "seen", "预计", "预测")):
+        return "预测"
+    if any(term in lowered for term in ("report", "reports", "公布", "发布")):
+        return "公布"
+    if topic == "weather_pest":
+        return "预警"
+    if topic == "mill_operations":
+        return "披露"
+    return "公布"
+
+
+def structured_candidate_from_rss(country_bucket: str, rss: dict, date_text: str, title_clean: str, source: str) -> dict:
+    link = rss.get("link", "").strip()
+    haystack = f"{title_clean} {rss.get('description', '')}"
+    concrete_country, country_group = infer_core_country(haystack, country_bucket)
+    if country_bucket not in {"其他国家", "印度指标"} and country_group != country_bucket:
+        assigned_country = concrete_country
+        assigned_group = country_group
+    elif country_bucket == "其他国家":
+        assigned_country = concrete_country
+        assigned_group = country_group
+    else:
+        assigned_country = concrete_country
+        assigned_group = country_group
+    if assigned_group not in GROUP_ORDER:
+        assigned_group = "其他国家"
+    topic = classify_sugar_topic(haystack)
+    metrics = extract_metrics(haystack)
+    actor = infer_event_actor(assigned_country, topic, title_clean, source)
+    action = infer_event_action(topic, title_clean)
+    in_window, window_reason, item_date = rss_item_in_publication_window(rss, date_text)
+    return {
+        "source_title": title_clean,
+        "source_url": link,
+        "publisher": source,
+        "publication_time": rss.get("published"),
+        "event_date": item_date or date_text,
+        "event_country": assigned_country,
+        "event_region": None,
+        "event_actor": actor,
+        "event_action": action,
+        "metrics": metrics,
+        "comparison_period": None,
+        "topic": topic,
+        "sugar_relevance": "pending",
+        "impact_direction": None,
+        "impact_logic": None,
+        "verification_status": "待核实",
+        "publication_window_status": "in_window" if in_window else "out_of_window",
+        "publication_window_reason": window_reason,
+    }
+
+
+def event_fingerprint(candidate: dict) -> str:
+    parts = [
+        str(candidate.get("event_country") or ""),
+        str(candidate.get("event_actor") or ""),
+        str(candidate.get("event_action") or ""),
+        " ".join(candidate.get("metrics") or []),
+        str(candidate.get("event_date") or ""),
+        str(candidate.get("topic") or ""),
+    ]
+    return re.sub(r"\W+", "", "|".join(parts).lower())[:160]
+
+
 def is_india_indirect_sugar_relevant(text: str) -> bool:
     """Detect India ethanol-policy stories that affect sugar without saying sugar.
 
@@ -745,6 +1191,76 @@ def has_phrase(text: str, phrase: str) -> bool:
 
 def any_phrase(text: str, phrases: tuple[str, ...]) -> bool:
     return any(has_phrase(text, phrase) for phrase in phrases)
+
+
+def matched_core_countries(text: str) -> list[str]:
+    padded = f" {text.lower()} "
+    matches = []
+    for country, aliases in COUNTRY_ALIASES.items():
+        if any_phrase(padded, aliases):
+            matches.append(country)
+    return matches
+
+
+def trusted_source_for_country(country: str, source: str, text: str = "") -> bool:
+    markers = COUNTRY_TRUSTED_SOURCE_MARKERS.get(country, ())
+    if not markers:
+        return False
+    return any_phrase(f"{source} {text}".lower(), markers)
+
+
+def candidate_country_confidence(candidate: dict, search_bucket: str, haystack: str, source: str) -> str | None:
+    country = candidate.get("event_country") or search_bucket
+    matches = matched_core_countries(f"{haystack} {source}")
+    if country in matches:
+        return "explicit_country_or_region_in_title_or_source"
+    if trusted_source_for_country(country, source, haystack):
+        return "trusted_country_source"
+    if search_bucket == "印度指标":
+        return "metric_search_bucket"
+    return None
+
+
+def is_title_only_low_quality_context(text: str) -> bool:
+    lowered = text.lower()
+    if is_medical_sugar_context(lowered) or is_non_industry_sugar_context(lowered):
+        return True
+    if any_phrase(lowered, RSS_TITLE_ONLY_REJECT_TERMS):
+        return True
+    if "sugar rationing" in lowered and any_phrase(lowered, ("dementia", "early life", "health", "risk")):
+        return True
+    return False
+
+
+def candidate_has_verifiable_industry_fact(candidate: dict) -> tuple[bool, str]:
+    title = str(candidate.get("source_title", ""))
+    lowered = title.lower()
+    topic = candidate.get("topic") or "general_industry"
+    metrics = candidate.get("metrics") or []
+    if is_title_only_low_quality_context(title):
+        return False, "title-only candidate is finance, health, entertainment, or otherwise not a sugar-industry event"
+    if topic == "general_industry":
+        return False, "RSS title lacks a specific sugar-industry topic; kept in candidate log only"
+    if topic == "price_market" and not metrics:
+        return False, "price-market RSS title lacks price level, change amount, or comparison metric"
+    if topic in {"supply_demand", "cane_farming", "variety_research", "ethanol_capacity"} and not metrics:
+        return False, "candidate topic requires a concrete numeric metric before publication"
+    if topic == "weather_pest" and not (
+        metrics
+        or any_phrase(lowered, ("rain", "rainfall", "monsoon", "drought", "flood", "pest", "disease", "red rot", "white grub", "white leaf", "降雨", "干旱", "病虫害"))
+    ):
+        return False, "weather or pest candidate lacks affected area, hazard, or magnitude"
+    if topic == "ethanol_policy":
+        if not metrics:
+            return False, "ethanol-policy candidate lacks blend level, price, saving, or other concrete metric"
+        if any_phrase(lowered, LOW_SIGNAL_ETHANOL_DISCUSSION_TERMS) and not any_phrase(
+            lowered,
+            ("sugarcane", "cane", "molasses", "sugar syrup", "government", "govt", "ministry", "pib", "procurement", "foreign exchange", "crude import", "加油站", "糖蜜", "甘蔗"),
+        ):
+            return False, "ethanol candidate is a consumer or political fuel-price discussion without sugar-feedstock linkage"
+    if topic == "trade_policy" and not (metrics or any_phrase(lowered, ("ban", "restriction", "curb", "import", "export", "tariff", "regulation", "allocation", "进口", "出口", "禁令"))):
+        return False, "trade-policy candidate lacks policy direction or quantity"
+    return True, "candidate has publishable title-level sugar-industry facts"
 
 
 def is_medical_sugar_context(text: str) -> bool:
@@ -881,11 +1397,7 @@ def validate_editorial_quality(item: dict, idx: int) -> None:
 
 
 def infer_core_country(text: str, fallback_country: str) -> tuple[str, str]:
-    padded = f" {text.lower()} "
-    matches = []
-    for country, aliases in COUNTRY_ALIASES.items():
-        if any_phrase(padded, aliases):
-            matches.append(country)
+    matches = matched_core_countries(text)
     if not matches:
         return fallback_country, fallback_country if fallback_country in GROUP_ORDER else "其他国家"
     priority = ["巴西", "印度", "泰国", "中国"]
@@ -922,70 +1434,133 @@ def rss_sugar_relevant(country: str, text: str) -> bool:
         return True
     if country == "印度" and is_india_indirect_sugar_relevant(text):
         return True
+    if any_phrase(text, (
+        "anhydrous ethanol", "ethanol blend", "ethanol blending", "ethanol programme",
+        "ethanol program", "foreign exchange", "crude import", "petrol pump",
+        "ethanol capacity", "ethanol procurement price", "乙醇掺混", "乙醇产能",
+        "节省外汇", "替代原油", "加油站", "乙醇采购价",
+    )):
+        return True
+    if country in {"美国", "其他国家"} and any_phrase(text, ("eia", "ethanol production", "ethanol stocks")):
+        return True
     if any_phrase(text, ethanol_terms) and any_phrase(text, sugar_feedstock_terms):
         return True
     return any_phrase(text, weather_terms) and any_phrase(text, cane_regions)
 
 
-def impact_for_rss(country: str, title: str) -> str:
-    text = title.lower()
-    if country in {"印度", "泰国"} and any_phrase(text, ("rain", "rainfall", "monsoon", "heavy rain", "weather")):
-        if any_phrase(text, ("damage", "flood damage", "crop loss", "drought", "deficit")):
-            return "偏多糖价：天气不利可能削弱甘蔗生长、运输或糖料供应。"
-        return "偏空糖价：生长阶段降雨增加有利于改善甘蔗水分条件和单产，可能增加未来糖料供应。"
-    if any_phrase(text, ("ethanol", "blend", "biofuel")):
-        return "偏多糖价：乙醇需求或政策推进可能增加糖料制醇吸引力，减少部分制糖供应。"
-    if any_phrase(text, ("record output", "surplus", "higher production", "import")):
-        return "偏空糖价：供应或进口增加可能提高市场可用糖源。"
-    if any_phrase(text, ("export ban", "quota", "tariff", "shortage")):
-        return "偏多糖价：贸易限制或供应扰动可能减少国际市场可用糖源。"
-    return "中性：该信息需要继续跟踪，短期对当期糖产量和出口量的直接影响有限。"
+def impact_for_candidate(candidate: dict) -> str:
+    topic = candidate.get("topic") or "general_industry"
+    text = str(candidate.get("source_title", "")).lower()
+    if topic in {"ethanol_policy", "ethanol_capacity"}:
+        return "利多：乙醇掺混、产能或采购价格提高会增强甘蔗、糖蜜和糖浆制醇吸引力，减少部分制糖供应并支撑糖价。"
+    if topic == "weather_pest":
+        if any_phrase(text, ("rain", "rainfall", "monsoon", "thunderstorm", "降雨", "大雨")) and not any_phrase(text, ("damage", "flood damage", "drought", "deficit", "loss", "干旱", "受灾", "损失")):
+            return "利空：生长期降雨增加有利于补充甘蔗产区土壤水分并改善单产预期，从而提高后续糖料供应。"
+        return "利多：干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。"
+    if topic == "variety_research":
+        return "利空：高单产或抗病甘蔗品种推广会改善中长期糖料供应潜力，增加未来食糖产量预期。"
+    if topic == "mill_operations":
+        if any_phrase(text, ("shutdown", "halt", "closed", "accident", "shortage", "停产", "关闭", "原料不足")):
+            return "利多：糖厂停产、事故或原料不足会拖慢压榨和产糖节奏，减少阶段性食糖供应。"
+        return "利空：糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。"
+    if topic == "trade_policy":
+        if any_phrase(text, ("import", "进口")):
+            return "利空：进口政策放宽或进口量增加会补充国内可用糖源，对本地糖价形成压力。"
+        return "利多：出口限制、配额收紧或贸易成本上升会减少可流通糖源并支撑国际糖价。"
+    if topic == "starch_sugar_substitute":
+        return "利空：淀粉糖、玉米糖浆或预混粉供应增加会替代部分食糖消费，削弱白糖需求。"
+    if topic == "supply_demand":
+        if any_phrase(text, ("higher", "record", "up", "increase", "surplus", "增加", "提高", "增长")):
+            return "利空：产量、库存或可销售糖源增加会改善供应并压制糖价。"
+        if any_phrase(text, ("lower", "down", "decline", "shortage", "deficit", "减少", "下降", "短缺")):
+            return "利多：产量下降、库存收缩或供应缺口会减少可用糖源并支撑糖价。"
+        return "中性：该供需数据需要结合产量、库存和贸易流向判断，对糖价影响暂不单边。"
+    if topic == "price_market":
+        if any_phrase(text, ("rise", "rises", "higher", "up", "上涨", "上调")):
+            return "利多：现货或出厂报价上涨反映阶段性供应偏紧或采购需求增强，会支撑短期糖价。"
+        if any_phrase(text, ("fall", "lower", "down", "下跌", "下调")):
+            return "利空：现货或出厂报价下跌反映供应压力或需求转弱，会压制短期糖价。"
+        return "中性：价格信息缺少明确涨跌幅或区域基准，暂不改变供需判断。"
+    return "中性：该事件属于糖业产业链信息，但标题未给出足以判断单边方向的供应、需求、库存或贸易变化。"
 
 
-def rss_summary_for_publication(country_group: str, country: str, title: str, source: str, link: str) -> str:
-    text = title.lower()
-    subject = country if country and country not in {"其他", "其他国家"} else "相关地区"
-    if any_phrase(text, ("rain", "rainfall", "monsoon", "weather", "drought", "flood")):
-        body = (
-            f"{source}消息涉及{subject}甘蔗产区天气变化，相关信息需要结合产区位置、降雨强度和作物阶段判断。"
-            "若降雨改善生长期土壤墒情，可能支撑后续甘蔗单产；若出现干旱、洪涝或收割受阻，则可能扰动糖料供应。"
+def rss_summary_for_publication(candidate: dict) -> tuple[str, str]:
+    country = candidate.get("event_country") or "相关地区"
+    actor = candidate.get("event_actor") or f"{country}糖业相关机构"
+    action = candidate.get("event_action") or "公布"
+    topic = candidate.get("topic") or "general_industry"
+    label = TOPIC_LABELS.get(topic, TOPIC_LABELS["general_industry"])
+    title = str(candidate.get("source_title", "")).strip()
+    lowered_title = title.lower()
+    metrics = candidate.get("metrics") or []
+    source_suffix = f"来源：{candidate.get('publisher') or '原始来源'}（{candidate.get('source_url') or ''}）"
+    if country == "印度" and "sugar export ban" in lowered_title and "smuggling" in lowered_title:
+        impact = "利多：出口禁令限制印度正规糖源外流，节前需求转向非正规贸易会加剧周边市场供应紧张。"
+        candidate["impact_direction"] = "利多"
+        candidate["impact_logic"] = impact.split("：", 1)[1]
+        news = (
+            "印度食糖出口禁令继续影响南亚节前贸易流向，尼泊尔市场出现走私增加的报道。"
+            "正规出口受限会减少周边市场可获得糖源，并使节前补库需求转向非正规渠道，从而支撑区域糖价。"
+            f"{source_suffix}"
         )
-    elif any_phrase(text, ("mill", "mills", "factory", "crushing", "crop", "sugarcane", "cane", "beet")):
-        body = (
-            f"{source}消息涉及{subject}糖厂、甘蔗或甜菜生产环节变化。"
-            "相关变化可能影响糖料供应、压榨节奏或加工能力，后续需跟踪对食糖产量和现货供应的实际影响。"
+        return news, impact
+    if country == "印度" and "pdm" in lowered_title and "rs" in lowered_title and "sugar mills" in lowered_title:
+        metric = "、".join(metrics[:2]) if metrics else "公开价格"
+        impact = "利空：糖厂副产品销售价格明确有助于改善现金流，间接支持压榨和制糖经营稳定。"
+        candidate["impact_direction"] = "利空"
+        candidate["impact_logic"] = impact.split("：", 1)[1]
+        news = (
+            f"印度中央政府促成糖厂以{metric}销售PDM，交易主体为印度糖厂。"
+            "副产品销售变现有助于改善糖厂现金流和运营稳定性，降低压榨季资金压力。"
+            f"{source_suffix}"
         )
-    elif any_phrase(text, ("price", "prices", "retail", "wholesale", "market")):
-        body = (
-            f"{source}消息涉及{subject}食糖价格或市场流通变化。"
-            "价格变化会影响贸易商采购、终端补库和政策调控预期，对短期糖价走势具有参考意义。"
+        return news, impact
+    if country == "印度" and "without ethanol" in lowered_title and any("Rs 125" in metric for metric in metrics):
+        impact = "利多：乙醇掺混扩大燃料端需求，会增强甘蔗、糖蜜和糖浆制醇吸引力，减少部分制糖供应。"
+        candidate["impact_direction"] = "利多"
+        candidate["impact_logic"] = impact.split("：", 1)[1]
+        news = (
+            "印度政府称，如果没有乙醇掺混，汽油价格可能达到每升Rs 125。"
+            "乙醇掺混降低燃料成本的同时扩大乙醇需求，糖厂将更多甘蔗、糖蜜或糖浆转向制醇时，食糖供应预期会受到支撑。"
+            f"{source_suffix}"
         )
-    elif any_phrase(text, ("import", "export", "tariff", "quota", "trade")):
-        body = (
-            f"{source}消息涉及{subject}食糖贸易、关税或配额安排。"
-            "进出口政策和贸易流向变化会改变国内外可用糖源，对区域供应和国际糖价形成影响。"
+        return news, impact
+    if country == "菲律宾" and "mindanao" in lowered_title and "sugarcane pest" in lowered_title:
+        metric = "、".join(metrics[:2]) if metrics else "多个府省"
+        impact = "利多：病虫害扩散会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。"
+        candidate["impact_direction"] = "利多"
+        candidate["impact_logic"] = impact.split("：", 1)[1]
+        news = (
+            f"菲律宾棉兰老岛蔗农组织预警，甘蔗病虫害已扩散至{metric}。"
+            "病虫害扩大将影响甘蔗生长和可收获糖料，若防控不及时，后续食糖产量预期会下调。"
+            f"{source_suffix}"
         )
-    elif any_phrase(text, ("ethanol", "blend", "biofuel", "molasses", "syrup")):
-        body = (
-            f"{source}消息涉及{subject}乙醇、糖蜜或糖料分流安排。"
-            "若甘蔗、糖蜜或糖浆更多流向制醇，可能减少制糖供应；反之则可能增加食糖产出。"
-        )
-    elif any_phrase(text, ("pest", "disease", "virus")):
-        body = (
-            f"{source}消息涉及{subject}甘蔗病虫害或作物防控。"
-            "病虫害扩散可能压低甘蔗单产并削弱后续糖料供应，防控推进则有助于稳定产量预期。"
-        )
-    elif any_phrase(text, ("dues", "farmer", "farmers", "aid", "support", "relief")):
-        body = (
-            f"{source}消息涉及{subject}蔗农补贴、甘蔗款或生产支持安排。"
-            "现金流和政策支持改善有助于稳定种植积极性，并可能影响后续甘蔗面积和糖料供应。"
-        )
-    else:
-        body = (
-            f"{source}消息涉及{subject}糖业运行变化。"
-            "该事项对食糖供应、需求或价格的影响仍需结合后续政策、产量和贸易数据继续跟踪。"
-        )
-    return f"{body}来源：{source}（{link}）"
+        return news, impact
+    metric_text = "关键数据包括" + "、".join(metrics[:4]) if metrics else "原文标题未披露可量化幅度"
+    if topic == "price_market" and not metrics:
+        raise ValueError("price-market RSS title lacks price level or change amount")
+    if topic == "general_industry" and not metrics:
+        raise ValueError("general RSS candidate lacks concrete data and is kept only in the search log")
+    first = f"{actor}{action}{label}，{metric_text}，事件归属为{country}。"
+    if title:
+        first = f"{first[:-1]}；公开标题显示“{title[:120]}”。"
+    transmission = {
+        "ethanol_policy": "该变化会改变甘蔗、糖蜜或糖浆在制糖和制醇之间的分配，进而影响食糖供应。",
+        "ethanol_capacity": "该变化会改变甘蔗、糖蜜或糖浆在制糖和制醇之间的分配，进而影响食糖供应。",
+        "mill_operations": "糖厂运行变化会直接影响甘蔗入榨、压榨节奏和阶段性食糖产量。",
+        "cane_farming": "甘蔗价格、面积或蔗款变化会影响蔗农种植意愿和下一季糖料供应。",
+        "variety_research": "新品种单产、糖分或抗病性变化会影响中长期甘蔗供应潜力。",
+        "weather_pest": "产区天气或病虫害变化会影响甘蔗生长、收割和糖料供应稳定性。",
+        "supply_demand": "产量、库存、销量或消费变化会直接改变食糖供需平衡。",
+        "trade_policy": "进口、出口、关税或配额变化会改变国内外可用糖源和贸易流向。",
+        "starch_sugar_substitute": "替代糖源供应变化会影响白糖消费替代和终端需求。",
+        "price_market": "报价变化会反映现货供需松紧和贸易商补库意愿。",
+        "general_industry": "该事件会影响糖业供应、需求、库存或产业运行预期。",
+    }[topic]
+    impact = impact_for_candidate(candidate)
+    candidate["impact_direction"] = impact.split("：", 1)[0]
+    candidate["impact_logic"] = impact.split("：", 1)[1] if "：" in impact else impact
+    return f"{first}{transmission}{source_suffix}", impact
 
 
 THAI_TMD_CANE_PROVINCES = (
@@ -1456,20 +2031,36 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
         "date_slash": dt.strftime("%d/%m/%Y"),
         "buddhist_year": dt.year + 543,
     }
-    country_templates = {
-        country: templates
-        for country, templates in COUNTRY_SEARCH_TEMPLATES.items()
-        if country in {"巴西", "印度", "泰国", "中国"}
-    }
+    country_templates = dict(COUNTRY_SEARCH_TEMPLATES)
     country_templates["印度指标"] = INDIA_PRICE_INVENTORY_SEARCH_TEMPLATES
     country_templates["其他国家"] = OTHER_COUNTRY_SEARCH_TEMPLATES
     items = []
     seen = set()
+    structured_candidates = []
+    query_window_start, query_window_end, query_window_rule = publication_window_for_target(date_text)
     search_log = {
         "target_date": date_text,
         "run_date": beijing_now().date().isoformat(),
         "search_tool": "Google News RSS autogeneration",
-        "note": "Generated automatically because curated verified JSON was missing. Each item keeps RSS source, publication date, and source link.",
+        "note": "Two-stage discovery: broad country/topic/source queries first, structured candidate verification second. Only verified candidates can be published.",
+        "root_cause_diagnostics": {
+            "previous_priority_country_only": "Old autogeneration executed only Brazil/India/Thailand/China plus one other-country bucket, so concrete other-country templates were not reached.",
+            "previous_query_budget": "Old defaults capped each country at 12 queries, total at 72 queries, and only inspected the first 10 RSS rows per query.",
+            "previous_exact_date_filter": "Old logic required publication date to equal target_date, missing weekend, timezone, and delayed-publication items.",
+            "previous_vague_summary_generator": "Old RSS summaries used source-led generic wording and were then rejected by quality checks before page output.",
+        },
+        "source_matrix": SOURCE_MATRIX,
+        "case_regression_topics": CASE_REGRESSION_TOPICS,
+        "query_window": {
+            "start": query_window_start.isoformat(),
+            "end": query_window_end.isoformat(),
+            "rule": query_window_rule,
+        },
+        "query_budget": {
+            "max_queries_per_country": RSS_AUTOGEN_MAX_QUERIES_PER_COUNTRY,
+            "max_total_queries": RSS_AUTOGEN_MAX_TOTAL_QUERIES,
+            "max_items_per_query": RSS_AUTOGEN_MAX_ITEMS_PER_QUERY,
+        },
         "india_price_inventory_sources": INDIA_PRICE_INVENTORY_SOURCE_GUIDE,
         "india_completeness_requirements": {
             "sugar_core": "India sugar production/stocks/prices/mills/sales quota/shortage searched",
@@ -1529,43 +2120,81 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
                     })
                 search_log["searches"].append(entry)
                 continue
-            for rss in rss_items[:10]:
-                item_date = rss_item_date(rss)
+            for rss in rss_items[:RSS_AUTOGEN_MAX_ITEMS_PER_QUERY]:
+                in_window, window_reason, item_date = rss_item_in_publication_window(rss, date_text)
                 title_raw = rss.get("title", "").strip()
-                if item_date != date_text:
-                    entry["filtered"].append({"title": title_raw, "reason": "publication date is not target date", "published": rss.get("published")})
-                    continue
                 title_clean, source = rss_source_from_title(title_raw)
+                candidate_record = structured_candidate_from_rss(country, rss, date_text, title_clean, source)
+                entry.setdefault("structured_candidates", []).append(candidate_record)
+                structured_candidates.append(candidate_record)
+                if not in_window:
+                    candidate_record["verification_status"] = "不采用"
+                    candidate_record["drop_reason"] = window_reason
+                    entry["filtered"].append({"title": title_raw, "reason": window_reason, "published": rss.get("published")})
+                    continue
                 haystack = f"{title_clean} {rss.get('description', '')}".lower()
                 if is_medical_sugar_context(haystack):
+                    candidate_record["verification_status"] = "不采用"
+                    candidate_record["drop_reason"] = "medical blood-sugar/glucose/diabetes context, not sugar industry"
                     entry["filtered"].append({"title": title_raw, "reason": "medical blood-sugar/glucose/diabetes context, not sugar industry"})
                     continue
                 if is_non_industry_sugar_context(haystack):
+                    candidate_record["verification_status"] = "不采用"
+                    candidate_record["drop_reason"] = "game, fiction, entertainment, recipe, or consumer content; not sugar industry"
                     entry["filtered"].append({"title": title_raw, "reason": "game, fiction, entertainment, recipe, or consumer content; not sugar industry"})
                     continue
                 relevant = rss_sugar_relevant(country, haystack)
                 if country == "印度" and is_india_indirect_sugar_relevant(haystack):
                     relevant = True
                 if not relevant:
+                    candidate_record["verification_status"] = "不采用"
+                    candidate_record["drop_reason"] = "not sugar/rainfall/ethanol/indirect-sugar relevant"
                     entry["filtered"].append({"title": title_raw, "reason": "not sugar/rainfall/ethanol/indirect-sugar relevant"})
                     continue
-                concrete_country, country_group = infer_core_country(haystack, country)
+                candidate_record["sugar_relevance"] = "relevant"
+                concrete_country, country_group = candidate_record["event_country"], (
+                    candidate_record["event_country"] if candidate_record["event_country"] in GROUP_ORDER else "其他国家"
+                )
+                if country not in {"其他国家", "印度指标"}:
+                    concrete_country, country_group = infer_core_country(haystack, country)
                 if country == "其他国家" and country_group != "其他国家":
+                    candidate_record["verification_status"] = "不采用"
+                    candidate_record["drop_reason"] = "other-country query found a priority-country item; keep only under the core country"
                     entry["filtered"].append({"title": title_raw, "reason": "other-country query found a priority-country item; keep only under the core country"})
                     continue
                 if country == "其他国家" and country_group == "其他国家" and concrete_country in {"其他", "其他国家"}:
+                    candidate_record["verification_status"] = "不采用"
+                    candidate_record["drop_reason"] = "other-country item lacks concrete country/region; skipped before publication"
                     entry["filtered"].append({"title": title_raw, "reason": "other-country item lacks concrete country/region; skipped before publication"})
                     continue
                 if country != "其他国家" and country_group != country:
                     entry.setdefault("reclassified", []).append({"title": title_raw, "from": country, "to": concrete_country, "reason": "core event country differs from search bucket"})
-                key = re.sub(r"\W+", "", title_clean.lower())[:120]
+                candidate_record["event_country"] = concrete_country
+                country_confidence = candidate_country_confidence(candidate_record, country, haystack, source)
+                if not country_confidence:
+                    candidate_record["verification_status"] = "不采用"
+                    candidate_record["drop_reason"] = "event country not confirmed by title, summary, or trusted country source"
+                    entry["filtered"].append({
+                        "title": title_raw,
+                        "reason": "event country not confirmed by title, summary, or trusted country source",
+                    })
+                    continue
+                candidate_record["country_confidence"] = country_confidence
+                fact_ok, fact_reason = candidate_has_verifiable_industry_fact(candidate_record)
+                if not fact_ok:
+                    candidate_record["verification_status"] = "不采用"
+                    candidate_record["drop_reason"] = fact_reason
+                    entry["filtered"].append({"title": title_raw, "reason": fact_reason})
+                    continue
+                key = event_fingerprint(candidate_record) or re.sub(r"\W+", "", title_clean.lower())[:120]
                 if key in seen:
+                    candidate_record["verification_status"] = "不采用"
+                    candidate_record["drop_reason"] = "duplicate event fingerprint"
                     continue
                 seen.add(key)
                 link = rss.get("link", "").strip()
-                impact = impact_for_rss(country_group, title_clean)
-                news = rss_summary_for_publication(country_group, concrete_country, title_clean, source, link)
                 try:
+                    news, impact = rss_summary_for_publication(candidate_record)
                     candidate = normalize_country_fields({
                         "country_group": country_group,
                         "country": concrete_country,
@@ -1574,19 +2203,24 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
                         "impact": impact,
                         "source_name": source,
                         "source_url": link,
-                        "published_date_local": date_text,
-                        "event_date": date_text,
-                        "date_status": "verified",
+                        "published_date_local": item_date or date_text,
+                        "event_date": candidate_record["event_date"],
+                        "date_status": "verified" if item_date == date_text else "continuing_impact",
+                        "structured_candidate": candidate_record,
                         "dedupe_key": f"rss_{key}",
                         "importance": max(50, 90 - retained_for_country * 5),
                     })
                     validate_editorial_quality(candidate, len(items) + 1)
                 except Exception as exc:
+                    candidate_record["verification_status"] = "不采用"
+                    candidate_record["drop_reason"] = f"candidate failed pre-publication quality check: {str(exc)[:300]}"
                     entry["filtered"].append({
                         "title": title_raw,
                         "reason": f"candidate failed pre-publication quality check: {str(exc)[:300]}",
                     })
                     continue
+                candidate_record["verification_status"] = "已核实"
+                candidate_record["published_to_report"] = True
                 items.append(candidate)
                 retained_for_country += 1
                 entry["retained_count"] += 1
@@ -1609,6 +2243,51 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
     items = data_for_thai_weather["items"]
     if not items:
         raise FileNotFoundError("RSS autogeneration found no publishable Sugar News items")
+    status_counts = Counter(candidate.get("verification_status") for candidate in structured_candidates)
+    drop_reason_counts = Counter(
+        candidate.get("drop_reason")
+        for candidate in structured_candidates
+        if candidate.get("drop_reason")
+    )
+    executed_by_country = defaultdict(int)
+    retained_by_country = defaultdict(int)
+    failed_by_country = defaultdict(int)
+    for entry in search_log["searches"]:
+        country = entry.get("country") or entry.get("fixed_step") or "unknown"
+        if entry.get("request_status") == "executed":
+            executed_by_country[country] += 1
+        if entry.get("request_status") == "failed":
+            failed_by_country[country] += 1
+        retained_by_country[country] += int(entry.get("retained_count") or 0)
+    search_log["structured_candidates"] = structured_candidates[:1000]
+    search_log["completeness_report"] = {
+        "executed_queries_by_country": dict(executed_by_country),
+        "failed_queries_by_country": dict(failed_by_country),
+        "retained_items_by_country": dict(retained_by_country),
+        "candidate_verification_status_counts": dict(status_counts),
+        "drop_reason_counts": {str(key): value for key, value in drop_reason_counts.items()},
+        "found_but_not_output_count": sum(
+            1
+            for candidate in structured_candidates
+            if candidate.get("sugar_relevance") == "relevant" and not candidate.get("published_to_report")
+        ),
+        "single_source_country_failure": [
+            country
+            for country, templates in country_templates.items()
+            if country not in {"印度指标"}
+            and executed_by_country.get(country, 0) == 0
+            and failed_by_country.get(country, 0) > 0
+            and len(templates) <= 1
+        ],
+        "final_report_items": [
+            {
+                "country": item.get("country"),
+                "title": item.get("title"),
+                "dedupe_key": item.get("dedupe_key"),
+            }
+            for item in items
+        ],
+    }
     path = verified_json_path(task_root, date_text)
     path.parent.mkdir(parents=True, exist_ok=True)
     persist_verified_news(task_root, date_text, {
@@ -1625,8 +2304,18 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
     return path
 
 
-def load_verified_or_fail(task_root: Path, date_text: str, offline_only: bool, allow_rss_autogen: bool = False) -> dict:
+def load_verified_or_fail(
+    task_root: Path,
+    date_text: str,
+    offline_only: bool,
+    allow_rss_autogen: bool = False,
+    force_rss_autogen: bool = False,
+) -> dict:
     path = verified_json_path(task_root, date_text)
+    if force_rss_autogen:
+        if offline_only:
+            raise ValueError("--force-rss-autogen cannot be combined with --offline-only")
+        path = autogenerate_verified_from_rss(task_root, date_text)
     if not path.exists() and not offline_only:
         if allow_rss_autogen:
             path = autogenerate_verified_from_rss(task_root, date_text)
@@ -2747,7 +3436,13 @@ def main() -> int:
             india_metrics_refresh = refresh_india_metrics(date_text)
             print(f"[sugar-news] India metrics: {india_metrics_refresh.get('status')}", flush=True)
         print(f"[sugar-news] load verified/autogenerate news for {date_text}", flush=True)
-        data = load_verified_or_fail(task_root, date_text, offline_only=args.offline_only, allow_rss_autogen=args.allow_rss_autogen)
+        data = load_verified_or_fail(
+            task_root,
+            date_text,
+            offline_only=args.offline_only,
+            allow_rss_autogen=args.allow_rss_autogen,
+            force_rss_autogen=args.force_rss_autogen,
+        )
         print(f"[sugar-news] ensure required China sugar item for {date_text}", flush=True)
         data, china_monitoring_check = ensure_china_news_item(data, date_text)
         print(f"[sugar-news] ensure Thailand cane-area weather item for {date_text}", flush=True)

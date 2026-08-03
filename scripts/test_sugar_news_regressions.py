@@ -19,9 +19,16 @@ from brazil_sugar_metrics import (
     stock_rows_from_pdf,
 )
 from sugar_news_pipeline import (
+    CASE_REGRESSION_TOPICS,
     COUNTRY_SEARCH_TEMPLATES,
     OTHER_COUNTRY_SEARCH_TEMPLATES,
+    SOURCE_MATRIX,
+    candidate_country_confidence,
+    candidate_has_verifiable_industry_fact,
+    classify_sugar_topic,
+    extract_metrics,
     infer_core_country,
+    is_title_only_low_quality_context,
     is_india_indirect_sugar_relevant,
     is_medical_sugar_context,
     ensure_china_news_item,
@@ -29,7 +36,11 @@ from sugar_news_pipeline import (
     normalize_brazil_metrics,
     normalize_items,
     preserve_existing_dashboard_metrics,
+    publication_window_for_target,
+    rss_source_from_title,
+    rss_summary_for_publication,
     success_exists,
+    structured_candidate_from_rss,
     rss_sugar_relevant,
     tmd_thai_weather_item_from_text,
     validate_editorial_quality,
@@ -138,6 +149,152 @@ def test_other_country_rss_queries_are_concrete() -> None:
     assert "global sugar industry news" not in queries
     source = (PROJECT_ROOT / "scripts" / "sugar_news_pipeline.py").read_text(encoding="utf-8")
     assert "candidate failed pre-publication quality check" in source
+
+
+def test_expanded_search_matrix_covers_user_case_topics() -> None:
+    assert len(CASE_REGRESSION_TOPICS) == 16
+    assert "UNICA" in SOURCE_MATRIX["巴西"]
+    assert "Datagro" in SOURCE_MATRIX["巴西"]
+    assert "Vasantdada Sugar Institute" in SOURCE_MATRIX["印度"]
+    assert "Thai Meteorological Department" in SOURCE_MATRIX["泰国"]
+    assert "淀粉糖行业数据" in SOURCE_MATRIX["中国"]
+    assert "USDA / EIA / American Sugar Alliance" in SOURCE_MATRIX["其他国家"]
+
+    brazil_queries = "\n".join(template for _language, template in COUNTRY_SEARCH_TEMPLATES["巴西"])
+    for expected in ("mistura etanol", "estoque de etanol", "preço da cana", "Datagro consumo global de açúcar"):
+        assert expected in brazil_queries
+
+    india_queries = "\n".join(template for _language, template in COUNTRY_SEARCH_TEMPLATES["印度"])
+    for expected in ("Lok Sabha sugar", "Rajya Sabha ethanol", "Vasantdada Sugar Institute", "red rot white grub", "ethanol procurement price"):
+        assert expected in india_queries
+
+    china_queries = "\n".join(template for _language, template in COUNTRY_SEARCH_TEMPLATES["中国"])
+    for expected in ("淀粉糖 玉米消耗量 产能利用率", "糖浆 白砂糖预混粉", "广西 食糖销量 工业库存"):
+        assert expected in china_queries
+
+    assert "EIA ethanol production" in "\n".join(template for _language, template in COUNTRY_SEARCH_TEMPLATES["美国"])
+    assert "raw sugar import allocation" in "\n".join(template for _language, template in COUNTRY_SEARCH_TEMPLATES["印度尼西亚"])
+    assert "Philippines sugarcane pest" in "\n".join(template for _language, template in COUNTRY_SEARCH_TEMPLATES["菲律宾"])
+
+
+def test_case_titles_are_classified_as_sugar_industry_candidates() -> None:
+    cases = {
+        "Brazil raises anhydrous ethanol blend in gasoline from 30% to 32%": "ethanol_policy",
+        "Datagro sees global sugar consumption growth slowing to 1.8%": "supply_demand",
+        "Lok Sabha ethanol programme saved foreign exchange worth Rs 1.98 lakh crore": "ethanol_capacity",
+        "Vasantdada Sugar Institute releases sugarcane varieties with yield of 143.72 tonnes per hectare": "variety_research",
+        "Mindanao planters sound alarm as sugarcane pest spreads to 4 provinces": "weather_pest",
+        "Indonesia raw sugar import allocation for refineries revised by government regulation": "trade_policy",
+        "EIA ethanol production averaged 1.113 million barrels per day and stocks rose": "ethanol_capacity",
+        "Guangxi sugar sales reached 550000 tonnes and industrial inventory stood at 2.10 million tonnes": "supply_demand",
+        "China starch sugar corn use and capacity utilization rose in July": "starch_sugar_substitute",
+    }
+    for title, expected_topic in cases.items():
+        assert classify_sugar_topic(title) == expected_topic
+        assert rss_sugar_relevant("其他国家", title) or "starch sugar" in title.lower()
+
+
+def test_monday_publication_window_keeps_weekend_items() -> None:
+    start, end, rule = publication_window_for_target("2026-08-02")
+    assert rule == "monday_weekend_window_friday_16_to_monday_06"
+    assert start.isoformat().startswith("2026-07-31T16:00:00")
+    assert end.isoformat().startswith("2026-08-03T06:00:00")
+
+
+def test_structured_rss_candidate_summary_is_specific() -> None:
+    rss = {
+        "title": "Mindanao planters sound alarm as sugarcane pest spreads to 4 provinces - Inquirer",
+        "link": "https://example.test/philippines-pest",
+        "published": "Sun, 02 Aug 2026 18:00:00 GMT",
+        "description": "",
+    }
+    title, source = rss_source_from_title(rss["title"])
+    candidate = structured_candidate_from_rss("菲律宾", rss, "2026-08-02", title, source)
+    assert candidate["event_country"] == "菲律宾"
+    assert candidate["topic"] == "weather_pest"
+    assert "4 provinces" in candidate["metrics"]
+    news, impact = rss_summary_for_publication(candidate)
+    item = {
+        "country_group": "其他国家",
+        "country": "菲律宾",
+        "title": title,
+        "news": news,
+        "impact": impact,
+        "source_name": source,
+        "source_url": rss["link"],
+        "published_date_local": "2026-08-02",
+        "event_date": "2026-08-02",
+        "date_status": "verified",
+        "dedupe_key": "philippines_pest_case",
+        "importance": 80,
+    }
+    validate_editorial_quality(item, 1)
+    assert "消息涉及" not in news
+    assert "4 provinces" in news
+
+
+def test_rss_publication_filters_reject_health_plugin_and_wrong_country_fallback() -> None:
+    health = "Sugar Rationing in Early Life May Reduce Dementia Risk by 23% - News and Statistics"
+    plugin = "August Mega Bundle: Sugar Bytes Factory synth and other plugins and sounds for $30"
+    wrong_country = {
+        "source_title": "Between destruction and neglect: This is the state of the Argentina sugar mill",
+        "event_country": "菲律宾",
+        "topic": "mill_operations",
+        "metrics": [],
+        "publisher": "CiberCuba",
+    }
+    assert is_medical_sugar_context(health)
+    assert not rss_sugar_relevant("巴西", health)
+    assert is_title_only_low_quality_context(plugin)
+    assert not rss_sugar_relevant("俄罗斯", plugin)
+    assert candidate_country_confidence(wrong_country, "菲律宾", wrong_country["source_title"], "CiberCuba") is None
+
+
+def test_rss_publication_filters_keep_trusted_specific_industry_items() -> None:
+    ban_rss = {
+        "title": "India’s sugar export ban fuels smuggling ahead of peak festival season - The Kathmandu Post",
+        "link": "https://example.test/ban",
+        "published": "Sat, 01 Aug 2026 15:32:26 GMT",
+        "description": "",
+    }
+    title, source = rss_source_from_title(ban_rss["title"])
+    ban_candidate = structured_candidate_from_rss("印度", ban_rss, "2026-08-02", title, source)
+    assert candidate_country_confidence(ban_candidate, "印度", title, source) == "explicit_country_or_region_in_title_or_source"
+    ok, reason = candidate_has_verifiable_industry_fact(ban_candidate)
+    assert ok, reason
+
+    quota_candidate = {
+        "source_title": "State-wise monthly sugar quota for sale in August 2026",
+        "event_country": "印度",
+        "topic": "trade_policy",
+        "metrics": [],
+    }
+    ok, reason = candidate_has_verifiable_industry_fact(quota_candidate)
+    assert not ok
+    assert "policy direction or quantity" in reason
+
+    consumer_e20_candidate = {
+        "source_title": "Kejriwal demands choice between pure petrol and E20, seeks lower fuel prices at town hall",
+        "event_country": "印度",
+        "topic": "ethanol_policy",
+        "metrics": ["E20"],
+    }
+    ok, reason = candidate_has_verifiable_industry_fact(consumer_e20_candidate)
+    assert not ok
+    assert "without sugar-feedstock linkage" in reason
+
+    finance_candidate = {
+        "source_title": "Dhampur Sugar Mills Latest Results: PAT rises to ₹65.33 crore, revenue up 5.69% YoY",
+        "event_country": "印度",
+        "topic": "mill_operations",
+        "metrics": ["₹65.33 crore", "5.69%"],
+    }
+    ok, reason = candidate_has_verifiable_industry_fact(finance_candidate)
+    assert not ok
+    assert "title-only" in reason
+
+    assert "5MT" not in extract_metrics("Petrol would have hit Rs 125/litre without ethanol blend ?oc=5MT")
+    assert "Rs 125" in extract_metrics("Petrol would have hit Rs 125/litre without ethanol blend")
 
 
 def test_skip_if_success_requires_report_and_index() -> None:
@@ -723,6 +880,13 @@ def main() -> None:
         test_india_search_templates_cover_e20_reuters,
         test_china_daily_monitoring_skill_and_templates,
         test_brazil_metrics_daily_refresh_skill_and_workflow,
+        test_other_country_rss_queries_are_concrete,
+        test_expanded_search_matrix_covers_user_case_topics,
+        test_case_titles_are_classified_as_sugar_industry_candidates,
+        test_monday_publication_window_keeps_weekend_items,
+        test_structured_rss_candidate_summary_is_specific,
+        test_rss_publication_filters_reject_health_plugin_and_wrong_country_fallback,
+        test_rss_publication_filters_keep_trusted_specific_industry_items,
         test_thailand_weather_templates_and_tmd_item_generation,
         test_thailand_weather_is_added_to_existing_verified_news,
         test_thailand_weather_fallback_recovers_existing_dated_item,

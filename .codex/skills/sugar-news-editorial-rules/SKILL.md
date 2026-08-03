@@ -239,6 +239,36 @@ The reader-facing Brazil dashboard must not expose processing language such as `
 
 After Brazil metrics refresh, the generated dashboard JSON, Excel/report artifacts, Git commit, GitHub push, and Vercel production deployment must all use the same refreshed Brazil metric snapshot or, when a source fails, the last successful snapshot with a clear failure log. If the normal daily run does not execute the standalone Brazil metrics step before page generation, treat it as a workflow error.
 
+## Two-Stage Search And Candidate Verification
+
+Daily Sugar News discovery must use a two-stage search flow.
+
+Stage 1 is broad recall. Run country-by-country queries across sugar, sugarcane, ethanol, mills, cane price, cane dues, cane acreage, pests, weather, production, inventory, imports, exports, research institutes, government/parliament answers, and substitute sweeteners. Do not rely on one `country + sugar news` query or one aggregator site.
+
+Stage 2 is precision and verification. Every candidate must be structured before publication with `source_title`, `source_url`, `publisher`, `publication_time`, `event_date`, `event_country`, `event_region`, `event_actor`, `event_action`, `metrics`, `comparison_period`, `topic`, `sugar_relevance`, `impact_direction`, `impact_logic`, and `verification_status`. Only `已核实` candidates may be written to Excel, dashboard JSON, or Vercel output. `待核实` and `不采用` candidates must remain in the backend search log with reasons.
+
+Use the event country, actor, action, key metrics, and event date to deduplicate. Do not merge different parliament answers, ethanol capacity vs procurement-price items, acreage vs pest items, two different cane varieties from one institute, or production vs inventory data merely because the country and source are the same.
+
+Publication-time windows:
+
+- ordinary 06:00 Beijing runs cover the latest 36 hours;
+- Monday runs cover Friday 16:00 Beijing time through Monday 06:00 Beijing time;
+- after holidays, cover the full holiday period when the scheduler is resumed;
+- keep the source publication date separate from the report date;
+- second-pass searches after 06:00 should only append newly verified events, not rewrite unrelated existing items.
+
+Country source matrix:
+
+- Brazil: MME/CNPE, MAPA, ANP, UNICA, Datagro, Conab, Brazil trade/port data, NovaCana, CanaOnline, Reuters, and local agricultural media. Portuguese queries must include `açúcar`, `cana-de-açúcar`, `etanol`, `usina`, `moagem`, `produção de açúcar`, `estoque de etanol`, `mistura de etanol`, `preço da cana`, and `exportação de açúcar`.
+- India: PIB, Lok Sabha, Rajya Sabha, DFPD, Ministry of Petroleum and Natural Gas, Ministry of Agriculture, ISMA, NFCSF, state cane commissioner offices, Uttar Pradesh, Maharashtra, Karnataka, IMD, Vasantdada Sugar Institute, ChiniMandi, and local newspapers. Queries must cover sugar, sugarcane, cane price, cane dues, ethanol blending, ethanol procurement price, sugar mill, cane acreage, monsoon sugarcane, red rot, white grub, sugarcane variety, Lok Sabha sugar, and Rajya Sabha ethanol.
+- Thailand: OCSB, Ministry of Industry, cane grower and sugar associations, Thai Meteorological Department, government notices, The Nation Thailand, Bangkok Post, Thai sugar/agriculture media, cane price, planted area, cassava substitution, white leaf disease, mill crushing, export, and cane-area weather.
+- China: MARA/CASDE, Customs, NBS, MOFCOM, China Sugar Association, Guangxi/Yunnan authorities and associations, YNTW, msweet, 泛糖科技, Zhengzhou Commodity Exchange, starch-sugar data, and mill announcements. Queries must cover 食糖、白糖、原糖、甘蔗、甜菜糖、销糖率、工业库存、食糖进口、糖浆进口、预混粉、淀粉糖、玉米糖浆、甘蔗收购价、糖厂开榨、广西甘蔗、云南甘蔗、广东甘蔗.
+- Other countries: Indonesia raw-sugar import and ethanol policy; United States USDA/EIA/sugar beet and cane; Philippines SRA, cane farmer aid and sugar import policy; Pakistan government/PSMA/export quota/cane price; Vietnam import policy and cane output; Russia beet and sugar output; Fiji Sugar Corporation; Nepal cane dues and mill operation; Europe commission and beet sugar bodies.
+
+Required regression topics include Brazil ethanol blend changes, Brazil global sugar consumption forecasts, India ethanol fiscal data, India crude-oil substitution and foreign-exchange savings, India petrol-pump ethanol coverage, India ethanol capacity, India ethanol procurement price, India sugarcane variety trials, India local cane drought/pest issues, India mill count/running factories/cane requirement, Indonesia raw-sugar import management, US EIA ethanol production and stocks, Philippines cane farmer aid, Yunnan cane and sugar output, China starch sugar/corn use/capacity utilization, and Guangxi sugar sales/industrial inventory.
+
+Before publication, write an internal search report showing queries by country, configured priority sources, source/request status, returned candidate counts, removed candidates and reasons, verified candidates, final report items, found-but-not-output candidates, and whether any country had no result because a single source failed. Never silently swallow source failures.
+
 ## Pre-Publish Quality Checks
 
 Before writing Excel or dashboard JSON, the pipeline must:

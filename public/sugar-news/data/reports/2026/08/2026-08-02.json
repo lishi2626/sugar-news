@@ -1,6 +1,6 @@
 {
   "newsDate": "2026-08-02",
-  "updatedAt": "2026-08-03T13:28:46+08:00",
+  "updatedAt": "2026-08-03T14:10:46+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/08/Sugar News 2026-08-02.xlsx",
   "brazilMetrics": {
@@ -1255,6 +1255,38 @@
   },
   "countries": [
     {
+      "country": "印度",
+      "items": [
+        {
+          "news": "印度食糖出口禁令继续影响南亚节前贸易流向，尼泊尔市场出现走私增加的报道。正规出口受限会减少周边市场可获得糖源，并使节前补库需求转向非正规渠道，从而支撑区域糖价。",
+          "impactType": "利多",
+          "impact": "出口禁令限制印度正规糖源外流，节前需求转向非正规贸易会加剧周边市场供应紧张。",
+          "sourceName": "The Kathmandu Post",
+          "sourceUrl": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNUndBMUo1U2xfdXk4UHRMNThHOWM5bnRBNWVyQjdnVExhRWRzTVRObENoYWpvdTcwQzE4YTR0eVZtQklGNjhGMWpRMHp2OThmN3VDN0c2VjdRRkk0LU93eFpKU2dDRUU0Mjl4OV82b0ZrdW45RnpGcFd5UmVrQVBOSldIOExLTHBXZGZVSWJXQ0tyNDE3c3VRbWdsUjRwaTB4Z280VEdoMm5ZQ2U0SFI0RXd0bG9UdHJ0S0JkaEEyOHpQZw?oc=5",
+          "publishedDateLocal": "2026-08-02",
+          "eventDate": "2026-08-02"
+        },
+        {
+          "news": "印度中央政府促成糖厂以Rs 4263销售PDM，交易主体为印度糖厂。副产品销售变现有助于改善糖厂现金流和运营稳定性，降低压榨季资金压力。",
+          "impactType": "利空",
+          "impact": "糖厂副产品销售价格明确有助于改善现金流，间接支持压榨和制糖经营稳定。",
+          "sourceName": "AgroSpectrum India",
+          "sourceUrl": "https://news.google.com/rss/articles/CBMizwFBVV95cUxONUlzdEJuZWVCVUUzRmNmNzNvei1VanJoNk9uQnpVa0tXdllEQ2dQOEVNay0xUHI2d2g0bjJSZUhhZVBHR3p2VVJ4dHBjZi04MGRzNnNuMHNjM094Y0l5WnM0d25KUVBIcTBpek9GSnpDdjBIa05RWGlzcGE5dU5RamE5WERTMEZEUTVxcjU5RTU3NFJuRW9MYzEwZmpCQ2NLS3NiQUs3RXEtNVNGVGNKTGp4Y2EzM182OHVtQmlrRm41NnlNOTItX2wxNDVyVVE?oc=5",
+          "publishedDateLocal": "2026-08-02",
+          "eventDate": "2026-08-02"
+        },
+        {
+          "news": "印度政府称，如果没有乙醇掺混，汽油价格可能达到每升Rs 125。乙醇掺混降低燃料成本的同时扩大乙醇需求，糖厂将更多甘蔗、糖蜜或糖浆转向制醇时，食糖供应预期会受到支撑。",
+          "impactType": "利多",
+          "impact": "乙醇掺混扩大燃料端需求，会增强甘蔗、糖蜜和糖浆制醇吸引力，减少部分制糖供应。",
+          "sourceName": "The Economic Times",
+          "sourceUrl": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPdlUtbm9TX0daQ05EeXlFazBoWEltNUFrRFgtNlFBbU5hUVdjcEhwUFcxN0xHRm9CMUlOcnV3MzUzQVBHMXRtRHg2OVI0d2VFWEQ5Q0t0eTRDZ0l6c09fN0lhbHItZmpQN1hnQkNqMmliR0Y1OXp4UkIxclhqVm1vdG02TTdmbXB4VU5mN1pONHRPQ0R0OUYyYzlfeTZ5VnBjOHdhRmZ5SEtqdDFRY2luNkE5ZUNrTmNXQmNRME5Ja1ZoV09mcWE4Vm9DQVFoU0swQ2hvcjU0dU9LNVZW0gHiAUFVX3lxTE9aeUtJTHlUd3lLamxJeTVRNzAxaW51Skx5MjVKSFk4SFNwV0YzMWpZZnZVd2F5UnFmUXNLM2ppalZrSWZuT2JZS0pWTUdxZE1tOEFfLU5MWHl1RjktT3FCQzZ4MzFfYkFxeElKbU0yN3BpWGdfbnNONWNzR2V2c2xoSHZTNEtJWlFfbFJvNDJjUHFCMUJOM3ljMHdrbC13Sjk5TFJwRV8yLUpJVTJ2dHhXQ3BjMWphcWZVamdIdXNfbjVVakZfWnc1Y2NPN0J3b2NfTU9Wc0xvNFZiZ1F3NnlCTXc?oc=5",
+          "publishedDateLocal": "2026-08-01",
+          "eventDate": "2026-08-01"
+        }
+      ]
+    },
+    {
       "country": "泰国",
       "items": [
         {
@@ -1277,6 +1309,20 @@
           "impact": "本次监测未发现足以改变中国食糖供需、库存、进口或价格预期的新增公开信息。",
           "sourceName": "Sugar News中国糖业每日监测日志",
           "sourceUrl": "https://github.com/lishi2626/sugar-news/actions",
+          "publishedDateLocal": "2026-08-02",
+          "eventDate": "2026-08-02"
+        }
+      ]
+    },
+    {
+      "country": "菲律宾",
+      "items": [
+        {
+          "news": "菲律宾棉兰老岛蔗农组织预警，甘蔗病虫害已扩散至4 provinces。病虫害扩大将影响甘蔗生长和可收获糖料，若防控不及时，后续食糖产量预期会下调。",
+          "impactType": "利多",
+          "impact": "病虫害扩散会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+          "sourceName": "Inquirer.net",
+          "sourceUrl": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQeWN2OWhuejVsRDFEZDVsUHc3Z0YwZHlNWmVpY1JaWV9LczFtb0tvUDFMVzJLVVJZa3M0Ml8zSWMxRUFYMkxSUV94SjRFa1lCQjZqYlF2dnA4ZF9mS2dRVV9kbXNHXzhKRnBqMkEtR1FadWlZVzhvZFRyODBhRXdxdFpYVlhmSElVYkJadm5PeHhZQjFiMVRBXzBKTTBWVl9CSnhISTFhX1dGNGcy0gGyAUFVX3lxTE9XdVdFQ3JWWEFicjRCYWlBSHRGTnVmUk4zS0xIWlJHdE9RaHdBbENqcnVxZGs5aGpjekV1RC1DYkJxVXprUVphd1dqR2t0ckVqdHh1NFZVV3lfZFAzc3BUa3ptcmdsMDJ3WHhRWVQ4ZUVuVkdXc0V1TkhneEpZUFN4U1NGOFVyR040dTZsTGQyejRVbXpYS0FXUHNWY3FzN0M4c1dpYXRNLUtMU1pQbWVFdkE?oc=5",
           "publishedDateLocal": "2026-08-02",
           "eventDate": "2026-08-02"
         }
