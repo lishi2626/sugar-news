@@ -9,7 +9,7 @@ $ErrorActionPreference = "Stop"
 $projectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $dailyScript = Join-Path $projectRoot "scripts\Run-Sugar-News.ps1"
 $powershell = "$env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe"
-$taskArguments = "-NoProfile -NonInteractive -ExecutionPolicy Bypass -File `"$dailyScript`" -VercelBaseUrl `"$VercelBaseUrl`" -SkipIfSuccess"
+$taskArguments = "-NoProfile -NonInteractive -ExecutionPolicy Bypass -File `"$dailyScript`" -VercelBaseUrl `"$VercelBaseUrl`" -SkipIfSuccess -AllowRssAutogen"
 $currentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
 
 $action = New-ScheduledTaskAction `

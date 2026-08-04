@@ -8,7 +8,8 @@ param(
     [string]$TaskRoot,
     [string]$VercelBaseUrl = $env:SUGAR_NEWS_BASE_URL,
     [switch]$SkipIfSuccess,
-    [switch]$SkipGitSync
+    [switch]$SkipGitSync,
+    [switch]$AllowRssAutogen
 )
 
 $ErrorActionPreference = "Stop"
@@ -69,6 +70,29 @@ function Invoke-External {
     }
 }
 
+function Get-GeneratedCommitPaths {
+    return @("public/sugar-news", "data", "reports", "logs")
+}
+
+function Save-GeneratedWorkingTreeChanges {
+    if (-not (Test-Path -LiteralPath (Join-Path $ProjectRoot ".git"))) {
+        return
+    }
+
+    $paths = Get-GeneratedCommitPaths
+    $status = git status --porcelain -- @paths
+    if (-not $status) {
+        return
+    }
+
+    $message = "auto-stash Sugar News generated artifacts before daily sync $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
+    Write-Step "Stash generated local changes before git sync"
+    git stash push --include-untracked -m $message -- @paths
+    if ($LASTEXITCODE -ne 0) {
+        throw "git stash failed before remote sync"
+    }
+}
+
 function Sync-GitRemote {
     if ($SkipGitSync) {
         Write-Step "Git sync skipped by parameter."
@@ -79,6 +103,7 @@ function Sync-GitRemote {
         return
     }
 
+    Save-GeneratedWorkingTreeChanges
     Write-Step "Sync local repository with origin/main"
     Invoke-External -Label "git fetch origin/main" -Attempts 3 -Command {
         git -c credential.interactive=false fetch --no-tags origin main
@@ -117,6 +142,7 @@ try {
     Write-Step "Build Sugar News for $Date using task root: $TaskRoot"
     $args = @("scripts/sugar_news_pipeline.py", "--date", $Date, "--task-root", $TaskRoot)
     if ($SkipIfSuccess) { $args += "--skip-if-success" }
+    if ($AllowRssAutogen) { $args += "--allow-rss-autogen" }
     & (Get-PythonExe) @args
     if ($LASTEXITCODE -ne 0) {
         throw "sugar_news_pipeline.py failed with exit code $LASTEXITCODE"
