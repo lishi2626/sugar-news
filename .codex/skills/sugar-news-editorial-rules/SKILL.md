@@ -43,7 +43,27 @@ Never publish vague fallback summaries such as:
 - `后续影响仍需观察`
 - `该事项对食糖供应、需求或价格的影响仍需结合后续政策、产量和贸易数据继续跟踪`
 - `该信息需要继续跟踪，短期对当期糖产量和出口量的直接影响有限`
+- `该变化会改变甘蔗、糖蜜或糖浆在制糖和制醇之间的分配，进而影响食糖供应`
+- `事件归属为某国`
+- `事件归属国家`
+- `公开标题显示`
+- `标题显示`
+- `该事件会影响糖业供应、需求、库存或产业运行预期`
+- `该事件属于糖业产业链信息`
+- `标题未给出足以判断单边方向`
+- `该供需数据需要结合产量、库存和贸易流向判断`
 - `某媒体消息涉及某国糖业运行变化`
+
+Do not expose internal workflow language in the public summary. The summary body must not say `事件归属为`, `事件归属国家`, `公开标题显示`, `标题显示`, or similar audit phrases. Country, region, and source title are metadata used for validation; the public text should state the concrete event and market effect directly.
+
+Ethanol news must not use the vague sentence `改变甘蔗、糖蜜或糖浆在制糖和制醇之间的分配`. State the specific feedstock and direction supported by the source:
+
+- 甘蔗汁制醇: cane juice goes directly to ethanol instead of clarification/crystallization, reducing cane sugar available for white/raw sugar output.
+- B 重糖蜜 or sugar syrup ethanol: B-heavy molasses or syrup is diverted before further crystallization, reducing recoverable sucrose for sugar production.
+- C 重糖蜜 ethanol: C-heavy molasses is a post-crystallization byproduct, so the direct squeeze on current sugar output is smaller; explain the cash-flow or byproduct-sales effect instead of claiming a large sugar-output loss.
+- Grain, maize, or broken-rice ethanol: grain ethanol can substitute for cane/molasses/syrup ethanol demand, leaving more cane sugar in the sugar-production channel and increasing sugar-supply expectations.
+
+When the source only states a general ethanol blend, procurement, or capacity change without naming the feedstock, use a conditional path such as `若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足...`; do not present an unsupported feedstock as fact.
 
 Type-specific requirements:
 
@@ -281,15 +301,17 @@ Before writing Excel or dashboard JSON, the pipeline must:
 6. Remove meaningless repeated publication-date wording.
 7. Detect medical/health sugar terms and exclude those items.
 8. Detect non-industry uses of `sugar` and exclude those items.
-9. Reject banned vague phrases such as `具有参考意义`, `可能影响市场情绪`, `消息涉及`, `相关消息值得关注`, `后续影响仍需观察`, and similar filler.
+9. Reject banned vague phrases such as `具有参考意义`, `可能影响市场情绪`, `消息涉及`, `相关消息值得关注`, `后续影响仍需观察`, `改变甘蔗、糖蜜或糖浆在制糖和制醇之间的分配`, `该事件属于糖业产业链信息`, and similar filler.
 10. Reject items that use a media outlet as the event subject unless the outlet/research body is publishing its own forecast, estimate, index, or study.
-11. Infer title and body country entities and compare them with `country_group` and `country`.
-12. Automatically reclassify clear country mismatches.
-13. Require concrete country labels for `其他国家` items.
-14. Detect duplicate URLs, titles, or dedupe keys.
-15. Stop publication when a violation cannot be automatically fixed, preserving the previous correct production page.
+11. Reject public summaries that expose internal validation language such as `事件归属为`, `事件归属国家`, `公开标题显示`, or `标题显示`.
+12. For ethanol items, require a source-supported or explicitly conditional feedstock path: cane juice, B-heavy molasses, sugar syrup, C-heavy molasses, or grain ethanol, plus the direct effect on crystallized sugar output, byproduct cash flow, or cane-sugar availability.
+13. Infer title and body country entities and compare them with `country_group` and `country`.
+14. Automatically reclassify clear country mismatches.
+15. Require concrete country labels for `其他国家` items.
+16. Detect duplicate URLs, titles, or dedupe keys.
+17. Stop publication when a violation cannot be automatically fixed, preserving the previous correct production page.
 
-Regression tests must cover Indonesia not going to Brazil, India media reporting Cameroon going to Cameroon, medical blood-sugar exclusion, valid Brazil cane/sugar/ethanol acceptance, publication-date removal with key date retention, 2-3 sentence summaries, rejection of vague fallback summaries, rejection of media names used as event subjects, required concrete action/impact logic, and Brazil/India metric value placement under the `绝对值` column.
+Regression tests must cover Indonesia not going to Brazil, India media reporting Cameroon going to Cameroon, medical blood-sugar exclusion, valid Brazil cane/sugar/ethanol acceptance, publication-date removal with key date retention, 2-3 sentence summaries, rejection of vague fallback summaries, rejection of media names used as event subjects, rejection of vague ethanol-allocation wording and internal audit phrases, required concrete action/impact logic, and Brazil/India metric value placement under the `绝对值` column.
 
 ## Output Consistency
 

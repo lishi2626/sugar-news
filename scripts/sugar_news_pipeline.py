@@ -107,10 +107,22 @@ VAGUE_SUMMARY_PHRASES = (
     "该信息需要继续跟踪，短期对当期糖产量和出口量的直接影响有限",
     "相关变化可能影响糖料供应、压榨节奏或加工能力",
     "后续需跟踪对食糖产量和现货供应的实际影响",
+    "该变化会改变甘蔗、糖蜜或糖浆在制糖和制醇之间的分配",
+    "进而影响食糖供应",
+    "事件归属为",
+    "事件归属国家",
+    "公开标题显示",
+    "标题显示",
+    "原文标题未披露可量化幅度",
+    "该事件会影响糖业供应、需求、库存或产业运行预期",
+    "该事件属于糖业产业链信息",
+    "标题未给出足以判断单边方向",
+    "该供需数据需要结合产量、库存和贸易流向判断",
 )
 VAGUE_SUMMARY_PATTERNS = (
     re.compile(r"[^。！？]{0,50}消息涉及[^。！？]{0,80}(?:变化|安排|运行|市场|糖业)"),
     re.compile(r"(?:该事项|该信息|相关变化)[^。！？]{0,80}(?:继续跟踪|参考意义|影响有限)"),
+    re.compile(r"(?:改变|影响)[^。！？]{0,30}(?:甘蔗|糖蜜|糖浆)[^。！？]{0,40}(?:制糖|制醇)[^。！？]{0,40}(?:分配|食糖供应)"),
 )
 NEWS_ACTION_TERMS = (
     "宣布", "公布", "发布", "批准", "要求", "计划", "拟", "预计", "预报", "预测",
@@ -1477,15 +1489,70 @@ def rss_sugar_relevant(country: str, text: str) -> bool:
     return any_phrase(text, weather_terms) and any_phrase(text, cane_regions)
 
 
+def ethanol_feedstock_impact(candidate: dict) -> tuple[str, str]:
+    text = " ".join(
+        str(part)
+        for part in (
+            candidate.get("source_title", ""),
+            " ".join(str(metric) for metric in (candidate.get("metrics") or [])),
+            candidate.get("event_action", ""),
+        )
+        if part
+    )
+    if any_phrase(text, ("maize", "corn", "grain", "broken rice", "rice", "玉米", "碎米", "粮食")):
+        return (
+            "利空",
+            "粮食乙醇供应增加会降低油销公司对甘蔗汁、B重糖蜜和糖浆乙醇的边际采购压力，使更多甘蔗糖源留在结晶产糖环节，增加白糖供应预期。",
+        )
+    if any_phrase(text, ("c-heavy", "c heavy", "c heavy molasses", "c-heavy molasses", "c重糖蜜", "c 重糖蜜")):
+        return (
+            "中性",
+            "C重糖蜜制醇主要消化白糖结晶后的副产品，对当期白糖产出挤出较小，但会改善糖厂副产品变现和压榨现金流。",
+        )
+    if any_phrase(text, ("b-heavy", "b heavy", "b heavy molasses", "b-heavy molasses", "b重糖蜜", "b 重糖蜜")):
+        return (
+            "利多",
+            "B重糖蜜制醇会在糖浆继续结晶前截留部分蔗糖，糖厂提高B重糖蜜制醇比例时，可结晶成白糖的蔗糖量减少。",
+        )
+    if any_phrase(text, ("sugar syrup", "syrup", "糖浆")):
+        return (
+            "利多",
+            "糖浆制醇会把尚可继续结晶产糖的糖源直接送入乙醇装置，糖厂提高糖浆制醇比例时，白糖产出和可售糖源减少。",
+        )
+    if any_phrase(text, ("cane juice", "sugarcane juice", "甘蔗汁")):
+        return (
+            "利多",
+            "甘蔗汁制醇会把原本可进入澄清和结晶流程的蔗糖直接送入乙醇装置，糖厂提高甘蔗汁制醇比例时，白糖产出被挤出。",
+        )
+    return (
+        "利多",
+        "若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量。",
+    )
+
+
 def impact_for_candidate(candidate: dict) -> str:
     topic = candidate.get("topic") or "general_industry"
     text = str(candidate.get("source_title", "")).lower()
     if topic in {"ethanol_policy", "ethanol_capacity"}:
-        return "利多：乙醇掺混、产能或采购价格提高会增强甘蔗、糖蜜和糖浆制醇吸引力，减少部分制糖供应并支撑糖价。"
+        direction, logic = ethanol_feedstock_impact(candidate)
+        logic = logic.rstrip("。")
+        if direction == "利多":
+            return f"{direction}：{logic}，从而减少食糖供应预期并支撑糖价。"
+        if direction == "利空":
+            return f"{direction}：{logic}，从而压制糖价。"
+        return f"{direction}：{logic}，对糖价方向暂不单边。"
     if topic == "weather_pest":
         if any_phrase(text, ("rain", "rainfall", "monsoon", "thunderstorm", "降雨", "大雨")) and not any_phrase(text, ("damage", "flood damage", "drought", "deficit", "loss", "干旱", "受灾", "损失")):
             return "利空：生长期降雨增加有利于补充甘蔗产区土壤水分并改善单产预期，从而提高后续糖料供应。"
         return "利多：干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。"
+    if topic == "cane_farming":
+        if any_phrase(text, ("pest", "insect", "disease", "red rot", "white grub", "spreads", "spread", "infestation", "病虫害", "虫害", "病害", "扩散")):
+            return "利多：病虫害扩散会降低受害地块甘蔗单产和可入榨糖料，若防治不及时将下调食糖产量预期并支撑糖价。"
+        if any_phrase(text, ("cane dues", "payment", "arrears", "蔗款", "欠款")):
+            return "利空：蔗款支付改善会缓解蔗农现金流压力并稳定交蔗积极性，有利于下一季糖料供应。"
+        if any_phrase(text, ("acreage", "area", "planting", "planted", "面积", "种植")) and any_phrase(text, ("increase", "rose", "rises", "up", "higher", "扩大", "增加", "增长", "提高")):
+            return "利空：甘蔗种植面积扩大将提高下一季可入榨糖料和食糖产量预期，对糖价形成压力。"
+        return "中性：原文只说明甘蔗生产或蔗农经营变化，尚未给出可判断糖料供应增减的明确方向。"
     if topic == "variety_research":
         return "利空：高单产或抗病甘蔗品种推广会改善中长期糖料供应潜力，增加未来食糖产量预期。"
     if topic == "mill_operations":
@@ -1499,18 +1566,18 @@ def impact_for_candidate(candidate: dict) -> str:
     if topic == "starch_sugar_substitute":
         return "利空：淀粉糖、玉米糖浆或预混粉供应增加会替代部分食糖消费，削弱白糖需求。"
     if topic == "supply_demand":
-        if any_phrase(text, ("higher", "record", "up", "increase", "surplus", "增加", "提高", "增长")):
+        if any_phrase(text, ("higher", "record", "up", "increase", "increases", "increased", "rise", "rises", "rose", "surplus", "增加", "提高", "增长")):
             return "利空：产量、库存或可销售糖源增加会改善供应并压制糖价。"
-        if any_phrase(text, ("lower", "down", "decline", "shortage", "deficit", "减少", "下降", "短缺")):
+        if any_phrase(text, ("lower", "down", "decline", "declines", "declined", "fall", "falls", "fell", "drop", "drops", "dropped", "shortage", "deficit", "减少", "下降", "短缺")):
             return "利多：产量下降、库存收缩或供应缺口会减少可用糖源并支撑糖价。"
-        return "中性：该供需数据需要结合产量、库存和贸易流向判断，对糖价影响暂不单边。"
+        return "中性：原文只给出供需类指标，但未说明产量、库存、销量或消费的增减方向，对糖价方向暂不单边。"
     if topic == "price_market":
         if any_phrase(text, ("rise", "rises", "higher", "up", "上涨", "上调")):
             return "利多：现货或出厂报价上涨反映阶段性供应偏紧或采购需求增强，会支撑短期糖价。"
         if any_phrase(text, ("fall", "lower", "down", "下跌", "下调")):
             return "利空：现货或出厂报价下跌反映供应压力或需求转弱，会压制短期糖价。"
         return "中性：价格信息缺少明确涨跌幅或区域基准，暂不改变供需判断。"
-    return "中性：该事件属于糖业产业链信息，但标题未给出足以判断单边方向的供应、需求、库存或贸易变化。"
+    return "中性：原文未说明产量、库存、贸易、价格或糖料变化的方向，对糖价方向暂不单边。"
 
 
 def rss_summary_for_publication(candidate: dict) -> tuple[str, str]:
@@ -1547,12 +1614,12 @@ def rss_summary_for_publication(candidate: dict) -> tuple[str, str]:
         )
         return news, impact
     if country == "印度" and "without ethanol" in lowered_title and any("Rs 125" in metric for metric in metrics):
-        impact = "利多：乙醇掺混扩大燃料端需求，会增强甘蔗、糖蜜和糖浆制醇吸引力，减少部分制糖供应。"
+        impact = "利多：乙醇掺混扩大燃料端需求；若新增需求由甘蔗汁、B重糖蜜或糖浆满足，糖厂用于结晶产糖的蔗糖量会减少，从而支撑糖价。"
         candidate["impact_direction"] = "利多"
         candidate["impact_logic"] = impact.split("：", 1)[1]
         news = (
             "印度政府称，如果没有乙醇掺混，汽油价格可能达到每升Rs 125。"
-            "乙醇掺混降低燃料成本的同时扩大乙醇需求，糖厂将更多甘蔗、糖蜜或糖浆转向制醇时，食糖供应预期会受到支撑。"
+            "乙醇掺混降低燃料成本的同时扩大燃料乙醇需求；当新增需求由甘蔗汁、B重糖蜜或糖浆满足时，这些可发酵糖源会进入乙醇装置而不是继续结晶产糖，食糖供应预期下降。"
             f"{source_suffix}"
         )
         return news, impact
@@ -1567,17 +1634,17 @@ def rss_summary_for_publication(candidate: dict) -> tuple[str, str]:
             f"{source_suffix}"
         )
         return news, impact
-    metric_text = "关键数据包括" + "、".join(metrics[:4]) if metrics else "原文标题未披露可量化幅度"
+    metric_text = "关键数据包括" + "、".join(metrics[:4]) if metrics else "具体幅度未披露"
     if topic == "price_market" and not metrics:
         raise ValueError("price-market RSS title lacks price level or change amount")
-    if topic == "general_industry" and not metrics:
-        raise ValueError("general RSS candidate lacks concrete data and is kept only in the search log")
-    first = f"{actor}{action}{label}，{metric_text}，事件归属为{country}。"
-    if title:
-        first = f"{first[:-1]}；公开标题显示“{title[:120]}”。"
+    if topic == "general_industry":
+        raise ValueError("general RSS candidate needs a specific sugar supply, demand, trade, price, weather, or ethanol topic before publication")
+    location_clause = "" if country and country in actor else f"，涉及{country}"
+    first = f"{actor}{action}{label}，{metric_text}{location_clause}。"
+    ethanol_transmission = ethanol_feedstock_impact(candidate)[1] if topic in {"ethanol_policy", "ethanol_capacity"} else ""
     transmission = {
-        "ethanol_policy": "该变化会改变甘蔗、糖蜜或糖浆在制糖和制醇之间的分配，进而影响食糖供应。",
-        "ethanol_capacity": "该变化会改变甘蔗、糖蜜或糖浆在制糖和制醇之间的分配，进而影响食糖供应。",
+        "ethanol_policy": ethanol_transmission,
+        "ethanol_capacity": ethanol_transmission,
         "mill_operations": "糖厂运行变化会直接影响甘蔗入榨、压榨节奏和阶段性食糖产量。",
         "cane_farming": "甘蔗价格、面积或蔗款变化会影响蔗农种植意愿和下一季糖料供应。",
         "variety_research": "新品种单产、糖分或抗病性变化会影响中长期甘蔗供应潜力。",
@@ -1586,7 +1653,7 @@ def rss_summary_for_publication(candidate: dict) -> tuple[str, str]:
         "trade_policy": "进口、出口、关税或配额变化会改变国内外可用糖源和贸易流向。",
         "starch_sugar_substitute": "替代糖源供应变化会影响白糖消费替代和终端需求。",
         "price_market": "报价变化会反映现货供需松紧和贸易商补库意愿。",
-        "general_industry": "该事件会影响糖业供应、需求、库存或产业运行预期。",
+        "general_industry": "候选新闻缺少可发布的具体糖业主题，已退回核实。",
     }[topic]
     impact = impact_for_candidate(candidate)
     candidate["impact_direction"] = impact.split("：", 1)[0]

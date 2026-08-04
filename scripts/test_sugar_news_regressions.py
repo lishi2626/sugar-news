@@ -646,6 +646,69 @@ def test_editorial_quality_requires_concrete_action_direction_and_impact_path() 
         raise AssertionError("summary without concrete action and direction should be rejected")
 
 
+def test_editorial_quality_rejects_vague_ethanol_allocation_and_internal_audit_language() -> None:
+    bad_cases = [
+        {
+            "news": "印度政府公布E20乙醇掺混政策，关键数据包括E20。该变化会改变甘蔗、糖蜜或糖浆在制糖和制醇之间的分配，进而影响食糖供应。来源：Test（https://example.test/ethanol）",
+            "impact": "利多：该变化会改变甘蔗、糖蜜或糖浆在制糖和制醇之间的分配，进而影响食糖供应。",
+        },
+        {
+            "news": "印度政府公布E20乙醇掺混政策，关键数据包括E20，事件归属为印度。甘蔗汁进入乙醇装置会减少可结晶成糖的蔗糖量，降低食糖供应预期并支撑糖价。来源：Test（https://example.test/ethanol）",
+            "impact": "利多：甘蔗汁进入乙醇装置会减少可结晶成糖的蔗糖量，从而支撑糖价。",
+        },
+        {
+            "news": "印度政府公布E20乙醇掺混政策，关键数据包括E20；公开标题显示“India ethanol policy”。甘蔗汁进入乙醇装置会减少可结晶成糖的蔗糖量，降低食糖供应预期并支撑糖价。来源：Test（https://example.test/ethanol）",
+            "impact": "利多：甘蔗汁进入乙醇装置会减少可结晶成糖的蔗糖量，从而支撑糖价。",
+        },
+    ]
+    for idx, case in enumerate(bad_cases, start=1):
+        item = {
+            "country_group": "印度",
+            "country": "印度",
+            "title": "India ethanol policy",
+            "source_name": "Test",
+            "source_url": "https://example.test/ethanol",
+            **case,
+        }
+        try:
+            validate_editorial_quality(item, idx)
+        except ValueError as exc:
+            assert "vague" in str(exc)
+        else:
+            raise AssertionError("vague ethanol allocation or internal audit wording should be rejected")
+
+
+def test_rss_ethanol_summary_uses_concrete_feedstock_allocation() -> None:
+    candidate = {
+        "event_country": "印度",
+        "event_actor": "印度政府",
+        "event_action": "提高",
+        "topic": "ethanol_policy",
+        "source_title": "India raises ethanol procurement price for B-heavy molasses ethanol under E20 blending",
+        "metrics": ["B-heavy molasses", "E20"],
+        "publisher": "Test",
+        "source_url": "https://example.test/ethanol",
+    }
+    news, impact = rss_summary_for_publication(candidate)
+    quality_text = f"{news} {impact}"
+    for banned in ("改变甘蔗、糖蜜或糖浆在制糖和制醇之间的分配", "事件归属为", "事件归属国家", "公开标题显示", "标题显示"):
+        assert banned not in quality_text
+    assert "B重糖蜜" in quality_text
+    assert "可结晶成白糖" in quality_text or "可结晶成糖" in quality_text
+    validate_editorial_quality(
+        {
+            "country_group": "印度",
+            "country": "印度",
+            "title": candidate["source_title"],
+            "news": news,
+            "impact": impact,
+            "source_name": "Test",
+            "source_url": "https://example.test/ethanol",
+        },
+        1,
+    )
+
+
 def test_current_report_contains_china_section_after_thailand() -> None:
     report = read_json(PROJECT_ROOT / "public" / "sugar-news" / "data" / "reports" / "2026" / "07" / "2026-07-23.json")
     countries = [country["country"] for country in report["countries"]]
