@@ -4,6 +4,46 @@
   "search_tool": "Google News RSS autogeneration",
   "items": [
     {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "The road beyond E20: BIEPA President Pushpinder Singh on India’s ethanol future",
+      "news": "印度已提前完成全国汽油E20掺混推广，BIEPA主席Pushpinder Singh建议未来5年把E30作为基础燃料，并推动灵活燃料汽车普及。E30路线会扩大燃料乙醇需求；若增量由甘蔗汁、B重糖蜜或糖浆满足，糖厂可结晶成糖的蔗糖量会减少，印度食糖供应预期下降，因此利多原糖。来源：ChiniMandi（https://www.chinimandi.com/the-road-beyond-e20-biepa-president-pushpinder-singh-on-indias-ethanol-future/）",
+      "impact": "利多：印度从E20迈向未来5年E30将扩大燃料乙醇需求；若增量使用甘蔗汁、B重糖蜜或糖浆制醇，会减少可结晶成糖的蔗糖量并压低食糖供应预期，从而支撑原糖价格。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/the-road-beyond-e20-biepa-president-pushpinder-singh-on-indias-ethanol-future/",
+      "published_date_local": "2026-08-03",
+      "event_date": "2026-08-03",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "The road beyond E20: BIEPA President Pushpinder Singh on India’s ethanol future",
+        "source_url": "https://www.chinimandi.com/the-road-beyond-e20-biepa-president-pushpinder-singh-on-indias-ethanol-future/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Mon, 03 Aug 2026",
+        "event_date": "2026-08-03",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "BIEPA主席Pushpinder Singh",
+        "event_action": "建议",
+        "metrics": [
+          "E20",
+          "E30",
+          "未来5年"
+        ],
+        "comparison_period": null,
+        "topic": "ethanol_policy",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "印度从E20迈向未来5年E30将扩大燃料乙醇需求；若增量使用甘蔗汁、B重糖蜜或糖浆制醇，会减少可结晶成糖的蔗糖量并压低食糖供应预期，从而支撑原糖价格。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "source article verified after user review",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "published_to_report": true
+      },
+      "dedupe_key": "india_biepa_e20_e30_roadmap_20260803",
+      "importance": 92
+    },
+    {
       "country_group": "泰国",
       "country": "泰国",
       "title": "泰国主要甘蔗产区预计出现降雨",

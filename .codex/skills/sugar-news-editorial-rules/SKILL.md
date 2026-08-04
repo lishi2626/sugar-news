@@ -65,6 +65,8 @@ Ethanol news must not use the vague sentence `改变甘蔗、糖蜜或糖浆在�
 
 When the source only states a general ethanol blend, procurement, or capacity change without naming the feedstock, use a conditional path such as `若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足...`; do not present an unsupported feedstock as fact.
 
+Association interviews and expert comments are publishable when they contain a concrete ethanol roadmap, timeline, target, demand number, capacity number, or policy recommendation. For example, an India story saying E20 has been achieved and E30 is recommended within five years is a valid sugar-market item when the summary explains that higher ethanol demand may pull cane juice, B-heavy molasses, or sugar syrup into ethanol production, reduce crystallizable sugar supply, and support raw sugar prices. Do not delete such an item merely because it is an interview.
+
 Type-specific requirements:
 
 - Policy news must name the government or department, policy, before/after value when available, effective period, and direct supply-demand effect.

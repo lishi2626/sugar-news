@@ -1,6 +1,6 @@
 {
   "newsDate": "2026-08-03",
-  "updatedAt": "2026-08-04T12:53:54+08:00",
+  "updatedAt": "2026-08-04T15:55:07+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/08/Sugar News 2026-08-03.xlsx",
   "brazilMetrics": {
@@ -1261,6 +1261,20 @@
     ]
   },
   "countries": [
+    {
+      "country": "印度",
+      "items": [
+        {
+          "news": "印度已提前完成全国汽油E20掺混推广，BIEPA主席Pushpinder Singh建议未来5年把E30作为基础燃料，并推动灵活燃料汽车普及。E30路线会扩大燃料乙醇需求；若增量由甘蔗汁、B重糖蜜或糖浆满足，糖厂可结晶成糖的蔗糖量会减少，印度食糖供应预期下降，因此利多原糖。",
+          "impactType": "利多",
+          "impact": "印度从E20迈向未来5年E30将扩大燃料乙醇需求；若增量使用甘蔗汁、B重糖蜜或糖浆制醇，会减少可结晶成糖的蔗糖量并压低食糖供应预期，从而支撑原糖价格。",
+          "sourceName": "ChiniMandi",
+          "sourceUrl": "https://www.chinimandi.com/the-road-beyond-e20-biepa-president-pushpinder-singh-on-indias-ethanol-future/",
+          "publishedDateLocal": "2026-08-03",
+          "eventDate": "2026-08-03"
+        }
+      ]
+    },
     {
       "country": "泰国",
       "items": [

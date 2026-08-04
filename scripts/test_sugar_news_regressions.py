@@ -709,6 +709,23 @@ def test_rss_ethanol_summary_uses_concrete_feedstock_allocation() -> None:
     )
 
 
+def test_india_e20_e30_roadmap_summary_is_allowed_when_impact_is_concrete() -> None:
+    item = {
+        "country_group": "印度",
+        "country": "印度",
+        "title": "The road beyond E20: BIEPA President Pushpinder Singh on India’s ethanol future",
+        "news": (
+            "印度已提前完成全国汽油E20掺混推广，BIEPA主席Pushpinder Singh建议未来5年把E30作为基础燃料，并推动灵活燃料汽车普及。"
+            "E30路线会扩大燃料乙醇需求；若增量由甘蔗汁、B重糖蜜或糖浆满足，糖厂可结晶成糖的蔗糖量会减少，印度食糖供应预期下降，因此利多原糖。"
+            "来源：ChiniMandi（https://www.chinimandi.com/the-road-beyond-e20-biepa-president-pushpinder-singh-on-indias-ethanol-future/）"
+        ),
+        "impact": "利多：印度从E20迈向未来5年E30将扩大燃料乙醇需求；若增量使用甘蔗汁、B重糖蜜或糖浆制醇，会减少可结晶成糖的蔗糖量并压低食糖供应预期，从而支撑原糖价格。",
+        "source_name": "ChiniMandi",
+        "source_url": "https://www.chinimandi.com/the-road-beyond-e20-biepa-president-pushpinder-singh-on-indias-ethanol-future/",
+    }
+    validate_editorial_quality(item, 1)
+
+
 def test_current_report_contains_china_section_after_thailand() -> None:
     report = read_json(PROJECT_ROOT / "public" / "sugar-news" / "data" / "reports" / "2026" / "07" / "2026-07-23.json")
     countries = [country["country"] for country in report["countries"]]
