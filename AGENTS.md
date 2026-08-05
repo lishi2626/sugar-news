@@ -55,8 +55,11 @@ logs/YYYY/MM/write_log_YYYY-MM-DD.json
 ```text
 Brazil sugar industry news July 19 2026
 Brazil sugarcane ethanol export July 19 2026
+Brazil corn ethanol Renovabio July 19 2026
+巴西 玉米乙醇 Renovabio 2026年7月19日
 Brasil açúcar etanol 19 julho 2026
 Brasil setor sucroenergético 19 de julho de 2026
+Brasil etanol de milho RenovaBio 19 de julho de 2026
 usinas cana açúcar etanol 19/07/2026
 tarifa exportação clima incêndio Centro-Sul São Paulo
 ```

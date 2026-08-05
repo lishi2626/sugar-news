@@ -31,6 +31,7 @@ from sugar_news_pipeline import (
     is_title_only_low_quality_context,
     is_india_indirect_sugar_relevant,
     is_medical_sugar_context,
+    is_non_industry_sugar_context,
     ensure_china_news_item,
     ensure_thai_weather_item,
     localize_metric_for_summary,
@@ -163,8 +164,23 @@ def test_expanded_search_matrix_covers_user_case_topics() -> None:
     assert "USDA / EIA / American Sugar Alliance" in SOURCE_MATRIX["其他国家"]
 
     brazil_queries = "\n".join(template for _language, template in COUNTRY_SEARCH_TEMPLATES["巴西"])
-    for expected in ("mistura etanol", "estoque de etanol", "preço da cana", "Datagro consumo global de açúcar"):
+    for expected in ("mistura etanol", "estoque de etanol", "preço da cana", "Datagro consumo global de açúcar", "巴西 玉米乙醇 Renovabio"):
         assert expected in brazil_queries
+    brazil_rendered = "\n".join(
+        template.format(
+            readable="August 3 2026",
+            day=3,
+            month_name="August",
+            month_name_pt="agosto",
+            month=8,
+            year=2026,
+            date_slash="03/08/2026",
+            buddhist_year=2569,
+        )
+        for _language, template in COUNTRY_SEARCH_TEMPLATES["巴西"]
+    )
+    assert "3 de agosto de 2026" in brazil_rendered
+    assert "3 de julho de 2026" not in brazil_rendered
 
     india_queries = "\n".join(template for _language, template in COUNTRY_SEARCH_TEMPLATES["印度"])
     for expected in ("Lok Sabha sugar", "Rajya Sabha ethanol", "Vasantdada Sugar Institute", "red rot white grub", "ethanol procurement price"):
@@ -520,6 +536,15 @@ def test_medical_sugar_news_is_excluded() -> None:
     sample = "Blood sugar monitoring improves diabetes treatment with insulin guidance"
     assert is_medical_sugar_context(sample)
     assert not rss_sugar_relevant("其他国家", sample)
+
+
+def test_india_monsoon_session_political_news_is_excluded() -> None:
+    sample = (
+        "Uttar Pradesh Monsoon session: Those who did not give a penny for Ram temple "
+        "harping on donation theft, says Yogi"
+    )
+    assert is_non_industry_sugar_context(sample)
+    assert not rss_sugar_relevant("鍗板害", sample)
 
 
 def test_valid_brazil_cane_sugar_ethanol_news_is_allowed() -> None:
@@ -994,6 +1019,7 @@ def main() -> None:
         test_non_industry_sugar_titles_are_filtered,
         test_editorial_country_reclassification_rules,
         test_medical_sugar_news_is_excluded,
+        test_india_monsoon_session_political_news_is_excluded,
         test_valid_brazil_cane_sugar_ethanol_news_is_allowed,
         test_india_water_resource_pressure_is_bullish,
         test_editorial_quality_rejects_publication_date_formula_and_accepts_key_dates,

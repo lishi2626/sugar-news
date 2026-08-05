@@ -31,6 +31,9 @@ if (-not $TaskRoot) {
     $TaskRoot = $ProjectRoot
 }
 
+$GitNoMaintenanceArgs = @("-c", "gc.auto=0", "-c", "maintenance.auto=false")
+$GitNoPromptArgs = @("-c", "credential.interactive=false") + $GitNoMaintenanceArgs
+
 $LogRoot = Join-Path $ProjectRoot "logs"
 if (-not (Test-Path -LiteralPath $LogRoot)) {
     New-Item -ItemType Directory -Force -Path $LogRoot | Out-Null
@@ -80,14 +83,14 @@ function Save-GeneratedWorkingTreeChanges {
     }
 
     $paths = Get-GeneratedCommitPaths
-    $status = git status --porcelain -- @paths
+    $status = & git @GitNoMaintenanceArgs status --porcelain -- @paths
     if (-not $status) {
         return
     }
 
     $message = "auto-stash Sugar News generated artifacts before daily sync $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
     Write-Step "Stash generated local changes before git sync"
-    git stash push --include-untracked -m $message -- @paths
+    & git @GitNoMaintenanceArgs stash push --include-untracked -m $message -- @paths
     if ($LASTEXITCODE -ne 0) {
         throw "git stash failed before remote sync"
     }
@@ -106,10 +109,10 @@ function Sync-GitRemote {
     Save-GeneratedWorkingTreeChanges
     Write-Step "Sync local repository with origin/main"
     Invoke-External -Label "git fetch origin/main" -Attempts 3 -Command {
-        git -c credential.interactive=false fetch --no-tags origin main
+        & git @GitNoPromptArgs fetch --no-tags origin main
     }
     Invoke-External -Label "git fast-forward origin/main" -Attempts 1 -Command {
-        git merge --ff-only origin/main
+        & git @GitNoMaintenanceArgs merge --ff-only origin/main
     }
 }
 
@@ -160,17 +163,17 @@ try {
     if (Test-Path -LiteralPath (Join-Path $ProjectRoot $datedLogRoot)) {
         $commitPaths += $datedLogRoot
     }
-    $status = git status --porcelain -- @commitPaths
-    $ahead = git status -sb | Select-String -Pattern "\[ahead [0-9]+\]"
+    $status = & git @GitNoMaintenanceArgs status --porcelain -- @commitPaths
+    $ahead = & git @GitNoMaintenanceArgs status -sb | Select-String -Pattern "\[ahead [0-9]+\]"
     if ($status) {
-        git add -- @commitPaths
-        git commit -m "Update Sugar News $Date"
+        & git @GitNoMaintenanceArgs add -- @commitPaths
+        & git @GitNoMaintenanceArgs commit -m "Update Sugar News $Date"
         if ($LASTEXITCODE -ne 0) { throw "git commit failed" }
     }
     if ($status -or $ahead) {
         for ($i = 1; $i -le 12; $i++) {
             Write-Step "git push attempt $i/12"
-            git push
+            & git @GitNoPromptArgs push
             if ($LASTEXITCODE -eq 0) { break }
             if ($i -eq 12) { throw "git push failed after retries" }
             Start-Sleep -Seconds ([Math]::Min(300, 30 * $i))

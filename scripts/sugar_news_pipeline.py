@@ -80,7 +80,8 @@ NON_INDUSTRY_SUGAR_TERMS = (
     "author", "debut novel", "fiction", "film", "album", "song",
     "restaurant", "dessert recipe", "cake recipe", "horoscope", "zodiac",
     "love forecast", "weekly love", "weekly health", "sugar bytes", "synth",
-    "plugin", "plugins", "sound pack", "mega bundle",
+    "plugin", "plugins", "sound pack", "mega bundle", "monsoon session",
+    "assembly session", "parliament session", "legislative session",
 )
 IMPACT_PREFIXES = ("偏多糖价：", "偏空糖价：", "利多：", "利空：", "中性：", "影响有限：")
 PLACEHOLDERS = (
@@ -337,6 +338,20 @@ GLOBAL_SEARCH_TEMPLATES = (
     "sugarcane news {day} {month_name} {year}",
     "ethanol sugar mills {day} {month_name} {year}",
 )
+PORTUGUESE_MONTH_NAMES = {
+    1: "janeiro",
+    2: "fevereiro",
+    3: "março",
+    4: "abril",
+    5: "maio",
+    6: "junho",
+    7: "julho",
+    8: "agosto",
+    9: "setembro",
+    10: "outubro",
+    11: "novembro",
+    12: "dezembro",
+}
 OTHER_COUNTRY_SEARCH_TEMPLATES = (
     ("en", "Indonesia sugar industry {readable}"),
     ("en", "Pakistan sugar industry {readable}"),
@@ -352,8 +367,11 @@ COUNTRY_SEARCH_TEMPLATES = {
     "巴西": (
         ("en", "Brazil sugar industry news {readable}"),
         ("en", "Brazil sugarcane ethanol export {readable}"),
-        ("pt-BR", "Brasil açúcar etanol {day} julho {year}"),
-        ("pt-BR", "Brasil setor sucroenergético {day} de julho de {year}"),
+        ("en", "Brazil corn ethanol Renovabio {readable}"),
+        ("zh-CN", "巴西 玉米乙醇 Renovabio {year}年{month}月{day}日"),
+        ("pt-BR", "Brasil açúcar etanol {day} {month_name_pt} {year}"),
+        ("pt-BR", "Brasil setor sucroenergético {day} de {month_name_pt} de {year}"),
+        ("pt-BR", "Brasil etanol de milho RenovaBio {day} de {month_name_pt} de {year}"),
         ("pt-BR", "usinas cana açúcar etanol {date_slash}"),
     ),
     "印度": (
@@ -921,6 +939,7 @@ def fallback_discovery(date_text: str, task_root: Path) -> None:
         "readable": readable,
         "day": dt.day,
         "month_name": dt.strftime("%B"),
+        "month_name_pt": PORTUGUESE_MONTH_NAMES[dt.month],
         "month": dt.month,
         "year": dt.year,
         "date_slash": dt.strftime("%d/%m/%Y"),
@@ -2124,6 +2143,7 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
         "readable": readable,
         "day": dt.day,
         "month_name": dt.strftime("%B"),
+        "month_name_pt": PORTUGUESE_MONTH_NAMES[dt.month],
         "month": dt.month,
         "year": dt.year,
         "date_slash": dt.strftime("%d/%m/%Y"),
