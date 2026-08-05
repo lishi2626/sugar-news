@@ -48,6 +48,7 @@ from sugar_news_pipeline import (
     tmd_thai_weather_item_from_text,
     validate_editorial_quality,
 )
+from india_sugar_metrics import parse_chinimandi_exmill_date
 from verify_sugar_news_dashboard import verify_payload
 
 
@@ -907,6 +908,36 @@ def test_india_metrics_price_changes_and_stock_source_rules() -> None:
         assert forecast.get("sourceTier") == "market_forecast_comparison_only"
 
 
+def test_chinimandi_daily_market_update_title_date_is_supported() -> None:
+    title_html = "<title>Daily Sugar Market Update By Vizzie - 04/08/2026 - ChiniMandi</title>"
+    schema_html = '"headline":"Daily Sugar Market Update By Vizzie &#8211; 04/08/2026"'
+    article_html = "ChiniMandi, Mumbai: 04th Aug 2026 Domestic Market"
+    assert parse_chinimandi_exmill_date(title_html) == "2026-08-04"
+    assert parse_chinimandi_exmill_date(schema_html) == "2026-08-04"
+    assert parse_chinimandi_exmill_date(article_html) == "2026-08-04"
+
+
+def test_current_report_india_prices_use_updated_chinimandi_sources() -> None:
+    report = read_json(PROJECT_ROOT / "public" / "sugar-news" / "data" / "reports" / "2026" / "08" / "2026-08-04.json")
+    metrics = report["indiaMetrics"]
+    retail = metrics["domesticRetailPrice"]
+    assert retail["sourceName"] == "ChiniMandi"
+    assert retail["sourceUrl"] == "https://www.chinimandi.com/retail-prices/"
+    assert retail["dataDate"] == "2026-08-04"
+    assert retail["priceInrPerKg"] == 52.33
+    assert retail["cityCount"] == len(retail["citiesUsed"]) == 9
+
+    up_ex = metrics["upExMillPrice"]
+    assert up_ex["sourceName"] == "ChiniMandi — Daily Sugar Market Update"
+    assert up_ex["sourceUrl"] == "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-04-08-2026/"
+    assert up_ex["dataDate"] == "2026-08-04"
+    assert up_ex["market"] == "Uttar Pradesh"
+    assert up_ex["grade"] == "M/30"
+    assert up_ex["includesGst"] is False
+    assert up_ex["rangeInrPerQuintal"] == {"low": 4750.0, "high": 4820.0}
+    assert up_ex["midpointInrPerQuintal"] == 4785.0
+
+
 def test_brazil_sugar_stock_date_comes_from_acumulado_ate() -> None:
     sample_text = "BRASIL 1.000 2.000 3.450.164 Acumulado ate: 30/06/2026"
     rows = stock_rows_from_pdf(
@@ -1083,6 +1114,8 @@ def main() -> None:
         test_verified_news_contains_required_india_items,
         test_excel_dashboard_consistency,
         test_india_metrics_price_changes_and_stock_source_rules,
+        test_chinimandi_daily_market_update_title_date_is_supported,
+        test_current_report_india_prices_use_updated_chinimandi_sources,
         test_brazil_sugar_stock_date_comes_from_acumulado_ate,
         test_brazil_dashboard_does_not_show_fetch_time_or_report_as_date,
         test_brazil_dashboard_refresh_date_matches_news_and_cards_use_source_dates,

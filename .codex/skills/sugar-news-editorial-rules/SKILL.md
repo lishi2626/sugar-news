@@ -144,6 +144,22 @@ Also exclude non-industry uses of `sugar`: games, novels, books, films, music, r
 
 Do not accept an item only because the title contains `sugar`. Judge from context whether the story is about the sugar industry or human blood sugar/consumer sugar.
 
+## India Price Dashboard Rules
+
+The India sugar price dashboard must calculate domestic wholesale and retail prices from ChiniMandi city price tables, not from article prose or search snippets.
+
+- Domestic wholesale price source: `https://www.chinimandi.com/wholesale-sugar-prices/`.
+- Domestic retail price source: `https://www.chinimandi.com/retail-prices/`.
+- For both wholesale and retail, use the latest table row on or before the Sugar News date. Use the same city-sample method for both series: Delhi, Kanpur, Raipur, Mumbai, Ranchi, Kolkata, Guwahati, Hyderabad, and Chennai when all are available; calculate the simple average over the common cities used for current, previous, and year-on-year comparison rows. Wholesale is reported in INR/quintal and converted to INR/kg for display; retail is reported in INR/kg. ChiniMandi city table prices are treated as including GST.
+- The dashboard must keep `sourceName=ChiniMandi`, the exact source URL above, `citiesUsed`, `cityCount`, city-level prices, previous-date change, and year-on-year change.
+
+Uttar Pradesh sugar mill ex-mill price must use ChiniMandi Daily Sugar Market Update, not the wholesale/retail city table.
+
+- Landing/source entry: `https://www.chinimandi.com/english-news/daily-sugar-market-update/`.
+- Use the dated Daily Sugar Market Update By Vizzie article for the report date when available, for example `https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-04-08-2026/`.
+- Parse the `Ex-mill Sugar Prices` table and use the Uttar Pradesh `M/30` range, excluding GST. For 2026-08-04 the correct range is `₹4750 to 4820`; display the range and use the midpoint for daily and year-on-year comparison calculations.
+- The dashboard must keep `sourceName=ChiniMandi — Daily Sugar Market Update`, the exact dated article URL, `market=Uttar Pradesh`, `grade=M/30`, `includesGst=false`, the low/high range, midpoint, previous available Daily Sugar Market Update comparison, and nearest year-on-year Daily Sugar Market Update comparison when the exact prior-year date is unavailable.
+
 ## Thailand Weather Rule
 
 After ordinary Thailand sugar-news discovery, run a separate Thailand main cane-area rainfall check. This check is required even when no media outlet publishes a sugar-weather story.

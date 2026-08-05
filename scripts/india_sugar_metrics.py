@@ -477,13 +477,30 @@ def parse_price_range(text: str) -> tuple[float | None, float | None]:
 
 def parse_chinimandi_exmill_date(body: str) -> str | None:
     match = re.search(r"Ex-mill Sugar Prices as on\s*([A-Za-z]+),?\s*(\d{1,2})\s+(\d{4})", body, re.I)
-    if not match:
-        return None
-    month, day, year = match.groups()
-    try:
-        return datetime.strptime(f"{month} {day} {year}", "%B %d %Y").date().isoformat()
-    except ValueError:
-        return None
+    if match:
+        month, day, year = match.groups()
+        for month_format in ("%B", "%b"):
+            try:
+                return datetime.strptime(f"{month} {day} {year}", f"{month_format} %d %Y").date().isoformat()
+            except ValueError:
+                continue
+    text = html.unescape(body)
+    match = re.search(r"Daily Sugar Market Update By Vizzie\s*[-–]\s*(\d{1,2})/(\d{1,2})/(\d{4})", text, re.I)
+    if match:
+        day, month, year = map(int, match.groups())
+        try:
+            return datetime(year, month, day).date().isoformat()
+        except ValueError:
+            return None
+    match = re.search(r"ChiniMandi,\s*Mumbai:\s*(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)\s+(\d{4})", text, re.I)
+    if match:
+        day, month, year = match.groups()
+        for month_format in ("%B", "%b"):
+            try:
+                return datetime.strptime(f"{month} {int(day)} {year}", f"{month_format} %d %Y").date().isoformat()
+            except ValueError:
+                continue
+    return None
 
 
 def parse_up_exmill_article(date_text: str) -> tuple[dict | None, dict]:
@@ -757,11 +774,35 @@ def collect(target_date: str) -> dict:
     return snapshot
 
 
+def collect_price_metrics(target_date: str) -> dict:
+    history = load_history()
+    logs: list[dict] = []
+    records: list[dict] = []
+    domestic_records, log = parse_chinimandi_domestic_prices(target_date, history)
+    logs.append(log)
+    records.extend(domestic_records)
+    up_ex, up_logs = parse_chinimandi_up_exmill(target_date, history)
+    logs.extend(up_logs)
+    if up_ex:
+        records.append(up_ex)
+    if records:
+        history = upsert_records(history, records)
+        atomic_write_json(HISTORY_PATH, history)
+    snapshot = build_snapshot(history, target_date, logs)
+    atomic_write_json(METRICS_ROOT / "latest.json", snapshot)
+    return snapshot
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Fetch India sugar price and stock metrics.")
     parser.add_argument("--date", required=True)
+    parser.add_argument(
+        "--prices-only",
+        action="store_true",
+        help="Refresh only ChiniMandi wholesale, retail, and Uttar Pradesh ex-mill price metrics.",
+    )
     args = parser.parse_args()
-    snapshot = collect(args.date)
+    snapshot = collect_price_metrics(args.date) if args.prices_only else collect(args.date)
     print(json.dumps(snapshot, ensure_ascii=False, indent=2))
     return 0
 
