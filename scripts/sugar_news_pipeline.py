@@ -94,6 +94,7 @@ PLACEHOLDERS = (
     "数据尚未公布",
 )
 VAGUE_SUMMARY_PHRASES = (
+    "关键数据包括",
     "涉及食糖价格或市场流通变化",
     "对市场具有参考意义",
     "可能影响市场情绪",
@@ -119,6 +120,7 @@ VAGUE_SUMMARY_PHRASES = (
     "该事件属于糖业产业链信息",
     "标题未给出足以判断单边方向",
     "该供需数据需要结合产量、库存和贸易流向判断",
+    "产量、库存、销量或消费变化会直接改变食糖供需平衡",
 )
 VAGUE_SUMMARY_PATTERNS = (
     re.compile(r"[^。！？]{0,50}消息涉及[^。！？]{0,80}(?:变化|安排|运行|市场|糖业)"),
@@ -1100,6 +1102,8 @@ def localize_metric_for_summary(value: str) -> str:
         (r"(?i)(?<![\d.])(\d+(?:[.,]\d+)?)\s*mills?\b", r"\1家糖厂"),
         (r"(?i)(?<![\d.])(\d+(?:[.,]\d+)?)\s*factories?\b", r"\1家糖厂"),
         (r"(?i)(?<![\d.])(\d+(?:[.,]\d+)?)\s*days?\b", r"\1天"),
+        (r"(?i)(?<![\d.])(\d+(?:[.,]\d+)?)\s*hectares?\b", r"\1公顷"),
+        (r"(?i)(?<![\d.])(\d+(?:[.,]\d+)?)\s*acres?\b", r"\1英亩"),
     )
     localized = value
     for pattern, replacement in replacements:
@@ -1549,6 +1553,233 @@ def ethanol_feedstock_impact(candidate: dict) -> tuple[str, str]:
     )
 
 
+EN_MONTHS_CN = {
+    "january": "1月",
+    "jan": "1月",
+    "february": "2月",
+    "feb": "2月",
+    "march": "3月",
+    "mar": "3月",
+    "april": "4月",
+    "apr": "4月",
+    "may": "5月",
+    "june": "6月",
+    "jun": "6月",
+    "july": "7月",
+    "jul": "7月",
+    "august": "8月",
+    "aug": "8月",
+    "september": "9月",
+    "sep": "9月",
+    "sept": "9月",
+    "october": "10月",
+    "oct": "10月",
+    "november": "11月",
+    "nov": "11月",
+    "december": "12月",
+    "dec": "12月",
+}
+
+
+def format_cn_number(value: float) -> str:
+    if abs(value - round(value)) < 0.005:
+        return str(int(round(value)))
+    return f"{value:.2f}".rstrip("0").rstrip(".")
+
+
+def parse_float(value: str) -> float | None:
+    try:
+        return float(value.replace(",", ""))
+    except ValueError:
+        return None
+
+
+def extract_supply_demand_cutoff(text: str) -> str:
+    cn_match = re.search(r"(?:截至|截止|至)\s*((?:\d{4}年)?\d{1,2}月\d{1,2}日)", text)
+    if cn_match:
+        return f"截至{cn_match.group(1)}"
+    en_month = "|".join(re.escape(month) for month in sorted(EN_MONTHS_CN, key=len, reverse=True))
+    match = re.search(
+        rf"(?i)\b(?:as of|as at|through|up to|until|by)\s+({en_month})\.?\s+(\d{{1,2}})(?:,\s*\d{{4}})?",
+        text,
+    )
+    if match:
+        month = EN_MONTHS_CN[match.group(1).lower().rstrip(".")]
+        return f"截至{month}{int(match.group(2))}日"
+    match = re.search(
+        rf"(?i)\b(?:as of|as at|through|up to|until|by)\s+(\d{{1,2}})\s+({en_month})\.?(?:\s+\d{{4}})?",
+        text,
+    )
+    if match:
+        month = EN_MONTHS_CN[match.group(2).lower().rstrip(".")]
+        return f"截至{month}{int(match.group(1))}日"
+    return ""
+
+
+def infer_supply_demand_metric_kind(text: str) -> str:
+    lowered = text.lower()
+    has_production = any_phrase(lowered, ("production", "output", "produced", "crop", "产量", "产糖", "产出"))
+    has_inventory = any_phrase(lowered, ("inventory", "inventories", "stock", "stocks", "库存"))
+    has_sales = any_phrase(lowered, ("sales", "sold", "sale", "销量", "销售", "产销率"))
+    has_consumption = any_phrase(lowered, ("consumption", "demand", "consume", "消费", "需求"))
+    if has_sales and has_inventory:
+        return "sales_inventory"
+    if has_production:
+        return "production"
+    if has_inventory:
+        return "inventory"
+    if has_sales:
+        return "sales"
+    if has_consumption:
+        return "consumption"
+    return "supply_demand"
+
+
+def supply_demand_metric_label(kind: str) -> str:
+    return {
+        "production": "糖产量",
+        "inventory": "库存",
+        "sales": "销量",
+        "consumption": "消费",
+        "sales_inventory": "销量和库存",
+        "supply_demand": "供需指标",
+    }.get(kind, "供需指标")
+
+
+def infer_supply_demand_direction_key(text: str) -> str:
+    lowered = text.lower()
+    if any_phrase(lowered, ("slow", "slows", "slowed", "slowing", "放缓", "趋缓")):
+        return "slowing"
+    if any_phrase(lowered, ("shortage", "deficit", "tight", "短缺", "缺口", "偏紧")):
+        return "shortage"
+    if any_phrase(lowered, ("surplus", "overhang", "过剩")):
+        return "surplus"
+    if any_phrase(lowered, ("lower", "down", "decline", "declines", "declined", "fall", "falls", "fell", "drop", "drops", "dropped", "decrease", "decreased", "reduce", "reduced", "shrink", "shrinks", "下降", "减少", "下滑", "降低", "收缩")):
+        return "down"
+    if any_phrase(lowered, ("higher", "record", "up", "increase", "increases", "increased", "rise", "rises", "rose", "growth", "grow", "grows", "grown", "增加", "提高", "增长", "上升")):
+        return "up"
+    return ""
+
+
+def supply_demand_direction_label(direction: str) -> str:
+    return {
+        "down": "下降",
+        "up": "增加",
+        "slowing": "增速放缓",
+        "shortage": "缺口扩大",
+        "surplus": "过剩",
+    }.get(direction, "")
+
+
+def extract_supply_demand_percent(texts: list[str]) -> str:
+    for text in texts:
+        match = re.search(r"(?i)(\d+(?:[.,]\d+)?)\s*(?:%|percent)", text)
+        if match:
+            return f"{match.group(1).replace(',', '.')}%"
+    return ""
+
+
+def extract_supply_demand_volume(text: str) -> str:
+    cn_match = re.search(r"(\d+(?:[.,]\d+)?)\s*万吨", text)
+    if cn_match:
+        return f"{cn_match.group(1).replace(',', '.')}万吨"
+    patterns = (
+        (r"(?i)(\d+(?:[.,]\d+)?)\s*million\s*(?:metric\s*)?(?:tonnes?|tons?|mt)\b", 100.0),
+        (r"(?i)(\d+(?:[.,]\d+)?)\s*(?:lmt|lakh\s*(?:metric\s*)?tonnes?|lakh\s*tons?)\b", 10.0),
+        (r"(?i)(\d+(?:[.,]\d+)?)\s*(?:metric\s*)?(?:tonnes?|tons?|mt)\b", 0.0001),
+    )
+    for pattern, multiplier in patterns:
+        match = re.search(pattern, text)
+        if not match:
+            continue
+        value = parse_float(match.group(1))
+        if value is not None:
+            return f"{format_cn_number(value * multiplier)}万吨"
+    return ""
+
+
+def supply_demand_metric_text(candidate: dict, metrics: list[str]) -> str:
+    title = str(candidate.get("source_title", ""))
+    metric_haystack = " ".join([title, *(str(metric) for metric in candidate.get("metrics") or []), *metrics])
+    kind = infer_supply_demand_metric_kind(metric_haystack)
+    label = supply_demand_metric_label(kind)
+    direction = infer_supply_demand_direction_key(metric_haystack)
+    direction_label = supply_demand_direction_label(direction)
+    cutoff = extract_supply_demand_cutoff(metric_haystack)
+    percent = extract_supply_demand_percent([metric_haystack, *metrics])
+    volume = extract_supply_demand_volume(metric_haystack)
+    prefix = cutoff
+    if direction_label:
+        phrase = f"{prefix}{label}{direction_label}"
+        if percent:
+            phrase += percent
+        if volume:
+            phrase += f"至{volume}"
+        return phrase
+    if volume:
+        return f"{prefix}{label}为{volume}"
+    if percent:
+        return f"{prefix}{label}变化幅度为{percent}"
+    if metrics:
+        return f"{label}数据为{'、'.join(metrics[:4])}"
+    return f"{label}具体幅度未披露"
+
+
+def metric_text_for_candidate(candidate: dict, metrics: list[str]) -> str:
+    if candidate.get("topic") == "supply_demand":
+        return supply_demand_metric_text(candidate, metrics)
+    if metrics:
+        return "数据为" + "、".join(metrics[:4])
+    return "具体幅度未披露"
+
+
+def supply_demand_transmission(candidate: dict) -> str:
+    title = str(candidate.get("source_title", ""))
+    metric_haystack = " ".join([title, *(str(metric) for metric in candidate.get("metrics") or [])])
+    kind = infer_supply_demand_metric_kind(metric_haystack)
+    direction = infer_supply_demand_direction_key(metric_haystack)
+    if kind == "production":
+        if direction in {"down", "shortage"}:
+            return "糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。"
+        if direction in {"up", "surplus"}:
+            return "糖产量增加会提高当期新增可售糖源，缓解供应压力并压制糖价。"
+    if kind == "inventory":
+        if direction in {"down", "shortage"}:
+            return "库存下降会削弱现货供应缓冲，放大补库需求对价格的支撑。"
+        if direction in {"up", "surplus"}:
+            return "库存增加会提高现货供应缓冲，压制补库需求和糖价。"
+    if kind in {"sales", "consumption"}:
+        if direction == "up":
+            return "销量或消费增加会加快库存消化并扩大需求端吸收，降低库存缓冲并支撑糖价。"
+        if direction in {"down", "slowing"}:
+            return "销量或消费下降或增速放缓会放慢库存消化，削弱需求端支撑并压制糖价。"
+    if kind == "sales_inventory":
+        return "销量决定需求端消化速度，库存决定现货供应缓冲；两项指标需按各自方向判断对糖价的拉动或压制。"
+    if direction in {"down", "shortage"}:
+        return "供需指标走弱或供应缺口扩大说明可用糖源收紧，容易支撑糖价。"
+    if direction in {"up", "surplus"}:
+        return "供需指标走强或供应过剩说明可用糖源增加，容易压制糖价。"
+    return "该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。"
+
+
+def supply_demand_impact(candidate: dict) -> str:
+    logic = supply_demand_transmission(candidate).rstrip("。")
+    direction = infer_supply_demand_direction_key(
+        " ".join([str(candidate.get("source_title", "")), *(str(metric) for metric in candidate.get("metrics") or [])])
+    )
+    kind = infer_supply_demand_metric_kind(str(candidate.get("source_title", "")))
+    if kind in {"sales", "consumption"}:
+        if direction == "up":
+            return f"利多：{logic}。"
+        if direction in {"down", "slowing"}:
+            return f"利空：{logic}。"
+    if direction in {"down", "shortage"}:
+        return f"利多：{logic}。"
+    if direction in {"up", "surplus"}:
+        return f"利空：{logic}。"
+    return f"中性：{logic}。"
+
+
 def impact_for_candidate(candidate: dict) -> str:
     topic = candidate.get("topic") or "general_industry"
     text = str(candidate.get("source_title", "")).lower()
@@ -1585,11 +1816,7 @@ def impact_for_candidate(candidate: dict) -> str:
     if topic == "starch_sugar_substitute":
         return "利空：淀粉糖、玉米糖浆或预混粉供应增加会替代部分食糖消费，削弱白糖需求。"
     if topic == "supply_demand":
-        if any_phrase(text, ("higher", "record", "up", "increase", "increases", "increased", "rise", "rises", "rose", "surplus", "增加", "提高", "增长")):
-            return "利空：产量、库存或可销售糖源增加会改善供应并压制糖价。"
-        if any_phrase(text, ("lower", "down", "decline", "declines", "declined", "fall", "falls", "fell", "drop", "drops", "dropped", "shortage", "deficit", "减少", "下降", "短缺")):
-            return "利多：产量下降、库存收缩或供应缺口会减少可用糖源并支撑糖价。"
-        return "中性：原文只给出供需类指标，但未说明产量、库存、销量或消费的增减方向，对糖价方向暂不单边。"
+        return supply_demand_impact(candidate)
     if topic == "price_market":
         if any_phrase(text, ("rise", "rises", "higher", "up", "上涨", "上调")):
             return "利多：现货或出厂报价上涨反映阶段性供应偏紧或采购需求增强，会支撑短期糖价。"
@@ -1653,13 +1880,16 @@ def rss_summary_for_publication(candidate: dict) -> tuple[str, str]:
             f"{source_suffix}"
         )
         return news, impact
-    metric_text = "关键数据包括" + "、".join(metrics[:4]) if metrics else "具体幅度未披露"
+    metric_text = metric_text_for_candidate(candidate, metrics)
     if topic == "price_market" and not metrics:
         raise ValueError("price-market RSS title lacks price level or change amount")
     if topic == "general_industry":
         raise ValueError("general RSS candidate needs a specific sugar supply, demand, trade, price, weather, or ethanol topic before publication")
     location_clause = "" if country and country in actor else f"，涉及{country}"
-    first = f"{actor}{action}{label}，{metric_text}{location_clause}。"
+    summary_label = label
+    if topic == "supply_demand":
+        summary_label = f"{supply_demand_metric_label(infer_supply_demand_metric_kind(title + ' ' + ' '.join(metrics)))}数据"
+    first = f"{actor}{action}{summary_label}，{metric_text}{location_clause}。"
     ethanol_transmission = ethanol_feedstock_impact(candidate)[1] if topic in {"ethanol_policy", "ethanol_capacity"} else ""
     transmission = {
         "ethanol_policy": ethanol_transmission,
@@ -1668,7 +1898,7 @@ def rss_summary_for_publication(candidate: dict) -> tuple[str, str]:
         "cane_farming": "甘蔗价格、面积或蔗款变化会影响蔗农种植意愿和下一季糖料供应。",
         "variety_research": "新品种单产、糖分或抗病性变化会影响中长期甘蔗供应潜力。",
         "weather_pest": "产区天气或病虫害变化会影响甘蔗生长、收割和糖料供应稳定性。",
-        "supply_demand": "产量、库存、销量或消费变化会直接改变食糖供需平衡。",
+        "supply_demand": supply_demand_transmission(candidate),
         "trade_policy": "进口、出口、关税或配额变化会改变国内外可用糖源和贸易流向。",
         "starch_sugar_substitute": "替代糖源供应变化会影响白糖消费替代和终端需求。",
         "price_market": "报价变化会反映现货供需松紧和贸易商补库意愿。",

@@ -703,6 +703,55 @@ def test_editorial_quality_rejects_vague_ethanol_allocation_and_internal_audit_l
             raise AssertionError("vague ethanol allocation or internal audit wording should be rejected")
 
 
+def test_editorial_quality_rejects_vague_supply_demand_metric_and_impact_language() -> None:
+    item = {
+        "country_group": "其他国家",
+        "country": "菲律宾",
+        "title": "Raw sugar production falls 10.98% – SRA data",
+        "news": "菲律宾糖业相关机构公布食糖产量、库存、销量或消费预测，关键数据包括10.98%。产量、库存、销量或消费变化会直接改变食糖供需平衡。来源：Test（https://example.test/ph）",
+        "impact": "利多：产量、库存、销量或消费变化会直接改变食糖供需平衡。",
+        "source_name": "Test",
+        "source_url": "https://example.test/ph",
+    }
+    try:
+        validate_editorial_quality(item, 1)
+    except ValueError as exc:
+        assert "vague" in str(exc)
+    else:
+        raise AssertionError("vague supply-demand metric and impact wording should be rejected")
+
+
+def test_rss_supply_demand_summary_names_specific_metric_and_supply_path() -> None:
+    candidate = {
+        "event_country": "菲律宾",
+        "event_actor": "菲律宾糖业相关机构",
+        "event_action": "公布",
+        "topic": "supply_demand",
+        "source_title": "Philippines sugar production down 10.98% to 1.85 million tonnes as of July 12",
+        "metrics": ["10.98%", "1.85 million tonnes"],
+        "publisher": "Test",
+        "source_url": "https://example.test/ph",
+    }
+    news, impact = rss_summary_for_publication(candidate)
+    quality_text = f"{news} {impact}"
+    for banned in ("关键数据包括", "食糖产量、库存、销量或消费预测", "产量、库存、销量或消费变化会直接改变食糖供需平衡"):
+        assert banned not in quality_text
+    assert "截至7月12日糖产量下降10.98%至185万吨" in news
+    assert "糖产量下降会减少当期新增可售糖源" in quality_text
+    validate_editorial_quality(
+        {
+            "country_group": "其他国家",
+            "country": "菲律宾",
+            "title": candidate["source_title"],
+            "news": news,
+            "impact": impact,
+            "source_name": "Test",
+            "source_url": "https://example.test/ph",
+        },
+        1,
+    )
+
+
 def test_rss_ethanol_summary_uses_concrete_feedstock_allocation() -> None:
     candidate = {
         "event_country": "印度",
@@ -1026,6 +1075,8 @@ def main() -> None:
         test_summary_must_be_two_or_three_chinese_sentences,
         test_editorial_quality_rejects_vague_fallback_summary,
         test_editorial_quality_requires_concrete_action_direction_and_impact_path,
+        test_editorial_quality_rejects_vague_supply_demand_metric_and_impact_language,
+        test_rss_supply_demand_summary_names_specific_metric_and_supply_path,
         test_current_report_contains_china_section_after_thailand,
         test_brazil_india_metric_value_is_under_absolute_column,
         test_ist_utc_beijing_date_handling,

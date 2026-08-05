@@ -1,6 +1,6 @@
 {
   "newsDate": "2026-08-04",
-  "updatedAt": "2026-08-05T12:54:10+08:00",
+  "updatedAt": "2026-08-05T13:25:35+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/08/Sugar News 2026-08-04.xlsx",
   "brazilMetrics": {
@@ -440,7 +440,7 @@
   "indiaMetrics": {
     "title": "印度糖价",
     "dataDate": "2026-08-04",
-    "updatedAt": "2026-08-05T11:10:54+08:00",
+    "updatedAt": "2026-08-05T13:25:35+08:00",
     "sourceStatus": "dynamic_fetch",
     "domesticWholesalePrice": {
       "metricType": "domesticWholesalePrice",
@@ -755,7 +755,7 @@
       "metricType": "carryoverStock",
       "status": "pending",
       "statusText": "等待权威来源更新",
-      "fetchedAt": "2026-08-05T11:10:54+08:00",
+      "fetchedAt": "2026-08-05T13:25:35+08:00",
       "note": "未获取到已完成日期、口径和来源核验的可靠数据；不编造价格或库存。",
       "dataDate": null,
       "stockWanTonnes": null
@@ -1283,7 +1283,7 @@
           "eventDate": "2026-08-04"
         },
         {
-          "news": "印度政府发布或调整乙醇掺混或燃料政策，关键数据包括E20。若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量。",
+          "news": "印度政府发布或调整E20乙醇掺混政策，掺混目标为E20。若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量。",
           "impactType": "利多",
           "impact": "若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量，从而减少食糖供应预期并支撑糖价。",
           "sourceName": "The Times of India",
@@ -1325,18 +1325,18 @@
       "country": "菲律宾",
       "items": [
         {
-          "news": "菲律宾糖业相关机构公布食糖产量、库存、销量或消费预测，关键数据包括10.98%。产量、库存、销量或消费变化会直接改变食糖供需平衡。",
+          "news": "菲律宾糖业监管署SRA公布糖产量数据，截至7月12日糖产量下降10.98%至185万吨。糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
           "impactType": "利多",
-          "impact": "产量下降、库存收缩或供应缺口会减少可用糖源并支撑糖价。",
+          "impact": "糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
           "sourceName": "manilatimes.net",
           "sourceUrl": "https://news.google.com/rss/articles/CBMirgFBVV95cUxONWZYV3FLYkc1bjNFUEZlNWhMajZ4cnR0WHdtTENKMXZualZBOGtqZmtrNmRyVWZCMDc5Q2JvSmpIbHVjbmRQbXpCSzhMODVtQ3ktWFRYcVprRnBwWlBPR2pWU0xhcWhWMGo5MC1OdWdTdnNfZ0pKSGNUTDg3RWstalowWWk2d0JKZUJoVS1NN0lBQm10aUFRUWJVSDFWcjg4U2RYd1FJRXYxU01OdWfSAbMBQVVfeXFMUEJ3Q19aRDkzZ3pOQXVmaHltRXA3Tk5kUThsNDlwMnc1T2g4NU85eW5zUTR1cGNkZ2V1QWIzQ3I2ZXdEV2sxUl9OVjFHZ0JtbmtweEs3UVMyVDFETXB5MEZENHZsNFM4ZU1wNHRtVm9tNzNXNlJnVUxLakw5djlXd3BaM3VOVFBxYkZfTFZNYnFRRGx6QVdobjVIMy1OVDJGY1E5MWV1MXZ2SFdxdy1IZnpHa1k?oc=5",
           "publishedDateLocal": "2026-08-04",
           "eventDate": "2026-08-04"
         },
         {
-          "news": "菲律宾主产区农业或气象机构预警甘蔗产区天气、干旱或病虫害，关键数据包括77.3 hectares。产区天气或病虫害变化会影响甘蔗生长、收割和糖料供应稳定性。",
+          "news": "菲律宾西内格罗斯省防控工作组使用真菌处理77.3公顷甘蔗病虫害地块，并计划扩大至3个地方政府辖区。病虫害防控扩大可降低甘蔗受害面积继续扩张的风险，但当前仍反映西内格罗斯蔗区病虫害压力，对糖料供应稳定性偏多糖价。",
           "impactType": "利多",
-          "impact": "干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+          "impact": "病虫害已需在77.3公顷地块进行防控，说明西内格罗斯蔗区糖料供应存在单产风险，若扩散会减少可入榨甘蔗并支撑糖价。",
           "sourceName": "Digicast Negros",
           "sourceUrl": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOcmtWNXBXMUw4ZWVPSEVpT3pWU3VlS2Z1a2xxLXFPLWVTMG1Ubk5NLUlJc2l1WEZKb25Makk5Z3JNVXhhLTgyS09WMk1rbXRmbXlwV0RBMHBWdnh0REtvV3A2akd3N1JOVGU2T1ZJaEdNTFRzY1BJaUMzMV9Mb3MxN3BFMGRoTUJENnJDUkpxc2k4RWc4QW51SWNTNm14bFVleVIxMzlucnBqYWdMNEtrZmdUd002bE9HemtBbklDbndyRUZJQlhzNFgwdVBJQkpMeXNpMWtB0gHWAUFVX3lxTE5ya1Y1cFcxTDhlZU9IRWlPelZTdWVLZnVrbHEtcU8tZVMwbVRuTk0tSUlzaXVYRkpvbkxqSTlnck1VeGEtODJLT1YyTWttdGZteXBXREEwcFZ2eHRES29XcDZqR3c3Uk5UZTZPVkloR01MVHNjUElpQzMxX0xvczE3cEUwZGhNQkQ2ckNSSnFzaThFZzhBbnVJY1M2bXhsVWV5UjEzOW5ycGphZ0w0S2tmZ1R3TTZsT0d6a0FuSUNud3JFRklCWHM0WDB1UElCSkx5c2kxa0E?oc=5",
           "publishedDateLocal": "2026-08-04",

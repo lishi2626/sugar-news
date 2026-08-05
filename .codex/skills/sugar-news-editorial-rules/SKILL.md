@@ -41,6 +41,7 @@ Never publish vague fallback summaries such as:
 - `行业发展迎来新变化`
 - `供需格局可能发生变化`
 - `后续影响仍需观察`
+- `关键数据包括`
 - `该事项对食糖供应、需求或价格的影响仍需结合后续政策、产量和贸易数据继续跟踪`
 - `该信息需要继续跟踪，短期对当期糖产量和出口量的直接影响有限`
 - `该变化会改变甘蔗、糖蜜或糖浆在制糖和制醇之间的分配，进而影响食糖供应`
@@ -52,6 +53,7 @@ Never publish vague fallback summaries such as:
 - `该事件属于糖业产业链信息`
 - `标题未给出足以判断单边方向`
 - `该供需数据需要结合产量、库存和贸易流向判断`
+- `产量、库存、销量或消费变化会直接改变食糖供需平衡`
 - `某媒体消息涉及某国糖业运行变化`
 
 Do not expose internal workflow language in the public summary. The summary body must not say `事件归属为`, `事件归属国家`, `公开标题显示`, `标题显示`, or similar audit phrases. Country, region, and source title are metadata used for validation; the public text should state the concrete event and market effect directly.
@@ -72,6 +74,7 @@ Type-specific requirements:
 - Policy news must name the government or department, policy, before/after value when available, effective period, and direct supply-demand effect.
 - Price news must name the region/market, sugar or cane type, current price, change direction and amount when available, comparison base, and price-change reason.
 - Production, inventory, or crushing news must name the publishing body, season or cutoff date, current value,同比/环比 change when available, and supply effect.
+- Supply-demand data news must name the exact indicator instead of saying `关键数据包括`. Write the data as a concrete phrase such as `截至7月12日糖产量下降10.98%至185万吨`. The impact sentence must map the indicator and direction to a specific path: production declines reduce current new sellable sugar supply and support prices; production or inventory increases add supply pressure and pressure prices; inventory declines reduce spot buffers and support prices; sales or consumption increases accelerate demand drawdown and support prices; sales or consumption declines or slower growth weakens demand support and pressures prices.
 - Trade news must name the import/export country, product, volume,同比/环比 change when available, policy or cost driver, and trade-flow effect.
 - Weather news must name the meteorological agency, affected cane/beet producing regions, rainfall/drought/typhoon/heat intensity and duration, crop stage when known, and direct crop or output effect.
 - Company or mill news must name the company/mill, expansion, shutdown, restart, closure, accident, acquisition, or financing action, capacity/output/asset scale when available, and regional supply effect.
