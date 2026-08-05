@@ -537,6 +537,62 @@
       "price_inr_per_kg": 52.33
     },
     {
+      "indicator": "india_retail_price",
+      "data_date": "2026-08-04",
+      "price_basis": "ChiniMandi城市样本均价，含GST",
+      "grade": "M-30；Hyderabad为S-30",
+      "includes_gst": true,
+      "cities_used": [
+        "Delhi",
+        "Kanpur",
+        "Raipur",
+        "Mumbai",
+        "Ranchi",
+        "Kolkata",
+        "Guwahati",
+        "Hyderabad",
+        "Chennai"
+      ],
+      "city_count": 9,
+      "city_prices": {
+        "Delhi": 52.0,
+        "Kanpur": 52.0,
+        "Raipur": 52.0,
+        "Mumbai": 51.0,
+        "Ranchi": 52.0,
+        "Kolkata": 53.0,
+        "Guwahati": 53.0,
+        "Hyderabad": 52.0,
+        "Chennai": 54.0
+      },
+      "raw_city_prices": {
+        "Delhi": "52",
+        "Kanpur": "52",
+        "Raipur": "52",
+        "Mumbai": "51",
+        "Ranchi": "52",
+        "Kolkata": "53",
+        "Guwahati": "53",
+        "Hyderabad": "52",
+        "Chennai": "54"
+      },
+      "unit": "卢比/公斤",
+      "previous_data_date": "2026-08-03",
+      "previous_value": 52.33,
+      "change_value": 0.0,
+      "change_percent": 0.0,
+      "previous_year_date": "2025-08-04",
+      "previous_year_value": 44.44,
+      "year_on_year_change": 7.89,
+      "year_on_year_change_percent": 17.75,
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/retail-prices/",
+      "daily_market_update_url": "https://www.chinimandi.com/english-news/daily-sugar-market-update/",
+      "fetched_at": "2026-08-05T11:09:28+08:00",
+      "status": "ok",
+      "price_inr_per_kg": 52.33
+    },
+    {
       "indicator": "india_wholesale_price",
       "data_date": "2026-07-20",
       "price_basis": "ChiniMandi城市样本均价，含GST",
@@ -1125,6 +1181,63 @@
       "price_inr_per_kg": 50.9
     },
     {
+      "indicator": "india_wholesale_price",
+      "data_date": "2026-08-04",
+      "price_basis": "ChiniMandi城市样本均价，含GST",
+      "grade": "M-30；Hyderabad为S-30",
+      "includes_gst": true,
+      "cities_used": [
+        "Delhi",
+        "Kanpur",
+        "Raipur",
+        "Mumbai",
+        "Ranchi",
+        "Kolkata",
+        "Guwahati",
+        "Hyderabad",
+        "Chennai"
+      ],
+      "city_count": 9,
+      "city_prices": {
+        "Delhi": 5120.0,
+        "Kanpur": 5150.0,
+        "Raipur": 5050.0,
+        "Mumbai": 5100.0,
+        "Ranchi": 5100.0,
+        "Kolkata": 5130.0,
+        "Guwahati": 5150.0,
+        "Hyderabad": 5100.0,
+        "Chennai": 5250.0
+      },
+      "raw_city_prices": {
+        "Delhi": "5120",
+        "Kanpur": "5150",
+        "Raipur": "5050",
+        "Mumbai": "5100",
+        "Ranchi": "5100",
+        "Kolkata": "5130",
+        "Guwahati": "5150",
+        "Hyderabad": "5100",
+        "Chennai": "5250"
+      },
+      "unit": "卢比/公担",
+      "previous_data_date": "2026-08-03",
+      "previous_value": 5090.0,
+      "change_value": 37.78,
+      "change_percent": 0.74,
+      "previous_year_date": "2025-08-04",
+      "previous_year_value": 4367.78,
+      "year_on_year_change": 760.0,
+      "year_on_year_change_percent": 17.4,
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/wholesale-sugar-prices/",
+      "daily_market_update_url": "https://www.chinimandi.com/english-news/daily-sugar-market-update/",
+      "fetched_at": "2026-08-05T11:09:19+08:00",
+      "status": "ok",
+      "price_inr_per_quintal": 5127.78,
+      "price_inr_per_kg": 51.2778
+    },
+    {
       "indicator": "up_ex_mill_price",
       "data_date": "2026-07-20",
       "up_ex_mill_min_inr_per_quintal": 4520.0,
@@ -1667,7 +1780,7 @@
       "up_ex_mill_mid_inr_per_kg": 45.45,
       "source_name": "ChiniMandi — Daily Sugar Market Update",
       "source_url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-30-07-2026/",
-      "fetched_at": "2026-08-04T16:01:05+08:00",
+      "fetched_at": "2026-08-05T11:09:36+08:00",
       "status": "ok",
       "daily_change_absolute": 0.0,
       "daily_change_percent": 0.0,
@@ -1699,5 +1812,5 @@
       "change_direction": "flat"
     }
   ],
-  "lastUpdatedAt": "2026-08-04T16:01:18+08:00"
+  "lastUpdatedAt": "2026-08-05T11:09:48+08:00"
 }
