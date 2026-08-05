@@ -1,7 +1,13 @@
 {
-  "latestNewsDate": "2026-08-04",
-  "updatedAt": "2026-08-05T16:26:57+08:00",
+  "latestNewsDate": "2026-08-05",
+  "updatedAt": "2026-08-06T06:56:37+08:00",
   "reports": [
+    {
+      "newsDate": "2026-08-05",
+      "updatedAt": "2026-08-06T06:56:37+08:00",
+      "path": "/public/sugar-news/data/reports/2026/08/2026-08-05.json",
+      "count": 6
+    },
     {
       "newsDate": "2026-08-04",
       "updatedAt": "2026-08-05T16:26:57+08:00",
