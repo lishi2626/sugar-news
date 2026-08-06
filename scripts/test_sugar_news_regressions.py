@@ -23,6 +23,7 @@ from sugar_news_pipeline import (
     CASE_REGRESSION_TOPICS,
     COUNTRY_SEARCH_TEMPLATES,
     OTHER_COUNTRY_SEARCH_TEMPLATES,
+    RSS_AUTOGEN_MAX_QUERIES_PER_COUNTRY,
     SOURCE_MATRIX,
     candidate_country_confidence,
     candidate_has_verifiable_industry_fact,
@@ -157,6 +158,7 @@ def test_other_country_rss_queries_are_concrete() -> None:
 
 
 def test_expanded_search_matrix_covers_user_case_topics() -> None:
+    skill = (PROJECT_ROOT / ".codex" / "skills" / "sugar-news-editorial-rules" / "SKILL.md").read_text(encoding="utf-8")
     assert len(CASE_REGRESSION_TOPICS) == 16
     assert "UNICA" in SOURCE_MATRIX["巴西"]
     assert "Datagro" in SOURCE_MATRIX["巴西"]
@@ -166,8 +168,20 @@ def test_expanded_search_matrix_covers_user_case_topics() -> None:
     assert "USDA / EIA / American Sugar Alliance" in SOURCE_MATRIX["其他国家"]
 
     brazil_queries = "\n".join(template for _language, template in COUNTRY_SEARCH_TEMPLATES["巴西"])
-    for expected in ("mistura etanol", "estoque de etanol", "preço da cana", "Datagro consumo global de açúcar", "巴西 玉米乙醇 Renovabio"):
+    assert len(COUNTRY_SEARCH_TEMPLATES["巴西"]) <= RSS_AUTOGEN_MAX_QUERIES_PER_COUNTRY
+    for expected in (
+        "mistura etanol",
+        "estoque de etanol",
+        "preço da cana",
+        "Datagro consumo global de açúcar",
+        "Brazil corn ethanol",
+        "Brazil ethanol gasoline",
+        "etanol gasolina",
+        "巴西 玉米乙醇 Renovabio",
+        "巴西 乙醇 汽油",
+    ):
         assert expected in brazil_queries
+    assert "巴西乙醇和汽油" in skill
     brazil_rendered = "\n".join(
         template.format(
             readable="August 3 2026",
@@ -555,6 +569,8 @@ def test_valid_brazil_cane_sugar_ethanol_news_is_allowed() -> None:
     country, group = infer_core_country(sample, "巴西")
     assert country == "巴西"
     assert group == "巴西"
+    assert rss_sugar_relevant("巴西", "Brazil corn ethanol capacity expands as fuel distributors compare ethanol gasoline economics")
+    assert rss_sugar_relevant("巴西", "Brasil etanol de milho avança com demanda de etanol gasolina")
 
 
 def test_india_water_resource_pressure_is_bullish() -> None:

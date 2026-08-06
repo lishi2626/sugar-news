@@ -29,7 +29,7 @@ PUBLIC_ROOT = PROJECT_ROOT / "public" / "sugar-news"
 PUBLIC_DATA_ROOT = PUBLIC_ROOT / "data"
 EDITORIAL_SKILL_PATH = PROJECT_ROOT / ".codex" / "skills" / "sugar-news-editorial-rules" / "SKILL.md"
 RSS_AUTOGEN_TIMEOUT_SECONDS = int(os.getenv("SUGAR_NEWS_RSS_TIMEOUT", "4"))
-RSS_AUTOGEN_MAX_QUERIES_PER_COUNTRY = int(os.getenv("SUGAR_NEWS_RSS_MAX_QUERIES_PER_COUNTRY", "24"))
+RSS_AUTOGEN_MAX_QUERIES_PER_COUNTRY = int(os.getenv("SUGAR_NEWS_RSS_MAX_QUERIES_PER_COUNTRY", "32"))
 RSS_AUTOGEN_MAX_TOTAL_QUERIES = int(os.getenv("SUGAR_NEWS_RSS_MAX_TOTAL_QUERIES", "180"))
 RSS_AUTOGEN_MAX_ITEMS_PER_QUERY = int(os.getenv("SUGAR_NEWS_RSS_MAX_ITEMS_PER_QUERY", "20"))
 RSS_AUTOGEN_PUBLICATION_WINDOW_HOURS = int(os.getenv("SUGAR_NEWS_RSS_PUBLICATION_WINDOW_HOURS", "36"))
@@ -377,10 +377,13 @@ COUNTRY_SEARCH_TEMPLATES = {
         ("en", "Brazil sugar industry news {readable}"),
         ("en", "Brazil sugarcane ethanol export {readable}"),
         ("en", "Brazil corn ethanol Renovabio {readable}"),
+        ("en", "Brazil ethanol gasoline corn ethanol {readable}"),
         ("zh-CN", "巴西 玉米乙醇 Renovabio {year}年{month}月{day}日"),
+        ("zh-CN", "巴西 乙醇 汽油 {year}年{month}月{day}日"),
         ("pt-BR", "Brasil açúcar etanol {day} {month_name_pt} {year}"),
         ("pt-BR", "Brasil setor sucroenergético {day} de {month_name_pt} de {year}"),
         ("pt-BR", "Brasil etanol de milho RenovaBio {day} de {month_name_pt} de {year}"),
+        ("pt-BR", "Brasil etanol gasolina etanol de milho {day} de {month_name_pt} de {year}"),
         ("pt-BR", "usinas cana açúcar etanol {date_slash}"),
     ),
     "印度": (
@@ -607,6 +610,7 @@ ADDITIONAL_COUNTRY_SEARCH_TEMPLATES = {
     "巴西": (
         ("pt-BR", "site:gov.br etanol gasolina mistura anidro {readable}"),
         ("pt-BR", "CNPE mistura etanol anidro gasolina {readable}"),
+        ("pt-BR", "ANP etanol gasolina Brasil {readable}"),
         ("pt-BR", "ANP estoque de etanol hidratado anidro {readable}"),
         ("pt-BR", "UNICA moagem cana produção de açúcar etanol {readable}"),
         ("pt-BR", "Datagro consumo global de açúcar {readable}"),
@@ -616,6 +620,7 @@ ADDITIONAL_COUNTRY_SEARCH_TEMPLATES = {
         ("pt-BR", "preço da cana usina açúcar etanol {readable}"),
         ("pt-BR", "exportação de açúcar porto Brasil {readable}"),
         ("en", "Brazil ethanol blending E30 E32 sugarcane {readable}"),
+        ("en", "Brazil ethanol gasoline RenovaBio corn ethanol {readable}"),
         ("en", "Brazil UNICA sugarcane crushing sugar production ethanol {readable}"),
         ("en", "Brazil Datagro global sugar consumption forecast {readable}"),
     ),
@@ -1535,6 +1540,11 @@ def rss_sugar_relevant(country: str, text: str) -> bool:
         "ethanol program", "foreign exchange", "crude import", "petrol pump",
         "ethanol capacity", "ethanol procurement price", "乙醇掺混", "乙醇产能",
         "节省外汇", "替代原油", "加油站", "乙醇采购价",
+    )):
+        return True
+    if country == "巴西" and any_phrase(text, (
+        "corn ethanol", "maize ethanol", "grain ethanol", "etanol de milho",
+        "ethanol gasoline", "gasoline ethanol", "etanol gasolina", "etanol e gasolina",
     )):
         return True
     if country in {"美国", "其他国家"} and any_phrase(text, ("eia", "ethanol production", "ethanol stocks")):
