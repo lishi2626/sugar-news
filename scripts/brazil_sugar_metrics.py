@@ -962,6 +962,76 @@ def report_date_from_url(url: str) -> str | None:
     return date.strftime("%Y-%m-%d")
 
 
+def ethanol_file_cycle(value: str | None) -> str | None:
+    match = re.search(r"_(\d{2})(\d{2})\d{2,4}(?:_\d+)?\.pdf$", value or "", re.I)
+    if not match:
+        return None
+    day, month = match.groups()
+    return f"{day}{month}"
+
+
+def date_gap_days(left: str, right: str) -> int:
+    return abs((datetime.fromisoformat(left).date() - datetime.fromisoformat(right).date()).days)
+
+
+def choose_ethanol_yoy_docs(
+    prior_docs: list[dict],
+    target_yoy: str,
+    current_source_file_name: str | None,
+    max_gap_days: int = 3,
+) -> tuple[list[dict], dict]:
+    exact_docs = [doc for doc in prior_docs if doc["reference_date"] == target_yoy]
+    if exact_docs:
+        return exact_docs, {
+            "strategy": "exact_reference_date",
+            "targetDate": target_yoy,
+            "selectedDate": target_yoy,
+            "exactDateMatch": True,
+            "dateGapDays": 0,
+        }
+
+    current_cycle = ethanol_file_cycle(current_source_file_name)
+    cycle_docs = [
+        doc for doc in prior_docs
+        if current_cycle and ethanol_file_cycle(doc.get("source_file_name") or doc.get("url")) == current_cycle
+        and date_gap_days(doc["reference_date"], target_yoy) <= max_gap_days
+    ]
+    if cycle_docs:
+        best_gap = min(date_gap_days(doc["reference_date"], target_yoy) for doc in cycle_docs)
+        selected = [doc for doc in cycle_docs if date_gap_days(doc["reference_date"], target_yoy) == best_gap]
+        return selected, {
+            "strategy": "same_file_cycle_nearest_date",
+            "targetDate": target_yoy,
+            "selectedDate": selected[-1]["reference_date"],
+            "exactDateMatch": False,
+            "dateGapDays": best_gap,
+            "fileCycle": current_cycle,
+        }
+
+    nearby_docs = [
+        doc for doc in prior_docs
+        if date_gap_days(doc["reference_date"], target_yoy) <= max_gap_days
+    ]
+    if nearby_docs:
+        best_gap = min(date_gap_days(doc["reference_date"], target_yoy) for doc in nearby_docs)
+        selected = [doc for doc in nearby_docs if date_gap_days(doc["reference_date"], target_yoy) == best_gap]
+        return selected, {
+            "strategy": "nearest_reference_date",
+            "targetDate": target_yoy,
+            "selectedDate": selected[-1]["reference_date"],
+            "exactDateMatch": False,
+            "dateGapDays": best_gap,
+        }
+
+    return [], {
+        "strategy": "not_found",
+        "targetDate": target_yoy,
+        "selectedDate": None,
+        "exactDateMatch": False,
+        "dateGapDays": None,
+    }
+
+
 def report_date_from_context(title: str, url: str, body: str) -> tuple[str | None, str]:
     context = title
     escaped_url = re.escape(html.escape(url, quote=True))
@@ -1149,7 +1219,11 @@ def find_mapa_hydrous_ethanol_stock() -> tuple[dict | None, list[dict]]:
         prior_docs, prior_logs = mapa_ethanol_docs_from_season(prior_season, pages[prior_season])
         logs.extend(prior_logs)
         target_yoy = f"{int(latest['reference_date'][:4]) - 1}{latest['reference_date'][4:]}"
-        target_docs = [doc for doc in prior_docs if doc["reference_date"] == target_yoy]
+        target_docs, yoy_match = choose_ethanol_yoy_docs(
+            prior_docs,
+            target_yoy,
+            latest.get("source_file_name") or latest.get("source_url"),
+        )
         prior_rows = []
         for doc in target_docs:
             doc["season_url"] = pages[prior_season]
@@ -1158,14 +1232,27 @@ def find_mapa_hydrous_ethanol_stock() -> tuple[dict | None, list[dict]]:
             if row:
                 prior_rows.append(row)
         previous_year = prior_rows[-1] if prior_rows else None
-        if not previous_year:
+        if previous_year:
+            logs.append({
+                "source": "MAPA hydrous ethanol previous-year matcher",
+                "targetDate": target_yoy,
+                "season": prior_season,
+                "selectedDate": previous_year["reference_date"],
+                "exactDateMatch": yoy_match.get("exactDateMatch"),
+                "dateGapDays": yoy_match.get("dateGapDays"),
+                "strategy": yoy_match.get("strategy"),
+                "parsed": True,
+                "reason": "Selected exact prior-year date when available; otherwise same MAPA source-file cycle or nearest comparable date.",
+            })
+        else:
             logs.append({
                 "source": "MAPA hydrous ethanol previous-year matcher",
                 "targetDate": target_yoy,
                 "season": prior_season,
                 "parsedDates": [doc["reference_date"] for doc in prior_docs],
+                "strategy": yoy_match.get("strategy"),
                 "parsed": False,
-                "reason": "Missing exact same month-day comparable hydrous ethanol stock date.",
+                "reason": "Missing exact, same-file-cycle, or nearby comparable hydrous ethanol stock date.",
             })
     else:
         logs.append({
@@ -1196,10 +1283,17 @@ def find_mapa_hydrous_ethanol_stock() -> tuple[dict | None, list[dict]]:
         })
     if previous_year:
         previous_yoy = previous_year["stock_ten_thousand_cubic_metres"]
+        target_yoy = f"{int(latest['reference_date'][:4]) - 1}{latest['reference_date'][4:]}"
+        gap = date_gap_days(previous_year["reference_date"], target_yoy)
         record.update({
             "previous_year_date": previous_year["reference_date"],
             "previous_year_stock": previous_yoy,
             "previous_year_value": previous_yoy,
+            "previous_year_source_url": previous_year.get("source_url"),
+            "yoy_target_date": target_yoy,
+            "yoy_comparison_date": previous_year["reference_date"],
+            "yoy_exact_date_match": previous_year["reference_date"] == target_yoy,
+            "yoy_date_gap_days": gap,
             "year_on_year_change": current - previous_yoy,
             "year_on_year_change_percent": None if previous_yoy == 0 else (current - previous_yoy) / previous_yoy * 100,
             "yoy_status": "ok" if previous_yoy != 0 else "no_percent_zero_base",

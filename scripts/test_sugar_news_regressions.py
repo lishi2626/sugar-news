@@ -13,6 +13,7 @@ from brazil_sugar_metrics import (
     HISUGAR_IMPORT_COST_LIST_URL,
     article_available_for_target,
     build_snapshot,
+    choose_ethanol_yoy_docs,
     hisugar_query_list_page,
     parse_hisugar_list_articles,
     parse_hisugar_noisy_ocr_rows,
@@ -959,6 +960,35 @@ def test_brazil_sugar_stock_date_comes_from_acumulado_ate() -> None:
     assert rows[0]["stock_total_tonnes"] == 3450164
 
 
+def test_brazil_ethanol_yoy_uses_same_mapa_file_cycle_when_date_shifts() -> None:
+    prior_docs = [
+        {
+            "reference_date": "2025-07-01",
+            "source_file_name": "Acompanhamentodaproduo2526_010725.PDF",
+            "url": "https://example.test/Acompanhamentodaproduo2526_010725.PDF",
+        },
+        {
+            "reference_date": "2025-07-16",
+            "source_file_name": "Acompanhamentodaproduo2526_150725.PDF",
+            "url": "https://example.test/Acompanhamentodaproduo2526_150725.PDF",
+        },
+        {
+            "reference_date": "2026-07-16",
+            "source_file_name": "Acompanhamentodaproduo2526_150726.PDF",
+            "url": "https://example.test/Acompanhamentodaproduo2526_150726.PDF",
+        },
+    ]
+    docs, meta = choose_ethanol_yoy_docs(
+        prior_docs,
+        "2025-07-15",
+        "Acompanhamentodaproduo2627_150726.PDF",
+    )
+    assert docs[0]["reference_date"] == "2025-07-16"
+    assert meta["strategy"] == "same_file_cycle_nearest_date"
+    assert meta["exactDateMatch"] is False
+    assert meta["dateGapDays"] == 1
+
+
 def test_brazil_dashboard_does_not_show_fetch_time_or_report_as_date() -> None:
     html = (PROJECT_ROOT / "public" / "sugar-news" / "index.html").read_text(encoding="utf-8")
     assert "发布日期/报告" not in html
@@ -1117,6 +1147,7 @@ def main() -> None:
         test_chinimandi_daily_market_update_title_date_is_supported,
         test_current_report_india_prices_use_updated_chinimandi_sources,
         test_brazil_sugar_stock_date_comes_from_acumulado_ate,
+        test_brazil_ethanol_yoy_uses_same_mapa_file_cycle_when_date_shifts,
         test_brazil_dashboard_does_not_show_fetch_time_or_report_as_date,
         test_brazil_dashboard_refresh_date_matches_news_and_cards_use_source_dates,
         test_brazil_snapshot_retains_previous_success_when_history_is_empty,

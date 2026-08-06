@@ -159,16 +159,23 @@
       "status": "ok",
       "source_name": "巴西农业和畜牧业部（MAPA）",
       "dataset_name": "MAPA Acompanhamento da Produção Sucroalcooleira",
-      "fetched_at": "2026-08-06T07:33:39+08:00",
+      "fetched_at": "2026-08-06T10:05:32+08:00",
       "original_unit": "m³",
       "previous_period_date": "2026-07-01",
       "previous_period_stock": 291.3832,
       "half_month_change": 59.80850000000004,
       "half_month_change_percent": 20.525720082695244,
-      "previous_year_value": null,
-      "year_on_year_change": null,
-      "year_on_year_change_percent": null,
-      "yoy_status": "insufficient"
+      "previous_year_date": "2025-07-16",
+      "previous_year_stock": 241.8895,
+      "previous_year_value": 241.8895,
+      "previous_year_source_url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/2025-2026-1/Acompanhamentodaproduo2526_160725.PDF",
+      "yoy_target_date": "2025-07-15",
+      "yoy_comparison_date": "2025-07-16",
+      "yoy_exact_date_match": false,
+      "yoy_date_gap_days": 1,
+      "year_on_year_change": 109.30220000000003,
+      "year_on_year_change_percent": 45.186831177045725,
+      "yoy_status": "ok"
     },
     {
       "indicator": "brazil_sugar_premium",
@@ -501,6 +508,36 @@
       "yoy_status": "not_applicable"
     },
     {
+      "indicator": "brazil_sugar_premium",
+      "status": "ok",
+      "source_name": "广西糖网食糖进口成本及利润估算表",
+      "dataset_name": "HiSugar 食糖进口成本及利润估算表",
+      "product": "巴西糖进口升贴水",
+      "port": "进口成本估算",
+      "pricing_basis": "HiSugar import cost estimate",
+      "futures_contract": null,
+      "data_date": "2026-08-05",
+      "import_premium_discount_cents_per_lb": -0.54,
+      "premium_discount_cents_per_lb": -0.54,
+      "unit": "美分/磅",
+      "article_id": "2026080608433531248185",
+      "article_title": "20260805食糖进口成本及利润估算",
+      "article_published_at": "2026-08-06 08:49:22",
+      "source_url": "https://www.hisugar.com/home/articleContent?id=2026080608433531248185",
+      "image_url": "https://www.hisugar.com/image/20260806/1785976892742090105.png",
+      "fetched_at": "2026-08-06T10:01:47+08:00",
+      "ocr_backend": "windows_ocr_noisy",
+      "previous_data_date": "2026-08-04",
+      "previous_value": -0.54,
+      "daily_change": 0.0,
+      "daily_change_percent": 0.0,
+      "previous_year_date": "2025-08-05",
+      "previous_year_value": 0.2,
+      "year_on_year_change": -0.74,
+      "year_on_year_change_percent": null,
+      "yoy_status": "not_applicable"
+    },
+    {
       "season": "2026/2027",
       "reference_period": "2026-06-30",
       "reference_date": "2026-06-30",
@@ -533,7 +570,7 @@
       "status": "ok",
       "source_name": "巴西农业和畜牧业部（MAPA）",
       "dataset_name": "MAPA Agroenergia - Estoques de Açúcar por Tipo",
-      "fetched_at": "2026-08-06T07:32:57+08:00",
+      "fetched_at": "2026-08-06T10:04:10+08:00",
       "original_unit": "tonnes",
       "previous_period_date": "2026-06-15",
       "previous_period_stock": 364.5203,
@@ -547,5 +584,5 @@
       "yoy_status": "ok"
     }
   ],
-  "lastUpdatedAt": "2026-08-06T07:33:39+08:00"
+  "lastUpdatedAt": "2026-08-06T10:05:32+08:00"
 }
