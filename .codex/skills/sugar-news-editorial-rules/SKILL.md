@@ -32,6 +32,8 @@ Use natural Chinese sugar-industry research language. Remove promotional wording
 Never publish vague fallback summaries such as:
 
 - `涉及食糖价格或市场流通变化`
+- `数据为XXX`
+- `具体幅度未披露`
 - `对市场具有参考意义`
 - `可能影响市场情绪`
 - `将影响贸易商采购和终端补库`
@@ -54,9 +56,19 @@ Never publish vague fallback summaries such as:
 - `标题未给出足以判断单边方向`
 - `该供需数据需要结合产量、库存和贸易流向判断`
 - `产量、库存、销量或消费变化会直接改变食糖供需平衡`
+- `糖厂运行变化会直接影响甘蔗入榨、压榨节奏和阶段性食糖产量`
+- `报价变化会反映现货供需松紧和贸易商补库意愿`
+- `产区天气或病虫害变化会影响甘蔗生长、收割和糖料供应稳定性`
+- `某国主产区农业或气象机构预警甘蔗产区天气、干旱或病虫害`
 - `某媒体消息涉及某国糖业运行变化`
 
 Do not expose internal workflow language in the public summary. The summary body must not say `事件归属为`, `事件归属国家`, `公开标题显示`, `标题显示`, or similar audit phrases. Country, region, and source title are metadata used for validation; the public text should state the concrete event and market effect directly.
+
+Do not publish a sentence that only says a metric exists. Every number must name the exact indicator, period, and direction when the source provides them, for example `截至7月12日糖产量下降10.98%至185万吨`, `西内格罗斯已用真菌处理77.3公顷虫害地块`, or `印度糖价一个月上涨17%`.
+
+Do not publish a generic category transmission path. The impact sentence must name the same subject and action as the news sentence, then explain the concrete market path. For example, if a provincial task force sprays fungi on pest-affected cane land, write how untreated pest spread would reduce local cane yield and sugar-material availability; if India imposes stock limits after a 17% price jump, write how the limit restricts trader and end-user hoarding and cools restocking demand.
+
+When two retained items from the same country cover the same theme, they must not use the same summary template or conclusion. Keep both only when the body clearly separates the facts, such as one item being about a province seeking national aid and another about a task force treating 77.3 hectares and expanding to 3 more local government areas. Otherwise deduplicate and keep the more specific source.
 
 Ethanol news must not use the vague sentence `改变甘蔗、糖蜜或糖浆在制糖和制醇之间的分配`. State the specific feedstock and direction supported by the source:
 

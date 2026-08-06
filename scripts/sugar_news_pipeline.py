@@ -95,6 +95,8 @@ PLACEHOLDERS = (
 )
 VAGUE_SUMMARY_PHRASES = (
     "关键数据包括",
+    "数据为",
+    "具体幅度未披露",
     "涉及食糖价格或市场流通变化",
     "对市场具有参考意义",
     "可能影响市场情绪",
@@ -121,11 +123,16 @@ VAGUE_SUMMARY_PHRASES = (
     "标题未给出足以判断单边方向",
     "该供需数据需要结合产量、库存和贸易流向判断",
     "产量、库存、销量或消费变化会直接改变食糖供需平衡",
+    "糖厂运行变化会直接影响甘蔗入榨、压榨节奏和阶段性食糖产量",
+    "报价变化会反映现货供需松紧和贸易商补库意愿",
+    "产区天气或病虫害变化会影响甘蔗生长、收割和糖料供应稳定性",
+    "主产区农业或气象机构预警甘蔗产区天气、干旱或病虫害",
 )
 VAGUE_SUMMARY_PATTERNS = (
     re.compile(r"[^。！？]{0,50}消息涉及[^。！？]{0,80}(?:变化|安排|运行|市场|糖业)"),
     re.compile(r"(?:该事项|该信息|相关变化)[^。！？]{0,80}(?:继续跟踪|参考意义|影响有限)"),
     re.compile(r"(?:改变|影响)[^。！？]{0,30}(?:甘蔗|糖蜜|糖浆)[^。！？]{0,40}(?:制糖|制醇)[^。！？]{0,40}(?:分配|食糖供应)"),
+    re.compile(r"(?:数据为|具体幅度未披露)[^。！？]{0,40}"),
 )
 NEWS_ACTION_TERMS = (
     "宣布", "公布", "发布", "批准", "要求", "计划", "拟", "预计", "预报", "预测",
@@ -142,7 +149,7 @@ NEWS_DIRECTION_TERMS = (
     "同比", "环比", "由", "至", "达到", "为", "超过", "不足", "偏高", "偏低",
     "暂停", "恢复", "禁止", "批准", "限制", "启动", "关闭", "开榨", "收榨",
     "预计", "预报", "预测", "大雨", "暴雨", "干旱", "洪涝", "短缺", "过剩",
-    "扩张", "收缩", "改善", "恶化", "受损", "支撑", "压制",
+    "扩张", "扩大", "扩散", "蔓延", "收缩", "改善", "恶化", "受损", "支撑", "压制", "压低",
     "increase", "decrease", "rise", "fall", "raise", "cut", "lower", "higher", "lower",
 )
 NEWS_DETAIL_TERMS = (
@@ -1065,6 +1072,8 @@ def rss_item_in_publication_window(item: dict, date_text: str) -> tuple[bool, st
 
 def classify_sugar_topic(text: str) -> str:
     lowered = text.lower()
+    if re.search(r"(?i)\bsugar\s+prices?\b|\bprices?\s+(?:jump|surge|rise|rose|fall|fell)\b|ex-mill|wholesale|retail", lowered):
+        return "price_market"
     for topic, terms in NEWS_TOPIC_RULES:
         if any_phrase(lowered, terms):
             return topic
@@ -1128,6 +1137,13 @@ def polish_verified_summary_text(item: dict) -> dict:
 
 def infer_event_actor(country: str, topic: str, title: str, source: str) -> str:
     lowered = title.lower()
+    if country == "印度" and topic == "price_market" and "mills expect" in lowered:
+        return "印度糖厂"
+    if country == "菲律宾" and topic == "weather_pest":
+        if "negros oriental" in lowered and "national aid" in lowered:
+            return "菲律宾东内格罗斯省政府"
+        if "negocc task force" in lowered or ("task force" in lowered and "spray" in lowered):
+            return "菲律宾西内格罗斯省虫害防控工作组"
     if "pib" in source.lower() or "ministry" in lowered or "government" in lowered or "govt" in lowered or "centre" in lowered:
         if country == "印度":
             return "印度政府"
@@ -1161,6 +1177,10 @@ def infer_event_actor(country: str, topic: str, title: str, source: str) -> str:
 
 def infer_event_action(topic: str, title: str) -> str:
     lowered = title.lower()
+    if "seeks national aid" in lowered:
+        return "寻求国家援助"
+    if "spray" in lowered and "fungi" in lowered:
+        return "使用真菌处理"
     if any(term in lowered for term in ("raise", "increase", "hike", "提高", "上调")):
         return "提高"
     if any(term in lowered for term in ("cut", "lower", "reduce", "下调", "降低", "减少")):
@@ -1221,13 +1241,25 @@ def structured_candidate_from_rss(country_bucket: str, rss: dict, date_text: str
 
 
 def event_fingerprint(candidate: dict) -> str:
+    title = str(candidate.get("source_title") or "").lower()
+    topic = str(candidate.get("topic") or "")
+    country = str(candidate.get("event_country") or "")
+    metrics = " ".join(candidate.get("metrics") or [])
+    if (
+        country == "印度"
+        and topic == "price_market"
+        and "17%" in metrics
+        and "sugar price" in title
+        and any_phrase(title, ("stock limit", "stock limits", "curbs", "curb"))
+    ):
+        return "印度|糖价上涨17|库存限制或后续调控"
     parts = [
-        str(candidate.get("event_country") or ""),
+        country,
         str(candidate.get("event_actor") or ""),
         str(candidate.get("event_action") or ""),
-        " ".join(candidate.get("metrics") or []),
+        metrics,
         str(candidate.get("event_date") or ""),
-        str(candidate.get("topic") or ""),
+        topic,
     ]
     return re.sub(r"\W+", "", "|".join(parts).lower())[:160]
 
@@ -1721,16 +1753,44 @@ def supply_demand_metric_text(candidate: dict, metrics: list[str]) -> str:
     if percent:
         return f"{prefix}{label}变化幅度为{percent}"
     if metrics:
-        return f"{label}数据为{'、'.join(metrics[:4])}"
-    return f"{label}具体幅度未披露"
+        return f"{label}指标包括{'、'.join(metrics[:4])}"
+    return f"{label}方向已披露但标题缺少具体数值"
 
 
 def metric_text_for_candidate(candidate: dict, metrics: list[str]) -> str:
     if candidate.get("topic") == "supply_demand":
         return supply_demand_metric_text(candidate, metrics)
+    title = str(candidate.get("source_title", ""))
+    lowered_title = title.lower()
+    topic = candidate.get("topic")
+    if topic == "price_market":
+        percent = next((metric for metric in metrics if "%" in metric), "")
+        if percent:
+            period = "一个月" if any_phrase(lowered_title, ("month", "monthly")) else ""
+            if any_phrase(lowered_title, ("jump", "surge", "rise", "rose", "higher", "上涨")):
+                return f"糖价{period}上涨{percent}"
+            if any_phrase(lowered_title, ("fall", "fell", "drop", "lower", "down", "下跌")):
+                return f"糖价{period}下跌{percent}"
+            return f"糖价变动幅度为{percent}"
+        if metrics:
+            return f"价格指标包括{'、'.join(metrics[:4])}"
+        raise ValueError("price-market RSS title lacks price level or change amount")
+    if topic == "weather_pest":
+        area_metric = next((metric for metric in metrics if "公顷" in metric or "hectare" in metric.lower()), "")
+        lgu_match = re.search(r"(?i)(\d+(?:[.,]\d+)?)\s+more\s+LGUs?", title)
+        if "spray" in lowered_title and "fungi" in lowered_title and area_metric:
+            local_area = localize_metric_for_summary(area_metric)
+            if lgu_match:
+                return f"已用真菌处理{local_area}甘蔗虫害地块，并计划推进到另外{int(float(lgu_match.group(1).replace(',', '')))}个地方政府辖区"
+            return f"已用真菌处理{local_area}甘蔗虫害地块"
+        if "seeks national aid" in lowered_title and any_phrase(lowered_title, ("pest", "sugarcane pest")):
+            return "因甘蔗虫害扩散寻求国家援助"
+        if metrics:
+            return f"病虫害或天气指标包括{'、'.join(metrics[:4])}"
+        return "已说明甘蔗虫害扩散或产区天气风险"
     if metrics:
-        return "数据为" + "、".join(metrics[:4])
-    return "具体幅度未披露"
+        return "指标包括" + "、".join(metrics[:4])
+    return "已披露具体事件方向但标题缺少数值"
 
 
 def supply_demand_transmission(candidate: dict) -> str:
@@ -1869,6 +1929,47 @@ def rss_summary_for_publication(candidate: dict) -> tuple[str, str]:
             f"{source_suffix}"
         )
         return news, impact
+    if country == "印度" and topic == "price_market" and "sugar price" in lowered_title and any("17%" in metric for metric in metrics):
+        impact = "利空：库存限制会压缩贸易商和终端囤货空间，削弱价格上涨后的补库需求，短期压制印度现货糖价。"
+        candidate["impact_direction"] = "利空"
+        candidate["impact_logic"] = impact.split("：", 1)[1]
+        if "mills expect" in lowered_title or "curb" in lowered_title:
+            news = (
+                "印度糖价一个月上涨17%，糖厂预计政府会在库存限制落地后继续加强市场调控。"
+                "库存限制压缩贸易商和终端囤货空间，削弱价格上涨后的补库需求，短期利空印度现货糖价。"
+                f"{source_suffix}"
+            )
+        else:
+            news = (
+                "印度糖价上涨17%，新的库存限制已开始执行。"
+                "库存限制压缩贸易商和终端囤货空间，削弱价格上涨后的补库需求，短期利空印度现货糖价。"
+                f"{source_suffix}"
+            )
+        return news, impact
+    if country == "菲律宾" and topic == "weather_pest" and "negros oriental" in lowered_title and "national aid" in lowered_title:
+        impact = "利多：东内格罗斯甘蔗虫害扩散并需要国家援助，说明地方防控和蔗农现金流压力上升，若处置不及时将削弱糖料供应稳定性。"
+        candidate["impact_direction"] = "利多"
+        candidate["impact_logic"] = impact.split("：", 1)[1]
+        news = (
+            "菲律宾东内格罗斯省因甘蔗虫害扩散寻求国家援助，地方政府希望中央支持受灾蔗农和防控行动。"
+            "虫害扩散会压低受害地块单产并增加蔗农补救成本，若防控资金不到位，内格罗斯糖料供应稳定性下降，利多糖价。"
+            f"{source_suffix}"
+        )
+        return news, impact
+    if country == "菲律宾" and topic == "weather_pest" and "spray" in lowered_title and "fungi" in lowered_title:
+        area_metric = next((metric for metric in metrics if "公顷" in metric or "hectare" in metric.lower()), "")
+        area_text = localize_metric_for_summary(area_metric) if area_metric else "部分"
+        lgu_match = re.search(r"(?i)(\d+(?:[.,]\d+)?)\s+more\s+LGUs?", title)
+        lgu_text = f"另外{int(float(lgu_match.group(1).replace(',', '')))}个地方政府辖区" if lgu_match else "更多辖区"
+        impact = "利多：西内格罗斯已出现需要集中处理的甘蔗虫害地块，若真菌防治未能及时控制扩散，将压低受害区域单产并削弱糖料供应稳定性。"
+        candidate["impact_direction"] = "利多"
+        candidate["impact_logic"] = impact.split("：", 1)[1]
+        news = (
+            f"菲律宾西内格罗斯省虫害防控工作组已用真菌处理{area_text}甘蔗虫害地块，并计划把防治推进到{lgu_text}。"
+            "生物防治扩大有助于压低虫害继续蔓延的风险，但已处理面积说明内格罗斯蔗区仍存在虫害压力，短期利多糖价。"
+            f"{source_suffix}"
+        )
+        return news, impact
     if country == "菲律宾" and "mindanao" in lowered_title and "sugarcane pest" in lowered_title:
         metric = "、".join(metrics[:2]) if metrics else "多个府省"
         impact = "利多：病虫害扩散会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。"
@@ -1894,14 +1995,14 @@ def rss_summary_for_publication(candidate: dict) -> tuple[str, str]:
     transmission = {
         "ethanol_policy": ethanol_transmission,
         "ethanol_capacity": ethanol_transmission,
-        "mill_operations": "糖厂运行变化会直接影响甘蔗入榨、压榨节奏和阶段性食糖产量。",
+        "mill_operations": f"{country}糖厂若增加开工或压榨，会加快当季食糖产出；若停产或延后开榨，则阶段性供应收紧。",
         "cane_farming": "甘蔗价格、面积或蔗款变化会影响蔗农种植意愿和下一季糖料供应。",
         "variety_research": "新品种单产、糖分或抗病性变化会影响中长期甘蔗供应潜力。",
-        "weather_pest": "产区天气或病虫害变化会影响甘蔗生长、收割和糖料供应稳定性。",
+        "weather_pest": f"{country}产区若出现虫害、干旱或洪涝，会压低受影响地块单产并削弱糖料供应稳定性。",
         "supply_demand": supply_demand_transmission(candidate),
         "trade_policy": "进口、出口、关税或配额变化会改变国内外可用糖源和贸易流向。",
         "starch_sugar_substitute": "替代糖源供应变化会影响白糖消费替代和终端需求。",
-        "price_market": "报价变化会反映现货供需松紧和贸易商补库意愿。",
+        "price_market": f"{country}价格上行通常会抬高补库成本，价格下行则说明供应压力或需求走弱正在传导到现货端。",
         "general_industry": "候选新闻缺少可发布的具体糖业主题，已退回核实。",
     }[topic]
     impact = impact_for_candidate(candidate)

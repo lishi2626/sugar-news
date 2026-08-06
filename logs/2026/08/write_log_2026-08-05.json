@@ -1,14 +1,14 @@
 {
   "target_date": "2026-08-05",
-  "generated_at": "2026-08-06T10:10:28+08:00",
+  "generated_at": "2026-08-06T13:42:54+08:00",
   "status": "success",
-  "verified_news_file": "/home/runner/work/sugar-news/sugar-news/data/verified_news/2026/08/sugar_news_2026-08-05.json",
-  "excel_file": "/home/runner/work/sugar-news/sugar-news/reports/2026/08/Sugar News 2026-08-05.xlsx",
-  "dashboard_report": "/home/runner/work/sugar-news/sugar-news/public/sugar-news/data/reports/2026/08/2026-08-05.json",
-  "dashboard_index": "/home/runner/work/sugar-news/sugar-news/public/sugar-news/data/index.json",
+  "verified_news_file": "D:\\Desktop\\ai\\sugar-news\\data\\verified_news\\2026\\08\\sugar_news_2026-08-05.json",
+  "excel_file": "D:\\Desktop\\ai\\sugar-news\\reports\\2026\\08\\Sugar News 2026-08-05.xlsx",
+  "dashboard_report": "D:\\Desktop\\ai\\sugar-news\\public\\sugar-news\\data\\reports\\2026\\08\\2026-08-05.json",
+  "dashboard_index": "D:\\Desktop\\ai\\sugar-news\\public\\sugar-news\\data\\index.json",
   "editorial_skill": {
     "path": ".codex/skills/sugar-news-editorial-rules/SKILL.md",
-    "sha256": "45e6e84c0aa1205b3563de09a4ef7afce4e6caa0fcae601505736415310b7bca"
+    "sha256": "744c1c9cc39d66c65a7cdd979e91bc2db971a2c2805259401dc0537fd2fb470a"
   },
   "thai_weather_check": {
     "fixed_step": "Thai main sugarcane area rainfall check",
@@ -94,15 +94,15 @@
     "reason": "standalone workflow refresh; consuming latest snapshot"
   },
   "checks": {
-    "verified_count": 6,
-    "excel_count": 6,
-    "dashboard_count": 6,
+    "verified_count": 5,
+    "excel_count": 5,
+    "dashboard_count": 5,
     "excel_matches_verified": true,
     "dashboard_matches_verified": true,
     "country_order_ok": true,
     "no_empty_country_sections": true,
     "counts_by_country": {
-      "印度": 2,
+      "印度": 1,
       "泰国": 1,
       "中国": 1,
       "菲律宾": 2

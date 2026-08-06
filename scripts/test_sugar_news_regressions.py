@@ -723,6 +723,40 @@ def test_editorial_quality_rejects_vague_supply_demand_metric_and_impact_languag
         raise AssertionError("vague supply-demand metric and impact wording should be rejected")
 
 
+def test_editorial_quality_rejects_generic_metric_and_market_transmission_language() -> None:
+    cases = [
+        {
+            "title": "Sugar prices surge 17% in a month, mills expect more government curbs",
+            "news": "印度政府披露糖厂运行和压榨安排，数据为17%。糖厂运行变化会直接影响甘蔗入榨、压榨节奏和阶段性食糖产量。来源：Test（https://example.test/india-price）",
+            "impact": "利空：糖厂运行变化会直接影响甘蔗入榨、压榨节奏和阶段性食糖产量。",
+        },
+        {
+            "title": "Indian Sugar Prices Jump 17% As New Stock Limits Kick In",
+            "news": "印度糖业市场发布或调整食糖价格和市场流通，数据为17%。报价变化会反映现货供需松紧和贸易商补库意愿。来源：Test（https://example.test/india-stock-limit）",
+            "impact": "中性：报价变化会反映现货供需松紧和贸易商补库意愿。",
+        },
+        {
+            "title": "Negros Oriental seeks national aid as sugar pest spreads",
+            "news": "菲律宾主产区农业或气象机构预警甘蔗产区天气、干旱或病虫害，具体幅度未披露。产区天气或病虫害变化会影响甘蔗生长、收割和糖料供应稳定性。来源：Test（https://example.test/philippines-pest）",
+            "impact": "利多：产区天气或病虫害变化会影响甘蔗生长、收割和糖料供应稳定性。",
+        },
+    ]
+    for idx, case in enumerate(cases, start=1):
+        item = {
+            "country_group": "其他国家" if "Negros" in case["title"] else "印度",
+            "country": "菲律宾" if "Negros" in case["title"] else "印度",
+            "source_name": "Test",
+            "source_url": case["news"].split("（", 1)[1].rstrip("）"),
+            **case,
+        }
+        try:
+            validate_editorial_quality(item, idx)
+        except ValueError as exc:
+            assert "vague" in str(exc)
+        else:
+            raise AssertionError("generic metric or transmission wording should be rejected")
+
+
 def test_rss_supply_demand_summary_names_specific_metric_and_supply_path() -> None:
     candidate = {
         "event_country": "菲律宾",
@@ -752,6 +786,89 @@ def test_rss_supply_demand_summary_names_specific_metric_and_supply_path() -> No
         },
         1,
     )
+
+
+def test_rss_india_price_summary_names_stock_limit_market_path() -> None:
+    candidate = {
+        "event_country": "印度",
+        "event_actor": "印度糖厂",
+        "event_action": "预计",
+        "topic": "price_market",
+        "source_title": "Sugar prices surge 17% in a month, mills expect more government curbs",
+        "metrics": ["17%"],
+        "publisher": "The Economic Times",
+        "source_url": "https://example.test/india-price",
+    }
+    news, impact = rss_summary_for_publication(candidate)
+    quality_text = f"{news} {impact}"
+    for banned in ("数据为", "糖厂运行变化", "报价变化会反映", "关键数据包括"):
+        assert banned not in quality_text
+    assert "印度糖价一个月上涨17%" in news
+    assert "库存限制" in quality_text
+    assert "补库需求" in quality_text
+    validate_editorial_quality(
+        {
+            "country_group": "印度",
+            "country": "印度",
+            "title": candidate["source_title"],
+            "news": news,
+            "impact": impact,
+            "source_name": "The Economic Times",
+            "source_url": "https://example.test/india-price",
+        },
+        1,
+    )
+
+
+def test_rss_philippines_pest_summaries_are_specific_and_distinct() -> None:
+    aid_candidate = {
+        "event_country": "菲律宾",
+        "event_actor": "菲律宾东内格罗斯省政府",
+        "event_action": "寻求国家援助",
+        "topic": "weather_pest",
+        "source_title": "Negros Oriental seeks national aid as sugar pest spreads",
+        "metrics": [],
+        "publisher": "Daily Guardian",
+        "source_url": "https://example.test/philippines-aid",
+    }
+    spray_candidate = {
+        "event_country": "菲律宾",
+        "event_actor": "菲律宾西内格罗斯省虫害防控工作组",
+        "event_action": "使用真菌处理",
+        "topic": "weather_pest",
+        "source_title": "NegOcc task force sprays 77.3 hectares with fungi to contain spread of sugarcane pest, moving to 3 more LGUs",
+        "metrics": ["77.3 hectares"],
+        "publisher": "Digicast Negros",
+        "source_url": "https://example.test/philippines-spray",
+    }
+    aid_news, aid_impact = rss_summary_for_publication(aid_candidate)
+    spray_news, spray_impact = rss_summary_for_publication(spray_candidate)
+    quality_text = f"{aid_news} {aid_impact} {spray_news} {spray_impact}"
+    for banned in ("数据为", "具体幅度未披露", "主产区农业或气象机构", "产区天气或病虫害变化"):
+        assert banned not in quality_text
+    assert "东内格罗斯省因甘蔗虫害扩散寻求国家援助" in aid_news
+    assert "西内格罗斯省虫害防控工作组已用真菌处理77.3公顷甘蔗虫害地块" in spray_news
+    assert "另外3个地方政府辖区" in spray_news
+    assert aid_news != spray_news
+    for idx, (news, impact, source_url) in enumerate(
+        [
+            (aid_news, aid_impact, "https://example.test/philippines-aid"),
+            (spray_news, spray_impact, "https://example.test/philippines-spray"),
+        ],
+        start=1,
+    ):
+        validate_editorial_quality(
+            {
+                "country_group": "其他国家",
+                "country": "菲律宾",
+                "title": "Philippines sugarcane pest",
+                "news": news,
+                "impact": impact,
+                "source_name": "Test",
+                "source_url": source_url,
+            },
+            idx,
+        )
 
 
 def test_rss_ethanol_summary_uses_concrete_feedstock_allocation() -> None:
@@ -1137,7 +1254,10 @@ def main() -> None:
         test_editorial_quality_rejects_vague_fallback_summary,
         test_editorial_quality_requires_concrete_action_direction_and_impact_path,
         test_editorial_quality_rejects_vague_supply_demand_metric_and_impact_language,
+        test_editorial_quality_rejects_generic_metric_and_market_transmission_language,
         test_rss_supply_demand_summary_names_specific_metric_and_supply_path,
+        test_rss_india_price_summary_names_stock_limit_market_path,
+        test_rss_philippines_pest_summaries_are_specific_and_distinct,
         test_current_report_contains_china_section_after_thailand,
         test_brazil_india_metric_value_is_under_absolute_column,
         test_ist_utc_beijing_date_handling,
