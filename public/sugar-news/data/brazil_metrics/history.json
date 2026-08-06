@@ -525,15 +525,15 @@
       "article_published_at": "2026-08-06 08:49:22",
       "source_url": "https://www.hisugar.com/home/articleContent?id=2026080608433531248185",
       "image_url": "https://www.hisugar.com/image/20260806/1785976892742090105.png",
-      "fetched_at": "2026-08-06T10:01:47+08:00",
-      "ocr_backend": "windows_ocr_noisy",
+      "fetched_at": "2026-08-06T10:07:41+08:00",
+      "ocr_backend": "tesseract",
       "previous_data_date": "2026-08-04",
-      "previous_value": -0.54,
-      "daily_change": 0.0,
-      "daily_change_percent": 0.0,
+      "previous_value": 9.75,
+      "daily_change": -10.29,
+      "daily_change_percent": -105.53846153846153,
       "previous_year_date": "2025-08-05",
-      "previous_year_value": 0.2,
-      "year_on_year_change": -0.74,
+      "previous_year_value": 7.181,
+      "year_on_year_change": -7.721,
       "year_on_year_change_percent": null,
       "yoy_status": "not_applicable"
     },
@@ -584,5 +584,5 @@
       "yoy_status": "ok"
     }
   ],
-  "lastUpdatedAt": "2026-08-06T10:05:32+08:00"
+  "lastUpdatedAt": "2026-08-06T10:09:45+08:00"
 }
