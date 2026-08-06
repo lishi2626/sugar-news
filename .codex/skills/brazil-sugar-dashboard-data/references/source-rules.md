@@ -19,6 +19,15 @@ Required process:
 5. Find the previous valid data day from the same Hisugar source for daily change.
 6. Find the previous-year comparable valid data from the same Hisugar source for year-on-year change.
 
+Import-premium parsing rule:
+
+- Pair the table dates only with the values in the `进口升贴水（美分/磅）` row.
+- Do not read daily or year-on-year comparison bases from adjacent rows such as `ICE原糖收盘价`, import cost, RMB/t, quota, freight, FX, or profit rows.
+- OCR may render a minus sign as `．`, `.`, `一`, `－`, `−`, `—`, or `–`; normalize those signs before parsing numeric values.
+- If the row also contains nearby cost figures such as `49.75`, discard them and keep only the signed import-premium cells for the report dates.
+- Validation example: for `https://www.hisugar.com/home/articleContent?id=2026080608433531248185`, the `2026-08-04` and `2026-08-05` `进口升贴水` cells are both `-0.54 美分/磅`, so the daily change for `2026-08-05` is `0.00 美分/磅`.
+- Validation example: for `https://www.hisugar.com/home/articleContent?id=2025080608563542667063`, the `2025-08-05` `进口升贴水` cell is `-0.20 美分/磅`; compared with `2026-08-05` at `-0.54`, the year-on-year absolute change is `-0.34 美分/磅`.
+
 Forbidden substitutes:
 
 - Platts non-public quotes.

@@ -14,7 +14,10 @@ from brazil_sugar_metrics import (
     article_available_for_target,
     build_snapshot,
     choose_ethanol_yoy_docs,
+    comparable_yoy,
     hisugar_query_list_page,
+    hisugar_row_selection_key,
+    parse_hisugar_ocr_rows,
     parse_hisugar_list_articles,
     parse_hisugar_noisy_ocr_rows,
     stock_rows_from_pdf,
@@ -424,6 +427,71 @@ def test_brazil_import_premium_hisugar_source_and_date_rule() -> None:
         ("2026-07-23", -0.3),
         ("2026-07-24", -0.55),
     ]
+
+    current_article = {
+        "article_id": "2026080608433531248185",
+        "article_title": "20260805食糖进口成本及利润估算",
+        "article_published_at": "2026-08-06 08:43:35",
+        "title_date": "2026-08-05",
+        "source_url": "https://www.hisugar.com/home/articleContent?id=2026080608433531248185",
+    }
+    current_ocr = (
+        "日期 20260730 20260731 20260803 20260804 20260805 "
+        "ICE原糖收盘价 15.00 15.01 15.02 15.03 15.04 "
+        "进口升贴水(美分/磅) 49.75 ．0．55 49.75 ．0．54 "
+        "49.75 ．0．54 49.75 ．0．54 49.75 ．0．54 "
+        "(元/吨) 100 101 102 103 104"
+    )
+    current_rows = parse_hisugar_ocr_rows(
+        current_ocr,
+        current_article,
+        "https://www.hisugar.com/image/20260806/1785976892742090105.png",
+        "test_ocr",
+    )
+    current_by_date = {row["data_date"]: row for row in current_rows}
+    assert current_by_date["2026-08-04"]["premium_discount_cents_per_lb"] == -0.54
+    assert current_by_date["2026-08-05"]["premium_discount_cents_per_lb"] == -0.54
+    assert round(
+        current_by_date["2026-08-05"]["premium_discount_cents_per_lb"]
+        - current_by_date["2026-08-04"]["premium_discount_cents_per_lb"],
+        3,
+    ) == 0
+
+    prior_year_article = {
+        "article_id": "2025080608563542667063",
+        "article_title": "20250805食糖进口成本及利润估算",
+        "article_published_at": "2025-08-06 08:56:35",
+        "title_date": "2025-08-05",
+        "source_url": "https://www.hisugar.com/home/articleContent?id=2025080608563542667063",
+    }
+    prior_year_ocr = (
+        "日期 20250730 20250731 20250801 20250804 20250805 "
+        "ICE原糖收盘价 15.10 15.11 15.12 15.13 15.14 "
+        "进口升贴水(美分/磅) 一0．20 一0．20 一0．20 一0．20 ．0．20 "
+        "(元/吨) 200 201 202 203 204"
+    )
+    prior_year_rows = parse_hisugar_ocr_rows(
+        prior_year_ocr,
+        prior_year_article,
+        "https://www.hisugar.com/image/20250806/1754441608095069527.png",
+        "test_ocr",
+    )
+    prior_year_by_date = {row["data_date"]: row for row in prior_year_rows}
+    assert prior_year_by_date["2025-08-05"]["premium_discount_cents_per_lb"] == -0.2
+    repeated_prior_year_row = dict(prior_year_by_date["2025-08-05"])
+    repeated_prior_year_row.update({
+        "article_id": "2025081209021736362223",
+        "article_title_date": "2025-08-11",
+        "article_published_at": "2025-08-12 09:02:17",
+    })
+    assert hisugar_row_selection_key(prior_year_by_date["2025-08-05"]) > hisugar_row_selection_key(
+        repeated_prior_year_row
+    )
+    yoy_row = comparable_yoy(current_rows + prior_year_rows, "2026-08-05")
+    assert yoy_row is not None
+    assert yoy_row["data_date"] == "2025-08-05"
+    assert yoy_row["premium_discount_cents_per_lb"] == -0.2
+    assert round(-0.54 - yoy_row["premium_discount_cents_per_lb"], 3) == -0.34
 
 
 def test_thailand_weather_templates_and_tmd_item_generation() -> None:

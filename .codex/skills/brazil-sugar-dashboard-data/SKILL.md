@@ -40,6 +40,7 @@ For import premium, discover articles from the HiSugar list/interface, open the 
 
 - Import premium daily change: latest value minus previous valid Hisugar value.
 - Import premium year-on-year: latest value minus same-source last-year comparable value.
+- Import premium comparisons must use only the HiSugar table row named `进口升贴水（美分/磅）`. Never calculate daily or year-on-year changes from nearby `ICE原糖收盘价`, import cost, RMB/t, quota, freight, FX, profit, or stale history values. For `2026-08-05`, the HiSugar article `2026080608433531248185` has both `2026-08-04` and `2026-08-05` import premium at `-0.54 美分/磅`, so daily change is `0.00 美分/磅`; the comparable prior-year article `2025080608563542667063` has `2025-08-05` at `-0.20 美分/磅`, so year-on-year absolute change is `-0.54 - (-0.20) = -0.34 美分/磅`.
 - Stock half-month changes: latest stock minus immediately preceding report in the same season.
 - Stock year-on-year changes: latest stock minus previous-season report with the same month/day.
 - Percent changes use the comparison base. For import premium, divide by the absolute base value. If the base is zero or the premium crosses zero, show percent as not calculable while keeping absolute change.

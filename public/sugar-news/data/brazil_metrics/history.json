@@ -522,20 +522,28 @@
       "unit": "美分/磅",
       "article_id": "2026080608433531248185",
       "article_title": "20260805食糖进口成本及利润估算",
+      "article_title_date": "2026-08-05",
       "article_published_at": "2026-08-06 08:49:22",
       "source_url": "https://www.hisugar.com/home/articleContent?id=2026080608433531248185",
       "image_url": "https://www.hisugar.com/image/20260806/1785976892742090105.png",
-      "fetched_at": "2026-08-06T15:18:11+08:00",
-      "ocr_backend": "tesseract",
+      "fetched_at": "2026-08-06T15:48:04+08:00",
+      "ocr_backend": "windows_ocr_noisy",
       "previous_data_date": "2026-08-04",
-      "previous_value": 9.75,
-      "daily_change": -10.29,
-      "daily_change_percent": -105.53846153846153,
+      "previous_value": -0.54,
+      "previous_source_url": "https://www.hisugar.com/home/articleContent?id=2026080608433531248185",
+      "previous_article_id": "2026080608433531248185",
+      "daily_change": 0.0,
+      "daily_change_percent": 0.0,
       "previous_year_date": "2025-08-05",
-      "previous_year_value": 7.181,
-      "year_on_year_change": -7.721,
-      "year_on_year_change_percent": null,
-      "yoy_status": "not_applicable"
+      "previous_year_value": -0.2,
+      "previous_year_source_url": "https://www.hisugar.com/home/articleContent?id=2025080608563542667063",
+      "previous_year_article_id": "2025080608563542667063",
+      "yoy_comparison_date": "2025-08-05",
+      "yoy_exact_date_match": true,
+      "yoy_date_gap_days": 0,
+      "year_on_year_change": -0.34,
+      "year_on_year_change_percent": -170.0,
+      "yoy_status": "ok"
     },
     {
       "season": "2026/2027",
@@ -584,5 +592,5 @@
       "yoy_status": "ok"
     }
   ],
-  "lastUpdatedAt": "2026-08-06T15:20:28+08:00"
+  "lastUpdatedAt": "2026-08-06T15:50:10+08:00"
 }

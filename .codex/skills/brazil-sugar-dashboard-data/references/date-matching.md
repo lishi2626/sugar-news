@@ -49,6 +49,8 @@ Import premium:
 同比百分比 = (最新值 - 上年同期值) / abs(上年同期值) * 100%
 ```
 
+For import premium, the previous-day and prior-year values must come from the same HiSugar `进口升贴水（美分/磅）` row. Prefer the exact previous-year month/day when it exists. For `2026-08-05`, use `2025-08-05` from article `2025080608563542667063` (`-0.20 美分/磅`), not a nearby article row or any non-premium row; the absolute year-on-year change is `-0.34 美分/磅`.
+
 If the comparison base is zero or the premium crosses zero, percent is `不可计算`; keep the absolute change.
 
 Sugar stock:

@@ -315,6 +315,7 @@ def normalize_ocr_text(text: str) -> str:
         "．": ".",
         "。": ".",
         "－": "-",
+        "﹣": "-",
         "—": "-",
         "–": "-",
         "−": "-",
@@ -325,6 +326,67 @@ def normalize_ocr_text(text: str) -> str:
         "ｌ": "l",
     })
     return text.translate(table)
+
+
+OCR_NEGATIVE_SIGNS = "-.一﹣－−—–"
+OCR_NEGATIVE_SIGN_CLASS = re.escape(OCR_NEGATIVE_SIGNS)
+
+
+def valid_hisugar_raw_dates(values: list[str]) -> list[str]:
+    valid = []
+    for value in values:
+        try:
+            datetime.strptime(value, "%Y%m%d")
+        except ValueError:
+            continue
+        valid.append(value)
+    return valid
+
+
+def hisugar_table_dates_from_ocr(text: str) -> list[str]:
+    normalized = normalize_ocr_text(text)
+    compact = re.sub(r"\s+", "", normalized)
+    date_marker = compact.find("日期")
+    if date_marker >= 0:
+        stop_candidates = [
+            idx for marker in ("ICE", "原糖", "进口成本", "进口升贴水")
+            if (idx := compact.find(marker, date_marker + 2)) > date_marker
+        ]
+        end = min(stop_candidates) if stop_candidates else date_marker + 180
+        dates = valid_hisugar_raw_dates(re.findall(r"20\d{6}", compact[date_marker:end]))
+        if len(dates) >= 2:
+            return dates
+
+    premium_marker = compact.find("进口升贴水")
+    prefix = compact[:premium_marker] if premium_marker >= 0 else compact
+    return valid_hisugar_raw_dates(re.findall(r"20\d{6}", prefix))
+
+
+def hisugar_rows_from_dates_values(
+    dates: list[str],
+    values: list[float],
+    article: dict,
+    image_url: str,
+    backend: str,
+) -> list[dict]:
+    if not dates or not values:
+        return []
+    if len(values) >= len(dates):
+        paired_dates = dates
+        paired_values = values[:len(dates)]
+    else:
+        paired_dates = dates[-len(values):]
+        paired_values = values
+
+    rows = []
+    for raw_date, value in zip(paired_dates, paired_values):
+        try:
+            datetime.strptime(raw_date, "%Y%m%d")
+        except ValueError:
+            continue
+        data_date = f"{raw_date[:4]}-{raw_date[4:6]}-{raw_date[6:8]}"
+        rows.append(make_hisugar_premium_row(article, image_url, backend, data_date, value))
+    return rows
 
 
 def run_tesseract_ocr(image_path: Path) -> str | None:
@@ -454,7 +516,7 @@ def ocr_image(image_bytes: bytes, suffix: str = ".png") -> tuple[str | None, str
 
 def premium_value_from_token(token: str) -> float | None:
     raw = re.sub(r"\s+", "", normalize_ocr_text(token))
-    raw = raw.replace("L", "1").replace("l", "1")
+    raw = raw.replace("L", "1").replace("l", "1").replace("一", "-")
     negative = raw.startswith("-") or raw.startswith(".")
     digits = re.findall(r"\d+", raw)
     if len(digits) >= 2:
@@ -482,6 +544,7 @@ def make_hisugar_premium_row(article: dict, image_url: str, backend: str, data_d
         "unit": "美分/磅",
         "article_id": article.get("article_id"),
         "article_title": article.get("article_title"),
+        "article_title_date": article.get("title_date"),
         "article_published_at": article.get("article_published_at"),
         "source_url": article.get("source_url"),
         "image_url": image_url,
@@ -490,33 +553,42 @@ def make_hisugar_premium_row(article: dict, image_url: str, backend: str, data_d
     }
 
 
-def premium_values_from_noisy_ocr(text: str) -> list[float]:
+def premium_values_from_segment(text: str, allow_positive: bool = True) -> list[float]:
     normalized = normalize_ocr_text(text)
     normalized = normalized.replace("ЃЎ", "-").replace("Ў", "-")
-    matches = []
-    for pattern in (r"[-.]\s*0\s*[-.]\s*(\d{1,3})", r"[-.]\s*0\s*[.]\s*(\d{1,3})"):
+    patterns = [
+        rf"[{OCR_NEGATIVE_SIGN_CLASS}]\s*0\s*[.,-]\s*\d{{1,2}}",
+        rf"[{OCR_NEGATIVE_SIGN_CLASS}]\s*\d+\s*[.,-]\s*\d{{1,2}}",
+    ]
+    if allow_positive:
+        patterns.append(r"\d+\s*[,.]\s*\d{1,2}")
+
+    for pattern in patterns:
+        values: list[float] = []
+        seen_spans: set[tuple[int, int]] = set()
         for match in re.finditer(pattern, normalized):
-            matches.append((match.start(), match.end(), match.group(1)))
-    unique: dict[tuple[int, int], str] = {}
-    for start, end, digits in matches:
-        unique.setdefault((start, end), digits)
-    values: list[float] = []
-    for _span, digits in sorted(unique.items()):
-        values.append(-int(digits) / (10 ** len(digits)))
-    return [value for value in values if abs(value) < 20]
+            if match.span() in seen_spans:
+                continue
+            seen_spans.add(match.span())
+            value = premium_value_from_token(match.group(0))
+            if value is not None and abs(value) < 20:
+                values.append(value)
+        if values:
+            return values
+    return []
+
+
+def premium_values_from_noisy_ocr(text: str) -> list[float]:
+    return premium_values_from_segment(text, allow_positive=False)
 
 
 def parse_hisugar_noisy_ocr_rows(text: str, article: dict, image_url: str, backend: str) -> list[dict]:
-    dates = re.findall(r"20\d{6}", text)
+    dates = hisugar_table_dates_from_ocr(text)
     values = premium_values_from_noisy_ocr(text)
     if not dates or not values:
         return []
-    rows = []
     if len(values) >= len(dates):
-        for raw_date, value in zip(dates[-len(values):], values[-len(dates):]):
-            data_date = f"{raw_date[:4]}-{raw_date[4:6]}-{raw_date[6:8]}"
-            rows.append(make_hisugar_premium_row(article, image_url, f"{backend}_noisy", data_date, value))
-        return rows
+        return hisugar_rows_from_dates_values(dates, values, article, image_url, f"{backend}_noisy")
     title_date = article.get("title_date")
     raw_title_date = title_date.replace("-", "") if title_date else None
     if raw_title_date and raw_title_date in dates:
@@ -525,33 +597,33 @@ def parse_hisugar_noisy_ocr_rows(text: str, article: dict, image_url: str, backe
             rounded = round(value, 3)
             counts[rounded] = counts.get(rounded, 0) + 1
         value = sorted(counts.items(), key=lambda item: (item[1], item[0]), reverse=True)[0][0]
-        rows.append(make_hisugar_premium_row(article, image_url, f"{backend}_noisy", title_date, value))
-    return rows
+        return [make_hisugar_premium_row(article, image_url, f"{backend}_noisy", title_date, value)]
+    return hisugar_rows_from_dates_values(dates, values, article, image_url, f"{backend}_noisy")
 
 
 def parse_hisugar_ocr_rows(text: str, article: dict, image_url: str, backend: str) -> list[dict]:
     normalized = normalize_ocr_text(text)
-    dates = re.findall(r"20\d{6}", normalized)
+    dates = hisugar_table_dates_from_ocr(normalized)
     compact = re.sub(r"\s+", "", normalized)
     marker = compact.find("进口升贴水")
     if marker < 0:
         return []
     tail = compact[marker:]
     end_match = re.search(r"\(元/吨\)|元/吨|巴西配额内|配额内", tail)
-    segment = tail[:end_match.start()] if end_match else tail[:260]
-    tokens = re.findall(r"[-.]?\d[.,.]\d{1,3}", segment)
-    values = [premium_value_from_token(token) for token in tokens]
-    values = [value for value in values if value is not None and abs(value) < 20]
+    segment = tail[:end_match.start()] if end_match else tail[:420]
+    spaced_marker = normalized.find("进口升贴水")
+    if spaced_marker >= 0:
+        spaced_tail = normalized[spaced_marker:]
+        spaced_end_match = re.search(r"\(元/吨\)|元/吨|巴西配额内|配额内", spaced_tail)
+        spaced_segment = spaced_tail[:spaced_end_match.start()] if spaced_end_match else spaced_tail[:900]
+        values = premium_values_from_segment(spaced_segment)
+    else:
+        values = []
     if len(values) < len(dates):
-        spaced_segment = normalized[normalized.find("进口升贴水"):]
-        tokens = re.findall(r"[-.．]?\s*\d\s*[.．]\s*\d{1,3}", spaced_segment)
-        values = [premium_value_from_token(token) for token in tokens]
-        values = [value for value in values if value is not None and abs(value) < 20]
-    rows = []
-    for raw_date, value in zip(dates[-len(values):], values[-len(dates):]):
-        data_date = f"{raw_date[:4]}-{raw_date[4:6]}-{raw_date[6:8]}"
-        rows.append(make_hisugar_premium_row(article, image_url, backend, data_date, value))
-    return rows
+        compact_values = premium_values_from_segment(segment)
+        if len(compact_values) > len(values):
+            values = compact_values
+    return hisugar_rows_from_dates_values(dates, values, article, image_url, backend)
 
 
 def rows_from_hisugar_article(article: dict) -> tuple[list[dict], list[dict]]:
@@ -603,13 +675,26 @@ def comparable_yoy(rows: list[dict], latest_date: str) -> dict | None:
     target = datetime.fromisoformat(latest_date).date().replace(year=int(latest_date[:4]) - 1)
     candidates = []
     for row in rows:
-        date = datetime.fromisoformat(row["data_date"]).date()
+        try:
+            date = datetime.fromisoformat(row["data_date"]).date()
+        except ValueError:
+            continue
         if abs((date - target).days) <= 7:
             candidates.append((abs((date - target).days), date, row))
     if not candidates:
         return None
     candidates.sort(key=lambda item: (item[0], item[1]))
     return candidates[0][2]
+
+
+def hisugar_row_selection_key(row: dict) -> tuple[int, str, str]:
+    data_date = row.get("data_date") or ""
+    title_date = row.get("article_title_date") or ""
+    return (
+        1 if title_date == data_date else 0,
+        title_date,
+        row.get("article_published_at") or "",
+    )
 
 
 def discover_premium(target_date: str) -> tuple[dict | None, list[dict]]:
@@ -655,8 +740,10 @@ def discover_premium(target_date: str) -> tuple[dict | None, list[dict]]:
     latest = sorted(target_rows, key=lambda row: (row["data_date"], row.get("article_published_at") or ""))[-1]
     latest_date = latest["data_date"]
     title_dates = [article.get("title_date") for article in articles if article.get("title_date")]
-    target_yoy = f"{int(latest_date[:4]) - 1}{latest_date[4:]}"
-    yoy_seed = datetime.fromisoformat(target_yoy).date()
+    target_yoy_date = datetime.fromisoformat(latest_date).date().replace(year=int(latest_date[:4]) - 1)
+    target_yoy = target_yoy_date.isoformat().replace("-", "")
+    target_yoy_iso = target_yoy_date.isoformat()
+    yoy_seed = target_yoy_date
     yoy_articles = [
         article for article in articles
         if article.get("title_date")
@@ -670,7 +757,7 @@ def discover_premium(target_date: str) -> tuple[dict | None, list[dict]]:
     by_date: dict[str, dict] = {}
     for row in parsed_rows:
         old = by_date.get(row["data_date"])
-        if not old or (row.get("article_published_at") or "") > (old.get("article_published_at") or ""):
+        if not old or hisugar_row_selection_key(row) > hisugar_row_selection_key(old):
             by_date[row["data_date"]] = row
     rows = sorted((row for row in by_date.values() if row["data_date"] <= target_date), key=lambda row: row["data_date"])
     if not rows:
@@ -686,16 +773,24 @@ def discover_premium(target_date: str) -> tuple[dict | None, list[dict]]:
         record.update({
             "previous_data_date": previous["data_date"],
             "previous_value": prev,
-            "daily_change": current - prev,
+            "previous_source_url": previous.get("source_url"),
+            "previous_article_id": previous.get("article_id"),
+            "daily_change": round(current - prev, 3),
             "daily_change_percent": None if prev == 0 else (current - prev) / abs(prev) * 100,
         })
     if previous_year:
         prev_yoy = previous_year["premium_discount_cents_per_lb"]
         sign_crossed = (current > 0 > prev_yoy) or (current < 0 < prev_yoy)
+        yoy_gap = abs((datetime.fromisoformat(previous_year["data_date"]).date() - target_yoy_date).days)
         record.update({
             "previous_year_date": previous_year["data_date"],
             "previous_year_value": prev_yoy,
-            "year_on_year_change": current - prev_yoy,
+            "previous_year_source_url": previous_year.get("source_url"),
+            "previous_year_article_id": previous_year.get("article_id"),
+            "yoy_comparison_date": previous_year["data_date"],
+            "yoy_exact_date_match": previous_year["data_date"] == target_yoy_iso,
+            "yoy_date_gap_days": yoy_gap,
+            "year_on_year_change": round(current - prev_yoy, 3),
             "year_on_year_change_percent": None if prev_yoy == 0 or sign_crossed else (current - prev_yoy) / abs(prev_yoy) * 100,
             "yoy_status": "not_applicable" if prev_yoy == 0 or sign_crossed else "ok",
         })
