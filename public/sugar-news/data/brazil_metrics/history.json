@@ -159,7 +159,7 @@
       "status": "ok",
       "source_name": "巴西农业和畜牧业部（MAPA）",
       "dataset_name": "MAPA Acompanhamento da Produção Sucroalcooleira",
-      "fetched_at": "2026-08-06T15:20:28+08:00",
+      "fetched_at": "2026-08-08T06:59:42+08:00",
       "original_unit": "m³",
       "previous_period_date": "2026-07-01",
       "previous_period_stock": 291.3832,
@@ -590,7 +590,53 @@
       "year_on_year_change": -56.64930000000004,
       "year_on_year_change_percent": -14.103594108234793,
       "yoy_status": "ok"
+    },
+    {
+      "season": "2026/2027",
+      "reference_period": "2026-07-15",
+      "reference_date": "2026-07-15",
+      "reference_date_raw": "15/07/2026",
+      "reference_date_source": "pdf_acumulado_ate",
+      "stock_total_tonnes": 4827815,
+      "stock_total_ten_thousand_tonnes": 482.7815,
+      "sugar_stock_value": 482.7815,
+      "stock_unit": "万吨",
+      "stock_by_type_tonnes": {
+        "raw_numeric_columns": [
+          12075,
+          1658031,
+          178343,
+          14420,
+          21556,
+          74957,
+          2868432,
+          4827815
+        ],
+        "note": "MAPA PDF text extraction preserves numeric columns; the final BRASIL numeric value is used as TOTAL stock."
+      },
+      "product": "食糖",
+      "document_number": "009",
+      "document_title": "ESTOQUES DE AÇÚCAR POR TIPO - SAFRA 2026-27",
+      "source_url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/arquivos-producao/009ESTOQUESDEACARPORTIPOSAFRA20262027_07082026.pdf",
+      "published_at": "2026-08-07",
+      "file_hash": "55945701827d985be9c2ae6079d1cf34ea4d704f06b1f4e3cb2d1e3ea4fce062",
+      "indicator": "brazil_sugar_stock",
+      "status": "ok",
+      "source_name": "巴西农业和畜牧业部（MAPA）",
+      "dataset_name": "MAPA Agroenergia - Estoques de Açúcar por Tipo",
+      "fetched_at": "2026-08-08T06:59:05+08:00",
+      "original_unit": "tonnes",
+      "previous_period_date": "2026-06-30",
+      "previous_period_stock": 345.0164,
+      "half_month_change": 137.76510000000002,
+      "half_month_change_percent": 39.93001492102985,
+      "previous_year_date": "2025-07-15",
+      "previous_year_stock": 539.6658,
+      "previous_year_value": 539.6658,
+      "year_on_year_change": -56.884299999999996,
+      "year_on_year_change_percent": -10.54065312272892,
+      "yoy_status": "ok"
     }
   ],
-  "lastUpdatedAt": "2026-08-06T15:50:10+08:00"
+  "lastUpdatedAt": "2026-08-08T06:59:42+08:00"
 }
