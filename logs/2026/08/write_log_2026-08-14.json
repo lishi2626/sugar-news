@@ -1,0 +1,113 @@
+{
+  "target_date": "2026-08-14",
+  "generated_at": "2026-08-15T06:23:04+08:00",
+  "status": "success",
+  "verified_news_file": "/home/runner/work/sugar-news/sugar-news/data/verified_news/2026/08/sugar_news_2026-08-14.json",
+  "excel_file": "/home/runner/work/sugar-news/sugar-news/reports/2026/08/Sugar News 2026-08-14.xlsx",
+  "dashboard_report": "/home/runner/work/sugar-news/sugar-news/public/sugar-news/data/reports/2026/08/2026-08-14.json",
+  "dashboard_index": "/home/runner/work/sugar-news/sugar-news/public/sugar-news/data/index.json",
+  "editorial_skill": {
+    "path": ".codex/skills/sugar-news-editorial-rules/SKILL.md",
+    "sha256": "a1e58a4e509ee18e93d1a786da332152ae51f9594bfe11e61f728942d5f7dd38"
+  },
+  "thai_weather_check": {
+    "fixed_step": "Thai main sugarcane area rainfall check",
+    "target_date": "2026-08-14",
+    "source_url": "https://tmd.go.th/en/forecast/daily",
+    "status": "skipped",
+    "reason": "Thailand cane-area weather item already present in verified news."
+  },
+  "china_monitoring_check": {
+    "status": "completed",
+    "mode": "verified_items_checked_after_load",
+    "retained_count": 1,
+    "query_template_count": 40,
+    "query_templates": [
+      "中国糖业新闻 {year}年{month}月{day}日",
+      "中国食糖 {year}年{month}月{day}日",
+      "中国白糖 {year}年{month}月{day}日",
+      "中国甘蔗 {year}年{month}月{day}日",
+      "中国甜菜糖 {year}年{month}月{day}日",
+      "广西糖业 甘蔗 {year}年{month}月{day}日",
+      "云南糖业 甘蔗 {year}年{month}月{day}日",
+      "广东 甘蔗 糖业 {year}年{month}月{day}日",
+      "海南 甘蔗 糖业 {year}年{month}月{day}日",
+      "内蒙古 新疆 黑龙江 甜菜糖 {year}年{month}月{day}日",
+      "食糖产销数据 {year}年{month}月{day}日",
+      "食糖库存 产销率 {year}年{month}月{day}日",
+      "食糖进口 {year}年{month}月{day}日",
+      "原糖进口 到港量 进口成本 {year}年{month}月{day}日",
+      "食糖进口配额 {year}年{month}月{day}日",
+      "糖浆预混粉进口 {year}年{month}月{day}日",
+      "加工糖厂 开机 {year}年{month}月{day}日",
+      "广西糖业 {year}年{month}月{day}日",
+      "云南糖业 {year}年{month}月{day}日",
+      "郑州白糖期货 {year}年{month}月{day}日",
+      "郑糖主力合约 {year}年{month}月{day}日",
+      "白糖现货价格 {year}年{month}月{day}日",
+      "甘蔗收购价 种植补贴 {year}年{month}月{day}日",
+      "糖厂开榨 收榨 {year}年{month}月{day}日",
+      "糖料产区 降雨 暴雨 干旱 台风 {year}年{month}月{day}日",
+      "制糖集团公告 {year}年{month}月{day}日",
+      "China sugar industry {readable}",
+      "China sugar production {readable}",
+      "China sugar imports {readable}",
+      "China sugarcane beet sugar {readable}",
+      "China white sugar futures {readable}",
+      "China sugar syrup imports {readable}",
+      "淀粉糖 玉米消耗量 产能利用率 {year}年{month}月{day}日",
+      "玉米糖浆 果葡糖浆 白糖价差 {year}年{month}月{day}日",
+      "糖浆 白砂糖预混粉 进口 {year}年{month}月{day}日",
+      "广西 食糖销量 工业库存 产销率 {year}年{month}月{day}日",
+      "云南 甘蔗 食糖 产量 {year}年{month}月{day}日",
+      "中国糖业协会 食糖产销库存 {year}年{month}月{day}日",
+      "CASDE 食糖 供需 月报 {year}年{month}月{day}日",
+      "海关 食糖进口 糖浆预混粉 {year}年{month}月{day}日"
+    ],
+    "priority_sources": [
+      "中国糖业协会",
+      "农业农村部 / CASDE",
+      "海关总署",
+      "国家统计局",
+      "国家发展改革委 / 商务部",
+      "广西、云南等主产区农业、气象和糖业主管部门",
+      "云糖网 / 沐甜科技",
+      "郑州商品交易所",
+      "权威期货公司、研究机构及糖厂公告"
+    ],
+    "column_required": true,
+    "note": "China sugar monitoring completed; required China output is present",
+    "ensure_step": {
+      "fixed_step": "China sugar daily priority monitoring",
+      "target_date": "2026-08-14",
+      "status": "skipped",
+      "retained_count": 1,
+      "reason": "China item already present in verified news."
+    }
+  },
+  "brazil_metrics_refresh": {
+    "status": "skipped",
+    "reason": "standalone workflow refresh; consuming latest snapshot"
+  },
+  "india_metrics_refresh": {
+    "status": "skipped",
+    "reason": "standalone workflow refresh; consuming latest snapshot"
+  },
+  "checks": {
+    "verified_count": 6,
+    "excel_count": 6,
+    "dashboard_count": 6,
+    "excel_matches_verified": true,
+    "dashboard_matches_verified": true,
+    "country_order_ok": true,
+    "no_empty_country_sections": true,
+    "counts_by_country": {
+      "印度": 3,
+      "泰国": 1,
+      "中国": 1,
+      "斐济": 1
+    },
+    "china_count": 1,
+    "other_country_count": 1
+  }
+}
