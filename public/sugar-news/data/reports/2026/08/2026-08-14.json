@@ -1,6 +1,6 @@
 {
   "newsDate": "2026-08-14",
-  "updatedAt": "2026-08-15T06:23:04+08:00",
+  "updatedAt": "2026-08-15T06:49:02+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/08/Sugar News 2026-08-14.xlsx",
   "brazilMetrics": {
@@ -580,7 +580,7 @@
   "indiaMetrics": {
     "title": "印度糖价",
     "dataDate": "2026-08-14",
-    "updatedAt": "2026-08-15T06:23:04+08:00",
+    "updatedAt": "2026-08-15T06:49:02+08:00",
     "sourceStatus": "dynamic_fetch",
     "domesticWholesalePrice": {
       "metricType": "domesticWholesalePrice",
@@ -895,7 +895,7 @@
       "metricType": "carryoverStock",
       "status": "pending",
       "statusText": "等待权威来源更新",
-      "fetchedAt": "2026-08-15T06:23:04+08:00",
+      "fetchedAt": "2026-08-15T06:49:02+08:00",
       "note": "未获取到已完成日期、口径和来源核验的可靠数据；不编造价格或库存。",
       "dataDate": null,
       "stockWanTonnes": null
