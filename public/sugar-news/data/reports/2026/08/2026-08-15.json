@@ -1,0 +1,1455 @@
+{
+  "newsDate": "2026-08-15",
+  "updatedAt": "2026-08-16T06:21:41+08:00",
+  "timezone": "Asia/Shanghai",
+  "excelFile": "reports/2026/08/Sugar News 2026-08-15.xlsx",
+  "brazilMetrics": {
+    "title": "巴西糖价与库存",
+    "dataDate": "2026-08-15",
+    "snapshotTargetDate": "2026-08-14",
+    "updatedAt": "2026-08-15T10:46:39+08:00",
+    "sourceStatus": "dynamic_fetch",
+    "sugarPremium": {
+      "metricType": "sugarPremium",
+      "status": "ok",
+      "statusText": "",
+      "dataDate": "2026-08-05",
+      "sourceDataDate": "2026-08-05",
+      "refreshDate": "2026-08-15",
+      "fetchedAt": "2026-08-06T15:48:04+08:00",
+      "sourceName": "广西糖网食糖进口成本及利润估算表",
+      "sourceUrl": "https://www.hisugar.com/home/articleContent?id=2026080608433531248185",
+      "datasetName": "HiSugar 食糖进口成本及利润估算表",
+      "previousYearValue": -0.2,
+      "previousYearSourceUrl": "https://www.hisugar.com/home/articleContent?id=2025080608563542667063",
+      "yoyTargetDate": null,
+      "yoyComparisonDate": "2025-08-05",
+      "yoyExactDateMatch": true,
+      "yoyDateGapDays": 0,
+      "yearOnYearChange": -0.34,
+      "yearOnYearChangePercent": -170.0,
+      "yoyStatus": "ok",
+      "note": null,
+      "product": "巴西糖进口升贴水",
+      "port": "进口成本估算",
+      "pricingBasis": "HiSugar import cost estimate",
+      "futuresContract": null,
+      "importPremiumDiscountCentsPerLb": -0.54,
+      "premiumDiscountCentsPerLb": -0.54,
+      "premiumLabel": "贴水",
+      "unit": "美分/磅",
+      "previousDataDate": "2026-08-04",
+      "previousValue": -0.54,
+      "dailyChange": 0.0,
+      "dailyChangePercent": 0.0,
+      "previousYearDate": "2025-08-05",
+      "articleId": "2026080608433531248185",
+      "articleTitle": "20260805食糖进口成本及利润估算",
+      "articlePublishedAt": "2026-08-06 08:49:22",
+      "imageUrl": "https://www.hisugar.com/image/20260806/1785976892742090105.png",
+      "ocrBackend": "windows_ocr_noisy"
+    },
+    "sugarStock": {
+      "metricType": "sugarStock",
+      "status": "ok",
+      "statusText": "",
+      "dataDate": "2026-07-31",
+      "sourceDataDate": "2026-07-31",
+      "refreshDate": "2026-08-15",
+      "fetchedAt": "2026-08-15T06:57:11+08:00",
+      "sourceName": "巴西农业和畜牧业部（MAPA）",
+      "sourceUrl": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/arquivos-producao/009ESTOQUESDEACARPORTIPOSAFRA20262027_14082026.pdf",
+      "datasetName": "MAPA Agroenergia - Estoques de Açúcar por Tipo",
+      "previousYearValue": 638.0179,
+      "previousYearSourceUrl": null,
+      "yoyTargetDate": null,
+      "yoyComparisonDate": null,
+      "yoyExactDateMatch": null,
+      "yoyDateGapDays": null,
+      "yearOnYearChange": -69.7152000000001,
+      "yearOnYearChangePercent": -10.92684076732018,
+      "yoyStatus": "ok",
+      "note": null,
+      "product": "食糖",
+      "stockValue": 568.3027,
+      "stockUnit": "万吨",
+      "season": "2026/2027",
+      "referenceDate": "2026-07-31",
+      "referenceDateRaw": "31/07/2026",
+      "referenceDateSource": "pdf_acumulado_ate",
+      "stockTotalTonnes": 5683027,
+      "stockTotalTenThousandTonnes": 568.3027,
+      "previousPeriodDate": "2026-07-15",
+      "previousPeriodStock": 482.7815,
+      "halfMonthChange": 85.52119999999996,
+      "halfMonthChangePercent": 17.71426618459903,
+      "previousYearDate": "2025-07-31",
+      "previousYearStock": 638.0179,
+      "documentNumber": "009",
+      "documentTitle": "ESTOQUES DE AÇÚCAR POR TIPO - SAFRA 2026-27",
+      "fileHash": "ffab39a61ec7da6b6d7646ac6bf85b52e45357af57ab6d99c203580d71df1351"
+    },
+    "ethanolStock": {
+      "metricType": "ethanolStock",
+      "status": "ok",
+      "statusText": "",
+      "dataDate": "2026-08-01",
+      "sourceDataDate": "2026-08-01",
+      "refreshDate": "2026-08-15",
+      "fetchedAt": "2026-08-15T06:57:51+08:00",
+      "sourceName": "巴西农业和畜牧业部（MAPA）",
+      "sourceUrl": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_010826.pdf",
+      "datasetName": "MAPA Acompanhamento da Produção Sucroalcooleira",
+      "previousYearValue": 284.8646,
+      "previousYearSourceUrl": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/2025-2026-1/Acompanhamentodaproduo2526_010825.PDF",
+      "yoyTargetDate": "2025-08-01",
+      "yoyComparisonDate": "2025-08-01",
+      "yoyExactDateMatch": true,
+      "yoyDateGapDays": 0,
+      "yearOnYearChange": 113.48059999999998,
+      "yearOnYearChangePercent": 39.836680303554736,
+      "yoyStatus": "ok",
+      "note": null,
+      "ethanolType": "hydrous",
+      "stockType": "physical",
+      "hydrousEthanolStock": 398.3452,
+      "anhydrousEthanolStock": null,
+      "totalEthanolStock": 398.3452,
+      "stockCubicMetres": 3983452,
+      "stockTenThousandCubicMetres": 398.3452,
+      "stockUnit": "万立方米",
+      "season": "2026/2027",
+      "referenceDate": "2026-08-01",
+      "reportUpdatedAt": "2026-08-14",
+      "previousPeriodDate": "2026-07-15",
+      "previousPeriodStock": 351.1917,
+      "halfMonthChange": 47.15349999999995,
+      "halfMonthChangePercent": 13.426712533354277,
+      "previousYearDate": "2025-08-01",
+      "previousYearStock": 284.8646,
+      "sourcePageUrl": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/2026-2027",
+      "reportUrl": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo2627_010826.pdf",
+      "sourceFileName": "Acompanhamentodaproduo2627_010826.pdf",
+      "fileHash": "6aee5bf6e8bd05442c7fc1a8a1ed8027c638065818f78a5cba61f79382bb87c7"
+    },
+    "note": null,
+    "fetchLog": [
+      {
+        "source": "HiSugar import-cost list page",
+        "url": "https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap0",
+        "requestedAt": "2026-08-15T10:42:27+08:00",
+        "httpStatus": 200,
+        "containsColumnName": false,
+        "candidateCount": 0,
+        "candidateTitleDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import-cost list page",
+        "url": "https://www.hisugar.com/home/getQureyArticleList?parentId=49&categoryId=143&name=&pageCurInfo=sub_143&pageNo=1&pageSize=20",
+        "requestedAt": "2026-08-15T10:42:30+08:00",
+        "httpStatus": 200,
+        "containsColumnName": true,
+        "candidateCount": 3,
+        "candidateTitleDates": [
+          "2026-08-13",
+          "2026-08-12",
+          "2026-08-11"
+        ],
+        "parsed": true
+      },
+      {
+        "source": "HiSugar import-cost list page",
+        "url": "https://www.hisugar.com/home/getQureyArticleList?parentId=49&categoryId=143&name=&pageCurInfo=sub_143&pageNo=2&pageSize=20",
+        "requestedAt": "2026-08-15T10:42:31+08:00",
+        "httpStatus": 200,
+        "containsColumnName": true,
+        "candidateCount": 3,
+        "candidateTitleDates": [
+          "2026-08-10",
+          "2026-08-07",
+          "2026-08-06"
+        ],
+        "parsed": true
+      },
+      {
+        "source": "HiSugar import-cost list page",
+        "url": "https://www.hisugar.com/home/getQureyArticleList?parentId=49&categoryId=143&name=&pageCurInfo=sub_143&pageNo=3&pageSize=20",
+        "requestedAt": "2026-08-15T10:42:32+08:00",
+        "httpStatus": 200,
+        "containsColumnName": true,
+        "candidateCount": 3,
+        "candidateTitleDates": [
+          "2026-08-05",
+          "2026-08-04",
+          "2026-08-03"
+        ],
+        "parsed": true
+      },
+      {
+        "source": "HiSugar import-cost search API",
+        "url": "https://www.hisugar.com/home/searchCatetoryAndArticle?keyWord=%E9%A3%9F%E7%B3%96%E8%BF%9B%E5%8F%A3%E6%88%90%E6%9C%AC%E5%8F%8A%E5%88%A9%E6%B6%A6%E4%BC%B0%E7%AE%97",
+        "requestedAt": "2026-08-15T10:42:33+08:00",
+        "httpStatus": 200,
+        "candidateCount": 405,
+        "parsed": true
+      },
+      {
+        "source": "HiSugar import premium target-date selector",
+        "targetDate": "2026-08-14",
+        "publicationCutoff": "2026-08-15T10:42:36+08:00",
+        "selectedTitleDates": [
+          "2026-08-13",
+          "2026-08-12",
+          "2026-08-11",
+          "2026-08-10",
+          "2026-08-07",
+          "2026-08-06",
+          "2026-08-05",
+          "2026-08-04",
+          "2026-08-03",
+          "2026-07-31",
+          "2026-07-30",
+          "2026-07-29"
+        ],
+        "reason": "Use the newest report row on or before the Sugar News date that is available by this refresh run, including validated late-published reports."
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2026081408512604975253",
+        "url": "https://www.hisugar.com/home/articleContent?id=2026081408512604975253",
+        "requestedAt": "2026-08-15T10:42:36+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": false,
+        "parsedRows": 0
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026081408512604975253",
+        "imageUrl": "https://www.hisugar.com/image/20260814/1786668599296098185.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026081408512604975253",
+        "imageUrl": "https://www.hisugar.com/image/20260727/1785113242850060471.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2026081308461353221449",
+        "url": "https://www.hisugar.com/home/articleContent?id=2026081308461353221449",
+        "requestedAt": "2026-08-15T10:42:58+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": false,
+        "parsedRows": 0
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026081308461353221449",
+        "imageUrl": "https://www.hisugar.com/image/20260813/1786581848755044564.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026081308461353221449",
+        "imageUrl": "https://www.hisugar.com/image/20260727/1785113242850060471.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2026081208520229174738",
+        "url": "https://www.hisugar.com/home/articleContent?id=2026081208520229174738",
+        "requestedAt": "2026-08-15T10:43:19+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": false,
+        "parsedRows": 0
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026081208520229174738",
+        "imageUrl": "https://www.hisugar.com/image/20260812/1786495832450049299.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026081208520229174738",
+        "imageUrl": "https://www.hisugar.com/image/20260727/1785113242850060471.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2026081108561847969691",
+        "url": "https://www.hisugar.com/home/articleContent?id=2026081108561847969691",
+        "requestedAt": "2026-08-15T10:43:40+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": false,
+        "parsedRows": 0
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026081108561847969691",
+        "imageUrl": "https://www.hisugar.com/image/20260811/1786409636856023083.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026081108561847969691",
+        "imageUrl": "https://www.hisugar.com/image/20260727/1785113242850060471.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2026081008543224245176",
+        "url": "https://www.hisugar.com/home/articleContent?id=2026081008543224245176",
+        "requestedAt": "2026-08-15T10:44:00+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": false,
+        "parsedRows": 0
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026081008543224245176",
+        "imageUrl": "https://www.hisugar.com/image/20260810/1786323165019015942.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026081008543224245176",
+        "imageUrl": "https://www.hisugar.com/image/20260727/1785113242850060471.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2026080708495688181589",
+        "url": "https://www.hisugar.com/home/articleContent?id=2026080708495688181589",
+        "requestedAt": "2026-08-15T10:44:20+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": false,
+        "parsedRows": 0
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026080708495688181589",
+        "imageUrl": "https://www.hisugar.com/image/20260807/1786063677349088159.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026080708495688181589",
+        "imageUrl": "https://www.hisugar.com/image/20260727/1785113242850060471.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2026080608433531248185",
+        "url": "https://www.hisugar.com/home/articleContent?id=2026080608433531248185",
+        "requestedAt": "2026-08-15T10:44:40+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": false,
+        "parsedRows": 0
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026080608433531248185",
+        "imageUrl": "https://www.hisugar.com/image/20260806/1785976892742090105.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026080608433531248185",
+        "imageUrl": "https://www.hisugar.com/image/20260727/1785113242850060471.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2026080515321230598245",
+        "url": "https://www.hisugar.com/home/articleContent?id=2026080515321230598245",
+        "requestedAt": "2026-08-15T10:45:00+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": false,
+        "parsedRows": 0
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026080515321230598245",
+        "imageUrl": "https://www.hisugar.com/image/20260805/1785915016404036426.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026080515321230598245",
+        "imageUrl": "https://www.hisugar.com/image/20260727/1785113242850060471.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2026080408533083791094",
+        "url": "https://www.hisugar.com/home/articleContent?id=2026080408533083791094",
+        "requestedAt": "2026-08-15T10:45:20+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": false,
+        "parsedRows": 0
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026080408533083791094",
+        "imageUrl": "https://www.hisugar.com/image/20260804/1785804691622013527.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026080408533083791094",
+        "imageUrl": "https://www.hisugar.com/image/20260727/1785113242850060471.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2026080308421295131887",
+        "url": "https://www.hisugar.com/home/articleContent?id=2026080308421295131887",
+        "requestedAt": "2026-08-15T10:45:39+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": false,
+        "parsedRows": 0
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026080308421295131887",
+        "imageUrl": "https://www.hisugar.com/image/20260803/1785717609147069814.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026080308421295131887",
+        "imageUrl": "https://www.hisugar.com/image/20260727/1785113242850060471.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2026073108384834182355",
+        "url": "https://www.hisugar.com/home/articleContent?id=2026073108384834182355",
+        "requestedAt": "2026-08-15T10:45:59+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": false,
+        "parsedRows": 0
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026073108384834182355",
+        "imageUrl": "https://www.hisugar.com/image/20260731/1785458220775051820.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026073108384834182355",
+        "imageUrl": "https://www.hisugar.com/image/20260727/1785113242850060471.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium article",
+        "articleId": "2026073008452863634192",
+        "url": "https://www.hisugar.com/home/articleContent?id=2026073008452863634192",
+        "requestedAt": "2026-08-15T10:46:19+08:00",
+        "httpStatus": 200,
+        "imageCount": 2,
+        "parsed": false,
+        "parsedRows": 0
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026073008452863634192",
+        "imageUrl": "https://www.hisugar.com/image/20260730/1785372192106048895.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      },
+      {
+        "source": "HiSugar import premium image OCR",
+        "articleId": "2026073008452863634192",
+        "imageUrl": "https://www.hisugar.com/image/20260727/1785113242850060471.png",
+        "httpStatus": 200,
+        "ocrBackend": "tesseract",
+        "parsedRows": 0,
+        "parsedDates": [],
+        "parsed": false
+      }
+    ]
+  },
+  "indiaMetrics": {
+    "title": "印度糖价",
+    "dataDate": "2026-08-15",
+    "updatedAt": "2026-08-16T06:21:41+08:00",
+    "sourceStatus": "dynamic_fetch",
+    "domesticWholesalePrice": {
+      "metricType": "domesticWholesalePrice",
+      "status": "ok",
+      "statusText": "",
+      "dataDate": "2026-08-14",
+      "priceDate": "2026-08-14",
+      "grade": "M-30；Hyderabad为S-30",
+      "market": "ChiniMandi city sample",
+      "quoteType": "wholesale sample average",
+      "unit": "卢比/公担",
+      "rawUnit": null,
+      "displayRange": null,
+      "rawRange": null,
+      "low": null,
+      "high": null,
+      "midpoint": null,
+      "priceBasis": "ChiniMandi城市样本均价，含GST",
+      "citiesUsed": [
+        "Delhi",
+        "Kanpur",
+        "Raipur",
+        "Mumbai",
+        "Ranchi",
+        "Kolkata",
+        "Guwahati",
+        "Hyderabad",
+        "Chennai"
+      ],
+      "cityCount": 9,
+      "cityPrices": {
+        "Delhi": 5300.0,
+        "Kanpur": 5400.0,
+        "Raipur": 5200.0,
+        "Mumbai": 5200.0,
+        "Ranchi": 5240.0,
+        "Kolkata": 5320.0,
+        "Guwahati": 5350.0,
+        "Hyderabad": 5220.0,
+        "Chennai": 5480.0
+      },
+      "rawCityPrices": {
+        "Delhi": "5300",
+        "Kanpur": "5400",
+        "Raipur": "5200",
+        "Mumbai": "5200",
+        "Ranchi": "5240",
+        "Kolkata": "5320",
+        "Guwahati": "5350",
+        "Hyderabad": "5220",
+        "Chennai": "5480"
+      },
+      "includesGst": true,
+      "originalUnit": "卢比/公担",
+      "sourceName": "ChiniMandi",
+      "sourceUrl": "https://www.chinimandi.com/wholesale-sugar-prices/",
+      "previousSourceUrl": null,
+      "yoySourceUrl": null,
+      "yoyComparisonDate": null,
+      "yoyExactDateMatch": null,
+      "dailyMarketUpdateUrl": "https://www.chinimandi.com/english-news/daily-sugar-market-update/",
+      "publishedDate": "2026-08-14",
+      "fetchedAt": "2026-08-16T06:20:11+08:00",
+      "note": null,
+      "priceInrPerQuintal": 5301.11,
+      "priceInrPerKg": 53.0111,
+      "retailPriceInrPerKg": null,
+      "previousInrPerQuintal": 5235.56,
+      "previousInrPerKg": 52.3556,
+      "changeInrPerQuintal": 65.56,
+      "changeInrPerKg": 0.6556,
+      "changePct": 1.25,
+      "direction": "up",
+      "previousDataDate": "2026-08-13",
+      "previousYearDate": "2025-08-14",
+      "previousYearInrPerQuintal": 4372.22,
+      "previousYearInrPerKg": 43.7222,
+      "yearOnYearChangeInrPerQuintal": 928.89,
+      "yearOnYearChangeInrPerKg": 9.2889,
+      "yearOnYearChangePct": 21.25
+    },
+    "domesticRetailPrice": {
+      "metricType": "domesticRetailPrice",
+      "status": "ok",
+      "statusText": "",
+      "dataDate": "2026-08-14",
+      "priceDate": "2026-08-14",
+      "grade": "M-30；Hyderabad为S-30",
+      "market": "ChiniMandi city sample",
+      "quoteType": "retail sample average",
+      "unit": "卢比/公斤",
+      "rawUnit": null,
+      "displayRange": null,
+      "rawRange": null,
+      "low": null,
+      "high": null,
+      "midpoint": null,
+      "priceBasis": "ChiniMandi城市样本均价，含GST",
+      "citiesUsed": [
+        "Delhi",
+        "Kanpur",
+        "Raipur",
+        "Mumbai",
+        "Ranchi",
+        "Kolkata",
+        "Guwahati",
+        "Hyderabad",
+        "Chennai"
+      ],
+      "cityCount": 9,
+      "cityPrices": {
+        "Delhi": 55.0,
+        "Kanpur": 55.0,
+        "Raipur": 55.0,
+        "Mumbai": 54.0,
+        "Ranchi": 56.0,
+        "Kolkata": 56.0,
+        "Guwahati": 56.0,
+        "Hyderabad": 55.0,
+        "Chennai": 56.0
+      },
+      "rawCityPrices": {
+        "Delhi": "55",
+        "Kanpur": "55",
+        "Raipur": "55",
+        "Mumbai": "54",
+        "Ranchi": "56",
+        "Kolkata": "56",
+        "Guwahati": "56",
+        "Hyderabad": "55",
+        "Chennai": "56"
+      },
+      "includesGst": true,
+      "originalUnit": "卢比/公斤",
+      "sourceName": "ChiniMandi",
+      "sourceUrl": "https://www.chinimandi.com/retail-prices/",
+      "previousSourceUrl": null,
+      "yoySourceUrl": null,
+      "yoyComparisonDate": null,
+      "yoyExactDateMatch": null,
+      "dailyMarketUpdateUrl": "https://www.chinimandi.com/english-news/daily-sugar-market-update/",
+      "publishedDate": "2026-08-14",
+      "fetchedAt": "2026-08-16T06:20:20+08:00",
+      "note": null,
+      "priceInrPerQuintal": 5533.0,
+      "priceInrPerKg": 55.33,
+      "retailPriceInrPerKg": null,
+      "previousInrPerQuintal": 5444.0,
+      "previousInrPerKg": 54.44,
+      "changeInrPerQuintal": 89.0,
+      "changeInrPerKg": 0.89,
+      "changePct": 1.63,
+      "direction": "up",
+      "previousDataDate": "2026-08-13",
+      "previousYearDate": "2025-08-14",
+      "previousYearInrPerQuintal": 4444.0,
+      "previousYearInrPerKg": 44.44,
+      "yearOnYearChangeInrPerQuintal": 1089.0,
+      "yearOnYearChangeInrPerKg": 10.89,
+      "yearOnYearChangePct": 24.5
+    },
+    "domesticSugarPrice": {
+      "metricType": "domesticSugarPrice",
+      "status": "ok",
+      "statusText": "",
+      "dataDate": "2026-08-14",
+      "priceDate": "2026-08-14",
+      "grade": "M-30；Hyderabad为S-30",
+      "market": "ChiniMandi city sample",
+      "quoteType": "wholesale sample average",
+      "unit": "卢比/公担",
+      "rawUnit": null,
+      "displayRange": null,
+      "rawRange": null,
+      "low": null,
+      "high": null,
+      "midpoint": null,
+      "priceBasis": "ChiniMandi城市样本均价，含GST",
+      "citiesUsed": [
+        "Delhi",
+        "Kanpur",
+        "Raipur",
+        "Mumbai",
+        "Ranchi",
+        "Kolkata",
+        "Guwahati",
+        "Hyderabad",
+        "Chennai"
+      ],
+      "cityCount": 9,
+      "cityPrices": {
+        "Delhi": 5300.0,
+        "Kanpur": 5400.0,
+        "Raipur": 5200.0,
+        "Mumbai": 5200.0,
+        "Ranchi": 5240.0,
+        "Kolkata": 5320.0,
+        "Guwahati": 5350.0,
+        "Hyderabad": 5220.0,
+        "Chennai": 5480.0
+      },
+      "rawCityPrices": {
+        "Delhi": "5300",
+        "Kanpur": "5400",
+        "Raipur": "5200",
+        "Mumbai": "5200",
+        "Ranchi": "5240",
+        "Kolkata": "5320",
+        "Guwahati": "5350",
+        "Hyderabad": "5220",
+        "Chennai": "5480"
+      },
+      "includesGst": true,
+      "originalUnit": "卢比/公担",
+      "sourceName": "ChiniMandi",
+      "sourceUrl": "https://www.chinimandi.com/wholesale-sugar-prices/",
+      "previousSourceUrl": null,
+      "yoySourceUrl": null,
+      "yoyComparisonDate": null,
+      "yoyExactDateMatch": null,
+      "dailyMarketUpdateUrl": "https://www.chinimandi.com/english-news/daily-sugar-market-update/",
+      "publishedDate": "2026-08-14",
+      "fetchedAt": "2026-08-16T06:20:11+08:00",
+      "note": null,
+      "priceInrPerQuintal": 5301.11,
+      "priceInrPerKg": 53.0111,
+      "retailPriceInrPerKg": null,
+      "previousInrPerQuintal": 5235.56,
+      "previousInrPerKg": 52.3556,
+      "changeInrPerQuintal": 65.56,
+      "changeInrPerKg": 0.6556,
+      "changePct": 1.25,
+      "direction": "up",
+      "previousDataDate": "2026-08-13",
+      "previousYearDate": "2025-08-14",
+      "previousYearInrPerQuintal": 4372.22,
+      "previousYearInrPerKg": 43.7222,
+      "yearOnYearChangeInrPerQuintal": 928.89,
+      "yearOnYearChangeInrPerKg": 9.2889,
+      "yearOnYearChangePct": 21.25
+    },
+    "upExMillPrice": {
+      "metricType": "upExMillPrice",
+      "status": "ok",
+      "statusText": "",
+      "dataDate": "2026-08-14",
+      "priceDate": "2026-08-14",
+      "grade": "M/30",
+      "market": "Uttar Pradesh",
+      "quoteType": "ex-mill",
+      "unit": "卢比/公担",
+      "rawUnit": "₹/quintal",
+      "displayRange": "₹4,860—₹4,920/公担",
+      "rawRange": "₹4860 to 4920",
+      "low": 4860.0,
+      "high": 4920.0,
+      "midpoint": 4890.0,
+      "priceBasis": null,
+      "citiesUsed": [],
+      "cityCount": null,
+      "cityPrices": {},
+      "rawCityPrices": {},
+      "includesGst": false,
+      "originalUnit": "₹/quintal",
+      "sourceName": "ChiniMandi — Daily Sugar Market Update",
+      "sourceUrl": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-14-08-2026/",
+      "previousSourceUrl": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-13-08-2026/",
+      "yoySourceUrl": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-07-08-2025/",
+      "yoyComparisonDate": "2025-08-07",
+      "yoyExactDateMatch": false,
+      "dailyMarketUpdateUrl": null,
+      "publishedDate": "2026-08-14",
+      "fetchedAt": "2026-08-16T06:20:23+08:00",
+      "note": null,
+      "priceInrPerQuintal": null,
+      "priceInrPerKg": null,
+      "retailPriceInrPerKg": null,
+      "rangeInrPerQuintal": {
+        "low": 4860.0,
+        "high": 4920.0
+      },
+      "rangeInrPerKg": {
+        "low": 48.6,
+        "high": 49.2
+      },
+      "previousRangeInrPerQuintal": {
+        "low": 4860.0,
+        "high": 4920.0
+      },
+      "previousRangeInrPerKg": {
+        "low": 48.6,
+        "high": 49.2
+      },
+      "previousInrPerQuintal": 4890.0,
+      "previousInrPerKg": 48.9,
+      "changeInrPerQuintal": 0.0,
+      "changeInrPerKg": 0.0,
+      "changePct": 0.0,
+      "direction": "flat",
+      "previousDataDate": "2026-08-13",
+      "previousYearDate": "2025-08-07",
+      "previousYearInrPerQuintal": 4050.0,
+      "previousYearInrPerKg": 40.5,
+      "yearOnYearChangeInrPerQuintal": 840.0,
+      "yearOnYearChangeInrPerKg": 8.4,
+      "yearOnYearChangePct": 20.74,
+      "midpointInrPerQuintal": 4890.0,
+      "midpointInrPerKg": 48.9,
+      "gstStatus": "excluding GST"
+    },
+    "carryoverStock": {
+      "metricType": "carryoverStock",
+      "status": "pending",
+      "statusText": "等待权威来源更新",
+      "fetchedAt": "2026-08-16T06:21:41+08:00",
+      "note": "未获取到已完成日期、口径和来源核验的可靠数据；不编造价格或库存。",
+      "dataDate": null,
+      "stockWanTonnes": null
+    },
+    "note": "印度糖价指标来自本次动态抓取；库存候选仅保留在后台日志，不用于价格看板展示。",
+    "fetchLog": [
+      {
+        "source": "ChiniMandi domestic price tables",
+        "requestedAt": "2026-08-16T06:19:45+08:00",
+        "sourcePages": [
+          {
+            "url": "https://www.chinimandi.com/wholesale-sugar-prices/",
+            "httpStatus": 200
+          },
+          {
+            "url": "https://www.chinimandi.com/retail-prices/",
+            "httpStatus": 200
+          }
+        ],
+        "ajaxRequests": [
+          {
+            "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
+            "tableId": 6,
+            "search": "08/2026",
+            "httpStatus": 200,
+            "recordsFiltered": 12
+          },
+          {
+            "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
+            "tableId": 6,
+            "search": "07/2026",
+            "httpStatus": 200,
+            "recordsFiltered": 27
+          },
+          {
+            "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
+            "tableId": 6,
+            "search": "06/2026",
+            "httpStatus": 200,
+            "recordsFiltered": 26
+          },
+          {
+            "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
+            "tableId": 6,
+            "search": "08/2025",
+            "httpStatus": 200,
+            "recordsFiltered": 96
+          },
+          {
+            "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
+            "tableId": 6,
+            "search": "07/2025",
+            "httpStatus": 200,
+            "recordsFiltered": 108
+          },
+          {
+            "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
+            "tableId": 7,
+            "search": "08/2026",
+            "httpStatus": 200,
+            "recordsFiltered": 12
+          },
+          {
+            "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
+            "tableId": 7,
+            "search": "07/2026",
+            "httpStatus": 200,
+            "recordsFiltered": 27
+          },
+          {
+            "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
+            "tableId": 7,
+            "search": "06/2026",
+            "httpStatus": 200,
+            "recordsFiltered": 26
+          },
+          {
+            "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
+            "tableId": 7,
+            "search": "08/2025",
+            "httpStatus": 200,
+            "recordsFiltered": 24
+          },
+          {
+            "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
+            "tableId": 7,
+            "search": "07/2025",
+            "httpStatus": 200,
+            "recordsFiltered": 27
+          }
+        ],
+        "parsed": true,
+        "recordCount": 2
+      },
+      {
+        "source": "ChiniMandi — Daily Sugar Market Update",
+        "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-15-08-2026/",
+        "requestedAt": "2026-08-16T06:20:20+08:00",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "source": "ChiniMandi — Daily Sugar Market Update",
+        "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-14-08-2026/",
+        "requestedAt": "2026-08-16T06:20:21+08:00",
+        "httpStatus": 200,
+        "parsed": true,
+        "dataDate": "2026-08-14",
+        "min": 4860.0,
+        "max": 4920.0,
+        "rawRange": "₹4860 to 4920"
+      },
+      {
+        "source": "ChiniMandi — Daily Sugar Market Update",
+        "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-13-08-2026/",
+        "requestedAt": "2026-08-16T06:20:23+08:00",
+        "httpStatus": 200,
+        "parsed": true,
+        "dataDate": "2026-08-13",
+        "min": 4860.0,
+        "max": 4920.0,
+        "rawRange": "₹4860 to 4920"
+      },
+      {
+        "source": "ChiniMandi — Daily Sugar Market Update",
+        "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-14-08-2025/",
+        "requestedAt": "2026-08-16T06:20:25+08:00",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "source": "ChiniMandi — Daily Sugar Market Update",
+        "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-13-08-2025/",
+        "requestedAt": "2026-08-16T06:20:25+08:00",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "source": "ChiniMandi — Daily Sugar Market Update",
+        "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-12-08-2025/",
+        "requestedAt": "2026-08-16T06:20:26+08:00",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "source": "ChiniMandi — Daily Sugar Market Update",
+        "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-11-08-2025/",
+        "requestedAt": "2026-08-16T06:20:27+08:00",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "source": "ChiniMandi — Daily Sugar Market Update",
+        "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-10-08-2025/",
+        "requestedAt": "2026-08-16T06:20:28+08:00",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "source": "ChiniMandi — Daily Sugar Market Update",
+        "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-09-08-2025/",
+        "requestedAt": "2026-08-16T06:20:29+08:00",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "source": "ChiniMandi — Daily Sugar Market Update",
+        "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-08-08-2025/",
+        "requestedAt": "2026-08-16T06:20:30+08:00",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "source": "ChiniMandi — Daily Sugar Market Update",
+        "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-07-08-2025/",
+        "requestedAt": "2026-08-16T06:20:31+08:00",
+        "httpStatus": 200,
+        "parsed": true,
+        "dataDate": "2025-08-07",
+        "min": 4000.0,
+        "max": 4100.0,
+        "rawRange": "₹4000 to 4100"
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "Department of Food and Public Distribution sugar stock",
+        "url": "https://news.google.com/rss/search?q=Department+of+Food+and+Public+Distribution+sugar+stock+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:33+08:00",
+        "httpStatus": 200,
+        "candidateCount": 2,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "Department of Food & Public Distribution sugar stock",
+        "url": "https://news.google.com/rss/search?q=Department+of+Food+%26+Public+Distribution+sugar+stock+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:33+08:00",
+        "httpStatus": 200,
+        "candidateCount": 2,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "India sugar balance sheet",
+        "url": "https://news.google.com/rss/search?q=India+sugar+balance+sheet+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:33+08:00",
+        "httpStatus": 200,
+        "candidateCount": 3,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "India sugar closing stock",
+        "url": "https://news.google.com/rss/search?q=India+sugar+closing+stock+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:34+08:00",
+        "httpStatus": 200,
+        "candidateCount": 15,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "India sugar opening stock",
+        "url": "https://news.google.com/rss/search?q=India+sugar+opening+stock+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:34+08:00",
+        "httpStatus": 200,
+        "candidateCount": 26,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "sugar stock position India",
+        "url": "https://news.google.com/rss/search?q=sugar+stock+position+India+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:34+08:00",
+        "httpStatus": 200,
+        "candidateCount": 12,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "site:dfpd.gov.in sugar stock",
+        "url": "https://news.google.com/rss/search?q=site%3Adfpd.gov.in+sugar+stock+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:35+08:00",
+        "httpStatus": 200,
+        "candidateCount": 0,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "site:gov.in India sugar closing stock",
+        "url": "https://news.google.com/rss/search?q=site%3Agov.in+India+sugar+closing+stock+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:35+08:00",
+        "httpStatus": 200,
+        "candidateCount": 39,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "ISMA sugar closing stock",
+        "url": "https://news.google.com/rss/search?q=ISMA+sugar+closing+stock+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:35+08:00",
+        "httpStatus": 200,
+        "candidateCount": 2,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "ISMA sugar balance sheet",
+        "url": "https://news.google.com/rss/search?q=ISMA+sugar+balance+sheet+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:36+08:00",
+        "httpStatus": 200,
+        "candidateCount": 0,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "ISMA sugar production estimate",
+        "url": "https://news.google.com/rss/search?q=ISMA+sugar+production+estimate+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:36+08:00",
+        "httpStatus": 200,
+        "candidateCount": 4,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "ISMA opening stock and closing stock",
+        "url": "https://news.google.com/rss/search?q=ISMA+opening+stock+and+closing+stock+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:36+08:00",
+        "httpStatus": 200,
+        "candidateCount": 1,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "site:ismaindia.com closing stock sugar",
+        "url": "https://news.google.com/rss/search?q=site%3Aismaindia.com+closing+stock+sugar+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:36+08:00",
+        "httpStatus": 200,
+        "candidateCount": 0,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "NFCSF India sugar closing stock",
+        "url": "https://news.google.com/rss/search?q=NFCSF+India+sugar+closing+stock+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:37+08:00",
+        "httpStatus": 200,
+        "candidateCount": 2,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "NFCSF sugar balance sheet",
+        "url": "https://news.google.com/rss/search?q=NFCSF+sugar+balance+sheet+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:37+08:00",
+        "httpStatus": 200,
+        "candidateCount": 0,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "NFCSF sugar production estimate",
+        "url": "https://news.google.com/rss/search?q=NFCSF+sugar+production+estimate+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:37+08:00",
+        "httpStatus": 200,
+        "candidateCount": 2,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "National Federation Cooperative Sugar Factories closing stock",
+        "url": "https://news.google.com/rss/search?q=National+Federation+Cooperative+Sugar+Factories+closing+stock+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:37+08:00",
+        "httpStatus": 200,
+        "candidateCount": 6,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS inventory discovery",
+        "query": "site:coopsugar.org closing stock",
+        "url": "https://news.google.com/rss/search?q=site%3Acoopsugar.org+closing+stock+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:38+08:00",
+        "httpStatus": 200,
+        "candidateCount": 0,
+        "parsed": false,
+        "sourceTier": "authoritative_main_value_only",
+        "allowedMainSources": [
+          "Government of India",
+          "Department of Food and Public Distribution",
+          "ISMA",
+          "NFCSF"
+        ],
+        "reason": "Inventory candidates require source-page season, organization and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS market forecast discovery",
+        "query": "ICRA India sugar closing inventory",
+        "url": "https://news.google.com/rss/search?q=ICRA+India+sugar+closing+inventory+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:38+08:00",
+        "httpStatus": 200,
+        "candidateCount": 0,
+        "parsed": false,
+        "sourceTier": "market_forecast_comparison_only",
+        "reason": "Market forecasts are comparison-only and require original report date, season and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS market forecast discovery",
+        "query": "India sugar carryover stock market forecast",
+        "url": "https://news.google.com/rss/search?q=India+sugar+carryover+stock+market+forecast+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:38+08:00",
+        "httpStatus": 200,
+        "candidateCount": 2,
+        "parsed": false,
+        "sourceTier": "market_forecast_comparison_only",
+        "reason": "Market forecasts are comparison-only and require original report date, season and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS market forecast discovery",
+        "query": "India sugar ending stocks agency forecast",
+        "url": "https://news.google.com/rss/search?q=India+sugar+ending+stocks+agency+forecast+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:38+08:00",
+        "httpStatus": 200,
+        "candidateCount": 0,
+        "parsed": false,
+        "sourceTier": "market_forecast_comparison_only",
+        "reason": "Market forecasts are comparison-only and require original report date, season and closing-stock verification before publication."
+      },
+      {
+        "source": "Google News RSS market forecast discovery",
+        "query": "India sugar balance sheet closing stocks rating agency",
+        "url": "https://news.google.com/rss/search?q=India+sugar+balance+sheet+closing+stocks+rating+agency+2026-08-15&hl=en-US&gl=US&ceid=US:en",
+        "requestedAt": "2026-08-16T06:20:39+08:00",
+        "httpStatus": 200,
+        "candidateCount": 0,
+        "parsed": false,
+        "sourceTier": "market_forecast_comparison_only",
+        "reason": "Market forecasts are comparison-only and require original report date, season and closing-stock verification before publication."
+      }
+    ]
+  },
+  "countries": [
+    {
+      "country": "泰国",
+      "items": [
+        {
+          "news": "泰国气象局预报（2026-08-15），那空沙旺、北碧等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。",
+          "impactType": "利空",
+          "impact": "甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+          "sourceName": "泰国气象局",
+          "sourceUrl": "https://tmd.go.th/en/forecast/daily",
+          "publishedDateLocal": "2026-08-15",
+          "eventDate": "2026-08-15"
+        }
+      ]
+    },
+    {
+      "country": "中国",
+      "items": [
+        {
+          "news": "已完成中国食糖、甘蔗、甜菜糖、进口、库存、现货价格和主产区天气等重点方向监测，未发现符合收录标准的新增重要糖业事件。该结果仅表示本次公开来源检索没有可发布的新事件，不代表中国食糖供需或价格没有变化。",
+          "impactType": "中性",
+          "impact": "本次监测未发现足以改变中国食糖供需、库存、进口或价格预期的新增公开信息。",
+          "sourceName": "Sugar News中国糖业每日监测日志",
+          "sourceUrl": "https://github.com/lishi2626/sugar-news/actions",
+          "publishedDateLocal": "2026-08-15",
+          "eventDate": "2026-08-15"
+        }
+      ]
+    }
+  ]
+}
