@@ -1,0 +1,191 @@
+{
+  "target_date": "2026-08-17",
+  "run_date": "2026-08-18",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Bihar approves Rs 97 crore revival of Sakri sugar mill after 29 years",
+      "news": "印度糖厂发布或调整糖厂运行和压榨安排，相关数值为97 crore、Rs 97。印度糖厂若增加开工或压榨，会加快当季食糖产出；若停产或延后开榨，则阶段性供应收紧。来源：ChiniMandi（https://www.chinimandi.com/bihar-approves-rs-97-crore-revival-of-sakri-sugar-mill-after-29-years/）。影响：利空糖价",
+      "impact": "利空：糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/bihar-approves-rs-97-crore-revival-of-sakri-sugar-mill-after-29-years/",
+      "published_date_local": "2026-08-17",
+      "event_date": "2026-08-17",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Bihar approves Rs 97 crore revival of Sakri sugar mill after 29 years",
+        "source_url": "https://www.chinimandi.com/bihar-approves-rs-97-crore-revival-of-sakri-sugar-mill-after-29-years/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Mon, 17 Aug 2026 06:01:32 GMT",
+        "event_date": "2026-08-17",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖厂",
+        "event_action": "发布或调整",
+        "metrics": [
+          "97 crore",
+          "Rs 97"
+        ],
+        "comparison_period": null,
+        "topic": "mill_operations",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMingFBVV95cUxPR080THpYZkcxNnllTS1GNWl1OTlRQUhDOFVYQlRWQ2RjREM2NU1tc2t6bnR5LU9HRjVJMmZFMjIzQ1lGQ1Jjc3dvSDBLcUtxX3lRY2ZqaG5NTDExSWhrS3hHNXctOWd6aGUyVEg3eExqNXY4VzdkU3JienVJcWNrVFNfR1RWNVJUVFVzOEZOcWV5X2RHZHJZUlJKbmVJZw?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖厂发布或调整97crorers9720260817mill_operations",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Sugar stocks Balrampur Chini, Triveni Engineering, Dhampur Sugar and others rall",
+      "news": "印度糖业相关机构公布库存数据，库存增加7%。库存增加会提高现货供应缓冲，压制补库需求和糖价。来源：The Economic Times（https://m.economictimes.com/markets/stocks/news/sugar-stocks-balrampur-chini-triveni-engineering-dhampur-sugar-and-others-rally-up-to-7-heres-why/articleshow/133288064.cms）。影响：利空糖价",
+      "impact": "利空：库存增加会提高现货供应缓冲，压制补库需求和糖价。",
+      "source_name": "The Economic Times",
+      "source_url": "https://m.economictimes.com/markets/stocks/news/sugar-stocks-balrampur-chini-triveni-engineering-dhampur-sugar-and-others-rally-up-to-7-heres-why/articleshow/133288064.cms",
+      "published_date_local": "2026-08-17",
+      "event_date": "2026-08-17",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Sugar stocks Balrampur Chini, Triveni Engineering, Dhampur Sugar and others rally up to 7%. Here’s why",
+        "source_url": "https://m.economictimes.com/markets/stocks/news/sugar-stocks-balrampur-chini-triveni-engineering-dhampur-sugar-and-others-rally-up-to-7-heres-why/articleshow/133288064.cms",
+        "publisher": "The Economic Times",
+        "publication_time": "Mon, 17 Aug 2026 05:53:00 GMT",
+        "event_date": "2026-08-17",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "7%"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "库存增加会提高现货供应缓冲，压制补库需求和糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOMnp1YnFWZXMtWjg5VW5EOWxwRjNmQU9CLVVzd2JsQUxVQkFTTUxaRXl2dkJXSkNaSk1MMjdpd3FvcFdFQ2pHSEExOVVCdmxJQmp6bFVOWVM5cjVCMm5BLXJnMGdxVG8yeWJMM0xjS3BWYVV2MkhIWUdyd1Z0SGFaa183NmFTSXNaTzVQcmFfRlkxcC1mN3hoSVZjbWt2VEJjSlZudTlIYXl2WENacHZOOEgtT1Z3V1RBT2tGaDJXVGJsaUcwLWlaY2xXaUxyVkpCN0ZxSlhQcEU1czJiQnQyQXE4SFliT0VzdWR4U213SzlwdFcwWkk4ZFpiMDZnQ1dm0gGGAkFVX3lxTE9aR3U4eVYtRmxjTF9QZ3FIX3c3d3BuS3ZySlpBSmVERUZ0TllNTGo3VGlzbW1jaF9oYndDMmNBNmhqbVBwblNkOHAtZGlHNEp6ZWxJRWdrc3NPTEtqVHM3VEFhNFU2cmFJVEtyU0FTWDd5U1hqZU1lQUhaNE5VbTlrU19MQjNVYkNXZkNlejQzaFJweTZqbkF2Um8zejFZTkcxR0VsazhyYXpPVmtYZHBCbWlVWndiSEI1Q1gxLUs0ekRqSk1EUlFTUEpDbEZaNi04enFPUERnWmljZ3ljNVFRVzk3QmFjUzlNRGlsSlF2MG9FWkFHR1MtV3ZJUm0tMXVfOFBuSkE?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构公布720260817supply_demand",
+      "importance": 85
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Nigerian sugar industry gets $1 billion investment push to cut import dependence",
+      "news": "印度糖业相关机构下调食糖贸易、进口、出口或配额政策，相关数值为1 billion、$1。进口、出口、关税或配额变化会改变国内外可用糖源和贸易流向。来源：ChiniMandi（https://www.chinimandi.com/nigerian-sugar-industry-gets-1-billion-investment-push-to-cut-import-dependence/）。影响：利空糖价",
+      "impact": "利空：进口政策放宽或进口量增加会补充国内可用糖源，对本地糖价形成压力。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/nigerian-sugar-industry-gets-1-billion-investment-push-to-cut-import-dependence/",
+      "published_date_local": "2026-08-17",
+      "event_date": "2026-08-17",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Nigerian sugar industry gets $1 billion investment push to cut import dependence",
+        "source_url": "https://www.chinimandi.com/nigerian-sugar-industry-gets-1-billion-investment-push-to-cut-import-dependence/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Mon, 17 Aug 2026 06:11:56 GMT",
+        "event_date": "2026-08-17",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "下调",
+        "metrics": [
+          "1 billion",
+          "$1"
+        ],
+        "comparison_period": null,
+        "topic": "trade_policy",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "进口政策放宽或进口量增加会补充国内可用糖源，对本地糖价形成压力。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOMS15b0xSWFdzV005U3RiNldablctS2JxYWFFMXNsWkZSZkpkT05paXJ0ai1JdzRqSTdZby1RTUxibF9pZERSeE5XblBtZEd6QUYtRmZaNFAwbmlkUVBmMXluNmJSb1VRbUlxdy1tZTZPaVZrMGgxMmk2a2Y0cWR5TjhRR2MzNXcxQ3pyTnpFUE55Q1FibXlZVzZVeVNCdFJvbkU3SmZHWWtWOVk?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构下调1billion120260817trade_policy",
+      "importance": 80
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "CEA urges caution on higher ethanol blending, backs E10 option for older two-whe",
+      "news": "印度糖业相关机构公布乙醇掺混或燃料政策，相关数值为E10。若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量。来源：ChiniMandi（https://www.chinimandi.com/cea-urges-caution-on-higher-ethanol-blending-backs-e10-option-for-older-two-wheelers/）。影响：利多糖价",
+      "impact": "利多：若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量，从而减少食糖供应预期并支撑糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/cea-urges-caution-on-higher-ethanol-blending-backs-e10-option-for-older-two-wheelers/",
+      "published_date_local": "2026-08-17",
+      "event_date": "2026-08-17",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "CEA urges caution on higher ethanol blending, backs E10 option for older two-wheelers",
+        "source_url": "https://www.chinimandi.com/cea-urges-caution-on-higher-ethanol-blending-backs-e10-option-for-older-two-wheelers/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Mon, 17 Aug 2026 05:15:52 GMT",
+        "event_date": "2026-08-17",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "E10"
+        ],
+        "comparison_period": null,
+        "topic": "ethanol_policy",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量，从而减少食糖供应预期并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPOGVTdTlNdGpsd3I4R3d0eS1DY29obHc5ZmZIUmcxcjRKQVJkRjlnTC1tU1YzRzZUZkFNSTVQVXJpT01kbGlhaDNHSzB0TV9qR2EzUkZUOEsyQ3JkSFlNY1hqaloyc1FqLTlVNFg2UFAzWV92S2Y1ZmlRMzFtQXdlSjJLdFdjSTJVWG1DR3VnTmcwaEdMSTJyV0JqZ2ptMWxfOFNlbGcwaGVyMnlJTnk4TndR?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构公布e1020260817ethanol_policy",
+      "importance": 75
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "Open-Meteo预报显示（2026-08-18至2026-08-24），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括加拉信约121.7mm、乌隆他尼约118.3mm、黎府约117.4mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：Open-Meteo（https://api.open-meteo.com/v1/forecast）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "Open-Meteo",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "published_date_local": "2026-08-17",
+      "event_date": "2026-08-18",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_open_meteo_20260817",
+      "importance": 78
+    }
+  ]
+}
