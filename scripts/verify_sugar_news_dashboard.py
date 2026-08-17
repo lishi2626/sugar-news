@@ -2,12 +2,24 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 from urllib.request import Request, urlopen
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+GLOBAL_SUMMARY_BANNED = (
+    "该消息可能影响市场情绪",
+    "对糖价具有参考意义",
+    "涉及巴西食糖价格或市场流通变化",
+    "价格变化会影响贸易商采购和终端补库",
+    "行业发展值得持续关注",
+    "相关政策可能对市场产生影响",
+    "市场仍需关注后续变化",
+    "关键数据包括",
+    "数据为",
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -35,6 +47,15 @@ def load_json(path_or_url: str):
 def verify_payload(payload: dict, expected_date: str) -> dict:
     if payload.get("newsDate") != expected_date:
         raise AssertionError(f"newsDate mismatch: {payload.get('newsDate')} != {expected_date}")
+    public_payload_text = json.dumps(payload, ensure_ascii=False)
+    if "news.google.com" in public_payload_text or "Google News RSS" in public_payload_text:
+        raise AssertionError("Public dashboard payload must not expose Google News RSS discovery links")
+    global_summary = str(payload.get("globalHighlights") or "").strip()
+    sentences = [part.strip() for part in re.split(r"[。！？]+", global_summary) if part.strip()]
+    if not 2 <= len(sentences) <= 3:
+        raise AssertionError("Global highlights summary must be 2-3 Chinese sentences")
+    if any(phrase in global_summary for phrase in GLOBAL_SUMMARY_BANNED):
+        raise AssertionError("Global highlights summary contains vague wording")
     countries = payload.get("countries") or []
     if any(not c.get("items") for c in countries):
         raise AssertionError("Dashboard payload contains empty country section")
@@ -50,9 +71,9 @@ def verify_payload(payload: dict, expected_date: str) -> dict:
         elif name == "泰国":
             positions.append(2)
         elif name == "中国":
-            positions.append(3)
-        else:
             positions.append(4)
+        else:
+            positions.append(3)
         for item in country.get("items", []):
             count += 1
             if name == "中国":
@@ -60,14 +81,16 @@ def verify_payload(payload: dict, expected_date: str) -> dict:
             for field in ("news", "impactType", "impact", "sourceName", "sourceUrl"):
                 if not item.get(field):
                     raise AssertionError(f"Item missing {field}")
+            if "news.google.com" in item["sourceUrl"]:
+                raise AssertionError("Item sourceUrl must point to the original source, not Google News")
             if item["impactType"] not in {"偏多糖价", "偏空糖价", "利多", "利空", "中性", "影响有限"}:
                 raise AssertionError(f"Invalid impactType: {item['impactType']}")
+            if item.get("impactLabel") not in {"影响：利多糖价", "影响：利空糖价", "影响：中性"}:
+                raise AssertionError(f"Invalid impactLabel: {item.get('impactLabel')}")
             if any(text in item["news"] for text in ("暂无新闻", "暂无最新数据", "暂无最新对比数据")):
                 raise AssertionError("Placeholder wording found")
     if positions != sorted(positions):
         raise AssertionError("Country order mismatch")
-    if china_count < 1:
-        raise AssertionError("Dashboard payload must contain a China section item")
     brazil_metrics = payload.get("brazilMetrics")
     if not isinstance(brazil_metrics, dict):
         raise AssertionError("Dashboard payload missing brazilMetrics")

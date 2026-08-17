@@ -12,12 +12,15 @@ from pathlib import Path
 from openpyxl import load_workbook
 from openpyxl.styles import Alignment
 
-from sugar_news_pipeline import validate_editorial_quality as validate_concrete_editorial_quality
+from sugar_news_pipeline import (
+    ensure_news_impact_marker,
+    validate_editorial_quality as validate_concrete_editorial_quality,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "templates" / "新闻格式.xlsx"
-GROUP_ORDER = {"巴西": 0, "印度": 1, "泰国": 2, "中国": 3, "其他国家": 4}
+GROUP_ORDER = {"巴西": 0, "印度": 1, "泰国": 2, "其他国家": 3, "中国": 4}
 IMPACT_PREFIXES = ("偏多糖价：", "偏空糖价：", "利多：", "利空：", "中性：", "影响有限：")
 PLACEHOLDERS = (
     "暂无新闻",
@@ -222,6 +225,7 @@ def normalized_items(data: dict) -> list[dict]:
             raise ValueError(f"Item {idx + 1} has unaccepted date: {item['published_date_local']}")
         if not any(item["impact"].startswith(prefix) for prefix in IMPACT_PREFIXES):
             raise ValueError(f"Item {idx + 1} impact must start with one of {IMPACT_PREFIXES}")
+        item["news"] = ensure_news_impact_marker(item["news"], item["impact"])
         if any(text in item["news"] or text in item["impact"] for text in PLACEHOLDERS):
             raise ValueError(f"Item {idx + 1} contains placeholder/missing-data wording")
         if "LMT" in item["news"].upper() or " LMT" in item["impact"].upper() or "lmt" in item["news"]:
@@ -349,9 +353,9 @@ def validate_saved_excel(output: Path, items: list[dict]) -> dict:
         elif row["country"] == "泰国":
             group_positions.append(2)
         elif row["country"] == "中国":
-            group_positions.append(3)
-        else:
             group_positions.append(4)
+        else:
+            group_positions.append(3)
 
     checks = {
         "headers_ok": [ws.cell(1, col).value for col in range(1, 4)] == ["国家", "新闻", "影响"],

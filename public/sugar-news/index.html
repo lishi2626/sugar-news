@@ -110,6 +110,22 @@
       flex: 0 0 auto;
     }
     main { padding: 22px 0 36px; }
+    .global-highlights {
+      margin: 0 0 18px;
+      padding: 16px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .global-highlights h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .global-highlights p {
+      margin: 0;
+      font-size: 15px;
+    }
     .country {
       padding: 20px 0 12px;
       border-bottom: 1px solid var(--line);
@@ -292,6 +308,13 @@
       word-break: break-word;
     }
     .source:hover { text-decoration: underline; }
+    .impact-marker {
+      display: block;
+      margin-top: 4px;
+      color: #364152;
+      font-size: 14px;
+      font-weight: 600;
+    }
     .impact {
       border-left: 3px solid var(--limited);
       padding-left: 12px;
@@ -466,6 +489,21 @@
 
     function isIndiaCountry(name) {
       return name === "印度" || name === "ӡ��";
+    }
+
+    function countryRank(name) {
+      if (isBrazilCountry(name)) return 0;
+      if (isIndiaCountry(name)) return 1;
+      if (name === "泰国") return 2;
+      if (name === "中国") return 4;
+      return 3;
+    }
+
+    function itemImpactLabel(item) {
+      if (item.impactLabel) return item.impactLabel;
+      if (item.impactType === "偏多糖价" || item.impactType === "利多") return "影响：利多糖价";
+      if (item.impactType === "偏空糖价" || item.impactType === "利空") return "影响：利空糖价";
+      return "影响：中性";
     }
 
     function formatNumber(value, digits = 2) {
@@ -863,17 +901,26 @@
       dateEl.textContent = `新闻日期：${cnDate(payload.newsDate)}`;
       updatedEl.textContent = `最后更新时间：${cnTime(payload.updatedAt)}（北京时间）`;
       contentEl.innerHTML = "";
+      const highlights = (payload.globalHighlights || payload.globalSummary || "").trim();
+      if (highlights) {
+        const highlightSection = document.createElement("section");
+        highlightSection.className = "global-highlights";
+        const heading = document.createElement("h2");
+        heading.textContent = "全球糖业新闻重点";
+        const body = document.createElement("p");
+        body.textContent = highlights;
+        highlightSection.append(heading, body);
+        contentEl.appendChild(highlightSection);
+      }
       const displayCountries = (payload.countries || [])
         .filter(country => country.items && country.items.length);
       if (payload.brazilMetrics && !displayCountries.some(country => isBrazilCountry(country.country))) {
-        displayCountries.unshift({ country: "巴西", items: [], metricsOnly: true });
+        displayCountries.push({ country: "巴西", items: [], metricsOnly: true });
       }
       if (payload.indiaMetrics && !displayCountries.some(country => country.country === "印度")) {
-        const insertAt = displayCountries.findIndex(country => country.country === "泰国" || country.country === "中国");
-        const indiaSection = { country: "印度", items: [], metricsOnly: true };
-        if (insertAt === -1) displayCountries.push(indiaSection);
-        else displayCountries.splice(insertAt, 0, indiaSection);
+        displayCountries.push({ country: "印度", items: [], metricsOnly: true });
       }
+      displayCountries.sort((left, right) => countryRank(left.country) - countryRank(right.country));
       displayCountries.forEach(country => {
           const section = document.createElement("section");
           section.className = "country";
@@ -902,7 +949,10 @@
             source.target = "_blank";
             source.rel = "noopener noreferrer";
             source.textContent = `来源：${item.sourceName}`;
-            newsBox.append(news, source);
+            const marker = document.createElement("span");
+            marker.className = "impact-marker";
+            marker.textContent = itemImpactLabel(item);
+            newsBox.append(news, source, marker);
             const impact = document.createElement("div");
             impact.className = `impact ${impactClass(item.impactType)}`;
             const type = document.createElement("strong");

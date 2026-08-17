@@ -49,6 +49,7 @@ from sugar_news_pipeline import (
     rss_summary_for_publication,
     success_exists,
     structured_candidate_from_rss,
+    strip_public_fetch_logs,
     rss_sugar_relevant,
     tmd_thai_weather_item_from_text,
     validate_editorial_quality,
@@ -568,7 +569,7 @@ def test_thailand_weather_is_added_to_existing_verified_news() -> None:
 
 def test_thailand_weather_fallback_recovers_existing_dated_item() -> None:
     data = {
-        "target_date": "2026-07-23",
+        "target_date": "2026-08-16",
         "items": [],
     }
 
@@ -577,7 +578,7 @@ def test_thailand_weather_fallback_recovers_existing_dated_item() -> None:
 
     updated, log = ensure_thai_weather_item(
         data,
-        "2026-07-23",
+        "2026-08-16",
         fetcher=failed_fetch,
         open_meteo_fetcher=failed_fetch,
     )
@@ -585,7 +586,7 @@ def test_thailand_weather_fallback_recovers_existing_dated_item() -> None:
     assert log["fallback"]["retained_count"] == 1
     item = updated["items"][0]
     assert item["country_group"] == "泰国"
-    assert item["published_date_local"] == "2026-07-23"
+    assert item["published_date_local"] == "2026-08-16"
     assert item["source_url"] in item["news"]
     assert "降雨" in item["news"]
 
@@ -1247,19 +1248,17 @@ def test_brazil_snapshot_retains_previous_success_when_history_is_empty() -> Non
         assert snapshot[field]["source_data_date"]
 
 
-def test_china_column_is_mandatory_every_day() -> None:
+def test_china_search_logs_without_public_placeholder_when_no_item() -> None:
     skill = (PROJECT_ROOT / ".codex" / "skills" / "sugar-news-editorial-rules" / "SKILL.md").read_text(encoding="utf-8")
-    assert "The China column is mandatory in every daily Sugar News report." in skill
+    assert "China search is mandatory every day" in skill
+    assert "public placeholder" in skill
     updated, log = ensure_china_news_item(
         {"target_date": "2099-01-01", "items": []},
         "2099-01-01",
     )
     china_items = [item for item in updated["items"] if item["country_group"] == "中国"]
-    assert len(china_items) == 1
-    assert china_items[0]["title"] == "中国糖业每日监测"
-    assert china_items[0]["impact"].startswith("中性：")
-    assert log["status"] == "added_monitoring_note"
-    validate_editorial_quality(china_items[0], 1)
+    assert len(china_items) == 0
+    assert log["status"] == "completed_no_publishable_item"
 
 
 def test_confirmed_china_items_are_added_for_20260725() -> None:
@@ -1288,26 +1287,35 @@ def test_news_only_repair_preserves_existing_dashboard_metrics() -> None:
         "indiaMetrics": {"dataDate": "changed"},
     }
     preserved = preserve_existing_dashboard_metrics("2026-07-25", candidate)
-    assert preserved["brazilMetrics"] == existing["brazilMetrics"]
-    assert preserved["indiaMetrics"] == existing["indiaMetrics"]
+    assert preserved["brazilMetrics"] == strip_public_fetch_logs(existing["brazilMetrics"])
+    assert preserved["indiaMetrics"] == strip_public_fetch_logs(existing["indiaMetrics"])
 
 
-def test_dashboard_verifier_requires_china_output() -> None:
-    report = read_json(
+def test_dashboard_verifier_allows_no_china_placeholder() -> None:
+    report = strip_public_fetch_logs(read_json(
         PROJECT_ROOT / "public" / "sugar-news" / "data" / "reports" / "2026" / "07" / "2026-07-25.json"
+    ))
+    report["globalHighlights"] = (
+        "全球糖业新闻重点集中在中国进口甘蔗增长、国内库存变化和云南糖价调整。"
+        "利多因素是库存下降会削弱现货供应缓冲，利空因素是进口增加会补充国内可用糖源。"
+        "国际糖价主要矛盾在供应补充与库存消化之间，短期以震荡判断为宜。"
     )
+    for country in report["countries"]:
+        for item in country.get("items", []):
+            if item.get("impactType") in {"偏多糖价", "利多"}:
+                item["impactLabel"] = "影响：利多糖价"
+            elif item.get("impactType") in {"偏空糖价", "利空"}:
+                item["impactLabel"] = "影响：利空糖价"
+            else:
+                item["impactLabel"] = "影响：中性"
     result = verify_payload(report, "2026-07-25")
     assert result["chinaItemCount"] == 4
     missing_china = dict(report)
     missing_china["countries"] = [
         country for country in report["countries"] if country["country"] != "中国"
     ]
-    try:
-        verify_payload(missing_china, "2026-07-25")
-    except AssertionError as exc:
-        assert "China section" in str(exc)
-    else:
-        raise AssertionError("Production verifier accepted a report without China output")
+    missing_result = verify_payload(missing_china, "2026-07-25")
+    assert missing_result["chinaItemCount"] == 0
 
 
 def main() -> None:
@@ -1355,10 +1363,10 @@ def main() -> None:
         test_brazil_dashboard_does_not_show_fetch_time_or_report_as_date,
         test_brazil_dashboard_refresh_date_matches_news_and_cards_use_source_dates,
         test_brazil_snapshot_retains_previous_success_when_history_is_empty,
-        test_china_column_is_mandatory_every_day,
+        test_china_search_logs_without_public_placeholder_when_no_item,
         test_confirmed_china_items_are_added_for_20260725,
         test_news_only_repair_preserves_existing_dashboard_metrics,
-        test_dashboard_verifier_requires_china_output,
+        test_dashboard_verifier_allows_no_china_placeholder,
     ]
     for test in tests:
         test()

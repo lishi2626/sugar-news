@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import codecs
 import hashlib
 from html import unescape
 import json
@@ -15,7 +16,7 @@ from copy import copy
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
-from urllib.parse import quote_plus
+from urllib.parse import quote_plus, urlencode
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
@@ -44,7 +45,7 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
-GROUP_ORDER = {"巴西": 0, "印度": 1, "泰国": 2, "中国": 3, "其他国家": 4}
+GROUP_ORDER = {"巴西": 0, "印度": 1, "泰国": 2, "其他国家": 3, "中国": 4}
 COUNTRY_ALIASES = {
     "中国": ("china", "中国", "广西", "云南", "郑糖"),
     "巴西": ("brazil", "brasil", "brazilian", "巴西", "sao paulo", "centro-sul", "caarapó", "caarapo", "raízen", "raizen", "adecoagro"),
@@ -95,18 +96,27 @@ PLACEHOLDERS = (
 )
 VAGUE_SUMMARY_PHRASES = (
     "关键数据包括",
+    "指标包括",
     "数据为",
+    "已披露具体事件方向但标题缺少数值",
     "具体幅度未披露",
     "涉及食糖价格或市场流通变化",
+    "涉及巴西食糖价格或市场流通变化",
     "对市场具有参考意义",
+    "对糖价具有参考意义",
+    "该消息可能影响市场情绪",
     "可能影响市场情绪",
     "将影响贸易商采购和终端补库",
+    "价格变化会影响贸易商采购和终端补库",
     "市场关注相关变化",
     "对糖价走势产生一定影响",
     "相关消息值得关注",
+    "行业发展值得持续关注",
     "行业发展迎来新变化",
     "供需格局可能发生变化",
+    "相关政策可能对市场产生影响",
     "后续影响仍需观察",
+    "市场仍需关注后续变化",
     "该事项对食糖供应、需求或价格的影响仍需结合后续政策、产量和贸易数据继续跟踪",
     "该信息需要继续跟踪，短期对当期糖产量和出口量的直接影响有限",
     "相关变化可能影响糖料供应、压榨节奏或加工能力",
@@ -128,6 +138,7 @@ VAGUE_SUMMARY_PHRASES = (
     "产区天气或病虫害变化会影响甘蔗生长、收割和糖料供应稳定性",
     "主产区农业或气象机构预警甘蔗产区天气、干旱或病虫害",
 )
+NEWS_IMPACT_MARKER_RE = re.compile(r"\s*。?影响：(?:利多糖价|利空糖价|中性)\s*$")
 VAGUE_SUMMARY_PATTERNS = (
     re.compile(r"[^。！？]{0,50}消息涉及[^。！？]{0,80}(?:变化|安排|运行|市场|糖业)"),
     re.compile(r"(?:该事项|该信息|相关变化)[^。！？]{0,80}(?:继续跟踪|参考意义|影响有限)"),
@@ -137,6 +148,7 @@ VAGUE_SUMMARY_PATTERNS = (
 NEWS_ACTION_TERMS = (
     "宣布", "公布", "发布", "批准", "要求", "计划", "拟", "预计", "预报", "预测",
     "提高", "上调", "下调", "降低", "上涨", "下跌", "增加", "减少", "增长", "下降",
+    "达到", "转向", "改为", "支持",
     "扩大", "收紧", "放宽", "限制", "禁止", "取消", "暂停", "恢复", "关闭", "启动",
     "开榨", "收榨", "压榨", "生产", "产糖", "进口", "出口", "销售", "采购", "库存",
     "报价", "收购价", "配额", "关税", "补贴", "融资", "收购", "出售", "扩建", "停产",
@@ -194,11 +206,15 @@ def load_editorial_skill_metadata() -> dict:
             "食糖进口",
             "郑糖",
             "糖料产区",
-            "China column is mandatory",
+            "China search is mandatory",
+            "public placeholder",
         ),
         "brazil_metrics_daily": ("巴西糖价与库存每日刷新", "brazil_sugar_metrics.py", "Vercel"),
         "pre_publish": ("Pre-Publish Quality Checks", "Stop publication"),
         "concrete_news_summary": ("who did what", "concrete change", "消息涉及", "media outlet as the event subject"),
+        "global_highlights": ("全球糖业新闻重点", "15美分/磅", "2-3 Chinese sentences"),
+        "impact_marker": ("影响：利多糖价", "影响：利空糖价", "影响：中性"),
+        "country_order": ("巴西", "印度", "泰国", "其他国家", "中国"),
         "two_stage_search": ("Two-Stage Search And Candidate Verification", "Country source matrix", "latest 36 hours", "Required regression topics"),
     }
     missing = [
@@ -939,6 +955,89 @@ def fetch_rss(query: str, timeout: int = 15) -> list[dict]:
     return items
 
 
+def google_news_article_id(link: str) -> str | None:
+    match = re.search(r"https?://news\.google\.com/rss/articles/([^?/#]+)", link or "")
+    return match.group(1) if match else None
+
+
+def decode_google_news_source_url(link: str, timeout: int | None = None) -> tuple[str, dict]:
+    """Resolve Google News RSS article links to the original publisher URL."""
+    article_id = google_news_article_id(link)
+    if not article_id:
+        return link, {"status": "not_google_news"}
+    timeout = timeout or max(8, RSS_AUTOGEN_TIMEOUT_SECONDS * 2)
+    article_url = f"https://news.google.com/rss/articles/{article_id}?oc=5"
+    try:
+        req = Request(article_url, headers={"User-Agent": "Mozilla/5.0"})
+        with urlopen(req, timeout=timeout) as resp:
+            html = resp.read().decode("utf-8", "ignore")
+        ts_match = re.search(r'data-n-a-ts="([^"]+)"', html)
+        sig_match = re.search(r'data-n-a-sg="([^"]+)"', html)
+        if not ts_match or not sig_match:
+            return link, {"status": "failed", "reason": "missing_google_news_signature"}
+
+        request_payload = [
+            "garturlreq",
+            [
+                [
+                    "en-US",
+                    "US",
+                    ["FINANCE_TOP_INDICES", "WEB_TEST_1_0_0"],
+                    None,
+                    None,
+                    1,
+                    1,
+                    "US:en",
+                    None,
+                    180,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    0,
+                    None,
+                    None,
+                    [1608992183, 723341000],
+                ],
+                "en-US",
+                "US",
+                1,
+                [2, 3, 4, 8],
+                1,
+                0,
+                "655000234",
+                0,
+                0,
+                None,
+                0,
+            ],
+            article_id,
+            int(ts_match.group(1)),
+            sig_match.group(1),
+        ]
+        batched = [[["Fbv4je", json.dumps(request_payload, separators=(",", ":")), None, "generic"]]]
+        body = urlencode({"f.req": json.dumps(batched, separators=(",", ":"))}).encode()
+        req = Request(
+            "https://news.google.com/_/DotsSplashUi/data/batchexecute?rpcids=Fbv4je",
+            data=body,
+            headers={
+                "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
+                "Referer": "https://news.google.com/",
+                "User-Agent": "Mozilla/5.0",
+            },
+        )
+        with urlopen(req, timeout=timeout) as resp:
+            text = resp.read().decode("utf-8", "ignore")
+        match = re.search(r'\[\\"garturlres\\",\\"(.*?)\\",', text)
+        if not match:
+            return link, {"status": "failed", "reason": "decode_response_without_source_url"}
+        resolved = codecs.decode(match.group(1), "unicode_escape")
+        return resolved, {"status": "resolved", "googleNewsUrl": link}
+    except Exception as exc:
+        return link, {"status": "failed", "reason": str(exc)[:300]}
+
+
 def fallback_discovery(date_text: str, task_root: Path) -> None:
     """Record auditable search attempts.
 
@@ -1372,7 +1471,9 @@ def is_non_industry_sugar_context(text: str) -> bool:
     return any_phrase(text, NON_INDUSTRY_SUGAR_TERMS)
 
 
-SOURCE_SUFFIX_RE = re.compile(r"\s*来源：[^（]+（https?://[^）]+）\s*$")
+SOURCE_SUFFIX_RE = re.compile(
+    r"\s*来源：[^（]+（https?://[^）]+）(?:。?影响：(?:利多糖价|利空糖价|中性))?\s*$"
+)
 PUBLICATION_LEAD_RE = re.compile(
     r"^\s*(?:\d{4}-\d{2}-\d{2}\s+)?[^。！？]{0,40}(?:报道|消息|发布|称)[:：]"
 )
@@ -1383,6 +1484,26 @@ ORDINARY_PUBLICATION_RE = re.compile(
 
 def news_body_without_source(news: str) -> str:
     return SOURCE_SUFFIX_RE.sub("", news or "").strip()
+
+
+def impact_marker_from_impact(impact: str) -> str:
+    if impact.startswith(("偏多糖价：", "利多：")):
+        return "影响：利多糖价"
+    if impact.startswith(("偏空糖价：", "利空：")):
+        return "影响：利空糖价"
+    return "影响：中性"
+
+
+def ensure_news_impact_marker(news: str, impact: str) -> str:
+    label = impact_marker_from_impact(impact)
+    stripped = NEWS_IMPACT_MARKER_RE.sub("", (news or "").strip()).rstrip("。")
+    return f"{stripped}。{label}"
+
+
+def validate_news_impact_marker(item: dict, idx: int) -> None:
+    expected = impact_marker_from_impact(str(item.get("impact", "")))
+    if not str(item.get("news", "")).strip().endswith(expected):
+        raise ValueError(f"Verified item {idx} must end B-column news with {expected}")
 
 
 def split_cn_sentences(text: str) -> list[str]:
@@ -1483,7 +1604,7 @@ def validate_editorial_quality(item: dict, idx: int) -> None:
     sentences = split_cn_sentences(body)
     if not 2 <= len(sentences) <= 3:
         raise ValueError(f"Verified item {idx} summary must be 2-3 Chinese sentences, got {len(sentences)}")
-    if PUBLICATION_LEAD_RE.search(body):
+    if PUBLICATION_LEAD_RE.search(body) and not body.startswith(("周末延续消息：", "近期重要消息：")):
         raise ValueError(f"Verified item {idx} starts with source/publication-date reporting formula")
     if ORDINARY_PUBLICATION_RE.search(body):
         raise ValueError(f"Verified item {idx} repeats ordinary publication date wording")
@@ -1495,6 +1616,83 @@ def validate_editorial_quality(item: dict, idx: int) -> None:
         raise ValueError(f"Verified item {idx} country_group={item.get('country_group')} conflicts with core country {inferred_country}")
     if inferred_group == "其他国家" and inferred_country not in {"其他", "其他国家"} and item.get("country") in {"其他", "其他国家"}:
         raise ValueError(f"Verified item {idx} must label other-country item as {inferred_country}")
+
+
+def validate_global_summary(summary: str) -> str:
+    text = re.sub(r"\s+", " ", (summary or "").strip())
+    if not text:
+        raise ValueError("Global sugar highlights summary is required")
+    if not has_chinese_text(text):
+        raise ValueError("Global sugar highlights must be written in Chinese")
+    sentences = split_cn_sentences(text)
+    if not 2 <= len(sentences) <= 3:
+        raise ValueError(f"Global sugar highlights must be 2-3 Chinese sentences, got {len(sentences)}")
+    validate_no_vague_summary({"title": "全球糖业新闻重点"}, 0, text, "")
+    if "震荡偏强" in text and not re.search(r"15\s*美分/磅", text):
+        raise ValueError("Global summary may use 震荡偏强 only with the ICE raw sugar 15 cents/lb condition")
+    if not any(country in text for country in ("巴西", "印度", "泰国", "中国", "菲律宾", "全球", "国际")):
+        raise ValueError("Global summary must name at least one country or global market subject")
+    if not any(term in text for term in ("利多", "支撑", "减少", "收紧", "利空", "压制", "增加", "供应", "需求", "库存", "天气", "乙醇")):
+        raise ValueError("Global summary must describe concrete bullish/bearish supply-demand factors")
+    return text
+
+
+def item_primary_fact(item: dict) -> str:
+    body = news_body_without_source(str(item.get("news", "")))
+    sentences = split_cn_sentences(body)
+    return sentences[0] if sentences else body
+
+
+def item_impact_fact(item: dict) -> str:
+    body = news_body_without_source(str(item.get("news", "")))
+    sentences = split_cn_sentences(body)
+    if len(sentences) >= 2:
+        return sentences[1]
+    return item_primary_fact(item)
+
+
+def compact_fact(text: str, limit: int = 88) -> str:
+    text = re.sub(r"\s+", "", text.strip("。；; "))
+    if len(text) <= limit:
+        return text
+    return text[:limit].rstrip("，、；;") + "…"
+
+
+def build_global_summary_from_items(items: list[dict]) -> str:
+    if not items:
+        raise ValueError("Cannot build global summary without verified news items")
+    event_bits = [compact_fact(item_primary_fact(item), 78) for item in items[:3]]
+    first = "全球糖业新闻重点集中在" + "；".join(event_bits) + "。"
+
+    bullish = [compact_fact(item_impact_fact(item), 70) for item in items if item["impact"].startswith(("偏多糖价：", "利多："))]
+    bearish = [compact_fact(item_impact_fact(item), 70) for item in items if item["impact"].startswith(("偏空糖价：", "利空："))]
+    neutral = [compact_fact(item_impact_fact(item), 70) for item in items if item["impact"].startswith(("中性：", "影响有限："))]
+    factor_parts = []
+    if bullish:
+        factor_parts.append("利多因素是" + bullish[0])
+    if bearish:
+        factor_parts.append("利空因素是" + bearish[0])
+    if not factor_parts and neutral:
+        factor_parts.append("中性因素是" + neutral[0])
+    second = "；".join(factor_parts) + "。"
+
+    if bullish and bearish:
+        third = "国际糖价的主要矛盾在供应收缩预期与阶段性供应或需求压力之间，ICE原糖未持续站上15美分/磅前以震荡判断为宜。"
+    elif bullish:
+        third = "国际糖价主要受供应收缩或乙醇分流预期支撑，但ICE原糖未持续站上15美分/磅前不使用震荡偏强表述。"
+    elif bearish:
+        third = "国际糖价主要受供应改善、天气恢复或流通增加压力牵制，短期以震荡判断为宜。"
+    else:
+        third = "国际糖价缺少新的单边供需冲击，短期以震荡判断为宜。"
+    return validate_global_summary(first + second + third)
+
+
+def global_summary_for_report(items: list[dict], verified_data: dict | None = None) -> str:
+    verified_data = verified_data or {}
+    provided = verified_data.get("global_summary") or verified_data.get("globalHighlights")
+    if provided:
+        return validate_global_summary(str(provided))
+    return build_global_summary_from_items(items)
 
 
 def infer_core_country(text: str, fallback_country: str) -> tuple[str, str]:
@@ -1763,8 +1961,8 @@ def supply_demand_metric_text(candidate: dict, metrics: list[str]) -> str:
     if percent:
         return f"{prefix}{label}变化幅度为{percent}"
     if metrics:
-        return f"{label}指标包括{'、'.join(metrics[:4])}"
-    return f"{label}方向已披露但标题缺少具体数值"
+        return f"{prefix}{label}相关数值为{'、'.join(metrics[:4])}"
+    raise ValueError(f"{label}RSS候选缺少可核验数值或方向")
 
 
 def metric_text_for_candidate(candidate: dict, metrics: list[str]) -> str:
@@ -1783,7 +1981,7 @@ def metric_text_for_candidate(candidate: dict, metrics: list[str]) -> str:
                 return f"糖价{period}下跌{percent}"
             return f"糖价变动幅度为{percent}"
         if metrics:
-            return f"价格指标包括{'、'.join(metrics[:4])}"
+            return f"糖价相关数值为{'、'.join(metrics[:4])}"
         raise ValueError("price-market RSS title lacks price level or change amount")
     if topic == "weather_pest":
         area_metric = next((metric for metric in metrics if "公顷" in metric or "hectare" in metric.lower()), "")
@@ -1796,11 +1994,11 @@ def metric_text_for_candidate(candidate: dict, metrics: list[str]) -> str:
         if "seeks national aid" in lowered_title and any_phrase(lowered_title, ("pest", "sugarcane pest")):
             return "因甘蔗虫害扩散寻求国家援助"
         if metrics:
-            return f"病虫害或天气指标包括{'、'.join(metrics[:4])}"
+            return f"病虫害或天气数值为{'、'.join(metrics[:4])}"
         return "已说明甘蔗虫害扩散或产区天气风险"
     if metrics:
-        return "指标包括" + "、".join(metrics[:4])
-    return "已披露具体事件方向但标题缺少数值"
+        return "相关数值为" + "、".join(metrics[:4])
+    raise ValueError("RSS候选缺少可核验数值、政策条款、生产、贸易、价格或天气事实")
 
 
 def supply_demand_transmission(candidate: dict) -> str:
@@ -2457,16 +2655,10 @@ def ensure_china_news_item(data: dict, report_date: str) -> tuple[dict, dict]:
         )
         return data, log
 
-    note = china_monitoring_note(report_date)
-    validate_editorial_quality(note, len(items) + 1)
-    additions = [note]
-    log["status"] = "added_monitoring_note"
-    log["reason"] = "China search completed without a publishable event; added a transparent monitoring result instead of omitting the country."
-
-    updated = dict(data)
-    updated["items"] = [*items, *additions]
-    log["retained_count"] = len(additions)
-    return updated, log
+    log["status"] = "completed_no_publishable_item"
+    log["reason"] = "China search completed without a publishable event; no public placeholder row was added."
+    log["retained_count"] = 0
+    return data, log
 
 
 def persist_verified_news(task_root: Path, report_date: str, data: dict) -> Path:
@@ -2652,6 +2844,17 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
                     continue
                 seen.add(key)
                 link = rss.get("link", "").strip()
+                source_url, source_url_resolution = decode_google_news_source_url(link)
+                candidate_record["source_url"] = source_url
+                candidate_record["source_url_resolution"] = source_url_resolution
+                if google_news_article_id(source_url):
+                    candidate_record["verification_status"] = "不采用"
+                    candidate_record["drop_reason"] = "Google News RSS link could not be resolved to the original source"
+                    entry["filtered"].append({
+                        "title": title_raw,
+                        "reason": "Google News RSS link could not be resolved to the original source",
+                    })
+                    continue
                 try:
                     news, impact = rss_summary_for_publication(candidate_record)
                     candidate = normalize_country_fields({
@@ -2661,7 +2864,7 @@ def autogenerate_verified_from_rss(task_root: Path, date_text: str) -> Path:
                         "news": news,
                         "impact": impact,
                         "source_name": source,
-                        "source_url": link,
+                        "source_url": source_url,
                         "published_date_local": item_date or date_text,
                         "event_date": candidate_record["event_date"],
                         "date_status": "verified" if item_date == date_text else "continuing_impact",
@@ -2889,6 +3092,8 @@ def normalize_items(data: dict) -> list[dict]:
                 raise ValueError(f"Verified item {idx} missing {field}")
         if not item["impact"].startswith(IMPACT_PREFIXES):
             raise ValueError(f"Verified item {idx} has invalid impact prefix")
+        item["news"] = ensure_news_impact_marker(item["news"], item["impact"])
+        validate_news_impact_marker(item, idx)
         if any(text in item["news"] or text in item["impact"] for text in PLACEHOLDERS):
             raise ValueError(f"Verified item {idx} contains placeholder wording")
         if re.search(r"\bLMT\b|lmt", item["news"]):
@@ -3567,6 +3772,14 @@ def normalize_brazil_metrics(date_text: str) -> dict:
     }
 
 
+def strip_public_fetch_logs(value):
+    if isinstance(value, dict):
+        return {k: strip_public_fetch_logs(v) for k, v in value.items() if k != "fetchLog"}
+    if isinstance(value, list):
+        return [strip_public_fetch_logs(item) for item in value]
+    return value
+
+
 def build_dashboard_payload(date_text: str, items: list[dict], excel_file: Path, verified_data: dict | None = None) -> dict:
     grouped: dict[str, list[dict]] = defaultdict(list)
     country_order: list[tuple[int, int, str]] = []
@@ -3576,6 +3789,7 @@ def build_dashboard_payload(date_text: str, items: list[dict], excel_file: Path,
             "news": re.sub(r"\s*来源：.*$", "", item["news"]).strip(),
             "impactType": impact_type,
             "impact": impact_text.strip(),
+            "impactLabel": impact_marker_from_impact(item["impact"]),
             "sourceName": item["source_name"],
             "sourceUrl": item["source_url"],
             "publishedDateLocal": item["published_date_local"],
@@ -3597,8 +3811,9 @@ def build_dashboard_payload(date_text: str, items: list[dict], excel_file: Path,
         "updatedAt": beijing_now().isoformat(timespec="seconds"),
         "timezone": "Asia/Shanghai",
         "excelFile": project_display_path(excel_file),
-        "brazilMetrics": normalize_brazil_metrics(date_text),
-        "indiaMetrics": normalize_india_metrics(verified_data or {}, date_text),
+        "globalHighlights": global_summary_for_report(items, verified_data),
+        "brazilMetrics": strip_public_fetch_logs(normalize_brazil_metrics(date_text)),
+        "indiaMetrics": strip_public_fetch_logs(normalize_india_metrics(verified_data or {}, date_text)),
         "countries": countries,
     }
 
@@ -3612,7 +3827,7 @@ def preserve_existing_dashboard_metrics(date_text: str, payload: dict) -> dict:
     preserved = dict(payload)
     for field in ("brazilMetrics", "indiaMetrics"):
         if isinstance(existing.get(field), dict):
-            preserved[field] = existing[field]
+            preserved[field] = strip_public_fetch_logs(existing[field])
     return preserved
 
 
@@ -3662,8 +3877,6 @@ def validate_all(date_text: str, items: list[dict], excel_file: Path, report_pat
         index = json.load(f)
     dashboard_count = sum(len(c.get("items", [])) for c in report.get("countries", []))
     expected_china = sum(1 for item in items if item["country_group"] == "中国" or item["country"] == "中国")
-    if expected_china < 1:
-        raise ValueError("Daily Sugar News must contain a China section item")
     actual_china = sum(
         len(c.get("items", []))
         for c in report.get("countries", [])
@@ -3681,6 +3894,7 @@ def validate_all(date_text: str, items: list[dict], excel_file: Path, report_pat
         raise ValueError("Dashboard must not collapse other countries into a single 其他 section")
     if actual_china != expected_china:
         raise ValueError(f"China dashboard count mismatch: {actual_china} != {expected_china}")
+    global_summary = validate_global_summary(str(report.get("globalHighlights", "")))
     brazil_metrics = report.get("brazilMetrics")
     if not isinstance(brazil_metrics, dict):
         raise ValueError("Dashboard missing brazilMetrics")
@@ -3762,9 +3976,9 @@ def validate_all(date_text: str, items: list[dict], excel_file: Path, report_pat
         elif row["country"] == "泰国":
             group_positions.append(2)
         elif row["country"] == "中国":
-            group_positions.append(3)
-        else:
             group_positions.append(4)
+        else:
+            group_positions.append(3)
     checks = {
         "verified_count": len(items),
         "excel_count": len(excel_rows),
@@ -3772,6 +3986,7 @@ def validate_all(date_text: str, items: list[dict], excel_file: Path, report_pat
         "excel_matches_verified": True,
         "dashboard_matches_verified": True,
         "country_order_ok": group_positions == sorted(group_positions),
+        "global_summary_sentences": len(split_cn_sentences(global_summary)),
         "no_empty_country_sections": True,
         "counts_by_country": dict(Counter(item["country"] for item in items)),
         "china_count": expected_china,
@@ -3800,8 +4015,8 @@ def china_monitoring_log(items: list[dict]) -> dict:
             "郑州商品交易所",
             "权威期货公司、研究机构及糖厂公告",
         ],
-        "column_required": True,
-        "note": "China sugar monitoring completed; required China output is present" if china_items else "ERROR: required China output is missing",
+        "column_required": False,
+        "note": "China sugar monitoring completed; public China output is present" if china_items else "China sugar monitoring completed; no publishable China item found",
     }
 
 
