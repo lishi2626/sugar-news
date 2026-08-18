@@ -1,14 +1,14 @@
 {
   "target_date": "2026-08-17",
   "run_date": "2026-08-18",
-  "search_tool": "Google News RSS autogeneration",
+  "search_tool": "Google News RSS autogeneration + source-page verification",
   "items": [
     {
       "country_group": "印度",
       "country": "印度",
       "title": "Bihar approves Rs 97 crore revival of Sakri sugar mill after 29 years",
-      "news": "印度糖厂发布或调整糖厂运行和压榨安排，相关数值为97 crore、Rs 97。印度糖厂若增加开工或压榨，会加快当季食糖产出；若停产或延后开榨，则阶段性供应收紧。来源：ChiniMandi（https://www.chinimandi.com/bihar-approves-rs-97-crore-revival-of-sakri-sugar-mill-after-29-years/）。影响：利空糖价",
-      "impact": "利空：糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+      "news": "印度比哈尔邦政府批准重建马杜巴尼县Sakri糖厂，并同步推进达尔班加县Raiyam糖厂重建；Sakri项目预计投资约9.7亿卢比，包含食糖和乙醇生产设施，原厂1933年建成、1997年停产。重建将为Madhubani及周边甘蔗提供本地收购和压榨渠道，可能带动甘蔗种植面积恢复并提高印度未来食糖和乙醇加工能力，增加中长期供应预期。项目仍处重建准备期，对短期现货供应影响有限。来源：ChiniMandi（https://www.chinimandi.com/bihar-approves-rs-97-crore-revival-of-sakri-sugar-mill-after-29-years/）。影响：利空糖价",
+      "impact": "利空：糖厂重建和甘蔗面积恢复会提高未来压榨与食糖产出能力，增加印度中长期供应；但项目仍在重建阶段，短期影响有限。",
       "source_name": "ChiniMandi",
       "source_url": "https://www.chinimandi.com/bihar-approves-rs-97-crore-revival-of-sakri-sugar-mill-after-29-years/",
       "published_date_local": "2026-08-17",
@@ -21,18 +21,19 @@
         "publication_time": "Mon, 17 Aug 2026 06:01:32 GMT",
         "event_date": "2026-08-17",
         "event_country": "印度",
-        "event_region": null,
-        "event_actor": "印度糖厂",
-        "event_action": "发布或调整",
+        "event_region": "比哈尔邦Madhubani和Darbhanga",
+        "event_actor": "印度比哈尔邦政府",
+        "event_action": "批准重建",
         "metrics": [
-          "97 crore",
-          "Rs 97"
+          "9.7亿卢比",
+          "1997年停产",
+          "1933年建成"
         ],
         "comparison_period": null,
         "topic": "mill_operations",
         "sugar_relevance": "relevant",
         "impact_direction": "利空",
-        "impact_logic": "糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+        "impact_logic": "糖厂重建和甘蔗面积恢复会提高未来压榨与食糖产出能力，增加印度中长期供应。",
         "verification_status": "已核实",
         "publication_window_status": "in_window",
         "publication_window_reason": "rolling_36_hour_window",
@@ -43,15 +44,15 @@
         },
         "published_to_report": true
       },
-      "dedupe_key": "rss_印度印度糖厂发布或调整97crorers9720260817mill_operations",
+      "dedupe_key": "india_bihar_sakri_sugar_mill_revival_20260817",
       "importance": 90
     },
     {
       "country_group": "印度",
       "country": "印度",
       "title": "Sugar stocks Balrampur Chini, Triveni Engineering, Dhampur Sugar and others rall",
-      "news": "印度糖业相关机构公布库存数据，库存增加7%。库存增加会提高现货供应缓冲，压制补库需求和糖价。来源：The Economic Times（https://m.economictimes.com/markets/stocks/news/sugar-stocks-balrampur-chini-triveni-engineering-dhampur-sugar-and-others-rally-up-to-7-heres-why/articleshow/133288064.cms）。影响：利空糖价",
-      "impact": "利空：库存增加会提高现货供应缓冲，压制补库需求和糖价。",
+      "news": "印度糖业股在8月17日最高上涨约7%，《经济时报》称推动因素包括国际原糖升至16.6美分/磅、白糖触及15个月高位，孟买现货糖价一个月上涨近10%至约5000-5090卢比/公担。价格上涨叠加印度降雨不足和节庆需求预期，反映印度现货供应偏紧和需求前置补库，对国内糖价形成支撑。来源：The Economic Times（https://m.economictimes.com/markets/stocks/news/sugar-stocks-balrampur-chini-triveni-engineering-dhampur-sugar-and-others-rally-up-to-7-heres-why/articleshow/133288064.cms）。影响：利多糖价",
+      "impact": "偏多糖价：现货糖价大幅上涨、雨量偏少和节庆需求预期共同指向印度阶段性供需偏紧，支撑糖价。",
       "source_name": "The Economic Times",
       "source_url": "https://m.economictimes.com/markets/stocks/news/sugar-stocks-balrampur-chini-triveni-engineering-dhampur-sugar-and-others-rally-up-to-7-heres-why/articleshow/133288064.cms",
       "published_date_local": "2026-08-17",
@@ -65,16 +66,20 @@
         "event_date": "2026-08-17",
         "event_country": "印度",
         "event_region": null,
-        "event_actor": "印度糖业相关机构",
-        "event_action": "公布",
+        "event_actor": "印度糖业股和现货糖市场",
+        "event_action": "上涨",
         "metrics": [
-          "7%"
+          "糖业股最高上涨约7%",
+          "国际原糖16.6美分/磅",
+          "孟买现货糖价5000-5090卢比/公担",
+          "一个月上涨近10%",
+          "白糖触及15个月高位"
         ],
         "comparison_period": null,
-        "topic": "supply_demand",
+        "topic": "price",
         "sugar_relevance": "relevant",
-        "impact_direction": "利空",
-        "impact_logic": "库存增加会提高现货供应缓冲，压制补库需求和糖价。",
+        "impact_direction": "偏多糖价",
+        "impact_logic": "现货糖价大幅上涨、雨量偏少和节庆需求预期共同指向印度阶段性供需偏紧，支撑糖价。",
         "verification_status": "已核实",
         "publication_window_status": "in_window",
         "publication_window_reason": "rolling_36_hour_window",
@@ -85,58 +90,15 @@
         },
         "published_to_report": true
       },
-      "dedupe_key": "rss_印度印度糖业相关机构公布720260817supply_demand",
+      "dedupe_key": "india_sugar_stocks_spot_prices_rally_20260817",
       "importance": 85
     },
     {
       "country_group": "印度",
       "country": "印度",
-      "title": "Nigerian sugar industry gets $1 billion investment push to cut import dependence",
-      "news": "印度糖业相关机构下调食糖贸易、进口、出口或配额政策，相关数值为1 billion、$1。进口、出口、关税或配额变化会改变国内外可用糖源和贸易流向。来源：ChiniMandi（https://www.chinimandi.com/nigerian-sugar-industry-gets-1-billion-investment-push-to-cut-import-dependence/）。影响：利空糖价",
-      "impact": "利空：进口政策放宽或进口量增加会补充国内可用糖源，对本地糖价形成压力。",
-      "source_name": "ChiniMandi",
-      "source_url": "https://www.chinimandi.com/nigerian-sugar-industry-gets-1-billion-investment-push-to-cut-import-dependence/",
-      "published_date_local": "2026-08-17",
-      "event_date": "2026-08-17",
-      "date_status": "verified",
-      "structured_candidate": {
-        "source_title": "Nigerian sugar industry gets $1 billion investment push to cut import dependence",
-        "source_url": "https://www.chinimandi.com/nigerian-sugar-industry-gets-1-billion-investment-push-to-cut-import-dependence/",
-        "publisher": "ChiniMandi",
-        "publication_time": "Mon, 17 Aug 2026 06:11:56 GMT",
-        "event_date": "2026-08-17",
-        "event_country": "印度",
-        "event_region": null,
-        "event_actor": "印度糖业相关机构",
-        "event_action": "下调",
-        "metrics": [
-          "1 billion",
-          "$1"
-        ],
-        "comparison_period": null,
-        "topic": "trade_policy",
-        "sugar_relevance": "relevant",
-        "impact_direction": "利空",
-        "impact_logic": "进口政策放宽或进口量增加会补充国内可用糖源，对本地糖价形成压力。",
-        "verification_status": "已核实",
-        "publication_window_status": "in_window",
-        "publication_window_reason": "rolling_36_hour_window",
-        "country_confidence": "trusted_country_source",
-        "source_url_resolution": {
-          "status": "resolved",
-          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOMS15b0xSWFdzV005U3RiNldablctS2JxYWFFMXNsWkZSZkpkT05paXJ0ai1JdzRqSTdZby1RTUxibF9pZERSeE5XblBtZEd6QUYtRmZaNFAwbmlkUVBmMXluNmJSb1VRbUlxdy1tZTZPaVZrMGgxMmk2a2Y0cWR5TjhRR2MzNXcxQ3pyTnpFUE55Q1FibXlZVzZVeVNCdFJvbkU3SmZHWWtWOVk?oc=5"
-        },
-        "published_to_report": true
-      },
-      "dedupe_key": "rss_印度印度糖业相关机构下调1billion120260817trade_policy",
-      "importance": 80
-    },
-    {
-      "country_group": "印度",
-      "country": "印度",
       "title": "CEA urges caution on higher ethanol blending, backs E10 option for older two-whe",
-      "news": "印度糖业相关机构公布乙醇掺混或燃料政策，相关数值为E10。若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量。来源：ChiniMandi（https://www.chinimandi.com/cea-urges-caution-on-higher-ethanol-blending-backs-e10-option-for-older-two-wheelers/）。影响：利多糖价",
-      "impact": "利多：若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量，从而减少食糖供应预期并支撑糖价。",
+      "news": "印度首席经济顾问V. Anantha Nageswaran与经济事务部顾问Akash Poojari建议为老旧两轮车恢复E10汽油，并在把乙醇掺混率从已实现的20%继续推向E27、E30前评估粮食、土地和用水成本。若政策放慢20%以上掺混提升，糖厂新增乙醇需求将减少，甘蔗汁、糖浆或B重糖蜜转入乙醇的压力下降，更多可结晶糖源可用于制糖，利空糖价。该意见尚非最终政策，影响主要体现在后续乙醇掺混政策预期。来源：ChiniMandi（https://www.chinimandi.com/cea-urges-caution-on-higher-ethanol-blending-backs-e10-option-for-older-two-wheelers/）。影响：利空糖价",
+      "impact": "利空：放缓高于E20的乙醇掺混会减少糖基乙醇增量需求，降低对甘蔗汁、糖浆和B重糖蜜的分流，使更多蔗糖原料可用于制糖。",
       "source_name": "ChiniMandi",
       "source_url": "https://www.chinimandi.com/cea-urges-caution-on-higher-ethanol-blending-backs-e10-option-for-older-two-wheelers/",
       "published_date_local": "2026-08-17",
@@ -150,16 +112,19 @@
         "event_date": "2026-08-17",
         "event_country": "印度",
         "event_region": null,
-        "event_actor": "印度糖业相关机构",
-        "event_action": "公布",
+        "event_actor": "印度首席经济顾问V. Anantha Nageswaran与经济事务部顾问Akash Poojari",
+        "event_action": "建议谨慎提高掺混率",
         "metrics": [
-          "E10"
+          "E10",
+          "E20",
+          "E27",
+          "E30"
         ],
         "comparison_period": null,
         "topic": "ethanol_policy",
         "sugar_relevance": "relevant",
-        "impact_direction": "利多",
-        "impact_logic": "若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量，从而减少食糖供应预期并支撑糖价。",
+        "impact_direction": "利空",
+        "impact_logic": "放缓高于E20的乙醇掺混会减少糖基乙醇增量需求，降低对甘蔗汁、糖浆和B重糖蜜的分流，使更多蔗糖原料可用于制糖。",
         "verification_status": "已核实",
         "publication_window_status": "in_window",
         "publication_window_reason": "rolling_36_hour_window",
@@ -170,7 +135,7 @@
         },
         "published_to_report": true
       },
-      "dedupe_key": "rss_印度印度糖业相关机构公布e1020260817ethanol_policy",
+      "dedupe_key": "india_cea_e10_e20_ethanol_blending_caution_20260817",
       "importance": 75
     },
     {
@@ -186,6 +151,52 @@
       "date_status": "official_forecast",
       "dedupe_key": "thailand_cane_weather_open_meteo_20260817",
       "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "尼日利亚",
+      "title": "Nigerian sugar industry gets $1 billion investment push to cut import dependence",
+      "news": "尼日利亚国家糖业发展委员会（NSDC）披露超过10亿美元投资计划，用于提升本土食糖产量并降低进口依赖；尼日利亚年食糖消费约180万吨，目前多数依靠进口，计划包括10亿美元EPC+融资合作和100亿奈拉糖业项目加速基金。NSMP 2.0把本土产量目标定在约200万吨/年，若项目落地将减少尼日利亚对进口糖的需求，削弱国际贸易流入需求，偏利空国际糖价。项目处于投资和执行推进阶段，对短期现货供应影响有限。来源：ChiniMandi（https://www.chinimandi.com/nigerian-sugar-industry-gets-1-billion-investment-push-to-cut-import-dependence/）。影响：利空糖价",
+      "impact": "利空：尼日利亚本土产量目标若落地，将减少其进口糖需求并削弱国际贸易流入需求；但项目仍处推进阶段，短期影响有限。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/nigerian-sugar-industry-gets-1-billion-investment-push-to-cut-import-dependence/",
+      "published_date_local": "2026-08-17",
+      "event_date": "2026-08-17",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Nigerian sugar industry gets $1 billion investment push to cut import dependence",
+        "source_url": "https://www.chinimandi.com/nigerian-sugar-industry-gets-1-billion-investment-push-to-cut-import-dependence/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Mon, 17 Aug 2026 06:11:56 GMT",
+        "event_date": "2026-08-17",
+        "event_country": "尼日利亚",
+        "event_region": null,
+        "event_actor": "尼日利亚国家糖业发展委员会（NSDC）",
+        "event_action": "披露投资计划",
+        "metrics": [
+          "超过10亿美元投资计划",
+          "年消费约180万吨",
+          "本土产量目标约200万吨/年",
+          "100亿奈拉基金"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "尼日利亚本土产量目标若落地，将减少其进口糖需求并削弱国际贸易流入需求。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOMS15b0xSWFdzV005U3RiNldablctS2JxYWFFMXNsWkZSZkpkT05paXJ0ai1JdzRqSTdZby1RTUxibF9pZERSeE5XblBtZEd6QUYtRmZaNFAwbmlkUVBmMXluNmJSb1VRbUlxdy1tZTZPaVZrMGgxMmk2a2Y0cWR5TjhRR2MzNXcxQ3pyTnpFUE55Q1FibXlZVzZVeVNCdFJvbkU3SmZHWWtWOVk?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "nigeria_nsdc_sugar_investment_import_dependence_20260817",
+      "importance": 80
     }
-  ]
+  ],
+  "global_summary": "8月17日糖业市场重点集中在印度价格走强、乙醇政策预期调整和尼日利亚本土糖业投资。国际原糖升至16.6美分/磅，孟买现货糖价一个月上涨近10%至约5000-5090卢比/公担，叠加印度降雨不足和节庆需求预期支撑糖价；但印度对E20以上掺混保持谨慎、比哈尔糖厂重建和尼日利亚200万吨/年本土产量目标，均指向中长期供应增加或制糖原料分流减少。国际糖价的主要矛盾在印度阶段性供需偏紧与中长期产能、乙醇需求不确定之间，ICE原糖未持续站上15美分/磅前以震荡判断为宜。"
 }
