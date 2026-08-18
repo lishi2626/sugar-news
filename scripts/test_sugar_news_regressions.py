@@ -123,6 +123,18 @@ def test_china_daily_monitoring_skill_and_templates() -> None:
         assert expected in queries
 
 
+def test_daily_summary_style_anchor_is_recorded() -> None:
+    skill = (PROJECT_ROOT / ".codex" / "skills" / "sugar-news-editorial-rules" / "SKILL.md").read_text(encoding="utf-8")
+    prompt = (PROJECT_ROOT / "prompts" / "sugar_news_prompt.md").read_text(encoding="utf-8")
+    pipeline = (PROJECT_ROOT / "scripts" / "sugar_news_pipeline.py").read_text(encoding="utf-8")
+    for text in (skill, prompt, pipeline):
+        assert "2026-08-16" in text
+        assert "2026-08-17" in text
+    assert "standing style anchor" in skill
+    assert "summary_style_anchor" in pipeline
+    assert "国家归属按事件发生地和主要市场影响判断" in prompt
+
+
 def test_brazil_metrics_daily_refresh_skill_and_workflow() -> None:
     skill = (PROJECT_ROOT / ".codex" / "skills" / "sugar-news-editorial-rules" / "SKILL.md").read_text(encoding="utf-8")
     assert "巴西糖价与库存每日刷新" in skill
@@ -1323,6 +1335,7 @@ def main() -> None:
         test_india_relevance_helpers,
         test_india_search_templates_cover_e20_reuters,
         test_china_daily_monitoring_skill_and_templates,
+        test_daily_summary_style_anchor_is_recorded,
         test_brazil_metrics_daily_refresh_skill_and_workflow,
         test_other_country_rss_queries_are_concrete,
         test_expanded_search_matrix_covers_user_case_topics,

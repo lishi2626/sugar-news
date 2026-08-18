@@ -33,6 +33,15 @@ Media names such as ChiniMandi, Reuters, 路透社, 云糖网, 泛糖科技, The
 
 Use natural Chinese sugar-industry research language. Remove promotional wording, background padding, repeated boilerplate, and low-value commentary.
 
+Use the 2026-08-16 and 2026-08-17 rewritten reports as the standing style anchor for future daily summaries. Follow this template every day:
+
+1. `全球糖业新闻重点`: write 2-3 sentences. Sentence 1 names the most important countries and event types. Sentence 2 puts the largest figures into a bullish/bearish comparison, for example price strength, drought, ethanol diversion, mill restarts, production targets, imports, or weather. Sentence 3 states the main international sugar-price contradiction and uses neutral `震荡` wording unless ICE raw sugar is confirmed to remain above `15美分/磅`.
+2. Country item body: write 2-3 sentences. Sentence 1 must name the actor, action, location/period, and exact figure. Sentence 2 must name the same actor/action and explain the supply-demand path to `利多糖价`, `利空糖价`, or `中性`. Sentence 3 is only for implementation lag, forecast uncertainty, or short-term/long-term distinction.
+3. Do not let a secondary party override country classification. Classify by the event's main country and market effect. For example, a Nigerian NSDC investment story remains `尼日利亚` under `其他国家` even if the plan mentions an external EPC or financing partner.
+4. Price news is not inventory news. If the source says sugar equities rose because raw sugar reached `16.6美分/磅`, white sugar hit a multi-month high, or Mumbai spot prices reached `5000-5090卢比/公担`, summarize it as price strength and stage supply tightness, not as stock growth.
+5. Ethanol policy direction matters. Expansion above E20 or stronger sugar-based ethanol demand can divert cane juice, syrup, or B-heavy molasses from sugar output and support prices. Caution on E20-plus blending or support for E10 reduces incremental sugar-based ethanol demand, leaves more crystallizable sucrose for sugar, and is bearish unless the source gives a stronger offset.
+6. Investment or mill-revival news must distinguish timing. A mill restart, reconstruction, cane-area recovery, or national self-sufficiency target is usually bearish for medium-term supply, but say short-term impact is limited when the project is still under approval, reconstruction, financing, or preparation.
+
 Never publish vague fallback summaries such as:
 
 - `涉及食糖价格或市场流通变化`
