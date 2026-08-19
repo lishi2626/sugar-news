@@ -130,9 +130,17 @@ def test_daily_summary_style_anchor_is_recorded() -> None:
     for text in (skill, prompt, pipeline):
         assert "2026-08-16" in text
         assert "2026-08-17" in text
+        assert "2026-08-18" in text
     assert "standing style anchor" in skill
+    assert "automatic-vs-rewrite corrections" in skill
+    assert "Rs 700-800/t" in skill
+    assert "58.31 lakh ha" in skill
+    assert "Rs 95-100/kg" in skill
     assert "summary_style_anchor" in pipeline
     assert "国家归属按事件发生地和主要市场影响判断" in prompt
+    assert "100%` 食糖进口税" in prompt
+    assert "1-1.5个百分点" in prompt
+    assert "5831万公顷" in prompt
 
 
 def test_brazil_metrics_daily_refresh_skill_and_workflow() -> None:

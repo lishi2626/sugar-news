@@ -212,7 +212,7 @@ def load_editorial_skill_metadata() -> dict:
         "brazil_metrics_daily": ("巴西糖价与库存每日刷新", "brazil_sugar_metrics.py", "Vercel"),
         "pre_publish": ("Pre-Publish Quality Checks", "Stop publication"),
         "concrete_news_summary": ("who did what", "concrete change", "消息涉及", "media outlet as the event subject"),
-        "summary_style_anchor": ("2026-08-16", "2026-08-17", "standing style anchor"),
+        "summary_style_anchor": ("2026-08-16", "2026-08-17", "2026-08-18", "standing style anchor", "automatic-vs-rewrite corrections"),
         "global_highlights": ("全球糖业新闻重点", "15美分/磅", "2-3 Chinese sentences"),
         "impact_marker": ("影响：利多糖价", "影响：利空糖价", "影响：中性"),
         "country_order": ("巴西", "印度", "泰国", "其他国家", "中国"),

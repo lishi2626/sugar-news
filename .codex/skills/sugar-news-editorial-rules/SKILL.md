@@ -33,7 +33,7 @@ Media names such as ChiniMandi, Reuters, 路透社, 云糖网, 泛糖科技, The
 
 Use natural Chinese sugar-industry research language. Remove promotional wording, background padding, repeated boilerplate, and low-value commentary.
 
-Use the 2026-08-16 and 2026-08-17 rewritten reports as the standing style anchor for future daily summaries. Follow this template every day:
+Use the 2026-08-16, 2026-08-17, and 2026-08-18 rewritten reports as the standing style anchor for future daily summaries. Follow this template every day:
 
 1. `全球糖业新闻重点`: write 2-3 sentences. Sentence 1 names the most important countries and event types. Sentence 2 puts the largest figures into a bullish/bearish comparison, for example price strength, drought, ethanol diversion, mill restarts, production targets, imports, or weather. Sentence 3 states the main international sugar-price contradiction and uses neutral `震荡` wording unless ICE raw sugar is confirmed to remain above `15美分/磅`.
 2. Country item body: write 2-3 sentences. Sentence 1 must name the actor, action, location/period, and exact figure. Sentence 2 must name the same actor/action and explain the supply-demand path to `利多糖价`, `利空糖价`, or `中性`. Sentence 3 is only for implementation lag, forecast uncertainty, or short-term/long-term distinction.
@@ -41,6 +41,18 @@ Use the 2026-08-16 and 2026-08-17 rewritten reports as the standing style anchor
 4. Price news is not inventory news. If the source says sugar equities rose because raw sugar reached `16.6美分/磅`, white sugar hit a multi-month high, or Mumbai spot prices reached `5000-5090卢比/公担`, summarize it as price strength and stage supply tightness, not as stock growth.
 5. Ethanol policy direction matters. Expansion above E20 or stronger sugar-based ethanol demand can divert cane juice, syrup, or B-heavy molasses from sugar output and support prices. Caution on E20-plus blending or support for E10 reduces incremental sugar-based ethanol demand, leaves more crystallizable sucrose for sugar, and is bearish unless the source gives a stronger offset.
 6. Investment or mill-revival news must distinguish timing. A mill restart, reconstruction, cane-area recovery, or national self-sufficiency target is usually bearish for medium-term supply, but say short-term impact is limited when the project is still under approval, reconstruction, financing, or preparation.
+
+Use these automatic-vs-rewrite corrections from 2026-08-18 as hard rules:
+
+1. Never write `相关机构`, `糖业市场公布`, or `相关数值为` when the source names the actor and indicator. Replace them with the real actor, such as `印度政府`, `印度农业与农民福利部`, `旁遮普邦糖业市场`, `科尔哈普尔糖厂`, `尼泊尔糖业市场`, or the named association/expert.
+2. Deduplicate the same event across sources before writing the global summary. For example, `Moneycontrol` and `APAC Media` covering the same India 100% import-duty proposal must be one item, not two separate India trade-policy items.
+3. Trade-policy news must include policy status and market path. For India considering cutting or scrapping a `100%` sugar import duty, write that the policy is under evaluation, lower import cost would add domestic available supply, and the result is bearish for Indian spot sugar if implemented.
+4. Early-crushing news must follow the source's recovery/output logic, not a generic `earlier start = more supply` shortcut. If the source says starting mills `15 days` early could reduce recovery by `1-1.5 percentage points`, cut sugar production, and cause `Rs 700-800/t` losses, judge it bullish unless a stronger source says early crushing raises actual sugar output.
+5. Price news with record highs, previous prices, shortage, thin stocks, or festival demand is normally bullish. Punjab `Rs 60/kg` wholesale and `Rs 65/kg` retail after `Rs 54-56/kg` a week earlier and `Rs 46-48/kg` a month earlier is not neutral. Kolhapur `Rs 4,200-4,500/quintal` mill sugar and `Rs 52-55/kg` retail, above the `Rs 3,100/quintal` MSP, must be summarized as tight stocks plus festival demand supporting spot prices.
+6. Acreage news must compare current area with both last year and normal area before judging direction. If India sugarcane area is `58.31 lakh ha` versus `58.62 lakh ha` last year but above the `54.20 lakh ha` normal area, and regional changes are mixed, classify it as neutral unless yield or recovery data clearly changes supply.
+7. Shortage news must not be neutral when the source gives higher prices, stock depletion, delayed imports, and demand growth. Nepal sugar rising from `Rs 95-100/kg` to `Rs 120/kg` before festivals, with consumption expected to double and imports delayed, is bullish because available local supply is tightening and import demand increases.
+8. Avoid phrasing that lets a secondary country override the event country. If a Nepal story mentions reliance on imports from India, keep it in `尼泊尔/其他国家`; do not let the word `India` move the item to the India column. If necessary, phrase the body around local stocks, import approvals, and local prices rather than repeating the secondary country.
+9. The global summary must be built after these corrections. It should mention the deduplicated strongest facts, such as India import-duty evaluation, Maharashtra/Punjab/Kolhapur prices, Nepal shortage, Thai rainfall, and India acreage balance; it must not repeat auto-generated category phrases.
 
 Never publish vague fallback summaries such as:
 
