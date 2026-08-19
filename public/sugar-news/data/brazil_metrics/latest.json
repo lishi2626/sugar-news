@@ -1,7 +1,7 @@
 {
-  "targetDate": "2026-08-17",
-  "displayDate": "2026-08-17",
-  "updatedAt": "2026-08-18T10:51:04+08:00",
+  "targetDate": "2026-08-18",
+  "displayDate": "2026-08-18",
+  "updatedAt": "2026-08-19T11:00:33+08:00",
   "sugarPremium": {
     "indicator": "brazil_sugar_premium",
     "status": "ok",
@@ -39,7 +39,7 @@
     "year_on_year_change": -0.34,
     "year_on_year_change_percent": -170.0,
     "yoy_status": "ok",
-    "refresh_date": "2026-08-17",
+    "refresh_date": "2026-08-18",
     "source_data_date": "2026-08-05"
   },
   "sugarStock": {
@@ -87,7 +87,7 @@
     "year_on_year_change": -69.7152000000001,
     "year_on_year_change_percent": -10.92684076732018,
     "yoy_status": "ok",
-    "refresh_date": "2026-08-17",
+    "refresh_date": "2026-08-18",
     "source_data_date": "2026-07-31"
   },
   "ethanolStock": {
@@ -151,14 +151,14 @@
     "year_on_year_change": 113.48059999999998,
     "year_on_year_change_percent": 39.836680303554736,
     "yoy_status": "ok",
-    "refresh_date": "2026-08-17",
+    "refresh_date": "2026-08-18",
     "source_data_date": "2026-08-01"
   },
   "fetchLog": [
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap0",
-      "requestedAt": "2026-08-18T10:46:40+08:00",
+      "requestedAt": "2026-08-19T10:53:15+08:00",
       "httpStatus": 200,
       "containsColumnName": false,
       "candidateCount": 0,
@@ -168,57 +168,58 @@
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/getQureyArticleList?parentId=49&categoryId=143&name=&pageCurInfo=sub_143&pageNo=1&pageSize=20",
-      "requestedAt": "2026-08-18T10:46:43+08:00",
+      "requestedAt": "2026-08-19T10:53:37+08:00",
       "httpStatus": 200,
       "containsColumnName": true,
-      "candidateCount": 3,
+      "candidateCount": 2,
       "candidateTitleDates": [
-        "2026-08-14",
-        "2026-08-13",
-        "2026-08-12"
+        "2026-08-17",
+        "2026-08-14"
       ],
       "parsed": true
     },
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/getQureyArticleList?parentId=49&categoryId=143&name=&pageCurInfo=sub_143&pageNo=2&pageSize=20",
-      "requestedAt": "2026-08-18T10:46:44+08:00",
+      "requestedAt": "2026-08-19T10:53:38+08:00",
       "httpStatus": 200,
       "containsColumnName": true,
-      "candidateCount": 3,
+      "candidateCount": 4,
       "candidateTitleDates": [
+        "2026-08-13",
+        "2026-08-12",
         "2026-08-11",
-        "2026-08-10",
-        "2026-08-07"
+        "2026-08-10"
       ],
       "parsed": true
     },
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/getQureyArticleList?parentId=49&categoryId=143&name=&pageCurInfo=sub_143&pageNo=3&pageSize=20",
-      "requestedAt": "2026-08-18T10:46:45+08:00",
+      "requestedAt": "2026-08-19T10:53:40+08:00",
       "httpStatus": 200,
       "containsColumnName": true,
       "candidateCount": 2,
       "candidateTitleDates": [
-        "2026-08-06",
-        "2026-08-05"
+        "2026-08-07",
+        "2026-08-06"
       ],
       "parsed": true
     },
     {
       "source": "HiSugar import-cost search API",
       "url": "https://www.hisugar.com/home/searchCatetoryAndArticle?keyWord=%E9%A3%9F%E7%B3%96%E8%BF%9B%E5%8F%A3%E6%88%90%E6%9C%AC%E5%8F%8A%E5%88%A9%E6%B6%A6%E4%BC%B0%E7%AE%97",
-      "requestedAt": "2026-08-18T10:46:47+08:00",
+      "requestedAt": "2026-08-19T10:53:40+08:00",
       "httpStatus": 200,
-      "candidateCount": 406,
+      "candidateCount": 407,
       "parsed": true
     },
     {
       "source": "HiSugar import premium target-date selector",
-      "targetDate": "2026-08-17",
-      "publicationCutoff": "2026-08-18T10:46:50+08:00",
+      "targetDate": "2026-08-18",
+      "publicationCutoff": "2026-08-19T10:53:43+08:00",
       "selectedTitleDates": [
+        "2026-08-17",
         "2026-08-14",
         "2026-08-13",
         "2026-08-12",
@@ -229,16 +230,45 @@
         "2026-08-05",
         "2026-08-04",
         "2026-08-03",
-        "2026-07-31",
-        "2026-07-30"
+        "2026-07-31"
       ],
       "reason": "Use the newest report row on or before the Sugar News date that is available by this refresh run, including validated late-published reports."
     },
     {
       "source": "HiSugar import premium article",
+      "articleId": "2026081808572996999858",
+      "url": "https://www.hisugar.com/home/articleContent?id=2026081808572996999858",
+      "requestedAt": "2026-08-19T10:53:43+08:00",
+      "httpStatus": 200,
+      "imageCount": 2,
+      "parsed": false,
+      "parsedRows": 0
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026081808572996999858",
+      "imageUrl": "https://www.hisugar.com/image/20260818/1787014481888074618.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium image OCR",
+      "articleId": "2026081808572996999858",
+      "imageUrl": "https://www.hisugar.com/image/20260727/1785113242850060471.png",
+      "httpStatus": 200,
+      "ocrBackend": "tesseract",
+      "parsedRows": 0,
+      "parsedDates": [],
+      "parsed": false
+    },
+    {
+      "source": "HiSugar import premium article",
       "articleId": "2026081708382323097988",
       "url": "https://www.hisugar.com/home/articleContent?id=2026081708382323097988",
-      "requestedAt": "2026-08-18T10:46:50+08:00",
+      "requestedAt": "2026-08-19T10:54:24+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -268,7 +298,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026081408512604975253",
       "url": "https://www.hisugar.com/home/articleContent?id=2026081408512604975253",
-      "requestedAt": "2026-08-18T10:47:12+08:00",
+      "requestedAt": "2026-08-19T10:54:46+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -298,7 +328,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026081308461353221449",
       "url": "https://www.hisugar.com/home/articleContent?id=2026081308461353221449",
-      "requestedAt": "2026-08-18T10:47:32+08:00",
+      "requestedAt": "2026-08-19T10:55:26+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -328,7 +358,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026081208520229174738",
       "url": "https://www.hisugar.com/home/articleContent?id=2026081208520229174738",
-      "requestedAt": "2026-08-18T10:47:53+08:00",
+      "requestedAt": "2026-08-19T10:56:27+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -358,7 +388,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026081108561847969691",
       "url": "https://www.hisugar.com/home/articleContent?id=2026081108561847969691",
-      "requestedAt": "2026-08-18T10:48:15+08:00",
+      "requestedAt": "2026-08-19T10:57:08+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -388,7 +418,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026081008543224245176",
       "url": "https://www.hisugar.com/home/articleContent?id=2026081008543224245176",
-      "requestedAt": "2026-08-18T10:48:36+08:00",
+      "requestedAt": "2026-08-19T10:57:48+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -418,7 +448,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026080708495688181589",
       "url": "https://www.hisugar.com/home/articleContent?id=2026080708495688181589",
-      "requestedAt": "2026-08-18T10:48:57+08:00",
+      "requestedAt": "2026-08-19T10:58:09+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -448,7 +478,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026080608433531248185",
       "url": "https://www.hisugar.com/home/articleContent?id=2026080608433531248185",
-      "requestedAt": "2026-08-18T10:49:18+08:00",
+      "requestedAt": "2026-08-19T10:58:50+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -478,7 +508,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026080515321230598245",
       "url": "https://www.hisugar.com/home/articleContent?id=2026080515321230598245",
-      "requestedAt": "2026-08-18T10:49:38+08:00",
+      "requestedAt": "2026-08-19T10:59:11+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -508,7 +538,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026080408533083791094",
       "url": "https://www.hisugar.com/home/articleContent?id=2026080408533083791094",
-      "requestedAt": "2026-08-18T10:50:00+08:00",
+      "requestedAt": "2026-08-19T10:59:30+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -538,7 +568,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026080308421295131887",
       "url": "https://www.hisugar.com/home/articleContent?id=2026080308421295131887",
-      "requestedAt": "2026-08-18T10:50:22+08:00",
+      "requestedAt": "2026-08-19T10:59:52+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -557,36 +587,6 @@
     {
       "source": "HiSugar import premium image OCR",
       "articleId": "2026080308421295131887",
-      "imageUrl": "https://www.hisugar.com/image/20260727/1785113242850060471.png",
-      "httpStatus": 200,
-      "ocrBackend": "tesseract",
-      "parsedRows": 0,
-      "parsedDates": [],
-      "parsed": false
-    },
-    {
-      "source": "HiSugar import premium article",
-      "articleId": "2026073108384834182355",
-      "url": "https://www.hisugar.com/home/articleContent?id=2026073108384834182355",
-      "requestedAt": "2026-08-18T10:50:42+08:00",
-      "httpStatus": 200,
-      "imageCount": 2,
-      "parsed": false,
-      "parsedRows": 0
-    },
-    {
-      "source": "HiSugar import premium image OCR",
-      "articleId": "2026073108384834182355",
-      "imageUrl": "https://www.hisugar.com/image/20260731/1785458220775051820.png",
-      "httpStatus": 200,
-      "ocrBackend": "tesseract",
-      "parsedRows": 0,
-      "parsedDates": [],
-      "parsed": false
-    },
-    {
-      "source": "HiSugar import premium image OCR",
-      "articleId": "2026073108384834182355",
       "imageUrl": "https://www.hisugar.com/image/20260727/1785113242850060471.png",
       "httpStatus": 200,
       "ocrBackend": "tesseract",
