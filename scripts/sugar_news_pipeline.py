@@ -214,6 +214,8 @@ def load_editorial_skill_metadata() -> dict:
         "concrete_news_summary": ("who did what", "concrete change", "消息涉及", "media outlet as the event subject"),
         "summary_style_anchor": ("2026-08-16", "2026-08-17", "2026-08-18", "standing style anchor", "automatic-vs-rewrite corrections"),
         "global_highlights": ("全球糖业新闻重点", "15美分/磅", "2-3 Chinese sentences"),
+        "brazil_hedging_monitoring": ("Brazil sugar hedging progress", "巴西糖厂套保", "巴西糖套保进度"),
+        "india_impact_overrides": ("100%` sugar import duty", "record highs", "Sugarcane acreage increases are bearish"),
         "impact_marker": ("影响：利多糖价", "影响：利空糖价", "影响：中性"),
         "country_order": ("巴西", "印度", "泰国", "其他国家", "中国"),
         "two_stage_search": ("Two-Stage Search And Candidate Verification", "Country source matrix", "latest 36 hours", "Required regression topics"),
@@ -395,6 +397,8 @@ COUNTRY_SEARCH_TEMPLATES = {
         ("en", "Brazil sugarcane ethanol export {readable}"),
         ("en", "Brazil corn ethanol Renovabio {readable}"),
         ("en", "Brazil ethanol gasoline corn ethanol {readable}"),
+        ("en", "Brazil sugar hedging progress mills hedged sugar {readable}"),
+        ("zh-CN", "巴西糖厂套保 食糖套保比例 {year}年{month}月{day}日"),
         ("zh-CN", "巴西 玉米乙醇 Renovabio {year}年{month}月{day}日"),
         ("zh-CN", "巴西 乙醇 汽油 {year}年{month}月{day}日"),
         ("pt-BR", "Brasil açúcar etanol {day} {month_name_pt} {year}"),
@@ -565,6 +569,10 @@ SOURCE_MATRIX = {
         "ANP",
         "UNICA",
         "Datagro",
+        "Archer Consulting",
+        "StoneX",
+        "Hedgepoint",
+        "Czarnikow / Czapp",
         "Conab",
         "NovaCana",
         "CanaOnline",
@@ -636,6 +644,8 @@ ADDITIONAL_COUNTRY_SEARCH_TEMPLATES = {
         ("pt-BR", "CanaOnline usina moagem cana açúcar etanol {readable}"),
         ("pt-BR", "preço da cana usina açúcar etanol {readable}"),
         ("pt-BR", "exportação de açúcar porto Brasil {readable}"),
+        ("pt-BR", "hedge açúcar usinas fixação contratos exportação {readable}"),
+        ("en", "Brazil sugar hedge ratio fixed-price sales export contracts {readable}"),
         ("en", "Brazil ethanol blending E30 E32 sugarcane {readable}"),
         ("en", "Brazil ethanol gasoline RenovaBio corn ethanol {readable}"),
         ("en", "Brazil UNICA sugarcane crushing sugar production ethanol {readable}"),
@@ -713,6 +723,7 @@ ADDITIONAL_COUNTRY_SEARCH_TEMPLATES = {
 CASE_REGRESSION_TOPICS = (
     "brazil_ethanol_blend_policy",
     "brazil_global_sugar_consumption_forecast",
+    "brazil_sugar_hedging_progress",
     "india_ethanol_tax_or_fiscal_data",
     "india_ethanol_crude_import_savings",
     "india_ethanol_pump_coverage",
@@ -739,7 +750,7 @@ NEWS_TOPIC_RULES = (
     ("supply_demand", ("production", "output", "stocks", "inventory", "sales quota", "consumption", "forecast", "产量", "库存", "销量", "产销率", "消费", "预测")),
     ("trade_policy", ("import", "export", "tariff", "quota", "raw sugar", "refinery", "进口", "出口", "配额", "关税", "原糖", "精炼")),
     ("starch_sugar_substitute", ("starch sugar", "corn syrup", "hfcs", "glucose syrup", "淀粉糖", "玉米糖浆", "果葡糖浆", "预混粉", "玉米消耗")),
-    ("price_market", ("price", "prices", "ex-mill", "wholesale", "retail", "futures", "basis", "报价", "现货", "期货", "出厂价")),
+    ("price_market", ("price", "prices", "ex-mill", "wholesale", "retail", "futures", "basis", "hedge", "hedged", "hedging", "fixed-price", "fixação", "fixacao", "export contracts", "报价", "现货", "期货", "出厂价", "套保", "固定价销售")),
 )
 
 TOPIC_LABELS = {
@@ -759,7 +770,8 @@ TOPIC_LABELS = {
 COUNTRY_TRUSTED_SOURCE_MARKERS = {
     "巴西": (
         "unica", "datagro", "novacana", "canaonline", "conab", "anp",
-        "gov.br", "reuters", "ethanol producer", "cepea",
+        "gov.br", "reuters", "ethanol producer", "cepea", "archerconsulting",
+        "archer consulting", "hedgepoint", "stonex", "czapp", "czarnikow",
     ),
     "印度": (
         "chinimandi", "pib", "press information bureau", "the economic times",
@@ -1678,9 +1690,9 @@ def build_global_summary_from_items(items: list[dict]) -> str:
     second = "；".join(factor_parts) + "。"
 
     if bullish and bearish:
-        third = "国际糖价的主要矛盾在供应收缩预期与阶段性供应或需求压力之间，ICE原糖未持续站上15美分/磅前以震荡判断为宜。"
+        third = "国际糖价的主要矛盾在供应收缩预期与阶段性供应或需求压力之间，ICE原糖持续站上15美分/磅前以震荡判断为宜。"
     elif bullish:
-        third = "国际糖价主要受供应收缩或乙醇分流预期支撑，但ICE原糖未持续站上15美分/磅前不使用震荡偏强表述。"
+        third = "国际糖价主要受供应收缩或乙醇分流预期支撑，但ICE原糖持续站上15美分/磅前不使用震荡偏强表述。"
     elif bearish:
         third = "国际糖价主要受供应改善、天气恢复或流通增加压力牵制，短期以震荡判断为宜。"
     else:
@@ -1715,6 +1727,7 @@ def rss_sugar_relevant(country: str, text: str) -> bool:
         return False
     domain_terms = (
         "sugar", "sugarcane", "cane", "molasses", "raw sugar", "white sugar",
+        "hedge", "hedged", "hedging", "fixed-price", "fixação", "fixacao",
         "biofuel", "syrup", "distillery",
         "frp", "sap", "aista", "isma", "nfcsf", "ex-mill", "sales quota",
         "sucroenergético", "açúcar", "cana", "etanol", "น้ำตาล", "อ้อย",
@@ -1744,6 +1757,9 @@ def rss_sugar_relevant(country: str, text: str) -> bool:
     if country == "巴西" and any_phrase(text, (
         "corn ethanol", "maize ethanol", "grain ethanol", "etanol de milho",
         "ethanol gasoline", "gasoline ethanol", "etanol gasolina", "etanol e gasolina",
+        "sugar hedging", "mills hedged", "hedge ratio", "fixed-price sales",
+        "fixação de açúcar", "contratos de exportação", "usinas hedge",
+        "糖厂套保", "食糖套保比例", "糖套保进度",
     )):
         return True
     if country in {"美国", "其他国家"} and any_phrase(text, ("eia", "ethanol production", "ethanol stocks")):
@@ -2079,6 +2095,14 @@ def impact_for_candidate(candidate: dict) -> str:
             return "利多：糖厂停产、事故或原料不足会拖慢压榨和产糖节奏，减少阶段性食糖供应。"
         return "利空：糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。"
     if topic == "trade_policy":
+        candidate_country = str(candidate.get("country_group") or candidate.get("event_country") or candidate.get("country") or "")
+        full_text = " ".join(str(candidate.get(field, "")) for field in ("source_title", "event_action", "impact_logic")).lower()
+        if (
+            candidate_country == "印度"
+            and any_phrase(full_text, ("100% sugar import duty", "100% import duty", "import tax", "import duty", "进口税", "关税"))
+            and any_phrase(full_text, ("record", "high", "price", "shortage", "创纪录", "创新高", "价格", "短缺", "紧张"))
+        ):
+            return "利多：印度在国内糖价创纪录或供应紧张背景下评估削减进口税，说明本地可用糖源偏紧并强化供应紧张预期；若实际进口到港，后续才会补充供应并压制现货。"
         if any_phrase(text, ("import", "进口")):
             return "利空：进口政策放宽或进口量增加会补充国内可用糖源，对本地糖价形成压力。"
         return "利多：出口限制、配额收紧或贸易成本上升会减少可流通糖源并支撑国际糖价。"

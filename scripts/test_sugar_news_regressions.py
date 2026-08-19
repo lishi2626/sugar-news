@@ -136,11 +136,18 @@ def test_daily_summary_style_anchor_is_recorded() -> None:
     assert "Rs 700-800/t" in skill
     assert "58.31 lakh ha" in skill
     assert "Rs 95-100/kg" in skill
+    assert "Brazil sugar hedging progress" in skill
+    assert "巴西糖厂套保" in skill
+    assert "Sugarcane acreage increases are bearish" in skill
     assert "summary_style_anchor" in pipeline
+    assert "brazil_hedging_monitoring" in pipeline
+    assert "india_impact_overrides" in pipeline
     assert "国家归属按事件发生地和主要市场影响判断" in prompt
     assert "100%` 食糖进口税" in prompt
+    assert "首先判断为利多糖价" in prompt
     assert "1-1.5个百分点" in prompt
     assert "5831万公顷" in prompt
+    assert "判断为利空" in prompt
 
 
 def test_brazil_metrics_daily_refresh_skill_and_workflow() -> None:
@@ -183,7 +190,7 @@ def test_other_country_rss_queries_are_concrete() -> None:
 
 def test_expanded_search_matrix_covers_user_case_topics() -> None:
     skill = (PROJECT_ROOT / ".codex" / "skills" / "sugar-news-editorial-rules" / "SKILL.md").read_text(encoding="utf-8")
-    assert len(CASE_REGRESSION_TOPICS) == 16
+    assert len(CASE_REGRESSION_TOPICS) == 17
     assert "UNICA" in SOURCE_MATRIX["巴西"]
     assert "Datagro" in SOURCE_MATRIX["巴西"]
     assert "Vasantdada Sugar Institute" in SOURCE_MATRIX["印度"]
@@ -200,7 +207,9 @@ def test_expanded_search_matrix_covers_user_case_topics() -> None:
         "Datagro consumo global de açúcar",
         "Brazil corn ethanol",
         "Brazil ethanol gasoline",
+        "Brazil sugar hedging progress",
         "etanol gasolina",
+        "巴西糖厂套保",
         "巴西 玉米乙醇 Renovabio",
         "巴西 乙醇 汽油",
     ):
