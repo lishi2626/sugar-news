@@ -38,6 +38,7 @@ MAPA_PRODUCTION_URL = "https://www.gov.br/agricultura/pt-br/assuntos/sustentabil
 MAPA_PREVIOUS_SEASONS_URL = "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/producao-e-estoques-de-acucar-por-tipo-safras-anteriores"
 MAPA_ETHANOL_URL = "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira"
 HISUGAR_IMPORT_COST_LIST_URL = "https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap0"
+HISUGAR_GENERAL_NEWS_LIST_URL = "https://www.hisugar.com/home/newList"
 HISUGAR_SEARCH_URL = "https://www.hisugar.com/home/searchCatetoryAndArticle?keyWord=" + quote_plus("食糖进口成本及利润估算")
 HISUGAR_BASE_URL = "https://www.hisugar.com"
 
@@ -262,10 +263,27 @@ def hisugar_query_list_page(page_no: int = 1, page_size: int = 20) -> str:
     return f"{HISUGAR_BASE_URL}/home/getQureyArticleList?{query}"
 
 
+def hisugar_general_news_query_page(page_no: int = 1, page_size: int = 30) -> str:
+    from urllib.parse import urlencode
+
+    query = urlencode({
+        "parentId": "49",
+        "name": "",
+        "pageCurInfo": "all_49",
+        "pageNo": str(page_no),
+        "pageSize": str(page_size),
+    })
+    return f"{HISUGAR_BASE_URL}/home/getQureyArticleList?{query}"
+
+
 def hisugar_articles() -> tuple[list[dict], list[dict]]:
     logs = []
     articles = []
-    list_urls = [HISUGAR_IMPORT_COST_LIST_URL] + [hisugar_query_list_page(page_no) for page_no in range(1, 4)]
+    list_urls = (
+        [HISUGAR_GENERAL_NEWS_LIST_URL, hisugar_general_news_query_page()]
+        + [HISUGAR_IMPORT_COST_LIST_URL]
+        + [hisugar_query_list_page(page_no) for page_no in range(1, 4)]
+    )
     for url, source in (
         *[(list_url, "HiSugar import-cost list page") for list_url in list_urls],
         (HISUGAR_SEARCH_URL, "HiSugar import-cost search API"),
@@ -325,7 +343,10 @@ def normalize_ocr_text(text: str) -> str:
         "Ｌ": "L",
         "ｌ": "l",
     })
-    return text.translate(table)
+    normalized = text.translate(table)
+    normalized = normalized.replace("囗", "口")
+    normalized = re.sub(r"(?<=\d)\s*巧\s*(?=\d)", "5", normalized)
+    return normalized
 
 
 OCR_NEGATIVE_SIGNS = "-.一﹣－−—–"
@@ -519,7 +540,9 @@ def premium_value_from_token(token: str) -> float | None:
     raw = raw.replace("L", "1").replace("l", "1").replace("一", "-")
     negative = raw.startswith("-") or raw.startswith(".")
     digits = re.findall(r"\d+", raw)
-    if len(digits) >= 2:
+    if negative and len(digits) == 1 and re.fullmatch(r"0\d{1,2}", digits[0]):
+        value = float(f"0.{digits[0][1:]}")
+    elif len(digits) >= 2:
         value = float(f"{int(digits[0])}.{digits[1]}")
     elif len(digits) == 1:
         value = float(digits[0])
@@ -556,13 +579,32 @@ def make_hisugar_premium_row(article: dict, image_url: str, backend: str, data_d
 def premium_values_from_segment(text: str, allow_positive: bool = True) -> list[float]:
     normalized = normalize_ocr_text(text)
     normalized = normalized.replace("ЃЎ", "-").replace("Ў", "-")
-    patterns = [
+    signed_patterns = [
         rf"[{OCR_NEGATIVE_SIGN_CLASS}]\s*0\s*[.,-]\s*\d{{1,2}}",
+        rf"[{OCR_NEGATIVE_SIGN_CLASS}]\s*0\s*\d\s*\d",
         rf"[{OCR_NEGATIVE_SIGN_CLASS}]\s*\d+\s*[.,-]\s*\d{{1,2}}",
     ]
-    if allow_positive:
-        patterns.append(r"\d+\s*[,.]\s*\d{1,2}")
 
+    def collect(patterns: list[str]) -> list[float]:
+        matches: list[tuple[int, float]] = []
+        seen_spans: set[tuple[int, int]] = set()
+        for pattern in patterns:
+            for match in re.finditer(pattern, normalized):
+                if match.span() in seen_spans:
+                    continue
+                seen_spans.add(match.span())
+                value = premium_value_from_token(match.group(0))
+                if value is not None and abs(value) < 20:
+                    matches.append((match.start(), value))
+        matches.sort(key=lambda item: item[0])
+        return [value for _start, value in matches]
+
+    values = collect(signed_patterns)
+    if values:
+        return values
+    if not allow_positive:
+        return []
+    patterns = [r"\d+\s*[,.]\s*\d{1,2}"]
     for pattern in patterns:
         values: list[float] = []
         seen_spans: set[tuple[int, int]] = set()
@@ -744,15 +786,22 @@ def discover_premium(target_date: str) -> tuple[dict | None, list[dict]]:
     target_yoy = target_yoy_date.isoformat().replace("-", "")
     target_yoy_iso = target_yoy_date.isoformat()
     yoy_seed = target_yoy_date
-    yoy_articles = [
+
+    def yoy_article_key(article: dict) -> tuple[int, int]:
+        title_date = datetime.fromisoformat(article["title_date"]).date()
+        return (abs((title_date - yoy_seed).days), -title_date.toordinal())
+
+    yoy_articles = sorted([
         article for article in articles
         if article.get("title_date")
         and abs((datetime.fromisoformat(article["title_date"]).date() - yoy_seed).days) <= 10
-    ][:8]
+    ], key=yoy_article_key)[:6]
     for article in yoy_articles:
         rows, row_logs = rows_from_hisugar_article(article)
         logs.extend(row_logs)
         parsed_rows.extend(rows)
+        if any(row["data_date"] == target_yoy_iso for row in rows):
+            break
 
     by_date: dict[str, dict] = {}
     for row in parsed_rows:

@@ -4,15 +4,17 @@
 
 Fixed source: 泛糖科技 "食糖进口成本及利润估算表" list.
 
-List URL:
+Primary discovery URLs:
 
 ```text
+https://www.hisugar.com/home/newList
+https://www.hisugar.com/home/getQureyArticleList?parentId=49&name=&pageCurInfo=all_49&pageNo=1&pageSize=30
 https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap0
 ```
 
 Required process:
 
-1. Open the list and its public article-list interface, then discover candidate articles titled like `YYYYMMDD食糖进口成本及利润估算`.
+1. Open `newList` and its public article-list interface first, then the import-cost category list and search interface. Discover candidate articles titled like `YYYYMMDD食糖进口成本及利润估算`.
 2. Open candidate articles and parse the report's internal data date. At 06:00 Beijing time, select the newest valid row then available. Run a Brazil-only late refresh at 10:00 Beijing time to capture reports published after 06:00; a late report is eligible when its internal row date is on or before the Sugar News report date.
 3. Extract the `进口升贴水` value and unit from the selected report.
 4. Normalize the displayed unit to `美分/磅`.
@@ -24,8 +26,10 @@ Import-premium parsing rule:
 - Pair the table dates only with the values in the `进口升贴水（美分/磅）` row.
 - Do not read daily or year-on-year comparison bases from adjacent rows such as `ICE原糖收盘价`, import cost, RMB/t, quota, freight, FX, or profit rows.
 - OCR may render a minus sign as `．`, `.`, `一`, `－`, `−`, `—`, or `–`; normalize those signs before parsing numeric values.
+- OCR may render `进口` as `进囗` and may render `-0.51` as `．0巧1`; normalize `囗` to `口` and numeric `巧` between digits to `5` before parsing.
 - If the row also contains nearby cost figures such as `49.75`, discard them and keep only the signed import-premium cells for the report dates.
 - Validation example: for `https://www.hisugar.com/home/articleContent?id=2026080608433531248185`, the `2026-08-04` and `2026-08-05` `进口升贴水` cells are both `-0.54 美分/磅`, so the daily change for `2026-08-05` is `0.00 美分/磅`.
+- Validation example: for `https://www.hisugar.com/home/articleContent?id=2026082010171703475367`, the `2026-08-19` `进口升贴水` cell is `-0.51 美分/磅`; use `2026-08-19` as `data_date`, not the article publish date `2026-08-20`.
 - Validation example: for `https://www.hisugar.com/home/articleContent?id=2025080608563542667063`, the `2025-08-05` `进口升贴水` cell is `-0.20 美分/磅`; compared with `2026-08-05` at `-0.54`, the year-on-year absolute change is `-0.34 美分/磅`.
 
 Forbidden substitutes:

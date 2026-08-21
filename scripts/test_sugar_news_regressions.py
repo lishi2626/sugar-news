@@ -10,11 +10,13 @@ from zoneinfo import ZoneInfo
 from openpyxl import load_workbook
 
 from brazil_sugar_metrics import (
+    HISUGAR_GENERAL_NEWS_LIST_URL,
     HISUGAR_IMPORT_COST_LIST_URL,
     article_available_for_target,
     build_snapshot,
     choose_ethanol_yoy_docs,
     comparable_yoy,
+    hisugar_general_news_query_page,
     hisugar_query_list_page,
     hisugar_row_selection_key,
     parse_hisugar_ocr_rows,
@@ -388,10 +390,15 @@ def test_skip_if_success_requires_report_and_index() -> None:
 
 def test_brazil_import_premium_hisugar_source_and_date_rule() -> None:
     assert HISUGAR_IMPORT_COST_LIST_URL == "https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap0"
+    assert HISUGAR_GENERAL_NEWS_LIST_URL == "https://www.hisugar.com/home/newList"
     query_url = hisugar_query_list_page(2)
     assert "parentId=49" in query_url
     assert "categoryId=143" in query_url
     assert "pageNo=2" in query_url
+    general_query_url = hisugar_general_news_query_page()
+    assert "parentId=49" in general_query_url
+    assert "pageCurInfo=all_49" in general_query_url
+    assert "pageSize=30" in general_query_url
 
     sample_html = """
     <li>
@@ -486,6 +493,30 @@ def test_brazil_import_premium_hisugar_source_and_date_rule() -> None:
         - current_by_date["2026-08-04"]["premium_discount_cents_per_lb"],
         3,
     ) == 0
+
+    latest_article = {
+        "article_id": "2026082010171703475367",
+        "article_title": "20260819食糖进口成本及利润估算",
+        "article_published_at": "2026-08-20 11:26:16",
+        "title_date": "2026-08-19",
+        "source_url": "https://www.hisugar.com/home/articleContent?id=2026082010171703475367",
+    }
+    latest_ocr = (
+        "a 期 20260813 20260814 20260817 20260818 20260819 "
+        "ICE 原 糖 收 盘 价 （ 美 分 16 ． 75 16 ． 6 16 ． 9 17 ． 48 17 ． 56 "
+        "人 民 币 汇 率 6 ． 745 6 ． 7422 6 ． 7417 6 ． 7454 6 ． 7302 "
+        "诲 运 费 （ 美 元 / 吨 ） 48 ． 75 49 ． 75 49 ． 75 49 ． 75 49 ． 75 "
+        "进 囗 升 贴 水 （ 美 分 / 磅 ） ． 0 ． 54 ． 0 巧 1 ． 0 巧 1 ． 0 巧 1 ． 0 ． 51 "
+        "巴 西 配 额 内 估 算 成 本 （ 元 / 吨 ） 4515 4533 4595 4517 4523"
+    )
+    latest_rows = parse_hisugar_ocr_rows(
+        latest_ocr,
+        latest_article,
+        "https://www.hisugar.com/image/20260820/1787188264164059087.png",
+        "windows_ocr",
+    )
+    latest_by_date = {row["data_date"]: row for row in latest_rows}
+    assert latest_by_date["2026-08-19"]["premium_discount_cents_per_lb"] == -0.51
 
     prior_year_article = {
         "article_id": "2025080608563542667063",
