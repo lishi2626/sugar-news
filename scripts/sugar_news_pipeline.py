@@ -97,6 +97,8 @@ PLACEHOLDERS = (
 VAGUE_SUMMARY_PHRASES = (
     "关键数据包括",
     "指标包括",
+    "相关数值为",
+    "糖价相关数值为",
     "数据为",
     "已披露具体事件方向但标题缺少数值",
     "具体幅度未披露",
@@ -135,6 +137,8 @@ VAGUE_SUMMARY_PHRASES = (
     "产量、库存、销量或消费变化会直接改变食糖供需平衡",
     "糖厂运行变化会直接影响甘蔗入榨、压榨节奏和阶段性食糖产量",
     "报价变化会反映现货供需松紧和贸易商补库意愿",
+    "进口、出口、关税或配额变化会改变国内外可用糖源和贸易流向",
+    "印度价格上行通常会抬高补库成本，价格下行则说明供应压力或需求走弱正在传导到现货端",
     "产区天气或病虫害变化会影响甘蔗生长、收割和糖料供应稳定性",
     "主产区农业或气象机构预警甘蔗产区天气、干旱或病虫害",
 )
@@ -263,7 +267,8 @@ INDIA_WATER_STRESS_TERMS = (
 )
 INDIA_DAMAGE_TERMS = (
     "已造成", "洪涝", "农田被淹", "甘蔗倒伏", "道路中断", "作物受损", "预计减产",
-    "受灾", "损失", "flood damage", "crop damage", "waterlogging", "lodging", "road disruption",
+    "受灾", "损失", "红腐病", "病害", "虫害", "flood damage", "crop damage",
+    "waterlogging", "lodging", "road disruption", "red rot", "pest", "disease",
 )
 INDIA_HARVEST_TERMS = ("收割", "压榨", "运输", "入榨", "开榨", "砍蔗", "harvest", "crushing", "transport")
 INDIA_INDIRECT_ETHANOL_POLICY_TERMS = (
@@ -1978,7 +1983,7 @@ def supply_demand_metric_text(candidate: dict, metrics: list[str]) -> str:
     if percent:
         return f"{prefix}{label}变化幅度为{percent}"
     if metrics:
-        return f"{prefix}{label}相关数值为{'、'.join(metrics[:4])}"
+        return f"{prefix}{label}披露{'、'.join(metrics[:4])}"
     raise ValueError(f"{label}RSS候选缺少可核验数值或方向")
 
 
@@ -1998,8 +2003,19 @@ def metric_text_for_candidate(candidate: dict, metrics: list[str]) -> str:
                 return f"糖价{period}下跌{percent}"
             return f"糖价变动幅度为{percent}"
         if metrics:
-            return f"糖价相关数值为{'、'.join(metrics[:4])}"
+            return f"糖价或相关政策基准为{'、'.join(metrics[:4])}"
         raise ValueError("price-market RSS title lacks price level or change amount")
+    if topic == "trade_policy":
+        volume = extract_supply_demand_volume(title + " " + " ".join(metrics))
+        if volume:
+            if any_phrase(lowered_title, ("import", "imports", "进口")):
+                return f"进口数量为{volume}"
+            if any_phrase(lowered_title, ("export", "exports", "出口")):
+                return f"出口数量为{volume}"
+            return f"贸易政策数量为{volume}"
+        if metrics:
+            return f"贸易政策披露{'、'.join(metrics[:4])}"
+        raise ValueError("trade-policy RSS title lacks import/export/quota/tariff detail")
     if topic == "weather_pest":
         area_metric = next((metric for metric in metrics if "公顷" in metric or "hectare" in metric.lower()), "")
         lgu_match = re.search(r"(?i)(\d+(?:[.,]\d+)?)\s+more\s+LGUs?", title)
@@ -2011,10 +2027,10 @@ def metric_text_for_candidate(candidate: dict, metrics: list[str]) -> str:
         if "seeks national aid" in lowered_title and any_phrase(lowered_title, ("pest", "sugarcane pest")):
             return "因甘蔗虫害扩散寻求国家援助"
         if metrics:
-            return f"病虫害或天气数值为{'、'.join(metrics[:4])}"
+            return f"病虫害或天气事实披露{'、'.join(metrics[:4])}"
         return "已说明甘蔗虫害扩散或产区天气风险"
     if metrics:
-        return "相关数值为" + "、".join(metrics[:4])
+        return "披露" + "、".join(metrics[:4])
     raise ValueError("RSS候选缺少可核验数值、政策条款、生产、贸易、价格或天气事实")
 
 
@@ -2233,9 +2249,9 @@ def rss_summary_for_publication(candidate: dict) -> tuple[str, str]:
         "variety_research": "新品种单产、糖分或抗病性变化会影响中长期甘蔗供应潜力。",
         "weather_pest": f"{country}产区若出现虫害、干旱或洪涝，会压低受影响地块单产并削弱糖料供应稳定性。",
         "supply_demand": supply_demand_transmission(candidate),
-        "trade_policy": "进口、出口、关税或配额变化会改变国内外可用糖源和贸易流向。",
+        "trade_policy": "进口放宽会补充进口国国内糖源并压制本地现货；出口配额增加会提高国际可流通糖源，出口限制则减少国际供应。",
         "starch_sugar_substitute": "替代糖源供应变化会影响白糖消费替代和终端需求。",
-        "price_market": f"{country}价格上行通常会抬高补库成本，价格下行则说明供应压力或需求走弱正在传导到现货端。",
+        "price_market": f"{country}食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端。",
         "general_industry": "候选新闻缺少可发布的具体糖业主题，已退回核实。",
     }[topic]
     impact = impact_for_candidate(candidate)
@@ -3045,23 +3061,26 @@ def validate_india_weather_impact(item: dict, idx: int) -> None:
             raise ValueError(f"India weather item {idx} is outside main cane regions and should be impact-limited")
         return
 
+    bullish_prefixes = ("偏多糖价：", "利多：")
+    bearish_prefixes = ("偏空糖价：", "利空：")
+
     if _contains_any(fact_text, INDIA_HARVEST_TERMS):
-        if not item["impact"].startswith("偏多糖价："):
+        if not item["impact"].startswith(bullish_prefixes):
             raise ValueError(f"India weather item {idx} indicates harvest/crushing disruption and should be bullish")
         return
 
     if _contains_any(fact_text, INDIA_DAMAGE_TERMS):
-        if not item["impact"].startswith("偏多糖价："):
+        if not item["impact"].startswith(bullish_prefixes):
             raise ValueError(f"India weather item {idx} indicates confirmed damage and should be bullish")
         return
 
     if _contains_any(fact_text, INDIA_DROUGHT_TERMS):
-        if not item["impact"].startswith("偏多糖价："):
+        if not item["impact"].startswith(bullish_prefixes):
             raise ValueError(f"India weather item {idx} indicates drought/rain shortage and should be bullish")
         return
 
     if _contains_any(fact_text, INDIA_RAIN_BENEFIT_TERMS):
-        if not item["impact"].startswith("偏空糖价："):
+        if not item["impact"].startswith(bearish_prefixes):
             raise ValueError(f"India weather item {idx} indicates growing-season rainfall support and should be bearish")
 
 

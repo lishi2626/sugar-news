@@ -59,6 +59,8 @@ Never publish vague fallback summaries such as:
 - `涉及食糖价格或市场流通变化`
 - `涉及巴西食糖价格或市场流通变化`
 - `数据为XXX`
+- `相关数值为XXX`
+- `糖价相关数值为XXX`
 - `具体幅度未披露`
 - `对市场具有参考意义`
 - `对糖价具有参考意义`
@@ -92,6 +94,10 @@ Never publish vague fallback summaries such as:
 - `产量、库存、销量或消费变化会直接改变食糖供需平衡`
 - `糖厂运行变化会直接影响甘蔗入榨、压榨节奏和阶段性食糖产量`
 - `报价变化会反映现货供需松紧和贸易商补库意愿`
+- `进口、出口、关税或配额变化会改变国内外可用糖源和贸易流向`
+- `价格上行通常会抬高补库成本`
+
+For India weather and pest items, judge by the sugarcane stage and concrete risk, not by a single weather word. In Uttar Pradesh, Maharashtra, Karnataka, or another main cane state, `heavy rains raise red rot threat`, `red rot`, `pest`, `disease`, `waterlogging`, crop damage, flooding, harvest disruption, drought, or rainfall deficit is bullish because it can reduce cane yield or disrupt cane supply. Ordinary growing-season rainfall without disease, damage, flood, waterlogging, lodging, harvest disruption, or drought wording is bearish because it improves moisture and cane yield expectations. The public impact field may use either `利多：`/`利空：` or the Excel-style `偏多糖价：`/`偏空糖价：`; validation must not fail solely because the standard public prefix is used.
 - `产区天气或病虫害变化会影响甘蔗生长、收割和糖料供应稳定性`
 - `某国主产区农业或气象机构预警甘蔗产区天气、干旱或病虫害`
 - `某媒体消息涉及某国糖业运行变化`

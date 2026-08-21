@@ -698,6 +698,37 @@ def test_india_water_resource_pressure_is_bullish() -> None:
         raise AssertionError("water-resource pressure should require bullish impact")
 
 
+def test_india_weather_validation_accepts_standard_impact_prefixes() -> None:
+    data = {
+        "target_date": "2026-08-20",
+        "items": [
+            {
+                "country_group": "印度",
+                "country": "印度",
+                "title": "Heavy rains raise red rot threat to Uttar Pradesh sugarcane crop",
+                "news": "北方邦农业专家称，强降雨提高甘蔗红腐病扩散风险，受影响产区属于印度主产区。病害扩散会压低受害地块单产并削弱糖料供应稳定性。来源：Test（https://example.test/red-rot）。影响：利多糖价",
+                "impact": "利多：红腐病扩散会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+                "source_name": "Test",
+                "source_url": "https://example.test/red-rot",
+                "published_date_local": "2026-08-20",
+                "dedupe_key": "india_up_red_rot_weather",
+            },
+            {
+                "country_group": "印度",
+                "country": "印度",
+                "title": "Monsoon rainfall forecast supports Maharashtra sugarcane",
+                "news": "马哈拉施特拉邦甘蔗产区预报未来降雨，降雨增加有利于改善甘蔗生长期墒情。生长期降雨改善会提高糖料供应预期。来源：Test（https://example.test/rain）。影响：利空糖价",
+                "impact": "利空：生长期降雨增加有利于补充土壤水分并改善单产预期，从而提高后续糖料供应。",
+                "source_name": "Test",
+                "source_url": "https://example.test/rain",
+                "published_date_local": "2026-08-20",
+                "dedupe_key": "india_maharashtra_rain_benefit",
+            },
+        ],
+    }
+    assert len(normalize_items(data)) == 2
+
+
 def test_editorial_quality_rejects_publication_date_formula_and_accepts_key_dates() -> None:
     bad = {
         "country_group": "印度",
@@ -848,6 +879,11 @@ def test_editorial_quality_rejects_generic_metric_and_market_transmission_langua
             "title": "Indian Sugar Prices Jump 17% As New Stock Limits Kick In",
             "news": "印度糖业市场发布或调整食糖价格和市场流通，数据为17%。报价变化会反映现货供需松紧和贸易商补库意愿。来源：Test（https://example.test/india-stock-limit）",
             "impact": "中性：报价变化会反映现货供需松紧和贸易商补库意愿。",
+        },
+        {
+            "title": "India allows duty-free imports of 1 million metric tons of raw sugar",
+            "news": "印度糖厂公布食糖贸易、进口、出口或配额政策，相关数值为1 million。进口、出口、关税或配额变化会改变国内外可用糖源和贸易流向。来源：Test（https://example.test/import）",
+            "impact": "利空：进口、出口、关税或配额变化会改变国内外可用糖源和贸易流向。",
         },
         {
             "title": "Negros Oriental seeks national aid as sugar pest spreads",
