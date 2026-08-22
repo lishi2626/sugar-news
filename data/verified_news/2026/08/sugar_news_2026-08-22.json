@@ -1,0 +1,21 @@
+{
+  "target_date": "2026-08-22",
+  "run_date": "2026-08-23",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-08-22），那空沙旺、彭世洛、北碧、沙缴等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-08-22",
+      "event_date": "2026-08-22",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20260822",
+      "importance": 78
+    }
+  ]
+}

@@ -1,0 +1,2063 @@
+{
+  "target_date": "2026-08-22",
+  "run_date": "2026-08-23",
+  "search_tool": "Google News RSS autogeneration",
+  "note": "Two-stage discovery: broad country/topic/source queries first, structured candidate verification second. Only verified candidates can be published.",
+  "root_cause_diagnostics": {
+    "previous_priority_country_only": "Old autogeneration executed only Brazil/India/Thailand/China plus one other-country bucket, so concrete other-country templates were not reached.",
+    "previous_query_budget": "Old defaults capped each country at 12 queries, total at 72 queries, and only inspected the first 10 RSS rows per query.",
+    "previous_exact_date_filter": "Old logic required publication date to equal target_date, missing weekend, timezone, and delayed-publication items.",
+    "previous_vague_summary_generator": "Old RSS summaries used source-led generic wording and were then rejected by quality checks before page output."
+  },
+  "source_matrix": {
+    "巴西": [
+      "Ministério de Minas e Energia / CNPE",
+      "MAPA",
+      "ANP",
+      "UNICA",
+      "Datagro",
+      "Archer Consulting",
+      "StoneX",
+      "Hedgepoint",
+      "Czarnikow / Czapp",
+      "Conab",
+      "NovaCana",
+      "CanaOnline",
+      "Reuters",
+      "Brazil port and trade data"
+    ],
+    "印度": [
+      "Press Information Bureau",
+      "Lok Sabha / Rajya Sabha questions",
+      "Department of Food and Public Distribution",
+      "Ministry of Petroleum and Natural Gas",
+      "Ministry of Agriculture",
+      "ISMA",
+      "NFCSF",
+      "state cane commissioner offices",
+      "IMD",
+      "Vasantdada Sugar Institute",
+      "ChiniMandi",
+      "local newspapers"
+    ],
+    "泰国": [
+      "OCSB",
+      "Ministry of Industry Thailand",
+      "Thai cane grower and sugar associations",
+      "Thai Meteorological Department",
+      "Thai government announcements",
+      "The Nation Thailand",
+      "Bangkok Post",
+      "Thai agricultural media"
+    ],
+    "中国": [
+      "农业农村部 / CASDE",
+      "海关总署",
+      "国家统计局",
+      "商务部",
+      "中国糖业协会",
+      "广西糖业协会",
+      "云南省糖业协会",
+      "云糖网",
+      "泛糖科技",
+      "沐甜科技",
+      "郑州商品交易所",
+      "淀粉糖行业数据",
+      "制糖集团公告"
+    ],
+    "其他国家": [
+      "Indonesia government / agriculture / industry ministries",
+      "USDA / EIA / American Sugar Alliance",
+      "Philippines Sugar Regulatory Administration",
+      "Pakistan government / PSMA",
+      "Vietnam sugar association",
+      "Russia beet and sugar statistics",
+      "Fiji Sugar Corporation",
+      "Nepal sugar mills and cane dues sources",
+      "European Commission and beet sugar bodies"
+    ]
+  },
+  "case_regression_topics": [
+    "brazil_ethanol_blend_policy",
+    "brazil_global_sugar_consumption_forecast",
+    "brazil_sugar_hedging_progress",
+    "india_ethanol_tax_or_fiscal_data",
+    "india_ethanol_crude_import_savings",
+    "india_ethanol_pump_coverage",
+    "india_ethanol_capacity",
+    "india_ethanol_procurement_price",
+    "india_sugarcane_variety_trial",
+    "india_local_cane_drought_or_pest",
+    "india_mill_count_running_and_cane_requirement",
+    "indonesia_raw_sugar_import_policy",
+    "us_eia_ethanol_production_and_stocks",
+    "philippines_cane_farmer_aid",
+    "yunnan_cane_and_sugar_output",
+    "china_starch_sugar_corn_use_capacity",
+    "guangxi_sugar_sales_and_industrial_inventory"
+  ],
+  "query_window": {
+    "start": "2026-08-21T18:00:00+08:00",
+    "end": "2026-08-23T06:00:00+08:00",
+    "rule": "rolling_36_hour_window"
+  },
+  "query_budget": {
+    "max_queries_per_country": 32,
+    "max_total_queries": 180,
+    "max_items_per_query": 20
+  },
+  "india_price_inventory_sources": [
+    "ChiniMandi domestic sugar prices",
+    "ISMA / Indian Sugar & Bio-energy Manufacturers Association",
+    "NFCSF / National Federation of Cooperative Sugar Factories",
+    "Department of Food and Public Distribution, Government of India",
+    "reliable commodity and agriculture media with dated market quotes"
+  ],
+  "india_completeness_requirements": {
+    "sugar_core": "India sugar production/stocks/prices/mills/sales quota/shortage searched",
+    "ethanol_e20": "India ethanol policy/blending/E20/above 20 percent/OMC/feedstock searched",
+    "reuters_site_search": "site:reuters.com India sugar/ethanol/E20/sugarcane/molasses searched",
+    "weather": "India sugarcane rainfall and core cane-state forecasts searched",
+    "no_country_cap": "Autogeneration does not stop after a fixed number of items per country."
+  },
+  "thai_weather_requirements": {
+    "fixed_step": "After Thailand sugar news discovery, check TMD daily forecast for main sugarcane provinces and add one weather item when a valid rainfall forecast exists.",
+    "source": "https://tmd.go.th/en/forecast/daily",
+    "provinces": [
+      "乌隆他尼",
+      "孔敬",
+      "呵叻",
+      "猜也蓬",
+      "加拉信",
+      "黎府",
+      "那空沙旺",
+      "甘烹碧",
+      "素可泰",
+      "彭世洛",
+      "北碧",
+      "华富里",
+      "素攀武里",
+      "猜纳",
+      "沙缴",
+      "春武里",
+      "春武里"
+    ]
+  },
+  "searches": [
+    {
+      "country": "巴西",
+      "language": "en",
+      "keywords": "Brazil sugar industry news August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "en",
+      "keywords": "Brazil sugarcane ethanol export August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "en",
+      "keywords": "Brazil corn ethanol Renovabio August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "en",
+      "keywords": "Brazil ethanol gasoline corn ethanol August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "en",
+      "keywords": "Brazil sugar hedging progress mills hedged sugar August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "zh-CN",
+      "keywords": "巴西糖厂套保 食糖套保比例 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "zh-CN",
+      "keywords": "巴西 玉米乙醇 Renovabio 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "zh-CN",
+      "keywords": "巴西 乙醇 汽油 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "Brasil açúcar etanol 22 agosto 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "Brasil setor sucroenergético 22 de agosto de 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "Brasil etanol de milho RenovaBio 22 de agosto de 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "Brasil etanol gasolina etanol de milho 22 de agosto de 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "usinas cana açúcar etanol 22/08/2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "site:gov.br etanol gasolina mistura anidro August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "CNPE mistura etanol anidro gasolina August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "ANP etanol gasolina Brasil August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "ANP estoque de etanol hidratado anidro August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "UNICA moagem cana produção de açúcar etanol August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "Datagro consumo global de açúcar August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "Conab cana-de-açúcar produção açúcar August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "NovaCana etanol usina cana-de-açúcar August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "CanaOnline usina moagem cana açúcar etanol August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "preço da cana usina açúcar etanol August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "exportação de açúcar porto Brasil August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "pt-BR",
+      "keywords": "hedge açúcar usinas fixação contratos exportação August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "en",
+      "keywords": "Brazil sugar hedge ratio fixed-price sales export contracts August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "en",
+      "keywords": "Brazil ethanol blending E30 E32 sugarcane August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "en",
+      "keywords": "Brazil ethanol gasoline RenovaBio corn ethanol August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "en",
+      "keywords": "Brazil UNICA sugarcane crushing sugar production ethanol August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴西",
+      "language": "en",
+      "keywords": "Brazil Datagro global sugar consumption forecast August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar industry news August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugarcane ethanol mills August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar news 22 August 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar production August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar stocks August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar prices August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar ex-mill price August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar export policy August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar import August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar sales quota August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar shortage August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar mills August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugarcane production August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugarcane acreage August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugarcane FRP August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India ethanol policy August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India ethanol blending August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India E20 petrol August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India E20 ethanol target August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India ethanol above 20 percent August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugarcane ethanol August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India molasses ethanol August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar syrup ethanol August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India grain ethanol August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India maize ethanol August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India ethanol feedstock August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India oil ministry ethanol August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India OMC ethanol tender August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India cane-based distillery August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "site:reuters.com India sugar August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "site:reuters.com India ethanol August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "site:reuters.com India E20 August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "site:reuters.com India sugarcane August 22 2026",
+      "request_status": "skipped",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "reason": "RSS autogeneration query budget reached; daily job will continue with retained verified candidates."
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand sugar industry news August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand sugarcane mills ethanol August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand sugar news 22 August 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand sugarcane rainfall forecast August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Udon Thani Khon Kaen Nakhon Ratchasima sugarcane rain forecast August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Nakhon Sawan Kanchanaburi Lopburi Chai Nat rainfall forecast August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand cane growing areas thunderstorm heavy rain drought August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "th",
+      "keywords": "ประเทศไทย น้ำตาล อ้อย 22 กรกฎาคม 2569",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "th",
+      "keywords": "ข่าวอ้อย น้ำตาล 22 กรกฎาคม 2569",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "th",
+      "keywords": "อุตสาหกรรมอ้อยและน้ำตาล 22 กรกฎาคม 2569",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "th",
+      "keywords": "โรงงานน้ำตาล เอทานอล 22 กรกฎาคม 2569",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "OCSB Thailand sugarcane area cane price August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand cane price sugar mill crushing season August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand cassava replaces sugarcane planting area August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand sugarcane white leaf disease August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand sugar export OCSB August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "th",
+      "keywords": "สอน. พื้นที่ปลูกอ้อย ราคาอ้อย 22 กรกฎาคม 2569",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "th",
+      "keywords": "โรคใบขาวอ้อย โรงงานน้ำตาล 22 กรกฎาคม 2569",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "泰国",
+      "language": "th",
+      "keywords": "ราคาอ้อย เปิดหีบ โรงงานน้ำตาล 22 กรกฎาคม 2569",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "中国糖业新闻 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "中国食糖 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "中国白糖 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "中国甘蔗 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "中国甜菜糖 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "广西糖业 甘蔗 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "云南糖业 甘蔗 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "广东 甘蔗 糖业 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "海南 甘蔗 糖业 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "内蒙古 新疆 黑龙江 甜菜糖 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "食糖产销数据 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "食糖库存 产销率 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "食糖进口 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "原糖进口 到港量 进口成本 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "食糖进口配额 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "糖浆预混粉进口 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "加工糖厂 开机 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "广西糖业 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "云南糖业 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "郑州白糖期货 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "郑糖主力合约 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "白糖现货价格 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "甘蔗收购价 种植补贴 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "糖厂开榨 收榨 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "糖料产区 降雨 暴雨 干旱 台风 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "制糖集团公告 2026年8月22日",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "en",
+      "keywords": "China sugar industry August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "en",
+      "keywords": "China sugar production August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "en",
+      "keywords": "China sugar imports August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "en",
+      "keywords": "China sugarcane beet sugar August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "en",
+      "keywords": "China white sugar futures August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "en",
+      "keywords": "China sugar syrup imports August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "中国",
+      "language": "zh-CN",
+      "keywords": "淀粉糖 玉米消耗量 产能利用率 2026年8月22日",
+      "request_status": "skipped",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "reason": "RSS autogeneration query budget reached; daily job will continue with retained verified candidates."
+    },
+    {
+      "country": "巴基斯坦",
+      "language": "en",
+      "keywords": "Pakistan sugar industry August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴基斯坦",
+      "language": "en",
+      "keywords": "Pakistan sugarcane sugar mills August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴基斯坦",
+      "language": "en",
+      "keywords": "Pakistan sugar export import price August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴基斯坦",
+      "language": "en",
+      "keywords": "Pakistan sugar policy 22 August 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴基斯坦",
+      "language": "ur",
+      "keywords": "پاکستان چینی صنعت 22 جولائی 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴基斯坦",
+      "language": "ur",
+      "keywords": "گنا چینی ملز 22 جولائی 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "巴基斯坦",
+      "language": "ur",
+      "keywords": "چینی برآمد درآمد 22 جولائی 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "菲律宾",
+      "language": "en",
+      "keywords": "Philippines sugar industry August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "菲律宾",
+      "language": "en",
+      "keywords": "Philippines sugar production import August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "菲律宾",
+      "language": "en",
+      "keywords": "Philippines Sugar Regulatory Administration August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "菲律宾",
+      "language": "en",
+      "keywords": "Philippines sugarcane mills 22 August 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "菲律宾",
+      "language": "fil",
+      "keywords": "industriya ng asukal Hulyo 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "菲律宾",
+      "language": "fil",
+      "keywords": "produksyon ng tubo at asukal Hulyo 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "菲律宾",
+      "language": "fil",
+      "keywords": "importasyon ng asukal Hulyo 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "菲律宾",
+      "language": "en",
+      "keywords": "Philippines sugarcane pest provinces planters August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "菲律宾",
+      "language": "en",
+      "keywords": "Sugar Regulatory Administration sugar import policy August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "菲律宾",
+      "language": "en",
+      "keywords": "Philippines cane farmers aid sugarcane August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "菲律宾",
+      "language": "en",
+      "keywords": "Negros sugar mill sugarcane pest August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "越南",
+      "language": "en",
+      "keywords": "Vietnam sugar industry August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "越南",
+      "language": "en",
+      "keywords": "Vietnam sugar import tariff August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "越南",
+      "language": "en",
+      "keywords": "Vietnam sugarcane production August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "越南",
+      "language": "en",
+      "keywords": "Vietnam sugar anti-dumping 22 August 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "越南",
+      "language": "vi",
+      "keywords": "ngành đường Việt Nam ngày 22 tháng 7 năm 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "越南",
+      "language": "vi",
+      "keywords": "mía đường Việt Nam 22/08/2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "越南",
+      "language": "vi",
+      "keywords": "nhập khẩu đường 22/08/2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "越南",
+      "language": "vi",
+      "keywords": "thuế chống bán phá giá đường 22/08/2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "俄罗斯",
+      "language": "en",
+      "keywords": "Russia sugar industry August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "俄罗斯",
+      "language": "en",
+      "keywords": "Russia sugar beet production August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "俄罗斯",
+      "language": "en",
+      "keywords": "Russia sugar export price August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "俄罗斯",
+      "language": "en",
+      "keywords": "Russian sugar market 22 August 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "俄罗斯",
+      "language": "ru",
+      "keywords": "сахарная промышленность России 22 июля 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "俄罗斯",
+      "language": "ru",
+      "keywords": "сахарная свекла 22 июля 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "俄罗斯",
+      "language": "ru",
+      "keywords": "производство сахара Россия 22 июля 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "俄罗斯",
+      "language": "ru",
+      "keywords": "экспорт сахара Россия 22 июля 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度尼西亚",
+      "language": "en",
+      "keywords": "Indonesia sugar industry August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度尼西亚",
+      "language": "en",
+      "keywords": "Indonesia sugar import production August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度尼西亚",
+      "language": "en",
+      "keywords": "Indonesia sugar self-sufficiency August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度尼西亚",
+      "language": "en",
+      "keywords": "Indonesia sugarcane mills 22 August 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度尼西亚",
+      "language": "id",
+      "keywords": "industri gula Indonesia 22 Juli 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度尼西亚",
+      "language": "id",
+      "keywords": "produksi gula dan tebu 22 Juli 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度尼西亚",
+      "language": "id",
+      "keywords": "impor gula Indonesia 22 Juli 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度尼西亚",
+      "language": "id",
+      "keywords": "swasembada gula 22 Juli 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度尼西亚",
+      "language": "id",
+      "keywords": "pabrik gula 22 Juli 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度尼西亚",
+      "language": "en",
+      "keywords": "Indonesia raw sugar import allocation refinery regulation August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度尼西亚",
+      "language": "id",
+      "keywords": "Peraturan Presiden impor gula mentah industri rafinasi 22 Juli 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度尼西亚",
+      "language": "id",
+      "keywords": "Kementerian Perindustrian gula rafinasi impor gula mentah 22 Juli 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度尼西亚",
+      "language": "id",
+      "keywords": "kebijakan etanol tebu Indonesia 22 Juli 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "美国",
+      "language": "en",
+      "keywords": "EIA ethanol production stocks week ending August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "美国",
+      "language": "en",
+      "keywords": "USDA sugar beet cane sugar production imports August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "美国",
+      "language": "en",
+      "keywords": "United States sugar demand corn syrup consumption August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "美国",
+      "language": "en",
+      "keywords": "American Sugar Alliance beet cane sugar August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "尼泊尔",
+      "language": "en",
+      "keywords": "Nepal sugar mills cane dues import sugar August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "尼泊尔",
+      "language": "en",
+      "keywords": "Nepal sugarcane farmers payment arrears August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "斐济",
+      "language": "en",
+      "keywords": "Fiji Sugar Corporation crushing cane price August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "斐济",
+      "language": "en",
+      "keywords": "Fiji sugarcane growers cane payment August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "欧洲",
+      "language": "en",
+      "keywords": "European Commission sugar beet production exports August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "欧洲",
+      "language": "en",
+      "keywords": "France sugar beet production disease August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "欧洲",
+      "language": "en",
+      "keywords": "UK British Sugar beet crop August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "India sugar S-grade M-grade domestic price August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "India sugar prices today S grade M grade August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "Maharashtra Uttar Pradesh Karnataka sugar price August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "Uttar Pradesh sugar ex-mill price August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "UP sugar ex-mill rate August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "Uttar Pradesh mill sugar price August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "M-grade sugar ex-mill Uttar Pradesh August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度指标",
+      "language": "en",
+      "keywords": "North India sugar ex-mill price August 22 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度指标",
+      "language": "hi",
+      "keywords": "मुजफ्फरनगर चीनी मिल भाव 22 जुलाई 2026",
+      "request_status": "failed",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "country": "印度指标",
+      "language": "hi",
+      "keywords": "उत्तर प्रदेश चीनी एक्स मिल कीमत 22 जुलाई 2026",
+      "request_status": "skipped",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "reason": "RSS autogeneration query budget reached; daily job will continue with retained verified candidates."
+    },
+    {
+      "country": "其他国家",
+      "language": "en",
+      "keywords": "Indonesia sugar industry August 22 2026",
+      "request_status": "skipped",
+      "returned_count": 0,
+      "retained_count": 0,
+      "filtered": [],
+      "reason": "RSS autogeneration query budget reached; daily job will continue with retained verified candidates."
+    },
+    {
+      "fixed_step": "China sugar daily priority monitoring",
+      "target_date": "2026-08-22",
+      "status": "completed_no_publishable_item",
+      "retained_count": 0,
+      "reason": "China search completed without a publishable event; no public placeholder row was added."
+    },
+    {
+      "fixed_step": "Thai main sugarcane area rainfall check",
+      "target_date": "2026-08-22",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "status": "added",
+      "country": "泰国",
+      "language": "en",
+      "keywords": "TMD daily forecast Thailand main sugarcane provinces rainfall",
+      "request_status": "executed",
+      "returned_count": 1,
+      "retained_count": 1,
+      "filtered": []
+    }
+  ],
+  "structured_candidates": [],
+  "completeness_report": {
+    "executed_queries_by_country": {
+      "泰国": 1
+    },
+    "failed_queries_by_country": {
+      "巴西": 30,
+      "印度": 32,
+      "泰国": 19,
+      "中国": 32,
+      "巴基斯坦": 7,
+      "菲律宾": 11,
+      "越南": 8,
+      "俄罗斯": 8,
+      "印度尼西亚": 13,
+      "美国": 4,
+      "尼泊尔": 2,
+      "斐济": 2,
+      "欧洲": 3,
+      "印度指标": 9
+    },
+    "retained_items_by_country": {
+      "巴西": 0,
+      "印度": 0,
+      "泰国": 1,
+      "中国": 0,
+      "巴基斯坦": 0,
+      "菲律宾": 0,
+      "越南": 0,
+      "俄罗斯": 0,
+      "印度尼西亚": 0,
+      "美国": 0,
+      "尼泊尔": 0,
+      "斐济": 0,
+      "欧洲": 0,
+      "印度指标": 0,
+      "其他国家": 0,
+      "China sugar daily priority monitoring": 0
+    },
+    "candidate_verification_status_counts": {},
+    "drop_reason_counts": {},
+    "found_but_not_output_count": 0,
+    "single_source_country_failure": [],
+    "final_report_items": [
+      {
+        "country": "泰国",
+        "title": "泰国主要甘蔗产区预计出现降雨",
+        "dedupe_key": "thailand_cane_weather_tmd_20260822"
+      }
+    ]
+  },
+  "pipeline_counts": {
+    "structured_data_count": 1,
+    "passed_to_excel": 1
+  }
+}
