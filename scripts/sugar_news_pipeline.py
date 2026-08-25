@@ -248,6 +248,13 @@ INDIA_MAIN_CANE_REGIONS = (
     "哈里亚纳邦", "Haryana",
     "北阿坎德邦", "Uttarakhand",
 )
+INDIA_NATIONAL_CANE_SCOPE_TERMS = (
+    "印度", "India", "Indian", "印度政府", "中央政府", "government", "govt", "Centre",
+)
+INDIA_NATIONAL_SUPPLY_TERMS = (
+    "食糖产量", "糖产量", "甘蔗产量", "糖料供应", "甘蔗供应", "sugar production",
+    "sugar output", "sugarcane production", "sugarcane crop", "sugar crop",
+)
 INDIA_WEATHER_TERMS = (
     "降雨", "雨", "季风", "天气", "气象", "预警", "强降雨", "暴雨", "干旱", "洪涝", "积水",
     "rain", "rainfall", "monsoon", "weather", "alert", "warning", "heavy rain", "flood", "drought",
@@ -806,7 +813,9 @@ COUNTRY_TRUSTED_SOURCE_MARKERS = {
 RSS_TITLE_ONLY_REJECT_TERMS = (
     "latest results", "quarterly results", "pat rises", "profit after tax",
     "net profit", "share price", "shares", "stock market", "stock to watch",
-    "buy rating", "target price", "market cap",
+    "buy rating", "target price", "market cap", "stocks rally", "stock rally",
+    "sugar-linked stocks", "52-week", "52-wk", "hit 52", "analyst target",
+    "bajaj hind", "dhampur sugar",
 )
 
 LOW_SIGNAL_ETHANOL_DISCUSSION_TERMS = (
@@ -1217,7 +1226,7 @@ def extract_metrics(text: str) -> list[str]:
             value = value.strip()
             if re.fullmatch(r"(?i)rs\s*[0-9]", value):
                 continue
-            if re.fullmatch(r"(?i)\dMT", value):
+            if re.fullmatch(r"(?i)\d+(?:[.,]\d+)?MT", value):
                 continue
             if value.lower() in {"rs2", "rs 2"}:
                 continue
@@ -1227,6 +1236,21 @@ def extract_metrics(text: str) -> list[str]:
 
 
 def localize_metric_for_summary(value: str) -> str:
+    def lmt_to_wan_tonnes(match: re.Match) -> str:
+        raw_value = match.group(1).replace(",", "")
+        try:
+            number = float(raw_value)
+        except ValueError:
+            return match.group(0)
+        wan_tonnes = number * 10
+        formatted = f"{wan_tonnes:.4f}".rstrip("0").rstrip(".")
+        return f"{formatted}万吨"
+
+    localized = re.sub(
+        r"(?i)(?<![\w/])(\d+(?:[.,]\d+)?)\s*(?:LMT|lakh\s*(?:metric\s*)?tonnes?|lakh\s*tons?)\b",
+        lmt_to_wan_tonnes,
+        value,
+    )
     replacements = (
         (r"(?i)(?<![\d.])(\d+(?:[.,]\d+)?)\s*provinces?\b", r"\1个省"),
         (r"(?i)(?<![\d.])(\d+(?:[.,]\d+)?)\s*states?\b", r"\1个州"),
@@ -1236,7 +1260,6 @@ def localize_metric_for_summary(value: str) -> str:
         (r"(?i)(?<![\d.])(\d+(?:[.,]\d+)?)\s*hectares?\b", r"\1公顷"),
         (r"(?i)(?<![\d.])(\d+(?:[.,]\d+)?)\s*acres?\b", r"\1英亩"),
     )
-    localized = value
     for pattern, replacement in replacements:
         localized = re.sub(pattern, replacement, localized)
     return localized
@@ -2568,7 +2591,7 @@ def has_thai_weather_item(items: list[dict]) -> bool:
         if item.get("country_group") != "泰国":
             continue
         text = " ".join(str(item.get(field, "")) for field in ("title", "news", "impact"))
-        if _contains_any(text, THAI_WEATHER_TERMS):
+        if _contains_any_weather_term(text, THAI_WEATHER_TERMS):
             return True
     return False
 
@@ -2599,7 +2622,7 @@ def fallback_thai_weather_item_from_verified(report_date: str) -> tuple[dict | N
             if item.get("country_group") != "泰国":
                 continue
             text = " ".join(str(item.get(field, "")) for field in ("title", "news", "impact"))
-            if not _contains_any(text, THAI_WEATHER_TERMS):
+            if not _contains_any_weather_term(text, THAI_WEATHER_TERMS):
                 continue
             item["event_date"] = item.get("event_date") or report_date
             item["date_status"] = item.get("date_status") or "official_forecast"
@@ -3041,13 +3064,27 @@ def _contains_any(text: str, terms: tuple[str, ...]) -> bool:
     return any(term.lower() in lowered for term in terms)
 
 
+def _contains_any_weather_term(text: str, terms: tuple[str, ...]) -> bool:
+    lowered = text.lower()
+    for term in terms:
+        term_lower = term.lower()
+        if re.fullmatch(r"[a-z0-9][a-z0-9\s-]*", term_lower):
+            pattern = re.escape(term_lower).replace(r"\ ", r"\s+")
+            if re.search(rf"(?<![a-z0-9]){pattern}(?![a-z0-9])", lowered):
+                return True
+            continue
+        if term_lower in lowered:
+            return True
+    return False
+
+
 def validate_india_weather_impact(item: dict, idx: int) -> None:
     if item.get("country_group") != "印度":
         return
 
     fact_text = " ".join(str(item.get(field, "")) for field in ("title", "news"))
     text = f"{fact_text} {item.get('impact', '')}"
-    if not _contains_any(text, INDIA_WEATHER_TERMS):
+    if not _contains_any_weather_term(text, INDIA_WEATHER_TERMS):
         return
 
     if _contains_any(fact_text, INDIA_WATER_STRESS_TERMS):
@@ -3055,7 +3092,11 @@ def validate_india_weather_impact(item: dict, idx: int) -> None:
             raise ValueError(f"India weather item {idx} indicates water-resource pressure and should be bullish")
         return
 
-    in_main_area = _contains_any(fact_text, INDIA_MAIN_CANE_REGIONS)
+    national_supply_scope = _contains_any(fact_text, INDIA_NATIONAL_CANE_SCOPE_TERMS) and _contains_any(
+        fact_text,
+        INDIA_NATIONAL_SUPPLY_TERMS,
+    )
+    in_main_area = _contains_any(fact_text, INDIA_MAIN_CANE_REGIONS) or national_supply_scope
     if not in_main_area:
         if not item["impact"].startswith("影响有限："):
             raise ValueError(f"India weather item {idx} is outside main cane regions and should be impact-limited")
@@ -3090,7 +3131,7 @@ def validate_thai_weather_impact(item: dict, idx: int) -> None:
 
     fact_text = " ".join(str(item.get(field, "")) for field in ("title", "news"))
     text = f"{fact_text} {item.get('impact', '')}"
-    if not _contains_any(text, THAI_WEATHER_TERMS):
+    if not _contains_any_weather_term(text, THAI_WEATHER_TERMS):
         return
     if not _contains_any(fact_text, THAI_WEATHER_EVENT_TERMS):
         return
@@ -3140,7 +3181,7 @@ def normalize_items(data: dict) -> list[dict]:
         validate_news_impact_marker(item, idx)
         if any(text in item["news"] or text in item["impact"] for text in PLACEHOLDERS):
             raise ValueError(f"Verified item {idx} contains placeholder wording")
-        if re.search(r"\bLMT\b|lmt", item["news"]):
+        if re.search(r"(?i)\blmt\b", news_body_without_source(item["news"])):
             raise ValueError(f"Verified item {idx} contains raw LMT/lmt unit")
         if "来源：" not in item["news"] or item["source_url"] not in item["news"]:
             raise ValueError(f"Verified item {idx} missing B-column source link")

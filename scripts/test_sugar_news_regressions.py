@@ -272,6 +272,8 @@ def test_monday_publication_window_keeps_weekend_items() -> None:
 
 def test_structured_rss_candidate_summary_is_specific() -> None:
     assert localize_metric_for_summary("4 provinces") == "4个省"
+    assert localize_metric_for_summary("22.5 LMT monthly sugar quota") == "225万吨 monthly sugar quota"
+    assert localize_metric_for_summary("3.75 lakh metric tonnes stock") == "37.5万吨 stock"
     rss = {
         "title": "Mindanao planters sound alarm as sugarcane pest spreads to 4 provinces - Inquirer",
         "link": "https://example.test/philippines-pest",
@@ -380,7 +382,18 @@ def test_rss_publication_filters_keep_trusted_specific_industry_items() -> None:
     assert not ok
     assert "title-only" in reason
 
+    stock_rally_candidate = {
+        "source_title": "Sugar stocks rally up to 19%; Bajaj Hindusthan, Dwarikesh, 7 others hit 52-week highs",
+        "event_country": "印度",
+        "topic": "supply_demand",
+        "metrics": ["19%", "52-week"],
+    }
+    ok, reason = candidate_has_verifiable_industry_fact(stock_rally_candidate)
+    assert not ok
+    assert "title-only" in reason
+
     assert "5MT" not in extract_metrics("Petrol would have hit Rs 125/litre without ethanol blend ?oc=5MT")
+    assert "184MT" not in extract_metrics("Ethanol is not the whole story behind sugar price surge CBMi184MT")
     assert "Rs 125" in extract_metrics("Petrol would have hit Rs 125/litre without ethanol blend")
 
 
@@ -755,9 +768,40 @@ def test_india_weather_validation_accepts_standard_impact_prefixes() -> None:
                 "published_date_local": "2026-08-20",
                 "dedupe_key": "india_maharashtra_rain_benefit",
             },
+            {
+                "country_group": "印度",
+                "country": "印度",
+                "title": "Sugar production hit by Red Rot disease, El Nino; govt taking measures",
+                "news": "印度中央政府表示，红腐病和厄尔尼诺影响印度甘蔗和食糖产量，政府正在采取防控措施。病害和干旱压力会压低受影响地块单产并削弱糖料供应稳定性。来源：Test（https://example.test/india-national-red-rot）。影响：利多糖价",
+                "impact": "利多：红腐病和厄尔尼诺造成的干旱压力会压低甘蔗单产并减少糖料供应，从而支撑糖价。",
+                "source_name": "Test",
+                "source_url": "https://example.test/india-national-red-rot",
+                "published_date_local": "2026-08-20",
+                "dedupe_key": "india_national_red_rot_el_nino",
+            },
         ],
     }
-    assert len(normalize_items(data)) == 2
+    assert len(normalize_items(data)) == 3
+
+
+def test_india_weather_validation_does_not_match_rain_inside_strains() -> None:
+    data = {
+        "target_date": "2026-08-23",
+        "items": [
+            {
+                "country_group": "印度",
+                "country": "印度",
+                "title": "Sugar price surge strains households, businesses in Dhanbad",
+                "news": "印度丹巴德商户称，当地食糖零售价格从每公斤45卢比涨至50卢比，糕点店和家庭采购成本上升。零售价格上升说明当地现货供应偏紧或节前需求增强，会支撑印度国内糖价。来源：Test（https://example.test/dhanbad-price）。影响：利多糖价",
+                "impact": "利多：零售价格上涨反映当地可售糖源偏紧或节前需求增强，从而支撑印度国内糖价。",
+                "source_name": "Test",
+                "source_url": "https://example.test/dhanbad-price",
+                "published_date_local": "2026-08-23",
+                "dedupe_key": "india_dhanbad_price_strains",
+            },
+        ],
+    }
+    assert len(normalize_items(data)) == 1
 
 
 def test_editorial_quality_rejects_publication_date_formula_and_accepts_key_dates() -> None:
@@ -1439,6 +1483,7 @@ def main() -> None:
         test_valid_brazil_cane_sugar_ethanol_news_is_allowed,
         test_india_water_resource_pressure_is_bullish,
         test_editorial_quality_rejects_publication_date_formula_and_accepts_key_dates,
+        test_india_weather_validation_does_not_match_rain_inside_strains,
         test_summary_must_be_two_or_three_chinese_sentences,
         test_editorial_quality_rejects_vague_fallback_summary,
         test_editorial_quality_requires_concrete_action_direction_and_impact_path,
