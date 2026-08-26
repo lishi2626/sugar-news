@@ -1,0 +1,359 @@
+{
+  "target_date": "2026-08-26",
+  "run_date": "2026-08-27",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "India to divert 3.5 lakh tonnes of export sugar to local market as prices surge",
+      "news": "印度糖业市场公布食糖价格和市场流通，糖价或相关政策基准为3.5 lakh。印度食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端。来源：Business Today（https://www.businesstoday.in/latest/economy/story/india-to-divert-3-5-lakh-tonnes-of-export-sugar-to-local-market-as-prices-surge-551581-2026-08-26）。影响：中性",
+      "impact": "中性：价格信息缺少明确涨跌幅或区域基准，暂不改变供需判断。",
+      "source_name": "Business Today",
+      "source_url": "https://www.businesstoday.in/latest/economy/story/india-to-divert-3-5-lakh-tonnes-of-export-sugar-to-local-market-as-prices-surge-551581-2026-08-26",
+      "published_date_local": "2026-08-26",
+      "event_date": "2026-08-26",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "India to divert 3.5 lakh tonnes of export sugar to local market as prices surge",
+        "source_url": "https://www.businesstoday.in/latest/economy/story/india-to-divert-3-5-lakh-tonnes-of-export-sugar-to-local-market-as-prices-surge-551581-2026-08-26",
+        "publisher": "Business Today",
+        "publication_time": "Wed, 26 Aug 2026 12:22:12 GMT",
+        "event_date": "2026-08-26",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "3.5 lakh"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "价格信息缺少明确涨跌幅或区域基准，暂不改变供需判断。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOWHhwYnloenRkNlN4RjFFZFFTaWNEbmt5VTBrOTdwQXk4empEbF9nbmVGVzlIdXk5NWE3VVZlWjJVS09wWjBFZDZZcVBTLWdOMmhqWi1Na0Zkak1TcVRYTExqNk10Qy1WSnhvalZiTGpvN2swdU50OXVxNXdqajM2eHdmSjFUbExTVk14dEJPM3dyVkEzR1BBcHhQc0pESXVPeHR0VjcwZE9Hekl4dHZvcWNrV2pEUUtEZmR4cGNRVE5nQU5ZWDIwR2lvZzNkb2otSVl5OUdIQjZWQU1Qa0pjMtIB5gFBVV95cUxPMWtORnQxU1ZWdGdZcG0wMGZrTkdUWHF6X29CaGZEenlsNWVXLTU4c2RPSUFLN1hJVnEzb2xsTTBScGtrbzZuZmYzRmNPOGNYdFoxUjF6a3FOY180bEdJdmNwSmRmWlVEWE1nS3dtd3FsTnJXUGFpY0xNWDJFbGFIdHNTOTNxWl9GTU94RzdzSGxuSktWTHlpSnRJRi1hdF9TMzFyZzFScTJQSDNTMzdpay1HWG10TUhuWWdyazAyWWFzdDBXcDdhMXFrS0hXb3IwZjFyenJCd2VvWEVNLVJKdWhTNF92dw?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布35lakh20260826price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "India’s sugar industry sees short term price rise amid tighter supplies",
+      "news": "印度糖业市场公布食糖价格和市场流通，糖价或相关政策基准为1KL。印度食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端。来源：ChiniMandi（https://www.chinimandi.com/indias-sugar-industry-sees-short-term-price-rise-amid-tighter-supplies/）。影响：利多糖价",
+      "impact": "利多：现货或出厂报价上涨反映阶段性供应偏紧或采购需求增强，会支撑短期糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/indias-sugar-industry-sees-short-term-price-rise-amid-tighter-supplies/",
+      "published_date_local": "2026-08-26",
+      "event_date": "2026-08-26",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "India’s sugar industry sees short term price rise amid tighter supplies",
+        "source_url": "https://www.chinimandi.com/indias-sugar-industry-sees-short-term-price-rise-amid-tighter-supplies/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 26 Aug 2026 12:42:43 GMT",
+        "event_date": "2026-08-26",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "1KL"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "现货或出厂报价上涨反映阶段性供应偏紧或采购需求增强，会支撑短期糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPbThGYVphLWFhWnNaV05UUUtpYjRqNm1oeDVQVXk3SzUtUlUzZzFOZ29aeG1nc3M5b1F4b0ExaHltNVNXVlNQUEVvcVhmSFdfMFl2YmZIOTk2RVQtQkpoRzBBYmU4cldRVDdsYnh3VVNNRi1FVkc2WVJiLW9xSW5pbDZEb2FTakF6TG1KLTd0RWRVRkVTQkZrVnM0WUttZDA?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布1kl20260826price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "India sugar prices may cool as refiners divert 350,000 tonnes of export stock to",
+      "news": "印度糖业市场公布食糖价格和市场流通，糖价或相关政策基准为350,000 tonnes。印度食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端。来源：Moneycontrol.com（https://www.moneycontrol.com/news/business/commodities/india-sugar-prices-may-cool-as-refiners-divert-350-000-tonnes-of-export-stock-to-local-market-14016187.html）。影响：中性",
+      "impact": "中性：价格信息缺少明确涨跌幅或区域基准，暂不改变供需判断。",
+      "source_name": "Moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/commodities/india-sugar-prices-may-cool-as-refiners-divert-350-000-tonnes-of-export-stock-to-local-market-14016187.html",
+      "published_date_local": "2026-08-26",
+      "event_date": "2026-08-26",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "India sugar prices may cool as refiners divert 350,000 tonnes of export stock to local market",
+        "source_url": "https://www.moneycontrol.com/news/business/commodities/india-sugar-prices-may-cool-as-refiners-divert-350-000-tonnes-of-export-stock-to-local-market-14016187.html",
+        "publisher": "Moneycontrol.com",
+        "publication_time": "Wed, 26 Aug 2026 12:47:57 GMT",
+        "event_date": "2026-08-26",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "350,000 tonnes"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "价格信息缺少明确涨跌幅或区域基准，暂不改变供需判断。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPOVE3UjhHTXo1UVFQaGlHTGVPZ0FvVVkzMkZVcGxTa2FjQ0xEVkNTZ2JCcWlGc1dlNlZyaE9pUHZtZU5HY2I1c0lrZUdlbG9RRTltb3pkX1c4VVVhLUR4R3pzb3Q3V2JqZDhDSHFGUmJFVE50dExBVndneGdBNUM4cjRUZTZIc2lPNFRQR0ZoN1BRVEVDTWRHZ1l1VlVJakRZeHNybzZMNE51TGtMRzZlYnNhYWZVOU92M1dQZ0paVGNSNnJhdWdVNUFTOXBFZUo1UDRGc003cU8ySmJBMkdJWTdvVEtIbzdtM1I1cml0Mkc4Snpi0gH6AUFVX3lxTE9jRVF2TDh2X19RT1dFb1RaOTdpSDJvUjNhWTFaWHJHT1NQcGduX0pYR2pUM1JJd3hKZzBkeUE1bG4tNmFFZWNjZEpjeTlNdVNfTnVzOGIwaWl0QnFpdmJ6Z1g2T0Z3QzhDN2RiYkt6TVJiSlVTa2xOTHV5LVAzQjI1U1hZY2RZaU1zMGxyZnlqYWJlU2t2amdiczJYQTBzX1k0a0JNZkxLUUktVlpkWnVubm5sc0g2cm5QanhhTzVXcmNTNmtTR3hINk5hc2pIdEZBYndOa0xXWk9IZ0M4LTVoQVllaEY1VzVGQU9QRWlTV3dsQ2QtZUdoSkE?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布350000tonnes20260826price_market",
+      "importance": 85
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Sugar prices rise over Rs 1 per kg for second consecutive day to Rs 65 amid fest",
+      "news": "印度糖业市场下调食糖价格和市场流通，糖价或相关政策基准为Rs 65。印度食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端。来源：The Economic Times（https://m.economictimes.com/news/economy/agriculture/sugar-prices-rise-over-rs-1-per-kg-for-second-consecutive-day-to-rs-65-amid-festive-demand/articleshow/133540985.cms）。影响：利多糖价",
+      "impact": "利多：现货或出厂报价上涨反映阶段性供应偏紧或采购需求增强，会支撑短期糖价。",
+      "source_name": "The Economic Times",
+      "source_url": "https://m.economictimes.com/news/economy/agriculture/sugar-prices-rise-over-rs-1-per-kg-for-second-consecutive-day-to-rs-65-amid-festive-demand/articleshow/133540985.cms",
+      "published_date_local": "2026-08-26",
+      "event_date": "2026-08-26",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Sugar prices rise over Rs 1 per kg for second consecutive day to Rs 65 amid festive demand",
+        "source_url": "https://m.economictimes.com/news/economy/agriculture/sugar-prices-rise-over-rs-1-per-kg-for-second-consecutive-day-to-rs-65-amid-festive-demand/articleshow/133540985.cms",
+        "publisher": "The Economic Times",
+        "publication_time": "Wed, 26 Aug 2026 12:34:39 GMT",
+        "event_date": "2026-08-26",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "下调",
+        "metrics": [
+          "Rs 65"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "现货或出厂报价上涨反映阶段性供应偏紧或采购需求增强，会支撑短期糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxNQUFqWFI5Xy1vSy1WQjVCb1hJY0tJTWJING04bmRqcl9HSndaaFhCLUpxU1Rvd3FjRlVnOVdjTmRiOHpnaUs3bU5tSWpLY1EzV25vOENaVlNoUEtWRDNCUFpNMjlRZW04dndtbGs2X0laTlBPMjlOMFdhNVU3YjN2T3ZDMUxnejRyLW53VmtUZGhramk4cXlkd2tTeTVKMFZ3ckplZ2xVcDlsMDl2b2E5ZjdsXzNhYkFZYV9kTWJqOWxhcXdnS0U3cUxtZ0hIVUJuR05nUWRDNTl5aVBlR1M2a3VzejRfS1N5VnZuOU5lRHhoRGwtZFhhUllQcFdPd9IBgwJBVV95cUxNWFg0YXBrUVdUbG9aQTZ0N1dhU0JyWkJ5emxja1JGWmV0SzZVU0hIUHpZM3cwRnd0MWw0ZTZaSVZqeWJfWUtsb196Njl6aHJQX052d2JsQ3YzZmNXR2c0dXVGSnVUSDZCUGlZcmdkXzFkeWpRMy0yN1dsazBYNDdmeVVnTXZJRThnWUFhem5yNnZlTGlBaHI2S1haU2cxdUNvZEdzU0ZFNVU0VUQ4WXJjYS04WGVoa1lXb1g4ZUxra2hKY0xRVWlGaGZmcDEtRHJXUmJPZVF5UmpHeUlWUUItN1BKRTVYc3FVdk95dUFqZFZ3ZHNWT2FyUEExQWlrV2ZhREtr?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场下调rs6520260826price_market",
+      "importance": 85
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Uttar Pradesh sugar mills clear over 94% of sugarcane dues in current season",
+      "news": "印度糖厂披露糖厂运行和压榨安排，披露94%。印度糖厂若增加开工或压榨，会加快当季食糖产出；若停产或延后开榨，则阶段性供应收紧。来源：ChiniMandi（https://www.chinimandi.com/uttar-pradesh-sugar-mills-clear-over-94-of-sugarcane-dues-in-current-season/）。影响：利空糖价",
+      "impact": "利空：糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/uttar-pradesh-sugar-mills-clear-over-94-of-sugarcane-dues-in-current-season/",
+      "published_date_local": "2026-08-26",
+      "event_date": "2026-08-26",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Uttar Pradesh sugar mills clear over 94% of sugarcane dues in current season",
+        "source_url": "https://www.chinimandi.com/uttar-pradesh-sugar-mills-clear-over-94-of-sugarcane-dues-in-current-season/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 26 Aug 2026 05:09:11 GMT",
+        "event_date": "2026-08-26",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖厂",
+        "event_action": "披露",
+        "metrics": [
+          "94%"
+        ],
+        "comparison_period": null,
+        "topic": "mill_operations",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOYzY1V2RGUDJLb3JSRFFNOTVOUDg2NmxuSTdGclFHY1dNTnM2djQ3YWZPREFVSkc0V1NmMnF0NXAzZlNDSF9XRUFUTXlDaTAzVlRKQW9VYWRKVjBfRFhLTmpZZXQwWm5vc3h6Z3FFci1uTF96MjRoZmRaSHBIYkRRWGlldUVrS3pGb0Z4dl85T2tkQk03dXlmOHdvanBpSlZTakRqRXFn?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖厂披露9420260826mill_operations",
+      "importance": 80
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "India To Redirect 350,000 Tonnes Of Export-Bound Sugar As Domestic Supply Tighte",
+      "news": "印度糖业相关机构公布食糖贸易、进口、出口或配额政策，出口数量为35万吨。进口放宽会补充进口国国内糖源并压制本地现货；出口配额增加会提高国际可流通糖源，出口限制则减少国际供应。来源：outlookbusiness.com（https://www.outlookbusiness.com/amp/story/news/india-to-redirect-350000-tonnes-of-export-bound-sugar-as-domestic-supply-tightens）。影响：利多糖价",
+      "impact": "利多：出口限制、配额收紧或贸易成本上升会减少可流通糖源并支撑国际糖价。",
+      "source_name": "outlookbusiness.com",
+      "source_url": "https://www.outlookbusiness.com/amp/story/news/india-to-redirect-350000-tonnes-of-export-bound-sugar-as-domestic-supply-tightens",
+      "published_date_local": "2026-08-26",
+      "event_date": "2026-08-26",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "India To Redirect 350,000 Tonnes Of Export-Bound Sugar As Domestic Supply Tightens",
+        "source_url": "https://www.outlookbusiness.com/amp/story/news/india-to-redirect-350000-tonnes-of-export-bound-sugar-as-domestic-supply-tightens",
+        "publisher": "outlookbusiness.com",
+        "publication_time": "Wed, 26 Aug 2026 14:47:12 GMT",
+        "event_date": "2026-08-26",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "350,000 Tonnes"
+        ],
+        "comparison_period": null,
+        "topic": "trade_policy",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "出口限制、配额收紧或贸易成本上升会减少可流通糖源并支撑国际糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPNjJZREtzQ3BZVGN0c1dCaGZtTGgxR1ZhaEVXT0VLRVd5QzdEME80NVNQRXVvWHI5OGE0TnE0N3NnV0xVa1lXaGV1ZkhJTV96aHNLeXR6blY2NDN2XzVlRFBPR0xUaDZWd0VlMGVyR2I5cGNweFpyRlEzVWNHVmhGZ1dvcnM4MElKNVFuMm40RUh0b3UxU2pycUdjczR0Zjdja1FJWFlvSHBlcklmY1V0Z2hXeDFTdmFRdk5XSmYxQTJfQmszWWlB0gHHAUFVX3lxTE82MllES3NDcFlUY3RzV0JoZm1MaDFHVmFoRVdPRUtFV3lDN0QwTzQ1U1BFdW9Ycjk4YTROcTQ3c2dXTFVrWVdoZXVmSElNX3poc0t5dHpuVjY0M3ZfNWVEUE9HTFRoNlZ3RWUwZXJHYjlwY3B4WnJGUTNVY0dWaEZnV29yczgwSUo1UW4ybjRFSHRvdTFTanJxR2NzNHRmN2NrUUlYWW9IcGVySWZjVXRnaFd4MVN2YVF2TldKZjFBMl9CazNZaUE?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构公布350000tonnes20260826trade_policy",
+      "importance": 75
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Government measures break sugar price rally; Prices plunge nearly 27% to Rs 5,10",
+      "news": "印度政府公布食糖价格和市场流通，糖价变动幅度为27%。印度食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端。来源：ChiniMandi（https://www.chinimandi.com/government-measures-break-sugar-price-rally-prices-plunge-nearly-27-to-rs-5100-quintal-ex-mill/）。影响：中性",
+      "impact": "中性：价格信息缺少明确涨跌幅或区域基准，暂不改变供需判断。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/government-measures-break-sugar-price-rally-prices-plunge-nearly-27-to-rs-5100-quintal-ex-mill/",
+      "published_date_local": "2026-08-26",
+      "event_date": "2026-08-26",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Government measures break sugar price rally; Prices plunge nearly 27% to Rs 5,100/quintal ex-mill",
+        "source_url": "https://www.chinimandi.com/government-measures-break-sugar-price-rally-prices-plunge-nearly-27-to-rs-5100-quintal-ex-mill/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 26 Aug 2026 09:10:36 GMT",
+        "event_date": "2026-08-26",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度政府",
+        "event_action": "公布",
+        "metrics": [
+          "27%",
+          "Rs 5,100"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "价格信息缺少明确涨跌幅或区域基准，暂不改变供需判断。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQdnRXcWJJYlZ2YkRLVmdxZTVvM1hZR1U5YkRqUG50WUs2SjVFbWFjWGJRWUFZZFVuQzlsSFlFbEF3SVpMbVE5VE9aU3g1NHdUVGlBMnFwc1ltc2J5ZDc3U21UMkd3QXhISFJYWHRvQTJIcnEtTVZzcThfVndwRUJpRVJXTlY0aDFDMEhyRmNPSlBjalZqeC1fajd4NzN4OFhkYW12Z1czamlxd24zS2FvaUg1WktkdjBQVnYyLTVzWQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度政府公布27rs510020260826price_market",
+      "importance": 70
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Sugar ex-mill prices fall 18% to Rs 55 a kg, but decline not fully filtered to r",
+      "news": "印度糖厂公布食糖价格和市场流通，糖价下跌18%。印度食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端。来源：ChiniMandi（https://www.chinimandi.com/sugar-ex-mill-prices-fall-18-to-rs-55-a-kg-but-decline-not-fully-filtered-to-retail-market/）。影响：利空糖价",
+      "impact": "利空：现货或出厂报价下跌反映供应压力或需求转弱，会压制短期糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/sugar-ex-mill-prices-fall-18-to-rs-55-a-kg-but-decline-not-fully-filtered-to-retail-market/",
+      "published_date_local": "2026-08-25",
+      "event_date": "2026-08-25",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "Sugar ex-mill prices fall 18% to Rs 55 a kg, but decline not fully filtered to retail market",
+        "source_url": "https://www.chinimandi.com/sugar-ex-mill-prices-fall-18-to-rs-55-a-kg-but-decline-not-fully-filtered-to-retail-market/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Tue, 25 Aug 2026 10:06:31 GMT",
+        "event_date": "2026-08-25",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖厂",
+        "event_action": "公布",
+        "metrics": [
+          "18%",
+          "Rs 55"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "现货或出厂报价下跌反映供应压力或需求转弱，会压制短期糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQWjNqS2FiQUJzVHYwTnVnT0pBV1B1Yk8xNVZ1TnZnNV85N0xJaEVuZDBXSEIzOXBWSGFpbkZnUTA1bmtEZWJOS2FJRVhyOVhyTDFNTG5IS2pMa0NNQVRjQzRzekU4MXJwWEdLRXc5QnliQ2pQcHpDZHdCc0hESFpfYTZyZk1kYVBSRGkxNlh4cl9QUzBJUDd1S2FvQXFZXzdtbGxHWlhKSjRHOC1KbUlsTGJ1R1ZpdVNuZGc?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖厂公布18rs5520260825price_market",
+      "importance": 65
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-08-26），彭世洛、北碧等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-08-26",
+      "event_date": "2026-08-26",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20260826",
+      "importance": 78
+    }
+  ]
+}
