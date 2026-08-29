@@ -1,0 +1,192 @@
+{
+  "target_date": "2026-08-29",
+  "run_date": "2026-08-30",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Policy mistakes, not ethanol, are behind sugar price rise",
+      "news": "印度糖业市场发布或调整食糖价格和市场流通，糖价或相关政策基准为0天。印度食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端。来源：The Indian Express（https://indianexpress.com/article/opinion/editorials/policy-mistakes-not-ethanol-are-behind-sugar-price-rise-10853855/）。影响：利多糖价",
+      "impact": "利多：现货或出厂报价上涨反映阶段性供应偏紧或采购需求增强，会支撑短期糖价。",
+      "source_name": "The Indian Express",
+      "source_url": "https://indianexpress.com/article/opinion/editorials/policy-mistakes-not-ethanol-are-behind-sugar-price-rise-10853855/",
+      "published_date_local": "2026-08-29",
+      "event_date": "2026-08-29",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Policy mistakes, not ethanol, are behind sugar price rise",
+        "source_url": "https://indianexpress.com/article/opinion/editorials/policy-mistakes-not-ethanol-are-behind-sugar-price-rise-10853855/",
+        "publisher": "The Indian Express",
+        "publication_time": "Sat, 29 Aug 2026 01:20:25 GMT",
+        "event_date": "2026-08-29",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "发布或调整",
+        "metrics": [
+          "0daY"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "现货或出厂报价上涨反映阶段性供应偏紧或采购需求增强，会支撑短期糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOYVh6QlUzeTh4NnprMGNKQi1kWGNqa2I3ZzN5UzdPREdSUS1wZWJsdEg5Z2lkLU5kaEJnYmhOcVBheXM1ODJuaTNTNFJoa0E2NFdXb3lKM3BkODlsaGoxV3Rac1pqMUtmRU9SOElxeFhYRXdrN1pJTTI1T0Y3ZE9kemd3MElNQ0N5UVRIcy1sRHdyRFpmQ1E5UGJMMFpzdGQ5N3I1V2FXVVNyblFOcDFKbHFpWDlMY1hud0HSAcABQVVfeXFMT2xnQUYyZWJVNm4xc3diTl9qbHlJbms4Tk50MnhqZ0daY21wY1FROEt1elVrQWxkdjdTRTdvV0dQU0J0YzVDOGR4T3FBbFA5MnMyb1RWa0kySWtZR2pJNjZ6MVhjRnFOLWdZQmNDOXlGVHkwT1owWnoxZGRvNUh4bDRFbUY5cFdWSmFSbElCdjJpVmMya1pPSnJWNlpOU3NveWVkYmpaVW1ybDhHUlFtMmhGY1BnTDFJSWNQbHdsOU15?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场发布或调整0day20260829price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "India to Replace Monthly Sugar Quotas with Fortnightly Allocation System; Mills ",
+      "news": "印度糖厂发布或调整糖厂运行和压榨安排，披露40%。印度糖厂若增加开工或压榨，会加快当季食糖产出；若停产或延后开榨，则阶段性供应收紧。来源：RuralVoice（https://eng.ruralvoice.in/latest-news/india-to-replace-monthly-sugar-quotas-with-fortnightly-allocation-system-mills-must-sell-40-pc-in-first-week.html）。影响：利空糖价",
+      "impact": "利空：糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+      "source_name": "RuralVoice",
+      "source_url": "https://eng.ruralvoice.in/latest-news/india-to-replace-monthly-sugar-quotas-with-fortnightly-allocation-system-mills-must-sell-40-pc-in-first-week.html",
+      "published_date_local": "2026-08-28",
+      "event_date": "2026-08-28",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "India to Replace Monthly Sugar Quotas with Fortnightly Allocation System; Mills Required to Sell 40% in First Week",
+        "source_url": "https://eng.ruralvoice.in/latest-news/india-to-replace-monthly-sugar-quotas-with-fortnightly-allocation-system-mills-must-sell-40-pc-in-first-week.html",
+        "publisher": "RuralVoice",
+        "publication_time": "Fri, 28 Aug 2026 13:59:00 GMT",
+        "event_date": "2026-08-28",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖厂",
+        "event_action": "发布或调整",
+        "metrics": [
+          "40%"
+        ],
+        "comparison_period": null,
+        "topic": "mill_operations",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQbjE5WkF4OHpGM2hGYmpwc2VIaThxUEt0NWw4S0RlaEdRTVJpTEhsbUY2ZFpPb1AtQXdzZVBSSGlvZjVSRjBtekxKYU5tcVZ0d3FuNldwZDBhaWJpUmdVdWt2YWJZcmRUSDNRUFcwQ3Z3M2NMZFBiZXpiazFwOWJYRWtCNFR5NXVjRzVpMmVSYWxSYm5FU2I4OF9KbGRFTUJKVmJtZnJGVUtPV0t3X3g5eXR5STRfMFpsUU9oRDNSdjI3UHNmWERYWTZ3OHFHelRoU1BlOFI3dkpETXFWRWEzaGVFUGFLd9IB6wFBVV95cUxPR3pDakdfbTFvV0lybTc4U1JyLXc5NGVrczQydG5TUjVjY3VVTWVUOGFNdjBWSU10NldmRkpnWVJQcGoyTWV1WjFxckxYQ2pFc0VjRmhjR1Fma3czbUp6WGU0QWFvUlRuRTFzRTJnV05zUXVRcUdrYzBNSUhPWFVNWWVYNW8zUFhyZGx0bi1WWmswLXJTb0hrNGhoc0ZKWG1mR3FhU1gzMGRIdUR5YjUtMjdIaU1NSlhLQWtTLTJXZ25KVWYwamdDMXBXcFZwNEdhUTJ4QjJ6cWZ4M1R2SlkzVFRfNXJyZUc5MHZN?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖厂发布或调整4020260828mill_operations",
+      "importance": 85
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Maharashtra Sugarcane Farmers Demand Rs 7,000/Tonne as Sugar Prices Surge Over 4",
+      "news": "印度蔗农组织公布食糖价格和市场流通，糖价上涨40%。印度食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端。来源：RuralVoice（https://eng.ruralvoice.in/state/maharashtra-sugarcane-farmers-demand-rs-7000-tonne-as-sugar-prices-surge-over-40-pc.html）。影响：中性",
+      "impact": "中性：价格信息缺少明确涨跌幅或区域基准，暂不改变供需判断。",
+      "source_name": "RuralVoice",
+      "source_url": "https://eng.ruralvoice.in/state/maharashtra-sugarcane-farmers-demand-rs-7000-tonne-as-sugar-prices-surge-over-40-pc.html",
+      "published_date_local": "2026-08-29",
+      "event_date": "2026-08-29",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Maharashtra Sugarcane Farmers Demand Rs 7,000/Tonne as Sugar Prices Surge Over 40%",
+        "source_url": "https://eng.ruralvoice.in/state/maharashtra-sugarcane-farmers-demand-rs-7000-tonne-as-sugar-prices-surge-over-40-pc.html",
+        "publisher": "RuralVoice",
+        "publication_time": "Sat, 29 Aug 2026 06:28:00 GMT",
+        "event_date": "2026-08-29",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度蔗农组织",
+        "event_action": "公布",
+        "metrics": [
+          "40%",
+          "Rs 7,000"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "价格信息缺少明确涨跌幅或区域基准，暂不改变供需判断。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPYTBQTGFNUC02NTE0RDJELUZkbnNwVWFMUGQyR3Y1WFI2QWc2eElBYkROMEZVaUR6QXBROGtZT0lGcFdWMHpiZG9HUG5KdTVPMEx4WUNzb0RocjdVdXIzbkVjZC1nWWo3bWZHbEg3aHMtTVloNGp5d3NfaGg3Z2pISDk1UEotaVpLUkotQm9KU0VxVlctZWFYbDhobEdMNUkwOFlrV1Q1dUwtN2FqeXpmRkdOM2wtNmtCNmFTaNIBwgFBVV95cUxPcUNJS0RRTTJKMk4xalF4RzhFOTZPZi04MHJZVFFIS3Z6T0ZCOVBKVm9JcHNub09ZdEJ5NldraXpNS3prLXRJMFJmQThuTUFCWE5lRFRzYmRiZk9ucXJ4MnpNLXJ4NFpHWnltUlp1V0VMOFNXVGxIaU1lTWRPMFdrcnJwWDhvSlJDaXNtV0wweHBqQzF4bk9lU3JhZU5RcHlCZkxFMzJablh5NnlTb21zUjJ3TkNSVTFhUkxRa0V1OVRhdw?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度蔗农组织公布40rs700020260829price_market",
+      "importance": 80
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "E10 option gains ground as India weighs lower ethanol blend alongside E20",
+      "news": "印度糖业相关机构下调乙醇掺混或燃料政策，披露RS01、E10、E20。若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量。来源：BioEnergy Times（https://bioenergytimes.com/e10-option-gains-ground-as-india-weighs-lower-ethanol-blend-alongside-e20/）。影响：利多糖价",
+      "impact": "利多：若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量，从而减少食糖供应预期并支撑糖价。",
+      "source_name": "BioEnergy Times",
+      "source_url": "https://bioenergytimes.com/e10-option-gains-ground-as-india-weighs-lower-ethanol-blend-alongside-e20/",
+      "published_date_local": "2026-08-28",
+      "event_date": "2026-08-28",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "E10 option gains ground as India weighs lower ethanol blend alongside E20",
+        "source_url": "https://bioenergytimes.com/e10-option-gains-ground-as-india-weighs-lower-ethanol-blend-alongside-e20/",
+        "publisher": "BioEnergy Times",
+        "publication_time": "Fri, 28 Aug 2026 10:31:57 GMT",
+        "event_date": "2026-08-28",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "下调",
+        "metrics": [
+          "RS01",
+          "E10",
+          "E20"
+        ],
+        "comparison_period": null,
+        "topic": "ethanol_policy",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量，从而减少食糖供应预期并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOdHNUTHBabGVwS2hVUFExa0YwLXRqWjUtaG1YU19tc0poLTlCOW5OSC1ZMG1IZ0N2TDdxdmQzWFkzVFVhTmdwa255b1A3ZFdmbmlES3hib0o2VjhWZkZTd3prSUxDM2dIczBUS01uenR5U3pkaUIwNElHZFkyNzdnZzctV1VBaGE2VTlsaE5xN3N6LU5tUFlRS01tRWVnTmwtMHFr?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构下调rs01e10e2020260828ethanol_policy",
+      "importance": 75
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-08-29），乌隆他尼、彭世洛、北碧、沙缴等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-08-29",
+      "event_date": "2026-08-29",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20260829",
+      "importance": 78
+    }
+  ]
+}
