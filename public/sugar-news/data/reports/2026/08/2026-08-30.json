@@ -1,6 +1,6 @@
 {
   "newsDate": "2026-08-30",
-  "updatedAt": "2026-08-31T08:42:06+08:00",
+  "updatedAt": "2026-08-31T08:57:34+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/08/Sugar News 2026-08-30.xlsx",
   "globalHighlights": "全球糖业新闻重点集中在印度政府公布食糖价格和市场流通，糖价或相关政策基准为Rs60；印度政府公布食糖价格和市场流通，糖价或相关政策基准为₹60、E10；泰国气象局预报（2026-08-30），乌隆他尼、加拉信、黎府、甘烹碧、素可泰、彭世洛、北碧等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。利多因素是印度食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端；利空因素是当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。国际糖价的主要矛盾在供应收缩预期与阶段性供应或需求压力之间，ICE原糖持续站上15美分/磅前以震荡判断为宜。",
@@ -138,7 +138,7 @@
   "indiaMetrics": {
     "title": "印度糖价",
     "dataDate": "2026-08-30",
-    "updatedAt": "2026-08-31T08:42:06+08:00",
+    "updatedAt": "2026-08-31T08:57:34+08:00",
     "sourceStatus": "dynamic_fetch",
     "domesticWholesalePrice": {
       "metricType": "domesticWholesalePrice",
@@ -453,7 +453,7 @@
       "metricType": "carryoverStock",
       "status": "pending",
       "statusText": "等待权威来源更新",
-      "fetchedAt": "2026-08-31T08:42:06+08:00",
+      "fetchedAt": "2026-08-31T08:57:34+08:00",
       "note": "未获取到已完成日期、口径和来源核验的可靠数据；不编造价格或库存。",
       "dataDate": null,
       "stockWanTonnes": null
