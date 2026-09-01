@@ -1,11 +1,11 @@
 {
   "target_date": "2026-08-31",
-  "generated_at": "2026-09-01T09:22:47+08:00",
+  "generated_at": "2026-09-01T14:11:08+08:00",
   "status": "success",
-  "verified_news_file": "/home/runner/work/sugar-news/sugar-news/data/verified_news/2026/08/sugar_news_2026-08-31.json",
-  "excel_file": "/home/runner/work/sugar-news/sugar-news/reports/2026/08/Sugar News 2026-08-31.xlsx",
-  "dashboard_report": "/home/runner/work/sugar-news/sugar-news/public/sugar-news/data/reports/2026/08/2026-08-31.json",
-  "dashboard_index": "/home/runner/work/sugar-news/sugar-news/public/sugar-news/data/index.json",
+  "verified_news_file": "D:\\Desktop\\ai\\sugar-news\\data\\verified_news\\2026\\08\\sugar_news_2026-08-31.json",
+  "excel_file": "D:\\Desktop\\ai\\sugar-news\\reports\\2026\\08\\Sugar News 2026-08-31.xlsx",
+  "dashboard_report": "D:\\Desktop\\ai\\sugar-news\\public\\sugar-news\\data\\reports\\2026\\08\\2026-08-31.json",
+  "dashboard_index": "D:\\Desktop\\ai\\sugar-news\\public\\sugar-news\\data\\index.json",
   "editorial_skill": {
     "path": ".codex/skills/sugar-news-editorial-rules/SKILL.md",
     "sha256": "cc4a4c78fa9740de1cd806f83b96b6d46b92522d3e2bc9289e1f8f6050718dc4"
@@ -20,7 +20,7 @@
   "china_monitoring_check": {
     "status": "completed",
     "mode": "verified_items_checked_after_load",
-    "retained_count": 0,
+    "retained_count": 2,
     "query_template_count": 40,
     "query_templates": [
       "中国糖业新闻 {year}年{month}月{day}日",
@@ -76,13 +76,13 @@
       "权威期货公司、研究机构及糖厂公告"
     ],
     "column_required": false,
-    "note": "China sugar monitoring completed; no publishable China item found",
+    "note": "China sugar monitoring completed; public China output is present",
     "ensure_step": {
       "fixed_step": "China sugar daily priority monitoring",
       "target_date": "2026-08-31",
-      "status": "completed_no_publishable_item",
-      "retained_count": 0,
-      "reason": "China search completed without a publishable event; no public placeholder row was added."
+      "status": "skipped",
+      "retained_count": 2,
+      "reason": "China item already present in verified news."
     }
   },
   "brazil_metrics_refresh": {
@@ -94,20 +94,21 @@
     "reason": "standalone workflow refresh; consuming latest snapshot"
   },
   "checks": {
-    "verified_count": 9,
-    "excel_count": 9,
-    "dashboard_count": 9,
+    "verified_count": 8,
+    "excel_count": 8,
+    "dashboard_count": 8,
     "excel_matches_verified": true,
     "dashboard_matches_verified": true,
     "country_order_ok": true,
     "global_summary_sentences": 3,
     "no_empty_country_sections": true,
     "counts_by_country": {
-      "印度": 7,
+      "巴西": 3,
+      "印度": 2,
       "泰国": 1,
-      "南非": 1
+      "中国": 2
     },
-    "china_count": 0,
-    "other_country_count": 1
+    "china_count": 2,
+    "other_country_count": 0
   }
 }
