@@ -33,7 +33,7 @@ Media names such as ChiniMandi, Reuters, 路透社, 云糖网, 泛糖科技, The
 
 Use natural Chinese sugar-industry research language. Remove promotional wording, background padding, repeated boilerplate, and low-value commentary.
 
-Use the 2026-08-16, 2026-08-17, and 2026-08-18 rewritten reports as the standing style anchor for future daily summaries. Follow this template every day:
+Use the 2026-08-16, 2026-08-17, 2026-08-18, and 2026-08-31 rewritten reports as the standing style anchor for future daily summaries. Follow this template every day:
 
 1. `全球糖业新闻重点`: write 2-3 sentences. Sentence 1 names the most important countries and event types. Sentence 2 puts the largest figures into a bullish/bearish comparison, for example price strength, drought, ethanol diversion, mill restarts, production targets, imports, or weather. Sentence 3 states the main international sugar-price contradiction and uses neutral `震荡` wording unless ICE raw sugar is confirmed to remain above `15美分/磅`. When Indian domestic sugar prices keep setting record highs but ICE has not confirmed a sustained move above `15美分/磅`, use the judgment wording `ICE原糖持续站上15美分/磅前以震荡判断为宜`; do not write `ICE原糖未持续站上15美分/磅前以震荡判断为宜`.
 2. Country item body: write 2-3 sentences. Sentence 1 must name the actor, action, location/period, and exact figure. Sentence 2 must name the same actor/action and explain the supply-demand path to `利多糖价`, `利空糖价`, or `中性`. Sentence 3 is only for implementation lag, forecast uncertainty, or short-term/long-term distinction.
@@ -54,13 +54,26 @@ Use these automatic-vs-rewrite corrections from 2026-08-18 as hard rules:
 8. Avoid phrasing that lets a secondary country override the event country. If a Nepal story mentions reliance on imports from India, keep it in `尼泊尔/其他国家`; do not let the word `India` move the item to the India column. If necessary, phrase the body around local stocks, import approvals, and local prices rather than repeating the secondary country.
 9. The global summary must be built after these corrections. It should mention the deduplicated strongest facts, such as India import-duty evaluation, Maharashtra/Punjab/Kolhapur prices, Nepal shortage, Thai rainfall, and India acreage balance; it must not repeat auto-generated category phrases.
 
+Use the 2026-08-31 rewritten report as the latest style anchor for tomorrow and later daily summaries:
+
+1. The global summary must synthesize rather than list. Use at most 3 sentences: sentence 1 names the main countries and event types, sentence 2 compares the strongest bullish and bearish figures, and sentence 3 states the main ICE raw-sugar contradiction. When Indian domestic prices are making new highs but ICE raw sugar has not confirmed a sustained break above `15美分/磅`, end with `ICE原糖持续站上15美分/磅前以震荡判断为宜`.
+2. Merge related same-country price and policy facts when they describe the same market pressure. For example, India `9月上半月130万吨` sales quota, first-week `40%` sales requirement, and same-day ex-mill price changes should be one India price-policy item instead of separate vague items.
+3. Brazil ethanol and ICE items must name the actual indicator and sugar-market channel. Examples: `CEPEA` Sao Paulo hydrous/anhydrous ethanol prices, Brazilian biofuel price recovery, or ICE raw sugar closing level must be linked to cane allocation, ethanol diversion, export parity, or short-term international supply, not to a generic `食糖价格和市场流通` category.
+4. Weather and disaster items must judge by crop stage and actual damage. India rainfall deficit in Maharashtra/Karnataka during cane growth is bullish because it threatens cane yield; Thailand growing-season thunderstorms or heavy rain are bearish because they improve soil moisture; China typhoon/flood, cane lodging, or inundation in Guangxi is bullish only when the source states affected acreage, damaged cane, transport disruption, or yield risk.
+5. China news must be retained when a concrete sugar-industry fact exists. China price items need the exact region, product, current quote, and daily change; China disaster items need the affected producer, acreage, cane condition, or expected supply path.
+6. Reject automatic summaries that only name a topic bucket. Examples that must be stopped before Excel/dashboard publication include `糖业市场发布或调整食糖价格和市场流通`, `糖价或相关政策基准为XXX`, `糖业相关机构公布库存数据`, and `食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端`.
+
 Never publish vague fallback summaries such as:
 
 - `涉及食糖价格或市场流通变化`
 - `涉及巴西食糖价格或市场流通变化`
+- `食糖价格和市场流通`
+- `糖业市场发布或调整`
+- `糖业市场公布`
 - `数据为XXX`
 - `相关数值为XXX`
 - `糖价相关数值为XXX`
+- `糖价或相关政策基准为XXX`
 - `具体幅度未披露`
 - `对市场具有参考意义`
 - `对糖价具有参考意义`
@@ -94,6 +107,10 @@ Never publish vague fallback summaries such as:
 - `产量、库存、销量或消费变化会直接改变食糖供需平衡`
 - `糖厂运行变化会直接影响甘蔗入榨、压榨节奏和阶段性食糖产量`
 - `报价变化会反映现货供需松紧和贸易商补库意愿`
+- `食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端`
+- `现货或出厂报价上涨反映阶段性供应偏紧或采购需求增强`
+- `现货或出厂报价下跌反映供应压力或需求转弱`
+- `价格信息缺少明确涨跌幅或区域基准`
 - `进口、出口、关税或配额变化会改变国内外可用糖源和贸易流向`
 - `价格上行通常会抬高补库成本`
 
@@ -101,6 +118,11 @@ For India weather and pest items, judge by the sugarcane stage and concrete risk
 - `产区天气或病虫害变化会影响甘蔗生长、收割和糖料供应稳定性`
 - `某国主产区农业或气象机构预警甘蔗产区天气、干旱或病虫害`
 - `某媒体消息涉及某国糖业运行变化`
+- `糖业相关机构公布库存数据`
+- `库存数据，库存增加`
+- `库存增加会提高现货供应缓冲，压制补库需求和糖价`
+- `候选新闻缺少可发布的具体糖业主题`
+- `原文未说明产量、库存、贸易、价格或糖料变化的方向`
 
 Do not expose internal workflow language in the public summary. The summary body must not say `事件归属为`, `事件归属国家`, `公开标题显示`, `标题显示`, or similar audit phrases. Country, region, and source title are metadata used for validation; the public text should state the concrete event and market effect directly.
 

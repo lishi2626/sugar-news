@@ -99,11 +99,15 @@ VAGUE_SUMMARY_PHRASES = (
     "指标包括",
     "相关数值为",
     "糖价相关数值为",
+    "糖价或相关政策基准为",
     "数据为",
     "已披露具体事件方向但标题缺少数值",
     "具体幅度未披露",
     "涉及食糖价格或市场流通变化",
     "涉及巴西食糖价格或市场流通变化",
+    "食糖价格和市场流通",
+    "糖业市场发布或调整",
+    "糖业市场公布",
     "对市场具有参考意义",
     "对糖价具有参考意义",
     "该消息可能影响市场情绪",
@@ -137,10 +141,19 @@ VAGUE_SUMMARY_PHRASES = (
     "产量、库存、销量或消费变化会直接改变食糖供需平衡",
     "糖厂运行变化会直接影响甘蔗入榨、压榨节奏和阶段性食糖产量",
     "报价变化会反映现货供需松紧和贸易商补库意愿",
+    "食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端",
+    "现货或出厂报价上涨反映阶段性供应偏紧或采购需求增强",
+    "现货或出厂报价下跌反映供应压力或需求转弱",
+    "价格信息缺少明确涨跌幅或区域基准",
     "进口、出口、关税或配额变化会改变国内外可用糖源和贸易流向",
     "印度价格上行通常会抬高补库成本，价格下行则说明供应压力或需求走弱正在传导到现货端",
     "产区天气或病虫害变化会影响甘蔗生长、收割和糖料供应稳定性",
     "主产区农业或气象机构预警甘蔗产区天气、干旱或病虫害",
+    "糖业相关机构公布库存数据",
+    "库存数据，库存增加",
+    "库存增加会提高现货供应缓冲，压制补库需求和糖价",
+    "候选新闻缺少可发布的具体糖业主题",
+    "原文未说明产量、库存、贸易、价格或糖料变化的方向",
 )
 NEWS_IMPACT_MARKER_RE = re.compile(r"\s*。?影响：(?:利多糖价|利空糖价|中性)\s*$")
 VAGUE_SUMMARY_PATTERNS = (
@@ -148,9 +161,11 @@ VAGUE_SUMMARY_PATTERNS = (
     re.compile(r"(?:该事项|该信息|相关变化)[^。！？]{0,80}(?:继续跟踪|参考意义|影响有限)"),
     re.compile(r"(?:改变|影响)[^。！？]{0,30}(?:甘蔗|糖蜜|糖浆)[^。！？]{0,40}(?:制糖|制醇)[^。！？]{0,40}(?:分配|食糖供应)"),
     re.compile(r"(?:数据为|具体幅度未披露)[^。！？]{0,40}"),
+    re.compile(r"(?:糖价|价格|政策)[^。！？]{0,20}基准为[^。！？]{0,40}"),
+    re.compile(r"(?:糖业市场|糖厂|糖业相关机构)[^。！？]{0,40}(?:食糖价格和市场流通|库存数据|糖厂运行和压榨安排|贸易、进口、出口或配额政策)"),
 )
 NEWS_ACTION_TERMS = (
-    "宣布", "公布", "发布", "批准", "要求", "计划", "拟", "预计", "预报", "预测",
+    "宣布", "公布", "发布", "显示", "批准", "要求", "计划", "拟", "预计", "预报", "预测",
     "提高", "上调", "下调", "降低", "上涨", "下跌", "增加", "减少", "增长", "下降",
     "达到", "转向", "改为", "支持",
     "扩大", "收紧", "放宽", "限制", "禁止", "取消", "暂停", "恢复", "关闭", "启动",
@@ -216,7 +231,7 @@ def load_editorial_skill_metadata() -> dict:
         "brazil_metrics_daily": ("巴西糖价与库存每日刷新", "brazil_sugar_metrics.py", "Vercel"),
         "pre_publish": ("Pre-Publish Quality Checks", "Stop publication"),
         "concrete_news_summary": ("who did what", "concrete change", "消息涉及", "media outlet as the event subject"),
-        "summary_style_anchor": ("2026-08-16", "2026-08-17", "2026-08-18", "standing style anchor", "automatic-vs-rewrite corrections"),
+        "summary_style_anchor": ("2026-08-16", "2026-08-17", "2026-08-18", "2026-08-31", "standing style anchor", "latest style anchor", "automatic-vs-rewrite corrections"),
         "global_highlights": ("全球糖业新闻重点", "15美分/磅", "2-3 Chinese sentences"),
         "brazil_hedging_monitoring": ("Brazil sugar hedging progress", "巴西糖厂套保", "巴西糖套保进度"),
         "india_impact_overrides": ("100%` sugar import duty", "record highs", "Sugarcane acreage increases are bearish"),
@@ -2010,6 +2025,72 @@ def supply_demand_metric_text(candidate: dict, metrics: list[str]) -> str:
     raise ValueError(f"{label}RSS候选缺少可核验数值或方向")
 
 
+def price_market_scope(title: str) -> str:
+    lowered = title.lower()
+    if "ex-mill" in lowered or "mill" in lowered or "出厂" in title:
+        return "糖厂出厂价"
+    if "wholesale" in lowered or "批发" in title:
+        return "批发糖价"
+    if "retail" in lowered or "零售" in title:
+        return "零售糖价"
+    if re.search(r"(?i)\bice\b", title) or "raw sugar" in lowered or "原糖" in title:
+        return "ICE原糖价格" if re.search(r"(?i)\bice\b", title) else "原糖价格"
+    if "white sugar" in lowered or "白糖" in title:
+        return "白糖价格"
+    return "食糖价格"
+
+
+def price_market_actor(country: str, title: str) -> str:
+    lowered = title.lower()
+    if re.search(r"(?i)\bice\b", title) or "raw sugar" in lowered or "原糖" in title:
+        return "ICE原糖市场" if re.search(r"(?i)\bice\b", title) else f"{country}原糖市场"
+    if "ex-mill" in lowered or "mill" in lowered or "出厂" in title:
+        return f"{country}糖厂"
+    if "wholesale" in lowered or "批发" in title:
+        return f"{country}批发市场"
+    if "retail" in lowered or "零售" in title:
+        return f"{country}零售市场"
+    return f"{country}现货市场"
+
+
+def price_market_transmission(candidate: dict) -> str:
+    title = str(candidate.get("source_title", ""))
+    text = " ".join([title, *(str(metric) for metric in candidate.get("metrics") or [])]).lower()
+    country = str(candidate.get("event_country") or candidate.get("country") or "相关地区")
+    scope = price_market_scope(title)
+    if any_phrase(text, ("rise", "rises", "higher", "up", "jump", "surge", "rose", "上涨", "上调")):
+        return f"{country}{scope}上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。"
+    if any_phrase(text, ("fall", "lower", "down", "drop", "fell", "下跌", "下调")):
+        return f"{country}{scope}下跌说明当地供应压力增加或采购需求转弱，短期压制现货糖价。"
+    return f"{country}{scope}仅披露当前水平，缺少前期比较时不单独改变供需方向判断。"
+
+
+def mill_operations_transmission(candidate: dict) -> str:
+    text = " ".join(str(candidate.get(field, "")) for field in ("source_title", "event_action", "impact_logic")).lower()
+    country = str(candidate.get("event_country") or candidate.get("country") or "相关地区")
+    if any_phrase(text, ("shutdown", "halt", "closed", "accident", "shortage", "停产", "关闭", "事故", "原料不足")):
+        return f"{country}糖厂停产、事故或原料不足会拖慢压榨和产糖节奏，减少阶段性食糖供应。"
+    if any_phrase(text, ("start", "started", "resume", "resumed", "running", "crushing", "increase", "开榨", "复产", "压榨", "增加")):
+        return f"{country}糖厂开榨、复产或压榨增加会加快当季食糖产出，增加阶段性供应。"
+    return f"{country}糖厂运行信息需要落实到开榨、停产、压榨量或原料供应方向后判断阶段性供应。"
+
+
+def trade_policy_transmission(candidate: dict) -> str:
+    text = " ".join(str(candidate.get(field, "")) for field in ("source_title", "event_action", "impact_logic")).lower()
+    country = str(candidate.get("event_country") or candidate.get("country") or "相关地区")
+    if any_phrase(text, ("import", "进口")):
+        if any_phrase(text, ("duty-free", "allow", "increase", "cut", "scrap", "reduce", "lower", "放宽", "增加", "削减", "取消", "下调")):
+            return f"{country}进口放宽或进口量增加会补充国内可用糖源，对本地现货糖价形成压力。"
+        if any_phrase(text, ("ban", "restrict", "tariff", "duty", "higher", "限制", "禁止", "关税", "提高")):
+            return f"{country}进口受限或关税上调会减少国内补充糖源，收紧本地供应并支撑现货糖价。"
+    if any_phrase(text, ("export", "出口")):
+        if any_phrase(text, ("ban", "restrict", "limit", "lower", "cut", "限制", "禁止", "下调", "收紧")):
+            return f"{country}出口限制会减少国际市场可流通糖源，支撑国际糖价。"
+        if any_phrase(text, ("quota", "allow", "increase", "raise", "增加", "批准", "配额")):
+            return f"{country}出口配额或出口量增加会提高国际可流通糖源，增加国际供应压力。"
+    return f"{country}贸易政策改变会调整进口国国内供应或出口国国际可流通糖源，价格影响取决于实际进口、出口或关税方向。"
+
+
 def metric_text_for_candidate(candidate: dict, metrics: list[str]) -> str:
     if candidate.get("topic") == "supply_demand":
         return supply_demand_metric_text(candidate, metrics)
@@ -2026,7 +2107,13 @@ def metric_text_for_candidate(candidate: dict, metrics: list[str]) -> str:
                 return f"糖价{period}下跌{percent}"
             return f"糖价变动幅度为{percent}"
         if metrics:
-            return f"糖价或相关政策基准为{'、'.join(metrics[:4])}"
+            scope = price_market_scope(title)
+            metric_values = "、".join(localize_metric_for_summary(metric) for metric in metrics[:4])
+            if any_phrase(lowered_title, ("rise", "rises", "higher", "up", "jump", "surge", "rose", "上涨", "上调")):
+                return f"{scope}上涨至{metric_values}"
+            if any_phrase(lowered_title, ("fall", "fell", "drop", "lower", "down", "下跌", "下调")):
+                return f"{scope}下跌至{metric_values}"
+            return f"{scope}为{metric_values}"
         raise ValueError("price-market RSS title lacks price level or change amount")
     if topic == "trade_policy":
         volume = extract_supply_demand_volume(title + " " + " ".join(metrics))
@@ -2060,6 +2147,7 @@ def metric_text_for_candidate(candidate: dict, metrics: list[str]) -> str:
 def supply_demand_transmission(candidate: dict) -> str:
     title = str(candidate.get("source_title", ""))
     metric_haystack = " ".join([title, *(str(metric) for metric in candidate.get("metrics") or [])])
+    country = str(candidate.get("event_country") or candidate.get("country") or "相关地区")
     kind = infer_supply_demand_metric_kind(metric_haystack)
     direction = infer_supply_demand_direction_key(metric_haystack)
     if kind == "production":
@@ -2071,7 +2159,7 @@ def supply_demand_transmission(candidate: dict) -> str:
         if direction in {"down", "shortage"}:
             return "库存下降会削弱现货供应缓冲，放大补库需求对价格的支撑。"
         if direction in {"up", "surplus"}:
-            return "库存增加会提高现货供应缓冲，压制补库需求和糖价。"
+            return f"{country}库存增加会提高当地现货供应缓冲，削弱补库需求并压制糖价。"
     if kind in {"sales", "consumption"}:
         if direction == "up":
             return "销量或消费增加会加快库存消化并扩大需求端吸收，降低库存缓冲并支撑糖价。"
@@ -2150,11 +2238,12 @@ def impact_for_candidate(candidate: dict) -> str:
     if topic == "supply_demand":
         return supply_demand_impact(candidate)
     if topic == "price_market":
-        if any_phrase(text, ("rise", "rises", "higher", "up", "上涨", "上调")):
-            return "利多：现货或出厂报价上涨反映阶段性供应偏紧或采购需求增强，会支撑短期糖价。"
-        if any_phrase(text, ("fall", "lower", "down", "下跌", "下调")):
-            return "利空：现货或出厂报价下跌反映供应压力或需求转弱，会压制短期糖价。"
-        return "中性：价格信息缺少明确涨跌幅或区域基准，暂不改变供需判断。"
+        logic = price_market_transmission(candidate).rstrip("。")
+        if any_phrase(text, ("rise", "rises", "higher", "up", "jump", "surge", "rose", "上涨", "上调")):
+            return f"利多：{logic}。"
+        if any_phrase(text, ("fall", "lower", "down", "drop", "fell", "下跌", "下调")):
+            return f"利空：{logic}。"
+        return f"中性：{logic}。"
     return "中性：原文未说明产量、库存、贸易、价格或糖料变化的方向，对糖价方向暂不单边。"
 
 
@@ -2261,20 +2350,25 @@ def rss_summary_for_publication(candidate: dict) -> tuple[str, str]:
     location_clause = "" if country and country in actor else f"，涉及{country}"
     summary_label = label
     if topic == "supply_demand":
-        summary_label = f"{supply_demand_metric_label(infer_supply_demand_metric_kind(title + ' ' + ' '.join(metrics)))}数据"
+        summary_label = supply_demand_metric_label(infer_supply_demand_metric_kind(title + " " + " ".join(metrics)))
+    elif topic == "price_market":
+        actor = price_market_actor(country, title)
+        action = "显示"
+        summary_label = price_market_scope(title)
+        location_clause = ""
     first = f"{actor}{action}{summary_label}，{metric_text}{location_clause}。"
     ethanol_transmission = ethanol_feedstock_impact(candidate)[1] if topic in {"ethanol_policy", "ethanol_capacity"} else ""
     transmission = {
         "ethanol_policy": ethanol_transmission,
         "ethanol_capacity": ethanol_transmission,
-        "mill_operations": f"{country}糖厂若增加开工或压榨，会加快当季食糖产出；若停产或延后开榨，则阶段性供应收紧。",
+        "mill_operations": mill_operations_transmission(candidate),
         "cane_farming": "甘蔗价格、面积或蔗款变化会影响蔗农种植意愿和下一季糖料供应。",
         "variety_research": "新品种单产、糖分或抗病性变化会影响中长期甘蔗供应潜力。",
         "weather_pest": f"{country}产区若出现虫害、干旱或洪涝，会压低受影响地块单产并削弱糖料供应稳定性。",
         "supply_demand": supply_demand_transmission(candidate),
-        "trade_policy": "进口放宽会补充进口国国内糖源并压制本地现货；出口配额增加会提高国际可流通糖源，出口限制则减少国际供应。",
+        "trade_policy": trade_policy_transmission(candidate),
         "starch_sugar_substitute": "替代糖源供应变化会影响白糖消费替代和终端需求。",
-        "price_market": f"{country}食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端。",
+        "price_market": price_market_transmission(candidate),
         "general_industry": "候选新闻缺少可发布的具体糖业主题，已退回核实。",
     }[topic]
     impact = impact_for_candidate(candidate)
