@@ -133,11 +133,16 @@ def test_daily_summary_style_anchor_is_recorded() -> None:
         assert "2026-08-16" in text
         assert "2026-08-17" in text
         assert "2026-08-18" in text
+        assert "2026-08-31" in text
     assert "standing style anchor" in skill
+    assert "latest style anchor" in skill
     assert "automatic-vs-rewrite corrections" in skill
     assert "Rs 700-800/t" in skill
     assert "58.31 lakh ha" in skill
     assert "Rs 95-100/kg" in skill
+    assert "CEPEA" in skill
+    assert "9月上半月130万吨" in skill
+    assert "40%" in skill
     assert "Brazil sugar hedging progress" in skill
     assert "巴西糖厂套保" in skill
     assert "Sugarcane acreage increases are bearish" in skill
@@ -150,6 +155,8 @@ def test_daily_summary_style_anchor_is_recorded() -> None:
     assert "1-1.5个百分点" in prompt
     assert "5831万公顷" in prompt
     assert "判断为利空" in prompt
+    assert "2026-08-31 重写版" in prompt
+    assert "糖价或相关政策基准为XXX" in prompt
 
 
 def test_brazil_metrics_daily_refresh_skill_and_workflow() -> None:
@@ -982,6 +989,71 @@ def test_editorial_quality_rejects_generic_metric_and_market_transmission_langua
             raise AssertionError("generic metric or transmission wording should be rejected")
 
 
+def test_editorial_quality_rejects_20260831_auto_summary_templates() -> None:
+    cases = [
+        {
+            "title": "Daily Sugar Market Update",
+            "news": "印度糖业市场发布或调整食糖价格和市场流通，糖价下跌30%。印度食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端。来源：Test（https://example.test/india-price）",
+            "impact": "利空：现货或出厂报价下跌反映供应压力或需求转弱，会压制短期糖价。",
+        },
+        {
+            "title": "Daily Sugar Market Update",
+            "news": "印度政府公布食糖价格和市场流通，糖价或相关政策基准为Rs 60。印度食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端。来源：Test（https://example.test/india-rs60）",
+            "impact": "利多：现货或出厂报价上涨反映阶段性供应偏紧或采购需求增强，会支撑短期糖价。",
+        },
+        {
+            "title": "Sugar inventory update",
+            "news": "印度糖业相关机构公布库存数据，库存增加13%。库存增加会提高现货供应缓冲，压制补库需求和糖价。来源：Test（https://example.test/stock）",
+            "impact": "利空：库存增加会提高现货供应缓冲，压制补库需求和糖价。",
+        },
+    ]
+    for idx, case in enumerate(cases, start=1):
+        item = {
+            "country_group": "印度",
+            "country": "印度",
+            "source_name": "Test",
+            "source_url": case["news"].split("（", 1)[1].rstrip("）"),
+            **case,
+        }
+        try:
+            validate_editorial_quality(item, idx)
+        except ValueError as exc:
+            assert "vague" in str(exc)
+        else:
+            raise AssertionError("2026-08-31 auto-generated template summary should be rejected")
+
+
+def test_rss_price_market_fallback_uses_specific_indicator() -> None:
+    candidate = {
+        "event_country": "印度",
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "topic": "price_market",
+        "source_title": "India retail sugar prices at Rs 60/kg",
+        "metrics": ["Rs 60/kg"],
+        "publisher": "Test",
+        "source_url": "https://example.test/india-retail",
+    }
+    news, impact = rss_summary_for_publication(candidate)
+    quality_text = f"{news} {impact}"
+    for banned in ("食糖价格和市场流通", "糖价或相关政策基准为", "糖业市场发布或调整"):
+        assert banned not in quality_text
+    assert "印度零售市场显示零售糖价" in news
+    assert "零售糖价为Rs 60/kg" in news
+    validate_editorial_quality(
+        {
+            "country_group": "印度",
+            "country": "印度",
+            "title": candidate["source_title"],
+            "news": news,
+            "impact": impact,
+            "source_name": "Test",
+            "source_url": "https://example.test/india-retail",
+        },
+        1,
+    )
+
+
 def test_rss_supply_demand_summary_names_specific_metric_and_supply_path() -> None:
     candidate = {
         "event_country": "菲律宾",
@@ -1489,6 +1561,8 @@ def main() -> None:
         test_editorial_quality_requires_concrete_action_direction_and_impact_path,
         test_editorial_quality_rejects_vague_supply_demand_metric_and_impact_language,
         test_editorial_quality_rejects_generic_metric_and_market_transmission_language,
+        test_editorial_quality_rejects_20260831_auto_summary_templates,
+        test_rss_price_market_fallback_uses_specific_indicator,
         test_rss_supply_demand_summary_names_specific_metric_and_supply_path,
         test_rss_india_price_summary_names_stock_limit_market_path,
         test_rss_philippines_pest_summaries_are_specific_and_distinct,
