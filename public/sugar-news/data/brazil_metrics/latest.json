@@ -1,7 +1,7 @@
 {
-  "targetDate": "2026-08-30",
-  "displayDate": "2026-08-30",
-  "updatedAt": "2026-08-31T15:51:09+08:00",
+  "targetDate": "2026-08-31",
+  "displayDate": "2026-08-31",
+  "updatedAt": "2026-09-01T09:01:19+08:00",
   "sugarPremium": {
     "indicator": "brazil_sugar_premium",
     "status": "ok",
@@ -39,7 +39,7 @@
     "year_on_year_change": -0.48,
     "year_on_year_change_percent": -1600.0,
     "yoy_status": "ok",
-    "refresh_date": "2026-08-30",
+    "refresh_date": "2026-08-31",
     "source_data_date": "2026-08-19"
   },
   "sugarStock": {
@@ -87,7 +87,7 @@
     "year_on_year_change": -69.7152000000001,
     "year_on_year_change_percent": -10.92684076732018,
     "yoy_status": "ok",
-    "refresh_date": "2026-08-30",
+    "refresh_date": "2026-08-31",
     "source_data_date": "2026-07-31"
   },
   "ethanolStock": {
@@ -151,14 +151,14 @@
     "year_on_year_change": 113.48059999999998,
     "year_on_year_change_percent": 39.836680303554736,
     "yoy_status": "ok",
-    "refresh_date": "2026-08-30",
+    "refresh_date": "2026-08-31",
     "source_data_date": "2026-08-01"
   },
   "fetchLog": [
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/newList",
-      "requestedAt": "2026-08-31T15:46:57+08:00",
+      "requestedAt": "2026-09-01T08:56:36+08:00",
       "httpStatus": 200,
       "containsColumnName": false,
       "candidateCount": 0,
@@ -168,23 +168,22 @@
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/getQureyArticleList?parentId=49&name=&pageCurInfo=all_49&pageNo=1&pageSize=30",
-      "requestedAt": "2026-08-31T15:46:59+08:00",
+      "requestedAt": "2026-09-01T08:56:38+08:00",
       "httpStatus": 200,
       "containsColumnName": true,
-      "candidateCount": 5,
+      "candidateCount": 4,
       "candidateTitleDates": [
         "2026-08-28",
         "2026-08-27",
         "2026-08-26",
-        "2026-08-25",
-        "2026-08-24"
+        "2026-08-25"
       ],
       "parsed": true
     },
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap0",
-      "requestedAt": "2026-08-31T15:47:00+08:00",
+      "requestedAt": "2026-09-01T08:56:39+08:00",
       "httpStatus": 200,
       "containsColumnName": false,
       "candidateCount": 0,
@@ -194,58 +193,57 @@
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/getQureyArticleList?parentId=49&categoryId=143&name=&pageCurInfo=sub_143&pageNo=1&pageSize=20",
-      "requestedAt": "2026-08-31T15:47:02+08:00",
+      "requestedAt": "2026-09-01T08:56:41+08:00",
       "httpStatus": 200,
       "containsColumnName": true,
-      "candidateCount": 3,
+      "candidateCount": 2,
       "candidateTitleDates": [
         "2026-08-28",
-        "2026-08-27",
-        "2026-08-26"
+        "2026-08-27"
       ],
       "parsed": true
     },
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/getQureyArticleList?parentId=49&categoryId=143&name=&pageCurInfo=sub_143&pageNo=2&pageSize=20",
-      "requestedAt": "2026-08-31T15:47:03+08:00",
+      "requestedAt": "2026-09-01T08:56:43+08:00",
       "httpStatus": 200,
       "containsColumnName": true,
-      "candidateCount": 4,
+      "candidateCount": 3,
       "candidateTitleDates": [
+        "2026-08-26",
         "2026-08-25",
-        "2026-08-24",
-        "2026-08-21",
-        "2026-08-20"
+        "2026-08-24"
       ],
       "parsed": true
     },
     {
       "source": "HiSugar import-cost list page",
       "url": "https://www.hisugar.com/home/getQureyArticleList?parentId=49&categoryId=143&name=&pageCurInfo=sub_143&pageNo=3&pageSize=20",
-      "requestedAt": "2026-08-31T15:47:04+08:00",
+      "requestedAt": "2026-09-01T08:56:44+08:00",
       "httpStatus": 200,
       "containsColumnName": true,
-      "candidateCount": 3,
+      "candidateCount": 4,
       "candidateTitleDates": [
+        "2026-08-21",
+        "2026-08-20",
         "2026-08-19",
-        "2026-08-18",
-        "2026-08-17"
+        "2026-08-18"
       ],
       "parsed": true
     },
     {
       "source": "HiSugar import-cost search API",
       "url": "https://www.hisugar.com/home/searchCatetoryAndArticle?keyWord=%E9%A3%9F%E7%B3%96%E8%BF%9B%E5%8F%A3%E6%88%90%E6%9C%AC%E5%8F%8A%E5%88%A9%E6%B6%A6%E4%BC%B0%E7%AE%97",
-      "requestedAt": "2026-08-31T15:47:05+08:00",
+      "requestedAt": "2026-09-01T08:56:45+08:00",
       "httpStatus": 200,
       "candidateCount": 416,
       "parsed": true
     },
     {
       "source": "HiSugar import premium target-date selector",
-      "targetDate": "2026-08-30",
-      "publicationCutoff": "2026-08-31T15:47:07+08:00",
+      "targetDate": "2026-08-31",
+      "publicationCutoff": "2026-09-01T08:56:47+08:00",
       "selectedTitleDates": [
         "2026-08-28",
         "2026-08-27",
@@ -266,7 +264,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026083108582325143006",
       "url": "https://www.hisugar.com/home/articleContent?id=2026083108582325143006",
-      "requestedAt": "2026-08-31T15:47:07+08:00",
+      "requestedAt": "2026-09-01T08:56:47+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -296,7 +294,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026082808533691668528",
       "url": "https://www.hisugar.com/home/articleContent?id=2026082808533691668528",
-      "requestedAt": "2026-08-31T15:47:27+08:00",
+      "requestedAt": "2026-09-01T08:57:05+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -326,7 +324,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026082708400032387243",
       "url": "https://www.hisugar.com/home/articleContent?id=2026082708400032387243",
-      "requestedAt": "2026-08-31T15:47:47+08:00",
+      "requestedAt": "2026-09-01T08:57:25+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -356,7 +354,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026082609231572136691",
       "url": "https://www.hisugar.com/home/articleContent?id=2026082609231572136691",
-      "requestedAt": "2026-08-31T15:48:07+08:00",
+      "requestedAt": "2026-09-01T08:57:46+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -386,7 +384,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026082509005905651072",
       "url": "https://www.hisugar.com/home/articleContent?id=2026082509005905651072",
-      "requestedAt": "2026-08-31T15:48:26+08:00",
+      "requestedAt": "2026-09-01T08:58:05+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -416,7 +414,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026082408553482576330",
       "url": "https://www.hisugar.com/home/articleContent?id=2026082408553482576330",
-      "requestedAt": "2026-08-31T15:48:46+08:00",
+      "requestedAt": "2026-09-01T08:58:25+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -446,7 +444,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026082115425053018327",
       "url": "https://www.hisugar.com/home/articleContent?id=2026082115425053018327",
-      "requestedAt": "2026-08-31T15:49:06+08:00",
+      "requestedAt": "2026-09-01T08:58:44+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -476,7 +474,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026082010171703475367",
       "url": "https://www.hisugar.com/home/articleContent?id=2026082010171703475367",
-      "requestedAt": "2026-08-31T15:49:26+08:00",
+      "requestedAt": "2026-09-01T08:59:04+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -506,7 +504,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026081915585827978676",
       "url": "https://www.hisugar.com/home/articleContent?id=2026081915585827978676",
-      "requestedAt": "2026-08-31T15:49:47+08:00",
+      "requestedAt": "2026-09-01T08:59:24+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -536,7 +534,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026081808572996999858",
       "url": "https://www.hisugar.com/home/articleContent?id=2026081808572996999858",
-      "requestedAt": "2026-08-31T15:50:07+08:00",
+      "requestedAt": "2026-09-01T08:59:44+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -566,7 +564,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026081708382323097988",
       "url": "https://www.hisugar.com/home/articleContent?id=2026081708382323097988",
-      "requestedAt": "2026-08-31T15:50:28+08:00",
+      "requestedAt": "2026-09-01T09:00:05+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -596,7 +594,7 @@
       "source": "HiSugar import premium article",
       "articleId": "2026081408512604975253",
       "url": "https://www.hisugar.com/home/articleContent?id=2026081408512604975253",
-      "requestedAt": "2026-08-31T15:50:49+08:00",
+      "requestedAt": "2026-09-01T09:00:24+08:00",
       "httpStatus": 200,
       "imageCount": 2,
       "parsed": false,
@@ -621,6 +619,18 @@
       "parsedRows": 0,
       "parsedDates": [],
       "parsed": false
+    },
+    {
+      "source": "MAPA Agroenergia production page",
+      "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/producao",
+      "requestedAt": "2026-09-01T09:00:44+08:00",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "source": "MAPA ethanol season directory",
+      "url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira",
+      "requestedAt": "2026-09-01T09:00:59+08:00",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     }
   ]
 }
