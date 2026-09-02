@@ -1,0 +1,63 @@
+{
+  "target_date": "2026-09-02",
+  "run_date": "2026-09-03",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "ISMA, NFCSF say no sugar shortage, expect prices to ease in 7-10 days",
+      "news": "印度现货市场显示食糖价格，食糖价格为10天。印度食糖价格仅披露当前水平，缺少前期比较时不单独改变供需方向判断。来源：ChiniMandi（https://www.chinimandi.com/isma-nfcsf-say-no-sugar-shortage-expect-prices-to-ease-in-7-10-days/）。影响：中性",
+      "impact": "中性：印度食糖价格仅披露当前水平，缺少前期比较时不单独改变供需方向判断。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/isma-nfcsf-say-no-sugar-shortage-expect-prices-to-ease-in-7-10-days/",
+      "published_date_local": "2026-09-02",
+      "event_date": "2026-09-02",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "ISMA, NFCSF say no sugar shortage, expect prices to ease in 7-10 days",
+        "source_url": "https://www.chinimandi.com/isma-nfcsf-say-no-sugar-shortage-expect-prices-to-ease-in-7-10-days/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 02 Sep 2026 13:12:08 GMT",
+        "event_date": "2026-09-02",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "10 days"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度食糖价格仅披露当前水平，缺少前期比较时不单独改变供需方向判断。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPaHhyRWNFbDBJNUhlM2dsWjBEUC1qZ0c4bmFDa1JKZXBJbEU1dXVYWkdKczI4UVA4VUI5UEFoTGhhQ2dwQ0xCdzlTajA0OGlpWGlkUndoQnBYQ1RlRC1ScGlqUUtBd3ZHcGxjZzFhS3VPVUhNVEVKWXpTdEhMTlFrSTE1aUJNUjJESFp3eHd0STJfa3BlbklHUVNlVQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布10days20260902price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-09-02），那空沙旺、彭世洛、北碧等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-09-02",
+      "event_date": "2026-09-02",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20260902",
+      "importance": 78
+    }
+  ]
+}
