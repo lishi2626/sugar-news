@@ -10,6 +10,7 @@ from sugar_news_pipeline import (
     beijing_now,
     normalize_brazil_metrics,
     public_report_path,
+    strip_public_fetch_logs,
     write_dashboard_data,
 )
 
@@ -24,7 +25,7 @@ def refresh_report(date_text: str) -> tuple[str, str]:
 
     countries = json.dumps(report.get("countries", []), ensure_ascii=False, sort_keys=True)
     india_metrics = json.dumps(report.get("indiaMetrics", {}), ensure_ascii=False, sort_keys=True)
-    report["brazilMetrics"] = normalize_brazil_metrics(date_text)
+    report["brazilMetrics"] = strip_public_fetch_logs(normalize_brazil_metrics(date_text))
     report["updatedAt"] = beijing_now().isoformat(timespec="seconds")
     written_report, index_path = write_dashboard_data(date_text, report)
 

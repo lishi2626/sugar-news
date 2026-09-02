@@ -624,6 +624,167 @@ def premium_values_from_noisy_ocr(text: str) -> list[float]:
     return premium_values_from_segment(text, allow_positive=False)
 
 
+def parse_hisugar_numeric_ocr_rows(text: str, article: dict, image_url: str, backend: str) -> list[dict]:
+    rows = []
+    normalized = normalize_ocr_text(text)
+    for line in normalized.splitlines():
+        date_match = re.search(r"20\d{6}", line)
+        if not date_match:
+            continue
+        raw_date = date_match.group(0)
+        try:
+            datetime.strptime(raw_date, "%Y%m%d")
+        except ValueError:
+            continue
+        trailing = line[date_match.end():]
+        numeric_tokens = re.findall(r"[-−－—–一]?\s*\d+(?:[.,]\s*\d+)?", trailing)
+        if len(numeric_tokens) < 4:
+            continue
+        value = premium_value_from_token(numeric_tokens[3])
+        if value is None or abs(value) >= 20:
+            continue
+        data_date = f"{raw_date[:4]}-{raw_date[4:6]}-{raw_date[6:8]}"
+        rows.append(make_hisugar_premium_row(article, image_url, f"{backend}_numeric", data_date, value))
+    return rows
+
+
+def cluster_grid_positions(counts: list[int], threshold: int, max_gap: int = 2) -> list[int]:
+    indices = [idx for idx, count in enumerate(counts) if count >= threshold]
+    if not indices:
+        return []
+    clusters: list[tuple[int, int]] = []
+    start = previous = indices[0]
+    for idx in indices[1:]:
+        if idx - previous <= max_gap:
+            previous = idx
+            continue
+        clusters.append((start, previous))
+        start = previous = idx
+    clusters.append((start, previous))
+    return [(start + end) // 2 for start, end in clusters]
+
+
+def hisugar_table_grid_positions(image) -> tuple[list[int], list[int]]:
+    rgb = image.convert("RGB")
+    width, height = rgb.size
+
+    def is_grid_pixel(pixel: tuple[int, int, int]) -> bool:
+        red, green, blue = pixel
+        return red >= 170 and 70 <= green <= 200 and blue <= 120 and red > green + 25 and green > blue + 10
+
+    row_counts = [
+        sum(1 for x in range(width) if is_grid_pixel(rgb.getpixel((x, y))))
+        for y in range(height)
+    ]
+    col_counts = [
+        sum(1 for y in range(height) if is_grid_pixel(rgb.getpixel((x, y))))
+        for x in range(width)
+    ]
+    rows = cluster_grid_positions(row_counts, max(20, int(width * 0.35)))
+    cols = cluster_grid_positions(col_counts, max(20, int(height * 0.30)))
+    return rows, cols
+
+
+def tesseract_cell_text(image, whitelist: str) -> str | None:
+    exe = shutil.which("tesseract")
+    if not exe:
+        return None
+    processed_path: Path | None = None
+    try:
+        from PIL import ImageOps
+
+        grayscale = ImageOps.grayscale(image)
+        enlarged = grayscale.resize((grayscale.width * 5, grayscale.height * 5))
+        thresholded = enlarged.point(lambda value: 0 if value < 180 else 255)
+        with NamedTemporaryFile("wb", delete=False, suffix=".png") as tmp:
+            processed_path = Path(tmp.name)
+        thresholded.save(processed_path)
+        result = subprocess.run(
+            [
+                exe,
+                str(processed_path),
+                "stdout",
+                "-l",
+                "eng",
+                "--psm",
+                "7",
+                "-c",
+                "user_defined_dpi=300",
+                "-c",
+                f"tessedit_char_whitelist={whitelist}",
+            ],
+            text=True,
+            capture_output=True,
+            timeout=15,
+            encoding="utf-8",
+            errors="ignore",
+        )
+        text = result.stdout.strip()
+        return text if result.returncode == 0 and text else None
+    except (ImportError, OSError, subprocess.SubprocessError):
+        return None
+    finally:
+        if processed_path:
+            try:
+                processed_path.unlink()
+            except OSError:
+                pass
+
+
+def raw_hisugar_date_from_cell_text(text: str | None) -> str | None:
+    digits = "".join(re.findall(r"\d", text or ""))
+    for idx in range(max(0, len(digits) - 7)):
+        raw_date = digits[idx:idx + 8]
+        if not raw_date.startswith("20"):
+            continue
+        try:
+            datetime.strptime(raw_date, "%Y%m%d")
+        except ValueError:
+            continue
+        return raw_date
+    return None
+
+
+def premium_value_from_cell_text(text: str | None) -> float | None:
+    normalized = normalize_ocr_text(text or "").replace(",", ".")
+    for match in re.finditer(r"[-−－—–一.]?\s*\d+(?:[.]\s*\d+)?", normalized):
+        value = premium_value_from_token(match.group(0))
+        if value is not None and abs(value) < 20:
+            return value
+    return None
+
+
+def parse_hisugar_image_table_rows(image_bytes: bytes, article: dict, image_url: str) -> list[dict]:
+    try:
+        from PIL import Image
+
+        with Image.open(io.BytesIO(image_bytes)) as image:
+            rows, cols = hisugar_table_grid_positions(image)
+            if len(rows) < 4 or len(cols) < 6:
+                return []
+            parsed_rows = []
+            for row_idx in range(2, len(rows) - 1):
+                top = rows[row_idx] + 2
+                bottom = rows[row_idx + 1] - 2
+                if bottom <= top:
+                    continue
+                date_crop = image.crop((cols[0] + 4, top, cols[1] - 4, bottom))
+                premium_crop = image.crop((cols[4] + 4, top, cols[5] - 4, bottom))
+                raw_date = raw_hisugar_date_from_cell_text(tesseract_cell_text(date_crop, "0123456789"))
+                value = premium_value_from_cell_text(
+                    tesseract_cell_text(premium_crop, "0123456789.-,")
+                )
+                if raw_date is None or value is None:
+                    continue
+                data_date = f"{raw_date[:4]}-{raw_date[4:6]}-{raw_date[6:8]}"
+                parsed_rows.append(
+                    make_hisugar_premium_row(article, image_url, "tesseract_grid", data_date, value)
+                )
+            return parsed_rows
+    except (ImportError, OSError):
+        return []
+
+
 def parse_hisugar_noisy_ocr_rows(text: str, article: dict, image_url: str, backend: str) -> list[dict]:
     dates = hisugar_table_dates_from_ocr(text)
     values = premium_values_from_noisy_ocr(text)
@@ -692,12 +853,17 @@ def rows_from_hisugar_article(article: dict) -> tuple[list[dict], list[dict]]:
             parsed = parse_hisugar_ocr_rows(text or "", article, image_url, backend) if text else []
             if text and not parsed:
                 parsed = parse_hisugar_noisy_ocr_rows(text, article, image_url, backend)
+            if text and not parsed:
+                parsed = parse_hisugar_numeric_ocr_rows(text, article, image_url, backend)
+            if not parsed:
+                parsed = parse_hisugar_image_table_rows(image_bytes, article, image_url)
+            parsed_backend = parsed[0].get("ocr_backend", backend) if parsed else backend
             logs.append({
                 "source": "HiSugar import premium image OCR",
                 "articleId": article.get("article_id"),
                 "imageUrl": image_url,
                 "httpStatus": image_status,
-                "ocrBackend": backend,
+                "ocrBackend": parsed_backend,
                 "parsedRows": len(parsed),
                 "parsedDates": [row["data_date"] for row in parsed],
                 "parsed": bool(parsed),

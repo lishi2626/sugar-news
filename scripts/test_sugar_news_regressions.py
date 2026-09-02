@@ -19,6 +19,7 @@ from brazil_sugar_metrics import (
     hisugar_general_news_query_page,
     hisugar_query_list_page,
     hisugar_row_selection_key,
+    parse_hisugar_numeric_ocr_rows,
     parse_hisugar_ocr_rows,
     parse_hisugar_list_articles,
     parse_hisugar_noisy_ocr_rows,
@@ -182,6 +183,8 @@ def test_brazil_metrics_daily_refresh_skill_and_workflow() -> None:
     assert "brazil_metrics_refresh = refresh_brazil_metrics(date_text)" in source
     assert "if args.preserve_existing_metrics:" in source
     assert "other-country item lacks concrete country/region; skipped before publication" in source
+    refresh_script = (PROJECT_ROOT / "scripts" / "refresh_brazil_dashboard_report.py").read_text(encoding="utf-8")
+    assert "strip_public_fetch_logs(normalize_brazil_metrics(date_text))" in refresh_script
 
     assert "sourceDataDate" in skill
     assert "automatic monitoring + latest valid value retention" in skill
@@ -537,6 +540,30 @@ def test_brazil_import_premium_hisugar_source_and_date_rule() -> None:
     )
     latest_by_date = {row["data_date"]: row for row in latest_rows}
     assert latest_by_date["2026-08-19"]["premium_discount_cents_per_lb"] == -0.51
+
+    september_article = {
+        "article_id": "2026090208542553598833",
+        "article_title": "20260901食糖进口成本及利润估算",
+        "article_published_at": "2026-09-02 08:55:58",
+        "title_date": "2026-09-01",
+        "source_url": "https://www.hisugar.com/home/articleContent?id=2026090208542553598833",
+    }
+    september_numeric_ocr = "\n".join([
+        "20260826 17.62 6.7233 49.75 -0.65 4503 5722",
+        "20260827 18.22 6.7200 49.75 -0.65 4628 5885",
+        "20260828 17.56 6.7307 49.75 -0.65 4498 5714",
+        "20260831 17.79 6.7195 49.75 -0.65 4536 5765",
+        "20260901 18.38 6.7202 49.75 -0.65 4659 5925",
+    ])
+    september_rows = parse_hisugar_numeric_ocr_rows(
+        september_numeric_ocr,
+        september_article,
+        "https://www.hisugar.com/image/20260902/1788310357694083469.png",
+        "tesseract",
+    )
+    september_by_date = {row["data_date"]: row for row in september_rows}
+    assert september_by_date["2026-09-01"]["premium_discount_cents_per_lb"] == -0.65
+    assert september_by_date["2026-09-01"]["source_url"] == september_article["source_url"]
 
     prior_year_article = {
         "article_id": "2025080608563542667063",
