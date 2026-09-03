@@ -1,11 +1,11 @@
 {
   "target_date": "2026-09-02",
-  "generated_at": "2026-09-03T08:36:09+08:00",
+  "generated_at": "2026-09-03T18:01:14+08:00",
   "status": "success",
-  "verified_news_file": "/home/runner/work/sugar-news/sugar-news/data/verified_news/2026/09/sugar_news_2026-09-02.json",
-  "excel_file": "/home/runner/work/sugar-news/sugar-news/reports/2026/09/Sugar News 2026-09-02.xlsx",
-  "dashboard_report": "/home/runner/work/sugar-news/sugar-news/public/sugar-news/data/reports/2026/09/2026-09-02.json",
-  "dashboard_index": "/home/runner/work/sugar-news/sugar-news/public/sugar-news/data/index.json",
+  "verified_news_file": "D:\\Desktop\\ai\\sugar-news-premium-fix\\data\\verified_news\\2026\\09\\sugar_news_2026-09-02.json",
+  "excel_file": "D:\\Desktop\\ai\\sugar-news-premium-fix\\reports\\2026\\09\\Sugar News 2026-09-02.xlsx",
+  "dashboard_report": "D:\\Desktop\\ai\\sugar-news-premium-fix\\public\\sugar-news\\data\\reports\\2026\\09\\2026-09-02.json",
+  "dashboard_index": "D:\\Desktop\\ai\\sugar-news-premium-fix\\public\\sugar-news\\data\\index.json",
   "editorial_skill": {
     "path": ".codex/skills/sugar-news-editorial-rules/SKILL.md",
     "sha256": "fb74a204e7b717112b9fa7b0b1f80fb27a759329fe125772e3589c9162dd13ba"
