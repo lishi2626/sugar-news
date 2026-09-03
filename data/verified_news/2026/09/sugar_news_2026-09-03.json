@@ -1,0 +1,149 @@
+{
+  "target_date": "2026-09-03",
+  "run_date": "2026-09-04",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Retail sugar price drops 3.85% to ₹62.57/kg in a week: Govt data | India News",
+      "news": "印度零售市场显示零售糖价，糖价变动幅度为3.85%。印度零售糖价仅披露当前水平，缺少前期比较时不单独改变供需方向判断。来源：hindustantimes.com（https://www.hindustantimes.com/india-news/retail-sugar-price-drops-3-85-percent-to-rs-62-57-kg-in-a-week-govt-data-101788454755161.html）。影响：中性",
+      "impact": "中性：印度零售糖价仅披露当前水平，缺少前期比较时不单独改变供需方向判断。",
+      "source_name": "hindustantimes.com",
+      "source_url": "https://www.hindustantimes.com/india-news/retail-sugar-price-drops-3-85-percent-to-rs-62-57-kg-in-a-week-govt-data-101788454755161.html",
+      "published_date_local": "2026-09-04",
+      "event_date": "2026-09-04",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "Retail sugar price drops 3.85% to ₹62.57/kg in a week: Govt data | India News",
+        "source_url": "https://www.hindustantimes.com/india-news/retail-sugar-price-drops-3-85-percent-to-rs-62-57-kg-in-a-week-govt-data-101788454755161.html",
+        "publisher": "hindustantimes.com",
+        "publication_time": "Thu, 03 Sep 2026 17:01:13 GMT",
+        "event_date": "2026-09-04",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度政府",
+        "event_action": "公布",
+        "metrics": [
+          "3.85%",
+          "₹62.57"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度零售糖价仅披露当前水平，缺少前期比较时不单独改变供需方向判断。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPZ3N6eUxHVnB6NTAzTENVbkNUNlVkYTZzY0FXWWFicjFOX3ZZenhjMUM0N1hsNUkzbmt0QXRSYmlWS3RJVkh3RFZNQ0Z3TzVuUDJPQUN3SnN3LUhkSGZRSVZKYzEybE1KeEc5OThJWVlMTUtKejU2N0hFekMtd1MyM292OXdCaXU4UUIxOU5WcU50dXJ6VjdpaC1GM25pcU1od2c5aHJsNUJkZGFWRHFzNEp6SGRSZEMzNTA2MERuQ2NDOXo2RWtmajloSUhMeG4w0gHWAUFVX3lxTE5CWGNnZDZubktVei1kZDVKWVBIY2VxanpDYmZvTWxHampIX2w4VnppYlhEZFg1TjRkcDZEODBZRTd0Zm0zY0VxZmV1bzZ6UW1zWnhiUEVXT0FwaU1hc2llaU5uTEFTYjF0em5RdlFfUEt0bUUxcTJOT2ZiXzZxV3FOMTJvSW15c3lnWm9QRkFGQlZzclRPdHlwRFBLQ3Z3S21MYTFZUm9rT1dSZk04QXBKZjFPQ3NlYm1QUkNhRjl6MEhhMUFFdG83VUpfWDVSaEQxN3RIZVE?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度政府公布385625720260904price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Sugar gets sweeter again: Retail prices fall 3.85% to Rs 62.57/kg in a week",
+      "news": "印度零售市场显示零售糖价，糖价下跌3.85%。印度零售糖价下跌说明当地供应压力增加或采购需求转弱，短期压制现货糖价。来源：The Times of India（https://timesofindia.indiatimes.com/business/india-business/sugar-prices-ease-retail-rates-fall-3-85-to-rs-62-57/kg-in-a-week/articleshow/133733317.cms）。影响：利空糖价",
+      "impact": "利空：印度零售糖价下跌说明当地供应压力增加或采购需求转弱，短期压制现货糖价。",
+      "source_name": "The Times of India",
+      "source_url": "https://timesofindia.indiatimes.com/business/india-business/sugar-prices-ease-retail-rates-fall-3-85-to-rs-62-57/kg-in-a-week/articleshow/133733317.cms",
+      "published_date_local": "2026-09-03",
+      "event_date": "2026-09-03",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Sugar gets sweeter again: Retail prices fall 3.85% to Rs 62.57/kg in a week",
+        "source_url": "https://timesofindia.indiatimes.com/business/india-business/sugar-prices-ease-retail-rates-fall-3-85-to-rs-62-57/kg-in-a-week/articleshow/133733317.cms",
+        "publisher": "The Times of India",
+        "publication_time": "Thu, 03 Sep 2026 10:52:00 GMT",
+        "event_date": "2026-09-03",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "3.85%",
+          "Rs 62.57"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "印度零售糖价下跌说明当地供应压力增加或采购需求转弱，短期压制现货糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNazRrbU1QazNLNHFXeGtEM0lzcG14M3hjUE9oVUhjWUYzTFVrbGN5T2lNb0Zzdnp0OV9WXzlaWEhTdWZZVHViaU16NXNpbThaZ05nZFR2STkzaTVVaFI5M1JpVTVSVXdtWHRtQkFBcl9pX2IyMUtBd1pTLVhlODJwTW16OEVJT3piaFo3aHI0amlhZGw4TTN5YVNNVk1Nc3BjOTlvX1Jnb2pFTFpaUktReGE0ZDFFUHdWdkNlT01kRUkzTVIwd0lGWW13TUExVm9HRVA0aW9qZ0FmbHo5WWw2WVIwOVI2Z9IB6wFBVV95cUxNYmw1d19YQWFFWi1wOUk0U1dCYzlwVnd6WGxldUwyUDJtZHhXQl9nVV9PYlRwV1VMT1k3M2pseVF5U2RxLU9PT25faTA5WDktQ3hobU1TLUMzWlA4RVBiVVBxVnU1eUpOemFURThORl9lQmExbmZlMlRpNUhJdE9kY0hCMUFuU3ZvcHdfS1RVSEd6aFQ1eHZLZks5NUlqemRnbmVxWmM4NTM2eUVwWFFmSHZUUnlOcmdDZUVqTml6YkRKVmctYjdTMkNnUVNDNGdBb2hOQUMya1VZMmZoZTBYaTRNLWRUem81Yjdr?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布385rs625720260903price_market",
+      "importance": 85
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "Open-Meteo预报显示（2026-09-04至2026-09-10），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括沙缴约171.7mm、甘烹碧约149.8mm、加拉信约139.9mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：Open-Meteo（https://api.open-meteo.com/v1/forecast）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "Open-Meteo",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "published_date_local": "2026-09-03",
+      "event_date": "2026-09-04",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_open_meteo_20260903",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "菲律宾",
+      "title": "Philippines considers raising ethanol blend to 15% as it explores new feedstock",
+      "news": "菲律宾糖业相关机构公布乙醇掺混或燃料政策，披露15%。若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量。来源：BioEnergy Times（https://bioenergytimes.com/philippines-considers-raising-ethanol-blend-to-15-as-it-explores-new-feedstock/）。影响：利多糖价",
+      "impact": "利多：若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量，从而减少食糖供应预期并支撑糖价。",
+      "source_name": "BioEnergy Times",
+      "source_url": "https://bioenergytimes.com/philippines-considers-raising-ethanol-blend-to-15-as-it-explores-new-feedstock/",
+      "published_date_local": "2026-09-03",
+      "event_date": "2026-09-03",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Philippines considers raising ethanol blend to 15% as it explores new feedstock",
+        "source_url": "https://bioenergytimes.com/philippines-considers-raising-ethanol-blend-to-15-as-it-explores-new-feedstock/",
+        "publisher": "BioEnergy Times",
+        "publication_time": "Thu, 03 Sep 2026 07:20:37 GMT",
+        "event_date": "2026-09-03",
+        "event_country": "菲律宾",
+        "event_region": null,
+        "event_actor": "菲律宾糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "15%"
+        ],
+        "comparison_period": null,
+        "topic": "ethanol_policy",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量，从而减少食糖供应预期并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdzQ2aVRpOFVsTEFWUDB2dENTMDBSVkN6UnM1VGI0eDZtd2RxRFFFME9RQ25FTE1ORXNvTmZhdHd1N051OGZMV0ZaOUtrVGhUOWxCT0V5WlNJRDJUcXhTODNRSnZLeG1PRWNBaWdhNDMteGdfVkVOYlZMdkJiSjFHdlFHYnRxdzdWWWRselhvYTVFUXNRYWFvZFc4MUJYRWFZZ3dIc2NlcHJNZw?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_菲律宾菲律宾糖业相关机构公布1520260903ethanol_policy",
+      "importance": 80
+    }
+  ]
+}
