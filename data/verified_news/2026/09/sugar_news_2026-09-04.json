@@ -1,0 +1,232 @@
+{
+  "target_date": "2026-09-04",
+  "run_date": "2026-09-05",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "巴西",
+      "country": "巴西",
+      "title": "Adverse weather, lower Brazil output, India's duty-free imports push global suga",
+      "news": "巴西现货市场显示食糖价格，糖价下跌11.9%。巴西食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。来源：The Economic Times（https://m.economictimes.com/news/international/world-news/adverse-weather-lower-brazil-output-indias-duty-free-imports-push-global-sugar-prices-up-11-9-fao/articleshow/133761046.cms）。影响：利多糖价",
+      "impact": "利多：巴西食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+      "source_name": "The Economic Times",
+      "source_url": "https://m.economictimes.com/news/international/world-news/adverse-weather-lower-brazil-output-indias-duty-free-imports-push-global-sugar-prices-up-11-9-fao/articleshow/133761046.cms",
+      "published_date_local": "2026-09-04",
+      "event_date": "2026-09-04",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Adverse weather, lower Brazil output, India's duty-free imports push global sugar prices up 11.9%: FAO",
+        "source_url": "https://m.economictimes.com/news/international/world-news/adverse-weather-lower-brazil-output-indias-duty-free-imports-push-global-sugar-prices-up-11-9-fao/articleshow/133761046.cms",
+        "publisher": "The Economic Times",
+        "publication_time": "Fri, 04 Sep 2026 11:54:09 GMT",
+        "event_date": "2026-09-04",
+        "event_country": "巴西",
+        "event_region": null,
+        "event_actor": "巴西糖业市场",
+        "event_action": "下调",
+        "metrics": [
+          "11.9%"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "巴西食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMijgJBVV95cUxNZXJNVDBZMXU5S2V1SlJwOXREWmFBWU9Jd1RNUXMxY2FnQklkTlVPNl8yeDEwSU5jLUJnVFZ3b2lERFRoUFptZFJ6YjhDWEFiblE5RFV4MHJoWEt3WFRXTHNGMnpRcW5KaVFST2szS1M5Tmc2dUx0LUpwS216NHFYckxVeC1ORU04VGVuMGtBaHhsZUE2VkNJRHJzUlY0a0U5OEN4cC1XUUZvRFZidG5namNBVWUzdU1HSTQwdWJHd1MzR2VaOUdkVUFEVUpxWTMwemgxdFhTVENZYzBsbm56Z01RVUdKNFlrbkNlOGFGU3dsc1IxMW56WFlWTi1fMXJleTM2Vldfbjc5UENoN0HSAZMCQVVfeXFMTVY1QUJjbEpaeTdibWg3eHpva0ZTUnZtUm11enNxNU1Pc1BMdjhndUZKV1V0S0RUTnY3eEVLQi1HN0ZJN1pKWW1HWDZyNm4xSERrOVJramdGTlJKZ1VURmRnejdkcHhpeEFrQklvY3BhZUFYVVduZ3hhUzM1a3VISFFOQWM4ZExEaEYwTXVSdlFNaXlSSFFxR1Y4ZTcwTkhGTkZfNVZycUtEaDYzWVRUSnl4LVBLMEZ0Q0o1LUdjc0JrdVI4Um9VTVV4UW9uZHVJektqUXo1Tl83UTlIR0NwaE82VnctcjNFelA1d2pCT3o0Y1dCa1VFaHlzaGFRblozc081TkxLNmFJakRzOXd4QjRMdk0?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_巴西巴西糖业市场下调11920260904price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Retail sugar price drops 3.85% to Rs 62.57/kg in a week: Govt data",
+      "news": "印度零售市场显示零售糖价，糖价变动幅度为3.85%。印度零售糖价仅披露当前水平，缺少前期比较时不单独改变供需方向判断。来源：The Economic Times（https://m.economictimes.com/industry/cons-products/food/retail-sugar-price-drops-3-85-to-rs-62-57/kg-in-a-week-govt-data/amp_articleshow/133734133.cms）。影响：中性",
+      "impact": "中性：印度零售糖价仅披露当前水平，缺少前期比较时不单独改变供需方向判断。",
+      "source_name": "The Economic Times",
+      "source_url": "https://m.economictimes.com/industry/cons-products/food/retail-sugar-price-drops-3-85-to-rs-62-57/kg-in-a-week-govt-data/amp_articleshow/133734133.cms",
+      "published_date_local": "2026-09-03",
+      "event_date": "2026-09-03",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "Retail sugar price drops 3.85% to Rs 62.57/kg in a week: Govt data",
+        "source_url": "https://m.economictimes.com/industry/cons-products/food/retail-sugar-price-drops-3-85-to-rs-62-57/kg-in-a-week-govt-data/amp_articleshow/133734133.cms",
+        "publisher": "The Economic Times",
+        "publication_time": "Thu, 03 Sep 2026 11:09:00 GMT",
+        "event_date": "2026-09-03",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度政府",
+        "event_action": "公布",
+        "metrics": [
+          "3.85%",
+          "Rs 62.57"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度零售糖价仅披露当前水平，缺少前期比较时不单独改变供需方向判断。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNY0hZVGgwN1FvQzZ5c0tQMXVMUlI4dG9DZzRFNUlubXBHSTVEVTdCUFUtd2NHOE9MUmtmRmFFX1RXWEVZTFFOZnUwTkJ1eHgySGd5ZTVhXzIxOFV5WnhQZ0NrOXNQU0g0MHJkdWJZa0VLMTJEcVlGa1U3Z01kaUpTV2s0OEFqREp5cWh1a0R4UXlxeDRSaDJYcGhteXBpVWxSTGxnc3VnanZKdWJZWlY1RnhDVUdZanl1a3Z6LWl3SUdaZkV6dVRuZk5aVDh0ZHJNa0J4R3dySmViR3lzZGtkN1Y0bmbSAeQBQVVfeXFMTWNIWVRoMDdRb0M2eXNLUDF1TFJSOHRvQ2c0RTVJbm1wR0k1RFU3QlBVLXdjRzhPTFJrZkZhRV9UV1hFWUxRTmZ1ME5CdXh4MkhneWU1YV8yMThVeVp4UGdDazlzUFNINDByZHViWWtFSzEyRHFZRmtVN2dNZGlKU1drNDhBakRKeXFodWtEeFF5cXg0UmgyWHBobXlwaVVsUkxsZ3N1Z2p2SnViWVpWNUZ4Q1VHWWp5dWt2ei1pd0lHWmZFenVUbmZOWlQ4dGRyTWtCeEd3ckplYkd5c2RrZDdWNG5m?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度政府公布385rs625720260903price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Why Sugar Prices Are Rising Around the World, and What India Has to Do With It",
+      "news": "印度现货市场显示食糖价格，食糖价格为1KL。印度食糖价格仅披露当前水平，缺少前期比较时不单独改变供需方向判断。来源：Open Magazine（https://openthemagazine.com/india/why-sugar-prices-are-rising-around-the-world-and-what-india-has-to-do-with-it）。影响：中性",
+      "impact": "中性：印度食糖价格仅披露当前水平，缺少前期比较时不单独改变供需方向判断。",
+      "source_name": "Open Magazine",
+      "source_url": "https://openthemagazine.com/india/why-sugar-prices-are-rising-around-the-world-and-what-india-has-to-do-with-it",
+      "published_date_local": "2026-09-04",
+      "event_date": "2026-09-04",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Why Sugar Prices Are Rising Around the World, and What India Has to Do With It",
+        "source_url": "https://openthemagazine.com/india/why-sugar-prices-are-rising-around-the-world-and-what-india-has-to-do-with-it",
+        "publisher": "Open Magazine",
+        "publication_time": "Fri, 04 Sep 2026 12:15:20 GMT",
+        "event_date": "2026-09-04",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "1KL"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度食糖价格仅披露当前水平，缺少前期比较时不单独改变供需方向判断。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQOWtveDdpQWV3RFIxNEtnLW1KLXhBSlZVc3RXTXJfekhIcGVtUzZNeVJvQnQzWlFXbDRKbktuTmhrQ3NqSVRpMndWcmRiVTBrV0owSWFZRno5LWRFTDE4eUdOQ1c1TDd3aHZ2OHcyOU9USlpzVU5VbVI2d0RfQUtVVE5fSVZ2SkpDc0U4dE9DRlRNbGZ1TmVlZjN5c1V2ZGFpdWF1bGZtcjNaX1NXYzJMRQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布1kl20260904price_market",
+      "importance": 85
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "AIDA & IIT Delhi launched landmark white paper charting India’s flex-fuel mobili",
+      "news": "印度糖业相关机构公布乙醇掺混或燃料政策，披露E20。若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量。来源：ChiniMandi（https://www.chinimandi.com/aida-iit-delhi-launched-landmark-white-paper-charting-indias-flex-fuel-mobility-roadmap-beyond-e20/）。影响：利多糖价",
+      "impact": "利多：若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量，从而减少食糖供应预期并支撑糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/aida-iit-delhi-launched-landmark-white-paper-charting-indias-flex-fuel-mobility-roadmap-beyond-e20/",
+      "published_date_local": "2026-09-04",
+      "event_date": "2026-09-04",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "AIDA & IIT Delhi launched landmark white paper charting India’s flex-fuel mobility roadmap beyond E20",
+        "source_url": "https://www.chinimandi.com/aida-iit-delhi-launched-landmark-white-paper-charting-indias-flex-fuel-mobility-roadmap-beyond-e20/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Fri, 04 Sep 2026 10:41:18 GMT",
+        "event_date": "2026-09-04",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "E20"
+        ],
+        "comparison_period": null,
+        "topic": "ethanol_policy",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量，从而减少食糖供应预期并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOaG5FMHA4eGt4VFJxUzZaQzZTS3VwMEVveVozcTFKdnpBUEtQazBMc2lSMDZLOFFoREFvNDhEb2ZhVDBUSDYzYkxCcXpTV2NxaGpwWjNIdEZqem9icWl2QXBfRTZiSmlJOVZYWFBQR3lTMXNYVk0yLUh2NU5mZDJjZG1remUyUkZBbGoxTGRuQVIzZXJrZDgyVWo5QXpGelNLeVVGUW9IcTlLMDJDYnRnQ1hOblhkUm5BR192M0VGYWlpUktx?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构公布e2020260904ethanol_policy",
+      "importance": 80
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-09-04），乌隆他尼、孔敬、呵叻、猜也蓬、加拉信、黎府、素可泰、彭世洛等等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-09-04",
+      "event_date": "2026-09-04",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20260904",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "菲律宾",
+      "title": "Philippines sugar output seen falling 10% as RSSI continues to hit cane crop",
+      "news": "菲律宾糖业相关机构预测糖产量，糖产量变化幅度为10%。该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。来源：ChiniMandi（https://www.chinimandi.com/philippines-sugar-output-seen-falling-10-as-rssi-continues-to-hit-cane-crop/）。影响：中性",
+      "impact": "中性：该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/philippines-sugar-output-seen-falling-10-as-rssi-continues-to-hit-cane-crop/",
+      "published_date_local": "2026-09-04",
+      "event_date": "2026-09-04",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Philippines sugar output seen falling 10% as RSSI continues to hit cane crop",
+        "source_url": "https://www.chinimandi.com/philippines-sugar-output-seen-falling-10-as-rssi-continues-to-hit-cane-crop/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Fri, 04 Sep 2026 07:46:41 GMT",
+        "event_date": "2026-09-04",
+        "event_country": "菲律宾",
+        "event_region": null,
+        "event_actor": "菲律宾糖业相关机构",
+        "event_action": "预测",
+        "metrics": [
+          "10%"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPQmx5akRMVjg4NU5UYndHQ3lHc2l1SWZvaGRPUTBGcGkyOUk3eUZiRk1JZW1KVGRIMUpMMHlPRUtOZEZRcTl4ZEh2X1RBTVI1R3o3QVVCN1B3TUg5R3prQlJkVWFzYjRweENNQTZyTVEycXlJcFk3QWJzak1ZR3J6ZndvUjZUQWRJMzBpRUM3YUJiZmFBUFRIdHZVYnlkclBzdjZURVlB?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_菲律宾菲律宾糖业相关机构预测1020260904supply_demand",
+      "importance": 90
+    }
+  ]
+}
