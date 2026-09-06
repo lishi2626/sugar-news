@@ -1,0 +1,106 @@
+{
+  "target_date": "2026-09-06",
+  "run_date": "2026-09-07",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Sugar market's round trip: Sugar ex-mill prices erase entire rally, back to ₹43 ",
+      "news": "印度糖厂显示糖厂出厂价，糖厂出厂价为₹43、₹70。印度糖厂出厂价仅披露当前水平，缺少前期比较时不单独改变供需方向判断。来源：ChiniMandi（https://www.chinimandi.com/sugar-markets-round-trip-sugar-ex-mill-prices-erase-entire-rally-back-to-%E2%82%B943-from-%E2%82%B970-per-kg/）。影响：中性",
+      "impact": "中性：印度糖厂出厂价仅披露当前水平，缺少前期比较时不单独改变供需方向判断。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/sugar-markets-round-trip-sugar-ex-mill-prices-erase-entire-rally-back-to-%E2%82%B943-from-%E2%82%B970-per-kg/",
+      "published_date_local": "2026-09-06",
+      "event_date": "2026-09-06",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Sugar market's round trip: Sugar ex-mill prices erase entire rally, back to ₹43 from ₹70 per kg",
+        "source_url": "https://www.chinimandi.com/sugar-markets-round-trip-sugar-ex-mill-prices-erase-entire-rally-back-to-%E2%82%B943-from-%E2%82%B970-per-kg/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Sun, 06 Sep 2026 02:30:05 GMT",
+        "event_date": "2026-09-06",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖厂",
+        "event_action": "公布",
+        "metrics": [
+          "₹43",
+          "₹70"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度糖厂出厂价仅披露当前水平，缺少前期比较时不单独改变供需方向判断。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "monday_weekend_window_friday_16_to_monday_06",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOSnNQSFlyTWc1UEVQQ25xb3RIOVYzNkc0eWEtTjV6VWlVVGdWWl9mUVJoQVlIbWU4aWxPQnh6NGctX3Nfdzd3Z2gydXYzdmViRlF2X2FBa2lhVzBvUUVhcmZrbVBSSjNoYUcyZm94NWZIV1lHUzRyaWNqd3RTby1xeWZWaTMxUzVBWUUyV0JWa0dJczgxajFjUDdFZW1FZVVOMm9sZ29FRkR0Mmdua1lia2xqMmtvVFo2QWQ2ZEFvMEJOYnNrQlM0NjVZd2xhbXBvTUE?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖厂公布437020260906price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-09-06），乌隆他尼、加拉信、那空沙旺、彭世洛、北碧等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-09-06",
+      "event_date": "2026-09-06",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20260906",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "巴基斯坦",
+      "title": "Farmers body urges govt to export 1 million tonnes of sugar before crushing seas",
+      "news": "巴基斯坦政府披露糖厂运行和压榨安排，披露1 million。巴基斯坦糖厂开榨、复产或压榨增加会加快当季食糖产出，增加阶段性供应。来源：Profit by Pakistan Today（https://profit.pakistantoday.com.pk/2026/09/05/farmers-body-urges-govt-to-export-1-million-tonnes-of-sugar-before-crushing-season）。影响：利空糖价",
+      "impact": "利空：糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+      "source_name": "Profit by Pakistan Today",
+      "source_url": "https://profit.pakistantoday.com.pk/2026/09/05/farmers-body-urges-govt-to-export-1-million-tonnes-of-sugar-before-crushing-season",
+      "published_date_local": "2026-09-05",
+      "event_date": "2026-09-05",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "Farmers body urges govt to export 1 million tonnes of sugar before crushing season",
+        "source_url": "https://profit.pakistantoday.com.pk/2026/09/05/farmers-body-urges-govt-to-export-1-million-tonnes-of-sugar-before-crushing-season",
+        "publisher": "Profit by Pakistan Today",
+        "publication_time": "Sat, 05 Sep 2026 08:02:11 GMT",
+        "event_date": "2026-09-05",
+        "event_country": "巴基斯坦",
+        "event_region": null,
+        "event_actor": "巴基斯坦政府",
+        "event_action": "披露",
+        "metrics": [
+          "1 million"
+        ],
+        "comparison_period": null,
+        "topic": "mill_operations",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "monday_weekend_window_friday_16_to_monday_06",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNRk5tcTRfQWlienJJMlVMb3dnNzJTZUJzZ1V0VnNYTVlqN3lyNmkxNW1uRUwxZlF4YzJwVS1ON3pHS21pa3JscXFGa3Y0ZDZsMk93S1pjdjZKYnV5cm1CU3FyXzZhSldkdWxXbHkyUVZBc1BHamdmQ3lxRnFmRlRVb3ZIOTBVM1prT00tSzZ0NDl5RnZneW9hTEVWOEs1VVhMbXlqS2RsWFpnaHR4QURJdFphRDhPTUttTloxcXQtS25CODJpNXNKcA?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_巴基斯坦巴基斯坦政府披露1million20260905mill_operations",
+      "importance": 90
+    }
+  ]
+}
