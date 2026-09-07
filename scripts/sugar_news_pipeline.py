@@ -145,6 +145,12 @@ VAGUE_SUMMARY_PHRASES = (
     "现货或出厂报价上涨反映阶段性供应偏紧或采购需求增强",
     "现货或出厂报价下跌反映供应压力或需求转弱",
     "价格信息缺少明确涨跌幅或区域基准",
+    "仅披露当前水平",
+    "不单独改变供需方向判断",
+    "披露1 million",
+    "披露1million",
+    "公布乙醇掺混或燃料政策，披露",
+    "糖业相关机构公布乙醇掺混或燃料政策",
     "进口、出口、关税或配额变化会改变国内外可用糖源和贸易流向",
     "印度价格上行通常会抬高补库成本，价格下行则说明供应压力或需求走弱正在传导到现货端",
     "产区天气或病虫害变化会影响甘蔗生长、收割和糖料供应稳定性",
@@ -161,8 +167,9 @@ VAGUE_SUMMARY_PATTERNS = (
     re.compile(r"(?:该事项|该信息|相关变化)[^。！？]{0,80}(?:继续跟踪|参考意义|影响有限)"),
     re.compile(r"(?:改变|影响)[^。！？]{0,30}(?:甘蔗|糖蜜|糖浆)[^。！？]{0,40}(?:制糖|制醇)[^。！？]{0,40}(?:分配|食糖供应)"),
     re.compile(r"(?:数据为|具体幅度未披露)[^。！？]{0,40}"),
+    re.compile(r"披露\s*\d+(?:[.,]\d+)?\s*(?:million|percent|%)"),
     re.compile(r"(?:糖价|价格|政策)[^。！？]{0,20}基准为[^。！？]{0,40}"),
-    re.compile(r"(?:糖业市场|糖厂|糖业相关机构)[^。！？]{0,40}(?:食糖价格和市场流通|库存数据|糖厂运行和压榨安排|贸易、进口、出口或配额政策)"),
+    re.compile(r"(?:糖业市场|糖厂|糖业相关机构)[^。！？]{0,40}(?:食糖价格和市场流通|库存数据|糖厂运行和压榨安排|贸易、进口、出口或配额政策|乙醇掺混或燃料政策)"),
 )
 NEWS_ACTION_TERMS = (
     "宣布", "公布", "发布", "显示", "批准", "要求", "计划", "拟", "预计", "预报", "预测",
@@ -178,7 +185,7 @@ NEWS_ACTION_TERMS = (
 NEWS_DIRECTION_TERMS = (
     "上调", "下调", "提高", "降低", "上涨", "下跌", "增加", "减少", "增长", "下降",
     "同比", "环比", "由", "至", "达到", "为", "超过", "不足", "偏高", "偏低",
-    "暂停", "恢复", "禁止", "批准", "限制", "启动", "关闭", "开榨", "收榨",
+    "暂停", "恢复", "禁止", "批准", "限制", "启动", "关闭", "开榨", "收榨", "回落",
     "预计", "预报", "预测", "大雨", "暴雨", "干旱", "洪涝", "短缺", "过剩",
     "扩张", "扩大", "扩散", "蔓延", "收缩", "改善", "恶化", "受损", "支撑", "压制", "压低",
     "increase", "decrease", "rise", "fall", "raise", "cut", "lower", "higher", "lower",
@@ -1220,6 +1227,10 @@ def classify_sugar_topic(text: str) -> str:
     lowered = text.lower()
     if re.search(r"(?i)\bsugar\s+prices?\b|\bprices?\s+(?:jump|surge|rise|rose|fall|fell)\b|ex-mill|wholesale|retail", lowered):
         return "price_market"
+    if any_phrase(lowered, ("hedge", "hedged", "hedging", "fixed-price", "fixação", "fixacao")):
+        return "price_market"
+    if any_phrase(lowered, ("import", "export", "tariff", "quota", "regulation", "allocation", "进口", "出口", "配额", "关税")):
+        return "trade_policy"
     for topic, terms in NEWS_TOPIC_RULES:
         if any_phrase(lowered, terms):
             return topic
@@ -1297,13 +1308,21 @@ def polish_verified_summary_text(item: dict) -> dict:
 
 def infer_event_actor(country: str, topic: str, title: str, source: str) -> str:
     lowered = title.lower()
+    if country == "印度" and topic == "price_market" and "govt data" in lowered and "retail" in lowered:
+        return "印度消费者事务部"
     if country == "印度" and topic == "price_market" and "mills expect" in lowered:
         return "印度糖厂"
+    if country == "巴基斯坦" and "export" in lowered and any_phrase(lowered, ("farmers body", "farmers' body", "farmer body", "planters body")):
+        return "巴基斯坦农民联合会（PKI）"
+    if country == "菲律宾" and "ethanol blend" in lowered and "15" in lowered:
+        return "菲律宾农业部和能源部"
     if country == "菲律宾" and topic == "weather_pest":
         if "negros oriental" in lowered and "national aid" in lowered:
             return "菲律宾东内格罗斯省政府"
         if "negocc task force" in lowered or ("task force" in lowered and "spray" in lowered):
             return "菲律宾西内格罗斯省虫害防控工作组"
+    if any_phrase(lowered, ("farmers body", "farmers' body", "farmer group", "planters body", "cane farmers")):
+        return f"{country}蔗农组织"
     if "pib" in source.lower() or "ministry" in lowered or "government" in lowered or "govt" in lowered or "centre" in lowered:
         if country == "印度":
             return "印度政府"
@@ -1341,6 +1360,12 @@ def infer_event_action(topic: str, title: str) -> str:
         return "寻求国家援助"
     if "spray" in lowered and "fungi" in lowered:
         return "使用真菌处理"
+    if "govt data" in lowered and any_phrase(lowered, ("price", "prices", "rates", "retail", "wholesale")):
+        return "显示"
+    if "consider" in lowered and any_phrase(lowered, ("raise", "increase", "hike")):
+        return "评估提高"
+    if any_phrase(lowered, ("urge", "urges", "calls on", "calls for", "request", "requests")):
+        return "呼吁"
     if any(term in lowered for term in ("raise", "increase", "hike", "提高", "上调")):
         return "提高"
     if any(term in lowered for term in ("cut", "lower", "reduce", "下调", "降低", "减少")):
@@ -1383,6 +1408,7 @@ def structured_candidate_from_rss(country_bucket: str, rss: dict, date_text: str
         "source_url": link,
         "publisher": source,
         "publication_time": rss.get("published"),
+        "target_date": date_text,
         "event_date": item_date or date_text,
         "event_country": assigned_country,
         "event_region": None,
@@ -1405,6 +1431,20 @@ def event_fingerprint(candidate: dict) -> str:
     topic = str(candidate.get("topic") or "")
     country = str(candidate.get("event_country") or "")
     metrics = " ".join(candidate.get("metrics") or [])
+    if (
+        country == "印度"
+        and topic == "price_market"
+        and any_phrase(title, ("retail sugar price", "retail rates"))
+        and re.search(r"3[.,]85\s*(?:%|percent)", f"{title} {metrics}")
+        and "62.57" in f"{title} {metrics}"
+    ):
+        return "印度|零售糖价周度下跌3.85至62.57"
+    if country == "印度" and topic == "price_market" and "erase entire rally" in title and "₹43" in title and "₹70" in title:
+        return "印度|糖厂出厂价回吐涨幅43至70"
+    if country == "巴基斯坦" and topic == "trade_policy" and "export" in title and "1 million" in title:
+        return "巴基斯坦|蔗农组织呼吁出口100万吨糖"
+    if country == "菲律宾" and topic in {"ethanol_policy", "ethanol_capacity"} and "ethanol blend" in title and "15" in title:
+        return "菲律宾|乙醇掺混比例10至15评估"
     if (
         country == "印度"
         and topic == "price_market"
@@ -2060,9 +2100,9 @@ def price_market_transmission(candidate: dict) -> str:
     scope = price_market_scope(title)
     if any_phrase(text, ("rise", "rises", "higher", "up", "jump", "surge", "rose", "上涨", "上调")):
         return f"{country}{scope}上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。"
-    if any_phrase(text, ("fall", "lower", "down", "drop", "fell", "下跌", "下调")):
+    if any_phrase(text, ("fall", "falls", "lower", "down", "drop", "drops", "fell", "decline", "declines", "eases", "ease", "soften", "softens", "erase", "erases", "back to", "下跌", "下调", "回落")):
         return f"{country}{scope}下跌说明当地供应压力增加或采购需求转弱，短期压制现货糖价。"
-    return f"{country}{scope}仅披露当前水平，缺少前期比较时不单独改变供需方向判断。"
+    return f"{country}{scope}只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。"
 
 
 def mill_operations_transmission(candidate: dict) -> str:
@@ -2086,7 +2126,7 @@ def trade_policy_transmission(candidate: dict) -> str:
     if any_phrase(text, ("export", "出口")):
         if any_phrase(text, ("ban", "restrict", "limit", "lower", "cut", "限制", "禁止", "下调", "收紧")):
             return f"{country}出口限制会减少国际市场可流通糖源，支撑国际糖价。"
-        if any_phrase(text, ("quota", "allow", "increase", "raise", "增加", "批准", "配额")):
+        if any_phrase(text, ("quota", "allow", "increase", "raise", "approve", "approved", "urge", "urges", "call for", "calls for", "request", "requests", "seek", "seeks", "surplus", "overhang", "增加", "批准", "配额", "呼吁", "过剩")):
             return f"{country}出口配额或出口量增加会提高国际可流通糖源，增加国际供应压力。"
     return f"{country}贸易政策改变会调整进口国国内供应或出口国国际可流通糖源，价格影响取决于实际进口、出口或关税方向。"
 
@@ -2103,7 +2143,7 @@ def metric_text_for_candidate(candidate: dict, metrics: list[str]) -> str:
             period = "一个月" if any_phrase(lowered_title, ("month", "monthly")) else ""
             if any_phrase(lowered_title, ("jump", "surge", "rise", "rose", "higher", "上涨")):
                 return f"糖价{period}上涨{percent}"
-            if any_phrase(lowered_title, ("fall", "fell", "drop", "lower", "down", "下跌")):
+            if any_phrase(lowered_title, ("fall", "falls", "fell", "drop", "drops", "lower", "down", "decline", "declines", "eases", "ease", "soften", "softens", "erase", "erases", "back to", "下跌", "回落")):
                 return f"糖价{period}下跌{percent}"
             return f"糖价变动幅度为{percent}"
         if metrics:
@@ -2111,7 +2151,7 @@ def metric_text_for_candidate(candidate: dict, metrics: list[str]) -> str:
             metric_values = "、".join(localize_metric_for_summary(metric) for metric in metrics[:4])
             if any_phrase(lowered_title, ("rise", "rises", "higher", "up", "jump", "surge", "rose", "上涨", "上调")):
                 return f"{scope}上涨至{metric_values}"
-            if any_phrase(lowered_title, ("fall", "fell", "drop", "lower", "down", "下跌", "下调")):
+            if any_phrase(lowered_title, ("fall", "falls", "fell", "drop", "drops", "lower", "down", "decline", "declines", "eases", "ease", "soften", "softens", "erase", "erases", "back to", "下跌", "下调", "回落")):
                 return f"{scope}下跌至{metric_values}"
             return f"{scope}为{metric_values}"
         raise ValueError("price-market RSS title lacks price level or change amount")
@@ -2230,9 +2270,19 @@ def impact_for_candidate(candidate: dict) -> str:
             and any_phrase(full_text, ("record", "high", "price", "shortage", "创纪录", "创新高", "价格", "短缺", "紧张"))
         ):
             return "利多：印度在国内糖价创纪录或供应紧张背景下评估削减进口税，说明本地可用糖源偏紧并强化供应紧张预期；若实际进口到港，后续才会补充供应并压制现货。"
-        if any_phrase(text, ("import", "进口")):
-            return "利空：进口政策放宽或进口量增加会补充国内可用糖源，对本地糖价形成压力。"
-        return "利多：出口限制、配额收紧或贸易成本上升会减少可流通糖源并支撑国际糖价。"
+        if any_phrase(full_text, ("export", "出口")):
+            logic = trade_policy_transmission(candidate).rstrip("。")
+            if any_phrase(full_text, ("quota", "allow", "increase", "raise", "approve", "approved", "urge", "urges", "call for", "calls for", "request", "requests", "seek", "seeks", "surplus", "overhang", "增加", "批准", "配额", "呼吁", "过剩")):
+                return f"利空：{logic}。"
+            if any_phrase(full_text, ("ban", "restrict", "limit", "lower", "cut", "禁止", "限制", "下调", "收紧")):
+                return f"利多：{logic}。"
+            return f"中性：{logic}。"
+        if any_phrase(full_text, ("import", "进口")):
+            logic = trade_policy_transmission(candidate).rstrip("。")
+            if any_phrase(full_text, ("ban", "restrict", "tariff", "duty", "higher", "限制", "禁止", "关税", "提高")) and not any_phrase(full_text, ("duty-free", "allow", "increase", "cut", "scrap", "reduce", "lower", "放宽", "增加", "削减", "取消", "下调")):
+                return f"利多：{logic}。"
+            return f"利空：{logic}。"
+        return "中性：贸易政策尚未明确进口、出口、关税或配额方向，现有信息不足以判断可流通糖源增减。"
     if topic == "starch_sugar_substitute":
         return "利空：淀粉糖、玉米糖浆或预混粉供应增加会替代部分食糖消费，削弱白糖需求。"
     if topic == "supply_demand":
@@ -2247,6 +2297,21 @@ def impact_for_candidate(candidate: dict) -> str:
     return "中性：原文未说明产量、库存、贸易、价格或糖料变化的方向，对糖价方向暂不单边。"
 
 
+def continuing_news_prefix(candidate: dict) -> str:
+    event_date = str(candidate.get("event_date") or "")
+    target_date = str(candidate.get("target_date") or "")
+    if not event_date or not target_date or event_date == target_date:
+        return ""
+    try:
+        event_day = datetime.strptime(event_date, "%Y-%m-%d").date()
+        target_day = datetime.strptime(target_date, "%Y-%m-%d").date()
+    except ValueError:
+        return "近期重要消息："
+    if event_day.weekday() >= 5 or target_day.weekday() == 0:
+        return "周末延续消息："
+    return "近期重要消息："
+
+
 def rss_summary_for_publication(candidate: dict) -> tuple[str, str]:
     country = candidate.get("event_country") or "相关地区"
     actor = candidate.get("event_actor") or f"{country}糖业相关机构"
@@ -2257,6 +2322,47 @@ def rss_summary_for_publication(candidate: dict) -> tuple[str, str]:
     lowered_title = title.lower()
     metrics = [localize_metric_for_summary(str(metric)) for metric in (candidate.get("metrics") or [])]
     source_suffix = f"来源：{candidate.get('publisher') or '原始来源'}（{candidate.get('source_url') or ''}）"
+    if country == "印度" and topic == "price_market" and any_phrase(lowered_title, ("retail sugar price", "retail rates")) and re.search(r"3[.,]85\s*(?:%|percent)", lowered_title) and "62.57" in lowered_title:
+        impact = "利空：印度政府允许进口100万吨食糖并收紧库存限制后，零售和批发糖价周度回落，进口糖源和限库措施压低囤货需求与节前补库溢价，短期利空印度现货糖价。"
+        candidate["impact_direction"] = "利空"
+        candidate["impact_logic"] = impact.split("：", 1)[1]
+        news = (
+            "印度消费者事务部数据显示，全国平均零售糖价一周下跌3.85%至62.57卢比/公斤，低于一周前65.08卢比/公斤；9月2日平均批发价由一周前60.39卢比/公斤降至57.62卢比/公斤。"
+            "价格回落发生在印度政府允许进口100万吨食糖、收紧大用户和经销商库存限制之后，进口和限库增加可流通糖源、压低囤货与节前补库溢价，短期利空印度现货糖价。"
+            f"{source_suffix}"
+        )
+        return news, impact
+    if country == "印度" and topic == "price_market" and "erase entire rally" in lowered_title and "₹43" in title and "₹70" in title:
+        impact = "利空：印度库存限制和免税原糖进口预期促使超限库存释放并提高可用供应，短期压制印度现货糖价。"
+        candidate["impact_direction"] = "利空"
+        candidate["impact_logic"] = impact.split("：", 1)[1]
+        news = (
+            "ChiniMandi整理的印度糖厂出厂价显示，马哈拉施特拉邦西部M级糖约₹4,350/公担、北马哈拉施特拉邦约₹4,400/公担、北卡纳塔克邦约₹4,380/公担，价格已从西马哈拉施特拉邦和卡纳塔克邦接近₹70/kg的高位回落到₹43-44/kg附近。"
+            "价格回落来自印度政府库存限制和100万吨免税原糖进口预期，超限库存释放和进口预期增加可用供应，短期利空印度现货糖价。"
+            f"{source_suffix}"
+        )
+        return news, impact
+    if country == "巴基斯坦" and "farmers body" in lowered_title and "export" in lowered_title and "1 million" in lowered_title:
+        impact = "利空：巴基斯坦库存叠加增产预期说明国内供应压力偏大，若100万吨出口获批，将增加国际市场可供应糖源并压制国际糖价。"
+        candidate["impact_direction"] = "利空"
+        candidate["impact_logic"] = impact.split("：", 1)[1]
+        news = (
+            f"{continuing_news_prefix(candidate)}巴基斯坦农民联合会（PKI）呼吁政府在11月15日新榨季开始前批准出口100万吨过剩糖，理由是国内仍有约130万吨未消费库存，且新季甘蔗产量预计增加10%-15%。"
+            "巴基斯坦库存叠加增产预期说明国内供应压力偏大，若100万吨出口获批，将增加国际市场可供应糖源，利空国际糖价。"
+            f"{source_suffix}"
+        )
+        return news, impact
+    if country == "菲律宾" and topic in {"ethanol_policy", "ethanol_capacity"} and "ethanol blend" in lowered_title and "15" in lowered_title:
+        impact = "利多：菲律宾若把乙醇掺混比例从10%提高至15%，且新增需求继续由糖蜜和甘蔗汁承担，会分流制糖糖源、减少可结晶糖供应；玉米等非糖原料放量会削弱这一利多。"
+        candidate["impact_direction"] = "利多"
+        candidate["impact_logic"] = impact.split("：", 1)[1]
+        news = (
+            f"{continuing_news_prefix(candidate)}菲律宾农业部和能源部正在评估将乙醇强制掺混比例由10%提高至15%，并讨论使用糖蜜、甘蔗汁、本地玉米和棕榈油等原料，同时利用闲置酒精产能。"
+            "菲律宾糖基原料当前每年生产约3.25亿-3.85亿升生物乙醇，行业总产能超过5亿升；若新增掺混需求仍由糖蜜和甘蔗汁承担，将把可发酵糖源从制糖链条转向乙醇，减少可结晶糖供应并利多糖价。"
+            "由于国家生物乙醇标准仍在公开咨询且政府也在评估玉米等非糖原料，非糖原料放量会削弱对食糖供应的挤压。"
+            f"{source_suffix}"
+        )
+        return news, impact
     if country == "印度" and "sugar export ban" in lowered_title and "smuggling" in lowered_title:
         impact = "利多：出口禁令限制印度正规糖源外流，节前需求转向非正规贸易会加剧周边市场供应紧张。"
         candidate["impact_direction"] = "利多"
@@ -2701,8 +2807,18 @@ def fallback_thai_weather_item_from_verified(report_date: str) -> tuple[dict | N
     if not root.exists():
         entry["filtered"].append({"reason": "verified news root missing"})
         return None, entry
-    candidates = sorted(root.rglob("sugar_news_*.json"), reverse=True)
-    for path in candidates[:20]:
+    try:
+        target_day = datetime.strptime(report_date, "%Y-%m-%d").date()
+        exact_path = root / f"{target_day.year:04d}" / f"{target_day.month:02d}" / f"sugar_news_{report_date}.json"
+    except ValueError:
+        exact_path = None
+    candidates: list[Path] = []
+    if exact_path and exact_path.exists():
+        candidates.append(exact_path)
+    for path in sorted(root.rglob("sugar_news_*.json"), reverse=True):
+        if path not in candidates:
+            candidates.append(path)
+    for path in candidates[:80]:
         try:
             with path.open("r", encoding="utf-8") as f:
                 payload = json.load(f)

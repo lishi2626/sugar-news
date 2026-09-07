@@ -63,6 +63,15 @@ Use the 2026-08-31 rewritten report as the latest style anchor for tomorrow and 
 5. China news must be retained when a concrete sugar-industry fact exists. China price items need the exact region, product, current quote, and daily change; China disaster items need the affected producer, acreage, cane condition, or expected supply path.
 6. Reject automatic summaries that only name a topic bucket. Examples that must be stopped before Excel/dashboard publication include `糖业市场发布或调整食糖价格和市场流通`, `糖价或相关政策基准为XXX`, `糖业相关机构公布库存数据`, and `食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端`.
 
+Use these automatic-vs-rewrite corrections from 2026-09-03 and 2026-09-06 as hard rules:
+
+1. India retail sugar-price stories covering the same government data must be deduplicated before publication. For the `3.85%` weekly fall to `Rs 62.57/kg`, write `印度消费者事务部数据显示，全国平均零售糖价一周下跌3.85%至62.57卢比/公斤...`; do not publish two separate India retail-price rows from Hindustan Times and Times of India.
+2. India ex-mill headlines such as `erase entire rally, back to ₹43 from ₹70/kg` are price pullback stories, not neutral current-quote stories. Summarize the relevant regions and levels, such as Maharashtra and Karnataka prices falling from around `₹70/kg` to `₹43-44/kg`, then explain that stock limits and duty-free raw-sugar import expectations increase available supply and pressure spot prices.
+3. Pakistan headlines such as `Farmers body urges govt to export 1 million tonnes of sugar before crushing season` are export-policy/surplus stories. The actor is the farmer body or `巴基斯坦农民联合会（PKI）`, not `巴基斯坦政府`; the effect is bearish for international sugar if exports are approved because `100万吨` additional sugar would enter tradable supply.
+4. Philippines ethanol headlines such as `considers raising ethanol blend to 15%` must name `菲律宾农业部和能源部`, the policy change from `10%` to `15%`, and the feedstock mix. If added demand is met by molasses or cane juice, it diverts crystallizable sugar and is bullish; if corn or other non-sugar feedstock expands, that weakens the bullish sugar effect.
+5. Continuing items must be explicitly marked when their source date is not the report date. Use `周末延续消息：` for weekend carryover items and `近期重要消息：` for recent non-weekend items still affecting the report date.
+6. The global summary must be built from the rewritten/deduplicated item facts. It must never recycle fragments such as `印度糖厂显示糖厂出厂价`, `仅披露当前水平`, `不单独改变供需方向判断`, `巴基斯坦政府披露糖厂运行和压榨安排`, or `披露1million`.
+
 Never publish vague fallback summaries such as:
 
 - `涉及食糖价格或市场流通变化`
@@ -108,6 +117,12 @@ Never publish vague fallback summaries such as:
 - `糖厂运行变化会直接影响甘蔗入榨、压榨节奏和阶段性食糖产量`
 - `报价变化会反映现货供需松紧和贸易商补库意愿`
 - `食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端`
+- `仅披露当前水平`
+- `不单独改变供需方向判断`
+- `披露1 million`
+- `披露1million`
+- `糖业相关机构公布乙醇掺混或燃料政策`
+- `公布乙醇掺混或燃料政策，披露`
 - `现货或出厂报价上涨反映阶段性供应偏紧或采购需求增强`
 - `现货或出厂报价下跌反映供应压力或需求转弱`
 - `价格信息缺少明确涨跌幅或区域基准`
