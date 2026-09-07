@@ -822,6 +822,44 @@
       "yoy_status": "ok"
     },
     {
+      "indicator": "brazil_sugar_premium",
+      "status": "ok",
+      "source_name": "广西糖网食糖进口成本及利润估算表",
+      "dataset_name": "HiSugar 食糖进口成本及利润估算表",
+      "product": "巴西糖进口升贴水",
+      "port": "进口成本估算",
+      "pricing_basis": "HiSugar import cost estimate",
+      "futures_contract": null,
+      "data_date": "2026-09-04",
+      "import_premium_discount_cents_per_lb": -0.65,
+      "premium_discount_cents_per_lb": -0.65,
+      "unit": "美分/磅",
+      "article_id": "2026090709024049643039",
+      "article_title": "20260904食糖进口成本及利润估算",
+      "article_title_date": "2026-09-04",
+      "article_published_at": "2026-09-07 09:53:38",
+      "source_url": "https://www.hisugar.com/home/articleContent?id=2026090709024049643039",
+      "image_url": "https://www.hisugar.com/image/20260907/1788742881011080389.png",
+      "fetched_at": "2026-09-07T14:43:10+08:00",
+      "ocr_backend": "tesseract_numeric",
+      "previous_data_date": "2026-09-03",
+      "previous_value": -0.65,
+      "previous_source_url": "https://www.hisugar.com/home/articleContent?id=2026090709024049643039",
+      "previous_article_id": "2026090709024049643039",
+      "daily_change": 0.0,
+      "daily_change_percent": 0.0,
+      "previous_year_date": "2025-09-04",
+      "previous_year_value": -0.1,
+      "previous_year_source_url": "https://www.hisugar.com/home/articleContent?id=2025090509052482091333",
+      "previous_year_article_id": "2025090509052482091333",
+      "yoy_comparison_date": "2025-09-04",
+      "yoy_exact_date_match": true,
+      "yoy_date_gap_days": 0,
+      "year_on_year_change": -0.55,
+      "year_on_year_change_percent": -550.0,
+      "yoy_status": "ok"
+    },
+    {
       "season": "2026/2027",
       "reference_period": "2026-06-30",
       "reference_date": "2026-06-30",
@@ -1006,5 +1044,5 @@
       "yoy_status": "ok"
     }
   ],
-  "lastUpdatedAt": "2026-09-07T08:17:31+08:00"
+  "lastUpdatedAt": "2026-09-07T14:43:20+08:00"
 }
