@@ -1,6 +1,6 @@
 {
   "newsDate": "2026-09-07",
-  "updatedAt": "2026-09-08T08:29:44+08:00",
+  "updatedAt": "2026-09-08T08:44:52+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/09/Sugar News 2026-09-07.xlsx",
   "globalHighlights": "全球糖业新闻重点集中在泰国糖业相关机构公布糖产量，糖产量下降17%；泰国糖业相关机构公布糖产量，糖产量下降17%；泰国气象局预报（2026-09-07），乌隆他尼、孔敬、呵叻、猜也蓬、加拉信、黎府、那空沙旺、甘烹碧等等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。利多因素是糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价；利空因素是当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。国际糖价的主要矛盾在供应收缩预期与阶段性供应或需求压力之间，ICE原糖持续站上15美分/磅前以震荡判断为宜。",
@@ -8,7 +8,7 @@
     "title": "巴西糖价与库存",
     "dataDate": "2026-09-07",
     "snapshotTargetDate": "2026-09-07",
-    "updatedAt": "2026-09-08T08:24:44+08:00",
+    "updatedAt": "2026-09-08T08:39:52+08:00",
     "sourceStatus": "dynamic_fetch",
     "sugarPremium": {
       "metricType": "sugarPremium",
@@ -17,7 +17,7 @@
       "dataDate": "2026-09-04",
       "sourceDataDate": "2026-09-04",
       "refreshDate": "2026-09-07",
-      "fetchedAt": "2026-09-08T08:23:47+08:00",
+      "fetchedAt": "2026-09-08T08:38:50+08:00",
       "sourceName": "广西糖网食糖进口成本及利润估算表",
       "sourceUrl": "https://www.hisugar.com/home/articleContent?id=2026090709024049643039",
       "datasetName": "HiSugar 食糖进口成本及利润估算表",
@@ -57,7 +57,7 @@
       "dataDate": "2026-08-15",
       "sourceDataDate": "2026-08-15",
       "refreshDate": "2026-09-07",
-      "fetchedAt": "2026-09-08T08:24:06+08:00",
+      "fetchedAt": "2026-09-08T08:39:10+08:00",
       "sourceName": "巴西农业和畜牧业部（MAPA）",
       "sourceUrl": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/arquivos-producao/009ESTOQUESDEACARPORTIPOSAFRA20262027_03092026.pdf",
       "datasetName": "MAPA Agroenergia - Estoques de Açúcar por Tipo",
@@ -97,7 +97,7 @@
       "dataDate": "2026-08-16",
       "sourceDataDate": "2026-08-16",
       "refreshDate": "2026-09-07",
-      "fetchedAt": "2026-09-08T08:24:44+08:00",
+      "fetchedAt": "2026-09-08T08:39:52+08:00",
       "sourceName": "巴西农业和畜牧业部（MAPA）",
       "sourceUrl": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo_2627_150826.PDF",
       "datasetName": "MAPA Acompanhamento da Produção Sucroalcooleira",
@@ -138,7 +138,7 @@
   "indiaMetrics": {
     "title": "印度糖价",
     "dataDate": "2026-09-06",
-    "updatedAt": "2026-09-08T08:29:44+08:00",
+    "updatedAt": "2026-09-08T08:44:52+08:00",
     "sourceStatus": "dynamic_fetch",
     "domesticWholesalePrice": {
       "metricType": "domesticWholesalePrice",
@@ -453,7 +453,7 @@
       "metricType": "carryoverStock",
       "status": "pending",
       "statusText": "等待权威来源更新",
-      "fetchedAt": "2026-09-08T08:29:44+08:00",
+      "fetchedAt": "2026-09-08T08:44:52+08:00",
       "note": "未获取到已完成日期、口径和来源核验的可靠数据；不编造价格或库存。",
       "dataDate": null,
       "stockWanTonnes": null
