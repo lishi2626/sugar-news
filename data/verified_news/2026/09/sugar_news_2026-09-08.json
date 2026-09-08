@@ -1,0 +1,107 @@
+{
+  "target_date": "2026-09-08",
+  "run_date": "2026-09-09",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "Thai sugar output to drop at least 17%, worsening global squeeze",
+      "news": "泰国糖业相关机构公布糖产量，糖产量下降17%。糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。来源：The Edge Singapore（https://www.theedgesingapore.com/news/commodities/thai-sugar-output-drop-least-17-worsening-global-squeeze）。影响：利多糖价",
+      "impact": "利多：糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+      "source_name": "The Edge Singapore",
+      "source_url": "https://www.theedgesingapore.com/news/commodities/thai-sugar-output-drop-least-17-worsening-global-squeeze",
+      "published_date_local": "2026-09-07",
+      "event_date": "2026-09-07",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "Thai sugar output to drop at least 17%, worsening global squeeze",
+        "source_url": "https://www.theedgesingapore.com/news/commodities/thai-sugar-output-drop-least-17-worsening-global-squeeze",
+        "publisher": "The Edge Singapore",
+        "publication_time": "Mon, 07 Sep 2026 10:24:29 GMT",
+        "target_date": "2026-09-08",
+        "event_date": "2026-09-07",
+        "event_country": "泰国",
+        "event_region": null,
+        "event_actor": "泰国糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "17%"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOSHFGOFFNcnpzbFZlbU5PNi1sbFVqY1VfR2swN2xRYzBYZUwzelZIczdJWXB6SUNheDVfeVdyaHdXNFU0eWUtSDdsMTl4ZUp1TzVsVG12VVZuYUJtWGZsYWFpZVBGbTlFRWdmQ1dXazlDWk85ZEY4SWtzT2xTOXBhMTZyUkVuTVZLY09sd3BxX0NNanNocEZfTlp5OWtWamI0RnN2ZGl2ZFdLQdIBrwFBVV95cUxOdE5DYU13MC1sbnkzUVpTNEg4UnRRRENYTjU4WlY5Mmw0S3FVbzN3TWVZam1mN25KU3dsMnBueE5Id0cxczdHemtxNUpDYjItNzR6Yi1TMjlHUHRENE1kQ3VpeWFnOUxtZDVYU09XeGtzT3hrQ3Z2d3NHUndRUjA4SUl2bUZmQnJvNUhYd0xxbFUtVklVMlFHZ1JxOWtSZExTdXhXZmI4N0JUQ2lFQWhN?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_泰国泰国糖业相关机构公布1720260907supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-09-08），乌隆他尼、孔敬、呵叻、猜也蓬、加拉信、黎府、那空沙旺、甘烹碧等等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-09-08",
+      "event_date": "2026-09-08",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20260908",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "尼泊尔",
+      "title": "Nepal sugar prices rise to Rs 140/kg ahead of Dashain and Tihar",
+      "news": "尼泊尔现货市场显示食糖价格，食糖价格上涨至Rs 140。尼泊尔食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。来源：ChiniMandi（https://www.chinimandi.com/nepal-sugar-prices-rise-to-rs-140-kg-ahead-of-dashain-and-tihar/）。影响：利多糖价",
+      "impact": "利多：尼泊尔食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/nepal-sugar-prices-rise-to-rs-140-kg-ahead-of-dashain-and-tihar/",
+      "published_date_local": "2026-09-08",
+      "event_date": "2026-09-08",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Nepal sugar prices rise to Rs 140/kg ahead of Dashain and Tihar",
+        "source_url": "https://www.chinimandi.com/nepal-sugar-prices-rise-to-rs-140-kg-ahead-of-dashain-and-tihar/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Tue, 08 Sep 2026 12:48:13 GMT",
+        "target_date": "2026-09-08",
+        "event_date": "2026-09-08",
+        "event_country": "尼泊尔",
+        "event_region": null,
+        "event_actor": "尼泊尔糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "Rs 140"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "尼泊尔食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPNGo5cXVNX0VtQ0tybkhDQ1lwdFk0MW5HNzY3SlpwM2F2VWNhZVVveWxPSm5MYkloVk1MRk14QkpsUEhIdlVub01XSU00dG91WFJxRkNxOWVlb3RnOFpWc08teld0LUxHbGVJd2hjLTAzWVNWT3YwQUpKSW43YjJLVjljckUzZVVpbHZ2N3RGcXN1UjJNS2c?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_尼泊尔尼泊尔糖业市场公布rs14020260908price_market",
+      "importance": 90
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
-  "latestNewsDate": "2026-09-07",
-  "lastRunAt": "2026-09-08T08:44:52+08:00",
+  "latestNewsDate": "2026-09-08",
+  "lastRunAt": "2026-09-09T07:51:59+08:00",
   "lastRunStatus": "success",
   "timezone": "Asia/Shanghai",
   "details": {
@@ -13,9 +13,10 @@
     "global_summary_sentences": 3,
     "no_empty_country_sections": true,
     "counts_by_country": {
-      "泰国": 3
+      "泰国": 2,
+      "尼泊尔": 1
     },
     "china_count": 0,
-    "other_country_count": 0
+    "other_country_count": 1
   }
 }
