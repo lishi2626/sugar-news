@@ -1,0 +1,279 @@
+{
+  "target_date": "2026-09-09",
+  "run_date": "2026-09-10",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Uttar Pradesh sugar output may stay near 9 mt despite higher cane yields",
+      "news": "印度糖业相关机构公布糖产量，糖产量增加至0万吨。糖产量增加会提高当期新增可售糖源，缓解供应压力并压制糖价。来源：ChiniMandi（https://www.chinimandi.com/uttar-pradesh-sugar-output-may-stay-near-9-mt-despite-higher-cane-yields/）。影响：利空糖价",
+      "impact": "利空：糖产量增加会提高当期新增可售糖源，缓解供应压力并压制糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/uttar-pradesh-sugar-output-may-stay-near-9-mt-despite-higher-cane-yields/",
+      "published_date_local": "2026-09-09",
+      "event_date": "2026-09-09",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Uttar Pradesh sugar output may stay near 9 mt despite higher cane yields",
+        "source_url": "https://www.chinimandi.com/uttar-pradesh-sugar-output-may-stay-near-9-mt-despite-higher-cane-yields/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 09 Sep 2026 05:09:21 GMT",
+        "target_date": "2026-09-09",
+        "event_date": "2026-09-09",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "9 mt"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "糖产量增加会提高当期新增可售糖源，缓解供应压力并压制糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSW52MFZPb3ZHSHlTYWRUOFBSSUNYSUlBWlpOaGZWS09vSWNYNExzLXFNSnRuYnhtaUNSMDc4b01zQUV6dTFUY1ZLWUg4SEEwekgzVl9Ram5lR0x3QmV2eXk0bTRJRXI0YXA4VHRmUTlSNVMxWmFJSWxjMjEyRldERFJEZWROZ2hBcFJPeHQ0SzAwRmtWUDN6RTRSclhpQWJUdGc?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构公布9mt20260909supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "World raw sugar prices jump 13% in August on speculative fund buying",
+      "news": "印度原糖市场显示原糖价格，糖价上涨13%。印度原糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。来源：ChiniMandi（https://www.chinimandi.com/world-raw-sugar-prices-jump-13-in-august-on-speculative-fund-buying/）。影响：利多糖价",
+      "impact": "利多：印度原糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/world-raw-sugar-prices-jump-13-in-august-on-speculative-fund-buying/",
+      "published_date_local": "2026-09-09",
+      "event_date": "2026-09-09",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "World raw sugar prices jump 13% in August on speculative fund buying",
+        "source_url": "https://www.chinimandi.com/world-raw-sugar-prices-jump-13-in-august-on-speculative-fund-buying/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 09 Sep 2026 03:00:46 GMT",
+        "target_date": "2026-09-09",
+        "event_date": "2026-09-09",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "13%"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "印度原糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNcTFobjNhTV9vWm04UXVQQkpFRHNPeUdNU2FMUHFVa3lFR2hWbzNyRlQxc3NOS0l2Z283VndUc3BKYVJvT3hvSEpDZ1Q5cGY4WEdLSVNCSDBKREtoZlZOYkpxb2hwbHJvVEl5bG56WnlLMHN4X216bHNUZzNiZjIxdlpNeHA3UlZnR1l4MFI3X0p3MFlfdi1JZXlTYw?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布1320260909price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Uttar Pradesh: Antyodaya card holders to get sugar at Rs 18 per kg despite highe",
+      "news": "印度现货市场显示食糖价格，食糖价格上涨至Rs 18。印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。来源：ChiniMandi（https://www.chinimandi.com/uttar-pradesh-antyodaya-card-holders-to-get-sugar-at-rs-18-per-kg-despite-higher-market-prices/）。影响：利多糖价",
+      "impact": "利多：印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/uttar-pradesh-antyodaya-card-holders-to-get-sugar-at-rs-18-per-kg-despite-higher-market-prices/",
+      "published_date_local": "2026-09-09",
+      "event_date": "2026-09-09",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Uttar Pradesh: Antyodaya card holders to get sugar at Rs 18 per kg despite higher market prices",
+        "source_url": "https://www.chinimandi.com/uttar-pradesh-antyodaya-card-holders-to-get-sugar-at-rs-18-per-kg-despite-higher-market-prices/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 09 Sep 2026 06:33:11 GMT",
+        "target_date": "2026-09-09",
+        "event_date": "2026-09-09",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "Rs 18"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOcWxRY2tRWDJnSW1JUzRXWDhobE5DVVdDZWZIZ09lSFhsX3pxaGlXTFRLV2oyOElUdHk3dmNPQlhSZ1RUSzhOOEtubDBNVHBQUEtYc2wycEl2dmZEbU9MdjN0VkNWWUF0Z2hNUERDdWpyWF9YWGh6Mm5ERlRhWjlxd3VQdms4MmN0U3FsSm9JTDg1LUJzdG9vb19NdUxBckE2ckpUclNCWmpMZFhsSXBQbnlUMGE5N0NvTTZ2Z2h0bw?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布rs1820260909price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Maha advances cane crushing season by 15 days to ease sugar prices during festiv",
+      "news": "印度现货市场显示食糖价格，食糖价格下跌至15天。印度食糖价格下跌说明当地供应压力增加或采购需求转弱，短期压制现货糖价。来源：The Times of India（https://timesofindia.indiatimes.com/city/kolhapur/maha-advances-cane-crushing-season-by-15-days-to-ease-sugar-prices-during-festivities/amp_articleshow/133980085.cms）。影响：中性",
+      "impact": "中性：印度食糖价格下跌说明当地供应压力增加或采购需求转弱，短期压制现货糖价。",
+      "source_name": "The Times of India",
+      "source_url": "https://timesofindia.indiatimes.com/city/kolhapur/maha-advances-cane-crushing-season-by-15-days-to-ease-sugar-prices-during-festivities/amp_articleshow/133980085.cms",
+      "published_date_local": "2026-09-10",
+      "event_date": "2026-09-10",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "Maha advances cane crushing season by 15 days to ease sugar prices during festivities",
+        "source_url": "https://timesofindia.indiatimes.com/city/kolhapur/maha-advances-cane-crushing-season-by-15-days-to-ease-sugar-prices-during-festivities/amp_articleshow/133980085.cms",
+        "publisher": "The Times of India",
+        "publication_time": "Wed, 09 Sep 2026 18:08:00 GMT",
+        "target_date": "2026-09-09",
+        "event_date": "2026-09-10",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "15 days"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度食糖价格下跌说明当地供应压力增加或采购需求转弱，短期压制现货糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxNVnFLOVJadXlxWXg1RUFzOUJnVU9rQklKdkF1RDdPcHBfLUV4LWJ2d0M0YnFId0hZN210b1cxVm0wMmpPRjBVX2MwX1FhVjRFcmZrb21BWEs4T1RCRXFPc2M1VXJBR0NQOF9xYmE1NzRaZUs2d0M0UDR6aG5ULUpObEpfZ3ZYd1pSb3p1RTVROVFtR0M2RW16dGw4SmF1ZC1SbjJpYzJtelY4UUhTZy1oZjUwb0pxanA5NExQTkR4QWJreW1NRmNxa3R3cjB1OHBvR3RnVWdwVDhlcUR0UHlUUmpZcjQ5dTRYV2xlbzdzV0c1THRRLThnX9IB-AFBVV95cUxNVnFLOVJadXlxWXg1RUFzOUJnVU9rQklKdkF1RDdPcHBfLUV4LWJ2d0M0YnFId0hZN210b1cxVm0wMmpPRjBVX2MwX1FhVjRFcmZrb21BWEs4T1RCRXFPc2M1VXJBR0NQOF9xYmE1NzRaZUs2d0M0UDR6aG5ULUpObEpfZ3ZYd1pSb3p1RTVROVFtR0M2RW16dGw4SmF1ZC1SbjJpYzJtelY4UUhTZy1oZjUwb0pxanA5NExQTkR4QWJreW1NRmNxa3R3cjB1OHBvR3RnVWdwVDhlcUR0UHlUUmpZcjQ5dTRYV2xlbzdzV0c1THRRLThnXw?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布15days20260910price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Falling domestic sugar prices weaken India’s 1 mt import push",
+      "news": "印度现货市场显示食糖价格，食糖价格为1 mt。印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。来源：ChiniMandi（https://www.chinimandi.com/falling-domestic-sugar-prices-weaken-indias-1-mt-import-push/）。影响：中性",
+      "impact": "中性：印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/falling-domestic-sugar-prices-weaken-indias-1-mt-import-push/",
+      "published_date_local": "2026-09-09",
+      "event_date": "2026-09-09",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Falling domestic sugar prices weaken India’s 1 mt import push",
+        "source_url": "https://www.chinimandi.com/falling-domestic-sugar-prices-weaken-indias-1-mt-import-push/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 09 Sep 2026 05:25:47 GMT",
+        "target_date": "2026-09-09",
+        "event_date": "2026-09-09",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "1 mt"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMikgFBVV95cUxObjRKSVctUWJYNk9uZEt3NjFjMURmYUxTd1hFejY2STV1STk5NVpFVGJVRXdrUm96XzlXcXB5d3l1eXN6ekR0WnNGcXBldFBseC1pV2ZVVXFyTmZiRExIVnJ6THQxZWZKTk9KbXNCakJHV1kxVHE3Z2dUS0djZDZ2ZzB4Y2pkZlNZMDZMejB2MVV6QQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布1mt20260909price_market",
+      "importance": 85
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-09-09），孔敬、呵叻、猜也蓬、黎府、那空沙旺、甘烹碧、素可泰、彭世洛等等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-09-09",
+      "event_date": "2026-09-09",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20260909",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "孟加拉国",
+      "title": "Molasses factory fined Tk 1.50 lakh in Rangpur",
+      "news": "孟加拉国糖厂公布乙醇产能、产量或采购价格，披露1.50 lakh。若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量。来源：Bangladesh Sangbad Sangstha (BSS)（https://www.bssnews.net/district/422685）。影响：利多糖价",
+      "impact": "利多：若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量，从而减少食糖供应预期并支撑糖价。",
+      "source_name": "Bangladesh Sangbad Sangstha (BSS)",
+      "source_url": "https://www.bssnews.net/district/422685",
+      "published_date_local": "2026-09-09",
+      "event_date": "2026-09-09",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Molasses factory fined Tk 1.50 lakh in Rangpur",
+        "source_url": "https://www.bssnews.net/district/422685",
+        "publisher": "Bangladesh Sangbad Sangstha (BSS)",
+        "publication_time": "Wed, 09 Sep 2026 09:49:30 GMT",
+        "target_date": "2026-09-09",
+        "event_date": "2026-09-09",
+        "event_country": "孟加拉国",
+        "event_region": null,
+        "event_actor": "孟加拉国糖厂",
+        "event_action": "公布",
+        "metrics": [
+          "1.50 lakh"
+        ],
+        "comparison_period": null,
+        "topic": "ethanol_capacity",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量，从而减少食糖供应预期并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBnaUJlak1paHpsUzVMQm9ISXcxOWZ2MjJfbDBMRGc5bTBPOFRLbHVBWWc1Qk80c1BjcWJwanhycURPTDdtUDNDUnJhOFZXVDE4?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_孟加拉国孟加拉国糖厂公布150lakh20260909ethanol_capacity",
+      "importance": 90
+    }
+  ]
+}
