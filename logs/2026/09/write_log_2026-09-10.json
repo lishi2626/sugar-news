@@ -1,10 +1,10 @@
 {
-  "target_date": "2026-09-09",
-  "generated_at": "2026-09-11T10:28:53+08:00",
+  "target_date": "2026-09-10",
+  "generated_at": "2026-09-11T10:29:20+08:00",
   "status": "success",
-  "verified_news_file": "D:\\Desktop\\ai\\sugar-news-premium-fix\\data\\verified_news\\2026\\09\\sugar_news_2026-09-09.json",
-  "excel_file": "D:\\Desktop\\ai\\sugar-news-premium-fix\\reports\\2026\\09\\Sugar News 2026-09-09.xlsx",
-  "dashboard_report": "D:\\Desktop\\ai\\sugar-news-premium-fix\\public\\sugar-news\\data\\reports\\2026\\09\\2026-09-09.json",
+  "verified_news_file": "D:\\Desktop\\ai\\sugar-news-premium-fix\\data\\verified_news\\2026\\09\\sugar_news_2026-09-10.json",
+  "excel_file": "D:\\Desktop\\ai\\sugar-news-premium-fix\\reports\\2026\\09\\Sugar News 2026-09-10.xlsx",
+  "dashboard_report": "D:\\Desktop\\ai\\sugar-news-premium-fix\\public\\sugar-news\\data\\reports\\2026\\09\\2026-09-10.json",
   "dashboard_index": "D:\\Desktop\\ai\\sugar-news-premium-fix\\public\\sugar-news\\data\\index.json",
   "editorial_skill": {
     "path": ".codex/skills/sugar-news-editorial-rules/SKILL.md",
@@ -12,7 +12,7 @@
   },
   "thai_weather_check": {
     "fixed_step": "Thai main sugarcane area rainfall check",
-    "target_date": "2026-09-09",
+    "target_date": "2026-09-10",
     "source_url": "https://tmd.go.th/en/forecast/daily",
     "status": "skipped",
     "reason": "Thailand cane-area weather item already present in verified news."
@@ -20,7 +20,7 @@
   "china_monitoring_check": {
     "status": "completed",
     "mode": "verified_items_checked_after_load",
-    "retained_count": 0,
+    "retained_count": 1,
     "query_template_count": 40,
     "query_templates": [
       "中国糖业新闻 {year}年{month}月{day}日",
@@ -76,13 +76,13 @@
       "权威期货公司、研究机构及糖厂公告"
     ],
     "column_required": false,
-    "note": "China sugar monitoring completed; no publishable China item found",
+    "note": "China sugar monitoring completed; public China output is present",
     "ensure_step": {
       "fixed_step": "China sugar daily priority monitoring",
-      "target_date": "2026-09-09",
-      "status": "completed_no_publishable_item",
-      "retained_count": 0,
-      "reason": "China search completed without a publishable event; no public placeholder row was added."
+      "target_date": "2026-09-10",
+      "status": "skipped",
+      "retained_count": 1,
+      "reason": "China item already present in verified news."
     }
   },
   "brazil_metrics_refresh": {
@@ -94,20 +94,21 @@
     "reason": "standalone workflow refresh; consuming latest snapshot"
   },
   "checks": {
-    "verified_count": 6,
-    "excel_count": 6,
-    "dashboard_count": 6,
+    "verified_count": 9,
+    "excel_count": 9,
+    "dashboard_count": 9,
     "excel_matches_verified": true,
     "dashboard_matches_verified": true,
     "country_order_ok": true,
     "global_summary_sentences": 3,
     "no_empty_country_sections": true,
     "counts_by_country": {
-      "印度": 4,
+      "巴西": 1,
+      "印度": 6,
       "泰国": 1,
-      "国际糖市": 1
+      "中国": 1
     },
-    "china_count": 0,
-    "other_country_count": 1
+    "china_count": 1,
+    "other_country_count": 0
   }
 }

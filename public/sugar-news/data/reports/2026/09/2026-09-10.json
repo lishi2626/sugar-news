@@ -1,12 +1,12 @@
 {
-  "newsDate": "2026-09-09",
-  "updatedAt": "2026-09-11T10:28:53+08:00",
+  "newsDate": "2026-09-10",
+  "updatedAt": "2026-09-11T10:29:19+08:00",
   "timezone": "Asia/Shanghai",
-  "excelFile": "reports/2026/09/Sugar News 2026-09-09.xlsx",
-  "globalHighlights": "9月9日糖业新闻重点集中在印度国内糖价回落、北方邦产量预期分化、马哈拉施特拉邦提前开榨安排，以及国际原糖8月大涨13%的资金驱动。印度主要产区糖厂出厂价从近期接近Rs65/kg回落至Rs48-52/kg，使100万吨进口计划的商业吸引力下降并可能减少实际到港量；但北方邦2026/27榨季产糖预计约900万吨、低于市场此前超过1000万吨的预期，早榨还可能压低糖分回收，对供应形成阶段性支撑。国际原糖上涨更多来自基金由接近12万手净空转为超过13.2万手净多，基本面仍受出口供应和进口需求偏弱牵制，ICE原糖持续站上15美分/磅前以震荡判断为宜。",
+  "excelFile": "reports/2026/09/Sugar News 2026-09-10.xlsx",
+  "globalHighlights": "9月10日糖业新闻重点集中在印度现货糖价下跌与库存监管收紧、马哈拉施特拉邦和索拉普尔甘蔗供应风险、巴西燃料税政策以及中国广东产销数据。印度马哈拉施特拉邦和北方邦糖厂出厂价下跌约Rs300-350/公担，DSVO要求糖厂7天内移出已售糖并从9月15日起只向登记经销商销售，短期增加流通供应、利空印度现货；但索拉普尔降雨仅为均值40%、每天约500-600吨甘蔗被卖作饲料，以及提前开榨可能压低回收率，对新榨季供应形成利多。巴西汽油税每升下调R$0.63、乙醇水合物税费清零相当于每升下调R$0.19，燃料价差对糖醇比的方向仍需观察；ICE原糖持续站上15美分/磅前以震荡判断为宜。",
   "brazilMetrics": {
     "title": "巴西糖价与库存",
-    "dataDate": "2026-09-09",
+    "dataDate": "2026-09-10",
     "snapshotTargetDate": "2026-09-09",
     "updatedAt": "2026-09-10T14:44:55+08:00",
     "sourceStatus": "dynamic_fetch",
@@ -16,7 +16,7 @@
       "statusText": "",
       "dataDate": "2026-09-08",
       "sourceDataDate": "2026-09-08",
-      "refreshDate": "2026-09-09",
+      "refreshDate": "2026-09-10",
       "fetchedAt": "2026-09-10T14:44:43+08:00",
       "sourceName": "广西糖网食糖进口成本及利润估算表",
       "sourceUrl": "https://www.hisugar.com/home/articleContent?id=2026090908445098233379",
@@ -56,7 +56,7 @@
       "statusText": "",
       "dataDate": "2026-08-15",
       "sourceDataDate": "2026-08-15",
-      "refreshDate": "2026-09-09",
+      "refreshDate": "2026-09-10",
       "fetchedAt": "2026-09-10T08:30:44+08:00",
       "sourceName": "巴西农业和畜牧业部（MAPA）",
       "sourceUrl": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/arquivos-producao/009ESTOQUESDEACARPORTIPOSAFRA20262027_03092026.pdf",
@@ -96,7 +96,7 @@
       "statusText": "",
       "dataDate": "2026-08-16",
       "sourceDataDate": "2026-08-16",
-      "refreshDate": "2026-09-09",
+      "refreshDate": "2026-09-10",
       "fetchedAt": "2026-09-10T08:31:25+08:00",
       "sourceName": "巴西农业和畜牧业部（MAPA）",
       "sourceUrl": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/arquivos-2026-2027/Acompanhamentodaproduo_2627_150826.PDF",
@@ -138,7 +138,7 @@
   "indiaMetrics": {
     "title": "印度糖价",
     "dataDate": "2026-09-09",
-    "updatedAt": "2026-09-10T08:32:22+08:00",
+    "updatedAt": "2026-09-11T10:27:28+08:00",
     "sourceStatus": "dynamic_fetch",
     "domesticWholesalePrice": {
       "metricType": "domesticWholesalePrice",
@@ -453,7 +453,7 @@
       "metricType": "carryoverStock",
       "status": "pending",
       "statusText": "等待权威来源更新",
-      "fetchedAt": "2026-09-10T08:32:22+08:00",
+      "fetchedAt": "2026-09-11T10:27:28+08:00",
       "note": "未获取到已完成日期、口径和来源核验的可靠数据；不编造价格或库存。",
       "dataDate": null,
       "stockWanTonnes": null
@@ -462,47 +462,82 @@
   },
   "countries": [
     {
+      "country": "巴西",
+      "items": [
+        {
+          "news": "巴西联邦政府宣布在9月10日至10月9日期间下调燃料税，汽油PIS/Pasep和Cofins每升减少R$0.63，乙醇水合物两项税费清零、相当于每升减少R$0.19，同时授权道路柴油每升最高R$1.00的临时补贴。汽油降税幅度大于乙醇水合物，若泵价传导后汽油相对优势增强，乙醇消费可能被挤压，糖厂减少制醇用蔗并提高制糖倾向，从而增加食糖供应预期；但政策同时降低乙醇税费，实际方向仍取决于终端比价。",
+          "impactType": "中性",
+          "impact": "汽油降税幅度更大可能削弱乙醇相对竞争力并增加制糖倾向，但乙醇水合物同步降税会部分抵消影响，糖醇比方向需观察泵价传导。",
+          "impactLabel": "影响：中性",
+          "sourceName": "巴西财政部",
+          "sourceUrl": "https://www.gov.br/fazenda/pt-br/assuntos/noticias/2026/setembro/governo-federal-adota-novas-medidas-para-combustiveis-frente-a-oscilacoes-do-petroleo",
+          "publishedDateLocal": "2026-09-09",
+          "eventDate": "2026-09-10"
+        }
+      ]
+    },
+    {
       "country": "印度",
       "items": [
         {
-          "news": "北方邦2026/27榨季食糖产量预计维持在约900万吨，低于市场此前超过1000万吨的预期；虽然西部甘蔗单产预计至少提高10%，但糖厂辖区甘蔗面积可能减少10万-20万公顷，邦政府临时面积也从上榨季286.1万公顷降至281.3万公顷。产量预期低于市场预估叠加可能提前开榨、压低糖分回收，意味着北方邦新增可售糖源难以明显放大，对印度国内糖价形成支撑。",
+          "news": "印度糖和植物油局9月10日通知所有糖厂，已售给经销商、代理商或大宗用户的糖不得在厂内滞留超过7天，并从9月15日起只允许向DFPD平台注册经销商售糖；该要求执行至11月30日，糖厂还需在9月18日前提交9月上半月开库、生产、发运、配额和结库数据。该规则迫使已售糖更快离厂并提高库存透明度，短期会增加可见流通供应、打击囤货，对印度国内现货糖价形成压力。",
+          "impactType": "利空",
+          "impact": "7天出库和经销商登记要求会加快已售糖流入市场并减少库存隐匿空间，从而增加短期流通供应并压制国内糖价。",
+          "impactLabel": "影响：利空糖价",
+          "sourceName": "ChiniMandi",
+          "sourceUrl": "https://www.chinimandi.com/centre-tightens-sugar-stock-retention-dealer-registration-rules-for-mills/",
+          "publishedDateLocal": "2026-09-10",
+          "eventDate": "2026-09-10"
+        },
+        {
+          "news": "印度9月10日糖厂报价显示，国内糖价因供应充足和采购清淡大幅下跌，马哈拉施特拉邦价格下跌约Rs300/公担，北方邦价格下跌约Rs350/公担；Kolhapur S级糖报价约Rs4500-4600/公担，Muzaffarnagar M级糖报价约Rs4600-4700/公担。两大主产区报价同步回落说明短期可售糖源充裕、买盘不足，现货流通压力直接压制印度国内糖价。",
+          "impactType": "利空",
+          "impact": "马哈拉施特拉邦和北方邦糖厂出厂价同步下跌，反映短期可售糖源充裕和采购需求偏弱，从而压制印度现货糖价。",
+          "impactLabel": "影响：利空糖价",
+          "sourceName": "ChiniMandi",
+          "sourceUrl": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-10-09-2026/",
+          "publishedDateLocal": "2026-09-10",
+          "eventDate": "2026-09-10"
+        },
+        {
+          "news": "马哈拉施特拉邦Solapur县多地雨量不足，Mangalvedha乡因饲料紧缺每天约有500-600吨甘蔗被低价卖作饲料，今年降雨量仅为平均水平的40%。甘蔗被提前作为饲料消化并且缺雨降低单产和蔗重，会减少当地糖厂新榨季可获得蔗量，糖厂之间抢蔗竞争增强，抬高原料成本并支撑糖价。",
           "impactType": "利多",
-          "impact": "北方邦产量预期低于市场此前超过1000万吨的判断，叠加早榨可能降低糖分回收，限制新增食糖供应并支撑印度国内糖价。",
+          "impact": "缺雨和甘蔗转作饲料会减少糖厂可压榨甘蔗供应，推高抢蔗和原料成本压力，从而支撑食糖价格。",
           "impactLabel": "影响：利多糖价",
           "sourceName": "ChiniMandi",
-          "sourceUrl": "https://www.chinimandi.com/uttar-pradesh-sugar-output-may-stay-near-9-mt-despite-higher-cane-yields/",
-          "publishedDateLocal": "2026-09-09",
-          "eventDate": "2026-09-09"
+          "sourceUrl": "https://www.chinimandi.com/crops-scorched-due-to-lack-of-rain-farmers-forced-to-sell-sugarcane-as-fodder-likely-to-be-a-fierce-scramble-for-sugarcane-at-sugar-mills-in-hindi/",
+          "publishedDateLocal": "2026-09-10",
+          "eventDate": "2026-09-10"
         },
         {
-          "news": "马哈拉施特拉邦政府决定将2026/27榨季甘蔗开榨从11月1日提前至10月15日，204家糖厂可提前开机；该邦糖库存约300万吨，可收割甘蔗面积约155万公顷，上榨季产糖约1300万吨。提前开榨可使新糖在Dasara、Navaratra和Diwali节日前后更早进入市场，短期增加供应、压制印度国内糖价；但原文提示甘蔗成熟度不足可能使糖分回收率下降约1.5%，会削弱实际产糖增量。",
+          "news": "马哈拉施特拉邦决定10月15日开榨后，糖业和农民组织担心甘蔗成熟度不足；文章称11月1日至12月10日通常回收率约8%-9%，若10月开机，可能有50%-60%的甘蔗在低回收率阶段被压榨，并使该邦糖产量减少150万-200万吨。提前开榨能让新糖更早入市，但若低回收率吞噬大部分甘蔗，实际产糖量下降会减少新榨季供应，对糖价形成中期支撑。",
+          "impactType": "利多",
+          "impact": "提前开榨若导致低回收率阶段压榨大量甘蔗，会降低最终产糖量并减少新榨季可售糖供应，从而支撑糖价。",
+          "impactLabel": "影响：利多糖价",
+          "sourceName": "ChiniMandi",
+          "sourceUrl": "https://www.chinimandi.com/kolhapur-farmers-fear-a-decline-in-both-sugar-recovery-and-overall-production-if-the-crushing-season-begins-on-october-15-in-marathi/",
+          "publishedDateLocal": "2026-09-10",
+          "eventDate": "2026-09-10"
+        },
+        {
+          "news": "印度总理顾问Tarun Kapoor在ISMA 2026会议上表示，印度乙醇产量已超过维持E20掺混所需规模，政府正研究E20以上掺混、纯乙醇燃料、柴油端生物燃料、烹饪和工业用途以及CBG等新消费场景。现阶段乙醇供应超过E20需求，说明既有燃料掺混对甘蔗汁、B重糖蜜和糖浆的新增拉动边际减弱；若新用途落地并消化过剩产能，才会重新提高制醇糖源需求并减少制糖供应。",
+          "impactType": "中性",
+          "impact": "乙醇供应超过E20需求削弱当前新增制醇拉动，但政府开发新用途可能重新吸收糖源制醇，短期方向尚未单边。",
+          "impactLabel": "影响：中性",
+          "sourceName": "ChiniMandi",
+          "sourceUrl": "https://www.chinimandi.com/ethanol-output-surpasses-e20-blending-needs-government-explores-new-uses-tarun-kapoor/",
+          "publishedDateLocal": "2026-09-10",
+          "eventDate": "2026-09-10"
+        },
+        {
+          "news": "比哈尔邦甘蔗联合专员Vedwrath Kumar在ISMA 2026会议上介绍《甘蔗产业投资促进政策2026》，该邦糖厂日压榨能力已从2005年的3.35万吨提高至目前6.545万吨，酒精厂产能从75千升/日提高至530千升/日，并计划建设25个糖厂及配套项目。政策给予3500吨/日以上新糖厂Rs70 crore资本补贴，45千升/日以上乙醇项目按固定投资15%、最高Rs5 crore补贴，并提供最多40英亩、30年、Re1象征租金土地。新增糖厂、乙醇和CBG投资会扩大甘蔗加工能力和长期食糖/副产品供应，对远期糖价形成压力。",
           "impactType": "利空",
-          "impact": "马哈拉施特拉邦提前开榨会使新糖更早进入节日消费市场，增加短期供应并压制国内糖价；回收率下降风险会削弱但不改变短期投放方向。",
+          "impact": "政策补贴会吸引新增糖厂和配套加工能力，扩大未来甘蔗消化和食糖供应潜力，从而压制远期糖价。",
           "impactLabel": "影响：利空糖价",
-          "sourceName": "The Times of India",
-          "sourceUrl": "https://timesofindia.indiatimes.com/city/kolhapur/maha-advances-cane-crushing-season-by-15-days-to-ease-sugar-prices-during-festivities/amp_articleshow/133980085.cms",
-          "publishedDateLocal": "2026-09-09",
-          "eventDate": "2026-09-09"
-        },
-        {
-          "news": "印度主要产区糖厂出厂价已从近期接近Rs65/kg回落至Rs48-52/kg，使政府推动的100万吨原糖进口计划吸引力下降；港口精炼厂目前承诺进口约26万吨，真正进入国内市场的只有数千吨。国内糖价回落本身反映现货压力增加，但进口糖成本高于国产糖会推迟后续进口到港，减少新增外部供应对国内市场的压制。",
-          "impactType": "中性",
-          "impact": "国内出厂价回落压制现货糖价，但进口利润恶化会削弱100万吨进口计划的执行力度，减少后续进口糖供应增量。",
-          "impactLabel": "影响：中性",
           "sourceName": "ChiniMandi",
-          "sourceUrl": "https://www.chinimandi.com/falling-domestic-sugar-prices-weaken-indias-1-mt-import-push/",
-          "publishedDateLocal": "2026-09-09",
-          "eventDate": "2026-09-09"
-        },
-        {
-          "news": "北方邦公共分配系统将Antyodaya持卡户补贴糖价格维持为Rs18/kg，大诺伊达约7000名持卡户将合并领取7-9月每卡3公斤糖，明显低于当地公开市场约Rs60-75/kg的糖价。该政策通过政府渠道向低收入家庭定向投放少量低价糖，可缓和局部零售端价格压力，但覆盖量有限，难以改变商业市场的供需结构。",
-          "impactType": "中性",
-          "impact": "补贴糖定向投放有助于缓和局部零售价格压力，但数量和覆盖人群有限，对商业市场可售糖供应影响较小。",
-          "impactLabel": "影响：中性",
-          "sourceName": "ChiniMandi",
-          "sourceUrl": "https://www.chinimandi.com/uttar-pradesh-antyodaya-card-holders-to-get-sugar-at-rs-18-per-kg-despite-higher-market-prices/",
-          "publishedDateLocal": "2026-09-09",
-          "eventDate": "2026-09-09"
+          "sourceUrl": "https://www.chinimandi.com/bihar-offers-incentives-to-attract-sugar-ethanol-and-cbg-investments-under-2026-policy-vedwrath-kumar/",
+          "publishedDateLocal": "2026-09-10",
+          "eventDate": "2026-09-10"
         }
       ]
     },
@@ -510,29 +545,29 @@
       "country": "泰国",
       "items": [
         {
-          "news": "泰国气象局9月9日预报，孔敬、呵叻、猜也蓬、黎府、那空沙旺、甘烹碧、素可泰、彭世洛等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。泰国甘蔗仍处于生长期，降雨补充土壤水分并改善单产形成条件，提高后期甘蔗和食糖供应预期。",
+          "news": "泰国气象局9月10日预报，孔敬、呵叻、猜也蓬、黎府、那空沙旺、甘烹碧、素可泰、彭世洛等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。泰国甘蔗仍处于生长期，降雨补充土壤水分并改善单产形成条件，提高后期甘蔗和食糖供应预期。",
           "impactType": "利空",
           "impact": "生长期降雨改善泰国甘蔗主产区墒情，有利于单产恢复并增加后期食糖供应预期。",
           "impactLabel": "影响：利空糖价",
           "sourceName": "泰国气象局",
           "sourceUrl": "https://tmd.go.th/en/forecast/daily",
-          "publishedDateLocal": "2026-09-09",
-          "eventDate": "2026-09-09"
+          "publishedDateLocal": "2026-09-10",
+          "eventDate": "2026-09-10"
         }
       ]
     },
     {
-      "country": "国际糖市",
+      "country": "中国",
       "items": [
         {
-          "news": "国际糖业组织8月市场报告显示，10月原糖期货从月初约15美分/磅升至8月31日17.8美分/磅，ISA日均原糖价8月均值17.4美分/磅、环比上涨2.0美分或13%，白糖指数均值升至513美元/吨、环比上涨47美元或10%。上涨主要来自投机基金持仓由接近12万手净空转为9月1日超过13.2万手净多，相当于1270万吨糖的持仓摆动，短线推高原糖风险溢价；但报告同时提示主要出口来源仍有较大可出口量、进口需求偏弱，价格追高后存在回落风险。",
+          "news": "广东省糖业协会数据显示，2025/26榨季截至8月底，广东累计榨蔗631.78万吨、去年同期615.75万吨，产糖66.097万吨、去年同期65.45万吨，出糖率10.462%、去年同期10.63%，销量62.78万吨，库存3.317万吨，产销率94.98%。广东产糖量略高于上年但库存已降至低位，说明该省旧糖去化接近尾声，对华南局部现货供应压力有缓解作用；全国价格仍需结合广西、云南库存判断。",
           "impactType": "中性",
-          "impact": "基金从净空快速转为净多推高原糖价格，但出口供应仍大、进口需求偏弱限制基本面支撑，涨价影响需要用震荡判断处理。",
+          "impact": "广东低库存缓解华南局部供应压力，但产糖同比略增且全国库存仍需结合广西、云南判断，对全国糖价方向不单边。",
           "impactLabel": "影响：中性",
-          "sourceName": "ChiniMandi",
-          "sourceUrl": "https://www.chinimandi.com/world-raw-sugar-prices-jump-13-in-august-on-speculative-fund-buying/",
-          "publishedDateLocal": "2026-09-09",
-          "eventDate": "2026-09-09"
+          "sourceName": "泛糖科技/广东省糖业协会",
+          "sourceUrl": "https://www.hisugar.com/home/articleContent?id=2026091009022116847821",
+          "publishedDateLocal": "2026-09-10",
+          "eventDate": "2026-09-10"
         }
       ]
     }
