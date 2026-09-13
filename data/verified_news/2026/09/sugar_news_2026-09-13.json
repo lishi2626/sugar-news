@@ -1,0 +1,108 @@
+{
+  "target_date": "2026-09-13",
+  "run_date": "2026-09-14",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Bihar govt sweetens deal for new sugar mills with Rs 70 crore grant over 5 years",
+      "news": "印度政府披露糖厂运行和压榨安排，披露70 crore、Rs 70。印度糖厂运行信息需要落实到开榨、停产、压榨量或原料供应方向后判断阶段性供应。来源：The Times of India（https://timesofindia.indiatimes.com/city/patna/bihar-govt-sweetens-deal-for-new-sugar-mills-with-rs-70-crore-grant-over-5-years/articleshow/134143727.cms）。影响：利空糖价",
+      "impact": "利空：糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+      "source_name": "The Times of India",
+      "source_url": "https://timesofindia.indiatimes.com/city/patna/bihar-govt-sweetens-deal-for-new-sugar-mills-with-rs-70-crore-grant-over-5-years/articleshow/134143727.cms",
+      "published_date_local": "2026-09-13",
+      "event_date": "2026-09-13",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Bihar govt sweetens deal for new sugar mills with Rs 70 crore grant over 5 years",
+        "source_url": "https://timesofindia.indiatimes.com/city/patna/bihar-govt-sweetens-deal-for-new-sugar-mills-with-rs-70-crore-grant-over-5-years/articleshow/134143727.cms",
+        "publisher": "The Times of India",
+        "publication_time": "Sat, 12 Sep 2026 16:23:00 GMT",
+        "target_date": "2026-09-13",
+        "event_date": "2026-09-13",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度政府",
+        "event_action": "披露",
+        "metrics": [
+          "70 crore",
+          "Rs 70"
+        ],
+        "comparison_period": null,
+        "topic": "mill_operations",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "monday_weekend_window_friday_16_to_monday_06",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNaHRSMENMMU5fb3hfSVVjUkw5T1VXMUdWSlRjWnBoME9GeUNEMDA0NThOVmVsd0lIWXhRWnQwVWdqSXpFNzVieGFCNjJybnNHcGtYR2huZGYzemh6V0VwYmFQNlpuYmJ6Z0lNOFItUFBKbnkzRTcxS29iSThDR29CdjBjWjczdGNaRl9fUTVLMVR6dzZKQklYRXZMdzliYXduaG00UVN6OG5DczFENkNiLXpXS0pkV05jT1loWFQ2VC1rSUVUelBDTWRIcFgzcUI0czBWMTAxZjh1NF9iQldKQmlfbHdBaDBy0gHuAUFVX3lxTFBhRXJWTDk1aVYtaWlPWGRrYU9OZXZjN3Y4TnluT0tuWXI1TmxhbXZJdnFiY01Lb0RTX3AzR3lzSFNSS3l0eERiSGgyaDdIRzJkQkZnMUVWd0RpT0J3XzJRVmRyQ2hkcEFvZFRLUTQ4aFdkZlhEd2hqdlpzVXVpeGRDTy1XOWhfTXdMejJONDdIaDJ1cjdrcTA4SHowMng0SGltcnprTzkyRmtDNzcyQWdlQ0RPb0VwMExOSDA5NkZjQXYxUDU0Tmx2LVg0MHhjYTNZM2VLcU5pdFNWZFM5UkpRZ1UxWVMwUWNScmtOUXc?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度政府披露70crorers7020260913mill_operations",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "Thailand’s sugar production may fall by at least 17%",
+      "news": "泰国糖业相关机构公布糖产量，糖产量下降17%。糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。来源：ukragroconsult.com（https://ukragroconsult.com/en/news/thailands-sugar-production-may-fall-by-at-least-17/）。影响：利多糖价",
+      "impact": "利多：糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+      "source_name": "ukragroconsult.com",
+      "source_url": "https://ukragroconsult.com/en/news/thailands-sugar-production-may-fall-by-at-least-17/",
+      "published_date_local": "2026-09-11",
+      "event_date": "2026-09-11",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "Thailand’s sugar production may fall by at least 17%",
+        "source_url": "https://ukragroconsult.com/en/news/thailands-sugar-production-may-fall-by-at-least-17/",
+        "publisher": "ukragroconsult.com",
+        "publication_time": "Fri, 11 Sep 2026 13:41:04 GMT",
+        "target_date": "2026-09-13",
+        "event_date": "2026-09-11",
+        "event_country": "泰国",
+        "event_region": null,
+        "event_actor": "泰国糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "17%"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "monday_weekend_window_friday_16_to_monday_06",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNRmsyR1d6bElGa2l5d1IyNTlpVmhNU2FQN1RGMW84MkpPc2xzbklWOWk5a20zM00yd1RQcFhPcHBvSnE5S1pra2xvcWhvUndDQkhVVUhGUjR5cVBwQ000cUJDZ1I4OFFFQWZnQmFHcEFOQzBkbG1mRnhhS1RXV0RuODRpUE9DUFZvVnJjTFFLTQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_泰国泰国糖业相关机构公布1720260911supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "Open-Meteo预报显示（2026-09-14至2026-09-20），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括彭世洛约137.2mm、甘烹碧约134.2mm、素攀武里约124.2mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：Open-Meteo（https://api.open-meteo.com/v1/forecast）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "Open-Meteo",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "published_date_local": "2026-09-13",
+      "event_date": "2026-09-14",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_open_meteo_20260913",
+      "importance": 78
+    }
+  ]
+}
