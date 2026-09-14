@@ -1104,6 +1104,50 @@ def test_editorial_quality_rejects_20260903_0906_auto_summary_templates() -> Non
         raise AssertionError("global summary must reject auto-generated vague fragments")
 
 
+def test_editorial_quality_rejects_20260913_bare_metric_dump_templates() -> None:
+    bad_items = [
+        {
+            "country_group": "印度",
+            "country": "印度",
+            "title": "Bihar govt sweetens deal for new sugar mills with Rs 70 crore grant over 5 years",
+            "news": "印度政府披露糖厂运行和压榨安排，披露70 crore、Rs 70。印度糖厂运行信息需要落实到开榨、停产、压榨量或原料供应方向后判断阶段性供应。来源：Test（https://example.test/bihar）",
+            "impact": "利空：糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+            "source_name": "Test",
+            "source_url": "https://example.test/bihar",
+        },
+        {
+            "country_group": "泰国",
+            "country": "泰国",
+            "title": "Thailand’s sugar production may fall by at least 17%",
+            "news": "泰国糖业相关机构公布糖产量，公布17%。糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。来源：Test（https://example.test/thai-production）",
+            "impact": "利多：糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+            "source_name": "Test",
+            "source_url": "https://example.test/thai-production",
+        },
+    ]
+    for idx, item in enumerate(bad_items, start=1):
+        try:
+            validate_editorial_quality(item, idx)
+        except ValueError as exc:
+            assert "vague" in str(exc)
+        else:
+            raise AssertionError("bare metric-dump auto summary should be rejected")
+
+    good = {
+        "country_group": "印度",
+        "country": "印度",
+        "title": "Bihar govt sweetens deal for new sugar mills with Rs 70 crore grant over 5 years",
+        "news": (
+            "印度比哈尔邦政府在《比哈尔甘蔗产业投资促进政策2026》中规定，新建糖厂最低压榨能力为3500 TCD，每座厂投产后5年合计可获70 crore卢比补贴，现有糖厂扩产1000 TCD可获15 crore卢比补贴。"
+            "该政策降低比哈尔邦新建和扩建糖厂成本，项目落地后会提高当地甘蔗压榨能力和食糖产能，增加中期供应预期。来源：Test（https://example.test/bihar）"
+        ),
+        "impact": "利空：比哈尔邦补贴新建和扩建糖厂会降低产能投资成本，项目落地后增加甘蔗压榨能力和中期食糖供应预期。",
+        "source_name": "Test",
+        "source_url": "https://example.test/bihar",
+    }
+    validate_editorial_quality(good, 3)
+
+
 def test_rss_recent_rewrite_templates_follow_manual_style() -> None:
     india_retail = {
         "event_country": "印度",
@@ -1757,6 +1801,7 @@ def main() -> None:
         test_editorial_quality_rejects_generic_metric_and_market_transmission_language,
         test_editorial_quality_rejects_20260831_auto_summary_templates,
         test_editorial_quality_rejects_20260903_0906_auto_summary_templates,
+        test_editorial_quality_rejects_20260913_bare_metric_dump_templates,
         test_rss_recent_rewrite_templates_follow_manual_style,
         test_rss_recent_duplicate_price_events_share_fingerprint,
         test_rss_price_market_fallback_uses_specific_indicator,
