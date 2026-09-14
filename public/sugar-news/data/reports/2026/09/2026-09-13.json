@@ -1,6 +1,6 @@
 {
   "newsDate": "2026-09-13",
-  "updatedAt": "2026-09-14T13:34:02+08:00",
+  "updatedAt": "2026-09-14T15:17:24+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/09/Sugar News 2026-09-13.xlsx",
   "globalHighlights": "9月13日糖业新闻重点集中在印度比哈尔邦糖厂投资激励、泰国2026/27榨季产量下修和泰国主产区降雨预报。泰国产量可能至少下降17%至低于1000万吨，且东北部约占全国食糖产量45%、降雨偏少，对国际糖价偏利多；但比哈尔邦新建和扩建糖厂补贴、泰国7日降雨预报会提高中期供应预期，形成利空对冲。当前国际糖价主要矛盾是亚洲供给风险与产区天气改善、产能扩张预期并存，ICE原糖持续站上15美分/磅前以震荡判断为宜。",
@@ -8,7 +8,7 @@
     "title": "巴西糖价与库存",
     "dataDate": "2026-09-13",
     "snapshotTargetDate": "2026-09-13",
-    "updatedAt": "2026-09-14T13:33:07+08:00",
+    "updatedAt": "2026-09-14T15:17:24+08:00",
     "sourceStatus": "dynamic_fetch",
     "sugarPremium": {
       "metricType": "sugarPremium",
@@ -17,7 +17,7 @@
       "dataDate": "2026-09-11",
       "sourceDataDate": "2026-09-11",
       "refreshDate": "2026-09-13",
-      "fetchedAt": "2026-09-14T13:32:14+08:00",
+      "fetchedAt": "2026-09-14T15:17:13+08:00",
       "sourceName": "广西糖网食糖进口成本及利润估算表",
       "sourceUrl": "https://www.hisugar.com/home/articleContent?id=2026091408481397049029",
       "datasetName": "HiSugar 食糖进口成本及利润估算表",
