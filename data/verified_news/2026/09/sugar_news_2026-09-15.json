@@ -1,0 +1,150 @@
+{
+  "target_date": "2026-09-15",
+  "run_date": "2026-09-16",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Sugar production falls to 30.6 MT, Monarch PMS flags policy, ethanol risks",
+      "news": "印度糖业相关机构发布或调整糖产量，糖产量下降至0万吨。糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。来源：Investment Guru India（https://www.investmentguruindia.com/newsdetail/sugar-production-falls-to-30-6-mt-monarch-pms-flags-policy-ethanol-risks251063）。影响：利多糖价",
+      "impact": "利多：糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+      "source_name": "Investment Guru India",
+      "source_url": "https://www.investmentguruindia.com/newsdetail/sugar-production-falls-to-30-6-mt-monarch-pms-flags-policy-ethanol-risks251063",
+      "published_date_local": "2026-09-15",
+      "event_date": "2026-09-15",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Sugar production falls to 30.6 MT, Monarch PMS flags policy, ethanol risks",
+        "source_url": "https://www.investmentguruindia.com/newsdetail/sugar-production-falls-to-30-6-mt-monarch-pms-flags-policy-ethanol-risks251063",
+        "publisher": "Investment Guru India",
+        "publication_time": "Tue, 15 Sep 2026 10:13:32 GMT",
+        "target_date": "2026-09-15",
+        "event_date": "2026-09-15",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "发布或调整",
+        "metrics": [
+          "30.6 MT"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPM2NXZlMyVDRnZzNKSEJpczdBY1diMHlUZ1htOEJnQThvcC1OQ25rZ1JVSGJ4SU94eEZ3eEZEM1RlUDl1X1JEZUphdGFwaW9GcFEzOGFQTVBWODdiZnFtb2VKVDE0Ny1nTk01SjdCbFRfSERDcTVxMU5YcHViNGJVVUJPQ3JGNkU1RlQ5aHZiNmhseENTZmhhNDdvQTlDMTRLMElaem5udTBDTzAwSTFoaWRMVWE0ZnNMVFJnSzk5SW9WWms?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构发布或调整306mt20260915supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Average sugar retail price rules below Rs 60/kg for 4th day; festive demand keep",
+      "news": "印度零售市场显示零售糖价，零售糖价为Rs 60。印度零售糖价只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。来源：The Economic Times（https://m.economictimes.com/news/economy/agriculture/average-sugar-retail-price-rules-below-rs-60/kg-for-4th-day-festive-demand-keeps-rates-elevated/amp_articleshow/134240457.cms）。影响：中性",
+      "impact": "中性：印度零售糖价只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+      "source_name": "The Economic Times",
+      "source_url": "https://m.economictimes.com/news/economy/agriculture/average-sugar-retail-price-rules-below-rs-60/kg-for-4th-day-festive-demand-keeps-rates-elevated/amp_articleshow/134240457.cms",
+      "published_date_local": "2026-09-14",
+      "event_date": "2026-09-14",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "Average sugar retail price rules below Rs 60/kg for 4th day; festive demand keeps rates elevated",
+        "source_url": "https://m.economictimes.com/news/economy/agriculture/average-sugar-retail-price-rules-below-rs-60/kg-for-4th-day-festive-demand-keeps-rates-elevated/amp_articleshow/134240457.cms",
+        "publisher": "The Economic Times",
+        "publication_time": "Mon, 14 Sep 2026 11:49:00 GMT",
+        "target_date": "2026-09-15",
+        "event_date": "2026-09-14",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "Rs 60"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度零售糖价只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiigJBVV95cUxOX2FTeEdKS1hRbzhHNXBaSHpuQzBjRkktaUxCd1ktcWhsNWhOaktoWHR4WjRLazVUT1ZfdlBtc2V4STR4RWFyMWlWUVUySGh1aldnT0pQSzAwTGtHTHFKNS04N0lvZmtHdWxJZzNrWHVzcUlLelhzY0ZNUmxwVlR5T2gyX0QtTkNUUXl6UFc1M1U5cW9PTi1ScTlxbkN6XzAxSEdpYUlMZHRYblBjM3RfdGRaaG1RTGdoczkxMVN6SWVuaEpndUpCSWItbnJBSlBURkNBU2tBVjgzRDFobThjWWZkVWNfcWgtV003cWRodGFuYmtTNmVOUmFCSjFwNXFyLTN6STNxQmdfQdIBigJBVV95cUxOX2FTeEdKS1hRbzhHNXBaSHpuQzBjRkktaUxCd1ktcWhsNWhOaktoWHR4WjRLazVUT1ZfdlBtc2V4STR4RWFyMWlWUVUySGh1aldnT0pQSzAwTGtHTHFKNS04N0lvZmtHdWxJZzNrWHVzcUlLelhzY0ZNUmxwVlR5T2gyX0QtTkNUUXl6UFc1M1U5cW9PTi1ScTlxbkN6XzAxSEdpYUlMZHRYblBjM3RfdGRaaG1RTGdoczkxMVN6SWVuaEpndUpCSWItbnJBSlBURkNBU2tBVjgzRDFobThjWWZkVWNfcWgtV003cWRodGFuYmtTNmVOUmFCSjFwNXFyLTN6STNxQmdfQQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布rs6020260914price_market",
+      "importance": 85
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Crude above $100 could widen OMC losses if retail fuel prices remain unchanged: ",
+      "news": "印度零售市场显示零售糖价，零售糖价为$100。印度零售糖价只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。来源：Moneycontrol.com（https://www.moneycontrol.com/news/business/economy/crude-above-100-could-widen-omc-losses-if-retail-fuel-prices-remain-unchanged-analysts-14030455.html）。影响：中性",
+      "impact": "中性：印度零售糖价只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+      "source_name": "Moneycontrol.com",
+      "source_url": "https://www.moneycontrol.com/news/business/economy/crude-above-100-could-widen-omc-losses-if-retail-fuel-prices-remain-unchanged-analysts-14030455.html",
+      "published_date_local": "2026-09-15",
+      "event_date": "2026-09-15",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Crude above $100 could widen OMC losses if retail fuel prices remain unchanged: Analysts",
+        "source_url": "https://www.moneycontrol.com/news/business/economy/crude-above-100-could-widen-omc-losses-if-retail-fuel-prices-remain-unchanged-analysts-14030455.html",
+        "publisher": "Moneycontrol.com",
+        "publication_time": "Tue, 15 Sep 2026 13:33:06 GMT",
+        "target_date": "2026-09-15",
+        "event_date": "2026-09-15",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "$100"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度零售糖价只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQNlBTZjRGTXk2OWoxczYtUnRrQ3E5Ym9wd0w4TTh5OGVHS1NhRWZ6LUpPd3FMX3Nzd2NGOXg3b0tzZ0dlY01XUFJpdFNXTzlROFpvdGVZSUNzbktxS3hkeE95MXFNb1ZLZkxXTFlWQVM3RHlZRVdKdHhFMjZRZl9aRWpZYVpSWjFaeWlBRXJyOWtVWGt5Z0p5eWtlTHlCWmRBVnZKcWxHMUJuYkl3TG13N3hCemNZTlpPaG5MUlhPZnAtbnp1aTBhNmphX2JsR0hLbTdUUlR5TlpvdWluSkhycFUzeFBBUdIB6wFBVV95cUxPY294TEtON1lCTnpIQlJiUEFqeHU2MHFHYnlRaDV2Si1aWEh1dVJST3pjTTF4Ni0xeE9OUERwTEg3RlE3Z2RIYXJpVzIwQ01FdGJEeDJsblBpdmhfazFoOVJVTkNSdFFUdDV1dXBXU0hZRDNXaW5uNkpOT2I2WU1GalhPTHJLa2ZqYUx4U21haENXeHJFckotSHQxd3BMMHE2MFZMYVRhT2VtYV9IUjRIcFJEUGlUVFRXV3daUGd2V0VzYm5OS2tBMGJ5VlczR0QxQXdWZTVoQ1dEMXIwcmtqV0REa0xpYWhXc2hV?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布10020260915price_market",
+      "importance": 80
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "Open-Meteo预报显示（2026-09-16至2026-09-22），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括甘烹碧约130.6mm、猜纳约128.3mm、彭世洛约112.1mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：Open-Meteo（https://api.open-meteo.com/v1/forecast）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "Open-Meteo",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "published_date_local": "2026-09-15",
+      "event_date": "2026-09-16",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_open_meteo_20260915",
+      "importance": 78
+    }
+  ]
+}
