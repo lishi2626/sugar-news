@@ -1,0 +1,150 @@
+{
+  "target_date": "2026-09-16",
+  "run_date": "2026-09-17",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Nepal sugar prices hit Rs 170 per kg as India export curbs, high global prices s",
+      "news": "印度现货市场显示食糖价格，食糖价格为Rs 170。印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。来源：ChiniMandi（https://www.chinimandi.com/nepal-sugar-prices-hit-rs-170-per-kg-as-india-export-curbs-high-global-prices-squeeze-supply-before-festive-season/）。影响：中性",
+      "impact": "中性：印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/nepal-sugar-prices-hit-rs-170-per-kg-as-india-export-curbs-high-global-prices-squeeze-supply-before-festive-season/",
+      "published_date_local": "2026-09-16",
+      "event_date": "2026-09-16",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Nepal sugar prices hit Rs 170 per kg as India export curbs, high global prices squeeze supply before festive season",
+        "source_url": "https://www.chinimandi.com/nepal-sugar-prices-hit-rs-170-per-kg-as-india-export-curbs-high-global-prices-squeeze-supply-before-festive-season/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 16 Sep 2026 09:12:06 GMT",
+        "target_date": "2026-09-16",
+        "event_date": "2026-09-16",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "Rs 170"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOaXVXSXhELUk1Wk5zXzBLTjhKX29qNkM1MXB4ZzJmdGk5a1k0eTJOOVFkUm9iQi1LWjd6VjVyVXF1b3lJRUEwVnFYdnBXazdHRF80NGxnNUM1aUU4bTR1SUdlZnZwM1B1cmZ5eERkUTRUN0djYXlHQnVEVEZYWmJWVjMzc0FXLXMxR0VhenBIcWl4UHZLbllVOTEtQkdvZTAzX0hpWkhndVdycXBMUnZ5TDBORGlUYzNZSUlSYnJnVElzT254STBBOGZPT1ZjWkZVSkZMZnBwZXZnUQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布rs17020260916price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Chhattisgarh sugar mill distributes 50 kg sugar to over 11,000 shareholder farme",
+      "news": "印度蔗农组织披露糖厂运行和压榨安排，披露Rs 30。印度糖厂运行信息需要落实到开榨、停产、压榨量或原料供应方向后判断阶段性供应。来源：ChiniMandi（https://www.chinimandi.com/chhattisgarh-sugar-mill-distributes-50-kg-sugar-to-over-11000-shareholder-farmers-at-rs-30-kg/）。影响：利空糖价",
+      "impact": "利空：糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/chhattisgarh-sugar-mill-distributes-50-kg-sugar-to-over-11000-shareholder-farmers-at-rs-30-kg/",
+      "published_date_local": "2026-09-16",
+      "event_date": "2026-09-16",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Chhattisgarh sugar mill distributes 50 kg sugar to over 11,000 shareholder farmers at Rs 30/kg",
+        "source_url": "https://www.chinimandi.com/chhattisgarh-sugar-mill-distributes-50-kg-sugar-to-over-11000-shareholder-farmers-at-rs-30-kg/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 16 Sep 2026 13:14:49 GMT",
+        "target_date": "2026-09-16",
+        "event_date": "2026-09-16",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度蔗农组织",
+        "event_action": "披露",
+        "metrics": [
+          "Rs 30"
+        ],
+        "comparison_period": null,
+        "topic": "mill_operations",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPcGx3UUtLLXhaQ0J1WTY2d3VxYmZYTzY0Wlk3U3BjMXJfdnpBSlNiYXhfNnhNVExncmtENjc1eXljdnYzTVNlWl9ZMkhoNmdJR1FDTUZSMDM2MGhXTWxEUmR2Yjk0SFlXRWR1U29DV1RURVU2aXRsVldTV25YTVFpNGRpZE1aZWh0bm5xSkdsUHRiRnU0LW5QU3pVT2NrY2dhYjdKdzRiUXI0MC13clNUWFA5dWdtc0pYSWNKVDFn?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度蔗农组织披露rs3020260916mill_operations",
+      "importance": 85
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "West Bengal: Govt expects sugar prices to ease to Rs 50/kg ahead of festive seas",
+      "news": "印度现货市场显示食糖价格，食糖价格下跌至Rs 50。印度食糖价格下跌说明当地供应压力增加或采购需求转弱，短期压制现货糖价。来源：ChiniMandi（https://www.chinimandi.com/west-bengal-govt-expects-sugar-prices-to-ease-to-rs-50-kg-ahead-of-festive-season/）。影响：中性",
+      "impact": "中性：印度食糖价格下跌说明当地供应压力增加或采购需求转弱，短期压制现货糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/west-bengal-govt-expects-sugar-prices-to-ease-to-rs-50-kg-ahead-of-festive-season/",
+      "published_date_local": "2026-09-16",
+      "event_date": "2026-09-16",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "West Bengal: Govt expects sugar prices to ease to Rs 50/kg ahead of festive season",
+        "source_url": "https://www.chinimandi.com/west-bengal-govt-expects-sugar-prices-to-ease-to-rs-50-kg-ahead-of-festive-season/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 16 Sep 2026 07:38:16 GMT",
+        "target_date": "2026-09-16",
+        "event_date": "2026-09-16",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度政府",
+        "event_action": "公布",
+        "metrics": [
+          "Rs 50"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度食糖价格下跌说明当地供应压力增加或采购需求转弱，短期压制现货糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNb0dlUDVidThhaUR3Um9PNjBPc2h5N2FjLWoyNXhaN0c3eHNEQkpZUFRNbVR0bTEzdWF6NmJLaV9HV3dlZW5JUWRWazk2c2JKN2g3dVllMGw3aHAzUWMyMU83N0QzeGVkUHFaaElxUVdPNXAwektINTdjeW10NnZFMmI0cTVVdU5LSzQzX3JBMWNSa25DQWpQbXMzcF84M3FNUE9RZW5oaHIzeGZVdUE?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度政府公布rs5020260916price_market",
+      "importance": 80
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "Open-Meteo预报显示（2026-09-17至2026-09-23），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括猜纳约137.1mm、北碧约120.1mm、甘烹碧约103.5mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：Open-Meteo（https://api.open-meteo.com/v1/forecast）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "Open-Meteo",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "published_date_local": "2026-09-16",
+      "event_date": "2026-09-17",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_open_meteo_20260916",
+      "importance": 78
+    }
+  ]
+}
