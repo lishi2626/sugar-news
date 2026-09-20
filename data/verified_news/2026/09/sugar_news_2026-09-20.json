@@ -1,0 +1,64 @@
+{
+  "target_date": "2026-09-20",
+  "run_date": "2026-09-21",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "Open-Meteo预报显示（2026-09-21至2026-09-27），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括素攀武里约295.8mm、春武里约254.9mm、沙缴约232.0mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：Open-Meteo（https://api.open-meteo.com/v1/forecast）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "Open-Meteo",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "published_date_local": "2026-09-20",
+      "event_date": "2026-09-21",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_open_meteo_20260920",
+      "importance": 78
+    },
+    {
+      "country_group": "中国",
+      "country": "中国",
+      "title": "China National Refined Sugar Output Up 20.6% Year-on-Year (Jan–Aug)",
+      "news": "中国糖业相关机构公布糖产量，糖产量增加20.6%。糖产量增加会提高当期新增可售糖源，缓解供应压力并压制糖价。来源：Sunsirs（https://www.sunsirs.com/uk/detail_news-36300.html）。影响：利空糖价",
+      "impact": "利空：糖产量增加会提高当期新增可售糖源，缓解供应压力并压制糖价。",
+      "source_name": "Sunsirs",
+      "source_url": "https://www.sunsirs.com/uk/detail_news-36300.html",
+      "published_date_local": "2026-09-20",
+      "event_date": "2026-09-20",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "China National Refined Sugar Output Up 20.6% Year-on-Year (Jan–Aug)",
+        "source_url": "https://www.sunsirs.com/uk/detail_news-36300.html",
+        "publisher": "Sunsirs",
+        "publication_time": "Sun, 20 Sep 2026 06:48:41 GMT",
+        "target_date": "2026-09-20",
+        "event_date": "2026-09-20",
+        "event_country": "中国",
+        "event_region": null,
+        "event_actor": "中国糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "20.6%"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "糖产量增加会提高当期新增可售糖源，缓解供应压力并压制糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "monday_weekend_window_friday_16_to_monday_06",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE8zLVNPZXBRR1FGd3dobHF6MmIyREJOUmxoakdrOGd6MENhRVF4TzFXSVhSYXlNYXhIM3pHWW1sUm1Ia0xNNEstM3NFdVU4UU90SHRzYTlQckV2VVRwdGc?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_中国中国糖业相关机构公布20620260920supply_demand",
+      "importance": 90
+    }
+  ]
+}
