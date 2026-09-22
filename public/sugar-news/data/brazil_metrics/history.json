@@ -345,7 +345,7 @@
       "status": "ok",
       "source_name": "巴西农业和畜牧业部（MAPA）",
       "dataset_name": "MAPA Acompanhamento da Produção Sucroalcooleira",
-      "fetched_at": "2026-09-22T08:51:16+08:00",
+      "fetched_at": "2026-09-22T09:06:35+08:00",
       "original_unit": "m³",
       "previous_period_date": "2026-08-16",
       "previous_period_stock": 449.434,
@@ -1244,7 +1244,7 @@
       "article_published_at": "2026-09-21 10:48:56",
       "source_url": "https://www.hisugar.com/home/articleContent?id=2026092109020222852180",
       "image_url": "https://www.hisugar.com/image/20260921/1789952409333075846.png",
-      "fetched_at": "2026-09-22T08:49:23+08:00",
+      "fetched_at": "2026-09-22T09:04:44+08:00",
       "ocr_backend": "tesseract_numeric",
       "previous_data_date": "2026-09-17",
       "previous_value": -0.5,
@@ -1480,7 +1480,7 @@
       "status": "ok",
       "source_name": "巴西农业和畜牧业部（MAPA）",
       "dataset_name": "MAPA Agroenergia - Estoques de Açúcar por Tipo",
-      "fetched_at": "2026-09-22T08:50:32+08:00",
+      "fetched_at": "2026-09-22T09:05:50+08:00",
       "original_unit": "tonnes",
       "previous_period_date": "2026-08-15",
       "previous_period_stock": 753.5373,
@@ -1494,5 +1494,5 @@
       "yoy_status": "ok"
     }
   ],
-  "lastUpdatedAt": "2026-09-22T08:51:16+08:00"
+  "lastUpdatedAt": "2026-09-22T09:06:35+08:00"
 }
