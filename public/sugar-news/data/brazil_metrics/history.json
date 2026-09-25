@@ -1358,7 +1358,7 @@
       "article_published_at": "2026-09-24 11:41:41",
       "source_url": "https://www.hisugar.com/home/articleContent?id=2026092408585720372414",
       "image_url": "https://www.hisugar.com/image/20260924/1790211476009014519.png",
-      "fetched_at": "2026-09-25T08:44:14+08:00",
+      "fetched_at": "2026-09-25T14:46:39+08:00",
       "ocr_backend": "tesseract_grid",
       "previous_data_date": "2026-09-22",
       "previous_value": -0.34,
@@ -1366,13 +1366,13 @@
       "previous_article_id": "2026092408585720372414",
       "daily_change": 0.0,
       "daily_change_percent": 0.0,
-      "previous_year_date": "2025-09-23",
+      "previous_year_date": "2025-09-22",
       "previous_year_value": 0.06,
-      "previous_year_source_url": "https://www.hisugar.com/home/articleContent?id=2025092409401039624059",
-      "previous_year_article_id": "2025092409401039624059",
-      "yoy_comparison_date": "2025-09-23",
-      "yoy_exact_date_match": true,
-      "yoy_date_gap_days": 0,
+      "previous_year_source_url": "https://www.hisugar.com/home/articleContent?id=2025092309031456640542",
+      "previous_year_article_id": "2025092309031456640542",
+      "yoy_comparison_date": "2025-09-22",
+      "yoy_exact_date_match": false,
+      "yoy_date_gap_days": 1,
       "year_on_year_change": -0.4,
       "year_on_year_change_percent": null,
       "yoy_status": "not_applicable"
@@ -1608,5 +1608,5 @@
       "yoy_status": "ok"
     }
   ],
-  "lastUpdatedAt": "2026-09-25T08:45:14+08:00"
+  "lastUpdatedAt": "2026-09-25T14:47:38+08:00"
 }
