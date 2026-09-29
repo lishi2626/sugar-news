@@ -1,0 +1,62 @@
+{
+  "target_date": "2026-09-28",
+  "run_date": "2026-09-29",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "Open-Meteo预报显示（2026-09-29至2026-10-05），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括甘烹碧约71.2mm、北碧约59.1mm、华富里约48.4mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：Open-Meteo（https://api.open-meteo.com/v1/forecast）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "Open-Meteo",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "published_date_local": "2026-09-28",
+      "event_date": "2026-09-29",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_open_meteo_20260928",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "菲律宾",
+      "title": "SRA grants P400-M cash aid for farmers hit by sugarcane pest",
+      "news": "菲律宾蔗农组织预警甘蔗产区天气、干旱或病虫害，已说明甘蔗虫害扩散或产区天气风险。菲律宾产区若出现虫害、干旱或洪涝，会压低受影响地块单产并削弱糖料供应稳定性。来源：Philippine News Agency（https://www.pna.gov.ph/articles/1284983）。影响：利多糖价",
+      "impact": "利多：干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+      "source_name": "Philippine News Agency",
+      "source_url": "https://www.pna.gov.ph/articles/1284983",
+      "published_date_local": "2026-09-28",
+      "event_date": "2026-09-28",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "SRA grants P400-M cash aid for farmers hit by sugarcane pest",
+        "source_url": "https://www.pna.gov.ph/articles/1284983",
+        "publisher": "Philippine News Agency",
+        "publication_time": "Mon, 28 Sep 2026 08:51:43 GMT",
+        "target_date": "2026-09-28",
+        "event_date": "2026-09-28",
+        "event_country": "菲律宾",
+        "event_region": null,
+        "event_actor": "菲律宾蔗农组织",
+        "event_action": "预警",
+        "metrics": [],
+        "comparison_period": null,
+        "topic": "weather_pest",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9BNXAwa3ZkTFV3bURrMEQ1cE4tRktHeFNnazY2WVRRYnRYWjhDZFlzSnRLd3dtd1ZTVzJSZU1peUpPUGdtaVVEVEkyYmxQMFd1?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_菲律宾菲律宾蔗农组织预警20260928weather_pest",
+      "importance": 90
+    }
+  ]
+}
