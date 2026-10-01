@@ -345,23 +345,16 @@
       "status": "ok",
       "source_name": "巴西农业和畜牧业部（MAPA）",
       "dataset_name": "MAPA Acompanhamento da Produção Sucroalcooleira",
-      "fetched_at": "2026-09-30T09:30:04+08:00",
+      "fetched_at": "2026-10-01T09:02:34+08:00",
       "original_unit": "m³",
       "previous_period_date": "2026-08-16",
       "previous_period_stock": 449.434,
       "half_month_change": 51.17249999999996,
       "half_month_change_percent": 11.385987708985068,
-      "previous_year_date": "2025-09-01",
-      "previous_year_stock": 387.0937,
-      "previous_year_value": 387.0937,
-      "previous_year_source_url": "https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/agroenergia/acompanhamento-da-producao-sucroalcooleira/2025-2026-1/Acompanhamentodaproduo2526_010925.PDF",
-      "yoy_target_date": "2025-09-01",
-      "yoy_comparison_date": "2025-09-01",
-      "yoy_exact_date_match": true,
-      "yoy_date_gap_days": 0,
-      "year_on_year_change": 113.51279999999997,
-      "year_on_year_change_percent": 29.324372884394652,
-      "yoy_status": "ok"
+      "previous_year_value": null,
+      "year_on_year_change": null,
+      "year_on_year_change_percent": null,
+      "yoy_status": "insufficient"
     },
     {
       "indicator": "brazil_sugar_premium",
@@ -1472,7 +1465,7 @@
       "article_published_at": "2026-09-30 10:22:30",
       "source_url": "https://www.hisugar.com/home/articleContent?id=2026093009105086239327",
       "image_url": "https://www.hisugar.com/image/20260930/1790730528156037500.png",
-      "fetched_at": "2026-09-30T15:36:25+08:00",
+      "fetched_at": "2026-10-01T09:01:04+08:00",
       "ocr_backend": "tesseract_numeric",
       "previous_data_date": "2026-09-28",
       "previous_value": -0.34,
@@ -1708,7 +1701,7 @@
       "status": "ok",
       "source_name": "巴西农业和畜牧业部（MAPA）",
       "dataset_name": "MAPA Agroenergia - Estoques de Açúcar por Tipo",
-      "fetched_at": "2026-09-30T09:29:18+08:00",
+      "fetched_at": "2026-10-01T09:01:45+08:00",
       "original_unit": "tonnes",
       "previous_period_date": "2026-08-15",
       "previous_period_stock": 753.5373,
@@ -1722,5 +1715,5 @@
       "yoy_status": "ok"
     }
   ],
-  "lastUpdatedAt": "2026-09-30T15:36:49+08:00"
+  "lastUpdatedAt": "2026-10-01T09:02:34+08:00"
 }
