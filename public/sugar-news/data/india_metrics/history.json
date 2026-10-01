@@ -8949,19 +8949,19 @@
       "up_ex_mill_mid_inr_per_kg": 45.2,
       "source_name": "ChiniMandi — Daily Sugar Market Update",
       "source_url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-30-09-2026/",
-      "fetched_at": "2026-10-01T09:03:29+08:00",
+      "fetched_at": "2026-10-01T09:20:12+08:00",
       "status": "ok",
       "daily_change_absolute": 0.0,
       "daily_change_percent": 0.0,
-      "previous_date": "2026-09-29",
-      "previous_data_date": "2026-09-29",
+      "previous_date": "2026-09-28",
+      "previous_data_date": "2026-09-28",
       "previous_low": 4480.0,
       "previous_high": 4560.0,
       "previous_midpoint": 4520.0,
       "previous_min": 4480.0,
       "previous_max": 4560.0,
       "previous_mid": 4520.0,
-      "previous_source_url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-29-09-2026/",
+      "previous_source_url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-28-09-2026/",
       "yoy_change_absolute": 450.0,
       "yoy_change_percent": 11.06,
       "yoy_comparison_date": "2025-09-30",
@@ -8981,5 +8981,5 @@
       "change_direction": "flat"
     }
   ],
-  "lastUpdatedAt": "2026-10-01T09:03:39+08:00"
+  "lastUpdatedAt": "2026-10-01T09:20:47+08:00"
 }
