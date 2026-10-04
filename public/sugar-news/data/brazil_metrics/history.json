@@ -407,7 +407,7 @@
       "status": "ok",
       "source_name": "巴西农业和畜牧业部（MAPA）",
       "dataset_name": "MAPA Acompanhamento da Produção Sucroalcooleira",
-      "fetched_at": "2026-10-04T08:38:02+08:00",
+      "fetched_at": "2026-10-04T09:57:54+08:00",
       "original_unit": "m³",
       "previous_period_date": "2026-09-01",
       "previous_period_stock": 500.6065,
@@ -1534,7 +1534,7 @@
       "article_published_at": "2026-09-30 10:22:30",
       "source_url": "https://www.hisugar.com/home/articleContent?id=2026093009105086239327",
       "image_url": "https://www.hisugar.com/image/20260930/1790730528156037500.png",
-      "fetched_at": "2026-10-04T08:36:21+08:00",
+      "fetched_at": "2026-10-04T09:56:55+08:00",
       "ocr_backend": "tesseract_numeric",
       "previous_data_date": "2026-09-28",
       "previous_value": -0.34,
@@ -1542,13 +1542,13 @@
       "previous_article_id": "2026093009105086239327",
       "daily_change": 0.0,
       "daily_change_percent": 0.0,
-      "previous_year_date": "2025-09-22",
+      "previous_year_date": "2025-09-23",
       "previous_year_value": 0.06,
-      "previous_year_source_url": "https://www.hisugar.com/home/articleContent?id=2025092309031456640542",
-      "previous_year_article_id": "2025092309031456640542",
-      "yoy_comparison_date": "2025-09-22",
+      "previous_year_source_url": "https://www.hisugar.com/home/articleContent?id=2025092409401039624059",
+      "previous_year_article_id": "2025092409401039624059",
+      "yoy_comparison_date": "2025-09-23",
       "yoy_exact_date_match": false,
-      "yoy_date_gap_days": 7,
+      "yoy_date_gap_days": 6,
       "year_on_year_change": -0.4,
       "year_on_year_change_percent": null,
       "yoy_status": "not_applicable"
@@ -1816,7 +1816,7 @@
       "status": "ok",
       "source_name": "巴西农业和畜牧业部（MAPA）",
       "dataset_name": "MAPA Agroenergia - Estoques de Açúcar por Tipo",
-      "fetched_at": "2026-10-04T08:37:15+08:00",
+      "fetched_at": "2026-10-04T09:57:20+08:00",
       "original_unit": "tonnes",
       "previous_period_date": "2026-08-31",
       "previous_period_stock": 918.6198,
@@ -1830,5 +1830,5 @@
       "yoy_status": "ok"
     }
   ],
-  "lastUpdatedAt": "2026-10-04T08:38:02+08:00"
+  "lastUpdatedAt": "2026-10-04T09:57:54+08:00"
 }
