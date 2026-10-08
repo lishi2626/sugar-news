@@ -1,6 +1,6 @@
 {
   "newsDate": "2026-10-07",
-  "updatedAt": "2026-10-08T10:17:17+08:00",
+  "updatedAt": "2026-10-08T16:06:29+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/10/Sugar News 2026-10-07.xlsx",
   "globalHighlights": "全球糖业新闻重点集中在泰国气象局预报（2026-10-07），呵叻、猜也蓬、黎府、甘烹碧、彭世洛、北碧、春武里等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。利空因素是当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。国际糖价主要受供应改善、天气恢复或流通增加压力牵制，短期以震荡判断为宜。",
@@ -8,7 +8,7 @@
     "title": "巴西糖价与库存",
     "dataDate": "2026-10-07",
     "snapshotTargetDate": "2026-10-07",
-    "updatedAt": "2026-10-08T10:16:34+08:00",
+    "updatedAt": "2026-10-08T16:06:29+08:00",
     "sourceStatus": "dynamic_fetch",
     "sugarPremium": {
       "metricType": "sugarPremium",
@@ -17,7 +17,7 @@
       "dataDate": "2026-09-29",
       "sourceDataDate": "2026-09-29",
       "refreshDate": "2026-10-07",
-      "fetchedAt": "2026-10-08T10:15:35+08:00",
+      "fetchedAt": "2026-10-08T16:06:05+08:00",
       "sourceName": "广西糖网食糖进口成本及利润估算表",
       "sourceUrl": "https://www.hisugar.com/home/articleContent?id=2026093009105086239327",
       "datasetName": "HiSugar 食糖进口成本及利润估算表",
