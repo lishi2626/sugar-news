@@ -1,6 +1,6 @@
 {
   "newsDate": "2026-10-08",
-  "updatedAt": "2026-10-09T10:30:55+08:00",
+  "updatedAt": "2026-10-09T16:06:02+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/10/Sugar News 2026-10-08.xlsx",
   "globalHighlights": "全球糖业新闻重点集中在印度蔗农组织发布或调整糖厂运行和压榨安排，披露Rs709.50；印度现货市场显示食糖价格，食糖价格为Rs100；泰国气象局预报（2026-10-08），北碧等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。利空因素是印度糖厂运行信息需要落实到开榨、停产、压榨量或原料供应方向后判断阶段性供应。国际糖价主要受供应改善、天气恢复或流通增加压力牵制，短期以震荡判断为宜。",
@@ -8,7 +8,7 @@
     "title": "巴西糖价与库存",
     "dataDate": "2026-10-08",
     "snapshotTargetDate": "2026-10-08",
-    "updatedAt": "2026-10-09T10:30:10+08:00",
+    "updatedAt": "2026-10-09T16:06:01+08:00",
     "sourceStatus": "dynamic_fetch",
     "sugarPremium": {
       "metricType": "sugarPremium",
@@ -17,7 +17,7 @@
       "dataDate": "2026-10-08",
       "sourceDataDate": "2026-10-08",
       "refreshDate": "2026-10-08",
-      "fetchedAt": "2026-10-09T10:29:06+08:00",
+      "fetchedAt": "2026-10-09T16:05:50+08:00",
       "sourceName": "广西糖网食糖进口成本及利润估算表",
       "sourceUrl": "https://www.hisugar.com/home/articleContent?id=2026100909261211412256",
       "datasetName": "HiSugar 食糖进口成本及利润估算表",
