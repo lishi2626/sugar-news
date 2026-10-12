@@ -1,6 +1,6 @@
 {
   "newsDate": "2026-10-11",
-  "updatedAt": "2026-10-12T09:42:12+08:00",
+  "updatedAt": "2026-10-12T16:11:17+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/10/Sugar News 2026-10-11.xlsx",
   "globalHighlights": "全球糖业新闻重点集中在印度现货市场显示食糖价格，糖价上涨10%；印度糖厂显示糖厂出厂价，糖厂出厂价为Rs600；泰国气象局预报（2026-10-11），呵叻、甘烹碧、彭世洛、北碧、春武里等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。利多因素是印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价；利空因素是当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。国际糖价的主要矛盾在供应收缩预期与阶段性供应或需求压力之间，ICE原糖持续站上15美分/磅前以震荡判断为宜。",
@@ -8,7 +8,7 @@
     "title": "巴西糖价与库存",
     "dataDate": "2026-10-11",
     "snapshotTargetDate": "2026-10-11",
-    "updatedAt": "2026-10-12T09:41:29+08:00",
+    "updatedAt": "2026-10-12T16:11:17+08:00",
     "sourceStatus": "dynamic_fetch",
     "sugarPremium": {
       "metricType": "sugarPremium",
@@ -17,7 +17,7 @@
       "dataDate": "2026-10-09",
       "sourceDataDate": "2026-10-09",
       "refreshDate": "2026-10-11",
-      "fetchedAt": "2026-10-12T09:40:23+08:00",
+      "fetchedAt": "2026-10-12T16:11:05+08:00",
       "sourceName": "广西糖网食糖进口成本及利润估算表",
       "sourceUrl": "https://www.hisugar.com/home/articleContent?id=2026101208540841064793",
       "datasetName": "HiSugar 食糖进口成本及利润估算表",
