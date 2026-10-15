@@ -1,0 +1,107 @@
+{
+  "target_date": "2026-10-14",
+  "run_date": "2026-10-15",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Indian govt allocates 16 lakh tonnes of sugar for sales during October 13-31 as ",
+      "news": "印度现货市场显示食糖价格，食糖价格上涨至16 lakh。印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。来源：BusinessLine（https://www.thehindubusinessline.com/economy/agri-business/indian-govt-allocates-16-lakh-tonnes-of-sugar-for-sales-during-october-13-31-as-prices-surge/article71579985.ece）。影响：利多糖价",
+      "impact": "利多：印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+      "source_name": "BusinessLine",
+      "source_url": "https://www.thehindubusinessline.com/economy/agri-business/indian-govt-allocates-16-lakh-tonnes-of-sugar-for-sales-during-october-13-31-as-prices-surge/article71579985.ece",
+      "published_date_local": "2026-10-13",
+      "event_date": "2026-10-13",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "Indian govt allocates 16 lakh tonnes of sugar for sales during October 13-31 as prices surge",
+        "source_url": "https://www.thehindubusinessline.com/economy/agri-business/indian-govt-allocates-16-lakh-tonnes-of-sugar-for-sales-during-october-13-31-as-prices-surge/article71579985.ece",
+        "publisher": "BusinessLine",
+        "publication_time": "Tue, 13 Oct 2026 14:48:07 GMT",
+        "target_date": "2026-10-14",
+        "event_date": "2026-10-13",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度政府",
+        "event_action": "公布",
+        "metrics": [
+          "16 lakh"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMigAJBVV95cUxPZ1BrVXlPdk53dDd5RmRIbjQzcE5QbkFJMG5DdmZGWDdkT3RfSUpRaUNDWWlGUDc2SHlGUEhPaVg3dGE1d3Q1QUFoTUV3Wlcxa2lXZVZmZW1GZXJmUy1YLUpZLVhHY3JMYXVHa1hRSDNYUmlaVlJSNFBqa0FSck9DYUFubldWanNFS3lDU2JwN19QbVV6Z3dZVU9qWmpMY05BTDE0Qzd3anFBcnVHdGFMMEM3eGk2VGs1V3dnS09ReXQzdGh4OXp5SC1vWWdnZ3MxZFR6YlRsZENyU0ZXU2VqS2pUVXVXamhuWUU3bEg4bjFqOEk3VVBvcFE3ejdxT29F0gGHAkFVX3lxTE1Yell2U29PLWd4S28weXphVWxCYW1majJtY2pnQmc1ZUlxZTNHLTFpemdoU3N3ZTFGQS1qclA4SU9ob0dlVDZxWEFpeWlxMnY2YWQxTjFxeFdsaldnN010VWpmLXBlTHI3N3ppaXNWOVF2QkQ5OTBPWEJlR2RJVmRzVnBCYmtwX2tkSUxWWjk1QmxkdjZnVW01cnFabEEweTdUZmUybXQ4VnN6aEM1OEtHVlNTTG1rdWpJZXg3MEY4TXVXSENwbzhJOUctN2pyZWxlVHB5Q3ZkdFhlLVdyd3ljcjFsemlNT1IzUHVtUHJWOXFVSXlhc20tYmR5cDAtUXdWZlZ6cU5j?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度政府公布16lakh20261013price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-10-14），呵叻、猜也蓬、黎府、那空沙旺、甘烹碧、北碧、猜纳、春武里等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-10-14",
+      "event_date": "2026-10-14",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20261014",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "孟加拉国",
+      "title": "Sugar consumption in Bangladesh falls by nearly 33% in 5 years amid rising healt",
+      "news": "孟加拉国糖业相关机构发布或调整消费，消费下降33%。销量或消费下降或增速放缓会放慢库存消化，削弱需求端支撑并压制糖价。来源：Daily Bonik Barta（https://en.bonikbarta.com/bangladesh/PoAXgfgfKLsLfrkw）。影响：利空糖价",
+      "impact": "利空：销量或消费下降或增速放缓会放慢库存消化，削弱需求端支撑并压制糖价。",
+      "source_name": "Daily Bonik Barta",
+      "source_url": "https://en.bonikbarta.com/bangladesh/PoAXgfgfKLsLfrkw",
+      "published_date_local": "2026-10-15",
+      "event_date": "2026-10-15",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "Sugar consumption in Bangladesh falls by nearly 33% in 5 years amid rising health concerns",
+        "source_url": "https://en.bonikbarta.com/bangladesh/PoAXgfgfKLsLfrkw",
+        "publisher": "Daily Bonik Barta",
+        "publication_time": "Wed, 14 Oct 2026 17:36:38 GMT",
+        "target_date": "2026-10-14",
+        "event_date": "2026-10-15",
+        "event_country": "孟加拉国",
+        "event_region": null,
+        "event_actor": "孟加拉国糖业相关机构",
+        "event_action": "发布或调整",
+        "metrics": [
+          "33%"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "销量或消费下降或增速放缓会放慢库存消化，削弱需求端支撑并压制糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE15cDNocThYdGJjOUxhOXR1YlREc2VoTFlxb21YMnJaTFA5RE9rTDZHX28xd2d0X0NDcV9KaDVQZWNoZGVOaEV1S0xDVXNQcjcyY2I1Y2ZRNW9QRlJWdVBmd2NYSQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_孟加拉国孟加拉国糖业相关机构发布或调整3320261015supply_demand",
+      "importance": 90
+    }
+  ]
+}
