@@ -1882,6 +1882,44 @@
       "yoy_status": "ok"
     },
     {
+      "indicator": "brazil_sugar_premium",
+      "status": "ok",
+      "source_name": "广西糖网食糖进口成本及利润估算表",
+      "dataset_name": "HiSugar 食糖进口成本及利润估算表",
+      "product": "巴西糖进口升贴水",
+      "port": "进口成本估算",
+      "pricing_basis": "HiSugar import cost estimate",
+      "futures_contract": null,
+      "data_date": "2026-10-16",
+      "import_premium_discount_cents_per_lb": -0.9,
+      "premium_discount_cents_per_lb": -0.9,
+      "unit": "美分/磅",
+      "article_id": "2026101909050193659633",
+      "article_title": "20261016食糖进口成本及利润估算",
+      "article_title_date": "2026-10-16",
+      "article_published_at": "2026-10-19 09:57:55",
+      "source_url": "https://www.hisugar.com/home/articleContent?id=2026101909050193659633",
+      "image_url": "https://www.hisugar.com/image/20261019/1792371321869096012.png",
+      "fetched_at": "2026-10-19T15:02:38+08:00",
+      "ocr_backend": "tesseract_numeric",
+      "previous_data_date": "2026-10-15",
+      "previous_value": -1.23,
+      "previous_source_url": "https://www.hisugar.com/home/articleContent?id=2026101909050193659633",
+      "previous_article_id": "2026101909050193659633",
+      "daily_change": 0.33,
+      "daily_change_percent": 26.829268292682922,
+      "previous_year_date": "2025-10-15",
+      "previous_year_value": -0.3,
+      "previous_year_source_url": "https://www.hisugar.com/home/articleContent?id=2025101608440317427537",
+      "previous_year_article_id": "2025101608440317427537",
+      "yoy_comparison_date": "2025-10-15",
+      "yoy_exact_date_match": false,
+      "yoy_date_gap_days": 1,
+      "year_on_year_change": -0.6,
+      "year_on_year_change_percent": -200.00000000000006,
+      "yoy_status": "ok"
+    },
+    {
       "season": "2026/2027",
       "reference_period": "2026-06-30",
       "reference_date": "2026-06-30",
@@ -2204,5 +2242,5 @@
       "yoy_status": "ok"
     }
   ],
-  "lastUpdatedAt": "2026-10-19T08:26:37+08:00"
+  "lastUpdatedAt": "2026-10-19T15:03:08+08:00"
 }
