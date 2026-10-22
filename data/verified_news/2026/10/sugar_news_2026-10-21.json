@@ -1,0 +1,192 @@
+{
+  "target_date": "2026-10-21",
+  "run_date": "2026-10-22",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Global sugar deficit projected to widen to 6.28 million tonnes as production out",
+      "news": "印度糖厂公布糖产量，糖产量缺口扩大至628万吨。糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。来源：ChiniMandi（https://www.chinimandi.com/global-sugar-deficit-projected-to-widen-to-6-28-million-tonnes-as-production-outlook-weakens/）。影响：利多糖价",
+      "impact": "利多：糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/global-sugar-deficit-projected-to-widen-to-6-28-million-tonnes-as-production-outlook-weakens/",
+      "published_date_local": "2026-10-21",
+      "event_date": "2026-10-21",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Global sugar deficit projected to widen to 6.28 million tonnes as production outlook weakens",
+        "source_url": "https://www.chinimandi.com/global-sugar-deficit-projected-to-widen-to-6-28-million-tonnes-as-production-outlook-weakens/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 21 Oct 2026 06:31:21 GMT",
+        "target_date": "2026-10-21",
+        "event_date": "2026-10-21",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖厂",
+        "event_action": "公布",
+        "metrics": [
+          "6.28 million"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQLUF0a2lnSnZ1TENFRk9GWkx2eGZzRk1za2pzdUpqMWpyNmpfQkZWaC1JeF96VGtzUGx4R1F6bnNRbUJqYTFYYmdOam16aUNiNHNYX25tWjg4aGhadmZnZldSaXZ4MTZUSXd0YzI5N0swUE5MeGdhZ3NuSGJTTU95N0xvSmxPRTlVOWphNl8tYU91M01heGc0T1AzSzRiNnNSeG9td08zWWZ0WklnQVZ1SUZub3psNUhUYXRucQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖厂公布628million20261021supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-10-21），呵叻、彭世洛、北碧、沙缴等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-10-21",
+      "event_date": "2026-10-21",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20261021",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "菲律宾",
+      "title": "Philippines raw sugar production falls 11% as SRA projects 338,000-tonne supply ",
+      "news": "菲律宾糖业相关机构公布糖产量，糖产量缺口扩大11%。糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。来源：ChiniMandi（https://www.chinimandi.com/philippines-raw-sugar-production-falls-11-as-sra-projects-338000-tonne-supply-deficit/）。影响：利多糖价",
+      "impact": "利多：糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/philippines-raw-sugar-production-falls-11-as-sra-projects-338000-tonne-supply-deficit/",
+      "published_date_local": "2026-10-21",
+      "event_date": "2026-10-21",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Philippines raw sugar production falls 11% as SRA projects 338,000-tonne supply deficit",
+        "source_url": "https://www.chinimandi.com/philippines-raw-sugar-production-falls-11-as-sra-projects-338000-tonne-supply-deficit/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 21 Oct 2026 06:32:15 GMT",
+        "target_date": "2026-10-21",
+        "event_date": "2026-10-21",
+        "event_country": "菲律宾",
+        "event_region": null,
+        "event_actor": "菲律宾糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "11%"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPVnVYcUZabmNqalduY0c5eEdIbmdXTEp3YkdGNktsbmJIeVJlS2xMQ3R3eXZXWmdMbW5oeUgwdXRrS1owTmU4OGhiTG9rM0tiQnhRckRKODdqakVZa3FiV2E4M29ObUc5OG5HUE5jZVZfeFVFMl9YR2ZlUXJPeU8tMkxyeDI3WmhpRFVpSXB3SEl0NkVVYWpyNXZTY182akJuZnZiWk5yTjh4UWJ4STZ0ZVAtRQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_菲律宾菲律宾糖业相关机构公布1120261021supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "其他国家",
+      "country": "乌克兰",
+      "title": "Sugar production in Ukraine could fall to 1.1–1.2 million tonnes",
+      "news": "乌克兰糖厂公布糖产量，糖产量下降至120万吨。糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。来源：Корабелов.ІНФО（https://korabelov.info/en/2026/10/628355/sugar-production-in-ukraine-could-fall-to-1-1-1-2-million-tonnes/）。影响：利多糖价",
+      "impact": "利多：糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+      "source_name": "Корабелов.ІНФО",
+      "source_url": "https://korabelov.info/en/2026/10/628355/sugar-production-in-ukraine-could-fall-to-1-1-1-2-million-tonnes/",
+      "published_date_local": "2026-10-21",
+      "event_date": "2026-10-21",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Sugar production in Ukraine could fall to 1.1–1.2 million tonnes",
+        "source_url": "https://korabelov.info/en/2026/10/628355/sugar-production-in-ukraine-could-fall-to-1-1-1-2-million-tonnes/",
+        "publisher": "Корабелов.ІНФО",
+        "publication_time": "Wed, 21 Oct 2026 08:01:55 GMT",
+        "target_date": "2026-10-21",
+        "event_date": "2026-10-21",
+        "event_country": "乌克兰",
+        "event_region": null,
+        "event_actor": "乌克兰糖厂",
+        "event_action": "公布",
+        "metrics": [
+          "1.2 million",
+          "1daY"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPY2Y2NzcyTG5MVzAyZVVvX2lUbmhEZVJQV1FtdFpBaFNHTno1enk4NVU5aThTc3lVYWQ2UkJSeEFIdk1RVWh1THRGWW4yMVpEVmRvUmlEdFpHWU1DUmhSSi1XSnZVUXpUanBfcGJId1I0cUVyWDhncXpYMmFGdGNqc05tNXdPb2R5czA1UklMclVFa1daYmd1RnJyMzRjbEVON2dzMGxTcTZjUQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_乌克兰乌克兰糖厂公布12million1day20261021supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "其他国家",
+      "country": "菲律宾",
+      "title": "Sugar sector opposes tax hike amid El Niño, pest threats",
+      "news": "菲律宾主产区农业或气象机构提高甘蔗产区天气、干旱或病虫害，已说明甘蔗虫害扩散或产区天气风险。菲律宾产区若出现虫害、干旱或洪涝，会压低受影响地块单产并削弱糖料供应稳定性。来源：Inquirer.net（https://business.inquirer.net/616838/sugar-sector-opposes-tax-hike-amid-el-nino-pest-threats）。影响：利多糖价",
+      "impact": "利多：干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+      "source_name": "Inquirer.net",
+      "source_url": "https://business.inquirer.net/616838/sugar-sector-opposes-tax-hike-amid-el-nino-pest-threats",
+      "published_date_local": "2026-10-21",
+      "event_date": "2026-10-21",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Sugar sector opposes tax hike amid El Niño, pest threats",
+        "source_url": "https://business.inquirer.net/616838/sugar-sector-opposes-tax-hike-amid-el-nino-pest-threats",
+        "publisher": "Inquirer.net",
+        "publication_time": "Tue, 20 Oct 2026 18:10:00 GMT",
+        "target_date": "2026-10-21",
+        "event_date": "2026-10-21",
+        "event_country": "菲律宾",
+        "event_region": null,
+        "event_actor": "菲律宾主产区农业或气象机构",
+        "event_action": "提高",
+        "metrics": [],
+        "comparison_period": null,
+        "topic": "weather_pest",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPNDBPQVlUSzg1TjNzOG1wQ3ZheEVLUTk4YUpIQUtvbkEyaWF0QkRnbl9xMWpEbG9Cd25STkp1WHhWdmlTcktKb3VNZWNRci05TFl6STZtYWt0VWRjVE9xa0RWck9xVUlvS0d0NFZhMlFlaVF3dzlHaVNjOXZIV1IzUTVETkNYX3pfYmpOZkFhUEJJTkcyZEJv0gGcAUFVX3lxTE1tSXFyemZnZV9ENUFEblhTM1ZwU0dzOXFhYUlwYUVDcks4YXBON0VieFZEUWVkOUF2S3E4SEVsbmwzVGYzQ0MybUZkdXVwWFB2UUZkSXFmREhWZUg4Y1BlQkFubldlY0V4VE5EcWs1a3NVbTk1aFgta01tSzQ5Z0NaUjhaVlFDcVA1RHdFR21ETjctYWZsRTlKN0pYRQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_菲律宾菲律宾主产区农业或气象机构提高20261021weather_pest",
+      "importance": 85
+    }
+  ]
+}
