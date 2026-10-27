@@ -2128,7 +2128,7 @@
       "article_published_at": "2026-10-27 09:19:38",
       "source_url": "https://www.hisugar.com/home/articleContent?id=2026102709020966079329",
       "image_url": "https://www.hisugar.com/image/20261027/1793062787109017283.png",
-      "fetched_at": "2026-10-27T09:36:06+08:00",
+      "fetched_at": "2026-10-27T14:56:14+08:00",
       "ocr_backend": "tesseract_numeric",
       "previous_data_date": "2026-10-23",
       "previous_value": -0.9,
@@ -2470,5 +2470,5 @@
       "yoy_status": "ok"
     }
   ],
-  "lastUpdatedAt": "2026-10-27T09:38:41+08:00"
+  "lastUpdatedAt": "2026-10-27T14:58:17+08:00"
 }
