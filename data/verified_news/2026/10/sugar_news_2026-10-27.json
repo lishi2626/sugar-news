@@ -1,0 +1,109 @@
+{
+  "target_date": "2026-10-27",
+  "run_date": "2026-10-28",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "India’s sugar season begins on schedule; production reaches 4 lakh tonnes",
+      "news": "印度糖业相关机构公布糖产量，糖产量为40万吨。该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。来源：Fortune India（https://www.fortuneindia.com/india/indias-sugar-season-begins-on-schedule-production-reaches-4-lakh-tonnes/166834）。影响：中性",
+      "impact": "中性：该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+      "source_name": "Fortune India",
+      "source_url": "https://www.fortuneindia.com/india/indias-sugar-season-begins-on-schedule-production-reaches-4-lakh-tonnes/166834",
+      "published_date_local": "2026-10-27",
+      "event_date": "2026-10-27",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "India’s sugar season begins on schedule; production reaches 4 lakh tonnes",
+        "source_url": "https://www.fortuneindia.com/india/indias-sugar-season-begins-on-schedule-production-reaches-4-lakh-tonnes/166834",
+        "publisher": "Fortune India",
+        "publication_time": "Tue, 27 Oct 2026 02:00:00 GMT",
+        "target_date": "2026-10-27",
+        "event_date": "2026-10-27",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "4 lakh"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPT29Yb29ESFRscHN2TmRjamsyT3NGUWs5NElrQjJYTmdvVkRtRlZMak1kZ3FqSTc5N3lSUk9pTVNETEd4UjI2ZkZvRkRiSDJnT2hCd25rLVB5YnV1dEVBeHFhSXk3X3c5Z2lPYmFVNXZZaTYzUVBSUzFhalh0WUZfckJBRWhMdlhlS2RMYzdyRzRVeG5wWm9kRVhiVjVka1Vlb3pGV3U1MDdhSlZjZDBWNFY0a9IBwAFBVV95cUxPSlpkV1VrUFVCeDNySzRibWNpVUQtM2xwQlBIYjRZRzVjVzNSYXZmdnRzbUhFb05yOGV3OE5DT25sN1dKOVEwNFBVbXV0Z2dDNEpFRmJQYXpMZzN4X0NxWi1Xbm1WZFZoSWhYYnJERFpWdzZfeGw4anVLWVVfQlM1MkMyOFB6UURjck00bWJvVGtfanV3SnBfTDVXbE9USEtFMWV4N1dZZVB6eHF5d2dHQkVjVnVRaXdPQmhXSjFRb24?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构公布4lakh20261027supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-10-27），呵叻、猜也蓬、黎府、甘烹碧、北碧、春武里等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-10-27",
+      "event_date": "2026-10-27",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20261027",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "越南",
+      "title": "Raw sugar prices plummeted 5.6% to $421 per ton.",
+      "news": "越南原糖市场显示原糖价格，糖价变动幅度为5.6%。越南原糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。来源：Vietnam.vn（https://www.vietnam.vn/en/gia-duong-tho-lao-doc-5-6-con-421-usd-tan）。影响：中性",
+      "impact": "中性：越南原糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+      "source_name": "Vietnam.vn",
+      "source_url": "https://www.vietnam.vn/en/gia-duong-tho-lao-doc-5-6-con-421-usd-tan",
+      "published_date_local": "2026-10-27",
+      "event_date": "2026-10-27",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Raw sugar prices plummeted 5.6% to $421 per ton.",
+        "source_url": "https://www.vietnam.vn/en/gia-duong-tho-lao-doc-5-6-con-421-usd-tan",
+        "publisher": "Vietnam.vn",
+        "publication_time": "Tue, 27 Oct 2026 05:25:21 GMT",
+        "target_date": "2026-10-27",
+        "event_date": "2026-10-27",
+        "event_country": "越南",
+        "event_region": null,
+        "event_actor": "越南糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "5.6%",
+          "$421",
+          "rS19"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "越南原糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5ubFdReDlrbHJvcnA1VWJTSHZjN3k0YjFfY0FtRzBnWlhUOGtNMFlGLWUxaDZuTlI3eW9heTVwX0NlTXJrS19pbGFGVXFneVZVcWdUQXR1aVFrNkEteGVxWTNEdzk1ZktQN3NZVEttSnBFaU4wUFE?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_越南越南糖业市场公布56421rs1920261027price_market",
+      "importance": 90
+    }
+  ]
+}

@@ -1,21 +1,23 @@
 {
-  "latestNewsDate": "2026-10-26",
-  "lastRunAt": "2026-10-27T09:39:28+08:00",
+  "latestNewsDate": "2026-10-27",
+  "lastRunAt": "2026-10-28T08:58:30+08:00",
   "lastRunStatus": "success",
   "timezone": "Asia/Shanghai",
   "details": {
-    "verified_count": 1,
-    "excel_count": 1,
-    "dashboard_count": 1,
+    "verified_count": 3,
+    "excel_count": 3,
+    "dashboard_count": 3,
     "excel_matches_verified": true,
     "dashboard_matches_verified": true,
     "country_order_ok": true,
     "global_summary_sentences": 3,
     "no_empty_country_sections": true,
     "counts_by_country": {
-      "泰国": 1
+      "印度": 1,
+      "泰国": 1,
+      "越南": 1
     },
     "china_count": 0,
-    "other_country_count": 0
+    "other_country_count": 1
   }
 }
