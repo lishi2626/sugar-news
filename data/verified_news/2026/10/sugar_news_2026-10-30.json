@@ -1,0 +1,107 @@
+{
+  "target_date": "2026-10-30",
+  "run_date": "2026-10-31",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Haryana government increases sugarcane price by Rs 35 over two years, farmers te",
+      "news": "印度现货市场显示食糖价格，食糖价格为Rs 35。印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。来源：The New Indian Express（https://www.newindianexpress.com/india/2026/Oct/30/haryana-government-increases-sugarcane-price-by-rs-35-over-two-years-farmers-term-it-inadequate）。影响：中性",
+      "impact": "中性：印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+      "source_name": "The New Indian Express",
+      "source_url": "https://www.newindianexpress.com/india/2026/Oct/30/haryana-government-increases-sugarcane-price-by-rs-35-over-two-years-farmers-term-it-inadequate",
+      "published_date_local": "2026-10-30",
+      "event_date": "2026-10-30",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Haryana government increases sugarcane price by Rs 35 over two years, farmers term it inadequate",
+        "source_url": "https://www.newindianexpress.com/india/2026/Oct/30/haryana-government-increases-sugarcane-price-by-rs-35-over-two-years-farmers-term-it-inadequate",
+        "publisher": "The New Indian Express",
+        "publication_time": "Fri, 30 Oct 2026 13:26:30 GMT",
+        "target_date": "2026-10-30",
+        "event_date": "2026-10-30",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度政府",
+        "event_action": "提高",
+        "metrics": [
+          "Rs 35"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPZWVnaEhieWtEUzVYOTRPOFg3X0JxRXFyaG9zVUZHQk9kbkdiNWJXM0F5ZVlLdERVYzhpcVNUN0NlMElHSmExVl9JenRSTVltU0k5M3ZSdzRVaHZiRlNSNjgtbFJmSzBYU1pJY2FDcVpBaHVWM2RFQUtHa2h3bS15ZGtGM2tuRjRCUmduOGhBbThvYV8wYkJzdzJHXy13NDltLXNfX056TlJTc2t2aUNMRWh0SHZBaHhMZUFjZTJXR2JOSzBPUWZjc19vNVNCMkljUHhWSTk5RDVKT014bHk40gHsAUFVX3lxTE03cHowbC1GZnVKQ0ZXVnNkQVBpbWhPaUxiWDZHd1otbllGOG1EOV9oUURnVHF2dUFYYWt6Z29NaDBHMk0xTWRLRU1EOVNHa1BBaktEV3lCZWJCZTg3cWliSlBrelBLcUx1azlnY0xXaXdOeThBZDVScUdIRkk0Uy1EVzM4bVVaNlluZEgzU2g4S2t5U25CV2d6MVRJcmJZMkJYc1p6MjV1R19DT2ZZZDdGR0NlWDdzQmpCQUhGRUNiSjhVM0dBNm8xMlFlQjdXZEZYQ1d1Rm9SU2xLOW9mS2h0YzM0Qmg1WUtXWGNq?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度政府提高rs3520261030price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "Open-Meteo预报显示（2026-10-31至2026-11-06），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括猜纳约45.4mm、北碧约43.8mm、黎府约43.4mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：Open-Meteo（https://api.open-meteo.com/v1/forecast）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "Open-Meteo",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "published_date_local": "2026-10-30",
+      "event_date": "2026-10-31",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_open_meteo_20261030",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "菲律宾",
+      "title": "Yulo backs P2,900 mill-gate sugar price",
+      "news": "菲律宾糖厂显示糖厂出厂价，糖厂出厂价为2,900家糖厂。菲律宾糖厂出厂价只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。来源：Negros Now Daily（https://negrosnowdaily.com/yulo-backs-p2900-mill-gate-sugar-price/）。影响：中性",
+      "impact": "中性：菲律宾糖厂出厂价只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+      "source_name": "Negros Now Daily",
+      "source_url": "https://negrosnowdaily.com/yulo-backs-p2900-mill-gate-sugar-price/",
+      "published_date_local": "2026-10-30",
+      "event_date": "2026-10-30",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Yulo backs P2,900 mill-gate sugar price",
+        "source_url": "https://negrosnowdaily.com/yulo-backs-p2900-mill-gate-sugar-price/",
+        "publisher": "Negros Now Daily",
+        "publication_time": "Thu, 29 Oct 2026 18:44:56 GMT",
+        "target_date": "2026-10-30",
+        "event_date": "2026-10-30",
+        "event_country": "菲律宾",
+        "event_region": null,
+        "event_actor": "菲律宾糖厂",
+        "event_action": "公布",
+        "metrics": [
+          "2,900 mill"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "菲律宾糖厂出厂价只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1ENUUxVy10ekx5ck9CWFVKSk5CWEVSYUNCMWRJWW5RNXRMc01KanprU1hWaWtUZ0pnWXk4NjVTendiU3E5aUgtMTVCdEJKNlFDUnhVaVVsTFlNeEhlZS1zSS1tQW9fYmw0N216aWpqYlV3dE5w?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_菲律宾菲律宾糖厂公布2900mill20261030price_market",
+      "importance": 90
+    }
+  ]
+}
