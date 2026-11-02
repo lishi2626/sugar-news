@@ -4172,7 +4172,7 @@
       "source_name": "ChiniMandi",
       "source_url": "https://www.chinimandi.com/retail-prices/",
       "daily_market_update_url": "https://www.chinimandi.com/english-news/daily-sugar-market-update/",
-      "fetched_at": "2026-11-02T09:15:00+08:00",
+      "fetched_at": "2026-11-02T09:48:28+08:00",
       "status": "ok",
       "price_inr_per_kg": 61.67
     },
@@ -8464,7 +8464,7 @@
       "source_name": "ChiniMandi",
       "source_url": "https://www.chinimandi.com/wholesale-sugar-prices/",
       "daily_market_update_url": "https://www.chinimandi.com/english-news/daily-sugar-market-update/",
-      "fetched_at": "2026-11-02T09:14:50+08:00",
+      "fetched_at": "2026-11-02T09:48:16+08:00",
       "status": "ok",
       "price_inr_per_quintal": 5832.22,
       "price_inr_per_kg": 58.3222
@@ -12477,19 +12477,19 @@
       "up_ex_mill_mid_inr_per_kg": 55.0,
       "source_name": "ChiniMandi — Daily Sugar Market Update",
       "source_url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-31-10-2026/",
-      "fetched_at": "2026-11-02T09:32:18+08:00",
+      "fetched_at": "2026-11-02T09:48:31+08:00",
       "status": "ok",
       "daily_change_absolute": 0.0,
       "daily_change_percent": 0.0,
-      "previous_date": "2026-10-29",
-      "previous_data_date": "2026-10-29",
+      "previous_date": "2026-10-30",
+      "previous_data_date": "2026-10-30",
       "previous_low": 5450.0,
       "previous_high": 5550.0,
       "previous_midpoint": 5500.0,
       "previous_min": 5450.0,
       "previous_max": 5550.0,
       "previous_mid": 5500.0,
-      "previous_source_url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-29-10-2026/",
+      "previous_source_url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-30-10-2026/",
       "yoy_change_absolute": 1530.0,
       "yoy_change_percent": 38.54,
       "yoy_comparison_date": "2025-10-31",
@@ -12509,5 +12509,5 @@
       "change_direction": "flat"
     }
   ],
-  "lastUpdatedAt": "2026-11-02T09:32:30+08:00"
+  "lastUpdatedAt": "2026-11-02T09:48:42+08:00"
 }
