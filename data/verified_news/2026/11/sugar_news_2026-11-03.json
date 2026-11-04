@@ -1,0 +1,64 @@
+{
+  "target_date": "2026-11-03",
+  "run_date": "2026-11-04",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "India's Sugar Output Soars to 8.45 Lakh Ton in Oct 2026-27",
+      "news": "印度糖业相关机构公布糖产量，糖产量为84.5万吨。该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。来源：Rediff MoneyWiz（https://money.rediff.com/news/market/india-s-sugar-output-soars-to-8-45-lakh-ton-in-oct-2026-27/57367220261102）。影响：中性",
+      "impact": "中性：该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+      "source_name": "Rediff MoneyWiz",
+      "source_url": "https://money.rediff.com/news/market/india-s-sugar-output-soars-to-8-45-lakh-ton-in-oct-2026-27/57367220261102",
+      "published_date_local": "2026-11-02",
+      "event_date": "2026-11-02",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "India's Sugar Output Soars to 8.45 Lakh Ton in Oct 2026-27",
+        "source_url": "https://money.rediff.com/news/market/india-s-sugar-output-soars-to-8-45-lakh-ton-in-oct-2026-27/57367220261102",
+        "publisher": "Rediff MoneyWiz",
+        "publication_time": "Mon, 02 Nov 2026 12:44:49 GMT",
+        "target_date": "2026-11-03",
+        "event_date": "2026-11-02",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "8.45 Lakh"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPbHMzS0sxbEFpdFl3U0JJY2xPcVFwbEhTY3RTMG5SXzZtbGFyd1NtUG8wN1JaV1VzU3F0UEIzV0E3TUlXM29qczN0bFRkaXV0LTFTX2YzTHFDNllnUFpDeWw1MUtQUW9Id0w4VnNpR3RYTWMwS0xLVW1ac1F6cEN2N3BNTGtZVHhxNkJtQ29rZnIyY3FPN0RpWHFzUTlWeFRlOFdtTmZYWk4zbG9SdWRJ0gG0AUFVX3lxTFBoSC1iY2x5S05veWVoSUZFeGFlSWVSLTA3NmtIVllORXhwVXpReURzOUwzX2pDSnRhRW5HNzFYOWxqRld1QlYwd05JUkhLQkZHOTZvaHlNTG9MeGJJUFRPclpqSkpKb1RNcndDaFotbkVJM2hyUlZIb1Q2XzQwTllWSFYxV2x1V1FwSDJ5a1gtb3ByOVpUbmoxWHlTY05MX3dLZzVXS3ZydkJmZ2dMUGhnX0JGeg?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构公布845lakh20261102supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-11-03），呵叻、猜也蓬、北碧、华富里、素攀武里、春武里等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-11-03",
+      "event_date": "2026-11-03",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20261103",
+      "importance": 78
+    }
+  ]
+}
