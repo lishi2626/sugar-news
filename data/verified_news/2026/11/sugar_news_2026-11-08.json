@@ -1,0 +1,150 @@
+{
+  "target_date": "2026-11-08",
+  "run_date": "2026-11-09",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Sugar output jumps to nearly 13 lakh tonnes so far in 2026-27 market year: ISMA",
+      "news": "印度糖业相关机构公布糖产量，糖产量为130万吨。该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。来源：The Economic Times（https://m.economictimes.com/news/economy/agriculture/sugar-output-jumps-to-nearly-13-lakh-tonnes-so-far-in-2026-27-market-year-isma/articleshow/135611877.cms）。影响：中性",
+      "impact": "中性：该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+      "source_name": "The Economic Times",
+      "source_url": "https://m.economictimes.com/news/economy/agriculture/sugar-output-jumps-to-nearly-13-lakh-tonnes-so-far-in-2026-27-market-year-isma/articleshow/135611877.cms",
+      "published_date_local": "2026-11-06",
+      "event_date": "2026-11-06",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "Sugar output jumps to nearly 13 lakh tonnes so far in 2026-27 market year: ISMA",
+        "source_url": "https://m.economictimes.com/news/economy/agriculture/sugar-output-jumps-to-nearly-13-lakh-tonnes-so-far-in-2026-27-market-year-isma/articleshow/135611877.cms",
+        "publisher": "The Economic Times",
+        "publication_time": "Fri, 06 Nov 2026 14:50:14 GMT",
+        "target_date": "2026-11-08",
+        "event_date": "2026-11-06",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "13 lakh"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "monday_weekend_window_friday_16_to_monday_06",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNY25kSHRUQlpqRVRILVN3Tm5UZ3hLdWFIMjRxbnIzVWxSLWNOQXBCa0djQkREVHdNank1NWVaRC1GZHZUVXYwOFBCeTV2ZmhhNHVfSjJ4OVd2djBLOVJiM0k0Q0haU1paSnA3NU9WYVdYU0wwU0N2RXk4Y1loejdEVUhJRmFDaE96RnlWVjBoT1VONFNZdk5MZjNEOWQ0N25OMC00Vl9EelhmU3A0LVlUc0tXUFpRSm80Z0VHOXlicDM5bHp1aVhCbUxfZm1pNHdxdlM1dnF2cklaN1RtSFZGaVA4Ylc5OVR1ZkVIbUZR0gHzAUFVX3lxTE1Pdmdyekt1NmxjTjdLb1hCTHVRVnoyZS1kS2N0VDhobTdiWG1fWllDRWw3MlVIVXNYeGhxbV81cTRfVXFqTk5PSGtOUlJXeEtxQnRlcGprUUp0UkVrekxURUk4WFRlcUowazBCbDBFTEtia2E5MDJ6OFY4MGJpV1pmaTRqdHc2Rks0Wl8tdkJsTWVQSmJHc2EwbHpoT1ZMX3FtZjhHRlBEUEZ6M0VhWUxtcVp3aDJpMXFZMVJtRzBTZ2J6RGZFa1E1ZmNRTVgzMHdoYXdkRzdCOWZ5VG1MakxocGlpTmREN09VaktmZWxaaWx0WQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构公布13lakh20261106supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Magadh Sugar & Energy Ltd: India sugar output seen at 26 MT",
+      "news": "印度糖业相关机构预测糖产量，糖产量为0万吨。该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。来源：Multibagg AI（https://www.multibagg.ai/market-pulse/articles/magadh-india-sugar-supply-outlook-ppt-cmw4ud641003mxk2r083nz0we）。影响：中性",
+      "impact": "中性：该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+      "source_name": "Multibagg AI",
+      "source_url": "https://www.multibagg.ai/market-pulse/articles/magadh-india-sugar-supply-outlook-ppt-cmw4ud641003mxk2r083nz0we",
+      "published_date_local": "2026-11-06",
+      "event_date": "2026-11-06",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "Magadh Sugar & Energy Ltd: India sugar output seen at 26 MT",
+        "source_url": "https://www.multibagg.ai/market-pulse/articles/magadh-india-sugar-supply-outlook-ppt-cmw4ud641003mxk2r083nz0we",
+        "publisher": "Multibagg AI",
+        "publication_time": "Fri, 06 Nov 2026 10:38:32 GMT",
+        "target_date": "2026-11-08",
+        "event_date": "2026-11-06",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "预测",
+        "metrics": [
+          "26 MT"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "monday_weekend_window_friday_16_to_monday_06",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQSGpwcHBJYVZ5M1ExUGxiZ3JBeG50TVM2WndlTE5WblFfZU5kRXJhVTRFa1VWYVJQbDg5RFVSbWZnMkZ0RWlLbnNiMk9qYkhEU25fRGh3YUhPM3dKRzRLY2FMWDFXZnNFWUU1Mjk5Y2RNeWNld3VNUjc1Y3lrZWw5U2g1WTZaVmpiNTVNT1JBMUx2SnFrRy1JeVluUE5MS25IVEhVSFYwY0lObHVMaW1z?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构预测26mt20261106supply_demand",
+      "importance": 85
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "India's early sugar output jumps to 12.85 lakh tonnes: ISMA",
+      "news": "印度糖业相关机构公布糖产量，糖产量为128.5万吨。该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。来源：Awaz The Voice（https://www.awazthevoice.in/business-news/india-s-early-sugar-output-jumps-to-lakh-tonnes-isma-70556.html）。影响：中性",
+      "impact": "中性：该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+      "source_name": "Awaz The Voice",
+      "source_url": "https://www.awazthevoice.in/business-news/india-s-early-sugar-output-jumps-to-lakh-tonnes-isma-70556.html",
+      "published_date_local": "2026-11-06",
+      "event_date": "2026-11-06",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "India's early sugar output jumps to 12.85 lakh tonnes: ISMA",
+        "source_url": "https://www.awazthevoice.in/business-news/india-s-early-sugar-output-jumps-to-lakh-tonnes-isma-70556.html",
+        "publisher": "Awaz The Voice",
+        "publication_time": "Fri, 06 Nov 2026 09:48:48 GMT",
+        "target_date": "2026-11-08",
+        "event_date": "2026-11-06",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "12.85 lakh"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "monday_weekend_window_friday_16_to_monday_06",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNVDdTNEdGa2Fpam1mUUZPY0hzMVFBSTF0NVJZZzJyQVRUZ2w5UlNQb19iSkljQ3lVZDFHZVZCNTEtQ29fWXR0UXNscmo3M0l6LUh6NzlJakRkWlJPcjhvaEpaNVFabHlkRXdrSXdhN0lMNmppVWJSQThGUlJiUFVYZ3NIQ3k5U3cxTVJGbGlzVXEzb3FtMUprQzN5QlpqZ2szYmtTRDhBSEE?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构公布1285lakh20261106supply_demand",
+      "importance": 80
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-11-08），甘烹碧、北碧、春武里等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-11-08",
+      "event_date": "2026-11-08",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20261108",
+      "importance": 78
+    }
+  ]
+}

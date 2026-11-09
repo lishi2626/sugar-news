@@ -1,6 +1,6 @@
 {
-  "latestNewsDate": "2026-11-07",
-  "lastRunAt": "2026-11-08T09:48:21+08:00",
+  "latestNewsDate": "2026-11-08",
+  "lastRunAt": "2026-11-09T09:25:41+08:00",
   "lastRunStatus": "success",
   "timezone": "Asia/Shanghai",
   "details": {
@@ -13,11 +13,10 @@
     "global_summary_sentences": 3,
     "no_empty_country_sections": true,
     "counts_by_country": {
-      "印度": 2,
-      "泰国": 1,
-      "肯尼亚": 1
+      "印度": 3,
+      "泰国": 1
     },
     "china_count": 0,
-    "other_country_count": 1
+    "other_country_count": 0
   }
 }
