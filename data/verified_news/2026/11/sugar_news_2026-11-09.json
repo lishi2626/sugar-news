@@ -1,0 +1,108 @@
+{
+  "target_date": "2026-11-09",
+  "run_date": "2026-11-10",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-11-09），东北部核心甘蔗产区（呵叻、孔敬、乌隆他尼、猜也蓬、加拉信、黎府）；北部甘蔗产区（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部甘蔗产区（北碧、华富里、素攀武里、猜纳）；东部补充产区（沙缴、春武里）等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-11-09",
+      "event_date": "2026-11-09",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20261109",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "肯尼亚",
+      "title": "Kenya sugar production jumps 56.7% as imports decline sharply",
+      "news": "肯尼亚糖业相关机构公布糖产量，糖产量下降56.7%。糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。来源：ChiniMandi（https://www.chinimandi.com/kenya-sugar-production-jumps-56-7-as-imports-decline-sharply/）。影响：利多糖价",
+      "impact": "利多：糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/kenya-sugar-production-jumps-56-7-as-imports-decline-sharply/",
+      "published_date_local": "2026-11-09",
+      "event_date": "2026-11-09",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Kenya sugar production jumps 56.7% as imports decline sharply",
+        "source_url": "https://www.chinimandi.com/kenya-sugar-production-jumps-56-7-as-imports-decline-sharply/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Mon, 09 Nov 2026 07:15:06 GMT",
+        "target_date": "2026-11-09",
+        "event_date": "2026-11-09",
+        "event_country": "肯尼亚",
+        "event_region": null,
+        "event_actor": "肯尼亚糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "56.7%"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPbFZ3OFhCcFppS0JsMzF5ZWg5R25IdHFSU0U3bkNaNXhVSUtzdGtLTFVVS2JzRTRWRjUzVjlvX0ptVEUwTjQxUmp1aVlXMVg1VDlBRjYwV1BGZS1HN1lNb0p5SHZ5emNTMEJTT3R5eEJVU01iTDlFLUM0Q1RxblZYcDhtNHhiSVFjc3VvUkZHS3VTUQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_肯尼亚肯尼亚糖业相关机构公布56720261109supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "其他国家",
+      "country": "肯尼亚",
+      "title": "Kenya sugar production jumps 56.7% to 690,521 tonnes",
+      "news": "肯尼亚糖业相关机构公布糖产量，糖产量为69.05万吨。该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。来源：Food Business Middle East & Africa（https://www.foodbusinessmea.com/kenya-sugar-production-jumps-56-7-to-690521-tonnes/）。影响：中性",
+      "impact": "中性：该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+      "source_name": "Food Business Middle East & Africa",
+      "source_url": "https://www.foodbusinessmea.com/kenya-sugar-production-jumps-56-7-to-690521-tonnes/",
+      "published_date_local": "2026-11-10",
+      "event_date": "2026-11-10",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "Kenya sugar production jumps 56.7% to 690,521 tonnes",
+        "source_url": "https://www.foodbusinessmea.com/kenya-sugar-production-jumps-56-7-to-690521-tonnes/",
+        "publisher": "Food Business Middle East & Africa",
+        "publication_time": "Mon, 09 Nov 2026 19:17:41 GMT",
+        "target_date": "2026-11-09",
+        "event_date": "2026-11-10",
+        "event_country": "肯尼亚",
+        "event_region": null,
+        "event_actor": "肯尼亚糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "56.7%",
+          "690,521 tonnes"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOY2JtUUdDbzBYUklzUHR4WlBPRUxwVWlpa1oxU2cycHBQRWVVd2lYbWZpOXc2TGVyNUhWdmRkUGkzOEFGbXhFZ1ltVGhTOGtlQ3NSYXh1SkdkR0NQVVV5MHFiOUhDbHVQSzNmR3d2M2VBUE5rUTRvUjR6QjhCcFZSWU5sOVNpbnctVnNB?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_肯尼亚肯尼亚糖业相关机构公布567690521tonnes20261110supply_demand",
+      "importance": 90
+    }
+  ]
+}
