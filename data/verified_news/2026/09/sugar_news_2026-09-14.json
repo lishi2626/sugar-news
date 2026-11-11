@@ -1,0 +1,107 @@
+{
+  "target_date": "2026-09-14",
+  "run_date": "2026-09-15",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Average sugar retail price rules below Rs 60/kg for 4th day; festive demand keep",
+      "news": "印度零售市场显示零售糖价，零售糖价为Rs 60。印度零售糖价只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。来源：The Economic Times（https://m.economictimes.com/news/economy/agriculture/average-sugar-retail-price-rules-below-rs-60/kg-for-4th-day-festive-demand-keeps-rates-elevated/amp_articleshow/134240457.cms）。影响：中性",
+      "impact": "中性：印度零售糖价只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+      "source_name": "The Economic Times",
+      "source_url": "https://m.economictimes.com/news/economy/agriculture/average-sugar-retail-price-rules-below-rs-60/kg-for-4th-day-festive-demand-keeps-rates-elevated/amp_articleshow/134240457.cms",
+      "published_date_local": "2026-09-14",
+      "event_date": "2026-09-14",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Average sugar retail price rules below Rs 60/kg for 4th day; festive demand keeps rates elevated",
+        "source_url": "https://m.economictimes.com/news/economy/agriculture/average-sugar-retail-price-rules-below-rs-60/kg-for-4th-day-festive-demand-keeps-rates-elevated/amp_articleshow/134240457.cms",
+        "publisher": "The Economic Times",
+        "publication_time": "Mon, 14 Sep 2026 11:49:00 GMT",
+        "target_date": "2026-09-14",
+        "event_date": "2026-09-14",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "Rs 60"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度零售糖价只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiigJBVV95cUxOX2FTeEdKS1hRbzhHNXBaSHpuQzBjRkktaUxCd1ktcWhsNWhOaktoWHR4WjRLazVUT1ZfdlBtc2V4STR4RWFyMWlWUVUySGh1aldnT0pQSzAwTGtHTHFKNS04N0lvZmtHdWxJZzNrWHVzcUlLelhzY0ZNUmxwVlR5T2gyX0QtTkNUUXl6UFc1M1U5cW9PTi1ScTlxbkN6XzAxSEdpYUlMZHRYblBjM3RfdGRaaG1RTGdoczkxMVN6SWVuaEpndUpCSWItbnJBSlBURkNBU2tBVjgzRDFobThjWWZkVWNfcWgtV003cWRodGFuYmtTNmVOUmFCSjFwNXFyLTN6STNxQmdfQdIBigJBVV95cUxOX2FTeEdKS1hRbzhHNXBaSHpuQzBjRkktaUxCd1ktcWhsNWhOaktoWHR4WjRLazVUT1ZfdlBtc2V4STR4RWFyMWlWUVUySGh1aldnT0pQSzAwTGtHTHFKNS04N0lvZmtHdWxJZzNrWHVzcUlLelhzY0ZNUmxwVlR5T2gyX0QtTkNUUXl6UFc1M1U5cW9PTi1ScTlxbkN6XzAxSEdpYUlMZHRYblBjM3RfdGRaaG1RTGdoczkxMVN6SWVuaEpndUpCSWItbnJBSlBURkNBU2tBVjgzRDFobThjWWZkVWNfcWgtV003cWRodGFuYmtTNmVOUmFCSjFwNXFyLTN6STNxQmdfQQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布rs6020260914price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "Thai sugar output could fall as much as 12.5% next season",
+      "news": "泰国糖业相关机构公布糖产量，糖产量下降12.5%。糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。来源：Bangkok Post（https://www.bangkokpost.com/business/general/3319365/thai-sugar-output-could-fall-as-much-as-125-next-season）。影响：利多糖价",
+      "impact": "利多：糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+      "source_name": "Bangkok Post",
+      "source_url": "https://www.bangkokpost.com/business/general/3319365/thai-sugar-output-could-fall-as-much-as-125-next-season",
+      "published_date_local": "2026-09-14",
+      "event_date": "2026-09-14",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Thai sugar output could fall as much as 12.5% next season",
+        "source_url": "https://www.bangkokpost.com/business/general/3319365/thai-sugar-output-could-fall-as-much-as-125-next-season",
+        "publisher": "Bangkok Post",
+        "publication_time": "Mon, 14 Sep 2026 02:28:00 GMT",
+        "target_date": "2026-09-14",
+        "event_date": "2026-09-14",
+        "event_country": "泰国",
+        "event_region": null,
+        "event_actor": "泰国糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "12.5%"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOa3FyZ3V3VktFNWdDcHZOX01US2R2RWhWTk1GU25LRlZXeEllQ3Rpck5FMUl4S1hpWGJkWS1nMTZULURYSFdnWWFDLTRIVEJRVFpEZlQtalgyTS00aW5SZi0xZGFXUnVMY0VEWEhMclR1aEg5S3h2akJ2SnRCS29hcTR3eDY1b1F3bDlrdWIyRkJqYnZjc09QR3NVbzktN1VDeDhGLXVyaW9adkVi?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_泰国泰国糖业相关机构公布12520260914supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "Open-Meteo预报显示（2026-09-15至2026-09-21），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括黎府约147.9mm、甘烹碧约146.4mm、华富里约139.1mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：Open-Meteo（https://api.open-meteo.com/v1/forecast）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "Open-Meteo",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "published_date_local": "2026-09-14",
+      "event_date": "2026-09-15",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_open_meteo_20260914",
+      "importance": 78
+    }
+  ]
+}

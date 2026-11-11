@@ -1,0 +1,152 @@
+{
+  "target_date": "2026-10-09",
+  "run_date": "2026-10-10",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "India Sugar Production Forecast Cut 14% to 29.5 Million Tonnes as El Niño Threat",
+      "news": "美国农业部USDA下调糖产量，糖产量为2950万吨，涉及印度。该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。来源：RuralVoice（https://eng.ruralvoice.in/agribusiness/india-sugar-production-forecast-cut-14-pc-to-29.5-million-tonnes-as-el-nino-threatens-cane-crop-usda-report.html）。影响：中性",
+      "impact": "中性：该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+      "source_name": "RuralVoice",
+      "source_url": "https://eng.ruralvoice.in/agribusiness/india-sugar-production-forecast-cut-14-pc-to-29.5-million-tonnes-as-el-nino-threatens-cane-crop-usda-report.html",
+      "published_date_local": "2026-10-09",
+      "event_date": "2026-10-09",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "India Sugar Production Forecast Cut 14% to 29.5 Million Tonnes as El Niño Threatens Cane Crop: USDA Report",
+        "source_url": "https://eng.ruralvoice.in/agribusiness/india-sugar-production-forecast-cut-14-pc-to-29.5-million-tonnes-as-el-nino-threatens-cane-crop-usda-report.html",
+        "publisher": "RuralVoice",
+        "publication_time": "Fri, 09 Oct 2026 09:36:00 GMT",
+        "target_date": "2026-10-09",
+        "event_date": "2026-10-09",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "美国农业部USDA",
+        "event_action": "下调",
+        "metrics": [
+          "14%",
+          "29.5 Million"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNRHhRZ3lxNzRhU0k0TzVDdGpScWF4M0JINDRFV1dKTnNGX0g2R3pjSkxfWXVwbDZmUHBZeHZjLWpXMVhUcjVUYkFnNndKRG9PNlFGbC1WTXI5Q3RwdzNDZEpEOXlSenRvTndDM2pxaEV4cTlUNDB3MlBFWmFCcVJLUlFZR003NDBJb0R5SVJOaXctalNyMC1GUUczQTk5ZlY0UWxjMktLR1NMcjdJT1RJSHA2aDN3NnlLSWF6RUZONERYQVJ0WlBZVHVzRm1vNjBCY29rWUNPY3lIRGUxLWxwMVFieGNyd9IB6wFBVV95cUxPQnBWRzdCU1pmWW5qSmhNNE02QmtILXQwcGxVSUtyTTlQczhDLWphS2RtYzRTWTdGSDhRdW9GLWRmQU1HeXYySjI1ck8xUHJUVDNoWkJqT21KS1VUeGVFRXZteEJ1NWdDTnhxczFrbU5nc0IwZDBtQ05TNGRqZ21RaURaam1lNEw0cHp2dXdUaE9fSGNSWnM5Z0RQU0ZiZXF4elowa0psRkEwdnMtVUNTVUdOc083aHRBa0hETVc3ZldPVzVybjZmOWhZa0hzWXYzazAwUzBUOE9yN3ozYndCdGxPdmRSMmoxT0o4?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度美国农业部usda下调14295million20261009supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "USDA forecast India’s sugar production to fall 14% to 29.5 million tonnes in 202",
+      "news": "美国农业部USDA预测糖产量，糖产量下降14%至2950万吨，涉及印度。糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。来源：ChiniMandi（https://www.chinimandi.com/usda-forecast-indias-sugar-production-to-fall-14-to-29-5-million-tonnes-in-2026-27/）。影响：利多糖价",
+      "impact": "利多：糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/usda-forecast-indias-sugar-production-to-fall-14-to-29-5-million-tonnes-in-2026-27/",
+      "published_date_local": "2026-10-09",
+      "event_date": "2026-10-09",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "USDA forecast India’s sugar production to fall 14% to 29.5 million tonnes in 2026-27",
+        "source_url": "https://www.chinimandi.com/usda-forecast-indias-sugar-production-to-fall-14-to-29-5-million-tonnes-in-2026-27/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Fri, 09 Oct 2026 05:16:17 GMT",
+        "target_date": "2026-10-09",
+        "event_date": "2026-10-09",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "美国农业部USDA",
+        "event_action": "预测",
+        "metrics": [
+          "14%",
+          "29.5 million"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQaWdrVDVFejRRQktZV0plVFFiY1dSeEEyQWNXUUdZWkZjc1F2Q2V4Yi1TazN2TUV0SVNEY3IyOTZCV3lwa0djZUEwQm9HdGVaNG1sTzBPbllCaXExSFZsZ3E1SG0xNmFGZG9YRTJvcXdxdXJwSXNvaVBFNS1pQkEtTVVibXE4YjRYODRxbFZnWHRUTm1qZlh0Mm4xUm9OWVllajBqR1RxN0hORVhPc25v?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度美国农业部usda预测14295million20261009supply_demand",
+      "importance": 85
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Tight mill supplies lift sugar prices Rs 600 in a week; all eyes on Centre’s nex",
+      "news": "印度糖厂显示糖厂出厂价，糖厂出厂价为Rs 600。印度糖厂出厂价只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。来源：ChiniMandi（https://www.chinimandi.com/tight-mill-supplies-lift-sugar-prices-rs-600-in-a-week-all-eyes-on-centres-next-move/）。影响：中性",
+      "impact": "中性：印度糖厂出厂价只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/tight-mill-supplies-lift-sugar-prices-rs-600-in-a-week-all-eyes-on-centres-next-move/",
+      "published_date_local": "2026-10-09",
+      "event_date": "2026-10-09",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Tight mill supplies lift sugar prices Rs 600 in a week; all eyes on Centre’s next move",
+        "source_url": "https://www.chinimandi.com/tight-mill-supplies-lift-sugar-prices-rs-600-in-a-week-all-eyes-on-centres-next-move/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Fri, 09 Oct 2026 11:55:47 GMT",
+        "target_date": "2026-10-09",
+        "event_date": "2026-10-09",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度政府",
+        "event_action": "公布",
+        "metrics": [
+          "Rs 600"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度糖厂出厂价只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPTWhIaG1ZMzRqblhJNGxwM29NV2x5bFlXaVBacUNmeFJ6VFBkR0VfQ1lEUG9OOUY5eHlWdmFHVlY1UHBReU9RWWlxT29qUENndE5Ka2lZWllOUHdwVG8xRVBQVHVxRUx2aFhDeEQwaXQwaWwzUTg2dnFkcE8wdDBaVUdTcDZna2JaQTR5TG9UYVFQZ1J6bnJndmJqNzRMaklzRFJIUWxkWFF1MFVuSDNXTXpR?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度政府公布rs60020261009price_market",
+      "importance": 80
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-10-09），孔敬、呵叻、猜也蓬、黎府、那空沙旺、甘烹碧、素可泰、北碧等等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-10-09",
+      "event_date": "2026-10-09",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20261009",
+      "importance": 78
+    }
+  ]
+}

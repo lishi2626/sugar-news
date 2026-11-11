@@ -1,6 +1,6 @@
 {
   "target_date": "2026-11-10",
-  "generated_at": "2026-11-11T16:31:40+08:00",
+  "generated_at": "2026-11-11T16:40:59+08:00",
   "status": "success",
   "verified_news_file": "D:\\Desktop\\ai\\sugar-news\\data\\verified_news\\2026\\11\\sugar_news_2026-11-10.json",
   "excel_file": "D:\\Desktop\\ai\\sugar-news\\reports\\2026\\11\\Sugar News 2026-11-10.xlsx",
@@ -8,7 +8,7 @@
   "dashboard_index": "D:\\Desktop\\ai\\sugar-news\\public\\sugar-news\\data\\index.json",
   "editorial_skill": {
     "path": ".codex/skills/sugar-news-editorial-rules/SKILL.md",
-    "sha256": "054a2c5ffad1020f77d16fd9b54ade1958356e7c65d64dfb443463cf865a9970"
+    "sha256": "f6c7b0adfa02023b58839f3e5376e3ee3f6b2888547663f366f34f3c05a816d8"
   },
   "thai_weather_check": {
     "fixed_step": "Thai main sugarcane area rainfall check",

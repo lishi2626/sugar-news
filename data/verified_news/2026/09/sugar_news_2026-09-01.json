@@ -1,0 +1,63 @@
+{
+  "target_date": "2026-09-01",
+  "run_date": "2026-09-02",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "West Bengal steps up action as sugar prices surge over 30% in a month",
+      "news": "印度现货市场显示食糖价格，糖价一个月上涨30%。印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。来源：ChiniMandi（https://www.chinimandi.com/west-bengal-steps-up-action-as-sugar-prices-surge-over-30-in-a-month/）。影响：利多糖价",
+      "impact": "利多：印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/west-bengal-steps-up-action-as-sugar-prices-surge-over-30-in-a-month/",
+      "published_date_local": "2026-09-01",
+      "event_date": "2026-09-01",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "West Bengal steps up action as sugar prices surge over 30% in a month",
+        "source_url": "https://www.chinimandi.com/west-bengal-steps-up-action-as-sugar-prices-surge-over-30-in-a-month/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Tue, 01 Sep 2026 11:06:29 GMT",
+        "event_date": "2026-09-01",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "30%"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPY2ZCRGl6RlZQN1RpeUJFbHp1MWxMRk1hS0ZBSlV1RG5NZVgzdE1SYTlLaVluS1hDSVlWblFXbVhkaGwzZzVvNnh4OGpPdEx2Y0NxQlBGaWFyc1gzcWozTmpDU0puRWlRWk1nVzBGek00alozd0hLaTZjZGlXWkE4cFhPakV3bVg4Ym1lMndWTVYyXzVrODNiVGhJWXM?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布3020260901price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "Open-Meteo预报显示（2026-09-02至2026-09-08），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括乌隆他尼约162.9mm、加拉信约160.5mm、沙缴约135.4mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：Open-Meteo（https://api.open-meteo.com/v1/forecast）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "Open-Meteo",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "published_date_local": "2026-09-01",
+      "event_date": "2026-09-02",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_open_meteo_20260901",
+      "importance": 78
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "target_date": "2026-11-02",
+  "run_date": "2026-11-03",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "India's Sugar Output Soars to 8.45 Lakh Ton in Oct 2026-27",
+      "news": "印度糖业相关机构公布糖产量，糖产量为84.5万吨。该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。来源：Rediff MoneyWiz（https://money.rediff.com/news/market/india-s-sugar-output-soars-to-8-45-lakh-ton-in-oct-2026-27/57367220261102）。影响：中性",
+      "impact": "中性：该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+      "source_name": "Rediff MoneyWiz",
+      "source_url": "https://money.rediff.com/news/market/india-s-sugar-output-soars-to-8-45-lakh-ton-in-oct-2026-27/57367220261102",
+      "published_date_local": "2026-11-02",
+      "event_date": "2026-11-02",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "India's Sugar Output Soars to 8.45 Lakh Ton in Oct 2026-27",
+        "source_url": "https://money.rediff.com/news/market/india-s-sugar-output-soars-to-8-45-lakh-ton-in-oct-2026-27/57367220261102",
+        "publisher": "Rediff MoneyWiz",
+        "publication_time": "Mon, 02 Nov 2026 12:44:49 GMT",
+        "target_date": "2026-11-02",
+        "event_date": "2026-11-02",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "8.45 Lakh"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPbHMzS0sxbEFpdFl3U0JJY2xPcVFwbEhTY3RTMG5SXzZtbGFyd1NtUG8wN1JaV1VzU3F0UEIzV0E3TUlXM29qczN0bFRkaXV0LTFTX2YzTHFDNllnUFpDeWw1MUtQUW9Id0w4VnNpR3RYTWMwS0xLVW1ac1F6cEN2N3BNTGtZVHhxNkJtQ29rZnIyY3FPN0RpWHFzUTlWeFRlOFdtTmZYWk4zbG9SdWRJ0gG0AUFVX3lxTFBoSC1iY2x5S05veWVoSUZFeGFlSWVSLTA3NmtIVllORXhwVXpReURzOUwzX2pDSnRhRW5HNzFYOWxqRld1QlYwd05JUkhLQkZHOTZvaHlNTG9MeGJJUFRPclpqSkpKb1RNcndDaFotbkVJM2hyUlZIb1Q2XzQwTllWSFYxV2x1V1FwSDJ5a1gtb3ByOVpUbmoxWHlTY05MX3dLZzVXS3ZydkJmZ2dMUGhnX0JGeg?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构公布845lakh20261102supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "India’s sugar production up at a record high of 8.5 lakh tonnes in October",
+      "news": "印度糖业相关机构公布糖产量，糖产量增加至85万吨。糖产量增加会提高当期新增可售糖源，缓解供应压力并压制糖价。来源：BusinessLine（https://www.thehindubusinessline.com/markets/commodities/indias-sugar-production-up-at-a-record-high-of-85-lakh-tonnes-in-october/article71657166.ece）。影响：利空糖价",
+      "impact": "利空：糖产量增加会提高当期新增可售糖源，缓解供应压力并压制糖价。",
+      "source_name": "BusinessLine",
+      "source_url": "https://www.thehindubusinessline.com/markets/commodities/indias-sugar-production-up-at-a-record-high-of-85-lakh-tonnes-in-october/article71657166.ece",
+      "published_date_local": "2026-11-02",
+      "event_date": "2026-11-02",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "India’s sugar production up at a record high of 8.5 lakh tonnes in October",
+        "source_url": "https://www.thehindubusinessline.com/markets/commodities/indias-sugar-production-up-at-a-record-high-of-85-lakh-tonnes-in-october/article71657166.ece",
+        "publisher": "BusinessLine",
+        "publication_time": "Mon, 02 Nov 2026 15:20:04 GMT",
+        "target_date": "2026-11-02",
+        "event_date": "2026-11-02",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "8.5 lakh"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "糖产量增加会提高当期新增可售糖源，缓解供应压力并压制糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOUk5sQnoyV1FMbktIcFFlZkFGd0Q4d083eVlxMlRNbVRqd1ZpQ1lXUWpHT0p6TnFvbXo1MTBSelNvWFhKbXVPTG5sbklvTm9qNThIeV9OOWxReE1zTDdrVVFCdFdUQ1c5bDFab2FydHpwTy1JT05YdTRlQllaY1RrZExna1RJaXlRSEVreVEwS1hUQmJnQXdXNHRfRE9YbTZvUjUtNDI0TDF0UHJnR0RHMi0tVUVkMFhsbGJ5S3JweFpGVGg4Q2p5Tlo4WTg4TjEtVzBfWVJ0b2Y3WThTdU5GSzFGNNIB6gFBVV95cUxOaGlkMmJXY2FJZkpKejVfbl9Kb01fakhhVFBfTnVQSGowcU56Sk96N3B6c3o0RTRFSHFEZngxaVp3QVZ2d2I3a3dUY29kNlFGMWFOZ1dxWjlCNF9NS3NCYTVhZWFpb0ljc1paNVpRNW82MkdfQ3RuZWxDa3ZEUGxpWHVSTUgxM3d4RTRnbWNBRnJTdjdqUFBrNlZUcWdGRlg1MWh0WHVUQmhFYmhsSDBIWmJDWVhWRWl4Znl3enRHOHFfMlJyMkhQTWVDejlZWC1rTlk1U1lyX0tBOF9IMTRsV0dyM25mbTEtWmc?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构公布85lakh20261102supply_demand",
+      "importance": 85
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "OMCs seek 15 crore litres of biodiesel at base price of Rs 88 per litre",
+      "news": "印度现货市场显示食糖价格，食糖价格为15 crore、Rs 88。印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。来源：ChiniMandi（https://www.chinimandi.com/omcs-seek-15-crore-litres-of-biodiesel-at-base-price-of-rs-88-per-litre/）。影响：中性",
+      "impact": "中性：印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/omcs-seek-15-crore-litres-of-biodiesel-at-base-price-of-rs-88-per-litre/",
+      "published_date_local": "2026-11-02",
+      "event_date": "2026-11-02",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "OMCs seek 15 crore litres of biodiesel at base price of Rs 88 per litre",
+        "source_url": "https://www.chinimandi.com/omcs-seek-15-crore-litres-of-biodiesel-at-base-price-of-rs-88-per-litre/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Mon, 02 Nov 2026 11:55:08 GMT",
+        "target_date": "2026-11-02",
+        "event_date": "2026-11-02",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "15 crore",
+          "Rs 88"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNcWMzd1M1M3JCcnRnSzlVVXFhQUdydlZkRG9WeDFfcjdud0dHaUhhVFBXX0JveFdILU5ZVUhmX2hDcWxFc0hGa3JsVjRZdnlaaURPUzNVWjZVY0VyYlFLa2pYN2hCYzhrdS1HTS1NOURTMV9sUnI5Nzg5VlhtVlI2RGFZNVk3MlZxSHQ5R2pnSkdXSlk1WnFaUUhwbnB3cHBz?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布15crorers8820261102price_market",
+      "importance": 80
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-11-02），孔敬、呵叻、猜也蓬、彭世洛、北碧、沙缴、春武里等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-11-02",
+      "event_date": "2026-11-02",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20261102",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "巴基斯坦",
+      "title": "Sindh growers demand Rs650 per maund sugarcane price, announce protest on Novemb",
+      "news": "巴基斯坦现货市场显示食糖价格，食糖价格为Rs650。巴基斯坦食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。来源：Profit by Pakistan Today（https://profit.pakistantoday.com.pk/2026/11/02/sindh-growers-demand-rs650-per-maund-sugarcane-price-announce-protest-on-november-4）。影响：中性",
+      "impact": "中性：巴基斯坦食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+      "source_name": "Profit by Pakistan Today",
+      "source_url": "https://profit.pakistantoday.com.pk/2026/11/02/sindh-growers-demand-rs650-per-maund-sugarcane-price-announce-protest-on-november-4",
+      "published_date_local": "2026-11-02",
+      "event_date": "2026-11-02",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Sindh growers demand Rs650 per maund sugarcane price, announce protest on November 4",
+        "source_url": "https://profit.pakistantoday.com.pk/2026/11/02/sindh-growers-demand-rs650-per-maund-sugarcane-price-announce-protest-on-november-4",
+        "publisher": "Profit by Pakistan Today",
+        "publication_time": "Mon, 02 Nov 2026 09:46:05 GMT",
+        "target_date": "2026-11-02",
+        "event_date": "2026-11-02",
+        "event_country": "巴基斯坦",
+        "event_region": null,
+        "event_actor": "巴基斯坦糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "Rs650"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "巴基斯坦食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQVmFDT3k5TmVOVDFncjZsQWxZdDRuRnpwMUFKMS1MQ0RKRlBFRFQ0ZFUzNXM1VEpGV3lTVUJhMTRab2Iwa2JvejAwR0FFeXFQa3ZJN2RBdXp2UHJwMUs5RjBMNU5wU0ZiYVhGTEx0dURJS1U1LXVtdjJpZk5kTTZfQjhFU3BZZW14WmxGXzNacmVqcWJVckprQTlYY19ybjFxNUpCSVhYRDJkN09PV3k0dm1MNDVpb3NHNlVadVhFTWtncXdaX1ZsMmdB?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_巴基斯坦巴基斯坦糖业市场公布rs65020261102price_market",
+      "importance": 90
+    }
+  ]
+}

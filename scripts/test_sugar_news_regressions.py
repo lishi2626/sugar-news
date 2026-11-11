@@ -19,6 +19,7 @@ from brazil_sugar_metrics import (
     hisugar_general_news_query_page,
     hisugar_query_list_page,
     hisugar_row_selection_key,
+    parse_hisugar_numeric_ocr_rows,
     parse_hisugar_ocr_rows,
     parse_hisugar_list_articles,
     parse_hisugar_noisy_ocr_rows,
@@ -41,6 +42,7 @@ from sugar_news_pipeline import (
     is_non_industry_sugar_context,
     ensure_china_news_item,
     ensure_thai_weather_item,
+    event_fingerprint,
     localize_metric_for_summary,
     normalize_brazil_metrics,
     normalize_items,
@@ -55,6 +57,7 @@ from sugar_news_pipeline import (
     rss_sugar_relevant,
     tmd_thai_weather_item_from_text,
     validate_editorial_quality,
+    validate_global_summary,
     validate_india_weather_impact,
 )
 from india_sugar_metrics import parse_chinimandi_exmill_date
@@ -183,6 +186,8 @@ def test_brazil_metrics_daily_refresh_skill_and_workflow() -> None:
     assert "brazil_metrics_refresh = refresh_brazil_metrics(date_text)" in source
     assert "if args.preserve_existing_metrics:" in source
     assert "other-country item lacks concrete country/region; skipped before publication" in source
+    refresh_script = (PROJECT_ROOT / "scripts" / "refresh_brazil_dashboard_report.py").read_text(encoding="utf-8")
+    assert "strip_public_fetch_logs(normalize_brazil_metrics(date_text))" in refresh_script
 
     assert "sourceDataDate" in skill
     assert "automatic monitoring + latest valid value retention" in skill
@@ -538,6 +543,30 @@ def test_brazil_import_premium_hisugar_source_and_date_rule() -> None:
     )
     latest_by_date = {row["data_date"]: row for row in latest_rows}
     assert latest_by_date["2026-08-19"]["premium_discount_cents_per_lb"] == -0.51
+
+    september_article = {
+        "article_id": "2026090208542553598833",
+        "article_title": "20260901食糖进口成本及利润估算",
+        "article_published_at": "2026-09-02 08:55:58",
+        "title_date": "2026-09-01",
+        "source_url": "https://www.hisugar.com/home/articleContent?id=2026090208542553598833",
+    }
+    september_numeric_ocr = "\n".join([
+        "20260826 17.62 6.7233 49.75 -0.65 4503 5722",
+        "20260827 18.22 6.7200 49.75 -0.65 4628 5885",
+        "20260828 17.56 6.7307 49.75 -0.65 4498 5714",
+        "20260831 17.79 6.7195 49.75 -0.65 4536 5765",
+        "20260901 18.38 6.7202 49.75 -0.65 4659 5925",
+    ])
+    september_rows = parse_hisugar_numeric_ocr_rows(
+        september_numeric_ocr,
+        september_article,
+        "https://www.hisugar.com/image/20260902/1788310357694083469.png",
+        "tesseract",
+    )
+    september_by_date = {row["data_date"]: row for row in september_rows}
+    assert september_by_date["2026-09-01"]["premium_discount_cents_per_lb"] == -0.65
+    assert september_by_date["2026-09-01"]["source_url"] == september_article["source_url"]
 
     prior_year_article = {
         "article_id": "2025080608563542667063",
@@ -1024,6 +1053,215 @@ def test_editorial_quality_rejects_20260831_auto_summary_templates() -> None:
             assert "vague" in str(exc)
         else:
             raise AssertionError("2026-08-31 auto-generated template summary should be rejected")
+
+
+def test_editorial_quality_rejects_20260903_0906_auto_summary_templates() -> None:
+    bad_items = [
+        {
+            "country_group": "印度",
+            "country": "印度",
+            "title": "Sugar markets round trip: Sugar ex-mill prices erase entire rally, back to ₹43 from ₹70 per kg",
+            "news": "印度糖厂显示糖厂出厂价，糖厂出厂价为₹43、₹70。印度糖厂出厂价仅披露当前水平，缺少前期比较时不单独改变供需方向判断。来源：Test（https://example.test/india-exmill）",
+            "impact": "中性：印度糖厂出厂价仅披露当前水平，缺少前期比较时不单独改变供需方向判断。",
+            "source_name": "Test",
+            "source_url": "https://example.test/india-exmill",
+        },
+        {
+            "country_group": "其他国家",
+            "country": "巴基斯坦",
+            "title": "Farmers body urges govt to export 1 million tonnes of sugar before crushing season",
+            "news": "巴基斯坦政府披露糖厂运行和压榨安排，披露1 million。巴基斯坦糖厂开榨、复产或压榨增加会加快当季食糖产出，增加阶段性供应。来源：Test（https://example.test/pakistan-export）",
+            "impact": "利空：糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+            "source_name": "Test",
+            "source_url": "https://example.test/pakistan-export",
+        },
+        {
+            "country_group": "其他国家",
+            "country": "菲律宾",
+            "title": "Philippines considers raising ethanol blend to 15% as it explores new feedstock",
+            "news": "菲律宾糖业相关机构公布乙醇掺混或燃料政策，披露15%。若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量。来源：Test（https://example.test/ph-ethanol）",
+            "impact": "利多：若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量，从而减少食糖供应预期并支撑糖价。",
+            "source_name": "Test",
+            "source_url": "https://example.test/ph-ethanol",
+        },
+    ]
+    for idx, item in enumerate(bad_items, start=1):
+        try:
+            validate_editorial_quality(item, idx)
+        except ValueError as exc:
+            assert "vague" in str(exc)
+        else:
+            raise AssertionError("2026-09-03/2026-09-06 auto-generated template summary should be rejected")
+
+    bad_global = (
+        "全球糖业新闻重点集中在印度糖厂显示糖厂出厂价，糖厂出厂价为₹43、₹70；"
+        "巴基斯坦政府披露糖厂运行和压榨安排，披露1million。"
+        "利空因素是当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分。"
+        "国际糖价主要受供应改善、天气恢复或流通增加压力牵制，短期以震荡判断为宜。"
+    )
+    try:
+        validate_global_summary(bad_global)
+    except ValueError as exc:
+        assert "vague" in str(exc)
+    else:
+        raise AssertionError("global summary must reject auto-generated vague fragments")
+
+
+def test_editorial_quality_rejects_20260913_bare_metric_dump_templates() -> None:
+    bad_items = [
+        {
+            "country_group": "印度",
+            "country": "印度",
+            "title": "Bihar govt sweetens deal for new sugar mills with Rs 70 crore grant over 5 years",
+            "news": "印度政府披露糖厂运行和压榨安排，披露70 crore、Rs 70。印度糖厂运行信息需要落实到开榨、停产、压榨量或原料供应方向后判断阶段性供应。来源：Test（https://example.test/bihar）",
+            "impact": "利空：糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+            "source_name": "Test",
+            "source_url": "https://example.test/bihar",
+        },
+        {
+            "country_group": "泰国",
+            "country": "泰国",
+            "title": "Thailand’s sugar production may fall by at least 17%",
+            "news": "泰国糖业相关机构公布糖产量，公布17%。糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。来源：Test（https://example.test/thai-production）",
+            "impact": "利多：糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+            "source_name": "Test",
+            "source_url": "https://example.test/thai-production",
+        },
+    ]
+    for idx, item in enumerate(bad_items, start=1):
+        try:
+            validate_editorial_quality(item, idx)
+        except ValueError as exc:
+            assert "vague" in str(exc)
+        else:
+            raise AssertionError("bare metric-dump auto summary should be rejected")
+
+    good = {
+        "country_group": "印度",
+        "country": "印度",
+        "title": "Bihar govt sweetens deal for new sugar mills with Rs 70 crore grant over 5 years",
+        "news": (
+            "印度比哈尔邦政府在《比哈尔甘蔗产业投资促进政策2026》中规定，新建糖厂最低压榨能力为3500 TCD，每座厂投产后5年合计可获70 crore卢比补贴，现有糖厂扩产1000 TCD可获15 crore卢比补贴。"
+            "该政策降低比哈尔邦新建和扩建糖厂成本，项目落地后会提高当地甘蔗压榨能力和食糖产能，增加中期供应预期。来源：Test（https://example.test/bihar）"
+        ),
+        "impact": "利空：比哈尔邦补贴新建和扩建糖厂会降低产能投资成本，项目落地后增加甘蔗压榨能力和中期食糖供应预期。",
+        "source_name": "Test",
+        "source_url": "https://example.test/bihar",
+    }
+    validate_editorial_quality(good, 3)
+
+
+def test_rss_recent_rewrite_templates_follow_manual_style() -> None:
+    india_retail = {
+        "event_country": "印度",
+        "event_actor": "印度零售市场",
+        "event_action": "显示",
+        "topic": "price_market",
+        "source_title": "Retail sugar price drops 3.85 percent to Rs 62.57/kg in a week: Govt data",
+        "metrics": ["3.85 percent", "Rs 62.57"],
+        "publisher": "The Times of India",
+        "source_url": "https://example.test/india-retail",
+    }
+    india_retail_news, india_retail_impact = rss_summary_for_publication(india_retail)
+    assert "印度消费者事务部数据显示" in india_retail_news
+    assert "一周下跌3.85%至62.57卢比/公斤" in india_retail_news
+    assert "进口和限库增加可流通糖源" in india_retail_news
+    assert india_retail_impact.startswith("利空：")
+
+    india_exmill = {
+        "event_country": "印度",
+        "event_actor": "印度糖厂",
+        "event_action": "显示",
+        "topic": "price_market",
+        "source_title": "Sugar markets round trip: Sugar ex-mill prices erase entire rally, back to ₹43 from ₹70 per kg",
+        "metrics": ["₹43", "₹70"],
+        "publisher": "ChiniMandi",
+        "source_url": "https://example.test/india-exmill",
+    }
+    india_exmill_news, india_exmill_impact = rss_summary_for_publication(india_exmill)
+    assert "接近₹70/kg的高位回落到₹43-44/kg附近" in india_exmill_news
+    assert "100万吨免税原糖进口预期" in india_exmill_news
+    assert "仅披露当前水平" not in india_exmill_news
+    assert india_exmill_impact.startswith("利空：")
+
+    pakistan_rss = {
+        "title": "Farmers body urges govt to export 1 million tonnes of sugar before crushing season - Profit by Pakistan Today",
+        "description": "",
+        "link": "https://example.test/pakistan-export",
+        "published": "Sat, 05 Sep 2026 10:00:00 GMT",
+    }
+    title_clean, source = rss_source_from_title(pakistan_rss["title"])
+    pakistan = structured_candidate_from_rss("巴基斯坦", pakistan_rss, "2026-09-06", title_clean, source)
+    assert pakistan["topic"] == "trade_policy"
+    assert pakistan["event_actor"] == "巴基斯坦农民联合会（PKI）"
+    assert pakistan["event_action"] == "呼吁"
+    pakistan_news, pakistan_impact = rss_summary_for_publication(pakistan)
+    assert pakistan_news.startswith("周末延续消息：巴基斯坦农民联合会（PKI）呼吁政府")
+    assert "100万吨出口获批，将增加国际市场可供应糖源" in pakistan_news
+    assert pakistan_impact.startswith("利空：")
+
+    philippines = {
+        "event_country": "菲律宾",
+        "event_actor": "菲律宾农业部和能源部",
+        "event_action": "评估提高",
+        "target_date": "2026-09-03",
+        "event_date": "2026-09-01",
+        "topic": "ethanol_policy",
+        "source_title": "Philippines considers raising ethanol blend to 15% as it explores new feedstock",
+        "metrics": ["15%"],
+        "publisher": "菲律宾农业部",
+        "source_url": "https://example.test/ph-ethanol",
+    }
+    philippines_news, philippines_impact = rss_summary_for_publication(philippines)
+    assert philippines_news.startswith("近期重要消息：菲律宾农业部和能源部正在评估")
+    assert "由10%提高至15%" in philippines_news
+    assert "糖蜜和甘蔗汁承担" in philippines_news
+    assert "非糖原料放量会削弱" in philippines_news
+    assert philippines_impact.startswith("利多：")
+
+    for idx, (country_group, country, title, news, impact, source_url) in enumerate(
+        [
+            ("印度", "印度", india_retail["source_title"], india_retail_news, india_retail_impact, "https://example.test/india-retail"),
+            ("印度", "印度", india_exmill["source_title"], india_exmill_news, india_exmill_impact, "https://example.test/india-exmill"),
+            ("其他国家", "巴基斯坦", pakistan["source_title"], pakistan_news, pakistan_impact, "https://example.test/pakistan-export"),
+            ("其他国家", "菲律宾", philippines["source_title"], philippines_news, philippines_impact, "https://example.test/ph-ethanol"),
+        ],
+        start=1,
+    ):
+        validate_editorial_quality(
+            {
+                "country_group": country_group,
+                "country": country,
+                "title": title,
+                "news": news,
+                "impact": impact,
+                "source_name": "Test",
+                "source_url": source_url,
+            },
+            idx,
+        )
+
+
+def test_rss_recent_duplicate_price_events_share_fingerprint() -> None:
+    first = {
+        "event_country": "印度",
+        "event_actor": "印度消费者事务部",
+        "event_action": "显示",
+        "topic": "price_market",
+        "source_title": "Retail sugar price drops 3.85 percent to Rs 62.57/kg in a week: Govt data",
+        "metrics": ["3.85 percent", "Rs 62.57"],
+        "event_date": "2026-09-03",
+    }
+    second = {
+        "event_country": "印度",
+        "event_actor": "印度零售市场",
+        "event_action": "显示",
+        "topic": "price_market",
+        "source_title": "Sugar prices ease; retail rates fall 3.85% to Rs 62.57/kg in a week",
+        "metrics": ["3.85%", "Rs 62.57"],
+        "event_date": "2026-09-03",
+    }
+    assert event_fingerprint(first) == event_fingerprint(second)
 
 
 def test_rss_price_market_fallback_uses_specific_indicator() -> None:
@@ -1581,6 +1819,10 @@ def main() -> None:
         test_editorial_quality_rejects_vague_supply_demand_metric_and_impact_language,
         test_editorial_quality_rejects_generic_metric_and_market_transmission_language,
         test_editorial_quality_rejects_20260831_auto_summary_templates,
+        test_editorial_quality_rejects_20260903_0906_auto_summary_templates,
+        test_editorial_quality_rejects_20260913_bare_metric_dump_templates,
+        test_rss_recent_rewrite_templates_follow_manual_style,
+        test_rss_recent_duplicate_price_events_share_fingerprint,
         test_rss_price_market_fallback_uses_specific_indicator,
         test_rss_supply_demand_summary_names_specific_metric_and_supply_path,
         test_rss_india_price_summary_names_stock_limit_market_path,

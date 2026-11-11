@@ -1,0 +1,65 @@
+{
+  "target_date": "2026-11-04",
+  "run_date": "2026-11-05",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Sugar prices jump Rs 4/kg in a month, rise Rs 12-13 over year despite supply ste",
+      "news": "印度现货市场显示食糖价格，食糖价格上涨至10万吨、Rs 12。印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。来源：The Economic Times（https://m.economictimes.com/industry/cons-products/food/sugar-prices-jump-rs-4/kg-in-a-month-rise-rs-12-13-over-year-despite-supply-steps/articleshow/135532742.cms）。影响：利多糖价",
+      "impact": "利多：印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+      "source_name": "The Economic Times",
+      "source_url": "https://m.economictimes.com/industry/cons-products/food/sugar-prices-jump-rs-4/kg-in-a-month-rise-rs-12-13-over-year-despite-supply-steps/articleshow/135532742.cms",
+      "published_date_local": "2026-11-04",
+      "event_date": "2026-11-04",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Sugar prices jump Rs 4/kg in a month, rise Rs 12-13 over year despite supply steps",
+        "source_url": "https://m.economictimes.com/industry/cons-products/food/sugar-prices-jump-rs-4/kg-in-a-month-rise-rs-12-13-over-year-despite-supply-steps/articleshow/135532742.cms",
+        "publisher": "The Economic Times",
+        "publication_time": "Wed, 04 Nov 2026 08:55:43 GMT",
+        "target_date": "2026-11-04",
+        "event_date": "2026-11-04",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "1lMT",
+          "Rs 12"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxOQXR4SklQVVVhbFlxczJBLTJWMkwzdE9FZDNGc3hhcmQwRkluSnlIekpheUtSRjVGbFlTVzNibE5TNEotN3IyRWFhdDF6SUM2X2pfWXJTVnNPMEdvREVRM1RaZkV0aVNQNEZoR1I4QmdhVDdTS3VaZXU4ekRYU1RnWHk4MU1Qa0s3empmVldIeW5EQjBQRXhpbkF3NkxodXBIUHpXYldqRXNWSk1VTGo1VHhqVEVaSE9BUEJWRWFzX0dQQjFyRm1SUmpmdUZVNExqNnY0N3hVN09qRHVDc2VJczd1WkxTRlk2ZWZaRUlkczBTaDZHTmfSAfsBQVVfeXFMTXZyVEZQd2tqRnI4Q0Etb1BPeld4OGZ6Y3Z2QTdsY25jN2tXZ0dsRDJwM1h2XzZmWHdNQzRWS0hOTVJMdjFfWkloNWI1VjNRN0JXWVQzVDZRU0pvZ1lMTmRPcm1hVGFzZms4ck9ES0tjNENjbUFhQklYU0tZMG1oM1MyMkw0cDZPUFRlZFBLWW90X185MkExVElzd1RhdFg2bXdJb1l1X2lhMGlDTUVYRTgxcXNNUFBtVTRnT3h0Tno5bkN4SmVhbjlMaU83Smw5WDBxRUhxOENvbXIyNWVyM3VTaEJqOFBIODI0Z1BFTkYyay1fUGJtWUhHams?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布1lmtrs1220261104price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "Open-Meteo预报显示（2026-11-05至2026-11-11），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括甘烹碧约58.3mm、春武里约34.8mm、北碧约34.4mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：Open-Meteo（https://api.open-meteo.com/v1/forecast）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "Open-Meteo",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "published_date_local": "2026-11-04",
+      "event_date": "2026-11-05",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_open_meteo_20261104",
+      "importance": 78
+    }
+  ]
+}

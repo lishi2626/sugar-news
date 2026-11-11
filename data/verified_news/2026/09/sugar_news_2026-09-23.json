@@ -1,0 +1,148 @@
+{
+  "target_date": "2026-09-23",
+  "run_date": "2026-09-24",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "UP minister Dinesh Khatik seeks Rs 100/quintal hike in sugarcane price",
+      "news": "印度现货市场显示食糖价格，食糖价格上涨至Rs 100。印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。来源：ChiniMandi（https://www.chinimandi.com/up-minister-dinesh-khatik-seeks-rs-100-quintal-hike-in-sugarcane-price/）。影响：利多糖价",
+      "impact": "利多：印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/up-minister-dinesh-khatik-seeks-rs-100-quintal-hike-in-sugarcane-price/",
+      "published_date_local": "2026-09-23",
+      "event_date": "2026-09-23",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "UP minister Dinesh Khatik seeks Rs 100/quintal hike in sugarcane price",
+        "source_url": "https://www.chinimandi.com/up-minister-dinesh-khatik-seeks-rs-100-quintal-hike-in-sugarcane-price/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 23 Sep 2026 03:00:09 GMT",
+        "target_date": "2026-09-23",
+        "event_date": "2026-09-23",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "提高",
+        "metrics": [
+          "Rs 100"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNc083UGFTWFRDNHpTb3FRZTJiMHM2VUVyMFlhX0Vsb3BLTl9waVIzQmVaOWxrdlJvdkpuSHc2X1dTWFlRQ09Wd191Z1g4WTAwT29abVotdFNfaUFHUl9CWEdDZGRlUmFRUDVWWFFKdlRORHpqbnhqcW1mSTlGcW96SnJxdVBhcS1yZTdmV0RGbm4tZkthZ0tKLWh6T3laTzg?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场提高rs10020260923price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Maharashtra to provide immediate relief to farmers hit by drought-like condition",
+      "news": "印度蔗农组织预警甘蔗产区天气、干旱或病虫害，已说明甘蔗虫害扩散或产区天气风险。印度产区若出现虫害、干旱或洪涝，会压低受影响地块单产并削弱糖料供应稳定性。来源：ChiniMandi（https://www.chinimandi.com/maharashtra-to-provide-immediate-relief-to-farmers-hit-by-drought-like-conditions/）。影响：利多糖价",
+      "impact": "利多：干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/maharashtra-to-provide-immediate-relief-to-farmers-hit-by-drought-like-conditions/",
+      "published_date_local": "2026-09-23",
+      "event_date": "2026-09-23",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Maharashtra to provide immediate relief to farmers hit by drought-like conditions",
+        "source_url": "https://www.chinimandi.com/maharashtra-to-provide-immediate-relief-to-farmers-hit-by-drought-like-conditions/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 23 Sep 2026 05:00:26 GMT",
+        "target_date": "2026-09-23",
+        "event_date": "2026-09-23",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度蔗农组织",
+        "event_action": "预警",
+        "metrics": [],
+        "comparison_period": null,
+        "topic": "weather_pest",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNRjVuN1lGTlBubjZaU0c4dzdRZ25GdEwxQU9NN1R5Qjl1MkFGaWFIWVlJaW05dDdUZnhVNHg3UVBNUFkzT3o3ZzZnS3YtRHNHMEUzRDRSamJ0d1VQWERmb01JZDFiM1QxR3g2M1RZQVVMc09CaHZGWlpHNmNQWUowNFAxaXN3STA0NFFmanJjTDJOTi1oUmNwRkxhYWpjdHpsVjhlcjhDOVNKY05Danc?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度蔗农组织预警20260923weather_pest",
+      "importance": 85
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "Open-Meteo预报显示（2026-09-24至2026-09-30），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括北碧约323.2mm、猜纳约261.4mm、素攀武里约255.5mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：Open-Meteo（https://api.open-meteo.com/v1/forecast）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "Open-Meteo",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "published_date_local": "2026-09-23",
+      "event_date": "2026-09-24",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_open_meteo_20260923",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "巴基斯坦",
+      "title": "Farmers demand surplus sugar export, Rs5,000 wheat support price",
+      "news": "巴基斯坦蔗农组织公布食糖贸易、进口、出口或配额政策，贸易政策披露Rs5,000。巴基斯坦出口配额或出口量增加会提高国际可流通糖源，增加国际供应压力。来源：Business Recorder（https://www.brecorder.com/news/40440716）。影响：利空糖价",
+      "impact": "利空：巴基斯坦出口配额或出口量增加会提高国际可流通糖源，增加国际供应压力。",
+      "source_name": "Business Recorder",
+      "source_url": "https://www.brecorder.com/news/40440716",
+      "published_date_local": "2026-09-23",
+      "event_date": "2026-09-23",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Farmers demand surplus sugar export, Rs5,000 wheat support price",
+        "source_url": "https://www.brecorder.com/news/40440716",
+        "publisher": "Business Recorder",
+        "publication_time": "Wed, 23 Sep 2026 01:05:01 GMT",
+        "target_date": "2026-09-23",
+        "event_date": "2026-09-23",
+        "event_country": "巴基斯坦",
+        "event_region": null,
+        "event_actor": "巴基斯坦蔗农组织",
+        "event_action": "公布",
+        "metrics": [
+          "Rs5,000"
+        ],
+        "comparison_period": null,
+        "topic": "trade_policy",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "巴基斯坦出口配额或出口量增加会提高国际可流通糖源，增加国际供应压力。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9McExYTlhrcVc3VDYxWDRyZ05mdlg4RF8yVjhaQVpHTE4yM0xhYS1MTjZzWW14aTlEd3hKT2ZmOUNyMlkwdlhXeEttY20tQW9o0gFWQVVfeXFMUEpFNXNXODdtWnk0VVZURDRSZEVEYnpGcVdpNUtnZ3ZBdTgyZnFqQ29LcXdsc2dQWGNRWHJtY2RhNktZdWRhQXdLYVgyVHJqUXlrNVhvNHc?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_巴基斯坦巴基斯坦蔗农组织公布rs500020260923trade_policy",
+      "importance": 90
+    }
+  ]
+}

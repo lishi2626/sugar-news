@@ -1,0 +1,150 @@
+{
+  "target_date": "2026-10-06",
+  "run_date": "2026-10-07",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Indian sugar companies’ share prices rally up to 9% as global prices surge amid ",
+      "news": "印度现货市场显示食糖价格，糖价上涨9%。印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。来源：ChiniMandi（https://www.chinimandi.com/indian-sugar-companies-share-prices-rally-up-to-9-as-global-prices-surge-amid-near-term-supply-tightness/）。影响：利多糖价",
+      "impact": "利多：印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/indian-sugar-companies-share-prices-rally-up-to-9-as-global-prices-surge-amid-near-term-supply-tightness/",
+      "published_date_local": "2026-10-06",
+      "event_date": "2026-10-06",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Indian sugar companies’ share prices rally up to 9% as global prices surge amid near-term supply tightness",
+        "source_url": "https://www.chinimandi.com/indian-sugar-companies-share-prices-rally-up-to-9-as-global-prices-surge-amid-near-term-supply-tightness/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Tue, 06 Oct 2026 09:50:15 GMT",
+        "target_date": "2026-10-06",
+        "event_date": "2026-10-06",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "9%"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOb2xHRjRjTzhYVFJNRmJIbktuZWRqMVppZW9DOGtGcW16TzdCQnQ0ZU5naUVSamxiXzZUWWNrbzFCSlUwdGNqemczTWxXX1NPb1lsZ085cnd2ZDdydExKVFdTSUNoUGVmVXdxc3lKNHZ2VmFYUU5Ralc2cXhSblZZWERsSVJyNWtLdVNCd1hlNV9GYk1DSmNYcEZFZktxNlFTUHJoZ2RRc2pRNzRCRFR2ckZXN1oybEs4NzFxREI0dldnak1KZXppc3hPcVA?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布920261006price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "In sweet spot! Sugar stocks surge up to 9%. What's behind the rise?",
+      "news": "印度糖业相关机构公布库存，库存增加9%。印度库存增加会提高当地现货供应缓冲，削弱补库需求并压制糖价。来源：Business Standard（https://www.business-standard.com/markets/news/dhampur-sugar-mills-other-sugar-stocks-surge-up-to-9-what-s-behind-the-rise-126100600450_1.html）。影响：利空糖价",
+      "impact": "利空：印度库存增加会提高当地现货供应缓冲，削弱补库需求并压制糖价。",
+      "source_name": "Business Standard",
+      "source_url": "https://www.business-standard.com/markets/news/dhampur-sugar-mills-other-sugar-stocks-surge-up-to-9-what-s-behind-the-rise-126100600450_1.html",
+      "published_date_local": "2026-10-06",
+      "event_date": "2026-10-06",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "In sweet spot! Sugar stocks surge up to 9%. What's behind the rise?",
+        "source_url": "https://www.business-standard.com/markets/news/dhampur-sugar-mills-other-sugar-stocks-surge-up-to-9-what-s-behind-the-rise-126100600450_1.html",
+        "publisher": "Business Standard",
+        "publication_time": "Tue, 06 Oct 2026 07:11:36 GMT",
+        "target_date": "2026-10-06",
+        "event_date": "2026-10-06",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "9%"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "印度库存增加会提高当地现货供应缓冲，削弱补库需求并压制糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNVEZtbGhfdnlud2E0MFVXekUzczdZSzhGYkJhZHFGeF9KUGhDbHROV0k1UF9HNkh4YU9kSzJFd3dGdjRrME9UbUhYT2cwODhwVG96ZXFBMmw1NndzYnFPUE1WRjZDNXVTSFpDMkl0WUVhTThxWlBEV1dNVjVHMFA1eVFuWlFWWmhEVjR5aXNpZVlBcHpOZ0JSRzdpYU9UT0xkcjdJS1NZVGh3ZXRfNnJtcDkxT29Gc24wcjh0RmtwaDJmX0N2RG1CZGFoWS0yWnZuM2E1RVVyTC1KQdIB3wFBVV95cUxOYXVpUEdIak93VU5VT2p2Zms5SXVnV2tINzR4VldEOG56a083cXEtdFFhN09aMUVUVE5VTHZJanA3MEVUaTdyRWtMWVFzRW9CMGYyd2llTDFGeEMxT2FTS0ZxUGhkRDE2QUVSdXVId0YxTFJzSXVHR3NLU245b3JKRkpzVS1NV3l6N2FVOWEyc0pFbmpiYi15d3Z5NkpBQlJOVzhvWVhzLUJVb2EtWWhCQmN2Y0NGbFBQRW5QQVJ4bk43T2pWYU1iaGRYQVk4c21BQzBxS0ZvMGpzSm5nMll3?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构公布920261006supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-10-06），呵叻、猜也蓬、黎府、甘烹碧、北碧、春武里等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-10-06",
+      "event_date": "2026-10-06",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20261006",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "菲律宾",
+      "title": "Negros sugar production expected to decline 12%",
+      "news": "菲律宾糖业相关机构公布糖产量，糖产量下降12%。糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。来源：The Manila Times（https://www.manilatimes.net/2026/10/06/regions/negros-sugar-production-expected-to-decline-12/2439354）。影响：利多糖价",
+      "impact": "利多：糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+      "source_name": "The Manila Times",
+      "source_url": "https://www.manilatimes.net/2026/10/06/regions/negros-sugar-production-expected-to-decline-12/2439354",
+      "published_date_local": "2026-10-06",
+      "event_date": "2026-10-06",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Negros sugar production expected to decline 12%",
+        "source_url": "https://www.manilatimes.net/2026/10/06/regions/negros-sugar-production-expected-to-decline-12/2439354",
+        "publisher": "The Manila Times",
+        "publication_time": "Mon, 05 Oct 2026 17:17:17 GMT",
+        "target_date": "2026-10-06",
+        "event_date": "2026-10-06",
+        "event_country": "菲律宾",
+        "event_region": null,
+        "event_actor": "菲律宾糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "12%"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNZ0llLWY5c2tKMHZ3a09SaU1kdnRXckdEQW42ZkpVSDNZUml1LS1GMVdwOEZUQk83b1Q5ZXBUOVViZUZEamR0anVnQ3d2WFIzbUt0OGxRLVEtakZkMFBzS2ZuY05pdXpnMnAwbWxXSGRlNUQ5cDFCREp2YjcwTmkxdGJhZjQ3WGs5MHhSS04ydldxSGNUQktjRTQ0dHJjWG8wNzhZ0gGoAUFVX3lxTE93dkhIVVNadUhKTDkwWW5adV9IYXpmV2lxS3h0MFE3ZjB6Sk9LOVhYUlgyWW10WTBtZDFzQjZ3a1F6WVEzNU5xVlQ0b0FfaGNRUnctNS01UDJqREIwME9ESzRvQnpfZmJoaFkyQW96Mll2SGk3bzRmZ2FkbnM4Nmd1ck04bl9KUXRMWnhQa3NKRmY5ZUNTRHR6MVBsdkg0UVJHMzlDTmFPVg?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_菲律宾菲律宾糖业相关机构公布1220261006supply_demand",
+      "importance": 90
+    }
+  ]
+}

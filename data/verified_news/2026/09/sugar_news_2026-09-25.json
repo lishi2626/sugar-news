@@ -1,0 +1,64 @@
+{
+  "target_date": "2026-09-25",
+  "run_date": "2026-09-26",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "巴西",
+      "country": "巴西",
+      "title": "Corn ethanol poised to account for 33.6% of Brazil’s output by 2028",
+      "news": "巴西糖业相关机构公布糖产量，糖产量变化幅度为33.6%。该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。来源：ChiniMandi（https://www.chinimandi.com/corn-ethanol-poised-to-account-for-33-6-of-brazils-output-by-2028/）。影响：中性",
+      "impact": "中性：该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/corn-ethanol-poised-to-account-for-33-6-of-brazils-output-by-2028/",
+      "published_date_local": "2026-09-25",
+      "event_date": "2026-09-25",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Corn ethanol poised to account for 33.6% of Brazil’s output by 2028",
+        "source_url": "https://www.chinimandi.com/corn-ethanol-poised-to-account-for-33-6-of-brazils-output-by-2028/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Fri, 25 Sep 2026 10:12:37 GMT",
+        "target_date": "2026-09-25",
+        "event_date": "2026-09-25",
+        "event_country": "巴西",
+        "event_region": null,
+        "event_actor": "巴西糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "33.6%"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQQWFiajlRWmFRUFM5djJFQXloTlc3WW1ia2hVVUhGTHZza3o5Z096QTVtVTF3MmdQenZZQXlXNWNyY0hBbDkzNEM0cF84QmtseUNZWkk2S3NWemtLQ185LWpDS0RHMklhZ3VWemxyYjhRMUw2UEZBdTZZRzZ3cHBKYk9NVU9NZTBvNzU5UTEyV2J0dV94QTlmSw?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_巴西巴西糖业相关机构公布33620260925supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "Open-Meteo预报显示（2026-09-26至2026-10-02），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括北碧约243.4mm、春武里约198.0mm、那空沙旺约137.5mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：Open-Meteo（https://api.open-meteo.com/v1/forecast）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "Open-Meteo",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "published_date_local": "2026-09-25",
+      "event_date": "2026-09-26",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_open_meteo_20260925",
+      "importance": 78
+    }
+  ]
+}

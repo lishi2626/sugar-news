@@ -1,0 +1,150 @@
+{
+  "target_date": "2026-11-07",
+  "run_date": "2026-11-08",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Haryana farmers demand Rs 600 sugarcane price, announce statewide protests from ",
+      "news": "印度现货市场显示食糖价格，食糖价格为Rs 600。印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。来源：ChiniMandi（https://www.chinimandi.com/haryana-farmers-demand-rs-600-sugarcane-price-announce-statewide-protests-from-november-12/）。影响：中性",
+      "impact": "中性：印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/haryana-farmers-demand-rs-600-sugarcane-price-announce-statewide-protests-from-november-12/",
+      "published_date_local": "2026-11-07",
+      "event_date": "2026-11-07",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Haryana farmers demand Rs 600 sugarcane price, announce statewide protests from November 12",
+        "source_url": "https://www.chinimandi.com/haryana-farmers-demand-rs-600-sugarcane-price-announce-statewide-protests-from-november-12/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Sat, 07 Nov 2026 05:28:24 GMT",
+        "target_date": "2026-11-07",
+        "event_date": "2026-11-07",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度蔗农组织",
+        "event_action": "公布",
+        "metrics": [
+          "Rs 600"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQU3NrcS1ycnJTN0xnYjU2cWozRGwyU1Z6NDBFU1dDN2Z2TFNxUmhzeFhVakZZOFBYeVc5Y2pLZEd6MWhDZl9WdWtFazJvMmg2RFU0UHdsTjJOeHIwY2JIa25mVUNFSGNIQXNMMV90SUljUkxRWk1nWGZQVnhUZzJXczVxUV8xT2EwZHVjWW9YUWIwdTByejZ1M29PNlZ6V180R3dBbWo0VGV3T1BQYjZtT0VEXzFOWk8wUkE?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度蔗农组织公布rs60020261107price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "India's Sugar Output Jumps to 12.85 Lakh Tonnes in 2026-27",
+      "news": "印度糖业相关机构公布糖产量，糖产量为128.5万吨。该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。来源：Rediff MoneyWiz（https://money.rediff.com/news/market/india-s-sugar-output-jumps-to-12-85-lakh-tonnes-in-2026-27/57662820261106）。影响：中性",
+      "impact": "中性：该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+      "source_name": "Rediff MoneyWiz",
+      "source_url": "https://money.rediff.com/news/market/india-s-sugar-output-jumps-to-12-85-lakh-tonnes-in-2026-27/57662820261106",
+      "published_date_local": "2026-11-06",
+      "event_date": "2026-11-06",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "India's Sugar Output Jumps to 12.85 Lakh Tonnes in 2026-27",
+        "source_url": "https://money.rediff.com/news/market/india-s-sugar-output-jumps-to-12-85-lakh-tonnes-in-2026-27/57662820261106",
+        "publisher": "Rediff MoneyWiz",
+        "publication_time": "Fri, 06 Nov 2026 13:50:49 GMT",
+        "target_date": "2026-11-07",
+        "event_date": "2026-11-06",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "12.85 Lakh"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "该供需指标需要明确对应产量、库存、销量或消费方向后，才能判断供给端或需求端影响。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPQzZmbXpsSTgxdFRLN2kzd0w4S3JJTUI2cGYxWmRmUERrSnA4STk5MVI1cVdwaDFvRUFQaTIxMklnbXVnanJWaEFzSG5KMnJnSS1NZ1A4QkpRNWpzY1Q4dU1EUUpIWGp2bGJSZnFZZGl3RDZPTGNKTXp6akZfQld4X25uVFd1eXI1ZlY1UDZ6NWcxVHdVSUhvZVVuT19fUjhRQlRwVl9ncjZHRkJERmdN0gG0AUFVX3lxTE9zRnNQeFkyY2sxdmo0Sk1tbDJBcWg3N0g4TEQxX3A5RUljcE04bDBld2ozVk52cy1Rc3VyV25SLWZRTE5yRGxnMk1RNktEc2pxb0lQd0xPZk1RaG9rcnhSRW4tNlRRUjI1MExMX1F1d1FRSFlhMHhHbGc4d2FCRmZHdnpwUVVKdTQ1ZDhERVVlTTItS21JZzRTd0VBaDFKLWNYQk8zMk1yQUQxVXlkOE1NekswRA?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业相关机构公布1285lakh20261106supply_demand",
+      "importance": 85
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "Open-Meteo预报显示（2026-11-08至2026-11-14），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括北碧约20.4mm、彭世洛约12.5mm、甘烹碧约11.8mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：Open-Meteo（https://api.open-meteo.com/v1/forecast）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "Open-Meteo",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "published_date_local": "2026-11-07",
+      "event_date": "2026-11-08",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_open_meteo_20261107",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "肯尼亚",
+      "title": "Kenya’s sugar production rises 56.7% as 2kg packet price falls by KSh32",
+      "news": "肯尼亚糖业相关机构公布糖产量，糖产量下降56.7%。糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。来源：TV47 Digital（https://www.tv47.digital/kenyas-sugar-production-rises-56-7-as-2kg-packet-price-falls-by-ksh32-168191/）。影响：利多糖价",
+      "impact": "利多：糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+      "source_name": "TV47 Digital",
+      "source_url": "https://www.tv47.digital/kenyas-sugar-production-rises-56-7-as-2kg-packet-price-falls-by-ksh32-168191/",
+      "published_date_local": "2026-11-07",
+      "event_date": "2026-11-07",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Kenya’s sugar production rises 56.7% as 2kg packet price falls by KSh32",
+        "source_url": "https://www.tv47.digital/kenyas-sugar-production-rises-56-7-as-2kg-packet-price-falls-by-ksh32-168191/",
+        "publisher": "TV47 Digital",
+        "publication_time": "Sat, 07 Nov 2026 12:18:49 GMT",
+        "target_date": "2026-11-07",
+        "event_date": "2026-11-07",
+        "event_country": "肯尼亚",
+        "event_region": null,
+        "event_actor": "肯尼亚糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "56.7%"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "糖产量下降会减少当期新增可售糖源，收紧供应端并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQcnNYeDZET2VNUFJjMkVKUFVnUXpRYjQyanZWV3FCSlcyY0FTaWNnMmFCV2N2U25ZUDJMWldCZzk5SXJBVTU2QVYxMjhZMlFjM2hjY084LUNlQkdfeENsR0VzWDdEdHBrVEdoTXNrbGt1QVpJQkx4ZzBrRi1MdzdaNG93NWt6VHgxY0VlTXpGUkhsQ1E0UzJUMUpBM2tvTE92YmtGbw?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_肯尼亚肯尼亚糖业相关机构公布56720261107supply_demand",
+      "importance": 90
+    }
+  ]
+}

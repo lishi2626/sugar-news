@@ -1,0 +1,62 @@
+{
+  "target_date": "2026-10-20",
+  "run_date": "2026-10-21",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-10-20），呵叻、彭世洛、北碧、春武里等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-10-20",
+      "event_date": "2026-10-20",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20261020",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "菲律宾",
+      "title": "Sugar sector opposes tax hike amid El Niño, pest threats",
+      "news": "菲律宾主产区农业或气象机构提高甘蔗产区天气、干旱或病虫害，已说明甘蔗虫害扩散或产区天气风险。菲律宾产区若出现虫害、干旱或洪涝，会压低受影响地块单产并削弱糖料供应稳定性。来源：Inquirer.net（https://business.inquirer.net/616838/sugar-sector-opposes-tax-hike-amid-el-nino-pest-threats）。影响：利多糖价",
+      "impact": "利多：干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+      "source_name": "Inquirer.net",
+      "source_url": "https://business.inquirer.net/616838/sugar-sector-opposes-tax-hike-amid-el-nino-pest-threats",
+      "published_date_local": "2026-10-21",
+      "event_date": "2026-10-21",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "Sugar sector opposes tax hike amid El Niño, pest threats",
+        "source_url": "https://business.inquirer.net/616838/sugar-sector-opposes-tax-hike-amid-el-nino-pest-threats",
+        "publisher": "Inquirer.net",
+        "publication_time": "Tue, 20 Oct 2026 18:10:00 GMT",
+        "target_date": "2026-10-20",
+        "event_date": "2026-10-21",
+        "event_country": "菲律宾",
+        "event_region": null,
+        "event_actor": "菲律宾主产区农业或气象机构",
+        "event_action": "提高",
+        "metrics": [],
+        "comparison_period": null,
+        "topic": "weather_pest",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPNDBPQVlUSzg1TjNzOG1wQ3ZheEVLUTk4YUpIQUtvbkEyaWF0QkRnbl9xMWpEbG9Cd25STkp1WHhWdmlTcktKb3VNZWNRci05TFl6STZtYWt0VWRjVE9xa0RWck9xVUlvS0d0NFZhMlFlaVF3dzlHaVNjOXZIV1IzUTVETkNYX3pfYmpOZkFhUEJJTkcyZEJv0gGcAUFVX3lxTE1tSXFyemZnZV9ENUFEblhTM1ZwU0dzOXFhYUlwYUVDcks4YXBON0VieFZEUWVkOUF2S3E4SEVsbmwzVGYzQ0MybUZkdXVwWFB2UUZkSXFmREhWZUg4Y1BlQkFubldlY0V4VE5EcWs1a3NVbTk1aFgta01tSzQ5Z0NaUjhaVlFDcVA1RHdFR21ETjctYWZsRTlKN0pYRQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_菲律宾菲律宾主产区农业或气象机构提高20261021weather_pest",
+      "importance": 90
+    }
+  ]
+}

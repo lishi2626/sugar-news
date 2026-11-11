@@ -1,0 +1,120 @@
+{
+  "target_date": "2026-09-06",
+  "run_date": "2026-09-07",
+  "search_tool": "Google News RSS autogeneration",
+  "global_summary": "9月6日糖业新闻重点集中在印度政府干预压低现货糖价、巴基斯坦过剩糖出口诉求和泰国主产区降雨预报。印度西马哈拉施特拉邦M级糖出厂价9月5日约₹4,350/公担，较此前西马哈拉施特拉邦和卡纳塔克邦接近₹70/kg的高位明显回落，印度限库和100万吨免税原糖进口预期、巴基斯坦130万吨未消费库存及100万吨出口诉求均增加供应压力；泰国甘蔗区雷阵雨和局地大雨改善生长期墒情，也提高后期供应预期。国际糖价短线受亚洲现货降温、潜在出口增量和泰国生长期降雨压制，ICE原糖持续站上15美分/磅前以震荡判断为宜。",
+  "globalHighlights": "9月6日糖业新闻重点集中在印度政府干预压低现货糖价、巴基斯坦过剩糖出口诉求和泰国主产区降雨预报。印度西马哈拉施特拉邦M级糖出厂价9月5日约₹4,350/公担，较此前西马哈拉施特拉邦和卡纳塔克邦接近₹70/kg的高位明显回落，印度限库和100万吨免税原糖进口预期、巴基斯坦130万吨未消费库存及100万吨出口诉求均增加供应压力；泰国甘蔗区雷阵雨和局地大雨改善生长期墒情，也提高后期供应预期。国际糖价短线受亚洲现货降温、潜在出口增量和泰国生长期降雨压制，ICE原糖持续站上15美分/磅前以震荡判断为宜。",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Sugar market's round trip: Sugar ex-mill prices erase entire rally, back to ₹43 ",
+      "news": "ChiniMandi整理的印度糖厂出厂价显示，马哈拉施特拉邦西部M级糖9月5日约₹4,350/公担、北马哈拉施特拉邦约₹4,400/公担、北卡纳塔克邦约₹4,380/公担，已从此前西马哈拉施特拉邦和卡纳塔克邦接近₹70/kg的高位回落到7月中旬₹43-44/kg附近。价格回落来自印度政府9月1日起对大用户实施15天库存限制、9月15日起将经销商库存上限从4,000公担降至2,000公担，以及允许100万吨免税原糖进口，这些措施迫使超限库存释放并提高可用供应，短期利空印度现货糖价。来源：ChiniMandi（https://www.chinimandi.com/sugar-markets-round-trip-sugar-ex-mill-prices-erase-entire-rally-back-to-%E2%82%B943-from-%E2%82%B970-per-kg/）。影响：利空糖价",
+      "impact": "利空：印度政府限库和100万吨免税原糖进口预期增加可流通糖源，推动糖厂出厂价从高位回落并压制短期现货糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/sugar-markets-round-trip-sugar-ex-mill-prices-erase-entire-rally-back-to-%E2%82%B943-from-%E2%82%B970-per-kg/",
+      "published_date_local": "2026-09-06",
+      "event_date": "2026-09-06",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Sugar market's round trip: Sugar ex-mill prices erase entire rally, back to ₹43 from ₹70 per kg",
+        "source_url": "https://www.chinimandi.com/sugar-markets-round-trip-sugar-ex-mill-prices-erase-entire-rally-back-to-%E2%82%B943-from-%E2%82%B970-per-kg/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Sun, 06 Sep 2026 02:30:05 GMT",
+        "event_date": "2026-09-06",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度政府和糖厂现货市场",
+        "event_action": "通过库存限制和免税进口预期压低糖厂出厂价",
+        "metrics": [
+          "西马哈拉施特拉邦M级糖9月5日约₹4,350/公担",
+          "北马哈拉施特拉邦约₹4,400/公担",
+          "北卡纳塔克邦约₹4,380/公担",
+          "此前西马哈拉施特拉邦和卡纳塔克邦接近₹70/kg",
+          "7月中旬马哈拉施特拉邦出厂价约₹43-44/kg",
+          "9月1日起大用户15天库存限制",
+          "9月15日起经销商库存上限从4,000公担降至2,000公担",
+          "允许100万吨免税原糖进口"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "库存限制释放超限库存，免税原糖进口预期提高可用供应，推动糖厂出厂价回落并压制短期印度现货糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "monday_weekend_window_friday_16_to_monday_06",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOSnNQSFlyTWc1UEVQQ25xb3RIOVYzNkc0eWEtTjV6VWlVVGdWWl9mUVJoQVlIbWU4aWxPQnh6NGctX3Nfdzd3Z2gydXYzdmViRlF2X2FBa2lhVzBvUUVhcmZrbVBSSjNoYUcyZm94NWZIV1lHUzRyaWNqd3RTby1xeWZWaTMxUzVBWUUyV0JWa0dJczgxajFjUDdFZW1FZVVOMm9sZ29FRkR0Mmdua1lia2xqMmtvVFo2QWQ2ZEFvMEJOYnNrQlM0NjVZd2xhbXBvTUE?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_india_ex_mill_prices_stock_limits_import_window_20260906",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局9月6日预报，乌隆他尼、加拉信、那空沙旺、彭世洛、北碧等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。泰国甘蔗处于生长期，雷阵雨和局地大雨会补充土壤水分、改善甘蔗单产形成条件，提高后期甘蔗和食糖供应预期，利空糖价。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：泰国主产区生长期降雨补充土壤水分并改善甘蔗单产形成条件，提高后期甘蔗和食糖供应预期，利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-09-06",
+      "event_date": "2026-09-06",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20260906",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "巴基斯坦",
+      "title": "Farmers body urges govt to export 1 million tonnes of sugar before crushing seas",
+      "news": "周末延续消息：巴基斯坦农民联合会（PKI）呼吁政府在11月15日新榨季开始前批准出口100万吨过剩糖，理由是国内仍有约130万吨未消费库存，且新季甘蔗产量预计增加10%-15%。巴基斯坦2025/26财年甘蔗产量已达8945万吨、同比增长6.2%，种植面积增长2.4%、平均单产780 maunds/acre；库存叠加增产预期说明国内供应压力偏大，若100万吨出口获批，将增加国际市场可供应糖源，利空国际糖价。来源：Profit by Pakistan Today（https://profit.pakistantoday.com.pk/2026/09/05/farmers-body-urges-govt-to-export-1-million-tonnes-of-sugar-before-crushing-season）。影响：利空糖价",
+      "impact": "利空：巴基斯坦现有约130万吨未消费库存且甘蔗产量预计继续增加，PKI要求出口100万吨过剩糖若获批，会把国内库存压力转化为国际市场新增供应，利空糖价。",
+      "source_name": "Profit by Pakistan Today",
+      "source_url": "https://profit.pakistantoday.com.pk/2026/09/05/farmers-body-urges-govt-to-export-1-million-tonnes-of-sugar-before-crushing-season",
+      "published_date_local": "2026-09-05",
+      "event_date": "2026-09-05",
+      "date_status": "continuing_impact",
+      "structured_candidate": {
+        "source_title": "Farmers body urges govt to export 1 million tonnes of sugar before crushing season",
+        "source_url": "https://profit.pakistantoday.com.pk/2026/09/05/farmers-body-urges-govt-to-export-1-million-tonnes-of-sugar-before-crushing-season",
+        "publisher": "Profit by Pakistan Today",
+        "publication_time": "Sat, 05 Sep 2026 08:02:11 GMT",
+        "event_date": "2026-09-05",
+        "event_country": "巴基斯坦",
+        "event_region": null,
+        "event_actor": "巴基斯坦农民联合会（PKI）",
+        "event_action": "呼吁政府批准在新榨季前出口过剩糖",
+        "metrics": [
+          "出口100万吨过剩糖",
+          "约130万吨未消费库存",
+          "新季甘蔗产量预计增加10%-15%",
+          "2025/26财年甘蔗产量8945万吨，同比增加6.2%",
+          "种植面积增加2.4%",
+          "平均单产780 maunds/acre",
+          "新榨季11月15日开始"
+        ],
+        "comparison_period": null,
+        "topic": "trade_policy",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "国内库存和甘蔗增产预期显示巴基斯坦供应压力偏大，若出口100万吨过剩糖获批，将增加国际市场可供应糖源并压制糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "monday_weekend_window_friday_16_to_monday_06",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNRk5tcTRfQWlienJJMlVMb3dnNzJTZUJzZ1V0VnNYTVlqN3lyNmkxNW1uRUwxZlF4YzJwVS1ON3pHS21pa3JscXFGa3Y0ZDZsMk93S1pjdjZKYnV5cm1CU3FyXzZhSldkdWxXbHkyUVZBc1BHamdmQ3lxRnFmRlRVb3ZIOTBVM1prT00tSzZ0NDl5RnZneW9hTEVWOEs1VVhMbXlqS2RsWFpnaHR4QURJdFphRDhPTUttTloxcXQtS25CODJpNXNKcA?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_pakistan_pki_urges_export_1m_tonnes_surplus_sugar_20260905",
+      "importance": 90
+    }
+  ]
+}

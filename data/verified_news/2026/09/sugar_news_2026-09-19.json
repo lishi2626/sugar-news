@@ -1,0 +1,64 @@
+{
+  "target_date": "2026-09-19",
+  "run_date": "2026-09-20",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Sugar retail prices down 10% ahead of festive season, govt eases stock cap",
+      "news": "印度零售市场显示零售糖价，糖价下跌10%。印度零售糖价下跌说明当地供应压力增加或采购需求转弱，短期压制现货糖价。来源：The Times of India（https://timesofindia.indiatimes.com/business/india-business/sugar-retail-prices-down-10-ahead-of-festive-season-govt-eases-stock-cap/articleshow/134343638.cms）。影响：利空糖价",
+      "impact": "利空：印度零售糖价下跌说明当地供应压力增加或采购需求转弱，短期压制现货糖价。",
+      "source_name": "The Times of India",
+      "source_url": "https://timesofindia.indiatimes.com/business/india-business/sugar-retail-prices-down-10-ahead-of-festive-season-govt-eases-stock-cap/articleshow/134343638.cms",
+      "published_date_local": "2026-09-19",
+      "event_date": "2026-09-19",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Sugar retail prices down 10% ahead of festive season, govt eases stock cap",
+        "source_url": "https://timesofindia.indiatimes.com/business/india-business/sugar-retail-prices-down-10-ahead-of-festive-season-govt-eases-stock-cap/articleshow/134343638.cms",
+        "publisher": "The Times of India",
+        "publication_time": "Fri, 18 Sep 2026 20:01:00 GMT",
+        "target_date": "2026-09-19",
+        "event_date": "2026-09-19",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度政府",
+        "event_action": "公布",
+        "metrics": [
+          "10%"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "印度零售糖价下跌说明当地供应压力增加或采购需求转弱，短期压制现货糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQR1dhMjBPNFY2eG1lYXNSc1JFY3pLeGdIY0h4V0EyLXlaZUFiSERCR1oybFRXRjFhZTVMX0RocDhMS1MwWUREWThHU2Zpb2NRaVNRa0N4RWktU1NEVnBHNzQ4ZU5WLXpWQnRRS0NpQ1pRaFFPYThkajhVSXljQXJvMXZhT0NYSW0zellEM2FPTUNRWDBUdW1PQmNNeEJDLTVERjFPQVdHR05vQTR2UmZXdEdvdUdCUmhBZUhIeUlsWjNOVTBrV3BBVkMwN2tZelVBdHExd1BTa1BBWm5GaFZBSHl3OUhTLUtrc0lxTjVPd9IB9AFBVV95cUxNbkJPVnNtZHVmY0cxQ2dRYXJjeXo0MDk3WHgzR0FqUXNYM0NCTDJjdVd4Njg1UThPOFdUT3daWEl5dlFYWDNLemYxY3RGVldTYmZ0Sk9PUnZUZkFLeFhvaE92NlJOMmxYMUpqX1BhdGItMENXRHhZTEtBSWU2Z1FKYWJfcmwtYktGU3d2UGpBU3Fjc3ZWejdPQ1l3cVV0QnR1OGdFdV95U3V1ajRuTU42QjBsX280eDQ1eWMyNlNsVjRnRDBWYmgwT0F6aVY4X1dMWjB3QWN6R2F3STVXbWJoUnlnakJXb3ZBeXBsQmtWV2hjT21U?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度政府公布1020260919price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "Open-Meteo预报显示（2026-09-20至2026-09-26），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括北碧约183.4mm、春武里约182.7mm、素攀武里约174.2mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：Open-Meteo（https://api.open-meteo.com/v1/forecast）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "Open-Meteo",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "published_date_local": "2026-09-19",
+      "event_date": "2026-09-20",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_open_meteo_20260919",
+      "importance": 78
+    }
+  ]
+}

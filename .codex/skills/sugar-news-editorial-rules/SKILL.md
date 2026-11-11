@@ -33,7 +33,7 @@ Media names such as ChiniMandi, Reuters, 路透社, 云糖网, 泛糖科技, The
 
 Use natural Chinese sugar-industry research language. Remove promotional wording, background padding, repeated boilerplate, and low-value commentary.
 
-Use the 2026-08-16, 2026-08-17, 2026-08-18, and 2026-08-31 rewritten reports as the standing style anchor for future daily summaries. Follow this template every day:
+Use the 2026-08-16, 2026-08-17, 2026-08-18, 2026-08-31, and 2026-09-13 rewritten reports as the standing style anchor for future daily summaries. Follow this template every day:
 
 1. `全球糖业新闻重点`: write 2-3 sentences. Sentence 1 names the most important countries and event types. Sentence 2 puts the largest figures into a bullish/bearish comparison, for example price strength, drought, ethanol diversion, mill restarts, production targets, imports, or weather. Sentence 3 states the main international sugar-price contradiction and uses neutral `震荡` wording unless ICE raw sugar is confirmed to remain above `15美分/磅`. When Indian domestic sugar prices keep setting record highs but ICE has not confirmed a sustained move above `15美分/磅`, use the judgment wording `ICE原糖持续站上15美分/磅前以震荡判断为宜`; do not write `ICE原糖未持续站上15美分/磅前以震荡判断为宜`.
 2. Country item body: write 2-3 sentences. Sentence 1 must name the actor, action, location/period, and exact figure. Sentence 2 must name the same actor/action and explain the supply-demand path to `利多糖价`, `利空糖价`, or `中性`. Sentence 3 is only for implementation lag, forecast uncertainty, or short-term/long-term distinction.
@@ -41,6 +41,12 @@ Use the 2026-08-16, 2026-08-17, 2026-08-18, and 2026-08-31 rewritten reports as 
 4. Price news is not inventory news. If the source says sugar equities rose because raw sugar reached `16.6美分/磅`, white sugar hit a multi-month high, or Mumbai spot prices reached `5000-5090卢比/公担`, summarize it as price strength and stage supply tightness, not as stock growth.
 5. Ethanol policy direction matters. Expansion above E20 or stronger sugar-based ethanol demand can divert cane juice, syrup, or B-heavy molasses from sugar output and support prices. Caution on E20-plus blending or support for E10 reduces incremental sugar-based ethanol demand, leaves more crystallizable sucrose for sugar, and is bearish unless the source gives a stronger offset.
 6. Investment or mill-revival news must distinguish timing. A mill restart, reconstruction, cane-area recovery, or national self-sufficiency target is usually bearish for medium-term supply, but say short-term impact is limited when the project is still under approval, reconstruction, financing, or preparation.
+
+Use the 2026-09-13 rewrite as the required standard for policy and production summaries:
+
+1. Every item must make `主体、政策/数据、供需路径` explicit. The first sentence names the real actor and policy/data, for example `印度比哈尔邦政府在《比哈尔甘蔗产业投资促进政策2026》中规定，新建糖厂最低压榨能力为3500 TCD，每座厂投产后5年合计可获70 crore卢比补贴`. The second sentence names how that actor/action changes cane crushing capacity, sugar production, export availability, inventory, demand, or ethanol diversion.
+2. Never publish bare metric-dump wording such as `披露70 crore、Rs 70`, `披露70crore、Rs70`, `公布17%`, `数据为17%`, or `相关数值为1 million`. A number must be attached to its exact indicator and period: `最低压榨能力3500 TCD`, `5年合计补贴70 crore卢比`, `2026/27榨季产糖低于1000万吨`, `上一榨季1200万吨`, `东北部约占全国食糖产量45%`.
+3. The global summary must be built from the rewritten facts, not from automatic fragments. It should compare the strongest bullish and bearish paths, such as `泰国产量下修减少全球第二大出口国可出口糖供应` versus `比哈尔邦补贴新建和扩建糖厂提高中期供应预期`.
 
 Use these automatic-vs-rewrite corrections from 2026-08-18 as hard rules:
 
@@ -62,6 +68,15 @@ Use the 2026-08-31 rewritten report as the latest style anchor for tomorrow and 
 4. Weather and disaster items must judge by crop stage and actual damage. India rainfall deficit in Maharashtra/Karnataka during cane growth is bullish because it threatens cane yield; Thailand growing-season thunderstorms or heavy rain are bearish because they improve soil moisture; China typhoon/flood, cane lodging, or inundation in Guangxi is bullish only when the source states affected acreage, damaged cane, transport disruption, or yield risk.
 5. China news must be retained when a concrete sugar-industry fact exists. China price items need the exact region, product, current quote, and daily change; China disaster items need the affected producer, acreage, cane condition, or expected supply path.
 6. Reject automatic summaries that only name a topic bucket. Examples that must be stopped before Excel/dashboard publication include `糖业市场发布或调整食糖价格和市场流通`, `糖价或相关政策基准为XXX`, `糖业相关机构公布库存数据`, and `食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端`.
+
+Use these automatic-vs-rewrite corrections from 2026-09-03 and 2026-09-06 as hard rules:
+
+1. India retail sugar-price stories covering the same government data must be deduplicated before publication. For the `3.85%` weekly fall to `Rs 62.57/kg`, write `印度消费者事务部数据显示，全国平均零售糖价一周下跌3.85%至62.57卢比/公斤...`; do not publish two separate India retail-price rows from Hindustan Times and Times of India.
+2. India ex-mill headlines such as `erase entire rally, back to ₹43 from ₹70/kg` are price pullback stories, not neutral current-quote stories. Summarize the relevant regions and levels, such as Maharashtra and Karnataka prices falling from around `₹70/kg` to `₹43-44/kg`, then explain that stock limits and duty-free raw-sugar import expectations increase available supply and pressure spot prices.
+3. Pakistan headlines such as `Farmers body urges govt to export 1 million tonnes of sugar before crushing season` are export-policy/surplus stories. The actor is the farmer body or `巴基斯坦农民联合会（PKI）`, not `巴基斯坦政府`; the effect is bearish for international sugar if exports are approved because `100万吨` additional sugar would enter tradable supply.
+4. Philippines ethanol headlines such as `considers raising ethanol blend to 15%` must name `菲律宾农业部和能源部`, the policy change from `10%` to `15%`, and the feedstock mix. If added demand is met by molasses or cane juice, it diverts crystallizable sugar and is bullish; if corn or other non-sugar feedstock expands, that weakens the bullish sugar effect.
+5. Continuing items must be explicitly marked when their source date is not the report date. Use `周末延续消息：` for weekend carryover items and `近期重要消息：` for recent non-weekend items still affecting the report date.
+6. The global summary must be built from the rewritten/deduplicated item facts. It must never recycle fragments such as `印度糖厂显示糖厂出厂价`, `仅披露当前水平`, `不单独改变供需方向判断`, `巴基斯坦政府披露糖厂运行和压榨安排`, or `披露1million`.
 
 Never publish vague fallback summaries such as:
 
@@ -108,6 +123,12 @@ Never publish vague fallback summaries such as:
 - `糖厂运行变化会直接影响甘蔗入榨、压榨节奏和阶段性食糖产量`
 - `报价变化会反映现货供需松紧和贸易商补库意愿`
 - `食糖价格上涨说明现货供应偏紧或节前需求增强，价格下跌则说明供应压力或需求转弱正在传导到现货端`
+- `仅披露当前水平`
+- `不单独改变供需方向判断`
+- `披露1 million`
+- `披露1million`
+- `糖业相关机构公布乙醇掺混或燃料政策`
+- `公布乙醇掺混或燃料政策，披露`
 - `现货或出厂报价上涨反映阶段性供应偏紧或采购需求增强`
 - `现货或出厂报价下跌反映供应压力或需求转弱`
 - `价格信息缺少明确涨跌幅或区域基准`
@@ -341,9 +362,11 @@ Brazil hydrous ethanol stock must use MAPA `Acompanhamento da Producao Sucroalco
 
 For Brazil hydrous ethanol stock year-on-year comparison, first match the exact prior-year source/report date. If MAPA's semi-monthly report shifts the displayed reference date by one day and the exact date is absent, match the same official PDF file cycle by day/month in the source file name, such as `150726` current year to `150725` prior year. If no same-cycle file exists, use the nearest official MAPA prior-year reference date within 3 days. Store the target YoY date, actual comparison date, exact-match flag, date-gap days, and prior-year source URL in the backend/dashboard JSON. Do not mark YoY as insufficient when a valid same-cycle or nearby MAPA prior-year PDF exists.
 
-For Brazil sugar import premium/discount, the fixed HiSugar entry is `https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap0`. The refresh must discover the article titled like `YYYYMMDD食糖进口成本及利润估算`, open the article, and extract the `进口升贴水` value from the report image/table. Select the newest valid internal row/report date available by the normal next-day 06:00 Beijing-time generation window; for example, if a `20260723` article is published after that cutoff, the `2026-07-23` Sugar News report must use the latest already available row such as `20260722`, where `进口升贴水 -0.30 美分/磅` displays `2026-07-22` as the data date. Do not use crawler time, web page current date, or Vercel deployment time as the import-premium data date.
+For Brazil sugar import premium/discount, the fixed HiSugar entry is `https://www.hisugar.com/home/newListMore?parentId=49&level=3&childId=143&menuTap0`. The refresh must discover the newest article titled like `YYYYMMDD食糖进口成本及利润估算`; if the static `newListMore` page does not expose article cards because it is dynamically rendered, continue with the same-channel `getQureyArticleList` API (`parentId=49`, `categoryId=143`, `pageCurInfo=sub_143`) plus the `newList`/`all_49` query and the HiSugar search API. Do not stop at an empty static page or retain an old value when the query APIs show a newer valid title date.
 
-Brazil sugar import premium daily and year-on-year changes must be recalculated from the same HiSugar `进口升贴水（美分/磅）` row only. Do not use nearby `ICE原糖收盘价`, import cost, RMB/t, quota, freight, FX, profit rows, or stale history values as comparison bases. OCR minus signs may appear as `．`, `.`, `一`, `－`, `−`, `—`, or `–`; normalize them before parsing. Validation case: article `https://www.hisugar.com/home/articleContent?id=2026080608433531248185` gives `2026-08-05 = -0.54` and `2026-08-04 = -0.54`, so daily change is `0.00 美分/磅`; article `https://www.hisugar.com/home/articleContent?id=2025080608563542667063` gives `2025-08-05 = -0.20`, so year-on-year absolute change is `-0.34 美分/磅`.
+For Brazil sugar import premium/discount, the article title date is the source data date to be checked against the table row. Open the newest valid article and extract the `进口升贴水（美分/磅）` value from the report image/table row with the same `YYYYMMDD` date. As a validation case, on `2026-09-02` the list/search APIs show the latest article `20260901食糖进口成本及利润估算`, `https://www.hisugar.com/home/articleContent?id=2026090208542553598833`; its `20260901` row has `进口升贴水 = -0.65 美分/磅`, so the dashboard data date must update to `2026-09-01` and the value must be `-0.65`. Select the newest valid internal row/report date available by the normal next-day 06:00 Beijing-time generation window; for example, if a `20260723` article is published after that cutoff, the `2026-07-23` Sugar News report must use the latest already available row such as `20260722`, where `进口升贴水 -0.30 美分/磅` displays `2026-07-22` as the data date. Do not use crawler time, web page current date, or Vercel deployment time as the import-premium data date.
+
+Brazil sugar import premium daily and year-on-year changes must be recalculated from the same HiSugar `进口升贴水（美分/磅）` row only. Do not use nearby `ICE原糖收盘价`, import cost, RMB/t, quota, freight, FX, profit rows, or stale history values as comparison bases. OCR minus signs may appear as `．`, `.`, `一`, `－`, `−`, `—`, or `–`; normalize them before parsing. In GitHub Actions/Linux, if full-image OCR reads table numbers but misses the Chinese column marker, parse row-wise numeric lines as `date, ICE, FX, freight, import premium, quota-in cost, quota-out cost` and take the fourth numeric value after the date; if OCR still fails, use the fixed HiSugar image grid to crop the date and import-premium cells and read them with numeric-only OCR. Validation case: article `https://www.hisugar.com/home/articleContent?id=2026080608433531248185` gives `2026-08-05 = -0.54` and `2026-08-04 = -0.54`, so daily change is `0.00 美分/磅`; article `https://www.hisugar.com/home/articleContent?id=2025080608563542667063` gives `2025-08-05 = -0.20`, so year-on-year absolute change is `-0.34 美分/磅`.
 
 The refresh must keep using the existing fixed sources, parsing rules, source-date rules, and calculation logic. Every daily run must actively check HiSugar for the newest valid import premium/discount trading row and check the MAPA official sources for a newer sugar-stock or hydrous-ethanol-stock report.
 
