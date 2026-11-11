@@ -55,6 +55,7 @@ from sugar_news_pipeline import (
     rss_sugar_relevant,
     tmd_thai_weather_item_from_text,
     validate_editorial_quality,
+    validate_india_weather_impact,
 )
 from india_sugar_metrics import parse_chinimandi_exmill_date
 from verify_sugar_news_dashboard import verify_payload
@@ -682,6 +683,8 @@ def test_non_industry_sugar_titles_are_filtered() -> None:
 
 
 def test_editorial_country_reclassification_rules() -> None:
+    assert infer_core_country("印度尼西亚农业部长维持消费白糖进口限制", "印度尼西亚") == ("印度尼西亚", "其他国家")
+    assert infer_core_country("美国农业部下调墨西哥产糖预测，减少对美国出口供应", "墨西哥") == ("墨西哥", "其他国家")
     indonesia_country, indonesia_group = infer_core_country(
         "ChiniMandi reports Indonesia sugar import policy and domestic sugar supply",
         "巴西",
@@ -1530,8 +1533,24 @@ def test_dashboard_verifier_allows_no_china_placeholder() -> None:
     assert missing_result["chinaItemCount"] == 0
 
 
+def test_india_dry_harvest_weather_direction() -> None:
+    base = {"country_group": "印度", "title": "印度北方邦甘蔗产区天气"}
+    dry = {**base, "news": "北方邦未来7天少雨，有利于甘蔗收割和压榨。", "impact": "偏空糖价：增加新增糖源供应。"}
+    validate_india_weather_impact(dry, 1)
+    wet = {**base, "news": "北方邦降雨导致甘蔗收割受阻。", "impact": "偏多糖价：减少短期食糖供应。"}
+    validate_india_weather_impact(wet, 2)
+    for item, wrong_impact in ((dry, wet["impact"]), (wet, dry["impact"])):
+        try:
+            validate_india_weather_impact({**item, "impact": wrong_impact}, 3)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("Weather validation accepted the opposite harvest impact")
+
+
 def main() -> None:
     tests = [
+        test_india_dry_harvest_weather_direction,
         test_india_relevance_helpers,
         test_india_search_templates_cover_e20_reuters,
         test_china_daily_monitoring_skill_and_templates,

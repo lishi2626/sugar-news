@@ -1755,6 +1755,8 @@ def infer_core_country(text: str, fallback_country: str) -> tuple[str, str]:
     matches = matched_core_countries(text)
     if not matches:
         return fallback_country, fallback_country if fallback_country in GROUP_ORDER else "其他国家"
+    if fallback_country in matches:
+        return fallback_country, fallback_country if fallback_country in GROUP_ORDER else "其他国家"
     priority = ["巴西", "印度", "泰国", "中国"]
     for country in priority:
         if country in matches:
@@ -3200,6 +3202,16 @@ def validate_india_weather_impact(item: dict, idx: int) -> None:
     bearish_prefixes = ("偏空糖价：", "利空：")
 
     if _contains_any(fact_text, INDIA_HARVEST_TERMS):
+        dry_harvest_benefit = (
+            _contains_any(fact_text, ("少雨", "无雨", "晴朗", "dry weather"))
+            and _contains_any(fact_text, ("有利于", "有助于", "利于", "favourable", "favorable"))
+            and not _contains_any(fact_text, INDIA_DAMAGE_TERMS + INDIA_DROUGHT_TERMS)
+            and not _contains_any(fact_text, ("受阻", "停榨", "中断", "推迟", "disruption"))
+        )
+        if dry_harvest_benefit:
+            if not item["impact"].startswith(bearish_prefixes):
+                raise ValueError(f"India weather item {idx} indicates favorable dry harvesting and should be bearish")
+            return
         if not item["impact"].startswith(bullish_prefixes):
             raise ValueError(f"India weather item {idx} indicates harvest/crushing disruption and should be bullish")
         return
