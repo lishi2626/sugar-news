@@ -1,6 +1,6 @@
 {
   "newsDate": "2026-11-11",
-  "updatedAt": "2026-11-12T15:49:39+08:00",
+  "updatedAt": "2026-11-12T16:55:25+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/11/Sugar News 2026-11-11.xlsx",
   "globalHighlights": "巴西降雨拖慢季度压榨、原油回升及斐济干旱提供供应端支撑，印度尚无超过E20的新供货指令，印尼维持消费白糖进口限制。Adecoagro第三季度压榨同比下降5.1%，巴基斯坦则称仍有110万吨过剩库存并申请提前出口40万吨，孟加拉国允许最长90天进口信贷便利采购。国际糖价的主要矛盾仍是天气及乙醇收益支撑与库存、出口和进口政策压力之间的对冲，短线以震荡判断为宜。",
@@ -8,7 +8,7 @@
     "title": "巴西糖价与库存",
     "dataDate": "2026-11-11",
     "snapshotTargetDate": "2026-11-11",
-    "updatedAt": "2026-11-12T11:19:13+08:00",
+    "updatedAt": "2026-11-12T16:55:25+08:00",
     "sourceStatus": "dynamic_fetch",
     "sugarPremium": {
       "metricType": "sugarPremium",
@@ -17,7 +17,7 @@
       "dataDate": "2026-11-11",
       "sourceDataDate": "2026-11-11",
       "refreshDate": "2026-11-11",
-      "fetchedAt": "2026-11-12T11:17:58+08:00",
+      "fetchedAt": "2026-11-12T16:55:13+08:00",
       "sourceName": "广西糖网食糖进口成本及利润估算表",
       "sourceUrl": "https://www.hisugar.com/home/articleContent?id=2026111209003041523243",
       "datasetName": "HiSugar 食糖进口成本及利润估算表",
