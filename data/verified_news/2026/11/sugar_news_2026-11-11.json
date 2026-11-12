@@ -1,0 +1,105 @@
+{
+  "target_date": "2026-11-11",
+  "run_date": "2026-11-12",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Haryana farmers announce statewide protests, demand sugarcane price of Rs 600 pe",
+      "news": "印度现货市场显示食糖价格，食糖价格为Rs 600。印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。来源：ChiniMandi（https://www.chinimandi.com/haryana-farmers-announce-statewide-protests-demand-sugarcane-price-of-rs-600-per-quintal/）。影响：中性",
+      "impact": "中性：印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/haryana-farmers-announce-statewide-protests-demand-sugarcane-price-of-rs-600-per-quintal/",
+      "published_date_local": "2026-11-11",
+      "event_date": "2026-11-11",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Haryana farmers announce statewide protests, demand sugarcane price of Rs 600 per quintal",
+        "source_url": "https://www.chinimandi.com/haryana-farmers-announce-statewide-protests-demand-sugarcane-price-of-rs-600-per-quintal/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 11 Nov 2026 05:16:08 GMT",
+        "target_date": "2026-11-11",
+        "event_date": "2026-11-11",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度蔗农组织",
+        "event_action": "公布",
+        "metrics": [
+          "Rs 600"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNanJnSVBmeThTRVNEeUhSUmNncHB6alRUem0xS3gtUUE2Rl92dkp2eG1qY2paVEZOcFJic3I3eDVrUXRWVkhTanUyT1VKV2xXR0ljME9BdWgxOVQ3Nk5hYjhvNmpINmtvcm80MjRKZk1ac3VBWlVGWnZRSXVTNEdJTEphaldRUVJnc1doOXBhZ3pJWHMzM0ZXV3lOMTV2NWxEQW9TZl9RR0tJaUF0VHJXZzNYTm9lZnc?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度蔗农组织公布rs60020261111price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "Open-Meteo预报显示（2026-11-12至2026-11-18），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括北碧约31.2mm、春武里约27.5mm、甘烹碧约26.9mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：Open-Meteo（https://api.open-meteo.com/v1/forecast）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "Open-Meteo",
+      "source_url": "https://api.open-meteo.com/v1/forecast",
+      "published_date_local": "2026-11-11",
+      "event_date": "2026-11-12",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_open_meteo_20261111",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "斐济",
+      "title": "Fiji launches drought assistance scheme, targets sugarcane farmers",
+      "news": "斐济蔗农组织预警甘蔗产区天气、干旱或病虫害，已说明甘蔗虫害扩散或产区天气风险。斐济产区若出现虫害、干旱或洪涝，会压低受影响地块单产并削弱糖料供应稳定性。来源：ChiniMandi（https://www.chinimandi.com/fiji-launches-drought-assistance-scheme-targets-sugarcane-farmers/）。影响：利多糖价",
+      "impact": "利多：干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/fiji-launches-drought-assistance-scheme-targets-sugarcane-farmers/",
+      "published_date_local": "2026-11-11",
+      "event_date": "2026-11-11",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Fiji launches drought assistance scheme, targets sugarcane farmers",
+        "source_url": "https://www.chinimandi.com/fiji-launches-drought-assistance-scheme-targets-sugarcane-farmers/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Wed, 11 Nov 2026 08:38:46 GMT",
+        "target_date": "2026-11-11",
+        "event_date": "2026-11-11",
+        "event_country": "斐济",
+        "event_region": null,
+        "event_actor": "斐济蔗农组织",
+        "event_action": "预警",
+        "metrics": [],
+        "comparison_period": null,
+        "topic": "weather_pest",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQUXFQOFFGMzh6T3ZiNTJvNkRkblZGdmxHSGJPbmpMcWlVN1I2Z0xtbkZGdmR1dGtRZXB4amp0cXliZDlTelFRX1ZVaUx6TV81QzNkd2lfRklLZU1DY3IwUFFBeks0REFYT0FoNTR0eTZUSnkxRUdDcG1xb2Vad2JtRjdWOUp4NFVyMHE2ME1JVUlGbzdVRTBnbg?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_斐济斐济蔗农组织预警20261111weather_pest",
+      "importance": 90
+    }
+  ]
+}
