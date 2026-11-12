@@ -1,9 +1,9 @@
 {
   "newsDate": "2026-11-11",
-  "updatedAt": "2026-11-12T11:19:56+08:00",
+  "updatedAt": "2026-11-12T15:49:39+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/11/Sugar News 2026-11-11.xlsx",
-  "globalHighlights": "全球糖业新闻重点集中在印度现货市场显示食糖价格，食糖价格为Rs600；Open-Meteo预报显示（2026-11-12至2026-11-18），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世…；斐济蔗农组织预警甘蔗产区天气、干旱或病虫害，已说明甘蔗虫害扩散或产区天气风险。利多因素是斐济产区若出现虫害、干旱或洪涝，会压低受影响地块单产并削弱糖料供应稳定性；利空因素是当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。国际糖价的主要矛盾在供应收缩预期与阶段性供应或需求压力之间，ICE原糖持续站上15美分/磅前以震荡判断为宜。",
+  "globalHighlights": "巴西降雨拖慢季度压榨、原油回升及斐济干旱提供供应端支撑，印度尚无超过E20的新供货指令，印尼维持消费白糖进口限制。Adecoagro第三季度压榨同比下降5.1%，巴基斯坦则称仍有110万吨过剩库存并申请提前出口40万吨，孟加拉国允许最长90天进口信贷便利采购。国际糖价的主要矛盾仍是天气及乙醇收益支撑与库存、出口和进口政策压力之间的对冲，短线以震荡判断为宜。",
   "brazilMetrics": {
     "title": "巴西糖价与库存",
     "dataDate": "2026-11-11",
@@ -462,15 +462,60 @@
   },
   "countries": [
     {
+      "country": "巴西",
+      "items": [
+        {
+          "news": "Adecoagro公布巴西糖醇业务前三季度累计压榨甘蔗1040万吨、同比增长5.9%，但第三季度压榨下降5.1%，原因是9月降雨偏多，季度制糖比例为47%、制醇比例为53%。累计原料恢复增加供应潜力，季度降雨却拖慢当期糖源释放，两者相互对冲，且9月起纳入Caarapó糖厂使累计同比存在合并范围变化。",
+          "impactType": "中性",
+          "impact": "巴西Adecoagro累计压榨恢复提高供应潜力，但季度降雨减少压榨量，新增糖源释放仍受天气约束。",
+          "impactLabel": "影响：中性",
+          "sourceName": "Adecoagro业绩公告",
+          "sourceUrl": "https://ir.adecoagro.com/wp-content/uploads/2026/11/ER-09.30.2026.pdf",
+          "publishedDateLocal": "2026-11-11",
+          "eventDate": "2026-11-11"
+        },
+        {
+          "news": "Adecoagro披露2026年预计食糖产量已100%套保、均价16.5美分/磅，2027年预计产量已套保41%、均价18.3美分/磅。已锁价头寸降低相应产量后续追加点价需求，但套保并不等于新增产糖或已完成出口，不能把该比例直接计入全球新增供应。",
+          "impactType": "中性",
+          "impact": "巴西Adecoagro套保锁定未来销售收益、减少相应头寸后续点价需求，并不直接改变实际食糖产量。",
+          "impactLabel": "影响：中性",
+          "sourceName": "Adecoagro业绩公告",
+          "sourceUrl": "https://ir.adecoagro.com/wp-content/uploads/2026/11/ER-09.30.2026.pdf",
+          "publishedDateLocal": "2026-11-11",
+          "eventDate": "2026-11-11"
+        }
+      ]
+    },
+    {
       "country": "印度",
       "items": [
         {
-          "news": "印度现货市场显示食糖价格，食糖价格为Rs 600。印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+          "news": "全印蒸馏协会AIDA表示，未收到油销公司要求按超过20%乙醇掺混水平供货的指令，现有采购仍对应E20计划，更高比例需政府和产业链共同评估。协会表态不构成新的掺混升级，尚不能计入甘蔗汁、B重糖蜜或糖浆制醇的新增需求，也不能据抽样争议推定食糖分流已经增加。",
           "impactType": "中性",
-          "impact": "印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+          "impact": "印度未发出超过E20的新采购指令，尚无新增甘蔗汁或高含糖糖蜜制醇需求可据以调整食糖供应。",
           "impactLabel": "影响：中性",
-          "sourceName": "ChiniMandi",
+          "sourceName": "ThePrint",
+          "sourceUrl": "https://theprint.in/india/no-sign-of-ethanol-blending-beyond-20-in-petrol-say-distillers-association-amid-karnataka-claim/3096148/",
+          "publishedDateLocal": "2026-11-11",
+          "eventDate": "2026-11-11"
+        },
+        {
+          "news": "全印农民协会哈里亚纳邦组织要求甘蔗收购价提高至600卢比/公担，并计划11月23日集会、12月2日抗议，邦政府公布的2026/27和2027/28榨季蔗价分别为430和450卢比/公担。600卢比是农民诉求而非已执行的食糖报价，若未来获批将提高种蔗收益并刺激原料供给，同时抬升糖厂成本。",
+          "impactType": "中性",
+          "impact": "印度蔗农提价要求尚未获批，暂不改变糖源；若实施会提高种植收益和糖厂成本，需区分中长期增供与短期成本压力。",
+          "impactLabel": "影响：中性",
+          "sourceName": "ChiniMandi / The Tribune",
           "sourceUrl": "https://www.chinimandi.com/haryana-farmers-announce-statewide-protests-demand-sugarcane-price-of-rs-600-per-quintal/",
+          "publishedDateLocal": "2026-11-11",
+          "eventDate": "2026-11-11"
+        },
+        {
+          "news": "印度气象局预计11月11—17日泰米尔纳德邦有间歇降雨、15日降雨范围扩大，11日局地大雨，并预计孟加拉湾13日前后形成低压、西部和中部本周无显著天气过程。泰米尔纳德甘蔗地块需防局地积水及砍运扰动，但预报未给出甘蔗受损面积，不能据此认定印度全国减产。",
+          "impactType": "偏多糖价",
+          "impact": "印度泰米尔纳德甘蔗区降雨若干扰收割运输，可能减少短期糖源释放，尚无已核实全国减产量。",
+          "impactLabel": "影响：利多糖价",
+          "sourceName": "印度气象局IMD",
+          "sourceUrl": "https://internal.imd.gov.in/press_release/20261111_pr_5481.pdf",
           "publishedDateLocal": "2026-11-11",
           "eventDate": "2026-11-11"
         }
@@ -480,14 +525,74 @@
       "country": "泰国",
       "items": [
         {
-          "news": "Open-Meteo预报显示（2026-11-12至2026-11-18），泰国东北部（呵叻、孔敬、乌隆他尼、猜也蓬）；北部（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部（北碧、华富里、素攀武里、猜纳）；东部（沙缴、春武里）等主要甘蔗产区存在降雨预报，实际可用预报期为7日，累计预测降雨较高的监测点包括北碧约31.2mm、春武里约27.5mm、甘烹碧约26.9mm。当前处于甘蔗生长阶段，降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。",
-          "impactType": "利空",
-          "impact": "甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
-          "impactLabel": "影响：利空糖价",
-          "sourceName": "Open-Meteo",
-          "sourceUrl": "https://api.open-meteo.com/v1/forecast",
+          "news": "泰国气象局预计11月11—12日东北部、中部和东部局地小雨，13日起部分地区转为雷阵雨，覆盖呵叻、孔敬、北碧、华富里、沙缴和春武里所在蔗区；南部强降雨不能等同于东北核心蔗区暴雨。对进入收割或准备开榨的地块，降雨可能拖慢砍运及原料到厂，短期糖源释放受到扰动，但未确认发生甘蔗损失。",
+          "impactType": "偏多糖价",
+          "impact": "泰国主要蔗区局地降雨若覆盖收割开榨地块，可能延迟甘蔗运输和短期食糖供应。",
+          "impactLabel": "影响：利多糖价",
+          "sourceName": "泰国气象局TMD",
+          "sourceUrl": "https://www.tmd.go.th/media/forecast/7-day/e_261111.pdf",
           "publishedDateLocal": "2026-11-11",
-          "eventDate": "2026-11-12"
+          "eventDate": "2026-11-11"
+        }
+      ]
+    },
+    {
+      "country": "全球",
+      "items": [
+        {
+          "news": "ICE纽约3月原糖合约上涨0.39美分/磅、涨幅2.16%，伦敦12月白糖上涨6.50美元/吨、涨幅1.29%，原油走强带动糖市空头回补。原油上涨若提高甘蔗乙醇相对收益，将增强糖厂制醇吸引力并减少可结晶食糖供应，但本次反弹不等于糖醇比例已实际调整。",
+          "impactType": "偏多糖价",
+          "impact": "原油上涨及空头回补支撑国际糖价，若甘蔗乙醇收益提高会减少制糖供应，实际分流仍需生产数据确认。",
+          "impactLabel": "影响：利多糖价",
+          "sourceName": "Barchart / Yahoo Finance",
+          "sourceUrl": "https://finance.yahoo.com/markets/commodities/articles/sugar-prices-rise-strength-crude-192241960.html",
+          "publishedDateLocal": "2026-11-11",
+          "eventDate": "2026-11-11"
+        }
+      ]
+    },
+    {
+      "country": "巴基斯坦",
+      "items": [
+        {
+          "news": "巴基斯坦糖厂协会称，在20万吨出口获批后仍约有110万吨过剩库存，要求提前批准40万吨出口，并称在当前库存条件下2026/27榨季难于12月前开榨。高库存及新增出口申请增加国际可售糖压力，但申请不等于实际出运，开榨推迟则限制近期新增糖源。",
+          "impactType": "偏空糖价",
+          "impact": "巴基斯坦过剩库存和40万吨出口申请增加区域供应压力，实际出运仍待批准，开榨推迟对短期糖源形成对冲。",
+          "impactLabel": "影响：利空糖价",
+          "sourceName": "ARY News",
+          "sourceUrl": "https://arynews.tv/psma-general-body-calls-for-early-sugar-exports-and-deregulation-of-industry",
+          "publishedDateLocal": "2026-11-11",
+          "eventDate": "2026-11-11"
+        }
+      ]
+    },
+    {
+      "country": "孟加拉国",
+      "items": [
+        {
+          "news": "孟加拉国央行允许食糖等必需食品商业进口采用供应商或买方信贷，赊购期限最长90天，通知有效至2027年3月15日。延长付款安排降低进口商短期资金占用、便利食糖采购，若实际采购增加将支持国际糖需求并缓解孟加拉国内供应压力。",
+          "impactType": "偏多糖价",
+          "impact": "孟加拉国进口信贷便利有助于增加外部采购能力，支撑国际糖需求，同时可能压低本国现货溢价。",
+          "impactLabel": "影响：利多糖价",
+          "sourceName": "孟加拉国央行",
+          "sourceUrl": "https://www.bb.org.bd/mediaroom/circulars/fepd/nov112026fepd-142e.pdf",
+          "publishedDateLocal": "2026-11-11",
+          "eventDate": "2026-11-11"
+        }
+      ]
+    },
+    {
+      "country": "印度尼西亚",
+      "items": [
+        {
+          "news": "印度尼西亚农业部长Amran支持在国产糖满足需求前提下维持消费白糖不进口，并明确工业用糖进口仍存在，蔗农组织另提出2027年不追加原糖进口额度的诉求。消费白糖采购受限减少该品类国际需求，但蔗农组织诉求并非2027年原糖配额已冻结，不能推定所有糖类进口停止。",
+          "impactType": "偏空糖价",
+          "impact": "印尼维持消费白糖不进口压制相应国际采购需求，工业用糖和2027年配额仍需分别确认。",
+          "impactLabel": "影响：利空糖价",
+          "sourceName": "ANTARA",
+          "sourceUrl": "https://jatim.antaranews.com/berita/1118019/mentan-amran-dukung-asosiasi-petani-tebu-tak-ada-impor-gula-putih",
+          "publishedDateLocal": "2026-11-11",
+          "eventDate": "2026-11-11"
         }
       ]
     },
@@ -495,12 +600,27 @@
       "country": "斐济",
       "items": [
         {
-          "news": "斐济蔗农组织预警甘蔗产区天气、干旱或病虫害，已说明甘蔗虫害扩散或产区天气风险。斐济产区若出现虫害、干旱或洪涝，会压低受影响地块单产并削弱糖料供应稳定性。",
-          "impactType": "利多",
-          "impact": "干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+          "news": "斐济农业、水道及糖业部门启动六项厄尔尼诺应对措施，支持蔗田灌溉、秸秆覆盖、少耕、作物胁迫监测和早熟种蔗使用，应对持续干燥天气。干旱威胁甘蔗单产和糖料供应，援助旨在缓解水分压力，不能把启动援助写成已经发生虫害或洪涝。",
+          "impactType": "偏多糖价",
+          "impact": "斐济持续干旱增加甘蔗单产及糖料供应下行风险，抗旱援助有助于缓解但尚未证明损失消除。",
           "impactLabel": "影响：利多糖价",
-          "sourceName": "ChiniMandi",
+          "sourceName": "ChiniMandi / Fiji Sun",
           "sourceUrl": "https://www.chinimandi.com/fiji-launches-drought-assistance-scheme-targets-sugarcane-farmers/",
+          "publishedDateLocal": "2026-11-11",
+          "eventDate": "2026-11-11"
+        }
+      ]
+    },
+    {
+      "country": "中国",
+      "items": [
+        {
+          "news": "泛糖科技10月月报指出，截至10月末配额外巴西糖加工完税估算成本约6077元/吨，相对国内加工糖5600—5910元/吨报价，进口利润约为每吨亏损477—167元。该月度复盘显示进口补充受成本约束，但国内陈糖库存与新糖上市预期仍压制郑糖，不能把10月成本当作11月11日即时进口报价。",
+          "impactType": "中性",
+          "impact": "国内陈糖库存及新糖供应预期压制郑糖，配额外进口倒挂减少进口补充，两者对国内供应形成对冲。",
+          "impactLabel": "影响：中性",
+          "sourceName": "泛糖科技",
+          "sourceUrl": "https://www.hisugar.com/home/articleContent?id=2026111111212594542756",
           "publishedDateLocal": "2026-11-11",
           "eventDate": "2026-11-11"
         }

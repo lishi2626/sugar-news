@@ -1,0 +1,652 @@
+{
+  "target_date": "2026-11-11",
+  "run_date": "2026-11-12",
+  "tool": "web.run",
+  "previous_rss_log_preserved": "logs/2026/11/search_log_2026-11-11.json",
+  "queries": [
+    {
+      "country": "全球",
+      "language": "en",
+      "keywords": "sugar ethanol Brazil India \"November 11, 2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://ir.adecoagro.com/wp-content/uploads/2026/11/ER-09.30.2026.pdf",
+        "https://ir.adecoagro.com/wp-content/uploads/2026/11/ER-09.30.2026.pdf",
+        "https://www.chinimandi.com/haryana-farmers-announce-statewide-protests-demand-sugarcane-price-of-rs-600-per-quintal/",
+        "https://theprint.in/india/no-sign-of-ethanol-blending-beyond-20-in-petrol-say-distillers-association-amid-karnataka-claim/3096148/",
+        "https://internal.imd.gov.in/press_release/20261111_pr_5481.pdf",
+        "https://www.tmd.go.th/media/forecast/7-day/e_261111.pdf",
+        "https://arynews.tv/psma-general-body-calls-for-early-sugar-exports-and-deregulation-of-industry",
+        "https://jatim.antaranews.com/berita/1118019/mentan-amran-dukung-asosiasi-petani-tebu-tak-ada-impor-gula-putih",
+        "https://www.chinimandi.com/fiji-launches-drought-assistance-scheme-targets-sugarcane-farmers/",
+        "https://www.bb.org.bd/mediaroom/circulars/fepd/nov112026fepd-142e.pdf",
+        "https://finance.yahoo.com/markets/commodities/articles/sugar-prices-rise-strength-crude-192241960.html",
+        "https://www.hisugar.com/home/articleContent?id=2026111111212594542756"
+      ],
+      "retained_count": 12,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "中国",
+      "language": "zh",
+      "keywords": "白糖 食糖 \"2026年11月11日\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://www.hisugar.com/home/articleContent?id=2026111111212594542756"
+      ],
+      "retained_count": 1,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "巴西",
+      "language": "pt",
+      "keywords": "Brasil açúcar etanol \"11/11/2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://ir.adecoagro.com/wp-content/uploads/2026/11/ER-09.30.2026.pdf",
+        "https://ir.adecoagro.com/wp-content/uploads/2026/11/ER-09.30.2026.pdf"
+      ],
+      "retained_count": 2,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "泰国",
+      "language": "th",
+      "keywords": "น้ำตาล อ้อย \"11 พฤศจิกายน 2569\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://www.tmd.go.th/media/forecast/7-day/e_261111.pdf"
+      ],
+      "retained_count": 1,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "India sugar ethanol policy prices \"11 November 2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://www.chinimandi.com/haryana-farmers-announce-statewide-protests-demand-sugarcane-price-of-rs-600-per-quintal/",
+        "https://theprint.in/india/no-sign-of-ethanol-blending-beyond-20-in-petrol-say-distillers-association-amid-karnataka-claim/3096148/",
+        "https://internal.imd.gov.in/press_release/20261111_pr_5481.pdf"
+      ],
+      "retained_count": 3,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "印度",
+      "language": "hi",
+      "keywords": "भारत चीनी गन्ना इथेनॉल \"11 नवंबर 2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://www.chinimandi.com/haryana-farmers-announce-statewide-protests-demand-sugarcane-price-of-rs-600-per-quintal/",
+        "https://theprint.in/india/no-sign-of-ethanol-blending-beyond-20-in-petrol-say-distillers-association-amid-karnataka-claim/3096148/",
+        "https://internal.imd.gov.in/press_release/20261111_pr_5481.pdf"
+      ],
+      "retained_count": 3,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "中国",
+      "language": "en",
+      "keywords": "China sugar production imports \"November 11 2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://www.hisugar.com/home/articleContent?id=2026111111212594542756"
+      ],
+      "retained_count": 1,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "泰国",
+      "language": "en",
+      "keywords": "Thailand sugar cane weather \"11 November 2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://www.tmd.go.th/media/forecast/7-day/e_261111.pdf"
+      ],
+      "retained_count": 1,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "全球",
+      "language": "en",
+      "keywords": "global sugar production export \"November 11, 2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://ir.adecoagro.com/wp-content/uploads/2026/11/ER-09.30.2026.pdf",
+        "https://ir.adecoagro.com/wp-content/uploads/2026/11/ER-09.30.2026.pdf",
+        "https://www.chinimandi.com/haryana-farmers-announce-statewide-protests-demand-sugarcane-price-of-rs-600-per-quintal/",
+        "https://theprint.in/india/no-sign-of-ethanol-blending-beyond-20-in-petrol-say-distillers-association-amid-karnataka-claim/3096148/",
+        "https://internal.imd.gov.in/press_release/20261111_pr_5481.pdf",
+        "https://www.tmd.go.th/media/forecast/7-day/e_261111.pdf",
+        "https://arynews.tv/psma-general-body-calls-for-early-sugar-exports-and-deregulation-of-industry",
+        "https://jatim.antaranews.com/berita/1118019/mentan-amran-dukung-asosiasi-petani-tebu-tak-ada-impor-gula-putih",
+        "https://www.chinimandi.com/fiji-launches-drought-assistance-scheme-targets-sugarcane-farmers/",
+        "https://www.bb.org.bd/mediaroom/circulars/fepd/nov112026fepd-142e.pdf",
+        "https://finance.yahoo.com/markets/commodities/articles/sugar-prices-rise-strength-crude-192241960.html",
+        "https://www.hisugar.com/home/articleContent?id=2026111111212594542756"
+      ],
+      "retained_count": 12,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "巴基斯坦",
+      "language": "en",
+      "keywords": "Pakistan sugar export \"November 11, 2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://arynews.tv/psma-general-body-calls-for-early-sugar-exports-and-deregulation-of-industry"
+      ],
+      "retained_count": 1,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "巴西",
+      "language": "pt",
+      "keywords": "Brasil açúcar moagem estoque hedge \"11 novembro 2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://ir.adecoagro.com/wp-content/uploads/2026/11/ER-09.30.2026.pdf",
+        "https://ir.adecoagro.com/wp-content/uploads/2026/11/ER-09.30.2026.pdf"
+      ],
+      "retained_count": 2,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "中国",
+      "language": "zh",
+      "keywords": "食糖 开榨 产销 进口 \"2026-11-11\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://www.hisugar.com/home/articleContent?id=2026111111212594542756"
+      ],
+      "retained_count": 1,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "菲律宾",
+      "language": "en",
+      "keywords": "Philippines sugar import \"November 11, 2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [],
+      "retained_count": 0,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "印度尼西亚",
+      "language": "id",
+      "keywords": "Indonesia gula impor \"11 November 2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://jatim.antaranews.com/berita/1118019/mentan-amran-dukung-asosiasi-petani-tebu-tak-ada-impor-gula-putih"
+      ],
+      "retained_count": 1,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "俄罗斯",
+      "language": "ru",
+      "keywords": "Россия сахар производство \"11 ноября 2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [],
+      "retained_count": 0,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "巴基斯坦",
+      "language": "ur",
+      "keywords": "Pakistan sugar exports \"11 نومبر 2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://arynews.tv/psma-general-body-calls-for-early-sugar-exports-and-deregulation-of-industry"
+      ],
+      "retained_count": 1,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "site.imd.gov.in \"11 November 2026\" rainfall",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://www.chinimandi.com/haryana-farmers-announce-statewide-protests-demand-sugarcane-price-of-rs-600-per-quintal/",
+        "https://theprint.in/india/no-sign-of-ethanol-blending-beyond-20-in-petrol-say-distillers-association-amid-karnataka-claim/3096148/",
+        "https://internal.imd.gov.in/press_release/20261111_pr_5481.pdf"
+      ],
+      "retained_count": 3,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "越南",
+      "language": "vi",
+      "keywords": "Việt Nam mía đường \"11/11/2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [],
+      "retained_count": 0,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "菲律宾",
+      "language": "fil",
+      "keywords": "asukal tubo Pilipinas \"Nobyembre 11 2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [],
+      "retained_count": 0,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "巴基斯坦",
+      "language": "en",
+      "keywords": "PSMA early sugar exports deregulation \"November 11\" \"2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://arynews.tv/psma-general-body-calls-for-early-sugar-exports-and-deregulation-of-industry"
+      ],
+      "retained_count": 1,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "巴西",
+      "language": "en",
+      "keywords": "Brazil sugar hedging ethanol Renovabio \"November 11\" \"2026\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://ir.adecoagro.com/wp-content/uploads/2026/11/ER-09.30.2026.pdf",
+        "https://ir.adecoagro.com/wp-content/uploads/2026/11/ER-09.30.2026.pdf"
+      ],
+      "retained_count": 2,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "中国",
+      "language": "zh",
+      "keywords": "\"云南已有3家糖厂开榨\" \"2026.11.11\"",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://www.hisugar.com/home/articleContent?id=2026111111212594542756"
+      ],
+      "retained_count": 1,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "中国",
+      "language": "zh",
+      "keywords": "\"广西百色\" \"70亩\" \"2026\" 甘蔗",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://www.hisugar.com/home/articleContent?id=2026111111212594542756"
+      ],
+      "retained_count": 1,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    },
+    {
+      "country": "印度",
+      "language": "en",
+      "keywords": "\"PRESS RELEASE\" \"11TH NOVEMBER 2026\" IMD",
+      "target_date": "2026-11-11",
+      "tool": "web.run",
+      "request_status": "completed",
+      "retained_links": [
+        "https://www.chinimandi.com/haryana-farmers-announce-statewide-protests-demand-sugarcane-price-of-rs-600-per-quintal/",
+        "https://theprint.in/india/no-sign-of-ethanol-blending-beyond-20-in-petrol-say-distillers-association-amid-karnataka-claim/3096148/",
+        "https://internal.imd.gov.in/press_release/20261111_pr_5481.pdf"
+      ],
+      "retained_count": 3,
+      "count_scope": "final verified country total across all queries, not raw per-query count"
+    }
+  ],
+  "verified_candidates": [
+    {
+      "source_title": "Adecoagro季度压榨下降、累计压榨仍增长",
+      "source_url": "https://ir.adecoagro.com/wp-content/uploads/2026/11/ER-09.30.2026.pdf",
+      "publisher": "Adecoagro业绩公告",
+      "publication_time": "2026-11-11",
+      "event_date": "2026-11-11",
+      "event_country": "巴西",
+      "event_region": "巴西",
+      "event_actor": "Adecoagro",
+      "event_action": "公布压榨和糖醇比例",
+      "metrics": [
+        "累计压榨1040万吨，同比+5.9%；季度压榨-5.1%"
+      ],
+      "comparison_period": "2026年前三季度及第三季度；同比",
+      "topic": "生产",
+      "sugar_relevance": "直接涉及食糖生产、贸易、甘蔗、乙醇分流或糖价",
+      "impact_direction": "中性",
+      "impact_logic": "中性：巴西Adecoagro累计压榨恢复提高供应潜力，但季度降雨减少压榨量，新增糖源释放仍受天气约束。",
+      "verification_status": "已核实",
+      "published_to_report": true
+    },
+    {
+      "source_title": "Adecoagro披露本年及次年食糖套保进度",
+      "source_url": "https://ir.adecoagro.com/wp-content/uploads/2026/11/ER-09.30.2026.pdf",
+      "publisher": "Adecoagro业绩公告",
+      "publication_time": "2026-11-11",
+      "event_date": "2026-11-11",
+      "event_country": "巴西",
+      "event_region": "巴西",
+      "event_actor": "Adecoagro",
+      "event_action": "披露食糖套保比例",
+      "metrics": [
+        "2026年100%、16.5美分/磅；2027年41%、18.3美分/磅"
+      ],
+      "comparison_period": "2026及2027预计产量",
+      "topic": "套保",
+      "sugar_relevance": "直接涉及食糖生产、贸易、甘蔗、乙醇分流或糖价",
+      "impact_direction": "中性",
+      "impact_logic": "中性：巴西Adecoagro套保锁定未来销售收益、减少相应头寸后续点价需求，并不直接改变实际食糖产量。",
+      "verification_status": "已核实",
+      "published_to_report": true
+    },
+    {
+      "source_title": "哈里亚纳邦蔗农要求600卢比甘蔗收购价",
+      "source_url": "https://www.chinimandi.com/haryana-farmers-announce-statewide-protests-demand-sugarcane-price-of-rs-600-per-quintal/",
+      "publisher": "ChiniMandi / The Tribune",
+      "publication_time": "2026-11-11",
+      "event_date": "2026-11-11",
+      "event_country": "印度",
+      "event_region": "印度",
+      "event_actor": "全印农民协会哈里亚纳邦组织",
+      "event_action": "要求提高甘蔗收购价并安排抗议",
+      "metrics": [
+        "诉求600卢比/公担；公布蔗价430及450卢比/公担"
+      ],
+      "comparison_period": "2026/27和2027/28榨季",
+      "topic": "甘蔗价格",
+      "sugar_relevance": "直接涉及食糖生产、贸易、甘蔗、乙醇分流或糖价",
+      "impact_direction": "中性",
+      "impact_logic": "中性：印度蔗农提价要求尚未获批，暂不改变糖源；若实施会提高种植收益和糖厂成本，需区分中长期增供与短期成本压力。",
+      "verification_status": "已核实",
+      "published_to_report": true
+    },
+    {
+      "source_title": "印度蒸馏协会称未收到超过E20的供货指令",
+      "source_url": "https://theprint.in/india/no-sign-of-ethanol-blending-beyond-20-in-petrol-say-distillers-association-amid-karnataka-claim/3096148/",
+      "publisher": "ThePrint",
+      "publication_time": "2026-11-11",
+      "event_date": "2026-11-11",
+      "event_country": "印度",
+      "event_region": "印度",
+      "event_actor": "全印蒸馏协会AIDA",
+      "event_action": "说明未收到超过E20的供货指令",
+      "metrics": [
+        "现行掺混20%"
+      ],
+      "comparison_period": "现行E20计划",
+      "topic": "乙醇政策",
+      "sugar_relevance": "直接涉及食糖生产、贸易、甘蔗、乙醇分流或糖价",
+      "impact_direction": "中性",
+      "impact_logic": "中性：印度未发出超过E20的新采购指令，尚无新增甘蔗汁或高含糖糖蜜制醇需求可据以调整食糖供应。",
+      "verification_status": "已核实",
+      "published_to_report": true
+    },
+    {
+      "source_title": "印度气象局提示南部降雨及孟加拉湾低压发展",
+      "source_url": "https://internal.imd.gov.in/press_release/20261111_pr_5481.pdf",
+      "publisher": "印度气象局IMD",
+      "publication_time": "2026-11-11",
+      "event_date": "2026-11-11",
+      "event_country": "印度",
+      "event_region": "印度",
+      "event_actor": "印度气象局",
+      "event_action": "预报南部降雨和孟加拉湾低压",
+      "metrics": [
+        "11月11—17日；15日降雨范围扩大"
+      ],
+      "comparison_period": "未来7天；未证实甘蔗损失",
+      "topic": "天气",
+      "sugar_relevance": "直接涉及食糖生产、贸易、甘蔗、乙醇分流或糖价",
+      "impact_direction": "偏多糖价",
+      "impact_logic": "偏多糖价：印度泰米尔纳德甘蔗区降雨若干扰收割运输，可能减少短期糖源释放，尚无已核实全国减产量。",
+      "verification_status": "已核实",
+      "published_to_report": true
+    },
+    {
+      "source_title": "泰国气象局预报蔗区局地降雨",
+      "source_url": "https://www.tmd.go.th/media/forecast/7-day/e_261111.pdf",
+      "publisher": "泰国气象局TMD",
+      "publication_time": "2026-11-11",
+      "event_date": "2026-11-11",
+      "event_country": "泰国",
+      "event_region": "泰国",
+      "event_actor": "泰国气象局",
+      "event_action": "预报主要甘蔗产区局地降雨",
+      "metrics": [
+        "11月11—17日；局地小雨及雷阵雨"
+      ],
+      "comparison_period": "未来7天",
+      "topic": "天气",
+      "sugar_relevance": "直接涉及食糖生产、贸易、甘蔗、乙醇分流或糖价",
+      "impact_direction": "偏多糖价",
+      "impact_logic": "偏多糖价：泰国主要蔗区局地降雨若覆盖收割开榨地块，可能延迟甘蔗运输和短期食糖供应。",
+      "verification_status": "已核实",
+      "published_to_report": true
+    },
+    {
+      "source_title": "糖协申请提前出口40万吨并称开榨或延至12月",
+      "source_url": "https://arynews.tv/psma-general-body-calls-for-early-sugar-exports-and-deregulation-of-industry",
+      "publisher": "ARY News",
+      "publication_time": "2026-11-11",
+      "event_date": "2026-11-11",
+      "event_country": "巴基斯坦",
+      "event_region": "巴基斯坦",
+      "event_actor": "巴基斯坦糖厂协会PSMA",
+      "event_action": "申请提前批准出口并提示开榨延迟",
+      "metrics": [
+        "过剩110万吨；出口申请40万吨"
+      ],
+      "comparison_period": "2026/27榨季；拟12月开榨",
+      "topic": "出口",
+      "sugar_relevance": "直接涉及食糖生产、贸易、甘蔗、乙醇分流或糖价",
+      "impact_direction": "偏空糖价",
+      "impact_logic": "偏空糖价：巴基斯坦过剩库存和40万吨出口申请增加区域供应压力，实际出运仍待批准，开榨推迟对短期糖源形成对冲。",
+      "verification_status": "已核实",
+      "published_to_report": true
+    },
+    {
+      "source_title": "印尼农业部长支持维持消费白糖不进口",
+      "source_url": "https://jatim.antaranews.com/berita/1118019/mentan-amran-dukung-asosiasi-petani-tebu-tak-ada-impor-gula-putih",
+      "publisher": "ANTARA",
+      "publication_time": "2026-11-11",
+      "event_date": "2026-11-11",
+      "event_country": "印度尼西亚",
+      "event_region": "印度尼西亚",
+      "event_actor": "印度尼西亚农业部长Amran",
+      "event_action": "支持维持消费白糖进口限制",
+      "metrics": [
+        "消费白糖与工业用糖政策分开；2027年诉求未获批"
+      ],
+      "comparison_period": "2026年底及2027年配额讨论",
+      "topic": "进口政策",
+      "sugar_relevance": "直接涉及食糖生产、贸易、甘蔗、乙醇分流或糖价",
+      "impact_direction": "偏空糖价",
+      "impact_logic": "偏空糖价：印尼维持消费白糖不进口压制相应国际采购需求，工业用糖和2027年配额仍需分别确认。",
+      "verification_status": "已核实",
+      "published_to_report": true
+    },
+    {
+      "source_title": "斐济启动六项抗旱措施支持蔗农",
+      "source_url": "https://www.chinimandi.com/fiji-launches-drought-assistance-scheme-targets-sugarcane-farmers/",
+      "publisher": "ChiniMandi / Fiji Sun",
+      "publication_time": "2026-11-11",
+      "event_date": "2026-11-11",
+      "event_country": "斐济",
+      "event_region": "斐济",
+      "event_actor": "斐济农业、水道及糖业部门",
+      "event_action": "启动六项抗旱援助措施",
+      "metrics": [
+        "六项措施；未公布已核实甘蔗损失数量"
+      ],
+      "comparison_period": "2026-11-11启动",
+      "topic": "天气援助",
+      "sugar_relevance": "直接涉及食糖生产、贸易、甘蔗、乙醇分流或糖价",
+      "impact_direction": "偏多糖价",
+      "impact_logic": "偏多糖价：斐济持续干旱增加甘蔗单产及糖料供应下行风险，抗旱援助有助于缓解但尚未证明损失消除。",
+      "verification_status": "已核实",
+      "published_to_report": true
+    },
+    {
+      "source_title": "孟加拉央行允许食糖进口最长90天赊购",
+      "source_url": "https://www.bb.org.bd/mediaroom/circulars/fepd/nov112026fepd-142e.pdf",
+      "publisher": "孟加拉国央行",
+      "publication_time": "2026-11-11",
+      "event_date": "2026-11-11",
+      "event_country": "孟加拉国",
+      "event_region": "孟加拉国",
+      "event_actor": "孟加拉国央行",
+      "event_action": "允许食糖等食品采用90天进口信贷",
+      "metrics": [
+        "最长90天；有效至2027-03-15"
+      ],
+      "comparison_period": "斋月前供应安排",
+      "topic": "进口融资",
+      "sugar_relevance": "直接涉及食糖生产、贸易、甘蔗、乙醇分流或糖价",
+      "impact_direction": "偏多糖价",
+      "impact_logic": "偏多糖价：孟加拉国进口信贷便利有助于增加外部采购能力，支撑国际糖需求，同时可能压低本国现货溢价。",
+      "verification_status": "已核实",
+      "published_to_report": true
+    },
+    {
+      "source_title": "原油上涨与空头回补带动国际糖价反弹",
+      "source_url": "https://finance.yahoo.com/markets/commodities/articles/sugar-prices-rise-strength-crude-192241960.html",
+      "publisher": "Barchart / Yahoo Finance",
+      "publication_time": "2026-11-11",
+      "event_date": "2026-11-11",
+      "event_country": "全球",
+      "event_region": "全球",
+      "event_actor": "ICE糖市场",
+      "event_action": "上涨并出现空头回补",
+      "metrics": [
+        "纽约原糖+0.39美分/磅、+2.16%；伦敦白糖+6.50美元/吨"
+      ],
+      "comparison_period": "2026-11-11收盘",
+      "topic": "国际市场",
+      "sugar_relevance": "直接涉及食糖生产、贸易、甘蔗、乙醇分流或糖价",
+      "impact_direction": "偏多糖价",
+      "impact_logic": "偏多糖价：原油上涨及空头回补支撑国际糖价，若甘蔗乙醇收益提高会减少制糖供应，实际分流仍需生产数据确认。",
+      "verification_status": "已核实",
+      "published_to_report": true
+    },
+    {
+      "source_title": "泛糖月报复盘陈糖库存及配额外进口倒挂",
+      "source_url": "https://www.hisugar.com/home/articleContent?id=2026111111212594542756",
+      "publisher": "泛糖科技",
+      "publication_time": "2026-11-11",
+      "event_date": "2026-11-11",
+      "event_country": "中国",
+      "event_region": "中国",
+      "event_actor": "泛糖科技",
+      "event_action": "发布10月市场复盘",
+      "metrics": [
+        "配额外成本6077元/吨；利润-477至-167元/吨"
+      ],
+      "comparison_period": "2026年10月末；11月11日月报",
+      "topic": "进口成本",
+      "sugar_relevance": "直接涉及食糖生产、贸易、甘蔗、乙醇分流或糖价",
+      "impact_direction": "中性",
+      "impact_logic": "中性：国内陈糖库存及新糖供应预期压制郑糖，配额外进口倒挂减少进口补充，两者对国内供应形成对冲。",
+      "verification_status": "已核实",
+      "published_to_report": true
+    }
+  ],
+  "corrections": [
+    {
+      "item": "哈里亚纳邦蔗价诉求",
+      "before": "把600卢比/公担误写成食糖价格",
+      "after": "改为蔗农未获批的甘蔗收购价诉求；执行价格与诉求分开"
+    },
+    {
+      "item": "斐济抗旱援助",
+      "before": "泛化成虫害、洪涝或天气预警",
+      "after": "明确政府六项抗旱援助及持续干旱，不虚构灾情"
+    },
+    {
+      "item": "泰国天气",
+      "before": "11月12日模型预报被写为11月11日发布，生长阶段默认固定",
+      "after": "使用11月11日官方固定日期PDF，按收割开榨地块条件判断"
+    }
+  ],
+  "filtered_candidates": [
+    {
+      "source": "https://www.dawn.com/news/2043607/sugarcane-growers-threaten-to-burn-crops",
+      "reason": "与PSMA开榨及库存争议重叠，保留11月11日协会会议更具体事件；未扩写该限制来源。"
+    },
+    {
+      "source": "https://www.bashinform.ru/news/economy/2026-11-10/proizvodstvo-sahara-v-bashkirii-dostiglo-98-tysyach-tonn-4671408",
+      "reason": "11月10日已收录，11月11日转载不作新事件。"
+    },
+    {
+      "source": "https://agriinsite.com/pakistan-invites-fresh-bids-to-export-108000-tonnes-of-sugar-without-reserve-price/",
+      "reason": "10.8万吨招标为前一日已收录事件，不因转载重复发布。"
+    },
+    {
+      "source": "https://www.yntw.com/2026",
+      "reason": "搜索摘要与打开正文时间不一致，未基于摘要构造云南11月11日现货报价。"
+    },
+    {
+      "source": "https://finance.yahoo.com/markets/commodities/articles/sugar-prices-rise-strength-crude-192241960.html",
+      "request_status": "direct_open_429; full article returned in subsequent search",
+      "reason": "使用完整文章收盘涨幅2.16%，不与另一媒体早盘/截稿时1.88%混用。"
+    }
+  ],
+  "coverage_limitations": [
+    "印度气象局7天新闻稿已核实；没有取得各蔗区昨日全部实测雨量及完整最新15天展望。",
+    "中国收录11月11日发布的月度复盘，数据期明确为10月末，不冒充当日报价。",
+    "菲律宾、越南与俄罗斯未核实重要独立新增事件，不代表没有新闻。",
+    "巴西及印度价格库存卡保留云端当期最新快照，本次补齐新闻而非重抓指标。"
+  ],
+  "incident": {
+    "local_task": "2026-11-12 06:40 git fetch failed after three retries",
+    "cloud_report": "3 items; sugarcane price request misclassified as sugar quote; generic Fiji summary; Thailand forecast source/date mismatch",
+    "network_fix": "repository-local http.proxy uses existing socks5h://127.0.0.1:15235 and http.sslBackend=openssl",
+    "publication": "pending"
+  },
+  "final_count": 12
+}
