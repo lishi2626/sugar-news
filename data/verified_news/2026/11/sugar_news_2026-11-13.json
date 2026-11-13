@@ -1,0 +1,191 @@
+{
+  "target_date": "2026-11-13",
+  "run_date": "2026-11-14",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "巴西",
+      "country": "巴西",
+      "title": "Brazil’s sugar production to rise 14% in 2027/28 — Rabobank",
+      "news": "巴西糖业相关机构发布或调整糖产量，糖产量增加14%。糖产量增加会提高当期新增可售糖源，缓解供应压力并压制糖价。来源：UkrAgroConsult（https://ukragroconsult.com/en/news/brazils-sugar-production-to-rise-14-in-2027-28-rabobank/）。影响：利空糖价",
+      "impact": "利空：糖产量增加会提高当期新增可售糖源，缓解供应压力并压制糖价。",
+      "source_name": "UkrAgroConsult",
+      "source_url": "https://ukragroconsult.com/en/news/brazils-sugar-production-to-rise-14-in-2027-28-rabobank/",
+      "published_date_local": "2026-11-13",
+      "event_date": "2026-11-13",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Brazil’s sugar production to rise 14% in 2027/28 — Rabobank",
+        "source_url": "https://ukragroconsult.com/en/news/brazils-sugar-production-to-rise-14-in-2027-28-rabobank/",
+        "publisher": "UkrAgroConsult",
+        "publication_time": "Thu, 12 Nov 2026 16:38:23 GMT",
+        "target_date": "2026-11-13",
+        "event_date": "2026-11-13",
+        "event_country": "巴西",
+        "event_region": null,
+        "event_actor": "巴西糖业相关机构",
+        "event_action": "发布或调整",
+        "metrics": [
+          "14%"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "糖产量增加会提高当期新增可售糖源，缓解供应压力并压制糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQUjY5a2tZc2ZNV1RYMEdNdjBsWTZ1X0s0N3Qxam9sM0ZOeWhKTFktNlRJMVVxOFZkWEdpT29BQ2cyZVUwbnhqa2lvRU9UU2h3NmNVQWY5R3hZSU1MeUMxcDZWTVp2VGczMFc4LVBtNjNVcUZyVXF4aTBwSHlFVE95cWhBUXQydTRoYkR3T0hpUXR5azVNOXc?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_巴西巴西糖业相关机构发布或调整1420261113supply_demand",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Haryana farmers demand sugarcane price of Rs 600 per quintal, warn of protest in",
+      "news": "印度现货市场显示食糖价格，食糖价格为Rs 600。印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。来源：ChiniMandi（https://www.chinimandi.com/haryana-farmers-demand-sugarcane-price-of-rs-600-per-quintal-warn-of-protest-in-kurukshetra/）。影响：中性",
+      "impact": "中性：印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/haryana-farmers-demand-sugarcane-price-of-rs-600-per-quintal-warn-of-protest-in-kurukshetra/",
+      "published_date_local": "2026-11-13",
+      "event_date": "2026-11-13",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Haryana farmers demand sugarcane price of Rs 600 per quintal, warn of protest in Kurukshetra",
+        "source_url": "https://www.chinimandi.com/haryana-farmers-demand-sugarcane-price-of-rs-600-per-quintal-warn-of-protest-in-kurukshetra/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Fri, 13 Nov 2026 03:00:17 GMT",
+        "target_date": "2026-11-13",
+        "event_date": "2026-11-13",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度蔗农组织",
+        "event_action": "公布",
+        "metrics": [
+          "Rs 600"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPSk4xMkxPdV9BRVB6SzgyMVJqN1pjTjh3UHhmb003VVJGNjhqVVZ5Mi13X2Y1ZThBOXZUVVdvbXROdlpzdVhoemhkelE4Qks3cjhsblI4ZWFkODA3SGdpRmZiWnQzMkFMUzZDQS11eFlNVDZpU0FQa005RVNIQVhiclgxSk83d0ptV3I3LThOMmdFRGEwV1p1Vkd3RGs0VDNCQlVMTEJFczJCZmwxWF9hUlJIQmpJLWhwVGpr?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度蔗农组织公布rs60020261113price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Maharashtra: Drought-hit sugarcane farmers in Latur face early harvesting as cro",
+      "news": "印度蔗农组织预警甘蔗产区天气、干旱或病虫害，已说明甘蔗虫害扩散或产区天气风险。印度产区若出现虫害、干旱或洪涝，会压低受影响地块单产并削弱糖料供应稳定性。来源：ChiniMandi（https://www.chinimandi.com/maharashtra-drought-hit-sugarcane-farmers-in-latur-face-early-harvesting-as-crops-wither/）。影响：利多糖价",
+      "impact": "利多：干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/maharashtra-drought-hit-sugarcane-farmers-in-latur-face-early-harvesting-as-crops-wither/",
+      "published_date_local": "2026-11-13",
+      "event_date": "2026-11-13",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Maharashtra: Drought-hit sugarcane farmers in Latur face early harvesting as crops wither",
+        "source_url": "https://www.chinimandi.com/maharashtra-drought-hit-sugarcane-farmers-in-latur-face-early-harvesting-as-crops-wither/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Fri, 13 Nov 2026 06:04:24 GMT",
+        "target_date": "2026-11-13",
+        "event_date": "2026-11-13",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度蔗农组织",
+        "event_action": "预警",
+        "metrics": [],
+        "comparison_period": null,
+        "topic": "weather_pest",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNT3doRzhzeXVVX2VRdEd1N2dkaWlFMTEzNVZXOGgyQXNhVGVnbzBsLWJaVE91cjVSVGxoR3FyRThaYy02UmNFb091S1pOQ003ZEZ2RWdSb1NDZGgxcDEzeWhaMXZ5enJZZXB2RTJZQ2hXTHh4Sy14dTl4UGN1M01nYzlFU2RTYXZDNEQxNXhXTE5fVXZaem5RcWN0TEhmZk5pMmFWZWUzS3c2Y2lBeWplYjAySmRPZUE?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度蔗农组织预警20261113weather_pest",
+      "importance": 85
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Ethanol Blending: Karnataka Questions Centre’s E20 Policy and Oversight",
+      "news": "印度政府发布或调整乙醇掺混或燃料政策，披露E20。若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量。来源：Frontline Magazine（https://frontline.thehindu.com/interviews/karnataka-probe-ethanol-e20-interview-minister-rizwan-arshad/article71697406.ece/amp/）。影响：利多糖价",
+      "impact": "利多：若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量，从而减少食糖供应预期并支撑糖价。",
+      "source_name": "Frontline Magazine",
+      "source_url": "https://frontline.thehindu.com/interviews/karnataka-probe-ethanol-e20-interview-minister-rizwan-arshad/article71697406.ece/amp/",
+      "published_date_local": "2026-11-13",
+      "event_date": "2026-11-13",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Ethanol Blending: Karnataka Questions Centre’s E20 Policy and Oversight",
+        "source_url": "https://frontline.thehindu.com/interviews/karnataka-probe-ethanol-e20-interview-minister-rizwan-arshad/article71697406.ece/amp/",
+        "publisher": "Frontline Magazine",
+        "publication_time": "Fri, 13 Nov 2026 10:52:09 GMT",
+        "target_date": "2026-11-13",
+        "event_date": "2026-11-13",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度政府",
+        "event_action": "发布或调整",
+        "metrics": [
+          "E20"
+        ],
+        "comparison_period": null,
+        "topic": "ethanol_policy",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "若新增乙醇需求由B重糖蜜、糖浆或甘蔗汁满足，糖厂会把这些可发酵糖源送入乙醇装置；其中B重糖蜜、糖浆和甘蔗汁会减少可结晶成白糖的蔗糖量，从而减少食糖供应预期并支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNSVlxLXNIUllNbXJGQm1zeVFZYm11OXVwLU9XQlNOMzdBcEZaYWN2VXZodzAxc1F3X184dFd0LUV6TUNwZ0V4aTJkQXJzQW5vbHhTWGVuak5SSVI4Uk5wVGwtX0UzYW9wZVZJT212bU9VX2tISE5LcXZHYnJ4Z0NiXzZqOXpfY0FhY25RMVhXcVJGVXRoR085am80aXY4dU1VZmZ3LTFqU1U0ZFlQS3hncGVfV0luMl8weE0ydURVTTU0UzM2UlHSAcYBQVVfeXFMTUlZcS1zSFJZTW1yRkJtc3lRWWJtdTl1cC1PV0JTTjM3QXBGWmFjdlV2aHcwMXNRd19fOHRXdC1Fek1DcGdFeGkyZEFyc0Fub2x4U1hlbmpOUklSOFJOcFRsLV9FM2FvcGVWSU9tdm1PVV9rSEhOS3F2R2JyeGdDYl82ajl6X2NBYWNuUTFYV3FSRlV0aEdPOWpvNGl2OHVNVWZmdy0xalNVNGRZUEt4Z3BlX1dJbjJfMHhNMnVEVU01NFMzNlJR?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度政府发布或调整e2020261113ethanol_policy",
+      "importance": 80
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-11-13），春武里等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-11-13",
+      "event_date": "2026-11-13",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20261113",
+      "importance": 78
+    }
+  ]
+}

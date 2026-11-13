@@ -1,6 +1,6 @@
 {
-  "targetDate": "2026-11-11",
-  "updatedAt": "2026-11-12T11:19:56+08:00",
+  "targetDate": "2026-11-13",
+  "updatedAt": "2026-11-14T06:46:07+08:00",
   "domesticWholesalePrice": {
     "indicator": "india_wholesale_price",
     "data_date": "2026-11-11",
@@ -173,58 +173,58 @@
   },
   "upExMillPrice": {
     "indicator": "up_ex_mill_price",
-    "display_range": "₹5,400—₹5,500/公担",
-    "raw_range": "₹5400 to 5500",
-    "low": 5400.0,
-    "high": 5500.0,
-    "midpoint": 5450.0,
+    "display_range": "₹5,580—₹5,700/公担",
+    "raw_range": "₹5580 to 5700",
+    "low": 5580.0,
+    "high": 5700.0,
+    "midpoint": 5640.0,
     "currency": "INR",
     "unit": "卢比/公担",
     "raw_unit": "₹/quintal",
-    "data_date": "2026-11-11",
+    "data_date": "2026-11-13",
     "grade": "M/30",
     "region": "Uttar Pradesh",
     "quote_type": "ex-mill",
     "includes_gst": false,
     "gst_status": "excluding GST",
-    "up_ex_mill_min_inr_per_quintal": 5400.0,
-    "up_ex_mill_max_inr_per_quintal": 5500.0,
-    "up_ex_mill_mid_inr_per_quintal": 5450.0,
-    "up_ex_mill_min_inr_per_kg": 54.0,
-    "up_ex_mill_max_inr_per_kg": 55.0,
-    "up_ex_mill_mid_inr_per_kg": 54.5,
+    "up_ex_mill_min_inr_per_quintal": 5580.0,
+    "up_ex_mill_max_inr_per_quintal": 5700.0,
+    "up_ex_mill_mid_inr_per_quintal": 5640.0,
+    "up_ex_mill_min_inr_per_kg": 55.8,
+    "up_ex_mill_max_inr_per_kg": 57.0,
+    "up_ex_mill_mid_inr_per_kg": 56.4,
     "source_name": "ChiniMandi — Daily Sugar Market Update",
-    "source_url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-11-11-2026/",
-    "fetched_at": "2026-11-12T11:19:43+08:00",
+    "source_url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-13-11-2026/",
+    "fetched_at": "2026-11-14T06:44:36+08:00",
     "status": "ok",
-    "daily_change_absolute": 0.0,
-    "daily_change_percent": 0.0,
-    "previous_date": "2026-11-09",
-    "previous_data_date": "2026-11-09",
-    "previous_low": 5400.0,
-    "previous_high": 5500.0,
-    "previous_midpoint": 5450.0,
-    "previous_min": 5400.0,
-    "previous_max": 5500.0,
-    "previous_mid": 5450.0,
-    "previous_source_url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-09-11-2026/",
-    "yoy_change_absolute": 1410.0,
-    "yoy_change_percent": 34.9,
-    "yoy_comparison_date": "2025-11-11",
-    "previous_year_date": "2025-11-11",
+    "daily_change_absolute": 40.0,
+    "daily_change_percent": 0.71,
+    "previous_date": "2026-11-12",
+    "previous_data_date": "2026-11-12",
+    "previous_low": 5550.0,
+    "previous_high": 5650.0,
+    "previous_midpoint": 5600.0,
+    "previous_min": 5550.0,
+    "previous_max": 5650.0,
+    "previous_mid": 5600.0,
+    "previous_source_url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-12-11-2026/",
+    "yoy_change_absolute": 1600.0,
+    "yoy_change_percent": 39.6,
+    "yoy_comparison_date": "2025-11-13",
+    "previous_year_date": "2025-11-13",
     "yoy_low": 4000.0,
     "yoy_high": 4080.0,
     "yoy_midpoint": 4040.0,
     "previous_year_min": 4000.0,
     "previous_year_max": 4080.0,
     "previous_year_mid": 4040.0,
-    "yoy_source_url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-11-11-2025/",
+    "yoy_source_url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-13-11-2025/",
     "yoy_exact_date_match": true,
-    "year_on_year_change": 1410.0,
-    "year_on_year_change_percent": 34.9,
-    "change_value": 0.0,
-    "change_percent": 0.0,
-    "change_direction": "flat"
+    "year_on_year_change": 1600.0,
+    "year_on_year_change_percent": 39.6,
+    "change_value": 40.0,
+    "change_percent": 0.71,
+    "change_direction": "up"
   },
   "carryoverStock": null,
   "authorizedCarryoverStockAlternatives": [],
@@ -232,7 +232,7 @@
   "fetchLog": [
     {
       "source": "ChiniMandi domestic price tables",
-      "requestedAt": "2026-11-12T11:19:13+08:00",
+      "requestedAt": "2026-11-14T06:44:13+08:00",
       "sourcePages": [
         {
           "url": "https://www.chinimandi.com/wholesale-sugar-prices/",
@@ -243,116 +243,50 @@
           "httpStatus": 200
         }
       ],
-      "ajaxRequests": [
+      "errors": [
         {
-          "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
-          "tableId": 6,
-          "search": "11/2026",
-          "httpStatus": 200,
-          "recordsFiltered": 8
+          "indicator": "india_wholesale_price",
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "sourceUrl": "https://www.chinimandi.com/wholesale-sugar-prices/"
         },
         {
-          "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
-          "tableId": 6,
-          "search": "10/2026",
-          "httpStatus": 200,
-          "recordsFiltered": 25
-        },
-        {
-          "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
-          "tableId": 6,
-          "search": "09/2026",
-          "httpStatus": 200,
-          "recordsFiltered": 25
-        },
-        {
-          "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
-          "tableId": 6,
-          "search": "11/2025",
-          "httpStatus": 200,
-          "recordsFiltered": 159
-        },
-        {
-          "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
-          "tableId": 6,
-          "search": "10/2025",
-          "httpStatus": 200,
-          "recordsFiltered": 168
-        },
-        {
-          "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
-          "tableId": 7,
-          "search": "11/2026",
-          "httpStatus": 200,
-          "recordsFiltered": 8
-        },
-        {
-          "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
-          "tableId": 7,
-          "search": "10/2026",
-          "httpStatus": 200,
-          "recordsFiltered": 25
-        },
-        {
-          "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
-          "tableId": 7,
-          "search": "09/2026",
-          "httpStatus": 200,
-          "recordsFiltered": 25
-        },
-        {
-          "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
-          "tableId": 7,
-          "search": "11/2025",
-          "httpStatus": 200,
-          "recordsFiltered": 24
-        },
-        {
-          "url": "https://www.chinimandi.com/wp-admin/admin-ajax.php",
-          "tableId": 7,
-          "search": "10/2025",
-          "httpStatus": 200,
-          "recordsFiltered": 24
+          "indicator": "india_retail_price",
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "sourceUrl": "https://www.chinimandi.com/retail-prices/"
         }
       ],
-      "parsed": true,
-      "recordCount": 2
+      "parsed": false,
+      "recordCount": 0
     },
     {
       "source": "ChiniMandi — Daily Sugar Market Update",
-      "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-11-11-2026/",
-      "requestedAt": "2026-11-12T11:19:42+08:00",
+      "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-13-11-2026/",
+      "requestedAt": "2026-11-14T06:44:31+08:00",
       "httpStatus": 200,
       "parsed": true,
-      "dataDate": "2026-11-11",
-      "min": 5400.0,
-      "max": 5500.0,
-      "rawRange": "₹5400 to 5500"
+      "dataDate": "2026-11-13",
+      "min": 5580.0,
+      "max": 5700.0,
+      "rawRange": "₹5580 to 5700"
     },
     {
       "source": "ChiniMandi — Daily Sugar Market Update",
-      "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-10-11-2026/",
-      "requestedAt": "2026-11-12T11:19:43+08:00",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "source": "ChiniMandi — Daily Sugar Market Update",
-      "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-09-11-2026/",
-      "requestedAt": "2026-11-12T11:19:44+08:00",
+      "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-12-11-2026/",
+      "requestedAt": "2026-11-14T06:44:36+08:00",
       "httpStatus": 200,
       "parsed": true,
-      "dataDate": "2026-11-09",
-      "min": 5400.0,
-      "max": 5500.0,
-      "rawRange": "₹5400 to 5500"
+      "dataDate": "2026-11-12",
+      "min": 5550.0,
+      "max": 5650.0,
+      "rawRange": "₹5550 to 5650"
     },
     {
       "source": "ChiniMandi — Daily Sugar Market Update",
-      "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-11-11-2025/",
-      "requestedAt": "2026-11-12T11:19:46+08:00",
+      "url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-13-11-2025/",
+      "requestedAt": "2026-11-14T06:44:40+08:00",
       "httpStatus": 200,
       "parsed": true,
-      "dataDate": "2025-11-11",
+      "dataDate": "2025-11-13",
       "min": 4000.0,
       "max": 4080.0,
       "rawRange": "₹4000 to 4080"
@@ -360,10 +294,10 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "Department of Food and Public Distribution sugar stock",
-      "url": "https://news.google.com/rss/search?q=Department+of+Food+and+Public+Distribution+sugar+stock+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:49+08:00",
+      "url": "https://news.google.com/rss/search?q=Department+of+Food+and+Public+Distribution+sugar+stock+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:44:50+08:00",
       "httpStatus": 200,
-      "candidateCount": 29,
+      "candidateCount": 24,
       "parsed": false,
       "sourceTier": "authoritative_main_value_only",
       "allowedMainSources": [
@@ -377,10 +311,10 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "Department of Food & Public Distribution sugar stock",
-      "url": "https://news.google.com/rss/search?q=Department+of+Food+%26+Public+Distribution+sugar+stock+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:49+08:00",
+      "url": "https://news.google.com/rss/search?q=Department+of+Food+%26+Public+Distribution+sugar+stock+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:44:54+08:00",
       "httpStatus": 200,
-      "candidateCount": 28,
+      "candidateCount": 24,
       "parsed": false,
       "sourceTier": "authoritative_main_value_only",
       "allowedMainSources": [
@@ -394,10 +328,10 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "India sugar balance sheet",
-      "url": "https://news.google.com/rss/search?q=India+sugar+balance+sheet+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:49+08:00",
+      "url": "https://news.google.com/rss/search?q=India+sugar+balance+sheet+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:44:57+08:00",
       "httpStatus": 200,
-      "candidateCount": 11,
+      "candidateCount": 13,
       "parsed": false,
       "sourceTier": "authoritative_main_value_only",
       "allowedMainSources": [
@@ -411,10 +345,10 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "India sugar closing stock",
-      "url": "https://news.google.com/rss/search?q=India+sugar+closing+stock+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:50+08:00",
+      "url": "https://news.google.com/rss/search?q=India+sugar+closing+stock+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:01+08:00",
       "httpStatus": 200,
-      "candidateCount": 48,
+      "candidateCount": 38,
       "parsed": false,
       "sourceTier": "authoritative_main_value_only",
       "allowedMainSources": [
@@ -428,10 +362,10 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "India sugar opening stock",
-      "url": "https://news.google.com/rss/search?q=India+sugar+opening+stock+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:50+08:00",
+      "url": "https://news.google.com/rss/search?q=India+sugar+opening+stock+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:04+08:00",
       "httpStatus": 200,
-      "candidateCount": 51,
+      "candidateCount": 45,
       "parsed": false,
       "sourceTier": "authoritative_main_value_only",
       "allowedMainSources": [
@@ -445,10 +379,10 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "sugar stock position India",
-      "url": "https://news.google.com/rss/search?q=sugar+stock+position+India+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:50+08:00",
+      "url": "https://news.google.com/rss/search?q=sugar+stock+position+India+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:08+08:00",
       "httpStatus": 200,
-      "candidateCount": 48,
+      "candidateCount": 22,
       "parsed": false,
       "sourceTier": "authoritative_main_value_only",
       "allowedMainSources": [
@@ -462,10 +396,10 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "site:dfpd.gov.in sugar stock",
-      "url": "https://news.google.com/rss/search?q=site%3Adfpd.gov.in+sugar+stock+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:51+08:00",
+      "url": "https://news.google.com/rss/search?q=site%3Adfpd.gov.in+sugar+stock+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:12+08:00",
       "httpStatus": 200,
-      "candidateCount": 0,
+      "candidateCount": 1,
       "parsed": false,
       "sourceTier": "authoritative_main_value_only",
       "allowedMainSources": [
@@ -479,8 +413,8 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "site:gov.in India sugar closing stock",
-      "url": "https://news.google.com/rss/search?q=site%3Agov.in+India+sugar+closing+stock+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:51+08:00",
+      "url": "https://news.google.com/rss/search?q=site%3Agov.in+India+sugar+closing+stock+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:15+08:00",
       "httpStatus": 200,
       "candidateCount": 27,
       "parsed": false,
@@ -496,10 +430,10 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "ISMA sugar closing stock",
-      "url": "https://news.google.com/rss/search?q=ISMA+sugar+closing+stock+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:51+08:00",
+      "url": "https://news.google.com/rss/search?q=ISMA+sugar+closing+stock+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:20+08:00",
       "httpStatus": 200,
-      "candidateCount": 15,
+      "candidateCount": 6,
       "parsed": false,
       "sourceTier": "authoritative_main_value_only",
       "allowedMainSources": [
@@ -513,10 +447,10 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "ISMA sugar balance sheet",
-      "url": "https://news.google.com/rss/search?q=ISMA+sugar+balance+sheet+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:52+08:00",
+      "url": "https://news.google.com/rss/search?q=ISMA+sugar+balance+sheet+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:23+08:00",
       "httpStatus": 200,
-      "candidateCount": 1,
+      "candidateCount": 0,
       "parsed": false,
       "sourceTier": "authoritative_main_value_only",
       "allowedMainSources": [
@@ -530,8 +464,8 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "ISMA sugar production estimate",
-      "url": "https://news.google.com/rss/search?q=ISMA+sugar+production+estimate+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:52+08:00",
+      "url": "https://news.google.com/rss/search?q=ISMA+sugar+production+estimate+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:27+08:00",
       "httpStatus": 200,
       "candidateCount": 10,
       "parsed": false,
@@ -547,10 +481,10 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "ISMA opening stock and closing stock",
-      "url": "https://news.google.com/rss/search?q=ISMA+opening+stock+and+closing+stock+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:52+08:00",
+      "url": "https://news.google.com/rss/search?q=ISMA+opening+stock+and+closing+stock+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:30+08:00",
       "httpStatus": 200,
-      "candidateCount": 11,
+      "candidateCount": 7,
       "parsed": false,
       "sourceTier": "authoritative_main_value_only",
       "allowedMainSources": [
@@ -564,8 +498,8 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "site:ismaindia.com closing stock sugar",
-      "url": "https://news.google.com/rss/search?q=site%3Aismaindia.com+closing+stock+sugar+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:53+08:00",
+      "url": "https://news.google.com/rss/search?q=site%3Aismaindia.com+closing+stock+sugar+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:33+08:00",
       "httpStatus": 200,
       "candidateCount": 0,
       "parsed": false,
@@ -581,10 +515,10 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "NFCSF India sugar closing stock",
-      "url": "https://news.google.com/rss/search?q=NFCSF+India+sugar+closing+stock+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:53+08:00",
+      "url": "https://news.google.com/rss/search?q=NFCSF+India+sugar+closing+stock+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:37+08:00",
       "httpStatus": 200,
-      "candidateCount": 7,
+      "candidateCount": 3,
       "parsed": false,
       "sourceTier": "authoritative_main_value_only",
       "allowedMainSources": [
@@ -598,8 +532,8 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "NFCSF sugar balance sheet",
-      "url": "https://news.google.com/rss/search?q=NFCSF+sugar+balance+sheet+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:53+08:00",
+      "url": "https://news.google.com/rss/search?q=NFCSF+sugar+balance+sheet+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:40+08:00",
       "httpStatus": 200,
       "candidateCount": 0,
       "parsed": false,
@@ -615,10 +549,10 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "NFCSF sugar production estimate",
-      "url": "https://news.google.com/rss/search?q=NFCSF+sugar+production+estimate+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:53+08:00",
+      "url": "https://news.google.com/rss/search?q=NFCSF+sugar+production+estimate+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:43+08:00",
       "httpStatus": 200,
-      "candidateCount": 10,
+      "candidateCount": 4,
       "parsed": false,
       "sourceTier": "authoritative_main_value_only",
       "allowedMainSources": [
@@ -632,10 +566,10 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "National Federation Cooperative Sugar Factories closing stock",
-      "url": "https://news.google.com/rss/search?q=National+Federation+Cooperative+Sugar+Factories+closing+stock+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:54+08:00",
+      "url": "https://news.google.com/rss/search?q=National+Federation+Cooperative+Sugar+Factories+closing+stock+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:47+08:00",
       "httpStatus": 200,
-      "candidateCount": 10,
+      "candidateCount": 7,
       "parsed": false,
       "sourceTier": "authoritative_main_value_only",
       "allowedMainSources": [
@@ -649,8 +583,8 @@
     {
       "source": "Google News RSS inventory discovery",
       "query": "site:coopsugar.org closing stock",
-      "url": "https://news.google.com/rss/search?q=site%3Acoopsugar.org+closing+stock+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:54+08:00",
+      "url": "https://news.google.com/rss/search?q=site%3Acoopsugar.org+closing+stock+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:50+08:00",
       "httpStatus": 200,
       "candidateCount": 0,
       "parsed": false,
@@ -666,8 +600,30 @@
     {
       "source": "Google News RSS market forecast discovery",
       "query": "ICRA India sugar closing inventory",
-      "url": "https://news.google.com/rss/search?q=ICRA+India+sugar+closing+inventory+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:54+08:00",
+      "url": "https://news.google.com/rss/search?q=ICRA+India+sugar+closing+inventory+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:53+08:00",
+      "httpStatus": 200,
+      "candidateCount": 3,
+      "parsed": false,
+      "sourceTier": "market_forecast_comparison_only",
+      "reason": "Market forecasts are comparison-only and require original report date, season and closing-stock verification before publication."
+    },
+    {
+      "source": "Google News RSS market forecast discovery",
+      "query": "India sugar carryover stock market forecast",
+      "url": "https://news.google.com/rss/search?q=India+sugar+carryover+stock+market+forecast+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:45:57+08:00",
+      "httpStatus": 200,
+      "candidateCount": 9,
+      "parsed": false,
+      "sourceTier": "market_forecast_comparison_only",
+      "reason": "Market forecasts are comparison-only and require original report date, season and closing-stock verification before publication."
+    },
+    {
+      "source": "Google News RSS market forecast discovery",
+      "query": "India sugar ending stocks agency forecast",
+      "url": "https://news.google.com/rss/search?q=India+sugar+ending+stocks+agency+forecast+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:46:00+08:00",
       "httpStatus": 200,
       "candidateCount": 6,
       "parsed": false,
@@ -676,33 +632,11 @@
     },
     {
       "source": "Google News RSS market forecast discovery",
-      "query": "India sugar carryover stock market forecast",
-      "url": "https://news.google.com/rss/search?q=India+sugar+carryover+stock+market+forecast+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:55+08:00",
-      "httpStatus": 200,
-      "candidateCount": 8,
-      "parsed": false,
-      "sourceTier": "market_forecast_comparison_only",
-      "reason": "Market forecasts are comparison-only and require original report date, season and closing-stock verification before publication."
-    },
-    {
-      "source": "Google News RSS market forecast discovery",
-      "query": "India sugar ending stocks agency forecast",
-      "url": "https://news.google.com/rss/search?q=India+sugar+ending+stocks+agency+forecast+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:55+08:00",
-      "httpStatus": 200,
-      "candidateCount": 10,
-      "parsed": false,
-      "sourceTier": "market_forecast_comparison_only",
-      "reason": "Market forecasts are comparison-only and require original report date, season and closing-stock verification before publication."
-    },
-    {
-      "source": "Google News RSS market forecast discovery",
       "query": "India sugar balance sheet closing stocks rating agency",
-      "url": "https://news.google.com/rss/search?q=India+sugar+balance+sheet+closing+stocks+rating+agency+2026-11-11&hl=en-US&gl=US&ceid=US:en",
-      "requestedAt": "2026-11-12T11:19:55+08:00",
+      "url": "https://news.google.com/rss/search?q=India+sugar+balance+sheet+closing+stocks+rating+agency+2026-11-13&hl=en-US&gl=US&ceid=US:en",
+      "requestedAt": "2026-11-14T06:46:04+08:00",
       "httpStatus": 200,
-      "candidateCount": 4,
+      "candidateCount": 0,
       "parsed": false,
       "sourceTier": "market_forecast_comparison_only",
       "reason": "Market forecasts are comparison-only and require original report date, season and closing-stock verification before publication."
