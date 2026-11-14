@@ -1,0 +1,105 @@
+{
+  "target_date": "2026-11-14",
+  "run_date": "2026-11-15",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Bagalkot sugarcane farmers withdraw agitation after mills agree to pay Rs 3,800 ",
+      "news": "印度蔗农组织披露糖厂运行和压榨安排，披露Rs 3,800。印度糖厂运行信息需要落实到开榨、停产、压榨量或原料供应方向后判断阶段性供应。来源：ChiniMandi（https://www.chinimandi.com/bagalkot-sugarcane-farmers-withdraw-agitation-after-mills-agree-to-pay-rs-3800-per-tonne/）。影响：利空糖价",
+      "impact": "利空：糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/bagalkot-sugarcane-farmers-withdraw-agitation-after-mills-agree-to-pay-rs-3800-per-tonne/",
+      "published_date_local": "2026-11-14",
+      "event_date": "2026-11-14",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Bagalkot sugarcane farmers withdraw agitation after mills agree to pay Rs 3,800 per tonne",
+        "source_url": "https://www.chinimandi.com/bagalkot-sugarcane-farmers-withdraw-agitation-after-mills-agree-to-pay-rs-3800-per-tonne/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Sat, 14 Nov 2026 07:24:28 GMT",
+        "target_date": "2026-11-14",
+        "event_date": "2026-11-14",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度蔗农组织",
+        "event_action": "披露",
+        "metrics": [
+          "Rs 3,800"
+        ],
+        "comparison_period": null,
+        "topic": "mill_operations",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPLUFhRFMtRFJUZHo5bmpTY3dsd09lVHFyWHl6R25YTkJJXzFvaHBFNGFIM0FmMmxQRTFRTE1lLTZNWHFBdDhEZEhQMV9BV3NZUXBhVXkxUDRSNi1hOTdRRl8yQmgtdjAwcmpueHhFdkFtM1FKQ25LSDZobmp2aUZjN3p1Nkg3UHp4S0k0Rjk1RURMY1FjTTlLM1A0Mm5fYVMyTUhHWjctTWltNzM2dktoSngwUHI2c00?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度蔗农组织披露rs380020261114mill_operations",
+      "importance": 90
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-11-14），春武里等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-11-14",
+      "event_date": "2026-11-14",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20261114",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "菲律宾",
+      "title": "Philippines explores financial assistance for sugarcane farmers affected by pest",
+      "news": "菲律宾蔗农组织预警甘蔗产区天气、干旱或病虫害，已说明甘蔗虫害扩散或产区天气风险。菲律宾产区若出现虫害、干旱或洪涝，会压低受影响地块单产并削弱糖料供应稳定性。来源：ChiniMandi（https://www.chinimandi.com/philippines-explores-financial-assistance-for-sugarcane-farmers-affected-by-pest-infestation/）。影响：利多糖价",
+      "impact": "利多：干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/philippines-explores-financial-assistance-for-sugarcane-farmers-affected-by-pest-infestation/",
+      "published_date_local": "2026-11-14",
+      "event_date": "2026-11-14",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Philippines explores financial assistance for sugarcane farmers affected by pest infestation",
+        "source_url": "https://www.chinimandi.com/philippines-explores-financial-assistance-for-sugarcane-farmers-affected-by-pest-infestation/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Sat, 14 Nov 2026 05:35:10 GMT",
+        "target_date": "2026-11-14",
+        "event_date": "2026-11-14",
+        "event_country": "菲律宾",
+        "event_region": null,
+        "event_actor": "菲律宾蔗农组织",
+        "event_action": "预警",
+        "metrics": [],
+        "comparison_period": null,
+        "topic": "weather_pest",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "干旱、洪涝或病虫害会压低甘蔗单产并削弱糖料供应稳定性，从而支撑糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOUVVfdGdibW5LZ3A0TmhPdFY3SlhUZERXYk9kTVF0cjNwUTRKZHI3ZHM3eGJjRV9kamtGX2JCSHRRcnBWel9BcWZqV0sweDBHYU94dVE3WHZ1NFJYQUVwN2VTNFBHY24tNUxZSnNLN29ua2dweWRJZHUzOTdrWVdTVjVMWElUTmQtZEU5eW1mZjV4YjFpYUtSM3FheU1kYUJZaDgzdnVFOVlKUzFRVm1ScFZJeTVuOVZsdF9LUQ?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_菲律宾菲律宾蔗农组织预警20261114weather_pest",
+      "importance": 85
+    }
+  ]
+}
