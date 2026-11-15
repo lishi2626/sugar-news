@@ -1,6 +1,6 @@
 {
   "newsDate": "2026-11-14",
-  "updatedAt": "2026-11-15T10:06:03+08:00",
+  "updatedAt": "2026-11-15T16:32:36+08:00",
   "timezone": "Asia/Shanghai",
   "excelFile": "reports/2026/11/Sugar News 2026-11-14.xlsx",
   "globalHighlights": "全球糖业新闻重点集中在印度蔗农组织披露糖厂运行和压榨安排，披露Rs3,800；泰国气象局预报（2026-11-14），春武里等主要甘蔗产区预计出现雷阵雨并伴有局地大雨；菲律宾蔗农组织预警甘蔗产区天气、干旱或病虫害，已说明甘蔗虫害扩散或产区天气风险。利多因素是菲律宾产区若出现虫害、干旱或洪涝，会压低受影响地块单产并削弱糖料供应稳定性；利空因素是印度糖厂运行信息需要落实到开榨、停产、压榨量或原料供应方向后判断阶段性供应。国际糖价的主要矛盾在供应收缩预期与阶段性供应或需求压力之间，ICE原糖持续站上15美分/磅前以震荡判断为宜。",
@@ -8,7 +8,7 @@
     "title": "巴西糖价与库存",
     "dataDate": "2026-11-14",
     "snapshotTargetDate": "2026-11-14",
-    "updatedAt": "2026-11-15T10:05:45+08:00",
+    "updatedAt": "2026-11-15T16:32:36+08:00",
     "sourceStatus": "dynamic_fetch",
     "sugarPremium": {
       "metricType": "sugarPremium",
@@ -17,7 +17,7 @@
       "dataDate": "2026-11-11",
       "sourceDataDate": "2026-11-11",
       "refreshDate": "2026-11-14",
-      "fetchedAt": "2026-11-15T10:04:30+08:00",
+      "fetchedAt": "2026-11-15T16:32:26+08:00",
       "sourceName": "广西糖网食糖进口成本及利润估算表",
       "sourceUrl": "https://www.hisugar.com/home/articleContent?id=2026111209003041523243",
       "datasetName": "HiSugar 食糖进口成本及利润估算表",
