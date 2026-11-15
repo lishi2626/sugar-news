@@ -1,11 +1,11 @@
 {
   "target_date": "2026-11-14",
-  "generated_at": "2026-11-15T06:58:05+08:00",
+  "generated_at": "2026-11-15T09:31:20+08:00",
   "status": "success",
-  "verified_news_file": "D:\\Desktop\\ai\\sugar-news\\data\\verified_news\\2026\\11\\sugar_news_2026-11-14.json",
-  "excel_file": "D:\\Desktop\\ai\\sugar-news\\reports\\2026\\11\\Sugar News 2026-11-14.xlsx",
-  "dashboard_report": "D:\\Desktop\\ai\\sugar-news\\public\\sugar-news\\data\\reports\\2026\\11\\2026-11-14.json",
-  "dashboard_index": "D:\\Desktop\\ai\\sugar-news\\public\\sugar-news\\data\\index.json",
+  "verified_news_file": "/home/runner/work/sugar-news/sugar-news/data/verified_news/2026/11/sugar_news_2026-11-14.json",
+  "excel_file": "/home/runner/work/sugar-news/sugar-news/reports/2026/11/Sugar News 2026-11-14.xlsx",
+  "dashboard_report": "/home/runner/work/sugar-news/sugar-news/public/sugar-news/data/reports/2026/11/2026-11-14.json",
+  "dashboard_index": "/home/runner/work/sugar-news/sugar-news/public/sugar-news/data/index.json",
   "editorial_skill": {
     "path": ".codex/skills/sugar-news-editorial-rules/SKILL.md",
     "sha256": "f6c7b0adfa02023b58839f3e5376e3ee3f6b2888547663f366f34f3c05a816d8"
@@ -14,14 +14,8 @@
     "fixed_step": "Thai main sugarcane area rainfall check",
     "target_date": "2026-11-14",
     "source_url": "https://tmd.go.th/en/forecast/daily",
-    "status": "added",
-    "country": "泰国",
-    "language": "en",
-    "keywords": "TMD daily forecast Thailand main sugarcane provinces rainfall",
-    "request_status": "executed",
-    "returned_count": 1,
-    "retained_count": 1,
-    "filtered": []
+    "status": "skipped",
+    "reason": "Thailand cane-area weather item already present in verified news."
   },
   "china_monitoring_check": {
     "status": "completed",
@@ -92,14 +86,12 @@
     }
   },
   "brazil_metrics_refresh": {
-    "status": "timeout",
-    "error": "brazil_sugar_metrics.py exceeded 240s",
-    "stdoutTail": "",
-    "stderrTail": ""
+    "status": "skipped",
+    "reason": "standalone workflow refresh; consuming latest snapshot"
   },
   "india_metrics_refresh": {
-    "status": "success",
-    "snapshotUpdatedAt": "2026-11-15T06:45:58+08:00"
+    "status": "skipped",
+    "reason": "standalone workflow refresh; consuming latest snapshot"
   },
   "checks": {
     "verified_count": 3,
