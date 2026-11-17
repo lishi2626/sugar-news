@@ -1,0 +1,64 @@
+{
+  "target_date": "2026-11-17",
+  "run_date": "2026-11-18",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-11-17），呵叻、猜也蓬、黎府、那空沙旺、甘烹碧、北碧、春武里等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-11-17",
+      "event_date": "2026-11-17",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20261117",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "巴基斯坦",
+      "title": "Coffee rises on 27-year low stocks, Pakistan sugar tender draws $400-a-ton offer",
+      "news": "巴基斯坦糖业相关机构公布库存，库存增加。巴基斯坦库存增加会提高当地现货供应缓冲，削弱补库需求并压制糖价。来源：Arab News PK（https://www.arabnews.pk/pakistan/coffee-rises-on-27-year-low-stocks-pakistan-sugar-tender-draws-400-a-ton-offer-3007252）。影响：利空糖价",
+      "impact": "利空：巴基斯坦库存增加会提高当地现货供应缓冲，削弱补库需求并压制糖价。",
+      "source_name": "Arab News PK",
+      "source_url": "https://www.arabnews.pk/pakistan/coffee-rises-on-27-year-low-stocks-pakistan-sugar-tender-draws-400-a-ton-offer-3007252",
+      "published_date_local": "2026-11-17",
+      "event_date": "2026-11-17",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Coffee rises on 27-year low stocks, Pakistan sugar tender draws $400-a-ton offer",
+        "source_url": "https://www.arabnews.pk/pakistan/coffee-rises-on-27-year-low-stocks-pakistan-sugar-tender-draws-400-a-ton-offer-3007252",
+        "publisher": "Arab News PK",
+        "publication_time": "Tue, 17 Nov 2026 03:55:17 GMT",
+        "target_date": "2026-11-17",
+        "event_date": "2026-11-17",
+        "event_country": "巴基斯坦",
+        "event_region": null,
+        "event_actor": "巴基斯坦糖业相关机构",
+        "event_action": "公布",
+        "metrics": [
+          "$400"
+        ],
+        "comparison_period": null,
+        "topic": "supply_demand",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "巴基斯坦库存增加会提高当地现货供应缓冲，削弱补库需求并压制糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPaGhKb1ZJNWwtQ2FXUWlYcEJaeWlvdVd3a05uUzhOSW1CWXptcl9xTG1xR1prWllmdk15Um5SWFozay1FcXY5dEN5M0ppZXpQYlRRRGVuMEdQRHlmYlhrQTVOeC1WZWFPVnpGZDhsWnNNamVHR01VU1JXZGF4THhoUXl5SE55MVk2VnZGT2Q0RUhBcW91a3puZVR2S1pmX1ZXN1Y5TXl1dmNPTFMyc2VSV01CeHZVcjJCLWow?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_巴基斯坦巴基斯坦糖业相关机构公布40020261117supply_demand",
+      "importance": 90
+    }
+  ]
+}
