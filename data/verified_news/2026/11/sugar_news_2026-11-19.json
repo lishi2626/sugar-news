@@ -1,0 +1,150 @@
+{
+  "target_date": "2026-11-19",
+  "run_date": "2026-11-20",
+  "search_tool": "Google News RSS autogeneration",
+  "items": [
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Karnataka: Sugarcane farmers intensify stir in Haveri, block national highway ov",
+      "news": "印度现货市场显示食糖价格，食糖价格为Rs 3,600。印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。来源：ChiniMandi（https://www.chinimandi.com/karnataka-sugarcane-farmers-intensify-stir-in-haveri-block-national-highway-over-rs-3600-price-demand/）。影响：中性",
+      "impact": "中性：印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/karnataka-sugarcane-farmers-intensify-stir-in-haveri-block-national-highway-over-rs-3600-price-demand/",
+      "published_date_local": "2026-11-19",
+      "event_date": "2026-11-19",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Karnataka: Sugarcane farmers intensify stir in Haveri, block national highway over Rs 3,600 price demand",
+        "source_url": "https://www.chinimandi.com/karnataka-sugarcane-farmers-intensify-stir-in-haveri-block-national-highway-over-rs-3600-price-demand/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Thu, 19 Nov 2026 05:04:22 GMT",
+        "target_date": "2026-11-19",
+        "event_date": "2026-11-19",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度蔗农组织",
+        "event_action": "公布",
+        "metrics": [
+          "Rs 3,600"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "中性",
+        "impact_logic": "印度食糖价格只给出当前报价，未提供前期价格、成交变化或库存变化，现有信息不足以判断供应收紧或转弱。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPNDNGZ0JPeTR2cHYwby1MQk4tOERxQ3VodEFDUG9kblhrQ1RMUGFTZHByanI1V0ppUDRQRVN1SV9iNzFwSFdVNDBaaVVWal85Q1pXNnIzQ0VFY0VLSV9iZl9UNlcwTjFoNDF1WlZpLUdUMDhhc0ZBSFN4Y2o0bWlUOE5jS1UxVW4tOXllQ2k3UE9LTWNxUUNZVlZ1WjRLLUIwVGN1MWtuMHFuVjVieEEtcFN3UUtwVTlfbXlndm5wQWpfVWFGY1Rvbg?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度蔗农组织公布rs360020261119price_market",
+      "importance": 90
+    },
+    {
+      "country_group": "印度",
+      "country": "印度",
+      "title": "Poultry feed prices surge in Kerala amid concerns over maize use for E20 ethanol",
+      "news": "印度现货市场显示食糖价格，食糖价格上涨至E20。印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。来源：ChiniMandi（https://www.chinimandi.com/poultry-feed-prices-surge-in-kerala-amid-concerns-over-maize-use-for-e20-ethanol-production/）。影响：利多糖价",
+      "impact": "利多：印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/poultry-feed-prices-surge-in-kerala-amid-concerns-over-maize-use-for-e20-ethanol-production/",
+      "published_date_local": "2026-11-19",
+      "event_date": "2026-11-19",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Poultry feed prices surge in Kerala amid concerns over maize use for E20 ethanol production",
+        "source_url": "https://www.chinimandi.com/poultry-feed-prices-surge-in-kerala-amid-concerns-over-maize-use-for-e20-ethanol-production/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Thu, 19 Nov 2026 03:00:26 GMT",
+        "target_date": "2026-11-19",
+        "event_date": "2026-11-19",
+        "event_country": "印度",
+        "event_region": null,
+        "event_actor": "印度糖业市场",
+        "event_action": "公布",
+        "metrics": [
+          "E20"
+        ],
+        "comparison_period": null,
+        "topic": "price_market",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利多",
+        "impact_logic": "印度食糖价格上涨说明当地可售糖源偏紧或采购需求增强，短期支撑现货糖价。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "trusted_country_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPZmpBQzh0QkxGZm9SQkRzRnNLV01XVXU3dk16ZnVFZ2I0ekVVaGRrOFl6bjhMaG1rYl9lN1o4Z0lIYW91ZVBHOHhfOUxWN0xKbGtwQnBURG9HMU1lc1VSeGRuYUJ6QUJ4UHdHcEJHaXg1ZlNGaUE3ZUxQaGNZdmlrZU9mNVE4V0RqalhuWlFwdm9NMjF1aE5TcWhGazZoR21CaFlBVkU3SnFkaWpLRm1JR3JwRWQtYnZpdTJR?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_印度印度糖业市场公布e2020261119price_market",
+      "importance": 80
+    },
+    {
+      "country_group": "泰国",
+      "country": "泰国",
+      "title": "泰国主要甘蔗产区预计出现降雨",
+      "news": "泰国气象局预报（2026-11-19），东北部核心甘蔗产区（呵叻、孔敬、乌隆他尼、猜也蓬、加拉信、黎府）；北部甘蔗产区（那空沙旺、甘烹碧、素可泰、彭世洛）；中部及西部甘蔗产区（北碧、华富里、素攀武里、猜纳）；东部补充产区（沙缴、春武里）等主要甘蔗产区预计出现雷阵雨并伴有局地大雨。当前处于甘蔗生长阶段，强降雨、雷阵雨以及预报大雨均有利于补充产区土壤水分，促进甘蔗生长和单产形成，提高后期甘蔗及食糖产量预期。来源：泰国气象局（https://tmd.go.th/en/forecast/daily）。影响：利空糖价",
+      "impact": "利空：甘蔗生长阶段的降雨有利于补充土壤水分、改善墒情并促进甘蔗生长和单产形成，从而增加未来甘蔗及食糖供应预期，因此利空糖价。",
+      "source_name": "泰国气象局",
+      "source_url": "https://tmd.go.th/en/forecast/daily",
+      "published_date_local": "2026-11-19",
+      "event_date": "2026-11-19",
+      "date_status": "official_forecast",
+      "dedupe_key": "thailand_cane_weather_tmd_20261119",
+      "importance": 78
+    },
+    {
+      "country_group": "其他国家",
+      "country": "肯尼亚",
+      "title": "Kenya announces Sh1.2 billion bonus for sugarcane farmers as mills recovery boos",
+      "news": "肯尼亚蔗农组织披露糖厂运行和压榨安排，披露1.2 billion。肯尼亚糖厂运行信息需要落实到开榨、停产、压榨量或原料供应方向后判断阶段性供应。来源：ChiniMandi（https://www.chinimandi.com/kenya-announces-sh1-2-billion-bonus-for-sugarcane-farmers-as-mills-recovery-boosts-industry/）。影响：利空糖价",
+      "impact": "利空：糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+      "source_name": "ChiniMandi",
+      "source_url": "https://www.chinimandi.com/kenya-announces-sh1-2-billion-bonus-for-sugarcane-farmers-as-mills-recovery-boosts-industry/",
+      "published_date_local": "2026-11-19",
+      "event_date": "2026-11-19",
+      "date_status": "verified",
+      "structured_candidate": {
+        "source_title": "Kenya announces Sh1.2 billion bonus for sugarcane farmers as mills recovery boosts industry",
+        "source_url": "https://www.chinimandi.com/kenya-announces-sh1-2-billion-bonus-for-sugarcane-farmers-as-mills-recovery-boosts-industry/",
+        "publisher": "ChiniMandi",
+        "publication_time": "Thu, 19 Nov 2026 06:37:19 GMT",
+        "target_date": "2026-11-19",
+        "event_date": "2026-11-19",
+        "event_country": "肯尼亚",
+        "event_region": null,
+        "event_actor": "肯尼亚蔗农组织",
+        "event_action": "披露",
+        "metrics": [
+          "1.2 billion"
+        ],
+        "comparison_period": null,
+        "topic": "mill_operations",
+        "sugar_relevance": "relevant",
+        "impact_direction": "利空",
+        "impact_logic": "糖厂运行、压榨能力或原料供应改善会提高食糖生产节奏，增加阶段性供应。",
+        "verification_status": "已核实",
+        "publication_window_status": "in_window",
+        "publication_window_reason": "rolling_36_hour_window",
+        "country_confidence": "explicit_country_or_region_in_title_or_source",
+        "source_url_resolution": {
+          "status": "resolved",
+          "googleNewsUrl": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNT3o3dS11eHVnSlVEM3ZFSTVRem5sa3kyMEhxckIwQjBLTnB4SUVJRXFJT1BlVHo2R0J5ZXM0Qk1IUWgwbWV0eXBoYzlCS01jUnNPUzBxN2VVbWhYTVUtVk13ZzR5RDcyVDNjU0JsNzRJemRPU2ZGd1llZ2dEbmgtQ2F6MUFOYXo4SE9XTlRJbk41RmNaaFVRMFVRcWl3Mi1kZGJvSEF5bGE2U3NXZ094bm5scG5ReHF6Q3p3?oc=5"
+        },
+        "published_to_report": true
+      },
+      "dedupe_key": "rss_肯尼亚肯尼亚蔗农组织披露12billion20261119mill_operations",
+      "importance": 85
+    }
+  ]
+}
