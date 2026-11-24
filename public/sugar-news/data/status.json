@@ -1,6 +1,6 @@
 {
-  "latestNewsDate": "2026-11-23",
-  "lastRunAt": "2026-11-24T14:22:05+08:00",
+  "latestNewsDate": "2026-11-24",
+  "lastRunAt": "2026-11-25T06:59:35+08:00",
   "lastRunStatus": "success",
   "timezone": "Asia/Shanghai",
   "details": {
@@ -15,7 +15,7 @@
     "counts_by_country": {
       "印度": 1,
       "泰国": 1,
-      "斐济": 1
+      "菲律宾": 1
     },
     "china_count": 0,
     "other_country_count": 1
