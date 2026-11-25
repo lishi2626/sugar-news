@@ -14316,7 +14316,7 @@
       "up_ex_mill_mid_inr_per_kg": 55.05,
       "source_name": "ChiniMandi — Daily Sugar Market Update",
       "source_url": "https://www.chinimandi.com/daily-sugar-market-update-by-vizzie-24-11-2026/",
-      "fetched_at": "2026-11-25T06:44:37+08:00",
+      "fetched_at": "2026-11-25T12:46:22+08:00",
       "status": "ok",
       "daily_change_absolute": -45.0,
       "daily_change_percent": -0.81,
@@ -14348,5 +14348,5 @@
       "change_direction": "down"
     }
   ],
-  "lastUpdatedAt": "2026-11-25T06:46:04+08:00"
+  "lastUpdatedAt": "2026-11-25T12:46:38+08:00"
 }
