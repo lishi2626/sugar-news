@@ -2474,14 +2474,14 @@
       "import_premium_discount_cents_per_lb": -0.8,
       "premium_discount_cents_per_lb": -0.8,
       "unit": "美分/磅",
-      "article_id": "2026112421275311291619",
-      "article_title": "20261123食糖进口成本及利润估算",
-      "article_title_date": "2026-11-23",
-      "article_published_at": "2026-11-25 09:29:25",
-      "source_url": "https://www.hisugar.com/home/articleContent?id=2026112421275311291619",
-      "image_url": "https://www.hisugar.com/image/20261124/1795526353889095667.png",
-      "fetched_at": "2026-11-25T18:36:55+08:00",
-      "ocr_backend": "tesseract_noisy",
+      "article_id": "2026112521463183743855",
+      "article_title": "20261124食糖进口成本及利润估算",
+      "article_title_date": "2026-11-24",
+      "article_published_at": "2026-11-26 09:20:34",
+      "source_url": "https://www.hisugar.com/home/articleContent?id=2026112521463183743855",
+      "image_url": "https://www.hisugar.com/image/20261125/1795614248442036219.png",
+      "fetched_at": "2026-11-26T11:54:07+08:00",
+      "ocr_backend": "tesseract_grid",
       "previous_data_date": "2026-11-11",
       "previous_value": -0.94,
       "previous_source_url": "https://www.hisugar.com/home/articleContent?id=2026111209003041523243",
@@ -2914,5 +2914,5 @@
       "yoy_status": "ok"
     }
   ],
-  "lastUpdatedAt": "2026-11-25T18:37:55+08:00"
+  "lastUpdatedAt": "2026-11-26T11:55:58+08:00"
 }
